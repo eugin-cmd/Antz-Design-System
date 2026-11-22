@@ -7,7 +7,7 @@
       "files": ["components.css"],
       "reason": "Foundation v0.2 component styles carry legacy literals (white on feature fills, translucent overlays, a few pixel sizes inside components). They are reviewed and contrast-checked; each moves to a token in 1.1.",
       "owner": "Design System Maintainers",
-      "approvedBy": "System Owner (pending named owner)",
+      "approvedBy": "Eugin Robinson (System Owner)",
       "created": "2026-11-22",
       "expires": "2027-03-31"
     }

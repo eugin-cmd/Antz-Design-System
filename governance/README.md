@@ -13,14 +13,14 @@ How the Antz Design System is owned, changed and kept consistent. The docs page 
 
 | Role | Responsible for | Approves |
 | --- | --- | --- |
-| System Owner | Vision, principles, architecture, governance policy | Foundational changes; system-wide breaking changes |
+| System Owner (Antz Design Governance owner): **Eugin Robinson** | Vision, principles, architecture, governance policy | Foundational changes; system-wide breaking changes |
 | Design System Maintainers | Tokens, components, themes, docs, releases | Minor changes; publishing |
 | Platform leads (web, native) | Platform outputs and parity | Technical changes to their platform |
 | Accessibility Lead | Standards, audits, the contrast gate | Can block any release on accessibility grounds |
 | Designers, developers | Using the system, proposing changes | Patch changes as code owners |
 | Module owners | Adoption and debt in their module | Exception requests, upgrade plans |
 
-Names are to be assigned. Until then the System Owner approves everything above Patch.
+The System Owner is **Eugin Robinson**, from 22 November 2026. The other names are to be assigned; until they are, the System Owner approves everything above Patch.
 
 ## Change classes
 

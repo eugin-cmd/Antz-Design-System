@@ -2,6 +2,11 @@
 
 All notable changes to the Antz Design System. Versions follow semantic versioning: patch for fixes, minor for additions, major for anything renamed, removed or changed in meaning. Every version listed here is published under `releases/` and tagged in Git.
 
+## Unreleased
+
+### Governance
+- **System Owner named:** Eugin Robinson is the Antz Design Governance owner, from 22 November 2026. Recorded in `governance/README.md`, the Governance page and as the approver of exception EXC-001. Other roles are still to be assigned.
+
 ## 1.1.0-beta.1 (22 November 2026)
 
 Additive: no token or class removed or renamed. Prototypes upgrade by changing `v1.0.0-beta.1` to `v1.1.0-beta.1` in their links and, for motion, adding `components.js`.

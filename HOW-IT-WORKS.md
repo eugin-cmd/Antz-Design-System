@@ -32,7 +32,7 @@ The promotion path: **Develop → Review → Validate → Approve → Release �
 | Develop | Work in the repo; RFC opened for anything beyond a fix |
 | Review | Design, technical and accessibility review by the right people |
 | Validate | `build.mjs`, `check.mjs` and `test.mjs` all pass (the pre-commit hook enforces this) |
-| Approve | By change class: Patch (code owner), Minor (maintainer + platform lead), Major (council), Foundational (System Owner) |
+| Approve | By change class: Patch (code owner), Minor (maintainer + platform lead), Major (council), Foundational (System Owner: Eugin Robinson) |
 | Release | `CHANGELOG.md` has the section, `VERSION` is bumped, `node tools/release.mjs` succeeds |
 | Published | The version is in `releases/index.json`, tagged in Git, listed in the docs |
 
