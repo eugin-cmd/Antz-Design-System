@@ -1,0 +1,61 @@
+<!--meta {"title":"Guardrails","group":"Governance","intro":"The do's and don'ts, and the checks that enforce them. Most rules are automatic: breaking one fails the check, the commit or the release.","icon":"shield","hue":"coral"}-->
+<div class="doc" id="dos">
+  <h3>Do's and don'ts</h3>
+  <div class="dd">
+    <div class="do"><b><svg class="icon icon--sm"><use href="#i-check"/></svg>Do</b><ul>
+      <li>Use approved design tokens: <code>--color-*</code>, <code>--space-*</code>, <code>--text-*</code>, <code>--radius-*</code>, <code>--shadow-*</code>, <code>--duration-*</code>, <code>--ease-*</code>, <code>--gradient-*</code>.</li>
+      <li>Use established components before writing new CSS.</li>
+      <li>Follow semantic colour roles: brand fill for main actions, <code>--color-accent-text</code> for brand text, status tokens for status.</li>
+      <li>Keep to the type scale and the weights 400, 500 and 600.</li>
+      <li>Follow spacing and layout conventions (4px scale; work drawer 562px).</li>
+      <li>Follow theme specifications: test light, dark and high contrast.</li>
+      <li>Validate accessibility: contrast, labels, focus, touch targets.</li>
+      <li>Document new patterns through an RFC.</li></ul></div>
+    <div class="dont"><b><svg class="icon icon--sm"><use href="#i-x"/></svg>Don't</b><ul>
+      <li>Hard-code colours, sizes, shadows or timings.</li>
+      <li>Introduce inconsistent spacing.</li>
+      <li>Create duplicate components (a second confirm dialog, toast or filter drawer).</li>
+      <li>Override global tokens without approval.</li>
+      <li>Introduce unapproved fonts.</li>
+      <li>Introduce arbitrary animation timings.</li>
+      <li>Bypass accessibility requirements or remove focus outlines.</li>
+      <li>Modify published components or releases directly.</li></ul></div>
+  </div>
+</div>
+
+<div class="doc" id="enforcement">
+  <h3>How the guardrails are enforced</h3>
+  <div class="demo demo--grid demo--canvas">
+    <div class="card"><div class="card__head"><span class="tile-icon"><svg class="icon"><use href="#i-sliders"/></svg></span><b class="card__title">Token build</b></div><p class="t-small">Rejects raw values in semantic tokens, broken references, a drifted brand colour and any colour pair below WCAG AA in any of the four modes. <code>tools/build.mjs</code></p></div>
+    <div class="card"><div class="card__head"><span class="tile-icon" style="--c:var(--hue-coral-ink)"><svg class="icon"><use href="#i-scan"/></svg></span><b class="card__title">Guardrail check</b></div><p class="t-small">Scans CSS, HTML, JS and TSX in any prototype or product for the automatic rules below, with file and line. <code>tools/check.mjs</code></p></div>
+    <div class="card"><div class="card__head"><span class="tile-icon" style="--c:var(--hue-sky-ink)"><svg class="icon"><use href="#i-check"/></svg></span><b class="card__title">Self-test</b></div><p class="t-small">A deliberately bad prototype must trip every automatic rule; a clean one must pass. Stops the checks from quietly breaking. <code>tools/test.mjs</code></p></div>
+    <div class="card"><div class="card__head"><span class="tile-icon" style="--c:var(--hue-navy-ink)"><svg class="icon"><use href="#i-lock"/></svg></span><b class="card__title">Commit and release gates</b></div><p class="t-small">The pre-commit hook runs the build, check and release verification. <code>tools/release.mjs</code> refuses to publish if anything fails, and published files are checksummed.</p></div>
+  </div>
+</div>
+
+<div class="doc" id="rules">
+  <h3>Rule register</h3>
+  <p class="lead">From <code>governance/rules.json</code>. <b>check</b>: automatic in any repo. <b>build</b> and <b>release</b>: automatic in this repo. <b>review</b>: a reviewer confirms it.</p>
+  <div class="spec-wrap"><table class="spec" id="rules-table"><thead><tr><th>Rule</th><th>Statement</th><th>Enforced by</th><th>Owner</th></tr></thead><tbody><tr><td colspan="4" class="t-caption">Loading rules…</td></tr></tbody></table></div>
+</div>
+
+<div class="doc" id="ai">
+  <h3>AI assistants</h3>
+  <p>The same rules and checks apply whoever writes the code. AI assistants read <code>AGENTS.md</code>, which tells them never to invent tokens, duplicate components or edit published packages, and to flag missing pieces as proposals. Anything they still get wrong fails the same check. No rule depends on a particular AI tool.</p>
+</div>
+<!--code-->
+<div class="doc" id="guardrails-code"><h3>Running the check</h3><pre><code># a prototype folder or file
+node tools/check.mjs ../antz-command-centre
+
+# a product, report mode while a module is migrating (never fails)
+node tools/check.mjs ../web-dashboard/src --report
+
+# machine-readable, for CI or the health dashboard
+node tools/check.mjs ../web-dashboard/src --json
+
+# typical output
+components/AddNote.tsx
+     42  ANTZ-COL-01  Raw colour: use a semantic --color-* token
+         color: #1F415B
+     57  ANTZ-MOT-01  Literal duration: use --duration-*
+         transition: opacity 320ms ease-in</code></pre></div>

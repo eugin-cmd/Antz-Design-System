@@ -1,0 +1,71 @@
+<!--meta {"title":"Themes and modes","group":"Foundations","intro":"Light, dark, high contrast and compact density from one set of names. Components never change; only token values do.","icon":"moon","hue":"navy"}-->
+<div class="doc" id="modes">
+  <h3>Try it on this page</h3>
+  <p class="lead">These switches set the same attributes your product would. Everything on the site follows.</p>
+  <div class="demo">
+    <div class="segmented" role="group" aria-label="Theme"><button type="button" data-theme-set="auto" aria-pressed="true">Auto</button><button type="button" data-theme-set="light" aria-pressed="false">Light</button><button type="button" data-theme-set="dark" aria-pressed="false">Dark</button></div>
+    <div class="segmented" role="group" aria-label="Contrast"><button type="button" data-contrast-set="standard" aria-pressed="true">Standard contrast</button><button type="button" data-contrast-set="high" aria-pressed="false">High contrast</button></div>
+    <div class="segmented" role="group" aria-label="Density"><button type="button" data-density-set="comfortable" aria-pressed="true">Comfortable</button><button type="button" data-density-set="compact" aria-pressed="false">Compact</button></div>
+  </div>
+  <div class="demo demo--canvas demo--grid" style="margin-top:var(--space-3)">
+    <div class="card"><div class="card__head"><span class="tile-icon"><svg class="icon"><use href="#i-paw"/></svg></span><div><b class="card__title">Bheem · Bengal tiger</b><span class="card__meta">AAID 66102/19 · Enclosure T4</span></div></div>
+      <div style="display:flex;gap:var(--space-2);flex-wrap:wrap"><span class="status status--success">Healthy</span><span class="status status--caution">Pending review</span><span class="status status--danger">Critical</span></div>
+      <div style="display:flex;gap:var(--space-2)"><button class="btn btn--primary" type="button">Save record</button><button class="btn btn--outline" type="button">Cancel</button></div></div>
+    <div class="card"><label class="field"><span class="field__label">Weight (kg)</span><input class="input" value="218.4"></label><label class="check"><input type="checkbox" checked> Notify the vet team</label><label style="display:flex;align-items:center;gap:var(--space-2)"><span class="switch"><input type="checkbox" checked aria-label="Visible to all sites"><span></span></span> Visible to all sites</label><div class="progress"><span style="width:64%"></span></div></div>
+  </div>
+</div>
+
+<div class="doc" id="light-dark">
+  <h3>Light and dark</h3>
+  <p class="lead">Dark is designed, not inverted: green-tinted night neutrals, surfaces that get lighter as they rise, softer status fills, and brand text in tone 80. The brand fill stays exactly #37BD69 in both themes, so a main button looks the same everywhere.</p>
+  <div class="spec-wrap"><table class="spec"><thead><tr><th>Concern</th><th>Light</th><th>Dark</th></tr></thead><tbody>
+    <tr><td>Page</td><td>Green board <code>--color-bg-app</code></td><td>Night 0, never pure black</td></tr>
+    <tr><td>Elevation</td><td>Green-tinted shadows</td><td>Lighter surface + hairline, shadows near zero</td></tr>
+    <tr><td>Brand fill</td><td>#37BD69 with dark label</td><td>#37BD69 with dark label (7.61:1 on the page)</td></tr>
+    <tr><td>Brand text</td><td>Tone 40 #006D35</td><td>Tone 80 #5EDF86</td></tr>
+    <tr><td>Indicators</td><td>Tone 50 #008944 (4.5:1)</td><td>Brand #37BD69</td></tr>
+    <tr><td>Status</td><td>Tint fill, tone 30 to 40 text</td><td>Deep fill, tone 80 text, so badges don't glow</td></tr>
+    <tr><td>Washes</td><td>The four pastels</td><td>Deep counterparts of the same hues</td></tr>
+  </tbody></table></div>
+</div>
+
+<div class="doc" id="contrast">
+  <h3>High contrast</h3>
+  <p>For bright outdoor and clinical use, and anyone who asks the OS for more contrast. It follows <code>prefers-contrast: more</code> automatically, or forces with <code>data-contrast="high"</code>. Secondary text becomes primary text, borders darken, and the brand fill moves to tone 30 with a white label (light) or tone 90 (dark). Every pair is checked in this mode too.</p>
+</div>
+
+<div class="doc" id="density">
+  <h3>Compact density</h3>
+  <p>For data-dense tables and forms (pharmacy stock, administer medicine). <code>data-density="compact"</code> on any container shrinks control and row heights (34/42/48 to 30/36/40; rows 52 to 40). On touch screens, targets never go below 44px.</p>
+</div>
+
+<div class="doc" id="persist">
+  <h3>Switching and persistence</h3>
+  <ul>
+    <li><b>Web:</b> set <code>data-theme</code>, <code>data-contrast</code>, <code>data-density</code> on <code>&lt;html&gt;</code> before first paint. Read the saved choice from storage (or a cookie for server rendering in Next.js) to avoid a flash. Default to the system.</li>
+    <li><b>MUI:</b> <code>createTheme(antzThemeOptions({ mode: 'dark', contrast: 'high' }))</code>.</li>
+    <li><b>React Native:</b> <code>useColorScheme()</code> for the system mode; store the user's choice; pass <code>antzTheme.colors[scheme]</code> through context.</li>
+    <li><b>Across devices:</b> save the preference to the user profile once signed in, so it follows the person.</li>
+  </ul>
+</div>
+
+<div class="doc" id="brands">
+  <h3>More themes later</h3>
+  <p>A theme is a token set. New themes (an organisation brand, a seasonal campaign) override semantic tokens only, so approved components keep working unchanged. Brand overrides are limited to an approved list. The primary action colour stays #37BD69 unless the System Owner decides otherwise (Foundational change).</p>
+</div>
+<!--usage-->
+<div class="doc" id="themes-usage"><h3>Themes</h3><div class="dd">
+  <div class="do"><b><svg class="icon icon--sm"><use href="#i-check"/></svg>Do</b><ul><li>Follow the system theme by default.</li><li>Test every screen in light, dark and high contrast (the theme tester shows all at once).</li><li>Use compact density only for data-dense work.</li></ul></div>
+  <div class="dont"><b><svg class="icon icon--sm"><use href="#i-x"/></svg>Don't</b><ul><li>Hard-code a colour for one theme.</li><li>Invert colours to make dark mode.</li><li>Shrink touch targets below 44px in compact mode.</li></ul></div>
+</div></div>
+<!--code-->
+<div class="doc" id="themes-code"><h3>Themes</h3><pre><code>&lt;html data-theme="dark" data-contrast="high" data-density="compact"&gt;
+
+// Next.js + MUI
+import { createTheme } from '@mui/material/styles';
+import { antzThemeOptions } from '…/dist/mui/antz-mui-theme.js';
+const theme = createTheme(antzThemeOptions({ mode, contrast }));
+
+// React Native
+import { antzTheme } from '…/dist/react-native/antz-theme';
+const c = antzTheme.colors[useColorScheme() === 'dark' ? 'dark' : 'light'];</code></pre></div>

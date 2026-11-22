@@ -405,5 +405,21 @@ for (const m of Object.keys(MODES)) {
 }
 write('dist/contrast-report.md', md);
 
+// Docs: the contrast table on Colour guardrails is generated from the gate, so it can't drift.
+const guardPage = path.join(ROOT, 'pages/colour-guardrails.html');
+if (fs.existsSync(guardPage)) {
+  const css = (n) => '--' + n.replace(/\./g, '-');
+  const use = (fg, bg) => (MODES.light.get(fg)?.desc || MODES.light.get(bg)?.desc || '').replace(/</g, '&lt;');
+  const chips = (r, min) => (min === U ? [['UI 3:1', r >= 3]] : [['AA', r >= 4.5], ['AA large', r >= 3]]).map(([l, ok]) => `<span class="${ok ? 'pass' : 'fail'}">${l}</span>`).join(' ');
+  const rows = PAIRS.map(([fg, bg, min]) => {
+    const l = report.find((x) => x.m === 'light' && x.fg === fg && x.bg === bg), d = report.find((x) => x.m === 'dark' && x.fg === fg && x.bg === bg);
+    if (!l || !d) return '';
+    const sample = min === U ? `<span class="aa-sample" style="background:var(${css(bg)});box-shadow:inset 0 0 0 3px var(${css(fg)});color:var(--color-text)">UI</span>` : `<span class="aa-sample" style="background:var(${css(bg)});color:var(${css(fg)})">Aa</span>`;
+    return `<tr><td>${sample}</td><td><code>${css(fg)}</code> on <code>${css(bg)}</code><br><span class="t-caption">${use(fg, bg)}</span></td><td class="num"><b>${l.r.toFixed(2)}</b></td><td>${chips(l.r, min)}</td><td class="num"><b>${d.r.toFixed(2)}</b></td><td>${chips(d.r, min)}</td></tr>`;
+  }).join('\n');
+  const page = fs.readFileSync(guardPage, 'utf8').replace(/<!-- contrast-pairs:start -->[\s\S]*?<!-- contrast-pairs:end -->/, `<!-- contrast-pairs:start -->\n${rows}\n<!-- contrast-pairs:end -->`);
+  fs.writeFileSync(guardPage, page);
+}
+
 console.log(`✓ Antz Design System ${VERSION} built. ${summary}. All pass.`);
 console.log('  tokens.css, colors.json, dist/tokens, dist/figma, dist/mui, dist/react-native, dist/contrast-report.md');

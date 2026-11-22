@@ -1,0 +1,50 @@
+<!--meta {"title":"Roles, changes and exceptions","group":"Governance","intro":"Who decides what, how a change gets in, and how a team can deviate without the deviation becoming the standard.","icon":"users","hue":"navy"}-->
+<div class="doc" id="council">
+  <h3>The Governance Council</h3>
+  <p class="lead">A small council with delegated authority. Most changes never need the System Owner.</p>
+  <div class="spec-wrap"><table class="spec"><thead><tr><th>Role</th><th>Responsible for</th><th>Can approve</th></tr></thead><tbody>
+    <tr><td><b>System Owner</b></td><td>Vision, principles, architecture, governance policy</td><td>Foundational changes and system-wide breaking changes</td></tr>
+    <tr><td><b>Design System Maintainers</b></td><td>Tokens, components, themes, docs, consistency, releases</td><td>Minor changes in their area; publish releases</td></tr>
+    <tr><td><b>Platform leads</b> (web, native)</td><td>Implementation quality and cross-platform parity</td><td>Technical changes to their platform output</td></tr>
+    <tr><td><b>Accessibility Lead</b></td><td>Standards, audits, the contrast gate</td><td>Can block any release on accessibility grounds</td></tr>
+    <tr><td><b>Designers</b></td><td>Use the system, explore, propose</td><td>Author RFCs and exception requests</td></tr>
+    <tr><td><b>Developers</b></td><td>Implement specs, validate across platforms</td><td>Patch changes as code owners</td></tr>
+    <tr><td><b>Module owners</b></td><td>Adoption and debt in their module</td><td>Request exceptions; plan upgrades</td></tr>
+  </tbody></table></div>
+  <p class="t-small t-secondary">Names are to be confirmed. Until they are, the System Owner approves everything above Patch.</p>
+</div>
+
+<div class="doc" id="classes">
+  <h3>Change classes</h3>
+  <div class="spec-wrap"><table class="spec"><thead><tr><th>Class</th><th>Examples</th><th>Process</th><th>Version</th></tr></thead><tbody>
+    <tr><td><span class="status status--neutral status--plain">Patch</span></td><td>Bug fix, docs, accessibility fix with no visual change</td><td>Commit; gates pass; one code owner</td><td>1.0.<b>1</b></td></tr>
+    <tr><td><span class="status status--info status--plain">Minor</span></td><td>New token, variant or component</td><td>Short RFC; maintainer + platform lead</td><td>1.<b>1</b>.0</td></tr>
+    <tr><td><span class="status status--caution status--plain">Major</span></td><td>Rename or remove a token; change a component API or meaning</td><td>Full RFC, migration guide; council</td><td><b>2</b>.0.0</td></tr>
+    <tr><td><span class="status status--danger status--plain">Foundational</span></td><td>Brand colour, typeface, principles, governance</td><td>RFC + decision record; System Owner</td><td>by impact</td></tr>
+  </tbody></table></div>
+</div>
+
+<div class="doc" id="decisions">
+  <h3>Decision register</h3>
+  <p class="lead">Decisions are recorded once, with reasons and alternatives, in <code>governance/decisions/</code>. Library v2's decisions (S1, S2, D1 to D15) are carried forward.</p>
+  <div class="spec-wrap"><table class="spec"><thead><tr><th>ID</th><th>Decision</th><th>Status</th></tr></thead><tbody>
+    <tr><td><code>FD-001</code></td><td>Brand primary is #37BD69. On light surfaces it is a fill; text and lines use tones 40 and 50.</td><td><span class="status status--success">Accepted</span></td></tr>
+    <tr><td><code>FD-002</code></td><td>Secondary teal #00D9C7, tertiary navy #1F415B. Coral, amber, red and sky are status only; success has its own family.</td><td><span class="status status--success">Accepted</span></td></tr>
+    <tr><td><code>FD-003</code></td><td>Main button: #37BD69 fill with a #00210C label (amends Library v2 D1).</td><td><span class="status status--success">Accepted</span></td></tr>
+    <tr><td><code>TD-001</code></td><td>DTCG token source, zero-dependency build, plain CSS for designers, generated MUI, React Native and Figma outputs.</td><td><span class="status status--success">Accepted</span></td></tr>
+    <tr><td><code>TD-002</code></td><td>Two tiers: working copy (Development) and immutable releases (Published), local Git with tags.</td><td><span class="status status--success">Accepted</span></td></tr>
+  </tbody></table></div>
+</div>
+
+<div class="doc" id="rfc">
+  <h3>Proposing a change (RFC)</h3>
+  <ol><li>Copy <code>governance/rfc/TEMPLATE.md</code> to <code>governance/rfc/RFC-NNN-short-name.md</code>.</li><li>Describe the need, the alternatives you checked (search the system first), the tokens and components affected, accessibility impact and the change class.</li><li>A maintainer triages it weekly. Minor: maintainer and platform lead approve. Major and Foundational: the council, then the System Owner.</li><li>Accepted RFCs become decision records and changelog entries.</li></ol>
+</div>
+
+<div class="doc" id="exceptions">
+  <h3>Exceptions</h3>
+  <p class="lead">When a standard truly doesn't fit, a team can deviate on the record. Every exception names its files and rules and has an expiry date. The check honours it until then, and fails once it expires.</p>
+  <ol><li><b>Submit</b>: the requirement, the module and screens, the rule it departs from.</li><li><b>Alternatives</b>: why existing tokens and components can't do it.</li><li><b>Review</b>: design and technical review by a maintainer.</li><li><b>Accessibility</b>: the Accessibility Lead signs if any accessibility property changes.</li><li><b>Decision</b>: approved or rejected with reasons, recorded in <code>governance/exceptions.json</code>.</li><li><b>Expiry</b>: default six months, with an owner who reviews it.</li><li><b>Promotion</b>: if three or more modules need the same exception, it becomes an RFC. An exception never silently becomes a standard.</li></ol>
+  <h4>Live exceptions</h4>
+  <div class="spec-wrap"><table class="spec" id="exceptions-table"><thead><tr><th>ID</th><th>Rules</th><th>Files</th><th>Reason</th><th>Expires</th></tr></thead><tbody><tr><td colspan="5" class="t-caption">Loading…</td></tr></tbody></table></div>
+</div>

@@ -1,0 +1,38 @@
+<!--meta {"title":"Versions and releases","group":"Governance","intro":"Every published version is frozen and kept. Pin one, upgrade when ready, and go back any time.","icon":"clock","hue":"sky"}-->
+<div class="doc" id="published">
+  <h3>Published versions</h3>
+  <p class="lead">Read live from <code>releases/index.json</code>. Each version is a complete, browsable copy of the system with its own docs.</p>
+  <div class="spec-wrap"><table class="spec" id="versions-table"><thead><tr><th>Version</th><th>Channel</th><th>Date</th><th>Commit</th><th></th></tr></thead><tbody><tr><td colspan="5" class="t-caption">Loading…</td></tr></tbody></table></div>
+  <p class="t-small t-secondary">You are viewing the <b>working copy</b> (Development) unless the address contains <code>/releases/v…/</code>.</p>
+</div>
+
+<div class="doc" id="semver">
+  <h3>How versions are numbered</h3>
+  <div class="spec-wrap"><table class="spec"><thead><tr><th>Change</th><th>Bump</th><th>Products</th></tr></thead><tbody>
+    <tr><td>Fix with no visual or API change</td><td>Patch · 1.0.0 → 1.0.1</td><td>Safe to take</td></tr>
+    <tr><td>New token, variant or component</td><td>Minor · 1.0.0 → 1.1.0</td><td>Safe to take; nothing removed</td></tr>
+    <tr><td>Renamed or removed token, changed meaning or API</td><td>Major · 1.x → 2.0.0</td><td>Read the migration guide first</td></tr>
+    <tr><td>Pre-release</td><td>1.1.0-beta.1, -rc.1</td><td>Pilots only</td></tr>
+  </tbody></table></div>
+</div>
+
+<div class="doc" id="pin">
+  <h3>Pin, upgrade, roll back</h3>
+  <ol>
+    <li><b>Pin:</b> link <code>releases/vX.Y.Z/tokens.css</code> and <code>components.css</code>. Never link the repository root.</li>
+    <li><b>Upgrade:</b> read the changelog, change the version in the link (or the package version), check the screens in the theme tester, run the guardrail check, ship.</li>
+    <li><b>Roll back:</b> put the previous version back in the link. Only that product changes.</li>
+    <li><b>Compare:</b> <code>git diff v1.0.0-beta.1 v1.1.0 -- tokens/src components.css</code>; each release's <code>CHANGELOG.md</code> lists what changed.</li>
+    <li><b>Restore everything:</b> <code>git checkout v1.0.0-beta.1</code>.</li>
+  </ol>
+</div>
+
+<div class="doc" id="immutable">
+  <h3>Why a release can't change</h3>
+  <p>Publishing writes <code>MANIFEST.json</code> with a SHA-256 fingerprint for every file, and records the manifest's own fingerprint in <code>releases/index.json</code>. <code>node tools/release.mjs --verify</code> runs on every commit and fails if any published file was edited, added or deleted. To change something, release a new version.</p>
+</div>
+
+<div class="doc" id="deprecation">
+  <h3>Deprecation and compatibility</h3>
+  <ul><li>A token or component is marked deprecated in a minor release, with its replacement named. The check warns, and a migration note explains the move.</li><li>It is removed no earlier than the next major and at least six months later.</li><li>The previous major keeps getting fixes for six months after a new major.</li><li>Products are never forced to upgrade on release day.</li></ul>
+</div>

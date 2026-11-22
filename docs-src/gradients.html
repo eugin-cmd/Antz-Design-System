@@ -1,0 +1,53 @@
+<!--meta {"title":"Gradients","group":"Foundations","intro":"Four soft washes give Antz its signature; module and feature gradients mark identity and big figures. Every gradient is a token.","icon":"sun","hue":"coral"}-->
+<div class="doc" id="washes">
+  <h3>The four washes</h3>
+  <p class="lead">From the four reference gradients (<code>reference/Gradients</code>). Each runs corner to corner, top left to bottom right, between two soft tints. They are low intensity, so normal text sits on them comfortably. In dark theme the same tokens switch to deep counterparts automatically.</p>
+  <div class="wash-grid">
+    <figure class="wash-sample wash wash--primary"><span class="t-overline">Wash 1 · Primary</span><b>Mint to rose</b><code>--gradient-wash-primary</code><p>The mint is a tint of the brand green (both 142°), so this is the most on-brand wash.</p><small>Use: hero and welcome bands, dashboard header, onboarding, sign-in.</small></figure>
+    <figure class="wash-sample wash wash--celebrate"><span class="t-overline">Wash 2 · Celebrate</span><b>Butter to rose</b><code>--gradient-wash-celebrate</code><p>Warm and festive, with no brand hue.</p><small>Use: announcements, featured cards, milestones (births, hatchings, anniversaries).</small></figure>
+    <figure class="wash-sample wash wash--calm"><span class="t-overline">Wash 3 · Calm</span><b>Butter to aqua</b><code>--gradient-wash-calm</code><p>Fresh and quiet. It bridges the caution and secondary families.</p><small>Use: information panels, tips, empty states, onboarding steps.</small></figure>
+    <figure class="wash-sample wash wash--illustrative"><span class="t-overline">Wash 4 · Illustrative</span><b>Sky to pink</b><code>--gradient-wash-illustrative</code><p>Cool to warm. The most decorative of the four.</p><small>Use: illustrations, docs and marketing pages, empty-state art.</small></figure>
+  </div>
+  <h4>In context</h4>
+  <div class="demo demo--canvas demo--col">
+    <section class="hero-band wash wash--primary"><div><span class="t-overline">Good morning</span><h4 class="hero-band__title">Every species, every site</h4><p class="hero-band__sub">Animal management across 9 sites</p></div><div class="hero-band__stats"><div><b class="num">2,411</b><small>Species</small></div><div><b class="num">110,020</b><small>Animals</small></div><div><b class="num">9</b><small>Sites</small></div></div></section>
+    <div class="demo--grid" style="display:grid;gap:var(--space-3)">
+      <article class="card wash wash--celebrate"><span class="tag tag--soft">Announcement</span><b class="card__title">Three red panda cubs born at North site</b><span class="card__meta">Posted by the keeper team · today</span></article>
+      <div class="card wash wash--calm"><div class="empty"><span class="tile-icon tile-icon--lg" style="--c:var(--hue-teal-ink)"><svg class="icon"><use href="#i-clipboard"/></svg></span><b>No observations yet</b><span>Notes you add from the enclosure appear here.</span><button class="btn btn--primary btn--sm" type="button">Add observation</button></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="doc" id="tiers">
+  <h3>Gradient tiers</h3>
+  <p class="lead">Three tiers, each with a purpose. There are no other gradients: the guardrail check rejects any <code>linear-gradient()</code> that is not a token.</p>
+  <div class="spec-wrap"><table class="spec"><thead><tr><th>Sample</th><th>Tier and token</th><th>Purpose</th><th>Text on it</th></tr></thead><tbody>
+    <tr><td><span class="grad-sw" style="background:var(--gradient-wash-primary)"></span></td><td><b>Wash</b><br><code>--gradient-wash-*</code> (4)</td><td>Large soft backgrounds</td><td>Normal text tokens; must pass on every stop</td></tr>
+    <tr><td><span class="grad-sw" style="background:var(--gradient-module-green-navy)"></span></td><td><b>Module</b><br><code>--gradient-module-green-navy</code>, <code>-teal-green</code>, <code>-cyan-navy</code>, <code>-coral-red</code>, <code>-yellow-cyan</code></td><td>Module identity tiles (<code>.tile-module</code>)</td><td>Icons only, no body text</td></tr>
+    <tr><td><span class="grad-sw" style="background:var(--gradient-deep)"></span></td><td><b>Feature</b><br><code>--gradient-deep</code>, <code>--gradient-green</code>, <code>--gradient-navy</code>, <code>--gradient-teal</code>, <code>--gradient-blue</code></td><td>Dark feature cards with large figures</td><td>White or highlight text, AA on every stop</td></tr>
+    <tr><td><span class="grad-sw" style="background:var(--gradient-scrim-photo), var(--color-surface-strong)"></span></td><td><b>Overlay</b><br><code>--gradient-scrim-photo</code></td><td>Text over photography</td><td>White text</td></tr>
+  </tbody></table></div>
+  <h4>Module tiles</h4>
+  <div class="demo"><span class="tile-module"><svg class="icon"><use href="#i-paw"/></svg></span><span class="tile-module tile-module--teal-green"><svg class="icon"><use href="#i-home"/></svg></span><span class="tile-module tile-module--cyan-navy"><svg class="icon"><use href="#i-heart"/></svg></span><span class="tile-module tile-module--coral-red"><svg class="icon"><use href="#i-alert"/></svg></span><span class="tile-module tile-module--yellow-cyan"><svg class="icon"><use href="#i-clipboard"/></svg></span>
+    <div class="card card--navy" style="min-width:240px"><span class="card__meta">Hospital · under care now</span><span class="t-stat num">41</span><span class="card__meta">29 ours · 12 from outside</span></div></div>
+</div>
+
+<div class="doc" id="token-or-asset">
+  <h3>Token, not image</h3>
+  <p>Each reference SVG is a two-stop linear gradient on a large canvas. Two colour stops and a direction describe it completely, so it ships as a token, not an image. That way it themes (dark counterparts), versions and lints like every other value. Its six stop colours are primitives (<code>--wash-mint</code>, <code>--wash-rose</code>, <code>--wash-butter</code>, <code>--wash-aqua</code>, <code>--wash-sky</code>, <code>--wash-pink</code>). Keep SVG or bitmap files only for illustrations that contain a gradient.</p>
+  <p class="t-small t-secondary">The PDF versions of the gradients mentioned in the brief were not in the reference folder; only the SVGs were inspected.</p>
+</div>
+<!--usage-->
+<div class="doc" id="gradients-usage"><h3>Gradients</h3><div class="dd">
+  <div class="do"><b><svg class="icon icon--sm"><use href="#i-check"/></svg>Do</b><ul><li>Use one wash per screen, on a large area.</li><li>Put the primary wash on welcome and hero bands.</li><li>Keep text on washes in the normal text colours.</li><li>Use feature gradients only behind large figures.</li></ul></div>
+  <div class="dont"><b><svg class="icon icon--sm"><use href="#i-x"/></svg>Don't</b><ul><li>Put a gradient on buttons, chips or inputs.</li><li>Use gradients in charts or to show status.</li><li>Place the rose-ended washes next to error states (rose equals the error container).</li><li>Write your own <code>linear-gradient()</code>.</li></ul></div>
+</div></div>
+<!--code-->
+<div class="doc" id="gradients-code"><h3>Gradients</h3><pre><code>&lt;section class="hero-band wash wash--primary"&gt;…&lt;/section&gt;
+&lt;article class="card wash wash--celebrate"&gt;…&lt;/article&gt;
+&lt;div class="card wash wash--calm"&gt;&lt;div class="empty"&gt;…&lt;/div&gt;&lt;/div&gt;
+&lt;span class="tile-module tile-module--teal-green"&gt;&lt;svg class="icon"&gt;…&lt;/svg&gt;&lt;/span&gt;
+&lt;div class="card card--navy"&gt;…&lt;/div&gt;
+
+/* your own CSS */
+.welcome { background: var(--gradient-wash-primary); }</code></pre></div>

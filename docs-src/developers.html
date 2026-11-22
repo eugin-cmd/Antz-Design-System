@@ -1,0 +1,58 @@
+<!--meta {"title":"Developer outputs","group":"Resources","intro":"Generated files for every platform, all from the same token source. Use them; never copy values out of them.","icon":"download","hue":"sky"}-->
+<div class="doc" id="outputs">
+  <h3>Outputs</h3>
+  <div class="downloads">
+    <a class="card card--interactive" href="../tokens.css" download><div class="card__head"><span class="tile-icon"><svg class="icon"><use href="#i-file"/></svg></span><div><b class="card__title">tokens.css</b><span class="card__meta">Designer prototypes and any web page</span></div></div></a>
+    <a class="card card--interactive" href="../components.css" download><div class="card__head"><span class="tile-icon"><svg class="icon"><use href="#i-grid"/></svg></span><div><b class="card__title">components.css</b><span class="card__meta">Every component class</span></div></div></a>
+    <a class="card card--interactive" href="../dist/mui/antz-mui-theme.js" download><div class="card__head"><span class="tile-icon" style="--c:var(--hue-sky-ink)"><svg class="icon"><use href="#i-monitor"/></svg></span><div><b class="card__title">antz-mui-theme.js</b><span class="card__meta">Next.js dashboard (MUI createTheme options)</span></div></div></a>
+    <a class="card card--interactive" href="../dist/react-native/antz-theme.ts" download><div class="card__head"><span class="tile-icon" style="--c:var(--hue-violet-ink)"><svg class="icon"><use href="#i-smartphone"/></svg></span><div><b class="card__title">antz-theme.ts</b><span class="card__meta">React Native phone and tablet apps</span></div></div></a>
+    <a class="card card--interactive" href="../dist/figma/antz.tokens-studio.json" download><div class="card__head"><span class="tile-icon" style="--c:var(--hue-coral-ink)"><svg class="icon"><use href="#i-sliders"/></svg></span><div><b class="card__title">antz.tokens-studio.json</b><span class="card__meta">Figma variables via Tokens Studio, with aliases and 4 modes</span></div></div></a>
+    <a class="card card--interactive" href="../dist/tokens/antz.tokens.json" download><div class="card__head"><span class="tile-icon" style="--c:var(--hue-navy-ink)"><svg class="icon"><use href="#i-memory"/></svg></span><div><b class="card__title">antz.tokens.json</b><span class="card__meta">Every token resolved per mode (DTCG)</span></div></div></a>
+    <a class="card card--interactive" href="../colors.json" download><div class="card__head"><span class="tile-icon" style="--c:var(--hue-teal-ink)"><svg class="icon"><use href="#i-download"/></svg></span><div><b class="card__title">colors.json</b><span class="card__meta">Every colour per theme</span></div></div></a>
+    <a class="card card--interactive" href="../dist/contrast-report.md"><div class="card__head"><span class="tile-icon" style="--c:var(--hue-amber-ink)"><svg class="icon"><use href="#i-eye"/></svg></span><div><b class="card__title">contrast-report.md</b><span class="card__meta">256 checks in 4 modes, all passing</span></div></div></a>
+  </div>
+</div>
+
+<div class="doc" id="mui">
+  <h3>Next.js dashboard (MUI)</h3>
+  <p>The dashboard already uses MUI, so the system arrives as a theme. Swapping it in gives every themed MUI component the Antz colours, type, radius and motion without touching screens. Breakpoints stay at MUI's defaults. <code>palette.antz</code> adds Antz-only roles: brand, brandText, focus, tertiary, caution and board.</p>
+  <pre><code>import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { antzThemeOptions } from '@/design-system/antz-mui-theme';
+
+const theme = createTheme(antzThemeOptions({ mode: 'light', contrast: 'standard' }));
+export default function App({ children }) {
+  return &lt;ThemeProvider theme={theme}&gt;{children}&lt;/ThemeProvider&gt;;
+}
+// Contained primary buttons now render #37BD69 with the #00210C label (7.07:1).</code></pre>
+</div>
+
+<div class="doc" id="rn">
+  <h3>React Native</h3>
+  <pre><code>import { useColorScheme, Pressable, Text, AccessibilityInfo } from 'react-native';
+import Animated, { Easing, withTiming } from 'react-native-reanimated';
+import { antzTheme } from '@/design-system/antz-theme';
+
+const c = antzTheme.colors[useColorScheme() === 'dark' ? 'dark' : 'light'];
+&lt;Pressable style={{ backgroundColor: c.accent, borderRadius: antzTheme.radius.control,
+  minHeight: antzTheme.size['touch-min'], paddingHorizontal: antzTheme.space['4-5'] }}&gt;
+  &lt;Text style={{ color: c.textOnAccent, fontWeight: antzTheme.fontWeight.semibold }}&gt;Save&lt;/Text&gt;
+&lt;/Pressable&gt;
+
+const reduce = await AccessibilityInfo.isReduceMotionEnabled();
+withTiming(1, { duration: reduce ? 0 : antzTheme.motion.duration.moderate,
+  easing: Easing.bezier(...antzTheme.motion.easing.out) });</code></pre>
+</div>
+
+<div class="doc" id="figma">
+  <h3>Figma</h3>
+  <ol><li>Install Tokens Studio for Figma and choose the W3C DTCG format.</li><li>Load <code>dist/figma/antz.tokens-studio.json</code>. It holds the sets primitive, base, light, dark, high contrast and compact, plus four themes.</li><li>Export to Figma variables. Semantic variables alias the primitives, so a token change in Git flows through on the next import.</li></ol>
+  <p class="t-small t-secondary">Writing variables straight into Figma through its API needs a higher Figma plan; check your plan. The Git token source stays the authority either way: changes made in Figma come back as proposals, not edits.</p>
+</div>
+
+<div class="doc" id="ci">
+  <h3>Guardrails in your repo</h3>
+  <pre><code># start in report mode while a module migrates
+node path/to/antz-design-system/tools/check.mjs src --report
+# then make it blocking in CI
+node path/to/antz-design-system/tools/check.mjs src</code></pre>
+</div>

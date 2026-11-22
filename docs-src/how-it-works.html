@@ -1,0 +1,121 @@
+<!--meta {"title":"How it works","group":"Getting started","intro":"One source of truth, two tiers, automatic guardrails. How designers and developers use the Antz Design System, and how it changes safely.","icon":"zap","hue":"green"}-->
+<div class="doc" id="overview">
+  <h3>The system in one picture</h3>
+  <p class="lead">Every design decision lives once, as a token in <code>tokens/src</code>. A build turns it into what each team needs. Guardrails run on every change, and only checked work becomes a published, frozen version that products pin.</p>
+  <div class="arch" role="img" aria-label="Diagram: token source feeds the build, which feeds designer CSS, MUI theme, React Native theme and Figma variables; guardrails gate the Development tier before a frozen release.">
+    <div class="arch__col">
+      <span class="t-overline">Source of truth</span>
+      <div class="arch__box arch__box--src"><b>tokens/src</b><small>DTCG JSON: colour, type, space, radius, motion, gradients, themes</small></div>
+      <div class="arch__box"><b>governance/</b><small>rules.json, exceptions.json, decisions</small></div>
+      <div class="arch__box"><b>components.css · specs</b><small>component styles and specifications</small></div>
+    </div>
+    <div class="arch__arrow" aria-hidden="true"><svg class="icon"><use href="#i-arrow-right"/></svg><small>node tools/build.mjs</small></div>
+    <div class="arch__col">
+      <span class="t-overline">Generated outputs</span>
+      <div class="arch__box"><b>tokens.css</b><small>designers' prototypes (web, tablet, mobile)</small></div>
+      <div class="arch__box"><b>dist/mui</b><small>Next.js dashboard (MUI theme)</small></div>
+      <div class="arch__box"><b>dist/react-native</b><small>phone and tablet apps</small></div>
+      <div class="arch__box"><b>dist/figma</b><small>Figma variables (Tokens Studio)</small></div>
+    </div>
+    <div class="arch__arrow" aria-hidden="true"><svg class="icon"><use href="#i-shield"/></svg><small>gates</small></div>
+    <div class="arch__col">
+      <span class="t-overline">Two tiers</span>
+      <div class="arch__box arch__box--dev"><b>Development</b><small>the working copy: experiment, preview, review</small></div>
+      <div class="arch__box arch__box--pub"><b>Published</b><small>releases/v1.0.0-beta.1/ · frozen, checksummed, tagged</small></div>
+    </div>
+  </div>
+</div>
+
+<div class="doc" id="tiers">
+  <h3>Two tiers: Development and Published</h3>
+  <p class="lead">Improvements happen in Development and never reach a product on their own. A product only changes when it moves its pinned version.</p>
+  <div class="demo demo--grid demo--canvas">
+    <div class="card"><div class="card__head"><span class="tile-icon" style="--c:var(--hue-amber-ink)"><svg class="icon"><use href="#i-pencil"/></svg></span><b class="card__title">Development (evolution)</b></div>
+      <ul class="t-small"><li>The repository root: <code>tokens/src</code>, <code>components.css</code>, docs, the theme tester.</li><li>Experiment with treatments, themes, motion and new components.</li><li>Every commit runs the gates (pre-commit hook).</li><li>Products never link it.</li></ul></div>
+    <div class="card"><div class="card__head"><span class="tile-icon"><svg class="icon"><use href="#i-lock"/></svg></span><b class="card__title">Published (stable)</b></div>
+      <ul class="t-small"><li><code>releases/vX.Y.Z/</code>: a full copy of the system at that version.</li><li>Immutable: every file has a SHA-256 in <code>MANIFEST.json</code>; any edit fails <code>release --verify</code>.</li><li>Tagged in Git (<code>vX.Y.Z</code>) with a changelog entry.</li><li>Products pin one version and upgrade when ready.</li></ul></div>
+  </div>
+  <h4>The promotion path</h4>
+  <ol class="flow"><li><b>Develop</b><span>branch or working copy; RFC for anything beyond a fix</span></li><li><b>Review</b><span>design, technical and accessibility review</span></li><li><b>Validate</b><span>build, contrast gate, guardrail check, self-tests</span></li><li><b>Approve</b><span>by change class (patch, minor, major, foundational)</span></li><li><b>Release</b><span><code>node tools/release.mjs</code> freezes, checksums and tags</span></li><li><b>Published</b><span>products pin it; docs list it under Versions</span></li></ol>
+</div>
+
+<div class="doc" id="designers">
+  <h3>For designers</h3>
+  <p class="lead">You keep working the way you do now: one web codebase for web, tablet and mobile prototypes. Only the stylesheet link changes.</p>
+  <ol>
+    <li><b>Link a pinned release</b> in every prototype (never the working copy):<pre><code>&lt;link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&amp;display=swap"&gt;
+&lt;link rel="stylesheet" href="antz-design-system/releases/v1.0.0-beta.1/tokens.css"&gt;
+&lt;link rel="stylesheet" href="antz-design-system/releases/v1.0.0-beta.1/components.css"&gt;</code></pre></li>
+    <li><b>Build with classes first</b> (<code>.btn--primary</code>, <code>.card</code>, <code>.status--caution</code>, <code>.wash--primary</code>). Each component page shows them.</li>
+    <li><b>Write your own CSS with tokens only:</b> <code>var(--color-*)</code>, <code>var(--space-*)</code>, <code>var(--text-*)</code>, <code>var(--radius-*)</code>, <code>var(--duration-*)</code>, <code>var(--ease-*)</code>, <code>var(--gradient-*)</code>.</li>
+    <li><b>Check before you share:</b> <code>node antz-design-system/tools/check.mjs path/to/your-prototype</code>. It lists every break with the rule and line.</li>
+    <li><b>Try ideas in the theme tester</b>, not in a prototype: light, dark, high contrast, compact, every device size.</li>
+    <li><b>Need something new?</b> Propose it (RFC). If a module truly needs to differ, request an exception; it expires and is reviewed.</li>
+  </ol>
+</div>
+
+<div class="doc" id="developers">
+  <h3>For developers</h3>
+  <p class="lead">Use the generated output for your platform. Never copy values out of it by hand.</p>
+  <div class="spec-wrap"><table class="spec"><thead><tr><th>Platform</th><th>File</th><th>How</th></tr></thead><tbody>
+    <tr><td>Next.js dashboard (MUI)</td><td><code>dist/mui/antz-mui-theme.js</code></td><td><code>createTheme(antzThemeOptions({ mode, contrast }))</code></td></tr>
+    <tr><td>React Native (phone, tablet)</td><td><code>dist/react-native/antz-theme.ts</code></td><td><code>antzTheme.colors[scheme].accent</code>, <code>antzTheme.space[4]</code></td></tr>
+    <tr><td>Any web page</td><td><code>tokens.css</code> + <code>components.css</code></td><td>CSS custom properties and classes</td></tr>
+    <tr><td>Figma</td><td><code>dist/figma/antz.tokens-studio.json</code></td><td>Import into Tokens Studio; it creates variables with aliases and the four modes</td></tr>
+    <tr><td>Anything else</td><td><code>dist/tokens/antz.tokens.json</code></td><td>Every token resolved for light, dark and both high-contrast modes (DTCG)</td></tr>
+  </tbody></table></div>
+  <p>Run the same guardrail check in product repos (<code>node tools/check.mjs src --report</code> to start in report mode). See <a href="developers.html">Developer outputs</a>.</p>
+</div>
+
+<div class="doc" id="change">
+  <h3>Changing the system</h3>
+  <ol>
+    <li>Open an RFC for anything beyond a fix (<code>governance/rfc/TEMPLATE.md</code>). Foundational changes (brand colour, typeface, principles) need the System Owner.</li>
+    <li>Edit the source: <code>tokens/src/**</code> for values, <code>components.css</code> for components, <code>docs-src/</code> and <code>pages/_nav.json</code> for docs.</li>
+    <li><code>node tools/build.mjs</code>: validates tokens, runs 256 contrast checks in 4 modes, writes every output. It fails on any error.</li>
+    <li><code>node tools/check.mjs</code> and <code>node tools/test.mjs</code>: guardrails and their self-test.</li>
+    <li>Commit. The pre-commit hook re-runs the gates and refuses stale generated files.</li>
+    <li>Add a <code>CHANGELOG.md</code> section, bump <code>VERSION</code> (patch, minor or major), commit, then <code>node tools/release.mjs</code>.</li>
+  </ol>
+</div>
+
+<div class="doc" id="versions">
+  <h3>Going back to an earlier version</h3>
+  <ul>
+    <li><b>A product:</b> change its pinned path back, e.g. <code>releases/v1.0.0-beta.1/</code>. Nothing else moves. A rollback never changes another product.</li>
+    <li><b>Browse an old version:</b> open <code>releases/vX.Y.Z/index.html</code>, or pick it on <a href="versions.html">Versions and releases</a>.</li>
+    <li><b>The whole source:</b> <code>git checkout vX.Y.Z</code> restores tokens, components, docs and tools exactly as released.</li>
+  </ul>
+</div>
+
+<div class="doc" id="ai">
+  <h3>AI coding assistants</h3>
+  <p class="lead">Assistants follow the same rules as people, and the same checks catch them. <code>AGENTS.md</code> (and the short <code>CLAUDE.md</code> adapter) point any tool at the rules. Nothing depends on one AI vendor.</p>
+</div>
+<!--usage-->
+<div class="doc" id="how-usage"><h3>Working with the system</h3><div class="dd">
+  <div class="do"><b><svg class="icon icon--sm"><use href="#i-check"/></svg>Do</b><ul><li>Link a pinned release in prototypes and products.</li><li>Use classes first, tokens second.</li><li>Run the check before sharing work.</li><li>Propose new tokens and components through an RFC.</li><li>Upgrade one product at a time and read the changelog first.</li></ul></div>
+  <div class="dont"><b><svg class="icon icon--sm"><use href="#i-x"/></svg>Don't</b><ul><li>Link the repository root from a product.</li><li>Edit <code>tokens.css</code>, <code>colors.json</code> or <code>dist/</code> by hand: they are generated.</li><li>Edit anything inside <code>releases/</code>.</li><li>Copy hex values into your CSS.</li><li>Ship a deviation without an exception record.</li></ul></div>
+</div></div>
+<!--code-->
+<div class="doc" id="how-code"><h3>Commands</h3><pre><code># build tokens and every output (fails on invalid tokens or contrast)
+node tools/build.mjs
+
+# guardrails: this repo, or any prototype or product folder
+node tools/check.mjs
+node tools/check.mjs ../my-prototype
+node tools/check.mjs ../antz-dashboard/src --report
+
+# prove the guardrails work
+node tools/test.mjs
+
+# docs: render docs-src and refresh nav on every page
+node tools/docs.mjs
+
+# publish the version in VERSION (frozen, checksummed, tagged)
+node tools/release.mjs
+node tools/release.mjs --verify     # nothing published has changed
+node tools/release.mjs --list       # published versions
+
+# serve the docs and theme tester locally
+python3 -m http.server 8092 --bind 127.0.0.1</code></pre></div>
