@@ -914,26 +914,13 @@ a.animal:hover { background: var(--color-surface-hover); }
 .animal-card--mortality .animal-card__alert { color: var(--color-danger-text); }
 
 /* State change: morph with View Transitions; plain swap otherwise and under reduced motion */
-/* Expand and collapse: each part moves on its own, on the soft ease-in-out curve.
-   The page itself doesn't cross-fade; neighbouring cards glide; the alert and footer
-   arrive after the card has nearly opened and leave first when it closes. */
-::view-transition-old(root), ::view-transition-new(root) { animation: none; }
-::view-transition-group(*) { animation-duration: var(--duration-slower); animation-timing-function: var(--ease-in-out); }
-::view-transition-old(ac-media), ::view-transition-new(ac-media) { width: 100%; height: 100%; object-fit: cover; }
-/* The card is one surface that grows: no double outline from a cross-fade */
-::view-transition-old(ac-card) { display: none; }
-::view-transition-new(ac-card) { animation: none; width: 100%; height: 100%; }
-::view-transition-group(ac-facts), ::view-transition-group(ac-id), ::view-transition-group(ac-pills) { overflow: clip; }
-::view-transition-old(ac-facts), ::view-transition-new(ac-facts),
-::view-transition-old(ac-id), ::view-transition-new(ac-id),
-::view-transition-old(ac-pills), ::view-transition-new(ac-pills),
-::view-transition-old(ac-top), ::view-transition-new(ac-top) { width: auto; height: auto; object-fit: none; object-position: left top; }
-::view-transition-new(ac-alert), ::view-transition-new(ac-foot) { animation: ds-ac-in var(--duration-moderate) var(--ease-out) calc(var(--duration-slower) * .7) both; }
-::view-transition-old(ac-alert), ::view-transition-old(ac-foot) { animation: ds-ac-out var(--duration-fast) var(--ease-exit) both; }
-@keyframes ds-ac-in { from { opacity: 0; transform: translateY(var(--space-2)); } }
-@keyframes ds-ac-out { to { opacity: 0; transform: translateY(calc(var(--space-1) * -1)); } }
+/* Expand and collapse: the real photo resizes on --ease-in-out (no snapshots, so no
+   ghosting); the card's height follows it; the text fades in once the photo is under way.
+   Driven by assets/site.js with the Web Animations API, timed by the motion tokens. */
 .animal-card__toggle .icon { transition: transform var(--duration-slower) var(--ease-in-out); }
 .animal-card.is-morphing .animal-card__toggle .icon { transform: rotate(90deg); }
+.animal-card.is-morphing { pointer-events: none; overflow: clip; }
+.animal-card.is-morphing .animal-card__media { will-change: width, height; }
 @media (pointer: coarse) { .animal-card__toggle { width: var(--size-touch-min); height: var(--size-touch-min); } }
 @media (max-width: 420px) { .animal-card[data-state="compact"] { grid-template-columns: 104px minmax(0, 1fr); } .animal-card__facts dd { font-size: var(--text-md); } }
 /* Mortality: the danger tag, a red line that shows in both states, a muted photo */
