@@ -64,7 +64,7 @@
   <aside class="tt-side" aria-label="Preview settings">
     <div class="tt-group"><span class="t-overline">Screen</span>
       <div class="select-wrap"><select class="select" id="tt-screen" aria-label="Screen">
-        <option value="kit">Component kit</option><option value="animals">Animal cards</option><option value="home">Home dashboard</option><option value="record">Pharmacy list + work drawer</option><option value="housing">Housing</option><option value="people">Choose people</option><option value="task">Add task</option><option value="request">New request</option><option value="date">Set a date</option>
+        <option value="kit">Component kit</option><option value="animals">Animal cards</option><option value="stats">Dashboard stats</option><option value="home">Home dashboard</option><option value="record">Pharmacy list + work drawer</option><option value="housing">Housing</option><option value="people">Choose people</option><option value="task">Add task</option><option value="request">New request</option><option value="date">Set a date</option>
       </select></div></div>
     <div class="tt-group"><span class="t-overline">Compare</span>
       <div class="segmented segmented--block" role="group" aria-label="Compare" id="tt-compare"><button type="button" data-v="single" aria-pressed="true">One</button><button type="button" data-v="themes" aria-pressed="false">Light + dark</button><button type="button" data-v="all" aria-pressed="false">All 4</button></div></div>
@@ -78,7 +78,7 @@
       <div class="segmented segmented--block" role="group" aria-label="Device" id="tt-device"><button type="button" data-v="phone" aria-pressed="false" title="Phone 390 × 844"><svg class="icon icon--sm"><use href="#i-smartphone"/></svg></button><button type="button" data-v="tablet-p" aria-pressed="false" title="Tablet portrait 820 × 1180"><svg class="icon icon--sm"><use href="#i-tablet"/></svg></button><button type="button" data-v="tablet-l" aria-pressed="false" title="Tablet landscape 1180 × 820"><svg class="icon icon--sm" style="transform:rotate(90deg)"><use href="#i-tablet"/></svg></button><button type="button" data-v="desktop" aria-pressed="true" title="Desktop 1440 × 900"><svg class="icon icon--sm"><use href="#i-monitor"/></svg></button><button type="button" data-v="all" aria-pressed="false">All</button></div></div>
     <div class="tt-group"><span class="t-overline">Hero wash</span>
       <div class="tt-wash" id="tt-wash"><button type="button" data-v="primary" aria-pressed="true" style="background:var(--gradient-wash-primary)" title="Wash 1 · Primary">1</button><button type="button" data-v="celebrate" aria-pressed="false" style="background:var(--gradient-wash-celebrate)" title="Wash 2 · Celebrate">2</button><button type="button" data-v="calm" aria-pressed="false" style="background:var(--gradient-wash-calm)" title="Wash 3 · Calm">3</button><button type="button" data-v="illustrative" aria-pressed="false" style="background:var(--gradient-wash-illustrative)" title="Wash 4 · Illustrative">4</button><button type="button" data-v="none" aria-pressed="false" title="No wash">None</button></div>
-      <span class="t-caption">Applies to the hero band on Home, the kit, animal cards and the pharmacy screen.</span></div>
+      <span class="t-caption">Applies to the hero band on Home, the kit, animal cards, dashboard stats and the pharmacy screen.</span></div>
     <div class="tt-group"><span class="t-overline">Direction</span>
       <label class="check"><input type="checkbox" id="tt-rtl"> Right to left (Arabic)</label></div>
     <div class="alert"><svg class="icon"><use href="#i-info"/></svg><div><b>Previewing, not editing</b>To change a value, edit <code>tokens/src</code> and run <code>node tools/build.mjs</code>. The tester reloads the built tokens.</div></div>
@@ -199,7 +199,7 @@
           return '<td><span class="tt-swatch" style="background:' + b + ';color:' + a + '">Aa</span> <b class="num">' + r.toFixed(2) + '</b> <span class="status status--plain ' + (ok ? 'status--success' : 'status--danger') + '">' + (ok ? 'Pass' : 'Fail') + '</span></td>';
         }).join('') + '</tr>';
       }).join('');
-      body.innerHTML = '<p class="t-small t-secondary">Computed from the built tokens (<code>dist/tokens/token-index.json</code>). The build checks 256 pairs in all four modes and refuses to ship a failure; this shows the key ones for the modes on screen.</p><div class="table-wrap"><table class="table tt-aa"><thead>' + head + '</thead><tbody>' + rows + '</tbody></table></div>';
+      body.innerHTML = '<p class="t-small t-secondary">Computed from the built tokens (<code>dist/tokens/token-index.json</code>). The build checks every approved pair in all four modes and refuses to ship a failure; this shows the key ones for the modes on screen.</p><div class="table-wrap"><table class="table tt-aa"><thead>' + head + '</thead><tbody>' + rows + '</tbody></table></div>';
     } else if (state.tab === 'tokens') {
       var k = modeKey(m[0][0], m[0][1]);
       var list = index.tokens.filter(function (t) { return t.type === 'color' && t.tier === 'semantic' && t[k] && t[k].length >= 7; });

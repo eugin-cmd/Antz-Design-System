@@ -2,7 +2,7 @@
 id: DD-001
 title: The four washes may back stat panels, chosen by meaning
 date: 2026-11-22
-status: proposed
+status: accepted
 class: minor
 owner: Design System Maintainers
 affects: [stat-row--boxed, gradient-wash-*, rule ANTZ-GRD-02]
