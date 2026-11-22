@@ -20,7 +20,8 @@
      Works for .segmented (all variants) and the docs' .page-tabs. The group
      gets .has-indicator, which hides the per-item highlight; a single
      .tab-indicator moves to the selected item (aria-selected or
-     aria-pressed) on --duration-slow and --ease-spring. */
+     aria-pressed) and settles with an elastic overshoot (--ease-elastic over
+     --duration-slower, set in components.css). */
   var TABS = '.segmented, .page-tabs';
   function selectedIn(g) {
     for (var i = 0; i < g.children.length; i++) {

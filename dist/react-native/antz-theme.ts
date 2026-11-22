@@ -603,6 +603,12 @@ export const antzTheme = {
         0,
         0.35,
         1
+      ],
+      "elastic": [
+        0.34,
+        1.56,
+        0.64,
+        1
       ]
     },
     "stagger": 60,

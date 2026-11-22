@@ -945,7 +945,7 @@ a.animal:hover { background: var(--color-surface-hover); }
 
 /* ── Sliding tab indicator (1.1) ─────────────────────────────────────────
    components.js adds .has-indicator and one .tab-indicator per group; the
-   indicator glides to the selected item on --duration-slow, --ease-spring.
+   indicator glides to the selected item and settles with a small elastic overshoot (--duration-slower, --ease-elastic).
    Without the script, the per-item highlight above stays as it is. */
 .segmented.has-indicator { position: relative; isolation: isolate; }
 .segmented.has-indicator > button[aria-selected="true"], .segmented.has-indicator > button[aria-pressed="true"] { background: transparent; box-shadow: none; }
@@ -953,7 +953,7 @@ a.animal:hover { background: var(--color-surface-hover); }
 .tab-indicator {
   position: absolute; z-index: -1; top: 0; left: 0; width: var(--ind-w, 0px); height: var(--ind-h, 0px); pointer-events: none;
   transform: translate(var(--ind-x, 0px), var(--ind-y, 0px)); border-radius: var(--radius-sm); background: var(--color-surface); box-shadow: var(--shadow-xs);
-  transition: transform var(--duration-slow) var(--ease-spring), width var(--duration-slow) var(--ease-spring), height var(--duration-slow) var(--ease-spring), opacity var(--duration-fast) var(--ease-standard);
+  transition: transform var(--duration-slower) var(--ease-elastic), width var(--duration-slower) var(--ease-elastic), height var(--duration-slower) var(--ease-elastic), opacity var(--duration-fast) var(--ease-standard);
 }
 .segmented--pill > .tab-indicator { border-radius: var(--radius-full); }
 .segmented--line > .tab-indicator { top: auto; bottom: 0; height: var(--border-width-strong); transform: translateX(var(--ind-x, 0px)); border-radius: var(--radius-full) var(--radius-full) 0 0; background: var(--color-accent-indicator); box-shadow: none; }
