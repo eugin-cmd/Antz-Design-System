@@ -18,6 +18,22 @@
   </div>
 </div>
 
+<div class="doc" id="stat-panels">
+  <h3>Stat panels</h3>
+  <p class="lead">A boxed row of figures can sit on a wash. Pick the wash by what the figures are about, so the colour carries meaning: the same topic always gets the same wash. Labels switch to the darker secondary text automatically, so they stay readable on every part of the gradient.</p>
+  <div class="demo demo--canvas demo--grid" style="grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr))">
+    <div class="card"><div class="card__head"><span class="tile-icon tile-icon--solid"><svg class="icon"><use href="#i-trend"/></svg></span><div><b class="card__title">Key insights</b><span class="card__meta">Primary · general summaries</span></div></div>
+      <div class="stat-row stat-row--boxed stat-row--center stat-row--wash-primary"><div class="stat stat--accent"><span class="stat__value">24</span><span class="stat__label">Births</span></div><div class="stat stat--accent"><span class="stat__value">6</span><span class="stat__label">Transfers</span></div><div class="stat stat--accent"><span class="stat__value">1</span><span class="stat__label">Deaths</span></div></div></div>
+    <div class="card"><div class="card__head"><span class="tile-icon" style="--c:var(--hue-coral-ink)"><svg class="icon"><use href="#i-heart"/></svg></span><div><b class="card__title">Natality</b><span class="card__meta">Celebrate · good news only</span></div></div>
+      <div class="stat-row stat-row--boxed stat-row--center stat-row--wash-celebrate"><div class="stat stat--accent"><span class="stat__value">76</span><span class="stat__label">Births</span></div><div class="stat stat--accent"><span class="stat__value">18</span><span class="stat__label">Hatchings</span></div><div class="stat stat--accent"><span class="stat__value">9</span><span class="stat__label">Species</span></div></div></div>
+    <div class="card"><div class="card__head"><span class="tile-icon" style="--c:var(--hue-teal-ink)"><svg class="icon"><use href="#i-home"/></svg></span><div><b class="card__title">Housing</b><span class="card__meta">Calm · operational figures</span></div></div>
+      <div class="stat-row stat-row--boxed stat-row--center stat-row--wash-calm"><div class="stat stat--accent"><span class="stat__value">9</span><span class="stat__label">Sites</span></div><div class="stat stat--accent"><span class="stat__value">115</span><span class="stat__label">Sections</span></div><div class="stat stat--accent"><span class="stat__value">9,937</span><span class="stat__label">Enclosures</span></div></div></div>
+    <div class="card"><div class="card__head"><span class="tile-icon" style="--c:var(--hue-sky-ink)"><svg class="icon"><use href="#i-zap"/></svg></span><div><b class="card__title">Your first week</b><span class="card__meta">Illustrative · onboarding, featured</span></div></div>
+      <div class="stat-row stat-row--boxed stat-row--center stat-row--wash-illustrative"><div class="stat stat--accent"><span class="stat__value">3</span><span class="stat__label">Modules set up</span></div><div class="stat stat--accent"><span class="stat__value">12</span><span class="stat__label">Team invited</span></div><div class="stat stat--accent"><span class="stat__value">40</span><span class="stat__label">Animals added</span></div></div></div>
+  </div>
+  <div class="dd"><div class="do"><b><svg class="icon icon--sm"><use href="#i-check"/></svg>Do</b><ul><li>Give each topic one wash and keep it everywhere it appears.</li><li>Keep a panel with mortality on Primary or Calm.</li><li>Show at most two different washes on one screen.</li></ul></div><div class="dont"><b><svg class="icon icon--sm"><use href="#i-x"/></svg>Don't</b><ul><li>Rotate washes at random for variety.</li><li>Put deaths, alerts or overdue figures on Celebrate.</li><li>Colour the figures to match the wash; they stay brand green.</li></ul></div></div>
+</div>
+
 <div class="doc" id="tiers">
   <h3>Gradient tiers</h3>
   <p class="lead">Three tiers, each with a purpose. There are no other gradients: the guardrail check rejects any <code>linear-gradient()</code> that is not a token.</p>

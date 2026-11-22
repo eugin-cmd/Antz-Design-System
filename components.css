@@ -929,3 +929,16 @@ a.animal:hover { background: var(--color-surface-hover); }
 .animal-card--mortality .animal-card__media { color: var(--hue-coral-ink); background: var(--hue-coral-soft); }
 .animal-card .sex-tag, .animal-card__badge { white-space: nowrap; }
 .animal-card[data-state="compact"] .animal-card__top { flex-wrap: wrap; row-gap: var(--space-1); }
+
+/* ── Stat panels on a wash (1.1) ─────────────────────────────────────────
+   A boxed stat row can sit on one of the four washes, chosen by meaning:
+   primary = general summaries, celebrate = good news only (never mortality),
+   calm = operational and neutral figures, illustrative = onboarding and
+   featured panels. Labels move to secondary text so they pass on every stop
+   (the build checks figures and labels on each stop in all four modes). */
+.stat-row--wash-primary, .stat-row--wash-celebrate, .stat-row--wash-calm, .stat-row--wash-illustrative { box-shadow: var(--shadow-hairline); }
+.stat-row--wash-primary      { background: var(--gradient-wash-primary); }
+.stat-row--wash-celebrate    { background: var(--gradient-wash-celebrate); }
+.stat-row--wash-calm         { background: var(--gradient-wash-calm); }
+.stat-row--wash-illustrative { background: var(--gradient-wash-illustrative); }
+:is(.stat-row--wash-primary, .stat-row--wash-celebrate, .stat-row--wash-calm, .stat-row--wash-illustrative) .stat__label { color: var(--color-text-secondary); }

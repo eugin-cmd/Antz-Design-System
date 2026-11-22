@@ -142,6 +142,8 @@ const PAIRS = [
   ['color.tertiary.on-solid', 'color.tertiary.solid', T], ['color.tertiary.text', 'color.tertiary.soft', T], ['color.tertiary.text', 'color.surface', T],
   ...['success', 'warning', 'caution', 'danger', 'info'].flatMap((s) => [[`color.${s}.text`, `color.${s}.bg`, T], [`color.${s}.text`, 'color.surface', T], [`color.${s}.on-solid`, `color.${s}.solid`, T], [`color.signal.${s}`, 'color.surface', U]]),
   ['color.neutral.text', 'color.neutral.bg', T],
+  // Stat panels on a wash: figures (large text, 3:1) and labels (4.5:1) on every stop
+  ...['mint', 'rose', 'butter', 'aqua', 'sky', 'pink'].flatMap((w) => [['color.accent.text', `gradient-stop.${w}`, U], ['color.text', `gradient-stop.${w}`, T], ['color.text.secondary', `gradient-stop.${w}`, T]]),
   ...['green', 'teal', 'sky', 'coral', 'amber', 'violet', 'navy'].flatMap((h) => [[`hue.${h}.ink`, `hue.${h}.soft`, T], [`hue.${h}`, 'color.surface', U]]),
 ];
 const report = [];
