@@ -92,11 +92,11 @@
         <h4>Anatomy</h4>
         <ol class="anatomy"><li>Photo, or the paw mark on a tint</li><li>Sex tag and CITES appendix (short form when compact)</li><li>Show more / show less button</li><li>AAID: in the body when compact, over the photo when expanded</li><li>Latest alert (expanded): the one fact that needs attention</li><li>Facts: name, species, enclosure; expanded adds section and site</li><li>Age and weight pills</li><li>Footer (expanded): treatments, lab tests, vaccinations, medicines, and View details</li></ol>
       </div><div class="doc" id="p-animal">
-        <h3>Animal card and sex tags</h3>
-        <p class="lead">One animal: thumbnail with its sex tag, the AAID, the name and up to four facts. A death adds the mortality tag, a red line with the date and time, and a rounded rail beside the text.</p>
-        <div class="demo demo--grid">
-          <a class="animal" href="#p-animal"><span class="animal__thumb" style="--c:var(--hue-amber-ink);--c-soft:var(--hue-amber-soft)"><svg class="icon"><use href="#i-paw"/></svg><span class="sex-tag">M</span></span><div class="animal__body"><span class="animal__id">AAID 87546/24</span><b class="card__title">Madhav</b><dl class="kv"><dt>Species</dt><dd>Asian elephant</dd><dt>Encl.</dt><dd>Elephant Camp · E2</dd><dt>Age</dt><dd>14 years</dd></dl></div><svg class="icon"><use href="#i-chevron-right"/></svg></a>
-          <a class="animal animal--mortality" href="#p-animal"><span class="animal__thumb"><svg class="icon"><use href="#i-paw"/></svg><span class="sex-tag sex-tag--mortality">M · died</span></span><div class="animal__body"><span class="animal__id">AAID 66102/19</span><b class="card__title">Bheem</b><span class="animal__alert">Mortality · 12 Aug 2026, 12:00 pm</span><dl class="kv"><dt>Species</dt><dd>Sambar deer</dd><dt>Cause</dt><dd>Natural</dd></dl></div><svg class="icon"><use href="#i-chevron-right"/></svg></a>
+        <h3>In lists, and mortality</h3>
+        <p class="lead">Compact cards as they appear in lists. A death adds the mortality tag, a red line with the date and time that shows in both states, a red outline and a muted photo. Expand a card to see its record counts.</p>
+        <div class="demo demo--canvas demo--grid ac-demo-grid">
+          <article class="animal-card" data-state="compact"><div class="animal-card__media"><svg class="icon" aria-hidden="true"><use href="#i-paw"/></svg><div class="animal-card__top"><span class="sex-tag">M</span><span class="animal-card__badge"><span class="ac-x">CITES I</span><span class="ac-c">C I</span></span></div><div class="animal-card__overlay ac-x"><b class="animal-card__id">AAID: 87546/24</b><span class="animal-card__pills"><span class="ac-pill ac-pill--age"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg><span class="sr-only">Age </span>14y</span><span class="ac-pill ac-pill--weight"><svg class="icon" aria-hidden="true"><use href="#i-scale"/></svg><span class="sr-only">Weight </span>3,420 kg</span></span></div><button class="animal-card__toggle" type="button" data-animal-toggle aria-expanded="false" aria-label="Show more"><svg class="icon"><use href="#i-maximize"/></svg></button></div><div class="animal-card__body"><b class="animal-card__id ac-c">AAID: 87546/24</b><p class="animal-card__alert ac-x"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Foot care due this week</p><dl class="animal-card__facts"><dt>Name</dt><dd>Madhav</dd><dt>Species</dt><dd>Asian elephant</dd><dt>Enclosure</dt><dd>Elephant Camp · E2</dd><dt class="ac-x">Section</dt><dd class="ac-x">Elephants</dd><dt class="ac-x">Site</dt><dd class="ac-x">North site</dd></dl><div class="animal-card__pills ac-c"><span class="ac-pill"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg><span class="sr-only">Age </span>14y</span><span class="ac-pill"><svg class="icon" aria-hidden="true"><use href="#i-scale"/></svg><span class="sr-only">Weight </span>3,420 kg</span></div></div><footer class="animal-card__foot ac-x"><span class="ac-count" title="Treatments"><svg class="icon" aria-hidden="true"><use href="#i-treatment"/></svg>2<span class="sr-only"> treatments</span></span><span class="ac-count" title="Lab tests"><svg class="icon" aria-hidden="true"><use href="#i-test-tube"/></svg>4<span class="sr-only"> lab tests</span></span><span class="ac-count" title="Vaccinations"><svg class="icon" aria-hidden="true"><use href="#i-syringe"/></svg>1<span class="sr-only"> vaccinations</span></span><span class="ac-count" title="Medicines"><svg class="icon" aria-hidden="true"><use href="#i-medicine"/></svg>3<span class="sr-only"> medicines</span></span><a class="animal-card__more" href="#p-animal">View details<span class="sr-only"> for Madhav</span><svg class="icon" aria-hidden="true"><use href="#i-chevron-right"/></svg></a></footer></article>
+          <article class="animal-card animal-card--mortality" data-state="compact"><div class="animal-card__media"><svg class="icon" aria-hidden="true"><use href="#i-paw"/></svg><div class="animal-card__top"><span class="sex-tag sex-tag--mortality">M · died</span><span class="animal-card__badge"><span class="ac-x">CITES III</span><span class="ac-c">C III</span></span></div><div class="animal-card__overlay ac-x"><b class="animal-card__id">AAID: 66102/19</b><span class="animal-card__pills"><span class="ac-pill ac-pill--age"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg><span class="sr-only">Age </span>19y 4m</span><span class="ac-pill ac-pill--weight"><svg class="icon" aria-hidden="true"><use href="#i-scale"/></svg><span class="sr-only">Weight </span>226 kg</span></span></div><button class="animal-card__toggle" type="button" data-animal-toggle aria-expanded="false" aria-label="Show more"><svg class="icon"><use href="#i-maximize"/></svg></button></div><div class="animal-card__body"><b class="animal-card__id ac-c">AAID: 66102/19</b><p class="animal-card__alert"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Mortality · 12 Aug 2026, 12:00 pm</p><dl class="animal-card__facts"><dt>Name</dt><dd>Bheem</dd><dt>Species</dt><dd>Sambar deer</dd><dt>Cause</dt><dd>Natural</dd><dt class="ac-x">Enclosure</dt><dd class="ac-x">Deer Park · D3</dd><dt class="ac-x">Site</dt><dd class="ac-x">North site</dd></dl><div class="animal-card__pills ac-c"><span class="ac-pill"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg><span class="sr-only">Age </span>19y 4m</span><span class="ac-pill"><svg class="icon" aria-hidden="true"><use href="#i-scale"/></svg><span class="sr-only">Weight </span>226 kg</span></div></div><footer class="animal-card__foot ac-x"><span class="ac-count" title="Treatments"><svg class="icon" aria-hidden="true"><use href="#i-treatment"/></svg>2<span class="sr-only"> treatments</span></span><span class="ac-count" title="Lab tests"><svg class="icon" aria-hidden="true"><use href="#i-test-tube"/></svg>4<span class="sr-only"> lab tests</span></span><span class="ac-count" title="Vaccinations"><svg class="icon" aria-hidden="true"><use href="#i-syringe"/></svg>1<span class="sr-only"> vaccinations</span></span><span class="ac-count" title="Medicines"><svg class="icon" aria-hidden="true"><use href="#i-medicine"/></svg>3<span class="sr-only"> medicines</span></span><a class="animal-card__more" href="#p-animal">View details<span class="sr-only"> for Bheem</span><svg class="icon" aria-hidden="true"><use href="#i-chevron-right"/></svg></a></footer></article>
         </div>
         <h4>Sex tags</h4>
         <div class="demo">
@@ -112,7 +112,7 @@
           <div class="do"><b><svg class="icon icon--sm"><use href="#i-check"/></svg>Do</b><ul><li>Use compact in lists and grids; expand one card at a time, or open it expanded on a record page.</li><li>Show one alert line, the most important one, in the warning colour; use danger only for mortality.</li><li>Give every photo alt text naming the animal; keep the AAID on the scrim, never straight on the photo.</li><li>Label the counts for screen readers (they are icons with numbers).</li></ul></div>
           <div class="dont"><b><svg class="icon icon--sm"><use href="#i-x"/></svg>Don't</b><ul><li>Add more than five facts or four counts.</li><li>Put coloured text straight on a photo.</li><li>Show both the compact pills and the photo pills at once.</li><li>Hide the AAID: it is the animal's identity.</li></ul></div>
         </div></div><div class="doc" id="p-animal-usage"><h3>Animal card and sex tags</h3><div class="dd">
-          <div class="do"><b><svg class="icon icon--sm"><use href="#i-check"/></svg>Do</b><ul><li>Show the AAID and the sex tag on every animal card.</li><li>Mark a death with the mortality tag, the red date line and the rail.</li></ul></div>
+          <div class="do"><b><svg class="icon icon--sm"><use href="#i-check"/></svg>Do</b><ul><li>Show the AAID and the sex tag on every animal card.</li><li>Mark a death with the mortality tag and the red date line; keep the line visible in both states.</li></ul></div>
           <div class="dont"><b><svg class="icon icon--sm"><use href="#i-x"/></svg>Don't</b><ul><li>Run a stripe down the card's outer edge.</li><li>Show more than four facts on one card.</li></ul><div class="eg"><span class="t-overline">Wrong</span><div class="row" style="background:var(--color-danger-bg);box-shadow:inset 3px 0 0 var(--color-signal-danger)"><span class="row__body"><span class="row__title">Outer edge stripe</span><span class="row__meta">Bends round the corner</span></span></div></div></div>
         </div></div></section><section class="tab-panel" id="panel-code" data-tab="code" role="tabpanel" aria-labelledby="tab-code" hidden><div class="doc" id="p-animal-card-code"><h3>Animal card (compact and expanded)</h3><p>Set <code>data-state</code> to <code>compact</code> or <code>expanded</code>. Elements with <code>.ac-c</code> show only when compact, <code>.ac-x</code> only when expanded. A button with <code>data-animal-toggle</code> switches state and keeps <code>aria-expanded</code> in step.</p><pre><code>&lt;article class="animal-card" data-state="compact"&gt;
   &lt;div class="animal-card__media"&gt;
@@ -135,36 +135,98 @@
     &lt;span class="ac-count"&gt;…3&lt;span class="sr-only"&gt; treatments&lt;/span&gt;&lt;/span&gt; …
     &lt;a class="animal-card__more" href="…"&gt;View details&lt;/a&gt;
   &lt;/footer&gt;
-&lt;/article&gt;</code></pre></div><div class="doc" id="p-animal-code"><h3>Animal card and sex tags</h3><h4>Classes</h4><div class="chips"><code>.animal</code><code>.animal__thumb</code><code>.icon</code><code>.sex-tag</code><code>.animal__body</code><code>.animal__id</code><code>.card__title</code><code>.kv</code><code>.animal--mortality</code><code>.sex-tag--mortality</code><code>.animal__alert</code><code>.t-caption</code><code>.sex-tag--f</code><code>.sex-tag--ud</code><code>.sex-tag--id</code><code>.sex-tag--g</code></div><details class="code" open><summary>Example 1 markup</summary><pre><code>&lt;div class="demo demo--grid"&gt;
-  &lt;a class="animal" href="#p-animal"&gt;
-    &lt;span class="animal__thumb" style="--c:var(--hue-amber-ink);--c-soft:var(--hue-amber-soft)"&gt;&lt;svg class="icon"&gt;&lt;use href="#i-paw"/&gt;&lt;/svg&gt;&lt;span class="sex-tag"&gt;M&lt;/span&gt;&lt;/span&gt;
-    &lt;div class="animal__body"&gt;
-      &lt;span class="animal__id"&gt;AAID 87546/24&lt;/span&gt;&lt;b class="card__title"&gt;Madhav&lt;/b&gt;
-      &lt;dl class="kv"&gt;
-        &lt;dt&gt;Species&lt;/dt&gt;
-        &lt;dd&gt;Asian elephant&lt;/dd&gt;
-        &lt;dt&gt;Encl.&lt;/dt&gt;
-        &lt;dd&gt;Elephant Camp · E2&lt;/dd&gt;
-        &lt;dt&gt;Age&lt;/dt&gt;
-        &lt;dd&gt;14 years&lt;/dd&gt;
-      &lt;/dl&gt;
-    &lt;/div&gt;
-    &lt;svg class="icon"&gt;&lt;use href="#i-chevron-right"/&gt;&lt;/svg&gt;
-  &lt;/a&gt;
-  &lt;a class="animal animal--mortality" href="#p-animal"&gt;
-    &lt;span class="animal__thumb"&gt;&lt;svg class="icon"&gt;&lt;use href="#i-paw"/&gt;&lt;/svg&gt;&lt;span class="sex-tag sex-tag--mortality"&gt;M · died&lt;/span&gt;&lt;/span&gt;
-    &lt;div class="animal__body"&gt;
-      &lt;span class="animal__id"&gt;AAID 66102/19&lt;/span&gt;&lt;b class="card__title"&gt;Bheem&lt;/b&gt;&lt;span class="animal__alert"&gt;Mortality · 12 Aug 2026, 12:00 pm&lt;/span&gt;
-      &lt;dl class="kv"&gt;
-        &lt;dt&gt;Species&lt;/dt&gt;
-        &lt;dd&gt;Sambar deer&lt;/dd&gt;
-        &lt;dt&gt;Cause&lt;/dt&gt;
-        &lt;dd&gt;Natural&lt;/dd&gt;
-      &lt;/dl&gt;
-    &lt;/div&gt;
-    &lt;svg class="icon"&gt;&lt;use href="#i-chevron-right"/&gt;&lt;/svg&gt;
-  &lt;/a&gt;
-&lt;/div&gt;</code></pre></details><details class="code"><summary>Example 2 markup</summary><pre><code>&lt;div class="demo"&gt;
+&lt;/article&gt;</code></pre></div><div class="doc" id="p-animal-code"><h3>In lists, and mortality</h3><h4>Classes</h4><div class="chips"><code>.animal-card</code><code>.animal-card--mortality</code><code>.sex-tag--mortality</code><code>.animal-card__alert</code><code>.ac-c</code><code>.ac-x</code><code>.sex-tag</code><code>.sex-tag--f</code><code>.sex-tag--ud</code><code>.sex-tag--id</code><code>.sex-tag--g</code></div><p class="t-small t-secondary">The older row card (<code>.animal</code>) still works for existing screens but is deprecated; use <code>.animal-card</code> for new work.</p><details class="code" open><summary>Example 1 markup</summary><pre><code>&lt;article class=&quot;animal-card animal-card--mortality&quot; data-state=&quot;compact&quot;&gt;
+&lt;div class=&quot;animal-card__media&quot;&gt;
+&lt;svg class=&quot;icon&quot; aria-hidden=&quot;true&quot;&gt;
+&lt;use href=&quot;#i-paw&quot;/&gt;
+&lt;/svg&gt;
+&lt;div class=&quot;animal-card__top&quot;&gt;
+&lt;span class=&quot;sex-tag sex-tag--mortality&quot;&gt;M · died&lt;/span&gt;
+&lt;span class=&quot;animal-card__badge&quot;&gt;
+&lt;span class=&quot;ac-x&quot;&gt;CITES III&lt;/span&gt;
+&lt;span class=&quot;ac-c&quot;&gt;C III&lt;/span&gt;
+&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;animal-card__overlay ac-x&quot;&gt;
+&lt;b class=&quot;animal-card__id&quot;&gt;AAID: 66102/19&lt;/b&gt;
+&lt;span class=&quot;animal-card__pills&quot;&gt;
+&lt;span class=&quot;ac-pill ac-pill--age&quot;&gt;
+&lt;svg class=&quot;icon&quot; aria-hidden=&quot;true&quot;&gt;
+&lt;use href=&quot;#i-calendar&quot;/&gt;
+&lt;/svg&gt;
+&lt;span class=&quot;sr-only&quot;&gt;Age &lt;/span&gt;19y 4m&lt;/span&gt;
+&lt;span class=&quot;ac-pill ac-pill--weight&quot;&gt;
+&lt;svg class=&quot;icon&quot; aria-hidden=&quot;true&quot;&gt;
+&lt;use href=&quot;#i-scale&quot;/&gt;
+&lt;/svg&gt;
+&lt;span class=&quot;sr-only&quot;&gt;Weight &lt;/span&gt;226 kg&lt;/span&gt;
+&lt;/span&gt;
+&lt;/div&gt;
+&lt;button class=&quot;animal-card__toggle&quot; type=&quot;button&quot; data-animal-toggle aria-expanded=&quot;false&quot; aria-label=&quot;Show more&quot;&gt;
+&lt;svg class=&quot;icon&quot;&gt;
+&lt;use href=&quot;#i-maximize&quot;/&gt;
+&lt;/svg&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class=&quot;animal-card__body&quot;&gt;
+&lt;b class=&quot;animal-card__id ac-c&quot;&gt;AAID: 66102/19&lt;/b&gt;
+&lt;p class=&quot;animal-card__alert&quot;&gt;
+&lt;svg class=&quot;icon&quot; aria-hidden=&quot;true&quot;&gt;
+&lt;use href=&quot;#i-alert&quot;/&gt;
+&lt;/svg&gt;Mortality · 12 Aug 2026, 12:00 pm&lt;/p&gt;
+&lt;dl class=&quot;animal-card__facts&quot;&gt;
+&lt;dt&gt;Name&lt;/dt&gt;
+&lt;dd&gt;Bheem&lt;/dd&gt;
+&lt;dt&gt;Species&lt;/dt&gt;
+&lt;dd&gt;Sambar deer&lt;/dd&gt;
+&lt;dt&gt;Cause&lt;/dt&gt;
+&lt;dd&gt;Natural&lt;/dd&gt;
+&lt;dt class=&quot;ac-x&quot;&gt;Enclosure&lt;/dt&gt;
+&lt;dd class=&quot;ac-x&quot;&gt;Deer Park · D3&lt;/dd&gt;
+&lt;dt class=&quot;ac-x&quot;&gt;Site&lt;/dt&gt;
+&lt;dd class=&quot;ac-x&quot;&gt;North site&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;div class=&quot;animal-card__pills ac-c&quot;&gt;
+&lt;span class=&quot;ac-pill&quot;&gt;
+&lt;svg class=&quot;icon&quot; aria-hidden=&quot;true&quot;&gt;
+&lt;use href=&quot;#i-calendar&quot;/&gt;
+&lt;/svg&gt;
+&lt;span class=&quot;sr-only&quot;&gt;Age &lt;/span&gt;19y 4m&lt;/span&gt;
+&lt;span class=&quot;ac-pill&quot;&gt;
+&lt;svg class=&quot;icon&quot; aria-hidden=&quot;true&quot;&gt;
+&lt;use href=&quot;#i-scale&quot;/&gt;
+&lt;/svg&gt;
+&lt;span class=&quot;sr-only&quot;&gt;Weight &lt;/span&gt;226 kg&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;footer class=&quot;animal-card__foot ac-x&quot;&gt;
+&lt;span class=&quot;ac-count&quot; title=&quot;Treatments&quot;&gt;
+&lt;svg class=&quot;icon&quot; aria-hidden=&quot;true&quot;&gt;
+&lt;use href=&quot;#i-treatment&quot;/&gt;
+&lt;/svg&gt;2&lt;span class=&quot;sr-only&quot;&gt; treatments&lt;/span&gt;
+&lt;/span&gt;
+&lt;span class=&quot;ac-count&quot; title=&quot;Lab tests&quot;&gt;
+&lt;svg class=&quot;icon&quot; aria-hidden=&quot;true&quot;&gt;
+&lt;use href=&quot;#i-test-tube&quot;/&gt;
+&lt;/svg&gt;4&lt;span class=&quot;sr-only&quot;&gt; lab tests&lt;/span&gt;
+&lt;/span&gt;
+&lt;span class=&quot;ac-count&quot; title=&quot;Vaccinations&quot;&gt;
+&lt;svg class=&quot;icon&quot; aria-hidden=&quot;true&quot;&gt;
+&lt;use href=&quot;#i-syringe&quot;/&gt;
+&lt;/svg&gt;1&lt;span class=&quot;sr-only&quot;&gt; vaccinations&lt;/span&gt;
+&lt;/span&gt;
+&lt;span class=&quot;ac-count&quot; title=&quot;Medicines&quot;&gt;
+&lt;svg class=&quot;icon&quot; aria-hidden=&quot;true&quot;&gt;
+&lt;use href=&quot;#i-medicine&quot;/&gt;
+&lt;/svg&gt;3&lt;span class=&quot;sr-only&quot;&gt; medicines&lt;/span&gt;
+&lt;/span&gt;
+&lt;a class=&quot;animal-card__more&quot; href=&quot;#p-animal&quot;&gt;View details&lt;span class=&quot;sr-only&quot;&gt; for Bheem&lt;/span&gt;
+&lt;svg class=&quot;icon&quot; aria-hidden=&quot;true&quot;&gt;
+&lt;use href=&quot;#i-chevron-right&quot;/&gt;
+&lt;/svg&gt;
+&lt;/a&gt;
+&lt;/footer&gt;
+&lt;/article&gt;</code></pre></details><details class="code"><summary>Example 2 markup</summary><pre><code>&lt;div class="demo"&gt;
   &lt;span class="cell" style="align-items:center"&gt;&lt;span class="sex-tag"&gt;M&lt;/span&gt;&lt;span class="t-caption"&gt;Male&lt;/span&gt;&lt;/span&gt; &lt;span class="cell" style="align-items:center"&gt;&lt;span class="sex-tag sex-tag--f"&gt;F&lt;/span&gt;&lt;span class="t-caption"&gt;Female&lt;/span&gt;&lt;/span&gt; &lt;span class="cell" style="align-items:center"&gt;&lt;span class="sex-tag sex-tag--ud"&gt;UD&lt;/span&gt;&lt;span class="t-caption"&gt;Undetermined&lt;/span&gt;&lt;/span&gt; &lt;span class="cell" style="align-items:center"&gt;&lt;span class="sex-tag sex-tag--id"&gt;ID&lt;/span&gt;&lt;span class="t-caption"&gt;Indeterminate&lt;/span&gt;&lt;/span&gt; &lt;span class="cell" style="align-items:center"&gt;&lt;span class="sex-tag sex-tag--g"&gt;G&lt;/span&gt;&lt;span class="t-caption"&gt;Group&lt;/span&gt;&lt;/span&gt; &lt;span class="cell" style="align-items:center"&gt;&lt;span class="sex-tag sex-tag--mortality"&gt;M · died&lt;/span&gt;&lt;span class="t-caption"&gt;Mortality&lt;/span&gt;&lt;/span&gt;
 &lt;/div&gt;</code></pre></details></div></section>
 <nav class="pager" aria-label="Previous and next page"><a class="pager__prev" href="date-picker.html"><svg class="icon"><use href="#i-arrow-left"/></svg><span><small>Previous</small><b>Date picker</b></span></a><a class="pager__next" href="progress-ring.html"><span><small>Next · Pattern components</small><b>Progress bar and ring</b></span><svg class="icon"><use href="#i-arrow-right"/></svg></a></nav>

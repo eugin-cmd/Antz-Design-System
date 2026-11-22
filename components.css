@@ -917,3 +917,9 @@ a.animal:hover { background: var(--color-surface-hover); }
 ::view-transition-group(*) { animation-duration: var(--duration-slow); animation-timing-function: var(--ease-out); }
 @media (pointer: coarse) { .animal-card__toggle { width: var(--size-touch-min); height: var(--size-touch-min); } }
 @media (max-width: 420px) { .animal-card[data-state="compact"] { grid-template-columns: 104px minmax(0, 1fr); } .animal-card__facts dd { font-size: var(--text-md); } }
+/* Mortality: the danger tag, a red line that shows in both states, a muted photo */
+.animal-card .sex-tag--mortality { color: var(--color-danger-on-solid); background: var(--color-danger-solid); }
+.animal-card--mortality .animal-card__media > img { filter: grayscale(.7); }
+.animal-card--mortality .animal-card__media { color: var(--hue-coral-ink); background: var(--hue-coral-soft); }
+.animal-card .sex-tag, .animal-card__badge { white-space: nowrap; }
+.animal-card[data-state="compact"] .animal-card__top { flex-wrap: wrap; row-gap: var(--space-1); }

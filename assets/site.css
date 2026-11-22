@@ -356,3 +356,4 @@ body { background: var(--color-bg-canvas); overflow-x: hidden; }
 .wash-sample p { margin: var(--space-1) 0 0; font-size: var(--text-sm); color: var(--color-text-secondary); }
 .wash-sample small { margin-top: auto; font-size: var(--text-xs); font-weight: var(--weight-semibold); }
 .grad-sw { display: inline-block; width: 64px; height: 40px; border-radius: var(--radius-sm); box-shadow: var(--shadow-hairline); vertical-align: middle; }
+.ac-demo-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr)) !important; align-items: start; }
