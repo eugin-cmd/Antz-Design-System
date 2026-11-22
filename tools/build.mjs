@@ -265,6 +265,8 @@ const index = [...MODES.light.values()].map((t) => ({
   ref: isRef(t.value) ? t.value.slice(1, -1) : (layer.dark.get(t.name) ? undefined : undefined), darkRef: layer.dark.get(t.name) && isRef(layer.dark.get(t.name).value) ? layer.dark.get(t.name).value.slice(1, -1) : undefined,
 }));
 write('dist/tokens/token-index.json', JSON.stringify({ version: VERSION, generated: 'tools/build.mjs', tokens: index }, null, 2) + '\n');
+// Same index as a script, so the theme tester also works when opened straight from disk (file://), where fetch is blocked.
+write('dist/tokens/token-index.js', `/* ${HEADER('token index for the theme tester').replace(/\n/g, ' ')} */\nwindow.ANTZ_TOKEN_INDEX = ${JSON.stringify({ version: VERSION, tokens: index })};\n`);
 
 // colors.json (kept at the root for continuity with Foundation v0.2)
 const colorsOut = { $description: HEADER('every colour token, resolved, per theme'), version: VERSION };

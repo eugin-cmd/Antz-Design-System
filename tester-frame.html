@@ -91,6 +91,7 @@
 </template>
 
 <script src="assets/site.js?v=100beta1"></script>
+<script src="assets/screens.js?v=100beta1"></script>
 <script>
 (function () {
   var q = new URLSearchParams(location.search);
@@ -104,7 +105,10 @@
   function done() { applyWash(host); document.documentElement.dataset.ready = '1'; }
   var local = document.getElementById('screen-' + screen);
   if (local) { host.innerHTML = ''; host.appendChild(local.content.cloneNode(true)); done(); return; }
-  fetch('pages/screen-' + screen + '.html').then(function (r) { return r.text(); }).then(function (html) {
+  // Screen templates come from assets/screens.js (works from disk); fall back to reading the screen page.
+  var bundled = window.ANTZ_SCREENS && window.ANTZ_SCREENS[screen];
+  var source = bundled ? Promise.resolve('<template>' + bundled + '</template>') : fetch('pages/screen-' + screen + '.html').then(function (r) { return r.text(); });
+  source.then(function (html) {
     var doc = new DOMParser().parseFromString(html, 'text/html');
     var tpl = doc.querySelector('template');
     host.innerHTML = '';

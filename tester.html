@@ -101,6 +101,7 @@
 /* Icon sprite: reuse the docs sprite by loading site.js's symbols without its chrome. */
 </script>
 <script src="assets/site.js?v=100beta1"></script>
+<script src="dist/tokens/token-index.js?v=100beta1"></script>
 <script>
 (function () {
   var $ = function (s, el) { return (el || document).querySelector(s); };
@@ -112,8 +113,11 @@
   location.hash.replace(/^#/, '').split('&').forEach(function (kv) { var p = kv.split('='); if (p[0] in state && p[1] != null) state[p[0]] = p[0] === 'rtl' ? p[1] === '1' : decodeURIComponent(p[1]); });
   if (!DEVICES[state.device] && state.device !== 'all') state.device = 'desktop';
 
+  // Token index from dist/tokens/token-index.js (works from disk); fall back to the JSON over a server.
   var index = null;
-  fetch('dist/tokens/token-index.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (d) { index = d; $('#tt-version').textContent = 'v' + d.version; renderDock(); }).catch(function () { $('#tt-dock-body').innerHTML = '<p class="t-caption">Open through a local server (python3 -m http.server) to load the token index.</p>'; });
+  function useIndex(d) { index = d; $('#tt-version').textContent = 'v' + d.version; renderDock(); }
+  if (window.ANTZ_TOKEN_INDEX) setTimeout(function () { useIndex(window.ANTZ_TOKEN_INDEX); }, 0);
+  else fetch('dist/tokens/token-index.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(useIndex).catch(function () { $('#tt-dock-body').innerHTML = '<p class="t-caption">The token index is missing. Run <code>node tools/build.mjs</code>.</p>'; });
 
   function modes() {
     if (state.compare === 'themes') return [['light', state.contrast], ['dark', state.contrast]];
