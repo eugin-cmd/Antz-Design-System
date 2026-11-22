@@ -2,7 +2,7 @@
 component: Animal card
 status: beta
 owners: { design: Design System Maintainers, web: Web platform lead, native: Native platform lead }
-version: 1.1.0-beta.1 (planned)
+version: 1.1.0-beta.1
 ---
 
 # Animal card

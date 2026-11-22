@@ -2,7 +2,9 @@
 
 All notable changes to the Antz Design System. Versions follow semantic versioning: patch for fixes, minor for additions, major for anything renamed, removed or changed in meaning. Every version listed here is published under `releases/` and tagged in Git.
 
-## Unreleased (redesign/components)
+## 1.1.0-beta.1 (22 November 2026)
+
+Additive: no token or class removed or renamed. Prototypes upgrade by changing `v1.0.0-beta.1` to `v1.1.0-beta.1` in their links and, for motion, adding `components.js`.
 
 ### Components
 - **Animal card, compact and expanded** (`.animal-card`, `data-state="compact|expanded"`): photo-led card with sex tag, CITES appendix, AAID, facts, age and weight pills; expanded adds the photo header with AAID over a scrim, the latest alert, section and site, and a footer of treatment, lab, vaccination and medicine counts with View details. One markup. Expanding and collapsing animate the real card on `--ease-elastic` over `--duration-slower` (about 9% overshoot, then settle, matching the tabs): the photo resizes (staying framed, never stretched), the card's height follows so neighbouring cards glide, and the text, AAID, pills and footer fade in once the photo is under way. No snapshot cross-fades, so no ghosting; works the same in every browser; instant under reduced motion.

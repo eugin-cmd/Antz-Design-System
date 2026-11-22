@@ -7,9 +7,17 @@ The governed design system for every Antz product: web dashboard, tablet and pho
 - **One source of truth.** Every value is a token in [`tokens/src`](tokens/src), in the open DTCG 2025.10 format. Primary green **#37BD69** (pinned), secondary teal **#00D9C7**, tertiary navy **#1F415B**.
 - **Every platform from the same source.** Designer CSS, an MUI theme for Next.js, a React Native theme, Figma variables and a resolved JSON for anything else.
 - **Themes.** Light, dark, high contrast (light and dark) and compact density. Components never change between them.
-- **Guardrails that run.** A contrast gate (256 checks in 4 modes), 16 automatic rules for any prototype or product, a self-test that proves they work, and a pre-commit hook.
+- **Guardrails that run.** A contrast gate (328 checks in 4 modes), 16 automatic rules for any prototype or product, a self-test that proves they work, and a pre-commit hook.
 - **Two tiers.** The repository root is Development. `releases/vX.Y.Z/` are Published: frozen, checksummed and tagged. Products pin a release.
 - **Docs and a theme tester.** Instructional docs for every foundation, component and pattern, and a tester that shows any screen in every mode and device size.
+
+## For teams starting now
+
+1. Clone the repository: `git clone https://github.com/eugin-cmd/Antz-Design-System.git`. The current release is **v1.1.0-beta.1**, on `main`.
+2. Link the pinned release, never the working copy (see the snippets below). Upgrading later means changing the version in the path; rolling back means changing it back.
+3. If you will change the system itself, turn on the pre-commit hook once: `git config core.hooksPath tools/hooks`.
+4. Check your own prototype or product folder with `node tools/check.mjs path/to/folder --report` and fix what it lists.
+5. Need a new colour, size, component or variant? Propose it (see the Governance page); don't add it locally.
 
 ## Quick start
 
@@ -24,9 +32,9 @@ In a prototype (designers):
 
 ```html
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="antz-design-system/releases/v1.0.0-beta.1/tokens.css">
-<link rel="stylesheet" href="antz-design-system/releases/v1.0.0-beta.1/components.css">
-<script src="antz-design-system/releases/v1.0.0-beta.1/components.js" defer></script>  <!-- optional: motion for tabs and the animal card (from 1.1) -->
+<link rel="stylesheet" href="antz-design-system/releases/v1.1.0-beta.1/tokens.css">
+<link rel="stylesheet" href="antz-design-system/releases/v1.1.0-beta.1/components.css">
+<script src="antz-design-system/releases/v1.1.0-beta.1/components.js" defer></script>  <!-- optional: motion for tabs and the animal card -->
 ```
 
 In the dashboard (MUI): `createTheme(antzThemeOptions({ mode, contrast }))` from `dist/mui/antz-mui-theme.js`.
@@ -61,7 +69,7 @@ The pre-commit hook (`tools/hooks/pre-commit`, enabled with `git config core.hoo
 | `tools/` | Build, check, test, docs, release | Yes |
 | `themes/` | Brand themes imported from the Previewer (Foundation feature) | Via the importer |
 
-## Status and known limits (1.0.0-beta.1)
+## Status and known limits (1.1.0-beta.1)
 
 - Designer CSS, tokens, themes, guardrails, docs, tester and release tooling are complete for this beta.
 - React and React Native **component packages** are not built yet. Developers get themes and tokens; component contracts come next (see the proposal roadmap).
