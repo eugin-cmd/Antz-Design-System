@@ -2,6 +2,13 @@
 
 All notable changes to the Antz Design System. Versions follow semantic versioning: patch for fixes, minor for additions, major for anything renamed, removed or changed in meaning. Every version listed here is published under `releases/` and tagged in Git.
 
+## Unreleased (redesign/components)
+
+### Components
+- **Animal card, compact and expanded** (`.animal-card`, `data-state="compact|expanded"`): photo-led card with sex tag, CITES appendix, AAID, facts, age and weight pills; expanded adds the photo header with AAID over a scrim, the latest alert, section and site, and a footer of treatment, lab, vaccination and medicine counts with View details. One markup; the toggle morphs between states (View Transitions), instantly under reduced motion.
+- New icons: maximize, minimize, scale, treatment, test tube, syringe, medicine.
+- New tokens: `--color-media-chip`, `--color-media-text` for chips and text over photos.
+
 ## 1.0.0-beta.1
 
 First release of the Antz Design System, the successor to ANTZ Design System Foundation v0.2. Class names are unchanged, so prototypes upgrade by changing their stylesheet links.

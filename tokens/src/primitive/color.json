@@ -1210,6 +1210,11 @@
     "focus-glow-dark": {
       "$type": "color",
       "$value": "#5EDF8640"
+    },
+    "media-chip": {
+      "$type": "color",
+      "$value": "#0E1512A6",
+      "$description": "Dark glass chip over photos"
     }
   }
 }

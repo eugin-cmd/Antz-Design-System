@@ -392,6 +392,18 @@
     "disabled-bg": {
       "$type": "color",
       "$value": "{ink.350}"
+    },
+    "media": {
+      "$description": "Chips and text placed over photography. Same in both themes; always sits on --gradient-scrim-photo or a dark glass chip.",
+      "chip": {
+        "$type": "color",
+        "$value": "{alpha.media-chip}"
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{ink.0}",
+        "$description": "Text over a photo scrim or media chip"
+      }
     }
   },
   "hue": {

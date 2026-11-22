@@ -1179,6 +1179,11 @@
       "focus-glow-dark": {
         "$type": "color",
         "$value": "#5EDF8640"
+      },
+      "media-chip": {
+        "$type": "color",
+        "$value": "#0E1512A6",
+        "$description": "Dark glass chip over photos"
       }
     }
   },
@@ -2122,6 +2127,17 @@
       "disabled-bg": {
         "$type": "color",
         "$value": "{ink.350}"
+      },
+      "media": {
+        "chip": {
+          "$type": "color",
+          "$value": "{alpha.media-chip}"
+        },
+        "text": {
+          "$type": "color",
+          "$value": "{ink.0}",
+          "$description": "Text over a photo scrim or media chip"
+        }
       }
     },
     "hue": {

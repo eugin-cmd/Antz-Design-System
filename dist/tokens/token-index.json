@@ -3127,6 +3127,17 @@
       "dark-hc": "#5EDF8640"
     },
     {
+      "name": "alpha.media-chip",
+      "css": "--alpha-media-chip",
+      "type": "color",
+      "tier": "primitive",
+      "description": "Dark glass chip over photos",
+      "light": "#0E1512A6",
+      "dark": "#0E1512A6",
+      "light-hc": "#0E1512A6",
+      "dark-hc": "#0E1512A6"
+    },
+    {
       "name": "font-family.sans",
       "css": "--font-family-sans",
       "type": "fontFamily",
@@ -5442,6 +5453,30 @@
       "dark-hc": "#26332D",
       "ref": "ink.350",
       "darkRef": "night.28"
+    },
+    {
+      "name": "color.media.chip",
+      "css": "--color-media-chip",
+      "type": "color",
+      "tier": "semantic",
+      "description": "",
+      "light": "#0E1512A6",
+      "dark": "#0E1512A6",
+      "light-hc": "#0E1512A6",
+      "dark-hc": "#0E1512A6",
+      "ref": "alpha.media-chip"
+    },
+    {
+      "name": "color.media.text",
+      "css": "--color-media-text",
+      "type": "color",
+      "tier": "semantic",
+      "description": "Text over a photo scrim or media chip",
+      "light": "#FFFFFF",
+      "dark": "#FFFFFF",
+      "light-hc": "#FFFFFF",
+      "dark-hc": "#FFFFFF",
+      "ref": "ink.0"
     },
     {
       "name": "hue.green",

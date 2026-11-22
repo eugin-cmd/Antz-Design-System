@@ -332,6 +332,7 @@
   --alpha-glass-border-dark: #FFFFFF14;
   --alpha-focus-glow-light: #37BD692E;
   --alpha-focus-glow-dark: #5EDF8640;
+  --alpha-media-chip: #0E1512A6;
 
   /* ── 2. Base ── */
   /* font-family */
@@ -572,6 +573,8 @@
   --color-focus: var(--green-40);
   --color-focus-glow: var(--alpha-focus-glow-light);
   --color-disabled-bg: var(--ink-350);
+  --color-media-chip: var(--alpha-media-chip);
+  --color-media-text: var(--ink-0);
 
   /* hue */
   --hue-green: var(--green-40);

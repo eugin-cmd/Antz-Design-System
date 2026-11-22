@@ -849,3 +849,71 @@ a.animal:hover { background: var(--color-surface-hover); }
 @media (pointer: coarse) {
   .btn--sm, .icon-btn--sm, .chip { min-height: var(--size-touch-min); }
 }
+
+/* ==========================================================================
+   Animal card (1.1): one markup, two states.
+   data-state="compact"  photo left, AAID, three facts, age and weight pills
+   data-state="expanded" photo on top with AAID and pills over a scrim, an
+                         alert line, five facts and a footer of record counts
+   .ac-c = compact only, .ac-x = expanded only. The toggle button switches
+   state; tools in assets/site.js animate it (View Transitions when present).
+   ========================================================================== */
+.animal-card {
+  position: relative; display: grid; grid-template-columns: clamp(112px, 34%, 240px) minmax(0, 1fr); grid-template-areas: "media body";
+  gap: var(--space-3) var(--space-4); min-width: 0; padding: var(--space-3); border-radius: var(--radius-xl);
+  color: var(--color-text); background: var(--color-surface-sunken); box-shadow: var(--shadow-hairline);
+  transition: box-shadow var(--duration-moderate) var(--ease-standard), transform var(--duration-base) var(--ease-standard);
+}
+@media (hover: hover) { .animal-card:hover { box-shadow: var(--shadow-md); transform: translateY(var(--motion-lift)); } }
+.animal-card[data-state="expanded"] { grid-template-columns: minmax(0, 1fr); grid-template-areas: "media" "body" "foot"; }
+.animal-card[data-state="compact"] .ac-x, .animal-card[data-state="expanded"] .ac-c { display: none !important; }
+
+/* Media */
+.animal-card__media { grid-area: media; position: relative; align-self: start; aspect-ratio: 1; border-radius: var(--radius-lg); overflow: hidden; isolation: isolate; color: var(--hue-amber-ink); background: var(--hue-amber-soft); }
+.animal-card[data-state="expanded"] .animal-card__media { aspect-ratio: 16 / 9; }
+.animal-card__media > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform var(--duration-slow) var(--ease-out); }
+@media (hover: hover) { .animal-card:hover .animal-card__media > img { transform: scale(1.04); } }
+.animal-card__media > .icon { position: absolute; inset: 0; margin: auto; width: 40%; height: 40%; stroke-width: 1.2; }
+.animal-card__media::after { content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none; background: var(--gradient-scrim-photo); opacity: 0; transition: opacity var(--duration-moderate) var(--ease-standard); }
+.animal-card[data-state="expanded"] .animal-card__media::after { opacity: 1; }
+.animal-card__top { position: absolute; z-index: 1; top: var(--space-2); left: var(--space-2); right: var(--space-2); display: flex; align-items: center; gap: var(--space-2); }
+.animal-card[data-state="compact"] .animal-card__badge { margin-left: auto; }
+.animal-card .sex-tag { min-width: 32px; height: 32px; padding: 0 var(--space-2); border-radius: var(--radius-sm); font-size: var(--text-md); color: var(--color-surface); background: var(--c); box-shadow: none; }
+.animal-card__badge { display: inline-flex; align-items: center; height: 32px; padding: 0 var(--space-2-5); border-radius: var(--radius-sm); font-size: var(--text-sm); font-weight: var(--weight-semibold); letter-spacing: .02em; color: var(--color-media-text); background: var(--color-media-chip); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.animal-card__toggle { position: absolute; z-index: 2; right: var(--space-2); bottom: var(--space-2); display: grid; place-items: center; width: 32px; height: 32px; padding: 0; border: 0; border-radius: var(--radius-sm); color: var(--color-media-text); background: var(--color-media-chip); cursor: pointer; transition: transform var(--duration-base) var(--ease-spring), background var(--duration-fast); }
+.animal-card__toggle:hover { transform: scale(1.08); }
+.animal-card__toggle .icon { width: 18px; height: 18px; }
+.animal-card[data-state="expanded"] .animal-card__toggle { top: var(--space-2); bottom: auto; }
+.animal-card__overlay { position: absolute; z-index: 1; left: var(--space-3); right: var(--space-3); bottom: var(--space-3); display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: var(--space-2); }
+.animal-card__overlay .animal-card__id { color: var(--color-media-text); font-size: var(--text-2xl); }
+
+/* Body */
+.animal-card__body { grid-area: body; display: flex; flex-direction: column; justify-content: center; gap: var(--space-2); min-width: 0; }
+.animal-card__id { margin: 0; font-size: var(--text-xl); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-snug); color: var(--color-text-secondary); font-variant-numeric: tabular-nums; }
+.animal-card__alert { display: flex; align-items: center; gap: var(--space-1-5); margin: 0; font-size: var(--text-md); font-weight: var(--weight-semibold); color: var(--color-warning-text); }
+.animal-card__alert .icon { width: 16px; height: 16px; }
+.animal-card__facts { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--space-1) var(--space-4); margin: 0; }
+.animal-card__facts dt { font-size: var(--text-md); color: var(--color-text-muted); }
+.animal-card__facts dd { margin: 0; font-size: var(--text-lg); font-weight: var(--weight-semibold); color: var(--color-text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.animal-card__pills { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.ac-pill { display: inline-flex; align-items: center; gap: var(--space-1-5); height: 36px; padding: 0 var(--space-3); border-radius: var(--radius-full); font-size: var(--text-md); font-weight: var(--weight-semibold); font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--color-text-secondary); background: var(--color-surface); box-shadow: var(--shadow-xs); }
+.ac-pill .icon { width: 18px; height: 18px; }
+.ac-pill--age { color: var(--hue-sky-ink); background: var(--hue-sky-soft); }
+.ac-pill--weight { color: var(--hue-coral-ink); background: var(--hue-coral-soft); }
+.animal-card[data-state="compact"] .ac-pill--age, .animal-card[data-state="compact"] .ac-pill--weight { color: var(--color-text-secondary); background: var(--color-surface); }
+
+/* Footer: record counts and the way in */
+.animal-card__foot { grid-area: foot; display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-4); padding: var(--space-2-5) var(--space-4); border-radius: var(--radius-lg); background: var(--color-surface-selected); }
+.ac-count { display: inline-flex; align-items: center; gap: var(--space-1); font-size: var(--text-lg); font-weight: var(--weight-medium); color: var(--color-accent-text); font-variant-numeric: tabular-nums; }
+.ac-count .icon { width: 22px; height: 22px; }
+.animal-card__more { margin-left: auto; display: inline-flex; align-items: center; gap: var(--space-1); font-size: var(--text-lg); font-weight: var(--weight-semibold); color: var(--color-accent-text); text-decoration: none; }
+.animal-card__more .icon { transition: transform var(--duration-base) var(--ease-spring); }
+.animal-card__more:hover { text-decoration: underline; text-underline-offset: 3px; }
+.animal-card__more:hover .icon { transform: translateX(3px); }
+.animal-card--mortality { box-shadow: inset 0 0 0 1.5px var(--color-danger-border); }
+.animal-card--mortality .animal-card__alert { color: var(--color-danger-text); }
+
+/* State change: morph with View Transitions; plain swap otherwise and under reduced motion */
+::view-transition-group(*) { animation-duration: var(--duration-slow); animation-timing-function: var(--ease-out); }
+@media (pointer: coarse) { .animal-card__toggle { width: var(--size-touch-min); height: var(--size-touch-min); } }
+@media (max-width: 420px) { .animal-card[data-state="compact"] { grid-template-columns: 104px minmax(0, 1fr); } .animal-card__facts dd { font-size: var(--text-md); } }
