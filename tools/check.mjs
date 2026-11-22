@@ -47,8 +47,10 @@ const findings = [];
 const add = (file, line, rule, msg, snippet) => findings.push({ file: path.relative(process.cwd(), file) || file, line, rule, severity: rules[rule]?.severity || 'error', msg, snippet: snippet.trim().slice(0, 140) });
 
 function exceptionFor(file, rule) {
+  // Exceptions name files relative to this repository; they never cover files elsewhere.
   const rel = path.relative(ROOT, path.resolve(file));
-  return exceptions.find((e) => e.rules.includes(rule) && e.files.some((f) => rel === f || rel.endsWith('/' + f) || path.basename(rel) === f));
+  if (rel.startsWith('..') || path.isAbsolute(rel)) return undefined;
+  return exceptions.find((e) => e.rules.includes(rule) && e.files.includes(rel));
 }
 
 // Extract CSS-ish text with line numbers: whole CSS files, <style> blocks, style="" attributes, and style objects/strings in JS.
