@@ -32,7 +32,8 @@
       var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (reduce || !media || !media.animate) return;
       var after = media.getBoundingClientRect(), cardAfter = card.getBoundingClientRect().height;
-      var dur = ms(token('--duration-slower', '500ms')) || 500, ease = token('--ease-in-out', 'ease-in-out'), easeOut = token('--ease-out', 'ease-out');
+      var dur = ms(token('--duration-slower', '500ms')), ease = token('--ease-in-out', 'ease-in-out'), easeOut = token('--ease-out', 'ease-out'), rise = token('--space-1-5', '6px');
+      if (!(dur > 0)) return;   // a zero duration token means no motion
       card.classList.add('is-morphing');
       var grow = media.animate([
         { width: before.width + 'px', height: before.height + 'px' },
@@ -41,8 +42,8 @@
       card.animate([{ height: cardBefore + 'px' }, { height: cardAfter + 'px' }], { duration: dur, easing: ease });
       Array.prototype.forEach.call(card.querySelectorAll('.animal-card__body, .animal-card__foot, .animal-card__overlay'), function (el) {
         if (!el.getClientRects().length) return;
-        el.animate([{ opacity: 0, transform: 'translateY(6px)' }, { opacity: 1, transform: 'none' }],
-          { duration: dur * 0.6, delay: dur * 0.4, easing: easeOut, fill: 'backwards' });
+        el.animate([{ opacity: 0, transform: 'translateY(' + rise + ')' }, { opacity: 1, transform: 'none' }],
+          { duration: dur * 0.6, delay: dur * 0.4, easing: easeOut, fill: 'backwards' });   // choreography: text starts at 40% of the photo's move
       });
       function done() { card.classList.remove('is-morphing'); }
       grow.onfinish = done; grow.oncancel = done;
