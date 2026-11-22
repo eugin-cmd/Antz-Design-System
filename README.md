@@ -26,6 +26,7 @@ In a prototype (designers):
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="antz-design-system/releases/v1.0.0-beta.1/tokens.css">
 <link rel="stylesheet" href="antz-design-system/releases/v1.0.0-beta.1/components.css">
+<script src="antz-design-system/releases/v1.0.0-beta.1/components.js" defer></script>  <!-- optional: motion for tabs and the animal card (from 1.1) -->
 ```
 
 In the dashboard (MUI): `createTheme(antzThemeOptions({ mode, contrast }))` from `dist/mui/antz-mui-theme.js`.
@@ -49,6 +50,7 @@ The pre-commit hook (`tools/hooks/pre-commit`, enabled with `git config core.hoo
 | --- | --- | --- |
 | `tokens/src/` | Token source (primitive, base, themes) | Yes, through the change process |
 | `components.css` | Component styles (tokens only) | Yes |
+| `components.js` | Optional behaviour: sliding tab indicator, animal card expand (no dependencies) | Yes |
 | `governance/` | Rule register, exceptions, decisions, RFCs | Yes, through the change process |
 | `specs/` | Component specification template and specs | Yes |
 | `docs-src/`, `pages/_nav.json` | New docs pages and the navigation | Yes |

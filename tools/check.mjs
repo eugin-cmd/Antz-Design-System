@@ -22,7 +22,7 @@ const args = process.argv.slice(2);
 const REPORT = args.includes('--report');
 const JSON_OUT = args.includes('--json');
 const targets = args.filter((a) => !a.startsWith('--'));
-const DEFAULT_TARGETS = ['components.css'];
+const DEFAULT_TARGETS = ['components.css', 'components.js'];
 
 const rules = Object.fromEntries(JSON.parse(fs.readFileSync(path.join(ROOT, 'governance/rules.json'), 'utf8')).rules.map((r) => [r.id, r]));
 const exceptions = JSON.parse(fs.readFileSync(path.join(ROOT, 'governance/exceptions.json'), 'utf8')).exceptions;
