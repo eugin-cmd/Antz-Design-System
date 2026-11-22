@@ -6,7 +6,7 @@ All notable changes to the Antz Design System. Versions follow semantic versioni
 
 ### Components
 - **Animal card, compact and expanded** (`.animal-card`, `data-state="compact|expanded"`): photo-led card with sex tag, CITES appendix, AAID, facts, age and weight pills; expanded adds the photo header with AAID over a scrim, the latest alert, section and site, and a footer of treatment, lab, vaccination and medicine counts with View details. One markup. Expanding and collapsing animate the real card on `--ease-in-out` over `--duration-slower`: the photo resizes (staying framed, never stretched), the card's height follows so neighbouring cards glide, and the text, AAID, pills and footer fade in once the photo is under way. No snapshot cross-fades, so no ghosting; works the same in every browser; instant under reduced motion.
-- **Stat panels on a wash** (`.stat-row--wash-primary|celebrate|calm|illustrative`, DD-001): the four washes as backgrounds for boxed figures, chosen by meaning; labels move to secondary text. 72 new contrast checks (figures and labels on every wash stop, four modes).
+- **Stat panels on a wash** (`.stat-row--wash-primary|celebrate|calm|illustrative`, DD-001): the four washes as backgrounds for boxed figures, chosen by meaning; labels move to secondary text. 72 new contrast checks (figures and labels on every wash stop, four modes). Applied to the existing Key insights card (docs and the Home screen) and the Stat figures panel, which now sit on the Primary wash.
 - New icons: maximize, minimize, scale, treatment, test tube, syringe, medicine.
 - New tokens: `--color-media-chip`, `--color-media-text` for chips and text over photos.
 

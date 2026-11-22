@@ -25,12 +25,12 @@
 <div class="page-body"><div class="page-content">
 <section class="tab-panel" id="panel-overview" data-tab="overview" role="tabpanel" aria-labelledby="tab-overview"><div class="doc" id="s-insights">
         <h3>Key insights</h3>
-        <p class="lead">A white card with a period switch over three boxed figures (Figma "Key Insights": Today, Yesterday, This month). Switching the tab swaps the figures in place.</p>
+        <p class="lead">A white card with a period switch over three boxed figures (Figma "Key Insights": Today, Yesterday, This month). Switching the tab swaps the figures in place. The figures sit on the Primary wash, the one for general summaries (DD-001).</p>
         <div class="demo demo--canvas">
           <div class="card" style="width:min(400px,100%)">
             <div class="card__head"><span class="tile-icon tile-icon--solid"><svg class="icon"><use href="#i-trend"/></svg></span><b class="card__title">Key insights</b><button class="field__help card__end" type="button" aria-label="About key insights"><svg class="icon"><use href="#i-help"/></svg></button></div>
             <div class="segmented segmented--line segmented--block" role="tablist" aria-label="Period" data-stat-tabs><button role="tab" type="button" aria-selected="true" data-values="24,6,1">Today</button><button role="tab" type="button" aria-selected="false" data-values="18,2,0">Yesterday</button><button role="tab" type="button" aria-selected="false" data-values="210,41,3">This month</button></div>
-            <div class="stat-row stat-row--boxed stat-row--center" aria-live="polite">
+            <div class="stat-row stat-row--boxed stat-row--center stat-row--wash-primary" aria-live="polite">
               <div class="stat stat--accent"><span class="stat__value">24</span><span class="stat__label">Births</span></div>
               <div class="stat stat--accent"><span class="stat__value">6</span><span class="stat__label">Transfers</span></div>
               <div class="stat stat--accent"><span class="stat__value">1</span><span class="stat__label">Deaths</span></div>
@@ -54,7 +54,7 @@
       &lt;button role="tab" type="button" aria-selected="false" data-values="18,2,0"&gt;Yesterday&lt;/button&gt;
       &lt;button role="tab" type="button" aria-selected="false" data-values="210,41,3"&gt;This month&lt;/button&gt;
     &lt;/div&gt;
-    &lt;div class="stat-row stat-row--boxed stat-row--center" aria-live="polite"&gt;
+    &lt;div class="stat-row stat-row--boxed stat-row--center stat-row--wash-primary" aria-live="polite"&gt;
       &lt;div class="stat stat--accent"&gt;
         &lt;span class="stat__value"&gt;24&lt;/span&gt;&lt;span class="stat__label"&gt;Births&lt;/span&gt;
       &lt;/div&gt;
