@@ -132,15 +132,5 @@
   }).catch(function () { host.innerHTML = '<div class="empty"><b>Open through a local server</b>Run python3 -m http.server in the design system folder.</div>'; });
 })();
 </script>
-<script>
-document.addEventListener('click', function (e) {
-  var b = e.target.closest('[data-animal-toggle]'); if (!b) return;
-  var card = b.closest('.animal-card'); if (!card) return;
-  var next = card.dataset.state === 'expanded' ? 'compact' : 'expanded';
-  function apply() { card.dataset.state = next; b.setAttribute('aria-expanded', String(next === 'expanded')); b.setAttribute('aria-label', next === 'expanded' ? 'Show less' : 'Show more'); var u = b.querySelector('use'); if (u) u.setAttribute('href', next === 'expanded' ? '#i-minimize' : '#i-maximize'); }
-  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (document.startViewTransition && !reduce) { card.style.viewTransitionName = 'animal-card-active'; document.startViewTransition(apply).finished.then(function () { card.style.viewTransitionName = ''; }, function () { card.style.viewTransitionName = ''; }); } else apply();
-});
-</script>
 </body>
 </html>

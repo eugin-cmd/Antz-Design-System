@@ -5,7 +5,7 @@ All notable changes to the Antz Design System. Versions follow semantic versioni
 ## Unreleased (redesign/components)
 
 ### Components
-- **Animal card, compact and expanded** (`.animal-card`, `data-state="compact|expanded"`): photo-led card with sex tag, CITES appendix, AAID, facts, age and weight pills; expanded adds the photo header with AAID over a scrim, the latest alert, section and site, and a footer of treatment, lab, vaccination and medicine counts with View details. One markup; the toggle morphs between states (View Transitions), instantly under reduced motion.
+- **Animal card, compact and expanded** (`.animal-card`, `data-state="compact|expanded"`): photo-led card with sex tag, CITES appendix, AAID, facts, age and weight pills; expanded adds the photo header with AAID over a scrim, the latest alert, section and site, and a footer of treatment, lab, vaccination and medicine counts with View details. One markup. Expanding is choreographed on `--ease-in-out` over `--duration-slower`: the photo grows, the AAID and pills glide onto it, the facts slide, neighbouring cards move aside, and the alert and footer fade in as the card settles (they leave first on collapse). Browsers without View Transitions get a soft ease-in; reduced motion gets an instant change.
 - New icons: maximize, minimize, scale, treatment, test tube, syringe, medicine.
 - New tokens: `--color-media-chip`, `--color-media-text` for chips and text over photos.
 
