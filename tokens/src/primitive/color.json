@@ -1,0 +1,1215 @@
+{
+  "$description": "Primitive colour. Raw values with no meaning. Only semantic tokens may reference these. Tonal palettes generated with Material Color Utilities 0.3.0 (Fidelity) from the Antz key colours; tone number = lightness (0 black, 100 white).",
+  "green": {
+    "0": {
+      "$type": "color",
+      "$value": "#000000"
+    },
+    "5": {
+      "$type": "color",
+      "$value": "#001506"
+    },
+    "10": {
+      "$type": "color",
+      "$value": "#00210C"
+    },
+    "15": {
+      "$type": "color",
+      "$value": "#002D12"
+    },
+    "20": {
+      "$type": "color",
+      "$value": "#003918"
+    },
+    "25": {
+      "$type": "color",
+      "$value": "#00451F"
+    },
+    "30": {
+      "$type": "color",
+      "$value": "#005226"
+    },
+    "35": {
+      "$type": "color",
+      "$value": "#00602E"
+    },
+    "40": {
+      "$type": "color",
+      "$value": "#006D35"
+    },
+    "50": {
+      "$type": "color",
+      "$value": "#008944"
+    },
+    "60": {
+      "$type": "color",
+      "$value": "#10A655"
+    },
+    "70": {
+      "$type": "color",
+      "$value": "#3DC26D"
+    },
+    "80": {
+      "$type": "color",
+      "$value": "#5EDF86"
+    },
+    "90": {
+      "$type": "color",
+      "$value": "#7BFCA0"
+    },
+    "95": {
+      "$type": "color",
+      "$value": "#C4FFCC"
+    },
+    "98": {
+      "$type": "color",
+      "$value": "#EAFFE9"
+    },
+    "99": {
+      "$type": "color",
+      "$value": "#F5FFF2"
+    },
+    "100": {
+      "$type": "color",
+      "$value": "#FFFFFF"
+    },
+    "$description": "Primary. Key #37BD69 (decision FD-001).",
+    "brand": {
+      "$type": "color",
+      "$value": "#37BD69",
+      "$description": "Antz brand primary. Pinned: never regenerated, toned or approximated (FD-001).",
+      "$extensions": {
+        "com.antz": {
+          "pinned": true,
+          "decision": "FD-001"
+        }
+      }
+    },
+    "brand-hover": {
+      "$type": "color",
+      "$value": "#33B162",
+      "$description": "Brand fill + 8% ink state layer"
+    },
+    "brand-pressed": {
+      "$type": "color",
+      "$value": "#30AA5E",
+      "$description": "Brand fill + 12% ink state layer"
+    },
+    "brand-hover-dark": {
+      "$type": "color",
+      "$value": "#47C275",
+      "$description": "Brand fill + 8% white state layer (dark theme)"
+    },
+    "brand-pressed-dark": {
+      "$type": "color",
+      "$value": "#4FC57B",
+      "$description": "Brand fill + 12% white state layer (dark theme)"
+    },
+    "tint": {
+      "$type": "color",
+      "$value": "#E8F6EE",
+      "$description": "Selected surface (onboarding guide --green-tint)"
+    },
+    "soft": {
+      "$type": "color",
+      "$value": "#DCF3E5"
+    },
+    "soft-hover": {
+      "$type": "color",
+      "$value": "#CBEDD8"
+    },
+    "night-soft": {
+      "$type": "color",
+      "$value": "#123A24"
+    },
+    "night-soft-hover": {
+      "$type": "color",
+      "$value": "#174A2E"
+    },
+    "night-selected": {
+      "$type": "color",
+      "$value": "#123321"
+    }
+  },
+  "teal": {
+    "0": {
+      "$type": "color",
+      "$value": "#000000"
+    },
+    "5": {
+      "$type": "color",
+      "$value": "#001412"
+    },
+    "10": {
+      "$type": "color",
+      "$value": "#00201D"
+    },
+    "15": {
+      "$type": "color",
+      "$value": "#002B27"
+    },
+    "20": {
+      "$type": "color",
+      "$value": "#003732"
+    },
+    "25": {
+      "$type": "color",
+      "$value": "#00443D"
+    },
+    "30": {
+      "$type": "color",
+      "$value": "#005049"
+    },
+    "35": {
+      "$type": "color",
+      "$value": "#005D55"
+    },
+    "40": {
+      "$type": "color",
+      "$value": "#006A61"
+    },
+    "50": {
+      "$type": "color",
+      "$value": "#00867A"
+    },
+    "60": {
+      "$type": "color",
+      "$value": "#00A295"
+    },
+    "70": {
+      "$type": "color",
+      "$value": "#00C0B0"
+    },
+    "80": {
+      "$type": "color",
+      "$value": "#18DECC"
+    },
+    "90": {
+      "$type": "color",
+      "$value": "#4FFBE8"
+    },
+    "95": {
+      "$type": "color",
+      "$value": "#B3FFF3"
+    },
+    "98": {
+      "$type": "color",
+      "$value": "#E4FFF9"
+    },
+    "99": {
+      "$type": "color",
+      "$value": "#F2FFFB"
+    },
+    "100": {
+      "$type": "color",
+      "$value": "#FFFFFF"
+    },
+    "$description": "Secondary. Key #00D9C7. Absorbs #00D6C9 (dashboard) and #00ABAB (Style 6/7).",
+    "brand": {
+      "$type": "color",
+      "$value": "#00D9C7",
+      "$description": "Antz secondary key",
+      "$extensions": {
+        "com.antz": {
+          "pinned": true
+        }
+      }
+    },
+    "tint": {
+      "$type": "color",
+      "$value": "#DDF5F3"
+    },
+    "night-soft": {
+      "$type": "color",
+      "$value": "#0D3333"
+    }
+  },
+  "navy": {
+    "0": {
+      "$type": "color",
+      "$value": "#000000"
+    },
+    "5": {
+      "$type": "color",
+      "$value": "#001221"
+    },
+    "10": {
+      "$type": "color",
+      "$value": "#001D31"
+    },
+    "15": {
+      "$type": "color",
+      "$value": "#002841"
+    },
+    "20": {
+      "$type": "color",
+      "$value": "#0E334C"
+    },
+    "25": {
+      "$type": "color",
+      "$value": "#1C3E58"
+    },
+    "30": {
+      "$type": "color",
+      "$value": "#294A64"
+    },
+    "35": {
+      "$type": "color",
+      "$value": "#355570"
+    },
+    "40": {
+      "$type": "color",
+      "$value": "#41617D"
+    },
+    "50": {
+      "$type": "color",
+      "$value": "#5A7A97"
+    },
+    "60": {
+      "$type": "color",
+      "$value": "#7494B2"
+    },
+    "70": {
+      "$type": "color",
+      "$value": "#8EAFCD"
+    },
+    "80": {
+      "$type": "color",
+      "$value": "#A9CAEA"
+    },
+    "90": {
+      "$type": "color",
+      "$value": "#CCE5FF"
+    },
+    "95": {
+      "$type": "color",
+      "$value": "#E7F2FF"
+    },
+    "98": {
+      "$type": "color",
+      "$value": "#F7F9FF"
+    },
+    "99": {
+      "$type": "color",
+      "$value": "#FCFCFF"
+    },
+    "100": {
+      "$type": "color",
+      "$value": "#FFFFFF"
+    },
+    "$description": "Tertiary. Key #1F415B.",
+    "brand": {
+      "$type": "color",
+      "$value": "#1F415B",
+      "$description": "Antz tertiary key",
+      "$extensions": {
+        "com.antz": {
+          "pinned": true
+        }
+      }
+    },
+    "tint": {
+      "$type": "color",
+      "$value": "#E3ECF3"
+    },
+    "night-soft": {
+      "$type": "color",
+      "$value": "#142636"
+    }
+  },
+  "neutral": {
+    "0": {
+      "$type": "color",
+      "$value": "#000000"
+    },
+    "5": {
+      "$type": "color",
+      "$value": "#061312"
+    },
+    "10": {
+      "$type": "color",
+      "$value": "#101E1D"
+    },
+    "15": {
+      "$type": "color",
+      "$value": "#1B2827"
+    },
+    "20": {
+      "$type": "color",
+      "$value": "#253332"
+    },
+    "25": {
+      "$type": "color",
+      "$value": "#303E3D"
+    },
+    "30": {
+      "$type": "color",
+      "$value": "#3B4948"
+    },
+    "35": {
+      "$type": "color",
+      "$value": "#475554"
+    },
+    "40": {
+      "$type": "color",
+      "$value": "#536160"
+    },
+    "50": {
+      "$type": "color",
+      "$value": "#6B7A78"
+    },
+    "60": {
+      "$type": "color",
+      "$value": "#859492"
+    },
+    "70": {
+      "$type": "color",
+      "$value": "#9FAEAC"
+    },
+    "80": {
+      "$type": "color",
+      "$value": "#BACAC7"
+    },
+    "90": {
+      "$type": "color",
+      "$value": "#D6E6E3"
+    },
+    "95": {
+      "$type": "color",
+      "$value": "#E4F4F1"
+    },
+    "98": {
+      "$type": "color",
+      "$value": "#EDFDFA"
+    },
+    "99": {
+      "$type": "color",
+      "$value": "#F2FFFD"
+    },
+    "100": {
+      "$type": "color",
+      "$value": "#FFFFFF"
+    },
+    "$description": "Generated neutral (key #8F9E9C)."
+  },
+  "sage": {
+    "0": {
+      "$type": "color",
+      "$value": "#000000"
+    },
+    "5": {
+      "$type": "color",
+      "$value": "#04140D"
+    },
+    "10": {
+      "$type": "color",
+      "$value": "#0E1F18"
+    },
+    "15": {
+      "$type": "color",
+      "$value": "#192922"
+    },
+    "20": {
+      "$type": "color",
+      "$value": "#23342C"
+    },
+    "25": {
+      "$type": "color",
+      "$value": "#2E3F37"
+    },
+    "30": {
+      "$type": "color",
+      "$value": "#394B42"
+    },
+    "35": {
+      "$type": "color",
+      "$value": "#45564D"
+    },
+    "40": {
+      "$type": "color",
+      "$value": "#516259"
+    },
+    "50": {
+      "$type": "color",
+      "$value": "#697B71"
+    },
+    "60": {
+      "$type": "color",
+      "$value": "#82958B"
+    },
+    "70": {
+      "$type": "color",
+      "$value": "#9DB0A5"
+    },
+    "80": {
+      "$type": "color",
+      "$value": "#B8CBC0"
+    },
+    "90": {
+      "$type": "color",
+      "$value": "#D4E7DB"
+    },
+    "95": {
+      "$type": "color",
+      "$value": "#E2F5E9"
+    },
+    "98": {
+      "$type": "color",
+      "$value": "#EAFEF2"
+    },
+    "99": {
+      "$type": "color",
+      "$value": "#F4FFF7"
+    },
+    "100": {
+      "$type": "color",
+      "$value": "#FFFFFF"
+    },
+    "$description": "Generated neutral variant (key #9FB2A7)."
+  },
+  "ink": {
+    "0": {
+      "$type": "color",
+      "$value": "#FFFFFF"
+    },
+    "25": {
+      "$type": "color",
+      "$value": "#FAFCFB"
+    },
+    "50": {
+      "$type": "color",
+      "$value": "#F7FBF9"
+    },
+    "75": {
+      "$type": "color",
+      "$value": "#F3F8F5"
+    },
+    "80": {
+      "$type": "color",
+      "$value": "#F1F7F3"
+    },
+    "100": {
+      "$type": "color",
+      "$value": "#F2F5F4"
+    },
+    "150": {
+      "$type": "color",
+      "$value": "#EDF2EF"
+    },
+    "200": {
+      "$type": "color",
+      "$value": "#E2EAE6"
+    },
+    "250": {
+      "$type": "color",
+      "$value": "#DCE6E1"
+    },
+    "300": {
+      "$type": "color",
+      "$value": "#C9D9D1"
+    },
+    "350": {
+      "$type": "color",
+      "$value": "#C9D3CE"
+    },
+    "400": {
+      "$type": "color",
+      "$value": "#A3AFA9"
+    },
+    "450": {
+      "$type": "color",
+      "$value": "#879590",
+      "$description": "3:1 on white: input borders"
+    },
+    "500": {
+      "$type": "color",
+      "$value": "#7A8684",
+      "$description": "3.8:1 on white: icons only, never text"
+    },
+    "550": {
+      "$type": "color",
+      "$value": "#5F6B67",
+      "$description": "AA muted text"
+    },
+    "700": {
+      "$type": "color",
+      "$value": "#44544A"
+    },
+    "900": {
+      "$type": "color",
+      "$value": "#0E1512"
+    },
+    "$description": "Antz core neutrals, green-tinted (Foundation v0.2). Used for text, borders and light surfaces."
+  },
+  "night": {
+    "0": {
+      "$type": "color",
+      "$value": "#0A110E"
+    },
+    "5": {
+      "$type": "color",
+      "$value": "#0F1814"
+    },
+    "10": {
+      "$type": "color",
+      "$value": "#141F1A"
+    },
+    "15": {
+      "$type": "color",
+      "$value": "#1A2620"
+    },
+    "20": {
+      "$type": "color",
+      "$value": "#1E2B25"
+    },
+    "22": {
+      "$type": "color",
+      "$value": "#1F2B26"
+    },
+    "25": {
+      "$type": "color",
+      "$value": "#22302A"
+    },
+    "28": {
+      "$type": "color",
+      "$value": "#26332D"
+    },
+    "30": {
+      "$type": "color",
+      "$value": "#2A3832"
+    },
+    "35": {
+      "$type": "color",
+      "$value": "#3B4B44"
+    },
+    "50": {
+      "$type": "color",
+      "$value": "#5E6B65"
+    },
+    "55": {
+      "$type": "color",
+      "$value": "#64756D"
+    },
+    "60": {
+      "$type": "color",
+      "$value": "#7F8E87"
+    },
+    "65": {
+      "$type": "color",
+      "$value": "#94A39C"
+    },
+    "75": {
+      "$type": "color",
+      "$value": "#B6C4BD"
+    },
+    "95": {
+      "$type": "color",
+      "$value": "#E9F1ED"
+    },
+    "$description": "Dark-theme neutrals, green-tinted. Designed for dark, not inverted."
+  },
+  "board": {
+    "$description": "The Antz green board: the core page background (Style 6, Foundation).",
+    "app": {
+      "$type": "color",
+      "$value": "#DDEFE4"
+    },
+    "canvas": {
+      "$type": "color",
+      "$value": "#EAF5EE"
+    }
+  },
+  "charcoal": {
+    "700": {
+      "$type": "color",
+      "$value": "#26252F"
+    },
+    "800": {
+      "$type": "color",
+      "$value": "#17161D"
+    },
+    "night": {
+      "$type": "color",
+      "$value": "#22212A"
+    }
+  },
+  "red": {
+    "0": {
+      "$type": "color",
+      "$value": "#000000"
+    },
+    "5": {
+      "$type": "color",
+      "$value": "#2C0006"
+    },
+    "10": {
+      "$type": "color",
+      "$value": "#40000D"
+    },
+    "15": {
+      "$type": "color",
+      "$value": "#530013"
+    },
+    "20": {
+      "$type": "color",
+      "$value": "#68001A"
+    },
+    "25": {
+      "$type": "color",
+      "$value": "#7C0021"
+    },
+    "30": {
+      "$type": "color",
+      "$value": "#920028"
+    },
+    "35": {
+      "$type": "color",
+      "$value": "#A80030"
+    },
+    "40": {
+      "$type": "color",
+      "$value": "#BD0538"
+    },
+    "50": {
+      "$type": "color",
+      "$value": "#E12D4E"
+    },
+    "60": {
+      "$type": "color",
+      "$value": "#FF5168"
+    },
+    "70": {
+      "$type": "color",
+      "$value": "#FF8790"
+    },
+    "80": {
+      "$type": "color",
+      "$value": "#FFB3B6"
+    },
+    "90": {
+      "$type": "color",
+      "$value": "#FFDADA"
+    },
+    "95": {
+      "$type": "color",
+      "$value": "#FFEDEC"
+    },
+    "98": {
+      "$type": "color",
+      "$value": "#FFF8F7"
+    },
+    "99": {
+      "$type": "color",
+      "$value": "#FFFBFF"
+    },
+    "100": {
+      "$type": "color",
+      "$value": "#FFFFFF"
+    },
+    "$description": "Error. Key #E93353.",
+    "brand": {
+      "$type": "color",
+      "$value": "#E93353"
+    },
+    "night-soft": {
+      "$type": "color",
+      "$value": "#3A1418"
+    },
+    "night-border": {
+      "$type": "color",
+      "$value": "#6A1E28"
+    }
+  },
+  "coral": {
+    "0": {
+      "$type": "color",
+      "$value": "#000000"
+    },
+    "5": {
+      "$type": "color",
+      "$value": "#2A0300"
+    },
+    "10": {
+      "$type": "color",
+      "$value": "#3D0600"
+    },
+    "15": {
+      "$type": "color",
+      "$value": "#500900"
+    },
+    "20": {
+      "$type": "color",
+      "$value": "#630E00"
+    },
+    "25": {
+      "$type": "color",
+      "$value": "#771300"
+    },
+    "30": {
+      "$type": "color",
+      "$value": "#8C1800"
+    },
+    "35": {
+      "$type": "color",
+      "$value": "#A02104"
+    },
+    "40": {
+      "$type": "color",
+      "$value": "#B12D10"
+    },
+    "50": {
+      "$type": "color",
+      "$value": "#D44627"
+    },
+    "60": {
+      "$type": "color",
+      "$value": "#F65F3E"
+    },
+    "70": {
+      "$type": "color",
+      "$value": "#FF8A70"
+    },
+    "80": {
+      "$type": "color",
+      "$value": "#FFB4A4"
+    },
+    "90": {
+      "$type": "color",
+      "$value": "#FFDAD3"
+    },
+    "95": {
+      "$type": "color",
+      "$value": "#FFEDE9"
+    },
+    "98": {
+      "$type": "color",
+      "$value": "#FFF8F6"
+    },
+    "99": {
+      "$type": "color",
+      "$value": "#FFFBFF"
+    },
+    "100": {
+      "$type": "color",
+      "$value": "#FFFFFF"
+    },
+    "$description": "Warning. Key #FA6140.",
+    "brand": {
+      "$type": "color",
+      "$value": "#FA6140"
+    },
+    "tint": {
+      "$type": "color",
+      "$value": "#FFEBE5"
+    },
+    "border": {
+      "$type": "color",
+      "$value": "#FFBDA8"
+    },
+    "night-soft": {
+      "$type": "color",
+      "$value": "#3A1A12"
+    },
+    "night-border": {
+      "$type": "color",
+      "$value": "#6A2D1E"
+    }
+  },
+  "amber": {
+    "0": {
+      "$type": "color",
+      "$value": "#000000"
+    },
+    "5": {
+      "$type": "color",
+      "$value": "#171000"
+    },
+    "10": {
+      "$type": "color",
+      "$value": "#241A00"
+    },
+    "15": {
+      "$type": "color",
+      "$value": "#302400"
+    },
+    "20": {
+      "$type": "color",
+      "$value": "#3D2F00"
+    },
+    "25": {
+      "$type": "color",
+      "$value": "#4A3900"
+    },
+    "30": {
+      "$type": "color",
+      "$value": "#574400"
+    },
+    "35": {
+      "$type": "color",
+      "$value": "#655000"
+    },
+    "40": {
+      "$type": "color",
+      "$value": "#745B00"
+    },
+    "50": {
+      "$type": "color",
+      "$value": "#917400"
+    },
+    "60": {
+      "$type": "color",
+      "$value": "#B08C00"
+    },
+    "70": {
+      "$type": "color",
+      "$value": "#D0A600"
+    },
+    "80": {
+      "$type": "color",
+      "$value": "#EEC126"
+    },
+    "90": {
+      "$type": "color",
+      "$value": "#FFE089"
+    },
+    "95": {
+      "$type": "color",
+      "$value": "#FFEFCC"
+    },
+    "98": {
+      "$type": "color",
+      "$value": "#FFF8F0"
+    },
+    "99": {
+      "$type": "color",
+      "$value": "#FFFBFF"
+    },
+    "100": {
+      "$type": "color",
+      "$value": "#FFFFFF"
+    },
+    "$description": "Caution / pending. Key #E4B819. 1.88:1 on white: never alone as text or icon.",
+    "brand": {
+      "$type": "color",
+      "$value": "#E4B819"
+    },
+    "tint": {
+      "$type": "color",
+      "$value": "#FFF4D9"
+    },
+    "border": {
+      "$type": "color",
+      "$value": "#F2D58F"
+    },
+    "night-soft": {
+      "$type": "color",
+      "$value": "#33270B"
+    },
+    "night-border": {
+      "$type": "color",
+      "$value": "#5A4416"
+    }
+  },
+  "sky": {
+    "0": {
+      "$type": "color",
+      "$value": "#000000"
+    },
+    "5": {
+      "$type": "color",
+      "$value": "#00131A"
+    },
+    "10": {
+      "$type": "color",
+      "$value": "#001F28"
+    },
+    "15": {
+      "$type": "color",
+      "$value": "#002A35"
+    },
+    "20": {
+      "$type": "color",
+      "$value": "#003543"
+    },
+    "25": {
+      "$type": "color",
+      "$value": "#004152"
+    },
+    "30": {
+      "$type": "color",
+      "$value": "#004E60"
+    },
+    "35": {
+      "$type": "color",
+      "$value": "#005A70"
+    },
+    "40": {
+      "$type": "color",
+      "$value": "#00677F"
+    },
+    "50": {
+      "$type": "color",
+      "$value": "#00829F"
+    },
+    "60": {
+      "$type": "color",
+      "$value": "#009DC1"
+    },
+    "70": {
+      "$type": "color",
+      "$value": "#25BAE1"
+    },
+    "80": {
+      "$type": "color",
+      "$value": "#51D5FE"
+    },
+    "90": {
+      "$type": "color",
+      "$value": "#B7EAFF"
+    },
+    "95": {
+      "$type": "color",
+      "$value": "#DDF5FF"
+    },
+    "98": {
+      "$type": "color",
+      "$value": "#F2FBFF"
+    },
+    "99": {
+      "$type": "color",
+      "$value": "#F9FDFF"
+    },
+    "100": {
+      "$type": "color",
+      "$value": "#FFFFFF"
+    },
+    "$description": "Information. Key #00AFD6.",
+    "brand": {
+      "$type": "color",
+      "$value": "#00AFD6"
+    },
+    "tint": {
+      "$type": "color",
+      "$value": "#E1F5FB"
+    },
+    "border": {
+      "$type": "color",
+      "$value": "#A8E2F0"
+    },
+    "night-soft": {
+      "$type": "color",
+      "$value": "#0B2C35"
+    },
+    "night-border": {
+      "$type": "color",
+      "$value": "#164A57"
+    }
+  },
+  "olive": {
+    "0": {
+      "$type": "color",
+      "$value": "#000000"
+    },
+    "5": {
+      "$type": "color",
+      "$value": "#091400"
+    },
+    "10": {
+      "$type": "color",
+      "$value": "#111F00"
+    },
+    "15": {
+      "$type": "color",
+      "$value": "#192B00"
+    },
+    "20": {
+      "$type": "color",
+      "$value": "#213600"
+    },
+    "25": {
+      "$type": "color",
+      "$value": "#2A4200"
+    },
+    "30": {
+      "$type": "color",
+      "$value": "#324F00"
+    },
+    "35": {
+      "$type": "color",
+      "$value": "#3B5B00"
+    },
+    "40": {
+      "$type": "color",
+      "$value": "#446900"
+    },
+    "50": {
+      "$type": "color",
+      "$value": "#578400"
+    },
+    "60": {
+      "$type": "color",
+      "$value": "#6D9F16"
+    },
+    "70": {
+      "$type": "color",
+      "$value": "#86BB34"
+    },
+    "80": {
+      "$type": "color",
+      "$value": "#A0D74D"
+    },
+    "90": {
+      "$type": "color",
+      "$value": "#BBF467"
+    },
+    "95": {
+      "$type": "color",
+      "$value": "#D4FF94"
+    },
+    "98": {
+      "$type": "color",
+      "$value": "#F1FFD5"
+    },
+    "99": {
+      "$type": "color",
+      "$value": "#F9FFE7"
+    },
+    "100": {
+      "$type": "color",
+      "$value": "#FFFFFF"
+    },
+    "$description": "Success. Key #81B52E (hue 130), separate from the brand so success keeps its meaning.",
+    "brand": {
+      "$type": "color",
+      "$value": "#81B52E"
+    },
+    "tint": {
+      "$type": "color",
+      "$value": "#E9F5DA"
+    },
+    "border": {
+      "$type": "color",
+      "$value": "#C5E3A0"
+    },
+    "night-soft": {
+      "$type": "color",
+      "$value": "#1F2E0C"
+    },
+    "night-border": {
+      "$type": "color",
+      "$value": "#3A5216"
+    }
+  },
+  "violet": {
+    "30": {
+      "$type": "color",
+      "$value": "#4B33A8"
+    },
+    "40": {
+      "$type": "color",
+      "$value": "#6B4FD8"
+    },
+    "70": {
+      "$type": "color",
+      "$value": "#9B85F0"
+    },
+    "80": {
+      "$type": "color",
+      "$value": "#BBA9FF"
+    },
+    "95": {
+      "$type": "color",
+      "$value": "#EEE9FF"
+    },
+    "$description": "Categorical only (avatars, chart series).",
+    "night-soft": {
+      "$type": "color",
+      "$value": "#241D45"
+    }
+  },
+  "wash": {
+    "$description": "Gradient stops from the four reference SVGs (reference/Gradients).",
+    "mint": {
+      "$type": "color",
+      "$value": "#BFF3D2"
+    },
+    "rose": {
+      "$type": "color",
+      "$value": "#FFD3D3"
+    },
+    "butter": {
+      "$type": "color",
+      "$value": "#FFF5BF"
+    },
+    "aqua": {
+      "$type": "color",
+      "$value": "#BFF5F2"
+    },
+    "sky": {
+      "$type": "color",
+      "$value": "#BFEBF5"
+    },
+    "pink": {
+      "$type": "color",
+      "$value": "#F9CCD4"
+    },
+    "night-mint": {
+      "$type": "color",
+      "$value": "#123A2A"
+    },
+    "night-rose": {
+      "$type": "color",
+      "$value": "#3A2228"
+    },
+    "night-butter": {
+      "$type": "color",
+      "$value": "#38321A"
+    },
+    "night-aqua": {
+      "$type": "color",
+      "$value": "#12383A"
+    },
+    "night-sky": {
+      "$type": "color",
+      "$value": "#133543"
+    },
+    "night-pink": {
+      "$type": "color",
+      "$value": "#3D2129"
+    }
+  },
+  "alpha": {
+    "overlay-light": {
+      "$type": "color",
+      "$value": "#101A1461"
+    },
+    "overlay-dark": {
+      "$type": "color",
+      "$value": "#00000099"
+    },
+    "glass-light": {
+      "$type": "color",
+      "$value": "#FFFFFF8C"
+    },
+    "glass-border-light": {
+      "$type": "color",
+      "$value": "#FFFFFFCC"
+    },
+    "glass-dark": {
+      "$type": "color",
+      "$value": "#141F1AB8"
+    },
+    "glass-border-dark": {
+      "$type": "color",
+      "$value": "#FFFFFF14"
+    },
+    "focus-glow-light": {
+      "$type": "color",
+      "$value": "#37BD692E"
+    },
+    "focus-glow-dark": {
+      "$type": "color",
+      "$value": "#5EDF8640"
+    }
+  }
+}

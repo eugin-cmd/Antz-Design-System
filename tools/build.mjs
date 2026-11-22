@@ -1,0 +1,409 @@
+#!/usr/bin/env node
+/* ==========================================================================
+   Antz Design System · token build
+   Reads tokens/src (DTCG 2025.10 JSON), validates it, runs the contrast gate
+   and writes every platform output. No dependencies: Node 18+ only.
+
+     node tools/build.mjs            build + gate (fails on any error)
+     node tools/build.mjs --check    validate + gate only, write nothing
+
+   Outputs (generated: never edit by hand)
+     tokens.css                         designer CSS (drop-in for Foundation v0.2)
+     colors.json                        every colour, resolved, per theme
+     dist/tokens/antz.tokens.json       all tokens resolved per mode (DTCG)
+     dist/tokens/token-index.json       flat index used by the docs and theme tester
+     dist/figma/antz.tokens-studio.json token sets with aliases (Tokens Studio / Figma variables)
+     dist/mui/antz-mui-theme.js         MUI createTheme options, light and dark
+     dist/react-native/antz-theme.ts    React Native theme object
+     dist/contrast-report.md            the contrast gate's results
+   ========================================================================== */
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const SRC = path.join(ROOT, 'tokens/src');
+const CHECK_ONLY = process.argv.includes('--check');
+const VERSION = fs.readFileSync(path.join(ROOT, 'VERSION'), 'utf8').trim();
+
+const errors = [];
+const warn = [];
+const read = (rel) => JSON.parse(fs.readFileSync(path.join(SRC, rel), 'utf8'));
+
+// ── Load and flatten ─────────────────────────────────────────────────────
+const LAYERS = {
+  primitive: ['primitive/color.json'],
+  base: ['base/typography.json', 'base/space.json', 'base/shape.json', 'base/motion.json', 'base/layout.json'],
+  light: ['theme/light.json'],
+  dark: ['theme/dark.json'],
+  'hc-light': ['theme/contrast-high.light.json'],
+  'hc-dark': ['theme/contrast-high.dark.json'],
+  compact: ['theme/density-compact.json'],
+};
+
+function flatten(node, trail, file, outMap, inheritedType) {
+  const type = node.$type || inheritedType;
+  if ('$value' in node) {
+    const name = trail.join('.');
+    if (outMap.has(name)) errors.push(`${file}: duplicate token ${name}`);
+    outMap.set(name, { name, path: trail, type, value: node.$value, desc: node.$description || '', ext: node.$extensions || {}, file });
+    return;
+  }
+  for (const [k, v] of Object.entries(node)) {
+    if (k === '$root') { flatten(v, trail, file, outMap, type); continue; }
+    if (k.startsWith('$')) continue;
+    if (/[{}.$]/.test(k)) errors.push(`${file}: illegal character in name "${k}"`);
+    if (v && typeof v === 'object') flatten(v, [...trail, k], file, outMap, type);
+  }
+}
+const layer = {};
+for (const [id, files] of Object.entries(LAYERS)) {
+  layer[id] = new Map();
+  for (const f of files) flatten(read(f), [], f, layer[id], undefined);
+}
+
+const cssName = (t) => '--' + t.path.join('-');
+const REF = /\{([^}]+)\}/g;
+const isRef = (v) => typeof v === 'string' && /^\{[^}]+\}$/.test(v);
+
+// ── Validation (governance as code) ──────────────────────────────────────
+const brand = layer.primitive.get('green.brand');
+if (!brand || brand.value !== '#37BD69') errors.push('FD-001: color primitive green.brand must be exactly #37BD69');
+for (const t of layer.primitive.values()) {
+  if (typeof t.value === 'string' && REF.test(t.value)) errors.push(`${t.file}: primitive ${t.name} must not reference other tokens`);
+  REF.lastIndex = 0;
+  if (t.type === 'color' && !/^#([0-9A-F]{6}|[0-9A-F]{8})$/.test(t.value)) errors.push(`${t.file}: ${t.name} must be an uppercase 6 or 8 digit hex (got ${t.value})`);
+}
+for (const id of ['light', 'dark', 'hc-light', 'hc-dark']) {
+  for (const t of layer[id].values()) {
+    if (t.type === 'color' && !isRef(t.value)) errors.push(`${t.file}: semantic colour ${t.name} must reference a primitive, not a raw value (${t.value})`);
+    if (id !== 'light' && !layer.light.has(t.name)) errors.push(`${t.file}: ${t.name} overrides a token that the light theme does not define`);
+  }
+}
+for (const t of layer.compact.values()) if (!layer.base.has(t.name)) errors.push(`${t.file}: ${t.name} overrides a token that base does not define`);
+const cssNames = new Map();
+for (const id of ['primitive', 'base', 'light']) for (const t of layer[id].values()) {
+  const n = cssName(t);
+  if (cssNames.has(n) && cssNames.get(n) !== t.name) errors.push(`CSS name collision: ${n} (${cssNames.get(n)} and ${t.name})`);
+  cssNames.set(n, t.name);
+}
+const byCss = new Map();
+
+// ── Resolution per mode ──────────────────────────────────────────────────
+function modeSet(...ids) { const m = new Map(); for (const id of ids) for (const [k, v] of layer[id]) m.set(k, v); return m; }
+const MODES = {
+  light: modeSet('primitive', 'base', 'light'),
+  dark: modeSet('primitive', 'base', 'light', 'dark'),
+  'light-hc': modeSet('primitive', 'base', 'light', 'hc-light'),
+  'dark-hc': modeSet('primitive', 'base', 'light', 'dark', 'hc-dark'),
+};
+for (const t of MODES.light.values()) byCss.set(cssName(t), t.name);
+
+function resolve(set, name, seen = new Set()) {
+  const t = set.get(name);
+  if (!t) { errors.push(`unresolved reference {${name}}`); return '#000000'; }
+  if (seen.has(name)) { errors.push(`circular reference at ${name}`); return '#000000'; }
+  seen.add(name);
+  let v = t.value;
+  if (isRef(v)) return resolve(set, v.slice(1, -1), seen);
+  if (typeof v === 'string') {
+    v = v.replace(REF, (_, r) => fmt(set.get(r), resolve(set, r, new Set(seen))));
+    v = v.replace(/var\((--[a-z0-9-]+)\)/g, (m, n) => (byCss.has(n) ? String(fmtResolved(set, byCss.get(n), seen)) : m));
+  }
+  return v;
+}
+function fmtResolved(set, name, seen) { const t = set.get(name); return fmt(t, resolve(set, name, new Set(seen))); }
+function fmt(t, v) {
+  if (!t) return v;
+  if (t.type === 'cubicBezier' && Array.isArray(v)) return `cubic-bezier(${v.join(', ')})`;
+  if (t.type === 'fontFamily' && Array.isArray(v)) return v.map((f) => (/\s/.test(f) && !f.startsWith('-') ? `"${f}"` : f)).join(', ');
+  return v;
+}
+const resolved = {};
+for (const [m, set] of Object.entries(MODES)) {
+  resolved[m] = new Map();
+  for (const name of set.keys()) resolved[m].set(name, fmt(set.get(name), resolve(set, name)));
+}
+for (const t of layer.base.values()) if (t.type === 'color') errors.push(`${t.file}: colours belong in primitive or theme files (${t.name})`);
+
+// ── Contrast gate ────────────────────────────────────────────────────────
+function rgb(hex) { const h = hex.replace('#', ''); return [0, 2, 4].map((i) => parseInt(h.slice(i, i + 2), 16)); }
+function lum(hex) { return rgb(hex).map((x) => { x /= 255; return x <= 0.03928 ? x / 12.92 : ((x + 0.055) / 1.055) ** 2.4; }).reduce((a, x, i) => a + x * [0.2126, 0.7152, 0.0722][i], 0); }
+function ratio(a, b) { const [x, y] = [lum(a), lum(b)]; return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); }
+const T = 4.5, U = 3; // text, UI parts and large text
+const PAIRS = [
+  ['color.text', 'color.surface', T], ['color.text', 'color.bg.app', T], ['color.text.secondary', 'color.surface', T], ['color.text.secondary', 'color.bg.app', T],
+  ['color.text.muted', 'color.surface', T], ['color.text.muted', 'color.bg.app', T], ['color.text.muted', 'color.surface.sunken', T], ['color.text.placeholder', 'color.surface', T],
+  ['color.text.link', 'color.surface', T], ['color.text.link', 'color.bg.app', T], ['color.accent.text', 'color.surface', T], ['color.accent.text', 'color.accent.soft', T],
+  ['color.text.on-accent', 'color.accent', T], ['color.text.on-accent', 'color.accent.hover', T], ['color.text.on-accent', 'color.accent.pressed', T],
+  ['color.text.on-bright', 'color.accent.bright', T], ['color.accent.indicator', 'color.surface', U], ['color.accent.on-indicator', 'color.accent.indicator', U], ['color.focus', 'color.surface', U], ['color.focus', 'color.bg.app', U],
+  ['color.border.input', 'color.surface', U], ['color.text.on-strong', 'color.surface.strong', T], ['color.text.on-tertiary', 'color.surface.tertiary', T],
+  ['color.secondary.on-solid', 'color.secondary.solid', T], ['color.secondary.text', 'color.secondary.soft', T], ['color.secondary.text', 'color.surface', T],
+  ['color.tertiary.on-solid', 'color.tertiary.solid', T], ['color.tertiary.text', 'color.tertiary.soft', T], ['color.tertiary.text', 'color.surface', T],
+  ...['success', 'warning', 'caution', 'danger', 'info'].flatMap((s) => [[`color.${s}.text`, `color.${s}.bg`, T], [`color.${s}.text`, 'color.surface', T], [`color.${s}.on-solid`, `color.${s}.solid`, T], [`color.signal.${s}`, 'color.surface', U]]),
+  ['color.neutral.text', 'color.neutral.bg', T],
+  ...['green', 'teal', 'sky', 'coral', 'amber', 'violet', 'navy'].flatMap((h) => [[`hue.${h}.ink`, `hue.${h}.soft`, T], [`hue.${h}`, 'color.surface', U]]),
+];
+const report = [];
+let gateFails = 0;
+for (const m of Object.keys(MODES)) {
+  for (const [fg, bg, min] of PAIRS) {
+    const a = resolved[m].get(fg), b = resolved[m].get(bg);
+    if (!a || !b) { errors.push(`contrast pair ${fg} on ${bg}: token missing`); continue; }
+    if (a.length !== 7 || b.length !== 7) continue;
+    const r = ratio(a, b);
+    const ok = r >= min;
+    if (!ok) gateFails++;
+    report.push({ m, fg, bg, a, b, r, min, ok });
+  }
+}
+for (const x of report.filter((x) => !x.ok)) errors.push(`contrast [${x.m}] ${x.fg} ${x.a} on ${x.bg} ${x.b} = ${x.r.toFixed(2)}:1, needs ${x.min}:1`);
+
+// ── Stop on errors ───────────────────────────────────────────────────────
+const summary = `${[...MODES.light.keys()].length} tokens, ${report.length} contrast checks in ${Object.keys(MODES).length} modes`;
+if (errors.length) {
+  console.error(`\n✗ Token build failed (${errors.length} error${errors.length > 1 ? 's' : ''}):`);
+  for (const e of errors) console.error('  - ' + e);
+  process.exit(1);
+}
+for (const w of warn) console.warn('  ! ' + w);
+if (CHECK_ONLY) { console.log(`✓ Tokens valid. ${summary}. All pass.`); process.exit(0); }
+
+// ── Writers ──────────────────────────────────────────────────────────────
+const write = (rel, text) => { const p = path.join(ROOT, rel); fs.mkdirSync(path.dirname(p), { recursive: true }); fs.writeFileSync(p, text); };
+const HEADER = (what) => `Antz Design System ${VERSION} · ${what}\nGenerated by tools/build.mjs from tokens/src. DO NOT EDIT: change tokens/src and run \`node tools/build.mjs\`.`;
+
+function cssValue(t) {
+  let v = t.value;
+  if (isRef(v)) return `var(${cssName({ path: v.slice(1, -1).split('.') })})`;
+  if (typeof v === 'string') v = v.replace(REF, (_, r) => `var(--${r.replace(/\./g, '-')})`);
+  return fmt(t, v);
+}
+function block(map, indent = '  ') {
+  let out = '', lastGroup = '';
+  for (const t of map.values()) {
+    const g = t.path[0];
+    if (g !== lastGroup) { out += `\n${indent}/* ${g} */\n`; lastGroup = g; }
+    out += `${indent}${cssName(t)}: ${cssValue(t)};\n`;
+  }
+  return out;
+}
+const reducedMotion = ['duration.fast', 'duration.base', 'duration.moderate', 'duration.slow', 'duration.slower', 'duration.enter', 'duration.count', 'duration.shimmer']
+  .map((n) => `--${n.replace('.', '-')}: 0ms;`).join(' ');
+const css = `/* ==========================================================================
+   ${HEADER('tokens').replace(/\n/g, '\n   ')}
+
+   Layers
+     1. Primitives  --{family}-{tone}  (e.g. --green-40, --green-brand). Never use
+                    in components or product CSS; they only build semantic tokens.
+     2. Base        type, space, radius, size, motion, breakpoints, layers.
+     3. Semantic    --color-*, --hue-*, --shadow-*, --gradient-*. Switch with theme.
+   Themes
+     light (default) · dark: prefers-color-scheme or <html data-theme="dark">
+     high contrast: prefers-contrast: more or <html data-contrast="high">
+     compact density: <html data-density="compact">
+   ========================================================================== */
+
+:root {
+  /* ── 1. Primitives ── */${block(layer.primitive)}
+  /* ── 2. Base ── */${block(layer.base)}
+  /* ── 3. Semantic: light (default) ── */
+  color-scheme: light;${block(layer.light)}}
+
+/* Dark: follows the OS unless the page forces light */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;${block(layer.dark, '    ')}  }
+}
+/* Dark: forced */
+:root[data-theme="dark"] {
+  color-scheme: dark;${block(layer.dark)}}
+
+/* High contrast, light */
+@media (prefers-contrast: more) {
+  :root:not([data-contrast="standard"]) {${block(layer['hc-light'], '    ')}  }
+}
+:root[data-contrast="high"] {${block(layer['hc-light'])}}
+
+/* High contrast, dark */
+@media (prefers-contrast: more) and (prefers-color-scheme: dark) {
+  :root:not([data-contrast="standard"]):not([data-theme="light"]) {${block(layer['hc-dark'], '    ')}  }
+}
+@media (prefers-color-scheme: dark) {
+  :root[data-contrast="high"]:not([data-theme="light"]) {${block(layer['hc-dark'], '    ')}  }
+}
+:root[data-theme="dark"][data-contrast="high"] {${block(layer['hc-dark'])}}
+
+/* Compact density: data-dense tables and forms */
+[data-density="compact"] {${block(layer.compact)}}
+
+/* Reduced motion: every duration and distance drops to zero */
+@media (prefers-reduced-motion: reduce) {
+  :root { ${reducedMotion} --stagger: 0ms; --motion-lift: 0px; --motion-press: 1; --motion-rise: 0px; }
+}
+`;
+write('tokens.css', css);
+
+// Resolved JSON per mode
+function nest(map) {
+  const out = {};
+  for (const [name, v] of map) {
+    const t = MODES.light.get(name) || [...Object.values(MODES)].map((s) => s.get(name)).find(Boolean);
+    let o = out; const p = name.split('.');
+    for (let i = 0; i < p.length - 1; i++) { if (o[p[i]] && '$value' in o[p[i]]) o[p[i]] = { $root: o[p[i]] }; o = o[p[i]] = o[p[i]] || {}; }
+    const leaf = { $type: t.type, $value: v }; if (t.desc) leaf.$description = t.desc;
+    if (o[p.at(-1)] && !('$value' in o[p.at(-1)])) o[p.at(-1)].$root = leaf; else o[p.at(-1)] = leaf;
+  }
+  return out;
+}
+const modeJson = Object.fromEntries(Object.keys(MODES).map((m) => [m, nest(resolved[m])]));
+write('dist/tokens/antz.tokens.json', JSON.stringify({ $description: HEADER('all tokens, resolved per mode (DTCG)'), version: VERSION, modes: modeJson }, null, 2) + '\n');
+
+const index = [...MODES.light.values()].map((t) => ({
+  name: t.name, css: cssName(t), type: t.type, tier: layer.primitive.has(t.name) ? 'primitive' : layer.base.has(t.name) ? 'base' : 'semantic',
+  description: t.desc, light: resolved.light.get(t.name), dark: resolved.dark.get(t.name), 'light-hc': resolved['light-hc'].get(t.name), 'dark-hc': resolved['dark-hc'].get(t.name),
+  ref: isRef(t.value) ? t.value.slice(1, -1) : (layer.dark.get(t.name) ? undefined : undefined), darkRef: layer.dark.get(t.name) && isRef(layer.dark.get(t.name).value) ? layer.dark.get(t.name).value.slice(1, -1) : undefined,
+}));
+write('dist/tokens/token-index.json', JSON.stringify({ version: VERSION, generated: 'tools/build.mjs', tokens: index }, null, 2) + '\n');
+
+// colors.json (kept at the root for continuity with Foundation v0.2)
+const colorsOut = { $description: HEADER('every colour token, resolved, per theme'), version: VERSION };
+for (const m of Object.keys(MODES)) {
+  colorsOut[m] = {};
+  for (const t of index.filter((x) => x.type === 'color')) colorsOut[m][t.css.slice(2)] = { $type: 'color', $value: t[m], ...(t.description ? { $description: t.description } : {}) };
+}
+write('colors.json', JSON.stringify(colorsOut, null, 2) + '\n');
+
+// Tokens Studio / Figma variables: sets keep aliases so Figma variables alias primitives
+function rawNest(map) { const o = {}; for (const t of map.values()) { let n = o; t.path.slice(0, -1).forEach((k) => { n = n[k] = n[k] || {}; }); n[t.path.at(-1)] = { $type: t.type === 'cubicBezier' ? 'cubicBezier' : t.type, $value: t.value, ...(t.desc ? { $description: t.desc } : {}) }; } return o; }
+const figma = {
+  'antz/primitive': rawNest(layer.primitive), 'antz/base': rawNest(layer.base), 'antz/light': rawNest(layer.light), 'antz/dark': rawNest(layer.dark),
+  'antz/contrast-high-light': rawNest(layer['hc-light']), 'antz/contrast-high-dark': rawNest(layer['hc-dark']), 'antz/density-compact': rawNest(layer.compact),
+  $themes: [
+    { id: 'light', name: 'Light', group: 'Mode', selectedTokenSets: { 'antz/primitive': 'source', 'antz/base': 'enabled', 'antz/light': 'enabled' } },
+    { id: 'dark', name: 'Dark', group: 'Mode', selectedTokenSets: { 'antz/primitive': 'source', 'antz/base': 'enabled', 'antz/light': 'enabled', 'antz/dark': 'enabled' } },
+    { id: 'light-hc', name: 'Light high contrast', group: 'Mode', selectedTokenSets: { 'antz/primitive': 'source', 'antz/base': 'enabled', 'antz/light': 'enabled', 'antz/contrast-high-light': 'enabled' } },
+    { id: 'dark-hc', name: 'Dark high contrast', group: 'Mode', selectedTokenSets: { 'antz/primitive': 'source', 'antz/base': 'enabled', 'antz/light': 'enabled', 'antz/dark': 'enabled', 'antz/contrast-high-dark': 'enabled' } },
+  ],
+  $metadata: { tokenSetOrder: ['antz/primitive', 'antz/base', 'antz/light', 'antz/dark', 'antz/contrast-high-light', 'antz/contrast-high-dark', 'antz/density-compact'], antzVersion: VERSION },
+};
+write('dist/figma/antz.tokens-studio.json', JSON.stringify(figma, null, 2) + '\n');
+
+// MUI theme options
+const R = (m, n) => resolved[m].get(n);
+const px = (v) => parseFloat(v);
+const ms = (v) => parseFloat(v);
+function mui(m) {
+  return {
+    palette: {
+      mode: m.startsWith('dark') ? 'dark' : 'light',
+      primary: { main: R(m, 'color.accent'), dark: R(m, 'color.accent.pressed'), light: R(m, 'color.accent.bright'), contrastText: R(m, 'color.text.on-accent') },
+      secondary: { main: R(m, 'color.secondary.solid'), contrastText: R(m, 'color.secondary.on-solid') },
+      error: { main: R(m, 'color.danger.solid'), contrastText: R(m, 'color.danger.on-solid') },
+      warning: { main: R(m, 'color.warning.solid'), contrastText: R(m, 'color.warning.on-solid') },
+      info: { main: R(m, 'color.info.solid'), contrastText: R(m, 'color.info.on-solid') },
+      success: { main: R(m, 'color.success.solid'), contrastText: R(m, 'color.success.on-solid') },
+      text: { primary: R(m, 'color.text'), secondary: R(m, 'color.text.secondary'), disabled: R(m, 'color.text.disabled') },
+      background: { default: R(m, 'color.bg.app'), paper: R(m, 'color.surface') },
+      divider: R(m, 'color.border'),
+      action: { hover: R(m, 'color.surface.hover'), selected: R(m, 'color.surface.selected'), disabledBackground: R(m, 'color.disabled-bg'), disabled: R(m, 'color.text.disabled') },
+      antz: { brand: R(m, 'color.brand.primary'), brandText: R(m, 'color.accent.text'), focus: R(m, 'color.focus'), tertiary: R(m, 'color.tertiary.solid'), caution: R(m, 'color.caution.solid'), board: R(m, 'color.bg.app') },
+    },
+    typography: {
+      fontFamily: R(m, 'font.body'), fontSize: px(R(m, 'text.md')),
+      fontWeightLight: 300, fontWeightRegular: 400, fontWeightMedium: 500, fontWeightBold: 600,
+      h4: { fontSize: px(R(m, 'text.4xl')), fontWeight: 600, letterSpacing: R(m, 'tracking.heading') },
+      h5: { fontSize: px(R(m, 'text.3xl')), fontWeight: 600, letterSpacing: R(m, 'tracking.heading') },
+      h6: { fontSize: px(R(m, 'text.2xl')), fontWeight: 600 },
+      subtitle1: { fontSize: px(R(m, 'text.lg')), fontWeight: 600 },
+      body1: { fontSize: px(R(m, 'text.lg')) }, body2: { fontSize: px(R(m, 'text.md')) },
+      button: { fontSize: px(R(m, 'text.md')), fontWeight: 600, textTransform: 'none' },
+      caption: { fontSize: px(R(m, 'text.xs')) }, overline: { fontSize: px(R(m, 'text.2xs')), fontWeight: 600, letterSpacing: R(m, 'tracking.overline') },
+    },
+    shape: { borderRadius: px(R(m, 'radius.control')) },
+    transitions: {
+      easing: { easeInOut: R(m, 'ease.standard'), easeOut: R(m, 'ease.out'), easeIn: R(m, 'ease.exit'), sharp: R(m, 'ease.in-out') },
+      duration: { shortest: ms(R(m, 'duration.instant')), shorter: ms(R(m, 'duration.fast')), short: ms(R(m, 'duration.base')), standard: ms(R(m, 'duration.moderate')), complex: ms(R(m, 'duration.slow')), enteringScreen: ms(R(m, 'duration.moderate')), leavingScreen: ms(R(m, 'duration.fast')) },
+    },
+    components: {
+      MuiButton: { styleOverrides: { root: { borderRadius: px(R(m, 'radius.control')), boxShadow: 'none' }, containedPrimary: { color: R(m, 'color.text.on-accent'), '&:hover': { backgroundColor: R(m, 'color.accent.hover'), boxShadow: 'none' } }, outlinedPrimary: { color: R(m, 'color.accent.text'), borderColor: R(m, 'color.accent.text') }, textPrimary: { color: R(m, 'color.accent.text') } } },
+      MuiCard: { styleOverrides: { root: { borderRadius: px(R(m, 'radius.lg')) } } },
+      MuiDialog: { styleOverrides: { paper: { borderRadius: px(R(m, 'radius.xl')) } } },
+      MuiOutlinedInput: { styleOverrides: { notchedOutline: { borderColor: R(m, 'color.border.input') } } },
+      MuiLink: { styleOverrides: { root: { color: R(m, 'color.text.link') } } },
+      MuiSwitch: { styleOverrides: { switchBase: { '&.Mui-checked + .MuiSwitch-track': { backgroundColor: R(m, 'color.accent.indicator'), opacity: 1 } } } },
+      MuiCheckbox: { styleOverrides: { root: { '&.Mui-checked': { color: R(m, 'color.accent.indicator') } } } },
+      MuiTabs: { styleOverrides: { indicator: { backgroundColor: R(m, 'color.accent.indicator') } } },
+    },
+  };
+}
+const muiSrc = `/**
+ * ${HEADER('MUI theme options').replace(/\n/g, '\n * ')}
+ *
+ * Usage (Next.js + MUI v5/v6):
+ *   import { createTheme } from '@mui/material/styles';
+ *   import { antzLight, antzDark } from '@antz/design-tokens/mui';
+ *   const theme = createTheme(prefersDark ? antzDark : antzLight);
+ *
+ * Breakpoints are deliberately not overridden: the dashboard keeps MUI's defaults.
+ * palette.antz carries Antz-only roles (brand, brandText, focus, tertiary, caution, board).
+ */
+export const antzVersion = ${JSON.stringify(VERSION)};
+export const antzLight = ${JSON.stringify(mui('light'), null, 2)};
+export const antzDark = ${JSON.stringify(mui('dark'), null, 2)};
+export const antzLightHighContrast = ${JSON.stringify(mui('light-hc'), null, 2)};
+export const antzDarkHighContrast = ${JSON.stringify(mui('dark-hc'), null, 2)};
+export function antzThemeOptions({ mode = 'light', contrast = 'standard' } = {}) {
+  if (mode === 'dark') return contrast === 'high' ? antzDarkHighContrast : antzDark;
+  return contrast === 'high' ? antzLightHighContrast : antzLight;
+}
+`;
+write('dist/mui/antz-mui-theme.js', muiSrc);
+
+// React Native theme
+const camel = (s) => s.replace(/[-.]([a-z0-9])/g, (_, c) => c.toUpperCase());
+function rnColors(m) { const o = {}; for (const t of index) if (t.type === 'color' && t.tier === 'semantic') o[camel(t.name.replace(/^color\./, ''))] = resolved[m].get(t.name); return o; }
+const scale = (prefix) => Object.fromEntries(index.filter((t) => t.name.startsWith(prefix + '.')).map((t) => [t.name.slice(prefix.length + 1), px(t.light)]).filter(([, v]) => !Number.isNaN(v)));
+const rn = {
+  version: VERSION,
+  colors: { light: rnColors('light'), dark: rnColors('dark'), lightHighContrast: rnColors('light-hc'), darkHighContrast: rnColors('dark-hc') },
+  space: scale('space'), radius: scale('radius'), fontSize: scale('text'),
+  fontFamily: { body: 'Inter', heading: 'Inter', mono: 'Menlo' },
+  fontWeight: { light: '300', regular: '400', medium: '500', semibold: '600', bold: '700' },
+  size: scale('size'),
+  motion: {
+    duration: Object.fromEntries(index.filter((t) => t.name.startsWith('duration.')).map((t) => [t.name.slice(9), ms(t.light)])),
+    easing: Object.fromEntries([...layer.base.values()].filter((t) => t.type === 'cubicBezier').map((t) => [camel(t.name.slice(5)), t.value])),
+    stagger: ms(R('light', 'stagger')), lift: px(R('light', 'motion.lift')), press: Number(R('light', 'motion.press')), rise: px(R('light', 'motion.rise')),
+  },
+};
+const rnSrc = `/**
+ * ${HEADER('React Native theme').replace(/\n/g, '\n * ')}
+ *
+ * Usage:
+ *   import { antzTheme } from '@antz/design-tokens/react-native';
+ *   const scheme = useColorScheme();
+ *   const c = antzTheme.colors[scheme === 'dark' ? 'dark' : 'light'];
+ *   <Pressable style={{ backgroundColor: c.accent, borderRadius: antzTheme.radius.control }}>
+ *     <Text style={{ color: c.textOnAccent }}>Save</Text>
+ *   </Pressable>
+ * Easing arrays plug into Reanimated: Easing.bezier(...antzTheme.motion.easing.standard).
+ * Respect AccessibilityInfo.isReduceMotionEnabled(): use duration 0 when it is on.
+ */
+export const antzTheme = ${JSON.stringify(rn, null, 2)} as const;
+export type AntzColorScheme = keyof typeof antzTheme.colors;
+export type AntzColors = typeof antzTheme.colors.light;
+export default antzTheme;
+`;
+write('dist/react-native/antz-theme.ts', rnSrc);
+
+// Contrast report
+let md = `# Contrast report\n\n${HEADER('contrast gate').replace(/\n/g, '  \n')}\n\nText needs 4.5:1; UI parts and large text need 3:1. ${report.length} checks, ${gateFails} failures.\n`;
+for (const m of Object.keys(MODES)) {
+  md += `\n## ${m}\n\n| Foreground | Background | Ratio | Needs | Result |\n|---|---|---|---|---|\n`;
+  for (const x of report.filter((r) => r.m === m)) md += `| \`${x.fg}\` ${x.a} | \`${x.bg}\` ${x.b} | ${x.r.toFixed(2)}:1 | ${x.min}:1 | ${x.ok ? 'Pass' : '**Fail**'} |\n`;
+}
+write('dist/contrast-report.md', md);
+
+console.log(`✓ Antz Design System ${VERSION} built. ${summary}. All pass.`);
+console.log('  tokens.css, colors.json, dist/tokens, dist/figma, dist/mui, dist/react-native, dist/contrast-report.md');
