@@ -1,0 +1,22 @@
+<!doctype html>
+<!-- Test fixture: a compliant prototype. tools/test.mjs expects zero findings. -->
+<html lang="en">
+<head>
+<link rel="stylesheet" href="../../tokens.css">
+<link rel="stylesheet" href="../../components.css">
+<style>
+  .welcome { padding: var(--space-6); border-radius: var(--radius-2xl); background: var(--gradient-wash-primary); }
+  .welcome h1 { font-family: var(--font-heading); font-size: var(--text-4xl); font-weight: var(--weight-semibold); color: var(--color-text); }
+  .welcome a { color: var(--color-accent-text); transition: color var(--duration-fast) var(--ease-standard); }
+  .panel { box-shadow: var(--shadow-sm); background: var(--color-surface); }
+</style>
+</head>
+<body>
+  <section class="welcome">
+    <h1>Good morning</h1>
+    <button class="btn btn--primary">Add animal</button>
+    <button class="icon-btn" aria-label="Close"><svg class="icon"><use href="#i-x"/></svg></button>
+    <img src="seal.svg" alt="">
+  </section>
+</body>
+</html>

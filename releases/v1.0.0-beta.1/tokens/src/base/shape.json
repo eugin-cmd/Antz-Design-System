@@ -1,0 +1,124 @@
+{
+  "radius": {
+    "xs": {
+      "$type": "dimension",
+      "$value": "6px",
+      "$description": "kbd, segment inside a pill"
+    },
+    "sm": {
+      "$type": "dimension",
+      "$value": "8px",
+      "$description": "Chips, small tiles"
+    },
+    "control": {
+      "$type": "dimension",
+      "$value": "10px",
+      "$description": "Buttons, inputs, icon tiles"
+    },
+    "md": {
+      "$type": "dimension",
+      "$value": "12px",
+      "$description": "Rows, icon buttons, search, menus"
+    },
+    "lg": {
+      "$type": "dimension",
+      "$value": "16px",
+      "$description": "Cards"
+    },
+    "xl": {
+      "$type": "dimension",
+      "$value": "20px",
+      "$description": "Dialogs, sheets"
+    },
+    "2xl": {
+      "$type": "dimension",
+      "$value": "24px",
+      "$description": "App panels, header bar, hero"
+    },
+    "full": {
+      "$type": "dimension",
+      "$value": "999px",
+      "$description": "Pills, avatars"
+    }
+  },
+  "size": {
+    "control-sm": {
+      "$type": "dimension",
+      "$value": "34px"
+    },
+    "control-md": {
+      "$type": "dimension",
+      "$value": "42px"
+    },
+    "control-lg": {
+      "$type": "dimension",
+      "$value": "48px"
+    },
+    "icon-xs": {
+      "$type": "dimension",
+      "$value": "14px"
+    },
+    "icon-sm": {
+      "$type": "dimension",
+      "$value": "16px"
+    },
+    "icon-md": {
+      "$type": "dimension",
+      "$value": "20px"
+    },
+    "icon-lg": {
+      "$type": "dimension",
+      "$value": "24px"
+    },
+    "touch-min": {
+      "$type": "dimension",
+      "$value": "44px",
+      "$description": "Minimum touch target on tablet and phone"
+    },
+    "row-comfortable": {
+      "$type": "dimension",
+      "$value": "52px"
+    },
+    "row-compact": {
+      "$type": "dimension",
+      "$value": "40px"
+    },
+    "drawer-work": {
+      "$type": "dimension",
+      "$value": "562px",
+      "$description": "Right work drawer (decision D5)"
+    },
+    "sidenav": {
+      "$type": "dimension",
+      "$value": "260px"
+    },
+    "sidenav-folded": {
+      "$type": "dimension",
+      "$value": "68px"
+    },
+    "appbar": {
+      "$type": "dimension",
+      "$value": "64px"
+    }
+  },
+  "icon-stroke": {
+    "$type": "number",
+    "$value": 1.8
+  },
+  "border-width": {
+    "$type": "dimension",
+    "$value": "1px"
+  },
+  "border-width-strong": {
+    "$type": "dimension",
+    "$value": "2px"
+  },
+  "focus-ring-width": {
+    "$type": "dimension",
+    "$value": "2px"
+  },
+  "focus-ring-offset": {
+    "$type": "dimension",
+    "$value": "2px"
+  }
+}
