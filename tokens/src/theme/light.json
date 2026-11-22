@@ -776,27 +776,27 @@
   "gradient-stop": {
     "mint": {
       "$type": "color",
-      "$value": "{wash.mint}"
+      "$value": "{wash.soft-mint}"
     },
     "rose": {
       "$type": "color",
-      "$value": "{wash.rose}"
+      "$value": "{wash.soft-rose}"
     },
     "butter": {
       "$type": "color",
-      "$value": "{wash.butter}"
+      "$value": "{wash.soft-butter}"
     },
     "aqua": {
       "$type": "color",
-      "$value": "{wash.aqua}"
+      "$value": "{wash.soft-aqua}"
     },
     "sky": {
       "$type": "color",
-      "$value": "{wash.sky}"
+      "$value": "{wash.soft-sky}"
     },
     "pink": {
       "$type": "color",
-      "$value": "{wash.pink}"
+      "$value": "{wash.soft-pink}"
     }
   }
 }

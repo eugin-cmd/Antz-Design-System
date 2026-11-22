@@ -21,3 +21,6 @@ Stat panels (a boxed row of figures) looked flat on dashboards. The System Owner
 
 ## Alternatives considered
 Rotating washes freely for variety: rejected, because the colour would carry no meaning and some pairings (deaths on a festive wash) are inappropriate.
+
+## Amendment, 22 November 2026
+In the light themes the washes are now half strength (reference stops blended 50% with white), so stat panels read as a tint and the figures stand out more. Dark themes are unchanged: halving the already muted night stops made the four washes indistinguishable. Approved by the System Owner.

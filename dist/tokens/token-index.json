@@ -3039,6 +3039,72 @@
       "dark-hc": "#3D2129"
     },
     {
+      "name": "wash.soft-mint",
+      "css": "--wash-soft-mint",
+      "type": "color",
+      "tier": "primitive",
+      "description": "mint at 50% over white (#BFF3D2 → #DFF9E8); the light-theme stop since 1.1.",
+      "light": "#DFF9E8",
+      "dark": "#DFF9E8",
+      "light-hc": "#DFF9E8",
+      "dark-hc": "#DFF9E8"
+    },
+    {
+      "name": "wash.soft-rose",
+      "css": "--wash-soft-rose",
+      "type": "color",
+      "tier": "primitive",
+      "description": "rose at 50% over white (#FFD3D3 → #FFE9E9); the light-theme stop since 1.1.",
+      "light": "#FFE9E9",
+      "dark": "#FFE9E9",
+      "light-hc": "#FFE9E9",
+      "dark-hc": "#FFE9E9"
+    },
+    {
+      "name": "wash.soft-butter",
+      "css": "--wash-soft-butter",
+      "type": "color",
+      "tier": "primitive",
+      "description": "butter at 50% over white (#FFF5BF → #FFFADF); the light-theme stop since 1.1.",
+      "light": "#FFFADF",
+      "dark": "#FFFADF",
+      "light-hc": "#FFFADF",
+      "dark-hc": "#FFFADF"
+    },
+    {
+      "name": "wash.soft-aqua",
+      "css": "--wash-soft-aqua",
+      "type": "color",
+      "tier": "primitive",
+      "description": "aqua at 50% over white (#BFF5F2 → #DFFAF8); the light-theme stop since 1.1.",
+      "light": "#DFFAF8",
+      "dark": "#DFFAF8",
+      "light-hc": "#DFFAF8",
+      "dark-hc": "#DFFAF8"
+    },
+    {
+      "name": "wash.soft-sky",
+      "css": "--wash-soft-sky",
+      "type": "color",
+      "tier": "primitive",
+      "description": "sky at 50% over white (#BFEBF5 → #DFF5FA); the light-theme stop since 1.1.",
+      "light": "#DFF5FA",
+      "dark": "#DFF5FA",
+      "light-hc": "#DFF5FA",
+      "dark-hc": "#DFF5FA"
+    },
+    {
+      "name": "wash.soft-pink",
+      "css": "--wash-soft-pink",
+      "type": "color",
+      "tier": "primitive",
+      "description": "pink at 50% over white (#F9CCD4 → #FCE6EA); the light-theme stop since 1.1.",
+      "light": "#FCE6EA",
+      "dark": "#FCE6EA",
+      "light-hc": "#FCE6EA",
+      "dark-hc": "#FCE6EA"
+    },
+    {
       "name": "alpha.overlay-light",
       "css": "--alpha-overlay-light",
       "type": "color",
@@ -5867,9 +5933,9 @@
       "type": "gradient",
       "tier": "semantic",
       "description": "Gradient 1. Hero and welcome bands, dashboard header, onboarding. Same hue as the brand",
-      "light": "linear-gradient(to bottom right, #BFF3D2, #FFD3D3)",
+      "light": "linear-gradient(to bottom right, #DFF9E8, #FFE9E9)",
       "dark": "linear-gradient(to bottom right, #123A2A, #3A2228)",
-      "light-hc": "linear-gradient(to bottom right, #BFF3D2, #FFD3D3)",
+      "light-hc": "linear-gradient(to bottom right, #DFF9E8, #FFE9E9)",
       "dark-hc": "linear-gradient(to bottom right, #123A2A, #3A2228)"
     },
     {
@@ -5878,9 +5944,9 @@
       "type": "gradient",
       "tier": "semantic",
       "description": "Gradient 2. Announcements, featured cards, milestones",
-      "light": "linear-gradient(to bottom right, #FFF5BF, #FFD3D3)",
+      "light": "linear-gradient(to bottom right, #FFFADF, #FFE9E9)",
       "dark": "linear-gradient(to bottom right, #38321A, #3A2228)",
-      "light-hc": "linear-gradient(to bottom right, #FFF5BF, #FFD3D3)",
+      "light-hc": "linear-gradient(to bottom right, #FFFADF, #FFE9E9)",
       "dark-hc": "linear-gradient(to bottom right, #38321A, #3A2228)"
     },
     {
@@ -5889,9 +5955,9 @@
       "type": "gradient",
       "tier": "semantic",
       "description": "Gradient 3. Info panels, tips, empty states",
-      "light": "linear-gradient(to bottom right, #FFF5BF, #BFF5F2)",
+      "light": "linear-gradient(to bottom right, #FFFADF, #DFFAF8)",
       "dark": "linear-gradient(to bottom right, #38321A, #12383A)",
-      "light-hc": "linear-gradient(to bottom right, #FFF5BF, #BFF5F2)",
+      "light-hc": "linear-gradient(to bottom right, #FFFADF, #DFFAF8)",
       "dark-hc": "linear-gradient(to bottom right, #38321A, #12383A)"
     },
     {
@@ -5900,9 +5966,9 @@
       "type": "gradient",
       "tier": "semantic",
       "description": "Gradient 4. Illustrations, onboarding, docs, marketing",
-      "light": "linear-gradient(to bottom right, #BFEBF5, #F9CCD4)",
+      "light": "linear-gradient(to bottom right, #DFF5FA, #FCE6EA)",
       "dark": "linear-gradient(to bottom right, #133543, #3D2129)",
-      "light-hc": "linear-gradient(to bottom right, #BFEBF5, #F9CCD4)",
+      "light-hc": "linear-gradient(to bottom right, #DFF5FA, #FCE6EA)",
       "dark-hc": "linear-gradient(to bottom right, #133543, #3D2129)"
     },
     {
@@ -6076,11 +6142,11 @@
       "type": "color",
       "tier": "semantic",
       "description": "",
-      "light": "#BFF3D2",
+      "light": "#DFF9E8",
       "dark": "#123A2A",
-      "light-hc": "#BFF3D2",
+      "light-hc": "#DFF9E8",
       "dark-hc": "#123A2A",
-      "ref": "wash.mint",
+      "ref": "wash.soft-mint",
       "darkRef": "wash.night-mint"
     },
     {
@@ -6089,11 +6155,11 @@
       "type": "color",
       "tier": "semantic",
       "description": "",
-      "light": "#FFD3D3",
+      "light": "#FFE9E9",
       "dark": "#3A2228",
-      "light-hc": "#FFD3D3",
+      "light-hc": "#FFE9E9",
       "dark-hc": "#3A2228",
-      "ref": "wash.rose",
+      "ref": "wash.soft-rose",
       "darkRef": "wash.night-rose"
     },
     {
@@ -6102,11 +6168,11 @@
       "type": "color",
       "tier": "semantic",
       "description": "",
-      "light": "#FFF5BF",
+      "light": "#FFFADF",
       "dark": "#38321A",
-      "light-hc": "#FFF5BF",
+      "light-hc": "#FFFADF",
       "dark-hc": "#38321A",
-      "ref": "wash.butter",
+      "ref": "wash.soft-butter",
       "darkRef": "wash.night-butter"
     },
     {
@@ -6115,11 +6181,11 @@
       "type": "color",
       "tier": "semantic",
       "description": "",
-      "light": "#BFF5F2",
+      "light": "#DFFAF8",
       "dark": "#12383A",
-      "light-hc": "#BFF5F2",
+      "light-hc": "#DFFAF8",
       "dark-hc": "#12383A",
-      "ref": "wash.aqua",
+      "ref": "wash.soft-aqua",
       "darkRef": "wash.night-aqua"
     },
     {
@@ -6128,11 +6194,11 @@
       "type": "color",
       "tier": "semantic",
       "description": "",
-      "light": "#BFEBF5",
+      "light": "#DFF5FA",
       "dark": "#133543",
-      "light-hc": "#BFEBF5",
+      "light-hc": "#DFF5FA",
       "dark-hc": "#133543",
-      "ref": "wash.sky",
+      "ref": "wash.soft-sky",
       "darkRef": "wash.night-sky"
     },
     {
@@ -6141,11 +6207,11 @@
       "type": "color",
       "tier": "semantic",
       "description": "",
-      "light": "#F9CCD4",
+      "light": "#FCE6EA",
       "dark": "#3D2129",
-      "light-hc": "#F9CCD4",
+      "light-hc": "#FCE6EA",
       "dark-hc": "#3D2129",
-      "ref": "wash.pink",
+      "ref": "wash.soft-pink",
       "darkRef": "wash.night-pink"
     }
   ]

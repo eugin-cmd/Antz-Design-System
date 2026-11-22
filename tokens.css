@@ -322,6 +322,12 @@
   --wash-night-aqua: #12383A;
   --wash-night-sky: #133543;
   --wash-night-pink: #3D2129;
+  --wash-soft-mint: #DFF9E8;
+  --wash-soft-rose: #FFE9E9;
+  --wash-soft-butter: #FFFADF;
+  --wash-soft-aqua: #DFFAF8;
+  --wash-soft-sky: #DFF5FA;
+  --wash-soft-pink: #FCE6EA;
 
   /* alpha */
   --alpha-overlay-light: #101A1461;
@@ -635,12 +641,12 @@
   --texture-rings: repeating-radial-gradient(circle at -20% 135%, rgba(255, 255, 255, 0) 0 15px, rgba(255, 255, 255, .055) 15px 16px);
 
   /* gradient-stop */
-  --gradient-stop-mint: var(--wash-mint);
-  --gradient-stop-rose: var(--wash-rose);
-  --gradient-stop-butter: var(--wash-butter);
-  --gradient-stop-aqua: var(--wash-aqua);
-  --gradient-stop-sky: var(--wash-sky);
-  --gradient-stop-pink: var(--wash-pink);
+  --gradient-stop-mint: var(--wash-soft-mint);
+  --gradient-stop-rose: var(--wash-soft-rose);
+  --gradient-stop-butter: var(--wash-soft-butter);
+  --gradient-stop-aqua: var(--wash-soft-aqua);
+  --gradient-stop-sky: var(--wash-soft-sky);
+  --gradient-stop-pink: var(--wash-soft-pink);
 }
 
 /* Dark: follows the OS unless the page forces light */

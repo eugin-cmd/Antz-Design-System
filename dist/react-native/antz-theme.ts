@@ -125,12 +125,12 @@ export const antzTheme = {
       "hueNavy": "#1F415B",
       "hueNavySoft": "#E3ECF3",
       "hueNavyInk": "#1F415B",
-      "gradientStopMint": "#BFF3D2",
-      "gradientStopRose": "#FFD3D3",
-      "gradientStopButter": "#FFF5BF",
-      "gradientStopAqua": "#BFF5F2",
-      "gradientStopSky": "#BFEBF5",
-      "gradientStopPink": "#F9CCD4"
+      "gradientStopMint": "#DFF9E8",
+      "gradientStopRose": "#FFE9E9",
+      "gradientStopButter": "#FFFADF",
+      "gradientStopAqua": "#DFFAF8",
+      "gradientStopSky": "#DFF5FA",
+      "gradientStopPink": "#FCE6EA"
     },
     "dark": {
       "brandPrimary": "#37BD69",
@@ -359,12 +359,12 @@ export const antzTheme = {
       "hueNavy": "#1F415B",
       "hueNavySoft": "#E3ECF3",
       "hueNavyInk": "#1F415B",
-      "gradientStopMint": "#BFF3D2",
-      "gradientStopRose": "#FFD3D3",
-      "gradientStopButter": "#FFF5BF",
-      "gradientStopAqua": "#BFF5F2",
-      "gradientStopSky": "#BFEBF5",
-      "gradientStopPink": "#F9CCD4"
+      "gradientStopMint": "#DFF9E8",
+      "gradientStopRose": "#FFE9E9",
+      "gradientStopButter": "#FFFADF",
+      "gradientStopAqua": "#DFFAF8",
+      "gradientStopSky": "#DFF5FA",
+      "gradientStopPink": "#FCE6EA"
     },
     "darkHighContrast": {
       "brandPrimary": "#37BD69",

@@ -1117,6 +1117,36 @@
       "$type": "color",
       "$value": "#3D2129"
     },
+    "wash-soft-mint": {
+      "$type": "color",
+      "$value": "#DFF9E8",
+      "$description": "mint at 50% over white (#BFF3D2 → #DFF9E8); the light-theme stop since 1.1."
+    },
+    "wash-soft-rose": {
+      "$type": "color",
+      "$value": "#FFE9E9",
+      "$description": "rose at 50% over white (#FFD3D3 → #FFE9E9); the light-theme stop since 1.1."
+    },
+    "wash-soft-butter": {
+      "$type": "color",
+      "$value": "#FFFADF",
+      "$description": "butter at 50% over white (#FFF5BF → #FFFADF); the light-theme stop since 1.1."
+    },
+    "wash-soft-aqua": {
+      "$type": "color",
+      "$value": "#DFFAF8",
+      "$description": "aqua at 50% over white (#BFF5F2 → #DFFAF8); the light-theme stop since 1.1."
+    },
+    "wash-soft-sky": {
+      "$type": "color",
+      "$value": "#DFF5FA",
+      "$description": "sky at 50% over white (#BFEBF5 → #DFF5FA); the light-theme stop since 1.1."
+    },
+    "wash-soft-pink": {
+      "$type": "color",
+      "$value": "#FCE6EA",
+      "$description": "pink at 50% over white (#F9CCD4 → #FCE6EA); the light-theme stop since 1.1."
+    },
     "alpha-overlay-light": {
       "$type": "color",
       "$value": "#101A1461"
@@ -1608,27 +1638,27 @@
     },
     "gradient-stop-mint": {
       "$type": "color",
-      "$value": "#BFF3D2"
+      "$value": "#DFF9E8"
     },
     "gradient-stop-rose": {
       "$type": "color",
-      "$value": "#FFD3D3"
+      "$value": "#FFE9E9"
     },
     "gradient-stop-butter": {
       "$type": "color",
-      "$value": "#FFF5BF"
+      "$value": "#FFFADF"
     },
     "gradient-stop-aqua": {
       "$type": "color",
-      "$value": "#BFF5F2"
+      "$value": "#DFFAF8"
     },
     "gradient-stop-sky": {
       "$type": "color",
-      "$value": "#BFEBF5"
+      "$value": "#DFF5FA"
     },
     "gradient-stop-pink": {
       "$type": "color",
-      "$value": "#F9CCD4"
+      "$value": "#FCE6EA"
     }
   },
   "dark": {
@@ -2746,6 +2776,36 @@
     "wash-night-pink": {
       "$type": "color",
       "$value": "#3D2129"
+    },
+    "wash-soft-mint": {
+      "$type": "color",
+      "$value": "#DFF9E8",
+      "$description": "mint at 50% over white (#BFF3D2 → #DFF9E8); the light-theme stop since 1.1."
+    },
+    "wash-soft-rose": {
+      "$type": "color",
+      "$value": "#FFE9E9",
+      "$description": "rose at 50% over white (#FFD3D3 → #FFE9E9); the light-theme stop since 1.1."
+    },
+    "wash-soft-butter": {
+      "$type": "color",
+      "$value": "#FFFADF",
+      "$description": "butter at 50% over white (#FFF5BF → #FFFADF); the light-theme stop since 1.1."
+    },
+    "wash-soft-aqua": {
+      "$type": "color",
+      "$value": "#DFFAF8",
+      "$description": "aqua at 50% over white (#BFF5F2 → #DFFAF8); the light-theme stop since 1.1."
+    },
+    "wash-soft-sky": {
+      "$type": "color",
+      "$value": "#DFF5FA",
+      "$description": "sky at 50% over white (#BFEBF5 → #DFF5FA); the light-theme stop since 1.1."
+    },
+    "wash-soft-pink": {
+      "$type": "color",
+      "$value": "#FCE6EA",
+      "$description": "pink at 50% over white (#F9CCD4 → #FCE6EA); the light-theme stop since 1.1."
     },
     "alpha-overlay-light": {
       "$type": "color",
@@ -4377,6 +4437,36 @@
       "$type": "color",
       "$value": "#3D2129"
     },
+    "wash-soft-mint": {
+      "$type": "color",
+      "$value": "#DFF9E8",
+      "$description": "mint at 50% over white (#BFF3D2 → #DFF9E8); the light-theme stop since 1.1."
+    },
+    "wash-soft-rose": {
+      "$type": "color",
+      "$value": "#FFE9E9",
+      "$description": "rose at 50% over white (#FFD3D3 → #FFE9E9); the light-theme stop since 1.1."
+    },
+    "wash-soft-butter": {
+      "$type": "color",
+      "$value": "#FFFADF",
+      "$description": "butter at 50% over white (#FFF5BF → #FFFADF); the light-theme stop since 1.1."
+    },
+    "wash-soft-aqua": {
+      "$type": "color",
+      "$value": "#DFFAF8",
+      "$description": "aqua at 50% over white (#BFF5F2 → #DFFAF8); the light-theme stop since 1.1."
+    },
+    "wash-soft-sky": {
+      "$type": "color",
+      "$value": "#DFF5FA",
+      "$description": "sky at 50% over white (#BFEBF5 → #DFF5FA); the light-theme stop since 1.1."
+    },
+    "wash-soft-pink": {
+      "$type": "color",
+      "$value": "#FCE6EA",
+      "$description": "pink at 50% over white (#F9CCD4 → #FCE6EA); the light-theme stop since 1.1."
+    },
     "alpha-overlay-light": {
       "$type": "color",
       "$value": "#101A1461"
@@ -4868,27 +4958,27 @@
     },
     "gradient-stop-mint": {
       "$type": "color",
-      "$value": "#BFF3D2"
+      "$value": "#DFF9E8"
     },
     "gradient-stop-rose": {
       "$type": "color",
-      "$value": "#FFD3D3"
+      "$value": "#FFE9E9"
     },
     "gradient-stop-butter": {
       "$type": "color",
-      "$value": "#FFF5BF"
+      "$value": "#FFFADF"
     },
     "gradient-stop-aqua": {
       "$type": "color",
-      "$value": "#BFF5F2"
+      "$value": "#DFFAF8"
     },
     "gradient-stop-sky": {
       "$type": "color",
-      "$value": "#BFEBF5"
+      "$value": "#DFF5FA"
     },
     "gradient-stop-pink": {
       "$type": "color",
-      "$value": "#F9CCD4"
+      "$value": "#FCE6EA"
     }
   },
   "dark-hc": {
@@ -6006,6 +6096,36 @@
     "wash-night-pink": {
       "$type": "color",
       "$value": "#3D2129"
+    },
+    "wash-soft-mint": {
+      "$type": "color",
+      "$value": "#DFF9E8",
+      "$description": "mint at 50% over white (#BFF3D2 → #DFF9E8); the light-theme stop since 1.1."
+    },
+    "wash-soft-rose": {
+      "$type": "color",
+      "$value": "#FFE9E9",
+      "$description": "rose at 50% over white (#FFD3D3 → #FFE9E9); the light-theme stop since 1.1."
+    },
+    "wash-soft-butter": {
+      "$type": "color",
+      "$value": "#FFFADF",
+      "$description": "butter at 50% over white (#FFF5BF → #FFFADF); the light-theme stop since 1.1."
+    },
+    "wash-soft-aqua": {
+      "$type": "color",
+      "$value": "#DFFAF8",
+      "$description": "aqua at 50% over white (#BFF5F2 → #DFFAF8); the light-theme stop since 1.1."
+    },
+    "wash-soft-sky": {
+      "$type": "color",
+      "$value": "#DFF5FA",
+      "$description": "sky at 50% over white (#BFEBF5 → #DFF5FA); the light-theme stop since 1.1."
+    },
+    "wash-soft-pink": {
+      "$type": "color",
+      "$value": "#FCE6EA",
+      "$description": "pink at 50% over white (#F9CCD4 → #FCE6EA); the light-theme stop since 1.1."
     },
     "alpha-overlay-light": {
       "$type": "color",

@@ -1145,6 +1145,36 @@
       "night-pink": {
         "$type": "color",
         "$value": "#3D2129"
+      },
+      "soft-mint": {
+        "$type": "color",
+        "$value": "#DFF9E8",
+        "$description": "mint at 50% over white (#BFF3D2 → #DFF9E8); the light-theme stop since 1.1."
+      },
+      "soft-rose": {
+        "$type": "color",
+        "$value": "#FFE9E9",
+        "$description": "rose at 50% over white (#FFD3D3 → #FFE9E9); the light-theme stop since 1.1."
+      },
+      "soft-butter": {
+        "$type": "color",
+        "$value": "#FFFADF",
+        "$description": "butter at 50% over white (#FFF5BF → #FFFADF); the light-theme stop since 1.1."
+      },
+      "soft-aqua": {
+        "$type": "color",
+        "$value": "#DFFAF8",
+        "$description": "aqua at 50% over white (#BFF5F2 → #DFFAF8); the light-theme stop since 1.1."
+      },
+      "soft-sky": {
+        "$type": "color",
+        "$value": "#DFF5FA",
+        "$description": "sky at 50% over white (#BFEBF5 → #DFF5FA); the light-theme stop since 1.1."
+      },
+      "soft-pink": {
+        "$type": "color",
+        "$value": "#FCE6EA",
+        "$description": "pink at 50% over white (#F9CCD4 → #FCE6EA); the light-theme stop since 1.1."
       }
     },
     "alpha": {
@@ -2364,27 +2394,27 @@
     "gradient-stop": {
       "mint": {
         "$type": "color",
-        "$value": "{wash.mint}"
+        "$value": "{wash.soft-mint}"
       },
       "rose": {
         "$type": "color",
-        "$value": "{wash.rose}"
+        "$value": "{wash.soft-rose}"
       },
       "butter": {
         "$type": "color",
-        "$value": "{wash.butter}"
+        "$value": "{wash.soft-butter}"
       },
       "aqua": {
         "$type": "color",
-        "$value": "{wash.aqua}"
+        "$value": "{wash.soft-aqua}"
       },
       "sky": {
         "$type": "color",
-        "$value": "{wash.sky}"
+        "$value": "{wash.soft-sky}"
       },
       "pink": {
         "$type": "color",
-        "$value": "{wash.pink}"
+        "$value": "{wash.soft-pink}"
       }
     }
   },

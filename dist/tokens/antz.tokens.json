@@ -1148,6 +1148,36 @@
         "night-pink": {
           "$type": "color",
           "$value": "#3D2129"
+        },
+        "soft-mint": {
+          "$type": "color",
+          "$value": "#DFF9E8",
+          "$description": "mint at 50% over white (#BFF3D2 → #DFF9E8); the light-theme stop since 1.1."
+        },
+        "soft-rose": {
+          "$type": "color",
+          "$value": "#FFE9E9",
+          "$description": "rose at 50% over white (#FFD3D3 → #FFE9E9); the light-theme stop since 1.1."
+        },
+        "soft-butter": {
+          "$type": "color",
+          "$value": "#FFFADF",
+          "$description": "butter at 50% over white (#FFF5BF → #FFFADF); the light-theme stop since 1.1."
+        },
+        "soft-aqua": {
+          "$type": "color",
+          "$value": "#DFFAF8",
+          "$description": "aqua at 50% over white (#BFF5F2 → #DFFAF8); the light-theme stop since 1.1."
+        },
+        "soft-sky": {
+          "$type": "color",
+          "$value": "#DFF5FA",
+          "$description": "sky at 50% over white (#BFEBF5 → #DFF5FA); the light-theme stop since 1.1."
+        },
+        "soft-pink": {
+          "$type": "color",
+          "$value": "#FCE6EA",
+          "$description": "pink at 50% over white (#F9CCD4 → #FCE6EA); the light-theme stop since 1.1."
         }
       },
       "alpha": {
@@ -2249,22 +2279,22 @@
       "gradient": {
         "wash-primary": {
           "$type": "gradient",
-          "$value": "linear-gradient(to bottom right, #BFF3D2, #FFD3D3)",
+          "$value": "linear-gradient(to bottom right, #DFF9E8, #FFE9E9)",
           "$description": "Gradient 1. Hero and welcome bands, dashboard header, onboarding. Same hue as the brand"
         },
         "wash-celebrate": {
           "$type": "gradient",
-          "$value": "linear-gradient(to bottom right, #FFF5BF, #FFD3D3)",
+          "$value": "linear-gradient(to bottom right, #FFFADF, #FFE9E9)",
           "$description": "Gradient 2. Announcements, featured cards, milestones"
         },
         "wash-calm": {
           "$type": "gradient",
-          "$value": "linear-gradient(to bottom right, #FFF5BF, #BFF5F2)",
+          "$value": "linear-gradient(to bottom right, #FFFADF, #DFFAF8)",
           "$description": "Gradient 3. Info panels, tips, empty states"
         },
         "wash-illustrative": {
           "$type": "gradient",
-          "$value": "linear-gradient(to bottom right, #BFEBF5, #F9CCD4)",
+          "$value": "linear-gradient(to bottom right, #DFF5FA, #FCE6EA)",
           "$description": "Gradient 4. Illustrations, onboarding, docs, marketing"
         },
         "module-green-navy": {
@@ -2336,27 +2366,27 @@
       "gradient-stop": {
         "mint": {
           "$type": "color",
-          "$value": "#BFF3D2"
+          "$value": "#DFF9E8"
         },
         "rose": {
           "$type": "color",
-          "$value": "#FFD3D3"
+          "$value": "#FFE9E9"
         },
         "butter": {
           "$type": "color",
-          "$value": "#FFF5BF"
+          "$value": "#FFFADF"
         },
         "aqua": {
           "$type": "color",
-          "$value": "#BFF5F2"
+          "$value": "#DFFAF8"
         },
         "sky": {
           "$type": "color",
-          "$value": "#BFEBF5"
+          "$value": "#DFF5FA"
         },
         "pink": {
           "$type": "color",
-          "$value": "#F9CCD4"
+          "$value": "#FCE6EA"
         }
       }
     },
@@ -3506,6 +3536,36 @@
         "night-pink": {
           "$type": "color",
           "$value": "#3D2129"
+        },
+        "soft-mint": {
+          "$type": "color",
+          "$value": "#DFF9E8",
+          "$description": "mint at 50% over white (#BFF3D2 → #DFF9E8); the light-theme stop since 1.1."
+        },
+        "soft-rose": {
+          "$type": "color",
+          "$value": "#FFE9E9",
+          "$description": "rose at 50% over white (#FFD3D3 → #FFE9E9); the light-theme stop since 1.1."
+        },
+        "soft-butter": {
+          "$type": "color",
+          "$value": "#FFFADF",
+          "$description": "butter at 50% over white (#FFF5BF → #FFFADF); the light-theme stop since 1.1."
+        },
+        "soft-aqua": {
+          "$type": "color",
+          "$value": "#DFFAF8",
+          "$description": "aqua at 50% over white (#BFF5F2 → #DFFAF8); the light-theme stop since 1.1."
+        },
+        "soft-sky": {
+          "$type": "color",
+          "$value": "#DFF5FA",
+          "$description": "sky at 50% over white (#BFEBF5 → #DFF5FA); the light-theme stop since 1.1."
+        },
+        "soft-pink": {
+          "$type": "color",
+          "$value": "#FCE6EA",
+          "$description": "pink at 50% over white (#F9CCD4 → #FCE6EA); the light-theme stop since 1.1."
         }
       },
       "alpha": {
@@ -5864,6 +5924,36 @@
         "night-pink": {
           "$type": "color",
           "$value": "#3D2129"
+        },
+        "soft-mint": {
+          "$type": "color",
+          "$value": "#DFF9E8",
+          "$description": "mint at 50% over white (#BFF3D2 → #DFF9E8); the light-theme stop since 1.1."
+        },
+        "soft-rose": {
+          "$type": "color",
+          "$value": "#FFE9E9",
+          "$description": "rose at 50% over white (#FFD3D3 → #FFE9E9); the light-theme stop since 1.1."
+        },
+        "soft-butter": {
+          "$type": "color",
+          "$value": "#FFFADF",
+          "$description": "butter at 50% over white (#FFF5BF → #FFFADF); the light-theme stop since 1.1."
+        },
+        "soft-aqua": {
+          "$type": "color",
+          "$value": "#DFFAF8",
+          "$description": "aqua at 50% over white (#BFF5F2 → #DFFAF8); the light-theme stop since 1.1."
+        },
+        "soft-sky": {
+          "$type": "color",
+          "$value": "#DFF5FA",
+          "$description": "sky at 50% over white (#BFEBF5 → #DFF5FA); the light-theme stop since 1.1."
+        },
+        "soft-pink": {
+          "$type": "color",
+          "$value": "#FCE6EA",
+          "$description": "pink at 50% over white (#F9CCD4 → #FCE6EA); the light-theme stop since 1.1."
         }
       },
       "alpha": {
@@ -6965,22 +7055,22 @@
       "gradient": {
         "wash-primary": {
           "$type": "gradient",
-          "$value": "linear-gradient(to bottom right, #BFF3D2, #FFD3D3)",
+          "$value": "linear-gradient(to bottom right, #DFF9E8, #FFE9E9)",
           "$description": "Gradient 1. Hero and welcome bands, dashboard header, onboarding. Same hue as the brand"
         },
         "wash-celebrate": {
           "$type": "gradient",
-          "$value": "linear-gradient(to bottom right, #FFF5BF, #FFD3D3)",
+          "$value": "linear-gradient(to bottom right, #FFFADF, #FFE9E9)",
           "$description": "Gradient 2. Announcements, featured cards, milestones"
         },
         "wash-calm": {
           "$type": "gradient",
-          "$value": "linear-gradient(to bottom right, #FFF5BF, #BFF5F2)",
+          "$value": "linear-gradient(to bottom right, #FFFADF, #DFFAF8)",
           "$description": "Gradient 3. Info panels, tips, empty states"
         },
         "wash-illustrative": {
           "$type": "gradient",
-          "$value": "linear-gradient(to bottom right, #BFEBF5, #F9CCD4)",
+          "$value": "linear-gradient(to bottom right, #DFF5FA, #FCE6EA)",
           "$description": "Gradient 4. Illustrations, onboarding, docs, marketing"
         },
         "module-green-navy": {
@@ -7052,27 +7142,27 @@
       "gradient-stop": {
         "mint": {
           "$type": "color",
-          "$value": "#BFF3D2"
+          "$value": "#DFF9E8"
         },
         "rose": {
           "$type": "color",
-          "$value": "#FFD3D3"
+          "$value": "#FFE9E9"
         },
         "butter": {
           "$type": "color",
-          "$value": "#FFF5BF"
+          "$value": "#FFFADF"
         },
         "aqua": {
           "$type": "color",
-          "$value": "#BFF5F2"
+          "$value": "#DFFAF8"
         },
         "sky": {
           "$type": "color",
-          "$value": "#BFEBF5"
+          "$value": "#DFF5FA"
         },
         "pink": {
           "$type": "color",
-          "$value": "#F9CCD4"
+          "$value": "#FCE6EA"
         }
       }
     },
@@ -8222,6 +8312,36 @@
         "night-pink": {
           "$type": "color",
           "$value": "#3D2129"
+        },
+        "soft-mint": {
+          "$type": "color",
+          "$value": "#DFF9E8",
+          "$description": "mint at 50% over white (#BFF3D2 → #DFF9E8); the light-theme stop since 1.1."
+        },
+        "soft-rose": {
+          "$type": "color",
+          "$value": "#FFE9E9",
+          "$description": "rose at 50% over white (#FFD3D3 → #FFE9E9); the light-theme stop since 1.1."
+        },
+        "soft-butter": {
+          "$type": "color",
+          "$value": "#FFFADF",
+          "$description": "butter at 50% over white (#FFF5BF → #FFFADF); the light-theme stop since 1.1."
+        },
+        "soft-aqua": {
+          "$type": "color",
+          "$value": "#DFFAF8",
+          "$description": "aqua at 50% over white (#BFF5F2 → #DFFAF8); the light-theme stop since 1.1."
+        },
+        "soft-sky": {
+          "$type": "color",
+          "$value": "#DFF5FA",
+          "$description": "sky at 50% over white (#BFEBF5 → #DFF5FA); the light-theme stop since 1.1."
+        },
+        "soft-pink": {
+          "$type": "color",
+          "$value": "#FCE6EA",
+          "$description": "pink at 50% over white (#F9CCD4 → #FCE6EA); the light-theme stop since 1.1."
         }
       },
       "alpha": {
