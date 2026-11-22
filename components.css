@@ -914,7 +914,7 @@ a.animal:hover { background: var(--color-surface-hover); }
 .animal-card--mortality .animal-card__alert { color: var(--color-danger-text); }
 
 /* State change: morph with View Transitions; plain swap otherwise and under reduced motion */
-/* Expand and collapse: the real photo resizes on --ease-in-out (no snapshots, so no
+/* Expand and collapse: the real photo resizes on --ease-elastic (no snapshots, so no
    ghosting); the card's height follows it; the text fades in once the photo is under way.
    Driven by assets/site.js with the Web Animations API, timed by the motion tokens. */
 .animal-card__toggle .icon { transition: transform var(--duration-slower) var(--ease-in-out); }

@@ -58,7 +58,7 @@
 
   /* ── Animal card: compact ⇄ expanded ───────────────────────────────────
      The real photo animates its width and height and the card its height on
-     --ease-in-out over --duration-slower (the photo stays framed, never
+     --ease-elastic over --duration-slower (a small overshoot, then settle) (the photo stays framed, never
      stretched); neighbours move with the card; the text, AAID, pills and
      footer fade in from 40% of the way. No snapshots, so no ghosting. */
   doc.addEventListener('click', function (e) {
@@ -72,7 +72,7 @@
     b.setAttribute('aria-label', next === 'expanded' ? 'Show less' : 'Show more');
     var use = b.querySelector('use'); if (use) use.setAttribute('href', next === 'expanded' ? '#i-minimize' : '#i-maximize');
     if (reducedMotion() || !media || !media.animate) return;
-    var dur = ms(token('--duration-slower', '500ms')), ease = token('--ease-in-out', 'ease-in-out'), easeOut = token('--ease-out', 'ease-out'), rise = token('--space-1-5', '6px');
+    var dur = ms(token('--duration-slower', '500ms')), ease = token('--ease-elastic', 'cubic-bezier(.34, 1.56, .64, 1)'), easeOut = token('--ease-out', 'ease-out'), rise = token('--space-1-5', '6px');
     if (!(dur > 0)) return;   // a zero duration token means no motion
     var after = media.getBoundingClientRect(), cardAfter = card.getBoundingClientRect().height;
     card.classList.add('is-morphing');
