@@ -25,10 +25,19 @@ import os from 'node:os';
 import path from 'node:path';
 import zlib from 'node:zlib';
 import { spawn } from 'node:child_process';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import http from 'node:http';
+import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const BASE = pathToFileURL(ROOT + '/').href;
+// Serve the site over a local HTTP server, so pages load as visitors get them (file:// blocks some features, such as CSS masks).
+const TYPES = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.mjs': 'text/javascript', '.json': 'application/json', '.svg': 'image/svg+xml', '.png': 'image/png', '.webp': 'image/webp', '.jpg': 'image/jpeg', '.woff2': 'font/woff2', '.md': 'text/plain', '.ts': 'text/plain' };
+const server = http.createServer((req, res) => {
+  const rel = decodeURIComponent(new URL(req.url, 'http://x').pathname); const file = path.join(ROOT, rel.endsWith('/') ? rel + 'index.html' : rel);
+  if (!file.startsWith(ROOT) || !fs.existsSync(file) || fs.statSync(file).isDirectory()) { res.writeHead(404); res.end(); return; }
+  res.writeHead(200, { 'content-type': TYPES[path.extname(file)] || 'application/octet-stream' }); fs.createReadStream(file).pipe(res);
+});
+await new Promise((r) => server.listen(0, '127.0.0.1', r));
+const BASE = `http://127.0.0.1:${server.address().port}/`;
 const args = process.argv.slice(2);
 const opt = (n) => { const i = args.indexOf(n); return i < 0 ? undefined : args[i + 1]; };
 const REPORT = args.includes('--report');
@@ -230,7 +239,7 @@ try {
     if (process.stdout.isTTY) process.stdout.write(' '.repeat(80) + '\r');
     findings.contrast = [...new Set(out)]; say(`  ${findings.contrast.length} finding(s)`);
   }
-} finally { b.close(); }
+} finally { b.close(); server.close(); }
 
 const all = Object.entries(findings).flatMap(([k, v]) => v.map((x) => `${k.padEnd(9)} ${x}`));
 if (OUT) fs.writeFileSync(path.resolve(OUT), JSON.stringify(findings, null, 1));

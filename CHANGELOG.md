@@ -7,6 +7,10 @@ All notable changes to the Antz Design System. Versions follow semantic versioni
 ### Tools
 - **Rendered audit** (`tools/audit.mjs`, needs Chrome and Node 22, no packages): checks what the browser actually shows. That covers every colour token in all 36 combinations of OS and page settings, every text element on every page in four modes (suspects re-measured on real pixels), reduced motion, links, JavaScript errors and tap targets. Deliberate "don't" examples opt out with `data-audit-ignore`. Now a release step.
 
+### Docs site
+- **Home hero animal coats:** tiger, zebra, leopard and giraffe patterns, drawn as original artwork by `tools/patterns.py`, crossfade slowly behind the headline, about every 7 seconds. They are tone-on-tone in the hero green and quieter behind the text. A pause button is included (WCAG 2.2.2); the pattern is still under reduced motion and hidden in high contrast.
+- **Audit tool:** serves the site over a local HTTP server, so it sees what visitors see. Under `file://` the browser ignores CSS masks.
+
 ### Fixes (found by the audit tool)
 - **Blue and teal card meta text** is full white (85% fell to 4.2:1 on the blue).
 - **Blue gradient:** deeper under text again, so titles on the sky widget clear 4.5:1.

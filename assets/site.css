@@ -485,3 +485,24 @@ body { background: var(--color-bg-canvas); overflow-x: hidden; }
 
 /* Footer links: 24px tap targets */
 .site-foot a { display: inline-flex; align-items: center; min-height: var(--space-6); }
+
+/* Home hero: animal coats (tiger, zebra, leopard, giraffe) crossfade slowly behind the headline (1.2).
+   Tone-on-tone masks in the hero's own green; quieter behind the text. Still under reduced motion,
+   hidden in high contrast, pausable (WCAG 2.2.2). Patterns: tools/patterns.py. */
+.hero { position: relative; isolation: isolate; overflow: hidden; }
+.hero__patterns { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+.hero__pat { position: absolute; inset: 0; opacity: 0; background: color-mix(in srgb, var(--color-accent-bright) 12%, transparent);
+  -webkit-mask: var(--pat) center / cover no-repeat, linear-gradient(90deg, rgba(0, 0, 0, .35) 0%, rgba(0, 0, 0, .65) 45%, #000 80%);
+  -webkit-mask-composite: source-in; mask: var(--pat) center / cover no-repeat, linear-gradient(90deg, rgba(0, 0, 0, .35) 0%, rgba(0, 0, 0, .65) 45%, #000 80%);
+  mask-composite: intersect; transition: opacity calc(var(--duration-slower) * 5) var(--ease-standard); }
+.hero__pat.is-on { opacity: 1; }
+.hero__pat--tiger { --pat: url("img/patterns/tiger.svg"); }
+.hero__pat--zebra { --pat: url("img/patterns/zebra.svg"); }
+.hero__pat--leopard { --pat: url("img/patterns/leopard.svg"); }
+.hero__pat--giraffe { --pat: url("img/patterns/giraffe.svg"); }
+.hero__pause { position: absolute; right: var(--space-4); bottom: var(--space-4); width: var(--size-control-md); height: var(--size-control-md); color: var(--color-text-on-strong); background: color-mix(in srgb, var(--color-text-on-strong) 12%, transparent); }
+.hero__pause:hover { color: var(--color-text-on-strong); background: color-mix(in srgb, var(--color-text-on-strong) 20%, transparent); }
+.hero__pause:focus-visible { outline-color: var(--color-text-on-strong); }
+:root[data-contrast="high"] .hero__patterns, :root[data-contrast="high"] .hero__pause { display: none; }
+@media (prefers-contrast: more) { :root:not([data-contrast="standard"]) .hero__patterns, :root:not([data-contrast="standard"]) .hero__pause { display: none; } }
+@media (prefers-reduced-motion: reduce) { .hero__pause { display: none; } }
