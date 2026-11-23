@@ -30,7 +30,17 @@
     $$('[data-nav-toggle]').forEach(function (b) { b.setAttribute('aria-expanded', String(open)); });
     if (open) { var s = $('.nav-search input'); if (s) setTimeout(function () { s.focus(); }, 60); }
   }
-  $$('[data-nav-toggle]').forEach(function (b) { b.addEventListener('click', function () { setNav(!body.classList.contains('nav-open')); }); });
+  // Hamburger: opens the menu drawer below 1024px; on wider screens it collapses or restores the sidebar (remembered).
+  var wide = window.matchMedia('(min-width: 1024px)');
+  try { if (localStorage.getItem('antz-ds-nav') === 'collapsed') body.classList.add('nav-collapsed'); } catch (e) {}
+  $$('[data-nav-toggle]').forEach(function (b) {
+    if (wide.matches) b.setAttribute('aria-expanded', String(!body.classList.contains('nav-collapsed')));
+    b.addEventListener('click', function () {
+      if (!wide.matches) { setNav(!body.classList.contains('nav-open')); return; }
+      var c = body.classList.toggle('nav-collapsed'); b.setAttribute('aria-expanded', String(!c));
+      try { localStorage.setItem('antz-ds-nav', c ? 'collapsed' : 'open'); } catch (e) {}
+    });
+  });
   $$('[data-nav-search]').forEach(function (b) { b.addEventListener('click', function () { setNav(true); }); });
   var scrim = $('.site-scrim'); if (scrim) scrim.addEventListener('click', function () { setNav(false); });
   document.addEventListener('keydown', function (e) {

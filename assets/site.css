@@ -434,3 +434,42 @@ body { background: var(--color-bg-canvas); overflow-x: hidden; }
   transition: --color-tone-a var(--duration-slower) var(--ease-standard), --color-tone-b var(--duration-slower) var(--ease-standard), --color-tone-ink var(--duration-slower) var(--ease-standard); }
 .mg-skel { display: flex; flex-direction: column; gap: var(--space-2); width: 85%; }
 .mg-busy { position: relative; overflow: hidden; width: 85%; }
+
+/* ── Light top bar (site, 1.2): like the Antz apps ─ hamburger, home, logo | name and version ── */
+.site-top { color: var(--color-text); background: var(--color-surface); box-shadow: inset 0 -1px 0 var(--color-border-subtle), var(--shadow-xs); }
+.site-top .icon-btn { color: var(--color-text-secondary); }
+.site-top .icon-btn:hover { color: var(--color-text); background: var(--color-surface-hover); }
+.site-top :focus-visible { outline-color: var(--color-focus); }
+.site-menu-btn { display: inline-grid !important; }
+.site-brand { gap: var(--space-3); margin-inline-start: var(--space-1); }
+.site-logo { height: calc(var(--site-top-h) - var(--space-8)); padding: 0; border-radius: 0; background: none; box-shadow: none; }
+.site-divider { align-self: center; flex: none; width: var(--border-width); height: calc(var(--site-top-h) - var(--space-10)); background: var(--color-accent-indicator); }
+@media (min-resolution: 2dppx) { .site-divider { transform: scaleX(.5); } }
+.site-brand__name { font-size: var(--text-xl); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-snug); color: var(--color-accent-text); }
+.site-brand small { color: var(--color-accent-text); background: var(--color-accent-soft); }
+.site-search input { border-color: var(--color-border); color: var(--color-text); background: var(--color-surface-sunken); }
+.site-search input::placeholder { color: var(--color-text-muted); }
+.site-search input:focus { border-color: var(--color-accent-indicator); background: var(--color-surface); }
+.site-search .icon { color: var(--color-text-muted); opacity: 1; }
+.site-search kbd { color: var(--color-text-secondary); background: var(--color-surface-muted); }
+.site-tester-link { --btn-bg: var(--color-surface); --btn-fg: var(--color-text); --btn-bg-hover: var(--color-surface-hover); box-shadow: inset 0 0 0 1px var(--color-border); }
+.site-contrast-btn { color: var(--color-text-secondary); background: var(--color-surface-muted); }
+.site-contrast-btn:hover { color: var(--color-text); background: var(--color-surface-hover); }
+.site-top .theme-seg { background: var(--color-surface-muted); }
+.site-top .theme-seg > button { color: var(--color-text-secondary); }
+.site-top .theme-seg > button[aria-pressed="true"] { color: var(--color-text); }
+.site-top .brand-pick select { color: var(--color-text); background: var(--color-surface-muted); }
+.site-top .brand-pick select:hover { background: var(--color-surface-hover); }
+.site-top .brand-pick::after { color: var(--color-text-secondary); }
+.site-top .brand-pick select:focus-visible { outline-color: var(--color-focus); }
+/* The logo's dark mark needs a light ground: in dark mode it sits on a white plate */
+:root[data-theme="dark"] .site-logo { padding: var(--space-1) var(--space-2-5); border-radius: var(--radius-sm); background: var(--color-text-on-strong); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .site-logo { padding: var(--space-1) var(--space-2-5); border-radius: var(--radius-sm); background: var(--color-text-on-strong); } }
+/* Desktop: the hamburger collapses the sidebar */
+@media (min-width: 1024px) {
+  .nav-collapsed .site { grid-template-columns: minmax(0, 1fr); }
+  .nav-collapsed .site-nav { display: none; }
+}
+@media (max-width: 899px) { .site-brand__name { font-size: var(--text-lg); } }
+@media (max-width: 760px) { .site-brand__name, .site-divider, .site-home-btn { display: none; } }
+@media (max-width: 599px) { .site-brand small { display: none; } }
