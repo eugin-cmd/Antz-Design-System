@@ -725,6 +725,7 @@
   --gradient-scrim-photo: linear-gradient(180deg, rgba(8, 22, 14, 0) 38%, rgba(8, 22, 14, .45) 62%, rgba(6, 18, 11, .88) 100%);
   --gradient-tone-panel: linear-gradient(90deg, transparent 48%, var(--color-surface-raised) 100%), linear-gradient(180deg, var(--color-tone-a), var(--color-tone-b));
   --gradient-tone-tab: linear-gradient(90deg, color-mix(in srgb, var(--color-tone-ta), var(--color-tone-tb)) 0%, color-mix(in srgb, var(--color-tone-ta) 55%, transparent) 40%, transparent 100%);
+  --gradient-tone-tab-corners: radial-gradient(circle at 100% 100%, transparent calc(var(--radius-lg) - var(--border-width-hairline)), var(--color-surface-raised) var(--radius-lg)) var(--space-2) 0 / var(--radius-lg) var(--radius-lg) no-repeat, radial-gradient(circle at 100% 0, transparent calc(var(--radius-lg) - var(--border-width-hairline)), var(--color-surface-raised) var(--radius-lg)) var(--space-2) 100% / var(--radius-lg) var(--radius-lg) no-repeat;
   --gradient-tone-band: linear-gradient(180deg, transparent 30%, var(--color-bg-app) 100%), linear-gradient(90deg, var(--color-tone-a), var(--color-tone-b));
   --gradient-text-brand: linear-gradient(90deg, var(--color-text-gradient-start) 0%, var(--color-text-gradient-mid) 52%, var(--color-text-gradient-end) 100%);
   --gradient-petrol: linear-gradient(166deg, var(--navy-20) 8%, var(--teal-25) 50%, var(--teal-40) 92%);
@@ -1247,6 +1248,7 @@
   /* gradient */
   --gradient-tone-panel: linear-gradient(90deg, transparent 48%, var(--color-surface-raised) 100%), linear-gradient(180deg, var(--color-tone-a), var(--color-tone-b));
   --gradient-tone-tab: linear-gradient(90deg, color-mix(in srgb, var(--color-tone-ta), var(--color-tone-tb)) 0%, color-mix(in srgb, var(--color-tone-ta) 55%, transparent) 40%, transparent 100%);
+  --gradient-tone-tab-corners: radial-gradient(circle at 100% 100%, transparent calc(var(--radius-lg) - var(--border-width-hairline)), var(--color-surface-raised) var(--radius-lg)) var(--space-2) 0 / var(--radius-lg) var(--radius-lg) no-repeat, radial-gradient(circle at 100% 0, transparent calc(var(--radius-lg) - var(--border-width-hairline)), var(--color-surface-raised) var(--radius-lg)) var(--space-2) 100% / var(--radius-lg) var(--radius-lg) no-repeat;
   --gradient-tone-band: linear-gradient(180deg, transparent 30%, var(--color-bg-app) 100%), linear-gradient(90deg, var(--color-tone-a), var(--color-tone-b));
 }
 

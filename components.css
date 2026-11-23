@@ -1023,10 +1023,7 @@ a.animal:hover { background: var(--color-surface-hover); }
 .navdrawer__tab > span { position: relative; z-index: 1; }
 .navdrawer__tab:hover { color: var(--color-text); }
 .navdrawer__tab[aria-selected="true"] { color: var(--color-tone-ink); font-weight: var(--weight-semibold); box-shadow: inset var(--space-2) 0 var(--color-surface-raised);
-  /* Rail white in the two corner squares outside the tab's left radius, so its corners read as true curves on any tone */
-  background:
-    radial-gradient(circle at 100% 100%, transparent calc(var(--radius-lg) - var(--border-width-hairline)), var(--color-surface-raised) var(--radius-lg)) var(--space-2) 0 / var(--radius-lg) var(--radius-lg) no-repeat,
-    radial-gradient(circle at 100% 0, transparent calc(var(--radius-lg) - var(--border-width-hairline)), var(--color-surface-raised) var(--radius-lg)) var(--space-2) 100% / var(--radius-lg) var(--radius-lg) no-repeat; }
+  background: var(--gradient-tone-tab-corners); /* rail white outside the left radius: true curves on any tone */ }
 .navdrawer__tab[aria-selected="true"]::before { content: ""; position: absolute; inset-block: 0; inset-inline: var(--space-2) 0; border-start-start-radius: var(--radius-lg); border-end-start-radius: var(--radius-lg); background: var(--gradient-tone-tab); }
 .navdrawer__tab:has(+ .navdrawer__tab[aria-selected="true"]),
 .navdrawer__rail:not(:has(.navdrawer__top)):has(.navdrawer__tab:first-of-type[aria-selected="true"])::before { border-end-end-radius: var(--radius-lg); }

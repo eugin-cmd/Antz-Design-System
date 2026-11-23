@@ -2804,6 +2804,11 @@
           "$value": "linear-gradient(90deg, color-mix(in srgb, #DFF9E8, #DFFAF8) 0%, color-mix(in srgb, #DFF9E8 55%, transparent) 40%, transparent 100%)",
           "$description": "Active rail tab: opens from the tab into the panel."
         },
+        "tone-tab-corners": {
+          "$type": "gradient",
+          "$value": "radial-gradient(circle at 100% 100%, transparent calc(16px - 0.5px), #FFFFFF 16px) 8px 0 / 16px 16px no-repeat, radial-gradient(circle at 100% 0, transparent calc(16px - 0.5px), #FFFFFF 16px) 8px 100% / 16px 16px no-repeat",
+          "$description": "Active rail tab: rail white in the two corner squares outside its left radius, so the corners read as true curves on any tone. A background layer list (position and size included)."
+        },
         "tone-band": {
           "$type": "gradient",
           "$value": "linear-gradient(180deg, transparent 30%, #DDEFE4 100%), linear-gradient(90deg, #E8F6EE, #DDF5F3)",
@@ -5689,6 +5694,11 @@
           "$type": "gradient",
           "$value": "linear-gradient(90deg, color-mix(in srgb, #123A24, #12383A) 0%, color-mix(in srgb, #123A24 55%, transparent) 40%, transparent 100%)",
           "$description": "Active rail tab: opens from the tab into the panel."
+        },
+        "tone-tab-corners": {
+          "$type": "gradient",
+          "$value": "radial-gradient(circle at 100% 100%, transparent calc(16px - 0.5px), #1A2620 16px) 8px 0 / 16px 16px no-repeat, radial-gradient(circle at 100% 0, transparent calc(16px - 0.5px), #1A2620 16px) 8px 100% / 16px 16px no-repeat",
+          "$description": "Active rail tab: rail white in the two corner squares outside its left radius, so the corners read as true curves on any tone. A background layer list (position and size included)."
         },
         "tone-band": {
           "$type": "gradient",
@@ -8576,6 +8586,11 @@
           "$value": "linear-gradient(90deg, color-mix(in srgb, #DFF9E8, #DFFAF8) 0%, color-mix(in srgb, #DFF9E8 55%, transparent) 40%, transparent 100%)",
           "$description": "Active rail tab: opens from the tab into the panel."
         },
+        "tone-tab-corners": {
+          "$type": "gradient",
+          "$value": "radial-gradient(circle at 100% 100%, transparent calc(16px - 0.5px), #FFFFFF 16px) 8px 0 / 16px 16px no-repeat, radial-gradient(circle at 100% 0, transparent calc(16px - 0.5px), #FFFFFF 16px) 8px 100% / 16px 16px no-repeat",
+          "$description": "Active rail tab: rail white in the two corner squares outside its left radius, so the corners read as true curves on any tone. A background layer list (position and size included)."
+        },
         "tone-band": {
           "$type": "gradient",
           "$value": "linear-gradient(180deg, transparent 30%, #DDEFE4 100%), linear-gradient(90deg, #E8F6EE, #DDF5F3)",
@@ -11461,6 +11476,11 @@
           "$type": "gradient",
           "$value": "linear-gradient(90deg, color-mix(in srgb, #123A24, #12383A) 0%, color-mix(in srgb, #123A24 55%, transparent) 40%, transparent 100%)",
           "$description": "Active rail tab: opens from the tab into the panel."
+        },
+        "tone-tab-corners": {
+          "$type": "gradient",
+          "$value": "radial-gradient(circle at 100% 100%, transparent calc(16px - 0.5px), #1A2620 16px) 8px 0 / 16px 16px no-repeat, radial-gradient(circle at 100% 0, transparent calc(16px - 0.5px), #1A2620 16px) 8px 100% / 16px 16px no-repeat",
+          "$description": "Active rail tab: rail white in the two corner squares outside its left radius, so the corners read as true curves on any tone. A background layer list (position and size included)."
         },
         "tone-band": {
           "$type": "gradient",

@@ -7159,6 +7159,17 @@
       "dark-hc": "linear-gradient(90deg, color-mix(in srgb, #123A24, #12383A) 0%, color-mix(in srgb, #123A24 55%, transparent) 40%, transparent 100%)"
     },
     {
+      "name": "gradient.tone-tab-corners",
+      "css": "--gradient-tone-tab-corners",
+      "type": "gradient",
+      "tier": "semantic",
+      "description": "Active rail tab: rail white in the two corner squares outside its left radius, so the corners read as true curves on any tone. A background layer list (position and size included).",
+      "light": "radial-gradient(circle at 100% 100%, transparent calc(16px - 0.5px), #FFFFFF 16px) 8px 0 / 16px 16px no-repeat, radial-gradient(circle at 100% 0, transparent calc(16px - 0.5px), #FFFFFF 16px) 8px 100% / 16px 16px no-repeat",
+      "dark": "radial-gradient(circle at 100% 100%, transparent calc(16px - 0.5px), #1A2620 16px) 8px 0 / 16px 16px no-repeat, radial-gradient(circle at 100% 0, transparent calc(16px - 0.5px), #1A2620 16px) 8px 100% / 16px 16px no-repeat",
+      "light-hc": "radial-gradient(circle at 100% 100%, transparent calc(16px - 0.5px), #FFFFFF 16px) 8px 0 / 16px 16px no-repeat, radial-gradient(circle at 100% 0, transparent calc(16px - 0.5px), #FFFFFF 16px) 8px 100% / 16px 16px no-repeat",
+      "dark-hc": "radial-gradient(circle at 100% 100%, transparent calc(16px - 0.5px), #1A2620 16px) 8px 0 / 16px 16px no-repeat, radial-gradient(circle at 100% 0, transparent calc(16px - 0.5px), #1A2620 16px) 8px 100% / 16px 16px no-repeat"
+    },
+    {
       "name": "gradient.tone-band",
       "css": "--gradient-tone-band",
       "type": "gradient",

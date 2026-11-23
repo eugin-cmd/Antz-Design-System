@@ -2832,6 +2832,11 @@
         "$value": "linear-gradient(90deg, color-mix(in srgb, var(--color-tone-ta), var(--color-tone-tb)) 0%, color-mix(in srgb, var(--color-tone-ta) 55%, transparent) 40%, transparent 100%)",
         "$description": "Active rail tab: opens from the tab into the panel."
       },
+      "tone-tab-corners": {
+        "$type": "gradient",
+        "$value": "radial-gradient(circle at 100% 100%, transparent calc(var(--radius-lg) - var(--border-width-hairline)), var(--color-surface-raised) var(--radius-lg)) var(--space-2) 0 / var(--radius-lg) var(--radius-lg) no-repeat, radial-gradient(circle at 100% 0, transparent calc(var(--radius-lg) - var(--border-width-hairline)), var(--color-surface-raised) var(--radius-lg)) var(--space-2) 100% / var(--radius-lg) var(--radius-lg) no-repeat",
+        "$description": "Active rail tab: rail white in the two corner squares outside its left radius, so the corners read as true curves on any tone. A background layer list (position and size included)."
+      },
       "tone-band": {
         "$type": "gradient",
         "$value": "linear-gradient(180deg, transparent 30%, var(--color-bg-app) 100%), linear-gradient(90deg, var(--color-tone-a), var(--color-tone-b))",
