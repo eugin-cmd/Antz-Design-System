@@ -2803,7 +2803,7 @@
       },
       "blue": {
         "$type": "gradient",
-        "$value": "radial-gradient(130% 90% at 100% 0%, var(--sky-60) 0%, var(--sky-50) 22%, var(--sky-40) 55%, var(--sky-35) 100%)"
+        "$value": "radial-gradient(130% 90% at 100% 0%, var(--sky-60) 0%, var(--sky-50) 12%, var(--sky-40) 38%, var(--sky-35) 80%)"
       },
       "mint": {
         "$type": "gradient",

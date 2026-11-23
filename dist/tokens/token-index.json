@@ -7087,10 +7087,10 @@
       "type": "gradient",
       "tier": "semantic",
       "description": "",
-      "light": "radial-gradient(130% 90% at 100% 0%, #009DC1 0%, #00829F 22%, #00677F 55%, #005A70 100%)",
-      "dark": "radial-gradient(130% 90% at 100% 0%, #009DC1 0%, #00829F 22%, #00677F 55%, #005A70 100%)",
-      "light-hc": "radial-gradient(130% 90% at 100% 0%, #009DC1 0%, #00829F 22%, #00677F 55%, #005A70 100%)",
-      "dark-hc": "radial-gradient(130% 90% at 100% 0%, #009DC1 0%, #00829F 22%, #00677F 55%, #005A70 100%)"
+      "light": "radial-gradient(130% 90% at 100% 0%, #009DC1 0%, #00829F 12%, #00677F 38%, #005A70 80%)",
+      "dark": "radial-gradient(130% 90% at 100% 0%, #009DC1 0%, #00829F 12%, #00677F 38%, #005A70 80%)",
+      "light-hc": "radial-gradient(130% 90% at 100% 0%, #009DC1 0%, #00829F 12%, #00677F 38%, #005A70 80%)",
+      "dark-hc": "radial-gradient(130% 90% at 100% 0%, #009DC1 0%, #00829F 12%, #00677F 38%, #005A70 80%)"
     },
     {
       "name": "gradient.mint",

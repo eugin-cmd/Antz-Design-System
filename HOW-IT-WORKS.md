@@ -33,6 +33,7 @@ The promotion path: **Develop → Review → Validate → Approve → Release �
 | Review | Design, technical and accessibility review by the right people |
 | Validate | `build.mjs`, `check.mjs` and `test.mjs` all pass (the pre-commit hook enforces this) |
 | Approve | By change class: Patch (code owner), Minor (maintainer + platform lead), Major (council), Foundational (System Owner: Eugin Robinson) |
+| Rendered audit | `node tools/audit.mjs` is clean: what the browser shows matches what the gate checked, in every mode |
 | Release | `CHANGELOG.md` has the section, `VERSION` is bumped, `node tools/release.mjs` succeeds |
 | Published | The version is in `releases/index.json`, tagged in Git, listed in the docs |
 
@@ -93,7 +94,8 @@ Run the guardrails in product repos: start with `--report`, then make the check 
 4. `node tools/check.mjs` and `node tools/test.mjs`.
 5. `node tools/docs.mjs` if docs changed.
 6. Commit. The pre-commit hook re-runs the gates and refuses stale generated files.
-7. To publish: add `## <version>` to `CHANGELOG.md`, bump `VERSION`, commit, run `node tools/release.mjs`.
+7. Before publishing, run `node tools/audit.mjs` (needs Chrome) and fix what it finds: it checks the rendered pages, which the token gate cannot see.
+8. To publish: add `## <version>` to `CHANGELOG.md`, bump `VERSION`, commit, run `node tools/release.mjs`.
 
 **Version numbers:** Patch for fixes, Minor for additions, Major for anything renamed, removed or changed in meaning. Pre-releases use `-beta.N` and `-rc.N`.
 

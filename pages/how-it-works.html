@@ -98,6 +98,7 @@
     <li>Edit the source: <code>tokens/src/**</code> for values, <code>components.css</code> for components, <code>docs-src/</code> and <code>pages/_nav.json</code> for docs.</li>
     <li><code>node tools/build.mjs</code>: validates tokens, runs 596 contrast checks in 4 modes, writes every output. It fails on any error.</li>
     <li><code>node tools/check.mjs</code> and <code>node tools/test.mjs</code>: guardrails and their self-test.</li>
+    <li><code>node tools/audit.mjs</code>: the rendered audit in Chrome. Every colour token in all 36 combinations of OS and page settings, every text element on every page in four modes (measured on real pixels), reduced motion, links and tap targets. Run it before every release.</li>
     <li>Commit. The pre-commit hook re-runs the gates and refuses stale generated files.</li>
     <li>Add a <code>CHANGELOG.md</code> section, bump <code>VERSION</code> (patch, minor or major), commit, then <code>node tools/release.mjs</code>.</li>
   </ol>

@@ -2775,7 +2775,7 @@
         },
         "blue": {
           "$type": "gradient",
-          "$value": "radial-gradient(130% 90% at 100% 0%, #009DC1 0%, #00829F 22%, #00677F 55%, #005A70 100%)"
+          "$value": "radial-gradient(130% 90% at 100% 0%, #009DC1 0%, #00829F 12%, #00677F 38%, #005A70 80%)"
         },
         "mint": {
           "$type": "gradient",
@@ -5661,7 +5661,7 @@
         },
         "blue": {
           "$type": "gradient",
-          "$value": "radial-gradient(130% 90% at 100% 0%, #009DC1 0%, #00829F 22%, #00677F 55%, #005A70 100%)"
+          "$value": "radial-gradient(130% 90% at 100% 0%, #009DC1 0%, #00829F 12%, #00677F 38%, #005A70 80%)"
         },
         "mint": {
           "$type": "gradient",
@@ -8547,7 +8547,7 @@
         },
         "blue": {
           "$type": "gradient",
-          "$value": "radial-gradient(130% 90% at 100% 0%, #009DC1 0%, #00829F 22%, #00677F 55%, #005A70 100%)"
+          "$value": "radial-gradient(130% 90% at 100% 0%, #009DC1 0%, #00829F 12%, #00677F 38%, #005A70 80%)"
         },
         "mint": {
           "$type": "gradient",
@@ -11433,7 +11433,7 @@
         },
         "blue": {
           "$type": "gradient",
-          "$value": "radial-gradient(130% 90% at 100% 0%, #009DC1 0%, #00829F 22%, #00677F 55%, #005A70 100%)"
+          "$value": "radial-gradient(130% 90% at 100% 0%, #009DC1 0%, #00829F 12%, #00677F 38%, #005A70 80%)"
         },
         "mint": {
           "$type": "gradient",

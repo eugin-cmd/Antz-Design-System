@@ -256,7 +256,8 @@ button { font: inherit; color: inherit; }
 .card--glow  { background: var(--gradient-glow), var(--color-surface); box-shadow: var(--shadow-hairline); }
 .card--aurora { background: var(--gradient-aurora), var(--color-surface-sunken); box-shadow: var(--shadow-hairline); }
 .card--aurora .card__meta { color: var(--color-text-secondary); } /* muted text dropped to 4.45:1 over the aurora (1.2) */
-.card--blue .card__meta, .card--teal .card__meta, .card--green .card__meta, .card--strong .card__meta { color: rgba(255, 255, 255, .85); }
+.card--blue .card__meta, .card--teal .card__meta { color: var(--color-text-on-strong); } /* full white: 85% fell to 4.2:1 on the blue (1.2) */
+.card--green .card__meta, .card--strong .card__meta { color: var(--color-text-on-strong-secondary); }
 .card--mint .card__meta { color: rgba(14, 21, 18, .7); }
 
 /* ── List row (style-6 Today rows) ────────────────────────────────────── */
@@ -423,7 +424,7 @@ button.row:hover, a.row:hover, label.row:hover { background: var(--color-surface
 .input--warning { border-color: var(--color-warning-text); }
 .field__hint--success { color: var(--color-success-text); }
 .field__hint--warning { color: var(--color-warning-text); }
-.field__help { display: inline-grid; place-items: center; width: 20px; height: 20px; padding: 0; border: 0; border-radius: 50%; color: var(--color-text-muted); background: none; cursor: help; }
+.field__help { display: inline-grid; place-items: center; width: var(--space-6); height: var(--space-6); padding: 0; border: 0; border-radius: 50%; color: var(--color-text-muted); background: none; cursor: help; }
 .field__help .icon { width: 16px; height: 16px; }
 .field__help:hover { color: var(--color-text); background: var(--color-surface-muted); }
 .field__label--lg { font-size: var(--text-md); color: var(--color-text); }
@@ -457,7 +458,7 @@ button.row:hover, a.row:hover, label.row:hover { background: var(--color-surface
 .chip--outline:hover { background: var(--color-surface-hover); }
 .chip--outline[aria-pressed="true"] { background: var(--color-accent-soft); box-shadow: inset 0 0 0 1px var(--color-accent-indicator); }
 .chip > .avatar { margin-left: -8px; }
-.chip__remove { display: inline-grid; place-items: center; flex: none; width: 22px; height: 22px; margin-right: -6px; padding: 0; border: 0; border-radius: 50%; color: inherit; background: none; cursor: pointer; }
+.chip__remove { display: inline-grid; place-items: center; flex: none; width: var(--space-6); height: var(--space-6); margin-right: -6px; padding: 0; border: 0; border-radius: 50%; color: inherit; background: none; cursor: pointer; }
 .chip__remove:hover { background: color-mix(in srgb, currentColor 14%, transparent); }
 .chip__remove .icon { width: 14px; height: 14px; }
 .chip--person { height: 46px; padding: 0 var(--space-3) 0 var(--space-1-5); border-radius: var(--radius-full); gap: var(--space-2); text-align: left; }
@@ -645,7 +646,7 @@ a.animal:hover { background: var(--color-surface-hover); }
 .stat { display: flex; flex-direction: column; gap: var(--space-0-5); min-width: 0; }
 .stat__value { font-size: var(--text-3xl); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-heading); line-height: var(--leading-tight); font-variant-numeric: tabular-nums; white-space: nowrap; }
 .stat__label { display: inline-flex; align-items: center; gap: var(--space-1); font-size: var(--text-xs); color: var(--color-text-muted); }
-.stat__label .field__help { width: 18px; height: 18px; }
+.stat__label .field__help { width: var(--space-6); height: var(--space-6); margin-block: calc(var(--space-1) * -1); } /* 24px target; negative margin keeps the label line height */
 .stat--accent .stat__value { color: var(--color-accent-text); }
 .stat--lg .stat__value { font-size: var(--text-4xl); }
 .stat--hero .stat__value { font-size: var(--text-5xl); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-tight); }
@@ -1303,3 +1304,8 @@ a.animal:hover { background: var(--color-surface-hover); }
 
 /* Touch target (1.2): "View details" reaches the 24px minimum */
 .animal-card__more { min-height: var(--space-6); display: inline-flex; align-items: center; }
+
+/* Touch targets (1.2): text-style buttons and the drawer search reach the 24px minimum */
+.btn--link { min-height: var(--space-6); }
+.toast__action { min-height: var(--space-6); }
+.navdrawer__head .search input { min-height: var(--space-6); }

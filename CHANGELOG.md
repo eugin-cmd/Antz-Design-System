@@ -2,6 +2,16 @@
 
 All notable changes to the Antz Design System. Versions follow semantic versioning: patch for fixes, minor for additions, major for anything renamed, removed or changed in meaning. Every version listed here is published under `releases/` and tagged in Git.
 
+## Unreleased
+
+### Tools
+- **Rendered audit** (`tools/audit.mjs`, needs Chrome and Node 22, no packages): checks what the browser actually shows. That covers every colour token in all 36 combinations of OS and page settings, every text element on every page in four modes (suspects re-measured on real pixels), reduced motion, links, JavaScript errors and tap targets. Deliberate "don't" examples opt out with `data-audit-ignore`. Now a release step.
+
+### Fixes (found by the audit tool)
+- **Blue and teal card meta text** is full white (85% fell to 4.2:1 on the blue).
+- **Blue gradient:** deeper under text again, so titles on the sky widget clear 4.5:1.
+- **Touch targets reach 24px:** the field help button (20px, 18px in stat labels), chip remove buttons (22px), link buttons such as "View all" (20px tall), the toast "Undo" (19px) and the navigation drawer search field (22px).
+
 ## 1.2.0-beta.2 (23 November 2026)
 
 Accessibility and correctness fixes from a full rendered audit (every page in four modes, all 36 theme and contrast combinations, reduced motion, links, tap targets). Upgrade by changing `v1.2.0-beta.1` to `v1.2.0-beta.2`; nothing removed or renamed. Teams on 1.2.0-beta.1 should upgrade: two fixes make text readable again for people using high contrast.

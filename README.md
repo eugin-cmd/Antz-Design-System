@@ -48,6 +48,7 @@ In React Native: `antzTheme.colors[scheme]` from `dist/react-native/antz-theme.t
 | `node tools/check.mjs [path]` | Guardrail check of this repo, or of any prototype or product folder. `--report` never fails; `--json` for CI. |
 | `node tools/test.mjs` | Proves every automatic guardrail fires and a clean file passes. |
 | `node tools/docs.mjs` | Renders `docs-src/` pages and refreshes the nav, header, pager and footer on every page. |
+| `node tools/audit.mjs` | Rendered audit in Chrome: every colour token in all 36 OS and page setting combinations; every text element on every page in four modes (suspects re-measured on real pixels); reduced motion; links, JavaScript errors and tap targets. Needs Chrome and Node 22. About 10 minutes. Run before every release. |
 | `node tools/release.mjs` | Publishes the version in `VERSION` to `releases/` (gated, frozen, tagged). `--verify`, `--list`. |
 
 The pre-commit hook (`tools/hooks/pre-commit`, enabled with `git config core.hooksPath tools/hooks`) runs the build, check and release verification on every commit.
