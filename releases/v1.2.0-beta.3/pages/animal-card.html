@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en" data-root="..">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Animal card · Antz Design System</title>
+<link rel="icon" href="data:,">
+<meta name="description" content="One animal: thumbnail with its sex tag, the AAID, the name and up to four facts.">
+<script>try { var d = document.documentElement, t = localStorage.getItem('antz-ds-theme'), c = localStorage.getItem('antz-ds-contrast'), n = localStorage.getItem('antz-ds-density'); if (t === 'light' || t === 'dark') d.dataset.theme = t; if (c === 'high' || c === 'standard') d.dataset.contrast = c; if (n === 'compact') d.dataset.density = n; var b = (/[?&]brand=([a-z0-9-]+)/.exec(location.search) || [])[1]; if (b) { if (b === 'antz') localStorage.removeItem('antz-ds-brand'); else localStorage.setItem('antz-ds-brand', b); } else b = localStorage.getItem('antz-ds-brand'); if (b && b !== 'antz' && /^[a-z0-9]+(-[a-z0-9]+)*$/.test(b)) { d.dataset.brand = b; var lt = null; try { lt = JSON.parse(localStorage.getItem('antz-ds-local-themes') || 'null'); } catch (e) {} var lc = lt && lt.themes && lt.themes[b], l; if (lc && typeof lc.css === 'string') { l = document.createElement('style'); l.textContent = lc.css; } else { l = document.createElement('link'); l.rel = 'stylesheet'; l.setAttribute('blocking', 'render'); l.href = (d.dataset.root || '.') + '/themes/' + b + '.css'; } l.id = 'brand-css'; document.head.appendChild(l); } } catch (e) {}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../tokens.css?v=120beta3">
+<link rel="stylesheet" href="../components.css?v=120beta3">
+<link rel="stylesheet" href="../assets/site.css?v=120beta3">
+</head>
+<body data-page="animal-card">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-top"><button class="icon-btn site-menu-btn" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav" data-nav-toggle><svg class="icon"><use href="#i-menu"/></svg></button><a class="icon-btn site-home-btn" href="../index.html" aria-label="Home"><svg class="icon"><use href="#i-home"/></svg></a><a class="site-brand" href="../index.html" aria-label="Antz Design System, home"><span class="site-logo"><img class="logo-on-light" src="../assets/img/antz-logo.svg" alt="Antz" width="509" height="194"><img class="logo-on-dark" src="../assets/img/antz-logo-white.svg" alt="Antz" width="509" height="194"></span><span class="site-divider" aria-hidden="true"></span><span class="site-brand__name">Antz Design System</span><small>v1.2.0 beta 3</small></a><label class="site-search"><svg class="icon"><use href="#i-search"/></svg><input type="search" placeholder="Search pages" aria-label="Search pages"><kbd>/</kbd></label><button class="icon-btn site-search-btn" type="button" aria-label="Search pages" data-nav-search><svg class="icon"><use href="#i-search"/></svg></button><a class="btn btn--sm site-tester-link" href="../tester.html"><svg class="icon"><use href="#i-sliders"/></svg>Theme tester</a><button class="icon-btn icon-btn--sm site-contrast-btn" type="button" aria-label="High contrast" aria-pressed="false" data-contrast-toggle title="High contrast"><svg class="icon"><use href="#i-eye"/></svg></button><div class="segmented segmented--pill theme-seg" role="group" aria-label="Theme"><button type="button" data-theme-set="auto" aria-pressed="true"><svg class="icon icon--sm"><use href="#i-monitor"/></svg><span>Auto</span></button><button type="button" data-theme-set="light" aria-pressed="false"><svg class="icon icon--sm"><use href="#i-sun"/></svg><span>Light</span></button><button type="button" data-theme-set="dark" aria-pressed="false"><svg class="icon icon--sm"><use href="#i-moon"/></svg><span>Dark</span></button></div></header><div class="site-scrim"></div>
+<div class="site">
+<nav class="site-nav" id="site-nav" aria-label="Documentation"><label class="search nav-search"><svg class="icon"><use href="#i-search"/></svg><input type="search" placeholder="Search pages" aria-label="Search pages"></label><a class="nav-link" href="../index.html">Welcome</a><div class="nav-group"><button class="nav-group__toggle" type="button" aria-expanded="false" aria-controls="ng-1" data-current="false"><svg class="icon"><use href="#i-home"/></svg><span>Getting started</span><svg class="icon"><use href="#i-chevron-down"/></svg></button><ul class="nav-group__list" id="ng-1" hidden><li><a class="nav-link" href="get-started.html">Get started</a></li><li><a class="nav-link" href="how-it-works.html">How it works <span class="nav-new">New</span></a></li><li><a class="nav-link" href="principles.html">Principles</a></li></ul></div><div class="nav-group"><button class="nav-group__toggle" type="button" aria-expanded="false" aria-controls="ng-2" data-current="false"><svg class="icon"><use href="#i-sliders"/></svg><span>Foundations</span><svg class="icon"><use href="#i-chevron-down"/></svg></button><ul class="nav-group__list" id="ng-2" hidden><li><a class="nav-link" href="colour.html">Colour</a></li><li><a class="nav-link" href="colour-guardrails.html">Colour guardrails</a></li><li><a class="nav-link" href="themes.html">Themes and modes <span class="nav-new">New</span></a></li><li><a class="nav-link" href="contrast.html">Contrast</a></li><li><a class="nav-link" href="type.html">Typography</a></li><li><a class="nav-link" href="spacing.html">Spacing</a></li><li><a class="nav-link" href="radii.html">Radii</a></li><li><a class="nav-link" href="elevation.html">Elevation</a></li><li><a class="nav-link" href="motion.html">Motion</a></li><li><a class="nav-link" href="motion-gallery.html">Motion gallery <span class="nav-new">New</span></a></li><li><a class="nav-link" href="gradients.html">Gradients <span class="nav-new">New</span></a></li><li><a class="nav-link" href="icons.html">Icons</a></li><li><a class="nav-link" href="layout.html">Layout and breakpoints</a></li><li><a class="nav-link" href="responsive.html">Responsive</a></li></ul></div><div class="nav-group"><button class="nav-group__toggle" type="button" aria-expanded="false" aria-controls="ng-3" data-current="false"><svg class="icon"><use href="#i-grid"/></svg><span>Components</span><svg class="icon"><use href="#i-chevron-down"/></svg></button><ul class="nav-group__list" id="ng-3" hidden><li><a class="nav-link" href="buttons.html">Buttons</a></li><li><a class="nav-link" href="text-fields.html">Text fields</a></li><li><a class="nav-link" href="selection.html">Selection controls</a></li><li><a class="nav-link" href="chips-and-tabs.html">Chips and tabs</a></li><li><a class="nav-link" href="badges.html">Badges and status</a></li><li><a class="nav-link" href="avatars.html">Avatars</a></li><li><a class="nav-link" href="cards.html">Cards</a></li><li><a class="nav-link" href="list-rows.html">List rows</a></li><li><a class="nav-link" href="alerts-and-toasts.html">Alerts and toasts</a></li><li><a class="nav-link" href="menus-and-dialogs.html">Menus and dialogs</a></li><li><a class="nav-link" href="side-sheets.html">Side sheets <span class="nav-new">New</span></a></li><li><a class="nav-link" href="progress.html">Progress</a></li><li><a class="nav-link" href="table.html">Table</a></li><li><a class="nav-link" href="loading.html">Loading and empty</a></li><li><a class="nav-link" href="navigation.html">Navigation</a></li></ul></div><div class="nav-group"><button class="nav-group__toggle" type="button" aria-expanded="true" aria-controls="ng-4" data-current="true"><svg class="icon"><use href="#i-zap"/></svg><span>Pattern components</span><svg class="icon"><use href="#i-chevron-down"/></svg></button><ul class="nav-group__list" id="ng-4"><li><a class="nav-link" href="navigation-drawer.html">Navigation drawer <span class="nav-new">New</span></a></li><li><a class="nav-link" href="launcher.html">Launcher and headers <span class="nav-new">New</span></a></li><li><a class="nav-link" href="top-bar.html">Top bar and action bar</a></li><li><a class="nav-link" href="post-card.html">Post card</a></li><li><a class="nav-link" href="attachments.html">Attachments</a></li><li><a class="nav-link" href="priority.html">Priority picker</a></li><li><a class="nav-link" href="lists.html">Lists</a></li><li><a class="nav-link" href="date-picker.html">Date picker</a></li><li><a class="nav-link" href="animal-card.html" aria-current="page">Animal card</a></li><li><a class="nav-link" href="progress-ring.html">Progress bar and ring</a></li></ul></div><div class="nav-group"><button class="nav-group__toggle" type="button" aria-expanded="false" aria-controls="ng-5" data-current="false"><svg class="icon"><use href="#i-trend"/></svg><span>Stat cards</span><svg class="icon"><use href="#i-chevron-down"/></svg></button><ul class="nav-group__list" id="ng-5" hidden><li><a class="nav-link" href="dashboard-widgets.html">Dashboard widgets <span class="nav-new">New</span></a></li><li><a class="nav-link" href="stat-figures.html">Stat figures</a></li><li><a class="nav-link" href="key-insights.html">Key insights</a></li><li><a class="nav-link" href="insights-summary.html">Insights summary</a></li><li><a class="nav-link" href="site-card.html">Site card</a></li><li><a class="nav-link" href="day-week-month.html">Day, week, month</a></li></ul></div><div class="nav-group"><button class="nav-group__toggle" type="button" aria-expanded="false" aria-controls="ng-6" data-current="false"><svg class="icon"><use href="#i-smartphone"/></svg><span>Screens</span><svg class="icon"><use href="#i-chevron-down"/></svg></button><ul class="nav-group__list" id="ng-6" hidden><li><a class="nav-link" href="screens.html">All screens</a></li><li><a class="nav-link" href="screen-home.html">Home</a></li><li><a class="nav-link" href="screen-housing.html">Housing</a></li><li><a class="nav-link" href="screen-people.html">Choose people</a></li><li><a class="nav-link" href="screen-task.html">Add task</a></li><li><a class="nav-link" href="screen-request.html">New request</a></li><li><a class="nav-link" href="screen-date.html">Set a date</a></li></ul></div><div class="nav-group"><button class="nav-group__toggle" type="button" aria-expanded="false" aria-controls="ng-7" data-current="false"><svg class="icon"><use href="#i-chat"/></svg><span>Content</span><svg class="icon"><use href="#i-chevron-down"/></svg></button><ul class="nav-group__list" id="ng-7" hidden><li><a class="nav-link" href="voice.html">Voice and words</a></li></ul></div><div class="nav-group"><button class="nav-group__toggle" type="button" aria-expanded="false" aria-controls="ng-8" data-current="false"><svg class="icon"><use href="#i-shield"/></svg><span>Governance</span><svg class="icon"><use href="#i-chevron-down"/></svg></button><ul class="nav-group__list" id="ng-8" hidden><li><a class="nav-link" href="guardrails.html">Guardrails <span class="nav-new">New</span></a></li><li><a class="nav-link" href="governance.html">Roles, changes and exceptions <span class="nav-new">New</span></a></li><li><a class="nav-link" href="versions.html">Versions and releases <span class="nav-new">New</span></a></li></ul></div><div class="nav-group"><button class="nav-group__toggle" type="button" aria-expanded="false" aria-controls="ng-9" data-current="false"><svg class="icon"><use href="#i-download"/></svg><span>Resources</span><svg class="icon"><use href="#i-chevron-down"/></svg></button><ul class="nav-group__list" id="ng-9" hidden><li><a class="nav-link" href="../tester.html">Theme tester <span class="nav-new">New</span></a></li><li><a class="nav-link" href="resources.html">Downloads</a></li><li><a class="nav-link" href="developers.html">Developer outputs <span class="nav-new">New</span></a></li><li><a class="nav-link" href="figma-mapping.html">Figma mapping</a></li><li><a class="nav-link" href="import-theme.html">Import theme</a></li></ul></div><p class="nav-empty t-caption" hidden>No page matches.</p></nav>
+<main class="site-main" id="main">
+<header class="page-banner"><div class="page-banner__text"><span class="t-overline">Pattern components</span><h1 class="page-banner__title">Animal card</h1><p class="page-banner__intro">One animal, two states: compact for lists, expanded with the photo, latest alert and record counts. The older row card is below.</p></div><div class="page-banner__art" style="--c:var(--hue-violet)" aria-hidden="true"><svg class="icon"><use href="#i-zap"/></svg></div></header>
+<div class="page-tabs" role="tablist" aria-label="Page sections"><button role="tab" type="button" id="tab-overview" aria-controls="panel-overview" aria-selected="true" data-tab="overview">Overview</button><button role="tab" type="button" id="tab-usage" aria-controls="panel-usage" aria-selected="false" data-tab="usage" tabindex="-1">Usage</button><button role="tab" type="button" id="tab-code" aria-controls="panel-code" aria-selected="false" data-tab="code" tabindex="-1">Code</button></div>
+<div class="page-body"><div class="page-content">
+<section class="tab-panel" id="panel-overview" data-tab="overview" role="tabpanel" aria-labelledby="tab-overview"><div class="doc" id="p-animal-card">
+        <h3>Animal card (compact and expanded)</h3>
+        <p class="lead">One card, two states. <b>Compact</b> puts the photo beside the AAID, three facts and the age and weight pills, for lists and grids. <b>Expanded</b> puts the photo on top with the AAID and pills over a soft scrim, adds the latest alert, five facts and a footer of record counts with the way into the full record. The button on the photo switches between them, and the card morphs where the browser supports it.</p>
+        <div class="demo demo--canvas demo--col" style="max-width:560px">
+<article class="animal-card" data-state="compact">
+  <div class="animal-card__media"><img src="../assets/img/leopard.webp" alt="Ramu, a leopard, resting on a log">
+    <div class="animal-card__top"><span class="sex-tag" title="Sex">M</span><span class="animal-card__badge" title="CITES appendix"><span class="ac-x">CITES I</span><span class="ac-c">C I</span></span></div>
+    <div class="animal-card__overlay ac-x"><b class="animal-card__id">AAID: 87546/24</b><span class="animal-card__pills"><span class="ac-pill ac-pill--age"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg><span class="sr-only">Age </span>4y 6m</span><span class="ac-pill ac-pill--weight"><svg class="icon" aria-hidden="true"><use href="#i-scale"/></svg><span class="sr-only">Weight </span>92 kg</span></span></div>
+    <button class="animal-card__toggle" type="button" data-animal-toggle aria-expanded="false" aria-label="Show more"><svg class="icon"><use href="#i-maximize"/></svg></button>
+  </div>
+  <div class="animal-card__body">
+    <b class="animal-card__id ac-c">AAID: 87546/24</b>
+    <p class="animal-card__alert ac-x"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Weight updated 3 months ago</p>
+    <dl class="animal-card__facts"><dt>Name</dt><dd>Ramu</dd><dt>Species</dt><dd>Leopard</dd><dt>Enclosure</dt><dd>Leopard Hill · L2</dd><dt class="ac-x">Section</dt><dd class="ac-x">Big Cats</dd><dt class="ac-x">Site</dt><dd class="ac-x">North site</dd></dl>
+    <div class="animal-card__pills ac-c"><span class="ac-pill"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg><span class="sr-only">Age </span>4y 6m</span><span class="ac-pill"><svg class="icon" aria-hidden="true"><use href="#i-scale"/></svg><span class="sr-only">Weight </span>92 kg</span></div>
+  </div>
+  <footer class="animal-card__foot ac-x">
+    <span class="ac-count" title="Treatments"><svg class="icon" aria-hidden="true"><use href="#i-treatment"/></svg>3<span class="sr-only"> treatments</span></span>
+    <span class="ac-count" title="Lab tests"><svg class="icon" aria-hidden="true"><use href="#i-test-tube"/></svg>3<span class="sr-only"> lab tests</span></span>
+    <span class="ac-count" title="Vaccinations"><svg class="icon" aria-hidden="true"><use href="#i-syringe"/></svg>3<span class="sr-only"> vaccinations</span></span>
+    <span class="ac-count" title="Medicines"><svg class="icon" aria-hidden="true"><use href="#i-medicine"/></svg>3<span class="sr-only"> medicines</span></span>
+    <a class="animal-card__more" href="#p-animal-card">View details<span class="sr-only"> for Ramu</span><svg class="icon" aria-hidden="true"><use href="#i-chevron-right"/></svg></a>
+  </footer>
+</article>
+<article class="animal-card" data-state="expanded">
+  <div class="animal-card__media"><img src="../assets/img/leopard.webp" alt="Ramu, a leopard, resting on a log">
+    <div class="animal-card__top"><span class="sex-tag" title="Sex">M</span><span class="animal-card__badge" title="CITES appendix"><span class="ac-x">CITES I</span><span class="ac-c">C I</span></span></div>
+    <div class="animal-card__overlay ac-x"><b class="animal-card__id">AAID: 87546/24</b><span class="animal-card__pills"><span class="ac-pill ac-pill--age"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg><span class="sr-only">Age </span>4y 6m</span><span class="ac-pill ac-pill--weight"><svg class="icon" aria-hidden="true"><use href="#i-scale"/></svg><span class="sr-only">Weight </span>92 kg</span></span></div>
+    <button class="animal-card__toggle" type="button" data-animal-toggle aria-expanded="true" aria-label="Show less"><svg class="icon"><use href="#i-minimize"/></svg></button>
+  </div>
+  <div class="animal-card__body">
+    <b class="animal-card__id ac-c">AAID: 87546/24</b>
+    <p class="animal-card__alert ac-x"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Weight updated 3 months ago</p>
+    <dl class="animal-card__facts"><dt>Name</dt><dd>Ramu</dd><dt>Species</dt><dd>Leopard</dd><dt>Enclosure</dt><dd>Leopard Hill · L2</dd><dt class="ac-x">Section</dt><dd class="ac-x">Big Cats</dd><dt class="ac-x">Site</dt><dd class="ac-x">North site</dd></dl>
+    <div class="animal-card__pills ac-c"><span class="ac-pill"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg><span class="sr-only">Age </span>4y 6m</span><span class="ac-pill"><svg class="icon" aria-hidden="true"><use href="#i-scale"/></svg><span class="sr-only">Weight </span>92 kg</span></div>
+  </div>
+  <footer class="animal-card__foot ac-x">
+    <span class="ac-count" title="Treatments"><svg class="icon" aria-hidden="true"><use href="#i-treatment"/></svg>3<span class="sr-only"> treatments</span></span>
+    <span class="ac-count" title="Lab tests"><svg class="icon" aria-hidden="true"><use href="#i-test-tube"/></svg>3<span class="sr-only"> lab tests</span></span>
+    <span class="ac-count" title="Vaccinations"><svg class="icon" aria-hidden="true"><use href="#i-syringe"/></svg>3<span class="sr-only"> vaccinations</span></span>
+    <span class="ac-count" title="Medicines"><svg class="icon" aria-hidden="true"><use href="#i-medicine"/></svg>3<span class="sr-only"> medicines</span></span>
+    <a class="animal-card__more" href="#p-animal-card">View details<span class="sr-only"> for Ramu</span><svg class="icon" aria-hidden="true"><use href="#i-chevron-right"/></svg></a>
+  </footer>
+</article>
+<article class="animal-card" data-state="compact">
+  <div class="animal-card__media"><svg class="icon" aria-hidden="true"><use href="#i-paw"/></svg>
+    <div class="animal-card__top"><span class="sex-tag sex-tag--f" title="Sex">F</span><span class="animal-card__badge" title="CITES appendix"><span class="ac-x">CITES II</span><span class="ac-c">C II</span></span></div>
+    <div class="animal-card__overlay ac-x"><b class="animal-card__id">AAID: 40214/18</b><span class="animal-card__pills"><span class="ac-pill ac-pill--age"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg><span class="sr-only">Age </span>8y 2m</span><span class="ac-pill ac-pill--weight"><svg class="icon" aria-hidden="true"><use href="#i-scale"/></svg><span class="sr-only">Weight </span>212 kg</span></span></div>
+    <button class="animal-card__toggle" type="button" data-animal-toggle aria-expanded="false" aria-label="Show more"><svg class="icon"><use href="#i-maximize"/></svg></button>
+  </div>
+  <div class="animal-card__body">
+    <b class="animal-card__id ac-c">AAID: 40214/18</b>
+    <p class="animal-card__alert ac-x"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Weight updated 3 months ago</p>
+    <dl class="animal-card__facts"><dt>Name</dt><dd>Rani</dd><dt>Species</dt><dd>Mugger crocodile</dd><dt>Enclosure</dt><dd>Croc Pool · C1</dd><dt class="ac-x">Section</dt><dd class="ac-x">Big Cats</dd><dt class="ac-x">Site</dt><dd class="ac-x">North site</dd></dl>
+    <div class="animal-card__pills ac-c"><span class="ac-pill"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg><span class="sr-only">Age </span>8y 2m</span><span class="ac-pill"><svg class="icon" aria-hidden="true"><use href="#i-scale"/></svg><span class="sr-only">Weight </span>212 kg</span></div>
+  </div>
+  <footer class="animal-card__foot ac-x">
+    <span class="ac-count" title="Treatments"><svg class="icon" aria-hidden="true"><use href="#i-treatment"/></svg>3<span class="sr-only"> treatments</span></span>
+    <span class="ac-count" title="Lab tests"><svg class="icon" aria-hidden="true"><use href="#i-test-tube"/></svg>3<span class="sr-only"> lab tests</span></span>
+    <span class="ac-count" title="Vaccinations"><svg class="icon" aria-hidden="true"><use href="#i-syringe"/></svg>3<span class="sr-only"> vaccinations</span></span>
+    <span class="ac-count" title="Medicines"><svg class="icon" aria-hidden="true"><use href="#i-medicine"/></svg>3<span class="sr-only"> medicines</span></span>
+    <a class="animal-card__more" href="#p-animal-card">View details<span class="sr-only"> for Rani</span><svg class="icon" aria-hidden="true"><use href="#i-chevron-right"/></svg></a>
+  </footer>
+</article>
+        </div>
+        <p class="t-caption" style="margin-top:var(--space-2)">Photo: <a href="https://commons.wikimedia.org/wiki/File:African_Leopard_(Panthera_pardus_pardus).jpg">African Leopard</a> by Lip Kee, CC BY-SA 2.0, cropped. Without a photo the card shows the paw mark on a tint.</p>
+        <h4>What you can leave out</h4>
+        <p class="t-small">The <b>sex tag, AAID and name</b> are required. Everything else is optional: delete it from the markup and the card closes up. No photo shows the paw mark; no media block makes a text-only card; no button keeps the card in one state; no footer leaves no gap. Adding a part (a fifth count, a second alert, a new colour) needs a proposal, so every team keeps the same card. Full list: <code>specs/components/animal-card.md</code>.</p>
+        <h4>Anatomy</h4>
+        <ol class="anatomy"><li>Photo, or the paw mark on a tint</li><li>Sex tag and CITES appendix (short form when compact)</li><li>Show more / show less button</li><li>AAID: in the body when compact, over the photo when expanded</li><li>Latest alert (expanded): the one fact that needs attention</li><li>Facts: name, species, enclosure; expanded adds section and site</li><li>Age and weight pills</li><li>Footer (expanded): treatments, lab tests, vaccinations, medicines, and View details</li></ol>
+      </div><div class="doc" id="p-animal">
+        <h3>In lists, and mortality</h3>
+        <p class="lead">Compact cards as they appear in lists. A death adds the mortality tag, a red line with the date and time that shows in both states, a red outline and a muted photo. Expand a card to see its record counts.</p>
+        <div class="demo demo--canvas demo--grid ac-demo-grid">
+          <article class="animal-card" data-state="compact"><div class="animal-card__media"><svg class="icon" aria-hidden="true"><use href="#i-paw"/></svg><div class="animal-card__top"><span class="sex-tag">M</span><span class="animal-card__badge"><span class="ac-x">CITES I</span><span class="ac-c">C I</span></span></div><div class="animal-card__overlay ac-x"><b class="animal-card__id">AAID: 87546/24</b><span class="animal-card__pills"><span class="ac-pill ac-pill--age"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg><span class="sr-only">Age </span>14y</span><span class="ac-pill ac-pill--weight"><svg class="icon" aria-hidden="true"><use href="#i-scale"/></svg><span class="sr-only">Weight </span>3,420 kg</span></span></div><button class="animal-card__toggle" type="button" data-animal-toggle aria-expanded="false" aria-label="Show more"><svg class="icon"><use href="#i-maximize"/></svg></button></div><div class="animal-card__body"><b class="animal-card__id ac-c">AAID: 87546/24</b><p class="animal-card__alert ac-x"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Foot care due this week</p><dl class="animal-card__facts"><dt>Name</dt><dd>Madhav</dd><dt>Species</dt><dd>Asian elephant</dd><dt>Enclosure</dt><dd>Elephant Camp · E2</dd><dt class="ac-x">Section</dt><dd class="ac-x">Elephants</dd><dt class="ac-x">Site</dt><dd class="ac-x">North site</dd></dl><div class="animal-card__pills ac-c"><span class="ac-pill"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg><span class="sr-only">Age </span>14y</span><span class="ac-pill"><svg class="icon" aria-hidden="true"><use href="#i-scale"/></svg><span class="sr-only">Weight </span>3,420 kg</span></div></div><footer class="animal-card__foot ac-x"><span class="ac-count" title="Treatments"><svg class="icon" aria-hidden="true"><use href="#i-treatment"/></svg>2<span class="sr-only"> treatments</span></span><span class="ac-count" title="Lab tests"><svg class="icon" aria-hidden="true"><use href="#i-test-tube"/></svg>4<span class="sr-only"> lab tests</span></span><span class="ac-count" title="Vaccinations"><svg class="icon" aria-hidden="true"><use href="#i-syringe"/></svg>1<span class="sr-only"> vaccinations</span></span><span class="ac-count" title="Medicines"><svg class="icon" aria-hidden="true"><use href="#i-medicine"/></svg>3<span class="sr-only"> medicines</span></span><a class="animal-card__more" href="#p-animal">View details<span class="sr-only"> for Madhav</span><svg class="icon" aria-hidden="true"><use href="#i-chevron-right"/></svg></a></footer></article>
+          <article class="animal-card animal-card--mortality" data-state="compact"><div class="animal-card__media"><svg class="icon" aria-hidden="true"><use href="#i-paw"/></svg><div class="animal-card__top"><span class="sex-tag sex-tag--mortality">M · died</span><span class="animal-card__badge"><span class="ac-x">CITES III</span><span class="ac-c">C III</span></span></div><div class="animal-card__overlay ac-x"><b class="animal-card__id">AAID: 66102/19</b><span class="animal-card__pills"><span class="ac-pill ac-pill--age"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg><span class="sr-only">Age </span>19y 4m</span><span class="ac-pill ac-pill--weight"><svg class="icon" aria-hidden="true"><use href="#i-scale"/></svg><span class="sr-only">Weight </span>226 kg</span></span></div><button class="animal-card__toggle" type="button" data-animal-toggle aria-expanded="false" aria-label="Show more"><svg class="icon"><use href="#i-maximize"/></svg></button></div><div class="animal-card__body"><b class="animal-card__id ac-c">AAID: 66102/19</b><p class="animal-card__alert"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Mortality · 12 Aug 2026, 12:00 pm</p><dl class="animal-card__facts"><dt>Name</dt><dd>Bheem</dd><dt>Species</dt><dd>Sambar deer</dd><dt>Cause</dt><dd>Natural</dd><dt class="ac-x">Enclosure</dt><dd class="ac-x">Deer Park · D3</dd><dt class="ac-x">Site</dt><dd class="ac-x">North site</dd></dl><div class="animal-card__pills ac-c"><span class="ac-pill"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg><span class="sr-only">Age </span>19y 4m</span><span class="ac-pill"><svg class="icon" aria-hidden="true"><use href="#i-scale"/></svg><span class="sr-only">Weight </span>226 kg</span></div></div><footer class="animal-card__foot ac-x"><span class="ac-count" title="Treatments"><svg class="icon" aria-hidden="true"><use href="#i-treatment"/></svg>2<span class="sr-only"> treatments</span></span><span class="ac-count" title="Lab tests"><svg class="icon" aria-hidden="true"><use href="#i-test-tube"/></svg>4<span class="sr-only"> lab tests</span></span><span class="ac-count" title="Vaccinations"><svg class="icon" aria-hidden="true"><use href="#i-syringe"/></svg>1<span class="sr-only"> vaccinations</span></span><span class="ac-count" title="Medicines"><svg class="icon" aria-hidden="true"><use href="#i-medicine"/></svg>3<span class="sr-only"> medicines</span></span><a class="animal-card__more" href="#p-animal">View details<span class="sr-only"> for Bheem</span><svg class="icon" aria-hidden="true"><use href="#i-chevron-right"/></svg></a></footer></article>
+        </div>
+        <h4>Sex tags</h4>
+        <div class="demo">
+          <span class="cell" style="align-items:center"><span class="sex-tag">M</span><span class="t-caption">Male</span></span>
+          <span class="cell" style="align-items:center"><span class="sex-tag sex-tag--f">F</span><span class="t-caption">Female</span></span>
+          <span class="cell" style="align-items:center"><span class="sex-tag sex-tag--ud">UD</span><span class="t-caption">Undetermined</span></span>
+          <span class="cell" style="align-items:center"><span class="sex-tag sex-tag--id">ID</span><span class="t-caption">Indeterminate</span></span>
+          <span class="cell" style="align-items:center"><span class="sex-tag sex-tag--g">G</span><span class="t-caption">Group</span></span>
+          <span class="cell" style="align-items:center"><span class="sex-tag sex-tag--mortality">M · died</span><span class="t-caption">Mortality</span></span>
+        </div>
+      
+      </div></section><section class="tab-panel" id="panel-usage" data-tab="usage" role="tabpanel" aria-labelledby="tab-usage" hidden><div class="doc" id="p-animal-card-usage"><h3>Animal card (compact and expanded)</h3><div class="dd">
+          <div class="do"><b><svg class="icon icon--sm"><use href="#i-check"/></svg>Do</b><ul><li>Use compact in lists and grids; expand one card at a time, or open it expanded on a record page.</li><li>Show one alert line, the most important one, in the warning colour; use danger only for mortality.</li><li>Give every photo alt text naming the animal; keep the AAID on the scrim, never straight on the photo.</li><li>Label the counts for screen readers (they are icons with numbers).</li></ul></div>
+          <div class="dont"><b><svg class="icon icon--sm"><use href="#i-x"/></svg>Don't</b><ul><li>Add more than five facts or four counts.</li><li>Put coloured text straight on a photo.</li><li>Show both the compact pills and the photo pills at once.</li><li>Hide the AAID: it is the animal's identity.</li></ul></div>
+        </div></div><div class="doc" id="p-animal-usage"><h3>Animal card and sex tags</h3><div class="dd">
+          <div class="do"><b><svg class="icon icon--sm"><use href="#i-check"/></svg>Do</b><ul><li>Show the AAID and the sex tag on every animal card.</li><li>Mark a death with the mortality tag and the red date line; keep the line visible in both states.</li></ul></div>
+          <div class="dont"><b><svg class="icon icon--sm"><use href="#i-x"/></svg>Don't</b><ul><li>Run a stripe down the card's outer edge.</li><li>Show more than four facts on one card.</li></ul><div class="eg"><span class="t-overline">Wrong</span><div class="row" style="background:var(--color-danger-bg);box-shadow:inset 3px 0 0 var(--color-signal-danger)"><span class="row__body"><span class="row__title">Outer edge stripe</span><span class="row__meta">Bends round the corner</span></span></div></div></div>
+        </div></div></section><section class="tab-panel" id="panel-code" data-tab="code" role="tabpanel" aria-labelledby="tab-code" hidden><div class="doc" id="p-animal-card-code"><h3>Animal card (compact and expanded)</h3><p>Set <code>data-state</code> to <code>compact</code> or <code>expanded</code>. Elements with <code>.ac-c</code> show only when compact, <code>.ac-x</code> only when expanded. A button with <code>data-animal-toggle</code> switches state and keeps <code>aria-expanded</code> in step.</p><pre><code>&lt;article class="animal-card" data-state="compact"&gt;
+  &lt;div class="animal-card__media"&gt;
+    &lt;img src="ramu.jpg" alt="Ramu, a leopard, resting on a log"&gt;
+    &lt;div class="animal-card__top"&gt;
+      &lt;span class="sex-tag"&gt;M&lt;/span&gt;
+      &lt;span class="animal-card__badge"&gt;&lt;span class="ac-x"&gt;CITES I&lt;/span&gt;&lt;span class="ac-c"&gt;C I&lt;/span&gt;&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="animal-card__overlay ac-x"&gt;&lt;b class="animal-card__id"&gt;AAID: 87546/24&lt;/b&gt;
+      &lt;span class="animal-card__pills"&gt;&lt;span class="ac-pill ac-pill--age"&gt;…4y 6m&lt;/span&gt;&lt;span class="ac-pill ac-pill--weight"&gt;…92 kg&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;button class="animal-card__toggle" data-animal-toggle aria-expanded="false" aria-label="Show more"&gt;…&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="animal-card__body"&gt;
+    &lt;b class="animal-card__id ac-c"&gt;AAID: 87546/24&lt;/b&gt;
+    &lt;p class="animal-card__alert ac-x"&gt;Weight updated 3 months ago&lt;/p&gt;
+    &lt;dl class="animal-card__facts"&gt;&lt;dt&gt;Name&lt;/dt&gt;&lt;dd&gt;Ramu&lt;/dd&gt;… &lt;dt class="ac-x"&gt;Site&lt;/dt&gt;&lt;dd class="ac-x"&gt;North site&lt;/dd&gt;&lt;/dl&gt;
+    &lt;div class="animal-card__pills ac-c"&gt;&lt;span class="ac-pill"&gt;…4y 6m&lt;/span&gt;&lt;span class="ac-pill"&gt;…92 kg&lt;/span&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;footer class="animal-card__foot ac-x"&gt;
+    &lt;span class="ac-count"&gt;…3&lt;span class="sr-only"&gt; treatments&lt;/span&gt;&lt;/span&gt; …
+    &lt;a class="animal-card__more" href="…"&gt;View details&lt;/a&gt;
+  &lt;/footer&gt;
+&lt;/article&gt;</code></pre></div><div class="doc" id="p-animal-code"><h3>In lists, and mortality</h3><h4>Classes</h4><div class="chips"><code>.animal-card</code><code>.animal-card--mortality</code><code>.sex-tag--mortality</code><code>.animal-card__alert</code><code>.ac-c</code><code>.ac-x</code><code>.sex-tag</code><code>.sex-tag--f</code><code>.sex-tag--ud</code><code>.sex-tag--id</code><code>.sex-tag--g</code></div><p class="t-small t-secondary">The older row card (<code>.animal</code>) still works for existing screens but is deprecated; use <code>.animal-card</code> for new work.</p><details class="code" open><summary>Example 1 markup</summary><pre><code>&lt;article class=&quot;animal-card animal-card--mortality&quot; data-state=&quot;compact&quot;&gt;
+&lt;div class=&quot;animal-card__media&quot;&gt;
+&lt;svg class=&quot;icon&quot; aria-hidden=&quot;true&quot;&gt;
+&lt;use href=&quot;#i-paw&quot;/&gt;
+&lt;/svg&gt;
+&lt;div class=&quot;animal-card__top&quot;&gt;
+&lt;span class=&quot;sex-tag sex-tag--mortality&quot;&gt;M · died&lt;/span&gt;
+&lt;span class=&quot;animal-card__badge&quot;&gt;
+&lt;span class=&quot;ac-x&quot;&gt;CITES III&lt;/span&gt;
+&lt;span class=&quot;ac-c&quot;&gt;C III&lt;/span&gt;
+&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;animal-card__overlay ac-x&quot;&gt;
+&lt;b class=&quot;animal-card__id&quot;&gt;AAID: 66102/19&lt;/b&gt;
+&lt;span class=&quot;animal-card__pills&quot;&gt;
+&lt;span class=&quot;ac-pill ac-pill--age&quot;&gt;
+&lt;svg class=&quot;icon&quot; aria-hidden=&quot;true&quot;&gt;
+&lt;use href=&quot;#i-calendar&quot;/&gt;
+&lt;/svg&gt;
+&lt;span class=&quot;sr-only&quot;&gt;Age &lt;/span&gt;19y 4m&lt;/span&gt;
+&lt;span class=&quot;ac-pill ac-pill--weight&quot;&gt;
+&lt;svg class=&quot;icon&quot; aria-hidden=&quot;true&quot;&gt;
+&lt;use href=&quot;#i-scale&quot;/&gt;
+&lt;/svg&gt;
+&lt;span class=&quot;sr-only&quot;&gt;Weight &lt;/span&gt;226 kg&lt;/span&gt;
+&lt;/span&gt;
+&lt;/div&gt;
+&lt;button class=&quot;animal-card__toggle&quot; type=&quot;button&quot; data-animal-toggle aria-expanded=&quot;false&quot; aria-label=&quot;Show more&quot;&gt;
+&lt;svg class=&quot;icon&quot;&gt;
+&lt;use href=&quot;#i-maximize&quot;/&gt;
+&lt;/svg&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class=&quot;animal-card__body&quot;&gt;
+&lt;b class=&quot;animal-card__id ac-c&quot;&gt;AAID: 66102/19&lt;/b&gt;
+&lt;p class=&quot;animal-card__alert&quot;&gt;
+&lt;svg class=&quot;icon&quot; aria-hidden=&quot;true&quot;&gt;
+&lt;use href=&quot;#i-alert&quot;/&gt;
+&lt;/svg&gt;Mortality · 12 Aug 2026, 12:00 pm&lt;/p&gt;
+&lt;dl class=&quot;animal-card__facts&quot;&gt;
+&lt;dt&gt;Name&lt;/dt&gt;
+&lt;dd&gt;Bheem&lt;/dd&gt;
+&lt;dt&gt;Species&lt;/dt&gt;
+&lt;dd&gt;Sambar deer&lt;/dd&gt;
+&lt;dt&gt;Cause&lt;/dt&gt;
+&lt;dd&gt;Natural&lt;/dd&gt;
+&lt;dt class=&quot;ac-x&quot;&gt;Enclosure&lt;/dt&gt;
+&lt;dd class=&quot;ac-x&quot;&gt;Deer Park · D3&lt;/dd&gt;
+&lt;dt class=&quot;ac-x&quot;&gt;Site&lt;/dt&gt;
+&lt;dd class=&quot;ac-x&quot;&gt;North site&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;div class=&quot;animal-card__pills ac-c&quot;&gt;
+&lt;span class=&quot;ac-pill&quot;&gt;
+&lt;svg class=&quot;icon&quot; aria-hidden=&quot;true&quot;&gt;
+&lt;use href=&quot;#i-calendar&quot;/&gt;
+&lt;/svg&gt;
+&lt;span class=&quot;sr-only&quot;&gt;Age &lt;/span&gt;19y 4m&lt;/span&gt;
+&lt;span class=&quot;ac-pill&quot;&gt;
+&lt;svg class=&quot;icon&quot; aria-hidden=&quot;true&quot;&gt;
+&lt;use href=&quot;#i-scale&quot;/&gt;
+&lt;/svg&gt;
+&lt;span class=&quot;sr-only&quot;&gt;Weight &lt;/span&gt;226 kg&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;footer class=&quot;animal-card__foot ac-x&quot;&gt;
+&lt;span class=&quot;ac-count&quot; title=&quot;Treatments&quot;&gt;
+&lt;svg class=&quot;icon&quot; aria-hidden=&quot;true&quot;&gt;
+&lt;use href=&quot;#i-treatment&quot;/&gt;
+&lt;/svg&gt;2&lt;span class=&quot;sr-only&quot;&gt; treatments&lt;/span&gt;
+&lt;/span&gt;
+&lt;span class=&quot;ac-count&quot; title=&quot;Lab tests&quot;&gt;
+&lt;svg class=&quot;icon&quot; aria-hidden=&quot;true&quot;&gt;
+&lt;use href=&quot;#i-test-tube&quot;/&gt;
+&lt;/svg&gt;4&lt;span class=&quot;sr-only&quot;&gt; lab tests&lt;/span&gt;
+&lt;/span&gt;
+&lt;span class=&quot;ac-count&quot; title=&quot;Vaccinations&quot;&gt;
+&lt;svg class=&quot;icon&quot; aria-hidden=&quot;true&quot;&gt;
+&lt;use href=&quot;#i-syringe&quot;/&gt;
+&lt;/svg&gt;1&lt;span class=&quot;sr-only&quot;&gt; vaccinations&lt;/span&gt;
+&lt;/span&gt;
+&lt;span class=&quot;ac-count&quot; title=&quot;Medicines&quot;&gt;
+&lt;svg class=&quot;icon&quot; aria-hidden=&quot;true&quot;&gt;
+&lt;use href=&quot;#i-medicine&quot;/&gt;
+&lt;/svg&gt;3&lt;span class=&quot;sr-only&quot;&gt; medicines&lt;/span&gt;
+&lt;/span&gt;
+&lt;a class=&quot;animal-card__more&quot; href=&quot;#p-animal&quot;&gt;View details&lt;span class=&quot;sr-only&quot;&gt; for Bheem&lt;/span&gt;
+&lt;svg class=&quot;icon&quot; aria-hidden=&quot;true&quot;&gt;
+&lt;use href=&quot;#i-chevron-right&quot;/&gt;
+&lt;/svg&gt;
+&lt;/a&gt;
+&lt;/footer&gt;
+&lt;/article&gt;</code></pre></details><details class="code"><summary>Example 2 markup</summary><pre><code>&lt;div class="demo"&gt;
+  &lt;span class="cell" style="align-items:center"&gt;&lt;span class="sex-tag"&gt;M&lt;/span&gt;&lt;span class="t-caption"&gt;Male&lt;/span&gt;&lt;/span&gt; &lt;span class="cell" style="align-items:center"&gt;&lt;span class="sex-tag sex-tag--f"&gt;F&lt;/span&gt;&lt;span class="t-caption"&gt;Female&lt;/span&gt;&lt;/span&gt; &lt;span class="cell" style="align-items:center"&gt;&lt;span class="sex-tag sex-tag--ud"&gt;UD&lt;/span&gt;&lt;span class="t-caption"&gt;Undetermined&lt;/span&gt;&lt;/span&gt; &lt;span class="cell" style="align-items:center"&gt;&lt;span class="sex-tag sex-tag--id"&gt;ID&lt;/span&gt;&lt;span class="t-caption"&gt;Indeterminate&lt;/span&gt;&lt;/span&gt; &lt;span class="cell" style="align-items:center"&gt;&lt;span class="sex-tag sex-tag--g"&gt;G&lt;/span&gt;&lt;span class="t-caption"&gt;Group&lt;/span&gt;&lt;/span&gt; &lt;span class="cell" style="align-items:center"&gt;&lt;span class="sex-tag sex-tag--mortality"&gt;M · died&lt;/span&gt;&lt;span class="t-caption"&gt;Mortality&lt;/span&gt;&lt;/span&gt;
+&lt;/div&gt;</code></pre></details></div></section>
+<nav class="pager" aria-label="Previous and next page"><a class="pager__prev" href="date-picker.html"><svg class="icon"><use href="#i-arrow-left"/></svg><span><small>Previous</small><b>Date picker</b></span></a><a class="pager__next" href="progress-ring.html"><span><small>Next · Pattern components</small><b>Progress bar and ring</b></span><svg class="icon"><use href="#i-arrow-right"/></svg></a></nav>
+</div><aside class="page-toc" id="page-toc" aria-label="On this page"></aside></div>
+<footer class="site-foot">Antz Design System v1.2.0 beta 3 · <a href="../pages/versions.html">Versions</a> · <a href="../CHANGELOG.md">Changelog</a> · <a href="../HOW-IT-WORKS.md">How it works</a> · <a href="../colors.json" download>colors.json</a></footer>
+</main>
+</div>
+<div class="toast-region" id="toasts" role="status" aria-live="polite"></div>
+<script src="../components.js?v=120beta3"></script>
+<script src="../assets/site.js?v=120beta3"></script>
+</body>
+</html>
