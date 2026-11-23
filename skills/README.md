@@ -38,7 +38,7 @@ The same folder works everywhere. Use the release's copy, so that every team get
 
 Requirements: Node 18 or later, and either internet access to the team site or a clone of the repository.
 
-**Pinning a version.** By default the skill uses the latest published release. To hold a project on one version, set `ANTZ_DS_VERSION=1.2.0-beta.1` in the project's environment, or keep a clone at a fixed tag.
+**Pinning a version.** By default the skill uses the latest published release. To hold a project on one version, set `ANTZ_DS_VERSION=1.2.0-beta.2` in the project's environment, or keep a clone at a fixed tag.
 
 ## Using it well
 

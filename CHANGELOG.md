@@ -2,7 +2,9 @@
 
 All notable changes to the Antz Design System. Versions follow semantic versioning: patch for fixes, minor for additions, major for anything renamed, removed or changed in meaning. Every version listed here is published under `releases/` and tagged in Git.
 
-## Unreleased
+## 1.2.0-beta.2 (23 November 2026)
+
+Accessibility and correctness fixes from a full rendered audit (every page in four modes, all 36 theme and contrast combinations, reduced motion, links, tap targets). Upgrade by changing `v1.2.0-beta.1` to `v1.2.0-beta.2`; nothing removed or renamed. Teams on 1.2.0-beta.1 should upgrade: two fixes make text readable again for people using high contrast.
 
 ### Fixes
 - **Main button in dark high contrast:** the label was white on the light green fill (#7BFCA0), about 1.3:1. Light high contrast sets the label to white for its deep green fill. Dark high contrast changed the fill but not the label, so the browser kept the white. Dark high contrast now sets the label to #00210C (about 15:1).
