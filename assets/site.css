@@ -509,7 +509,7 @@ body { background: var(--color-bg-canvas); overflow-x: hidden; }
    Below 1024px it opens over the page from the hamburger. */
 :root { --site-nav-w: calc(var(--size-drawer-nav) + var(--space-4)); }
 .site-nav.navdrawer { overflow: hidden; padding: 0; border: 0; color: var(--color-text-secondary); background-color: var(--color-surface-raised); background-image: var(--gradient-tone-panel); box-shadow: var(--shadow-lg); }
-.navdrawer--site { position: sticky; top: calc(var(--site-top-h) + var(--space-4)); inset-inline-start: auto; inset-block: auto; align-self: start; z-index: var(--z-sticky);
+.navdrawer--site { position: sticky; inset-block: calc(var(--site-top-h) + var(--space-4)) auto; /* one declaration: a later inset-block would reset top */ inset-inline-start: auto; align-self: start; z-index: calc(var(--z-sticky) + 1); /* above the sticky page tabs, so its shadow is not cut; below the top bar */
   width: var(--size-drawer-nav); height: calc(100vh - var(--site-top-h) - var(--space-8)); margin: var(--space-4) 0 var(--space-4) var(--space-4); }
 .navdrawer--site .navdrawer__item { min-height: var(--size-control-md); font-size: var(--text-md); }
 .navdrawer--site .navdrawer__item .nav-new { margin-inline-start: auto; }

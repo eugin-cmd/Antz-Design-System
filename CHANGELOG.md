@@ -10,6 +10,7 @@ All notable changes to the Antz Design System. Versions follow semantic versioni
 
 ### Fixes
 - **Navigation drawer:** the selected rail tab's left corners are now true curves on every tone. The panel gradient no longer shows through outside the radius, which made a corner look square. New token `--gradient-tone-tab-corners` (640 tokens).
+- **Docs sidebar:** stays in place while the page scrolls (a later `inset-block` was resetting its top), and sits above the sticky page tabs so its shadow is no longer cut off behind them.
 
 ### Docs site
 - **Home hero photos:** the drawn coat patterns are replaced by ten close-up animal photos from `reference/banner images`: tiger, zebra, leopard, giraffe, elephant skin, blue and red macaw feathers, iridescent plumage, tiger coat and fur. Portrait and square photos are cropped to an 8:3 landscape, and all are compressed to WebP (about 3.4 MB in all, each loaded just before its turn). They sit under a 50% deep-green overlay with the same slow crossfade, about every 7 seconds. A soft dark fade behind the text keeps every slide at AA (headline at least 4.4:1, intro at least 5.4:1). The pause button, still image under reduced motion and plain hero in high contrast are unchanged. Photo credits are in `assets/img/CREDITS.md`.
