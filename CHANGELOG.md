@@ -2,7 +2,9 @@
 
 All notable changes to the Antz Design System. Versions follow semantic versioning: patch for fixes, minor for additions, major for anything renamed, removed or changed in meaning. Every version listed here is published under `releases/` and tagged in Git.
 
-## Unreleased
+## 1.2.0-beta.1 (23 November 2026)
+
+Additive: no token or class removed or renamed (94 tokens added). Upgrade by changing `v1.1.0-beta.1` to `v1.2.0-beta.1` in your links. Visual refinements: elastic motion on movement, thinner selected and drop-zone outlines, softer light washes (from 1.1), the record hero on the deep gradient.
 
 ### Components (from the Kitchen and Diet web app, DD-002)
 - **Navigation drawer** (`.navdrawer`): the hamburger-opened main menu, with a module rail (icon over label) beside the module's menu (search, group headings, items, and a foot with zoo switcher and user). The white rail parts around the active module, so its tab opens into the panel. The panel and tab take the module's tone and fade between tones when the module changes. `components.js` adds open/close, Escape, backdrop, focus return and arrow keys.

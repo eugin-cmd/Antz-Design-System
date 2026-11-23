@@ -2,7 +2,7 @@
 component: Navigation drawer
 status: beta
 owners: { design: Design System Maintainers, web: Web platform lead, native: Native platform lead }
-version: 1.2.0-beta.1 (planned)
+version: 1.2.0-beta.1
 ---
 
 # Navigation drawer
