@@ -644,12 +644,14 @@
   followHash(); buildToc(); fitDevices();
 })();
 
-/* Home hero: cycle the animal coats every 7 seconds; still under reduced motion; pause button; pauses in background tabs */
+/* Home hero: cycle the banner photos every 7 seconds (each loads just before its turn); still under reduced motion; pause button; pauses in background tabs */
 (function () {
   var box = document.querySelector('.hero__patterns'); if (!box) return;
   var layers = Array.prototype.slice.call(box.children), i = 0, timer = null, paused = false;
+  function load(k) { var l = layers[k % layers.length]; if (l && l.dataset.bg && !l.style.backgroundImage) l.style.backgroundImage = 'url("' + l.dataset.bg + '")'; }
+  load(0); load(1);
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)'), btn = document.querySelector('.hero__pause');
-  function next() { layers[i].classList.remove('is-on'); i = (i + 1) % layers.length; layers[i].classList.add('is-on'); }
+  function next() { layers[i].classList.remove('is-on'); i = (i + 1) % layers.length; load(i); layers[i].classList.add('is-on'); load(i + 1); }
   function start() { if (timer || paused || reduce.matches || document.hidden) return; timer = setInterval(next, 7000); }
   function stop() { clearInterval(timer); timer = null; }
   if (btn) btn.addEventListener('click', function () {

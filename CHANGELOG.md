@@ -2,6 +2,11 @@
 
 All notable changes to the Antz Design System. Versions follow semantic versioning: patch for fixes, minor for additions, major for anything renamed, removed or changed in meaning. Every version listed here is published under `releases/` and tagged in Git.
 
+## Unreleased
+
+### Docs site
+- **Home hero photos:** the drawn coat patterns are replaced by ten close-up animal photos from `reference/banner images`: tiger, zebra, leopard, giraffe, elephant skin, blue and red macaw feathers, iridescent plumage, tiger coat and fur. Portrait and square photos are cropped to an 8:3 landscape, and all are compressed to WebP (about 3.4 MB in all, each loaded just before its turn). They sit under a 50% deep-green overlay with the same slow crossfade, about every 7 seconds. A soft dark fade behind the text keeps every slide at AA (headline at least 4.4:1, intro at least 5.4:1). The pause button, still image under reduced motion and plain hero in high contrast are unchanged. Photo credits are in `assets/img/CREDITS.md`.
+
 ## 1.2.0-beta.3 (23 November 2026)
 
 Adds the rendered audit (`tools/audit.mjs`), with what it found fixed: 24px touch targets, blue and teal card text, and a deeper blue gradient. Also adds the home hero animal coats. Upgrade by changing `v1.2.0-beta.2` to `v1.2.0-beta.3`; nothing removed or renamed.
