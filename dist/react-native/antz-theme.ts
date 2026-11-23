@@ -859,7 +859,8 @@ export const antzTheme = {
         1.56,
         0.64,
         1
-      ]
+      ],
+      "move": "{ease.elastic}"
     },
     "stagger": 60,
     "lift": -3,

@@ -4351,6 +4351,18 @@
       "dark-hc": "cubic-bezier(0.34, 1.56, 0.64, 1)"
     },
     {
+      "name": "ease.move",
+      "css": "--ease-move",
+      "type": "cubicBezier",
+      "tier": "base",
+      "description": "Movement and arrival (1.2): lifts, presses, hovers, menus, dialogs, toasts, floating sheets, rises, accordions. Elastic: a small overshoot, then settle. Not for colour or opacity, exits, data, loops or edge-attached panels.",
+      "light": "cubic-bezier(0.34, 1.56, 0.64, 1)",
+      "dark": "cubic-bezier(0.34, 1.56, 0.64, 1)",
+      "light-hc": "cubic-bezier(0.34, 1.56, 0.64, 1)",
+      "dark-hc": "cubic-bezier(0.34, 1.56, 0.64, 1)",
+      "ref": "ease.elastic"
+    },
+    {
       "name": "duration.instant",
       "css": "--duration-instant",
       "type": "duration",

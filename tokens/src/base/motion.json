@@ -70,6 +70,11 @@
         1
       ],
       "$description": "Elastic settle: overshoots about 10% and springs back. Selection indicators (tabs, segmented controls). One gentle overshoot, never a wobble. Pair with --duration-slower."
+    },
+    "move": {
+      "$type": "cubicBezier",
+      "$value": "{ease.elastic}",
+      "$description": "Movement and arrival (1.2): lifts, presses, hovers, menus, dialogs, toasts, floating sheets, rises, accordions. Elastic: a small overshoot, then settle. Not for colour or opacity, exits, data, loops or edge-attached panels."
     }
   },
   "duration": {

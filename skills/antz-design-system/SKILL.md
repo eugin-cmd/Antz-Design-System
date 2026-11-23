@@ -44,7 +44,7 @@ Run `rules` for the full register. These are the ones people most often trip ove
 - **Green never means status.** Success, warning, caution, danger and info have their own tokens. This doesn't mean avoiding status colour: a rising trend, a pass or a completed task uses the success tokens; a fall, failure or overdue item uses danger or warning. Pair the colour with an arrow, icon or word so it isn't the only signal.
 - **One main (filled brand) action** per header, drawer or dialog. **Add and edit happen in the right work drawer** (`.drawer`, 562px), not in new modals or pages.
 - **Gradient washes** (`--gradient-wash-primary|celebrate|calm|illustrative`) are for large soft backgrounds and stat panels only, chosen by meaning, at most two per screen; never on buttons, data, status or small text. Mortality, alerts and overdue figures never sit on the celebrate wash.
-- **Motion** uses `--duration-*` and `--ease-*` (under 500ms; reduced motion is automatic). Selection indicators use `--ease-elastic`.
+- **Motion** uses `--duration-*` and `--ease-*` (under 500ms; reduced motion is automatic). Anything that moves or arrives (lifts, presses, hovers, menus, dialogs, toasts, sheets, rises, indicators) uses `--ease-move`, the elastic settle. Colour and opacity changes use `--ease-standard`, exits `--ease-exit`. Data bars, loops and edge-attached panels never overshoot.
 - **No second versions** of existing components: confirm dialog, toast, filter drawer, table, drawer, card.
 
 ## When a request goes outside the system

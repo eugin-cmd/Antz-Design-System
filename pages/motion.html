@@ -25,7 +25,7 @@
 <div class="page-body"><div class="page-content">
 <section class="tab-panel" id="panel-overview" data-tab="overview" role="tabpanel" aria-labelledby="tab-overview"><div class="doc" id="motion">
         <h3>Motion</h3>
-        <p class="lead">Fast and soft. Colour changes take 150ms; lifts and slides take 200 to 250ms on <code>--ease-standard</code>; things that open or slide a pill use <code>--ease-spring</code> at 350 to 500ms. Under <code>prefers-reduced-motion</code> every duration token drops to 0.</p>
+        <p class="lead">Fast, soft and a little elastic. Everything that <b>moves or arrives</b> (lifts, presses, hovers, menus, dialogs, toasts, floating sheets, rises, accordions, tab indicators) uses <code>--ease-move</code>: a small overshoot, then settle. Colour and opacity changes take 150ms on <code>--ease-standard</code>, with no overshoot, because they don't move. Exits use <code>--ease-exit</code>. Data (progress and chart bars), loops and panels attached to the screen edge never overshoot: a bar would briefly show the wrong value, and an attached drawer would pull away from the edge. Under <code>prefers-reduced-motion</code> every duration token drops to 0.</p>
         <div class="demo demo--col" id="motion-list"></div>
         <div style="margin-top:12px"><button class="btn btn--secondary btn--sm" type="button" id="motion-play">Play</button></div>
         <h4>Card motion</h4>
