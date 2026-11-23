@@ -16,6 +16,7 @@ All notable changes to the Antz Design System. Versions follow semantic versioni
 - **Record hero** (`.record-hero`): the lead card of a detail sheet, on the green gradient. Key figures sit in an inset strip, and the responsible person has quick actions (`.icon-btn--on-strong`).
 - **Party card** (`.party`, `--tint`, `--plain`): a person or animal on a record, with a label, name and call or message actions.
 - **Outlined row** (`.row--outlined`) with a labelled quantity (`.row__qty`).
+- **Tokens instead of literals:** `--color-text-on-strong-secondary` (86% white) and `--color-text-on-strong-muted` (78% white) replace opacity and colour-mix text in the new headers. `--size-launcher-item` and `--size-entity-text` replace two layout numbers. The record hero moves to `--gradient-deep`, so its secondary text passes AA (5.25:1) across the whole card; on `--gradient-green` it fell to 3.7:1 in the lightest corner.
 - 11 new icons: utensils, chef-hat, package, truck, bar-chart, settings, book-open, history, receipt, globe, dashboard.
 - Size tokens: `--size-drawer-nav`, `--size-rail`, `--size-rail-tab`, `--size-launcher`. 154 new contrast checks (588 in total), all passing.
 

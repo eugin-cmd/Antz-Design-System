@@ -1184,6 +1184,16 @@
       "$value": "#0E1512A6",
       "$description": "Dark glass chip over photos"
     },
+    "alpha-on-strong-secondary": {
+      "$type": "color",
+      "$value": "#FFFFFFDB",
+      "$description": "White at 86%: secondary text on dark fills and gradients"
+    },
+    "alpha-on-strong-muted": {
+      "$type": "color",
+      "$value": "#FFFFFFC7",
+      "$description": "White at 78%: muted text on dark fills and gradients"
+    },
     "color-brand-primary": {
       "$type": "color",
       "$value": "#37BD69",
@@ -1303,6 +1313,16 @@
     "color-text-on-bright": {
       "$type": "color",
       "$value": "#002D12"
+    },
+    "color-text-on-strong-secondary": {
+      "$type": "color",
+      "$value": "#FFFFFFDB",
+      "$description": "Secondary text on dark fills and gradients (feature cards, entity header, record hero). Same in every mode."
+    },
+    "color-text-on-strong-muted": {
+      "$type": "color",
+      "$value": "#FFFFFFC7",
+      "$description": "Muted text (IDs, meta) on dark fills and gradients. Same in every mode."
     },
     "color-border": {
       "$type": "color",
@@ -3096,6 +3116,16 @@
       "$value": "#0E1512A6",
       "$description": "Dark glass chip over photos"
     },
+    "alpha-on-strong-secondary": {
+      "$type": "color",
+      "$value": "#FFFFFFDB",
+      "$description": "White at 86%: secondary text on dark fills and gradients"
+    },
+    "alpha-on-strong-muted": {
+      "$type": "color",
+      "$value": "#FFFFFFC7",
+      "$description": "White at 78%: muted text on dark fills and gradients"
+    },
     "color-brand-primary": {
       "$type": "color",
       "$value": "#37BD69",
@@ -3215,6 +3245,16 @@
     "color-text-on-bright": {
       "$type": "color",
       "$value": "#002D12"
+    },
+    "color-text-on-strong-secondary": {
+      "$type": "color",
+      "$value": "#FFFFFFDB",
+      "$description": "Secondary text on dark fills and gradients (feature cards, entity header, record hero). Same in every mode."
+    },
+    "color-text-on-strong-muted": {
+      "$type": "color",
+      "$value": "#FFFFFFC7",
+      "$description": "Muted text (IDs, meta) on dark fills and gradients. Same in every mode."
     },
     "color-border": {
       "$type": "color",
@@ -5008,6 +5048,16 @@
       "$value": "#0E1512A6",
       "$description": "Dark glass chip over photos"
     },
+    "alpha-on-strong-secondary": {
+      "$type": "color",
+      "$value": "#FFFFFFDB",
+      "$description": "White at 86%: secondary text on dark fills and gradients"
+    },
+    "alpha-on-strong-muted": {
+      "$type": "color",
+      "$value": "#FFFFFFC7",
+      "$description": "White at 78%: muted text on dark fills and gradients"
+    },
     "color-brand-primary": {
       "$type": "color",
       "$value": "#37BD69",
@@ -5127,6 +5177,16 @@
     "color-text-on-bright": {
       "$type": "color",
       "$value": "#002D12"
+    },
+    "color-text-on-strong-secondary": {
+      "$type": "color",
+      "$value": "#FFFFFFDB",
+      "$description": "Secondary text on dark fills and gradients (feature cards, entity header, record hero). Same in every mode."
+    },
+    "color-text-on-strong-muted": {
+      "$type": "color",
+      "$value": "#FFFFFFC7",
+      "$description": "Muted text (IDs, meta) on dark fills and gradients. Same in every mode."
     },
     "color-border": {
       "$type": "color",
@@ -6920,6 +6980,16 @@
       "$value": "#0E1512A6",
       "$description": "Dark glass chip over photos"
     },
+    "alpha-on-strong-secondary": {
+      "$type": "color",
+      "$value": "#FFFFFFDB",
+      "$description": "White at 86%: secondary text on dark fills and gradients"
+    },
+    "alpha-on-strong-muted": {
+      "$type": "color",
+      "$value": "#FFFFFFC7",
+      "$description": "White at 78%: muted text on dark fills and gradients"
+    },
     "color-brand-primary": {
       "$type": "color",
       "$value": "#37BD69",
@@ -7039,6 +7109,16 @@
     "color-text-on-bright": {
       "$type": "color",
       "$value": "#002D12"
+    },
+    "color-text-on-strong-secondary": {
+      "$type": "color",
+      "$value": "#FFFFFFDB",
+      "$description": "Secondary text on dark fills and gradients (feature cards, entity header, record hero). Same in every mode."
+    },
+    "color-text-on-strong-muted": {
+      "$type": "color",
+      "$value": "#FFFFFFC7",
+      "$description": "Muted text (IDs, meta) on dark fills and gradients. Same in every mode."
     },
     "color-border": {
       "$type": "color",

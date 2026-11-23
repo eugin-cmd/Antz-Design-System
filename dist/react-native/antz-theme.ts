@@ -44,6 +44,8 @@ export const antzTheme = {
       "textOnTertiary": "#FFFFFF",
       "textLink": "#006D35",
       "textOnBright": "#002D12",
+      "textOnStrongSecondary": "#FFFFFFDB",
+      "textOnStrongMuted": "#FFFFFFC7",
       "border": "#E2EAE6",
       "borderSubtle": "#EDF2EF",
       "borderStrong": "#C9D9D1",
@@ -214,6 +216,8 @@ export const antzTheme = {
       "textOnTertiary": "#FFFFFF",
       "textLink": "#5EDF86",
       "textOnBright": "#002D12",
+      "textOnStrongSecondary": "#FFFFFFDB",
+      "textOnStrongMuted": "#FFFFFFC7",
       "border": "#2A3832",
       "borderSubtle": "#1F2B26",
       "borderStrong": "#3B4B44",
@@ -384,6 +388,8 @@ export const antzTheme = {
       "textOnTertiary": "#FFFFFF",
       "textLink": "#005226",
       "textOnBright": "#002D12",
+      "textOnStrongSecondary": "#FFFFFFDB",
+      "textOnStrongMuted": "#FFFFFFC7",
       "border": "#879590",
       "borderSubtle": "#A3AFA9",
       "borderStrong": "#5F6B67",
@@ -554,6 +560,8 @@ export const antzTheme = {
       "textOnTertiary": "#FFFFFF",
       "textLink": "#7BFCA0",
       "textOnBright": "#002D12",
+      "textOnStrongSecondary": "#FFFFFFDB",
+      "textOnStrongMuted": "#FFFFFFC7",
       "border": "#64756D",
       "borderSubtle": "#5E6B65",
       "borderStrong": "#94A39C",
@@ -768,7 +776,9 @@ export const antzTheme = {
     "launcher": 56,
     "sidenav": 260,
     "sidenav-folded": 68,
-    "appbar": 64
+    "appbar": 64,
+    "launcher-item": 124,
+    "entity-text": 180
   },
   "motion": {
     "duration": {

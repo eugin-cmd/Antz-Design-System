@@ -1217,6 +1217,16 @@
           "$type": "color",
           "$value": "#0E1512A6",
           "$description": "Dark glass chip over photos"
+        },
+        "on-strong-secondary": {
+          "$type": "color",
+          "$value": "#FFFFFFDB",
+          "$description": "White at 86%: secondary text on dark fills and gradients"
+        },
+        "on-strong-muted": {
+          "$type": "color",
+          "$value": "#FFFFFFC7",
+          "$description": "White at 78%: muted text on dark fills and gradients"
         }
       },
       "font-family": {
@@ -1568,6 +1578,16 @@
         "appbar": {
           "$type": "dimension",
           "$value": "64px"
+        },
+        "launcher-item": {
+          "$type": "dimension",
+          "$value": "124px",
+          "$description": "Width of a launcher item: tile plus a two-line label (1.2)"
+        },
+        "entity-text": {
+          "$type": "dimension",
+          "$value": "180px",
+          "$description": "Minimum width of the name column in an entity header before it wraps (1.2)"
         }
       },
       "icon-stroke": {
@@ -1881,6 +1901,16 @@
           "on-bright": {
             "$type": "color",
             "$value": "#002D12"
+          },
+          "on-strong-secondary": {
+            "$type": "color",
+            "$value": "#FFFFFFDB",
+            "$description": "Secondary text on dark fills and gradients (feature cards, entity header, record hero). Same in every mode."
+          },
+          "on-strong-muted": {
+            "$type": "color",
+            "$value": "#FFFFFFC7",
+            "$description": "Muted text (IDs, meta) on dark fills and gradients. Same in every mode."
           }
         },
         "border": {
@@ -3959,6 +3989,16 @@
           "$type": "color",
           "$value": "#0E1512A6",
           "$description": "Dark glass chip over photos"
+        },
+        "on-strong-secondary": {
+          "$type": "color",
+          "$value": "#FFFFFFDB",
+          "$description": "White at 86%: secondary text on dark fills and gradients"
+        },
+        "on-strong-muted": {
+          "$type": "color",
+          "$value": "#FFFFFFC7",
+          "$description": "White at 78%: muted text on dark fills and gradients"
         }
       },
       "font-family": {
@@ -4310,6 +4350,16 @@
         "appbar": {
           "$type": "dimension",
           "$value": "64px"
+        },
+        "launcher-item": {
+          "$type": "dimension",
+          "$value": "124px",
+          "$description": "Width of a launcher item: tile plus a two-line label (1.2)"
+        },
+        "entity-text": {
+          "$type": "dimension",
+          "$value": "180px",
+          "$description": "Minimum width of the name column in an entity header before it wraps (1.2)"
         }
       },
       "icon-stroke": {
@@ -4623,6 +4673,16 @@
           "on-bright": {
             "$type": "color",
             "$value": "#002D12"
+          },
+          "on-strong-secondary": {
+            "$type": "color",
+            "$value": "#FFFFFFDB",
+            "$description": "Secondary text on dark fills and gradients (feature cards, entity header, record hero). Same in every mode."
+          },
+          "on-strong-muted": {
+            "$type": "color",
+            "$value": "#FFFFFFC7",
+            "$description": "Muted text (IDs, meta) on dark fills and gradients. Same in every mode."
           }
         },
         "border": {
@@ -6701,6 +6761,16 @@
           "$type": "color",
           "$value": "#0E1512A6",
           "$description": "Dark glass chip over photos"
+        },
+        "on-strong-secondary": {
+          "$type": "color",
+          "$value": "#FFFFFFDB",
+          "$description": "White at 86%: secondary text on dark fills and gradients"
+        },
+        "on-strong-muted": {
+          "$type": "color",
+          "$value": "#FFFFFFC7",
+          "$description": "White at 78%: muted text on dark fills and gradients"
         }
       },
       "font-family": {
@@ -7052,6 +7122,16 @@
         "appbar": {
           "$type": "dimension",
           "$value": "64px"
+        },
+        "launcher-item": {
+          "$type": "dimension",
+          "$value": "124px",
+          "$description": "Width of a launcher item: tile plus a two-line label (1.2)"
+        },
+        "entity-text": {
+          "$type": "dimension",
+          "$value": "180px",
+          "$description": "Minimum width of the name column in an entity header before it wraps (1.2)"
         }
       },
       "icon-stroke": {
@@ -7365,6 +7445,16 @@
           "on-bright": {
             "$type": "color",
             "$value": "#002D12"
+          },
+          "on-strong-secondary": {
+            "$type": "color",
+            "$value": "#FFFFFFDB",
+            "$description": "Secondary text on dark fills and gradients (feature cards, entity header, record hero). Same in every mode."
+          },
+          "on-strong-muted": {
+            "$type": "color",
+            "$value": "#FFFFFFC7",
+            "$description": "Muted text (IDs, meta) on dark fills and gradients. Same in every mode."
           }
         },
         "border": {
@@ -9443,6 +9533,16 @@
           "$type": "color",
           "$value": "#0E1512A6",
           "$description": "Dark glass chip over photos"
+        },
+        "on-strong-secondary": {
+          "$type": "color",
+          "$value": "#FFFFFFDB",
+          "$description": "White at 86%: secondary text on dark fills and gradients"
+        },
+        "on-strong-muted": {
+          "$type": "color",
+          "$value": "#FFFFFFC7",
+          "$description": "White at 78%: muted text on dark fills and gradients"
         }
       },
       "font-family": {
@@ -9794,6 +9894,16 @@
         "appbar": {
           "$type": "dimension",
           "$value": "64px"
+        },
+        "launcher-item": {
+          "$type": "dimension",
+          "$value": "124px",
+          "$description": "Width of a launcher item: tile plus a two-line label (1.2)"
+        },
+        "entity-text": {
+          "$type": "dimension",
+          "$value": "180px",
+          "$description": "Minimum width of the name column in an entity header before it wraps (1.2)"
         }
       },
       "icon-stroke": {
@@ -10107,6 +10217,16 @@
           "on-bright": {
             "$type": "color",
             "$value": "#002D12"
+          },
+          "on-strong-secondary": {
+            "$type": "color",
+            "$value": "#FFFFFFDB",
+            "$description": "Secondary text on dark fills and gradients (feature cards, entity header, record hero). Same in every mode."
+          },
+          "on-strong-muted": {
+            "$type": "color",
+            "$value": "#FFFFFFC7",
+            "$description": "Muted text (IDs, meta) on dark fills and gradients. Same in every mode."
           }
         },
         "border": {

@@ -127,6 +127,16 @@
       "on-bright": {
         "$type": "color",
         "$value": "{green.15}"
+      },
+      "on-strong-secondary": {
+        "$type": "color",
+        "$value": "{alpha.on-strong-secondary}",
+        "$description": "Secondary text on dark fills and gradients (feature cards, entity header, record hero). Same in every mode."
+      },
+      "on-strong-muted": {
+        "$type": "color",
+        "$value": "{alpha.on-strong-muted}",
+        "$description": "Muted text (IDs, meta) on dark fills and gradients. Same in every mode."
       }
     },
     "border": {

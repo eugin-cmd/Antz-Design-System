@@ -339,6 +339,8 @@
   --alpha-focus-glow-light: #37BD692E;
   --alpha-focus-glow-dark: #5EDF8640;
   --alpha-media-chip: #0E1512A6;
+  --alpha-on-strong-secondary: #FFFFFFDB;
+  --alpha-on-strong-muted: #FFFFFFC7;
 
   /* ── 2. Base ── */
   /* font-family */
@@ -434,6 +436,8 @@
   --size-sidenav: 260px;
   --size-sidenav-folded: 68px;
   --size-appbar: 64px;
+  --size-launcher-item: 124px;
+  --size-entity-text: 180px;
 
   /* icon-stroke */
   --icon-stroke: 1.8;
@@ -526,6 +530,8 @@
   --color-text-on-tertiary: var(--ink-0);
   --color-text-link: var(--green-40);
   --color-text-on-bright: var(--green-15);
+  --color-text-on-strong-secondary: var(--alpha-on-strong-secondary);
+  --color-text-on-strong-muted: var(--alpha-on-strong-muted);
   --color-border: var(--ink-200);
   --color-border-subtle: var(--ink-150);
   --color-border-strong: var(--ink-300);

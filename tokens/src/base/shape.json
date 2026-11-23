@@ -119,6 +119,16 @@
     "appbar": {
       "$type": "dimension",
       "$value": "64px"
+    },
+    "launcher-item": {
+      "$type": "dimension",
+      "$value": "124px",
+      "$description": "Width of a launcher item: tile plus a two-line label (1.2)"
+    },
+    "entity-text": {
+      "$type": "dimension",
+      "$value": "180px",
+      "$description": "Minimum width of the name column in an entity header before it wraps (1.2)"
     }
   },
   "icon-stroke": {

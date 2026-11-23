@@ -1051,7 +1051,7 @@ a.animal:hover { background: var(--color-surface-hover); }
 
 /* ── Launcher (1.2): round module tiles with labels, e.g. on Home ───────── */
 .launcher { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-4) var(--space-2); }
-.launcher__item { display: flex; flex-direction: column; align-items: center; gap: var(--space-2); width: calc(var(--size-launcher) * 2.2); padding: var(--space-1); border: 0; border-radius: var(--radius-md); font: inherit; font-size: var(--text-md); text-align: center; color: var(--color-text-secondary); background: none; text-decoration: none; cursor: pointer; }
+.launcher__item { display: flex; flex-direction: column; align-items: center; gap: var(--space-2); width: var(--size-launcher-item); padding: var(--space-1); border: 0; border-radius: var(--radius-md); font: inherit; font-size: var(--text-md); text-align: center; color: var(--color-text-secondary); background: none; text-decoration: none; cursor: pointer; }
 .launcher__item:hover { color: var(--color-text); }
 .launcher__item:hover .tile-module { transform: translateY(var(--motion-lift)); box-shadow: var(--shadow-md); }
 .launcher__sep { align-self: stretch; width: 1px; margin-block: var(--space-1) var(--space-6); background: var(--color-border-subtle); }
@@ -1068,14 +1068,14 @@ a.animal:hover { background: var(--color-surface-hover); }
 .entity-head { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-5); padding: var(--space-4) var(--space-5); border-radius: var(--radius-lg) var(--radius-lg) 0 0; color: var(--color-text-on-strong); background: var(--gradient-petrol); }
 .entity-head__avatar { display: grid; place-items: center; flex: none; width: var(--size-control-lg); height: var(--size-control-lg); border-radius: var(--radius-md); overflow: hidden; background: color-mix(in srgb, var(--color-text-on-strong) 14%, transparent); }
 .entity-head__avatar img { width: 100%; height: 100%; object-fit: cover; }
-.entity-head__text { display: flex; flex-direction: column; flex: 1 1 180px; min-width: 0; }
+.entity-head__text { display: flex; flex-direction: column; flex: 1 1 var(--size-entity-text); min-width: 0; }
 .entity-head__title { margin: 0; font-size: var(--text-2xl); font-weight: var(--weight-semibold); }
-.entity-head__sub { font-size: var(--text-md); font-style: italic; opacity: .86; }
-.entity-head__meta { font-size: var(--text-xs); opacity: .78; }
+.entity-head__sub { font-size: var(--text-md); font-style: italic; color: var(--color-text-on-strong-secondary); }
+.entity-head__meta { font-size: var(--text-xs); color: var(--color-text-on-strong-muted); }
 .entity-head__stats { display: flex; gap: var(--space-5); padding: var(--space-2) var(--space-4); border-radius: var(--radius-md); background: color-mix(in srgb, var(--color-text-on-strong) 8%, transparent); }
 .entity-head__stats > div { display: flex; flex-direction: column; align-items: center; }
 .entity-head__stats b { font-size: var(--text-xl); font-weight: var(--weight-semibold); font-variant-numeric: tabular-nums; }
-.entity-head__stats small { font-size: var(--text-xs); opacity: .86; }
+.entity-head__stats small { font-size: var(--text-xs); color: var(--color-text-on-strong-secondary); }
 .entity-head__actions { display: flex; gap: var(--space-1); }
 .entity-head .btn--ghost { --btn-fg: var(--color-text-on-strong); }
 .entity-head .btn--ghost:hover { background: color-mix(in srgb, var(--color-text-on-strong) 12%, transparent); }
@@ -1103,14 +1103,14 @@ a.animal:hover { background: var(--color-surface-hover); }
 @media (max-width: 599px) { .drawer--floating { inset-block: var(--space-2); inset-inline-end: var(--space-2); width: calc(100vw - var(--space-4)); } }
 
 /* ── Record hero (1.2): the lead card of a detail sheet, on the green gradient ─ */
-.record-hero { display: flex; flex-direction: column; gap: var(--space-4); padding: var(--space-5) var(--space-5) var(--space-4); border-radius: var(--radius-xl); color: var(--color-text-on-strong); background: var(--gradient-green); }
-.record-hero__eyebrow { font-size: var(--text-md); color: color-mix(in srgb, var(--color-text-on-strong) 84%, transparent); }
+.record-hero { display: flex; flex-direction: column; gap: var(--space-4); padding: var(--space-5) var(--space-5) var(--space-4); border-radius: var(--radius-xl); color: var(--color-text-on-strong); background: var(--gradient-deep); }
+.record-hero__eyebrow { font-size: var(--text-md); color: var(--color-text-on-strong-secondary); }
 .record-hero__title { margin: 0; font-size: var(--text-3xl); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-snug); }
 .record-hero__stats { display: grid; grid-auto-columns: 1fr; grid-auto-flow: column; padding: var(--space-3) 0; border-radius: var(--radius-lg); background: color-mix(in srgb, var(--color-surface-strong) 32%, transparent); }
 .record-hero__stats > div { display: flex; flex-direction: column; align-items: center; gap: var(--space-0-5); }
 .record-hero__stats > div + div { border-inline-start: 1px solid color-mix(in srgb, var(--color-text-on-strong) 16%, transparent); }
 .record-hero__stats b { font-size: var(--text-4xl); font-weight: var(--weight-semibold); line-height: var(--leading-tight); color: var(--color-accent-bright); font-variant-numeric: tabular-nums; }
-.record-hero__stats small { font-size: var(--text-md); color: color-mix(in srgb, var(--color-text-on-strong) 86%, transparent); }
+.record-hero__stats small { font-size: var(--text-md); color: var(--color-text-on-strong-secondary); }
 .record-hero :focus-visible { outline-color: var(--color-text-on-strong); }
 
 /* ── Party card (1.2): a person or animal on a record, with quick actions ─── */
@@ -1122,7 +1122,7 @@ a.animal:hover { background: var(--color-surface-hover); }
 .party__label { font-size: var(--text-md); line-height: var(--leading-tight); color: var(--color-text-muted); }
 .party__name { font-size: var(--text-xl); font-weight: var(--weight-semibold); line-height: var(--leading-tight); color: var(--color-text); }
 .party__actions { display: flex; gap: var(--space-2); flex: none; }
-.record-hero .party__label { color: color-mix(in srgb, var(--color-text-on-strong) 84%, transparent); }
+.record-hero .party__label { color: var(--color-text-on-strong-secondary); }
 .record-hero .party__name { color: var(--color-text-on-strong); }
 .icon-btn--on-strong { color: var(--color-text-on-strong); background: color-mix(in srgb, var(--color-surface-strong) 34%, transparent); }
 .icon-btn--on-strong:hover { color: var(--color-text-on-strong); background: color-mix(in srgb, var(--color-surface-strong) 50%, transparent); }

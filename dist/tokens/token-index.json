@@ -3204,6 +3204,28 @@
       "dark-hc": "#0E1512A6"
     },
     {
+      "name": "alpha.on-strong-secondary",
+      "css": "--alpha-on-strong-secondary",
+      "type": "color",
+      "tier": "primitive",
+      "description": "White at 86%: secondary text on dark fills and gradients",
+      "light": "#FFFFFFDB",
+      "dark": "#FFFFFFDB",
+      "light-hc": "#FFFFFFDB",
+      "dark-hc": "#FFFFFFDB"
+    },
+    {
+      "name": "alpha.on-strong-muted",
+      "css": "--alpha-on-strong-muted",
+      "type": "color",
+      "tier": "primitive",
+      "description": "White at 78%: muted text on dark fills and gradients",
+      "light": "#FFFFFFC7",
+      "dark": "#FFFFFFC7",
+      "light-hc": "#FFFFFFC7",
+      "dark-hc": "#FFFFFFC7"
+    },
+    {
       "name": "font-family.sans",
       "css": "--font-family-sans",
       "type": "fontFamily",
@@ -4043,6 +4065,28 @@
       "dark-hc": "64px"
     },
     {
+      "name": "size.launcher-item",
+      "css": "--size-launcher-item",
+      "type": "dimension",
+      "tier": "base",
+      "description": "Width of a launcher item: tile plus a two-line label (1.2)",
+      "light": "124px",
+      "dark": "124px",
+      "light-hc": "124px",
+      "dark-hc": "124px"
+    },
+    {
+      "name": "size.entity-text",
+      "css": "--size-entity-text",
+      "type": "dimension",
+      "tier": "base",
+      "description": "Minimum width of the name column in an entity header before it wraps (1.2)",
+      "light": "180px",
+      "dark": "180px",
+      "light-hc": "180px",
+      "dark-hc": "180px"
+    },
+    {
       "name": "icon-stroke",
       "css": "--icon-stroke",
       "type": "number",
@@ -4820,6 +4864,30 @@
       "dark-hc": "#002D12",
       "ref": "green.15",
       "darkRef": "green.15"
+    },
+    {
+      "name": "color.text.on-strong-secondary",
+      "css": "--color-text-on-strong-secondary",
+      "type": "color",
+      "tier": "semantic",
+      "description": "Secondary text on dark fills and gradients (feature cards, entity header, record hero). Same in every mode.",
+      "light": "#FFFFFFDB",
+      "dark": "#FFFFFFDB",
+      "light-hc": "#FFFFFFDB",
+      "dark-hc": "#FFFFFFDB",
+      "ref": "alpha.on-strong-secondary"
+    },
+    {
+      "name": "color.text.on-strong-muted",
+      "css": "--color-text-on-strong-muted",
+      "type": "color",
+      "tier": "semantic",
+      "description": "Muted text (IDs, meta) on dark fills and gradients. Same in every mode.",
+      "light": "#FFFFFFC7",
+      "dark": "#FFFFFFC7",
+      "light-hc": "#FFFFFFC7",
+      "dark-hc": "#FFFFFFC7",
+      "ref": "alpha.on-strong-muted"
     },
     {
       "name": "color.border",

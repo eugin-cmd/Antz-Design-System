@@ -1245,6 +1245,16 @@
       "$type": "color",
       "$value": "#0E1512A6",
       "$description": "Dark glass chip over photos"
+    },
+    "on-strong-secondary": {
+      "$type": "color",
+      "$value": "#FFFFFFDB",
+      "$description": "White at 86%: secondary text on dark fills and gradients"
+    },
+    "on-strong-muted": {
+      "$type": "color",
+      "$value": "#FFFFFFC7",
+      "$description": "White at 78%: muted text on dark fills and gradients"
     }
   }
 }
