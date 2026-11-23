@@ -55,7 +55,7 @@
       f.querySelector('.mg-dot').style.transitionTimingFunction = 'var(' + f.dataset.ease + ')';
     });
   }
-  function replayCurve(f) { var d = f.querySelector('.mg-dot'); d.classList.remove('is-on'); void d.offsetWidth; requestAnimationFrame(function () { d.classList.add('is-on'); }); }
+  function replayCurve(f) { var d = f.querySelector('.mg-dot'); d.style.transitionProperty = 'none'; d.classList.remove('is-on'); void d.offsetWidth; d.style.transitionProperty = ''; requestAnimationFrame(function () { requestAnimationFrame(function () { d.classList.add('is-on'); }); }); }
   function restart(el, cls) { el.classList.remove(cls); void el.offsetWidth; el.classList.add(cls); }
   var replays = {
     curve: function (b) { replayCurve(b.closest('.mg-curve')); },
