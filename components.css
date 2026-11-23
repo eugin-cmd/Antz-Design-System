@@ -167,7 +167,7 @@ button { font: inherit; color: inherit; }
 .choice input { position: absolute; opacity: 0; }
 .choice::before { content: ''; position: absolute; left: 14px; top: 15px; width: 16px; height: 16px; border-radius: 50%; box-shadow: inset 0 0 0 2px var(--color-border-input); transition: box-shadow var(--duration-fast); }
 .choice:hover { background: var(--color-surface-hover); }
-.choice:has(input:checked) { background: var(--color-surface-selected); box-shadow: inset 0 0 0 2px var(--color-accent-indicator); }
+.choice:has(input:checked) { --selected-outline: var(--border-width); background: var(--color-surface-selected); box-shadow: inset 0 0 0 var(--selected-outline) var(--color-accent-indicator); }
 .choice:has(input:checked)::before { box-shadow: inset 0 0 0 5px var(--color-accent-indicator); }
 .choice:has(input:focus-visible) { outline: var(--focus-ring-width) solid var(--color-focus); outline-offset: var(--focus-ring-offset); }
 .choice b { display: block; font-size: var(--text-sm); font-weight: var(--weight-semibold); }
@@ -504,7 +504,9 @@ button.row:hover, a.row:hover, label.row:hover { background: var(--color-surface
 .list[data-collapsed="true"] > :not(.list__head) { display: none; }
 /* Row additions used inside lists */
 label.row { cursor: pointer; }
-.row.is-selected, label.row:has(.check input:checked) { background: var(--color-surface-selected); box-shadow: inset 0 0 0 1.5px var(--color-accent-indicator); }
+.row.is-selected, label.row:has(.check input:checked) { --selected-outline: var(--border-width); background: var(--color-surface-selected); box-shadow: inset 0 0 0 var(--selected-outline) var(--color-accent-indicator); }
+/* Selected outlines are a 0.5px hairline on high-density screens; 1px on standard screens. */
+@media (min-resolution: 2dppx) { .row.is-selected, label.row:has(.check input:checked), .choice:has(input:checked) { --selected-outline: var(--border-width-hairline); } }
 .row--outline { background: var(--color-surface); box-shadow: inset 0 0 0 1px var(--color-border); }
 .row:disabled, .row[aria-disabled="true"] { color: var(--color-text-disabled); cursor: not-allowed; transform: none; }
 .row:disabled .row__meta, .row[aria-disabled="true"] .row__meta { color: var(--color-text-disabled); }

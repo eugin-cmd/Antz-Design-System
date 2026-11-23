@@ -4219,6 +4219,17 @@
       "dark-hc": 1.8
     },
     {
+      "name": "border-width-hairline",
+      "css": "--border-width-hairline",
+      "type": "dimension",
+      "tier": "base",
+      "description": "Hairline: selected outlines on high-density screens (one device pixel). Standard screens use --border-width, because half a pixel blurs there.",
+      "light": "0.5px",
+      "dark": "0.5px",
+      "light-hc": "0.5px",
+      "dark-hc": "0.5px"
+    },
+    {
       "name": "border-width",
       "css": "--border-width",
       "type": "dimension",

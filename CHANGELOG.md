@@ -29,6 +29,7 @@ All notable changes to the Antz Design System. Versions follow semantic versioni
 - New docs page: Dashboard widgets (Stat cards).
 
 ### Refinements
+- **Thinner selected outlines:** selected list rows (`.row.is-selected`, checked rows) and selected choice cards (`.choice`) now have a 0.5px outline on high-density screens (token `--border-width-hairline`) and 1px on standard screens. Before, rows were 1.5px and choice cards 2px. Selection is still shown by the green tint and the checkbox or radio, and the outline colour keeps its 3:1 contrast. Keyboard focus keeps its own thicker ring.
 - **Drop zone outline:** the dashed outline of `.dropzone` now has exact 4px dashes and 4px gaps. Browsers choose their own dash lengths for `border: dashed`, so it is drawn as a mask (new tokens `--mask-dash-outline` and `--mask-dash-outline-hairline`) cut from the border colour. It is a 0.5px hairline on high-density screens and 1px on standard screens, where a half pixel can't be drawn. Colour, contrast, dark mode and hover come from the same tokens as before.
 
 - **Elastic motion everywhere it fits:** a new token `--ease-move` (the elastic curve) now drives 26 movements: button lift and press, card, row, tile and photo hovers, the switch knob, priority and animal-card controls, tooltips, menus, dialogs, toasts, floating side sheets, rise-in, accordions and the focus ring. Colour and opacity changes, exits, data bars, loops and edge-attached drawers deliberately keep their easing (no overshoot). Change `--ease-move` to tone it down everywhere at once.
