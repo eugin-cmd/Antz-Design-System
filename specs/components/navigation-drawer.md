@@ -10,11 +10,15 @@ version: 1.2.0-beta.1
 ## Purpose
 The product's main menu. Opens from the hamburger at the left of the top bar. A **rail** of modules sits beside the chosen module's **menu**. Each module has a **tone** (decision DD-002), which tints the panel and the active tab, so people know where they are. Source: the Kitchen and Diet web app.
 
+## Forms
+- **Floating (recommended):** `.navdrawer--floating`. It sits 16px in from the left, top and bottom with a 24px radius, slides in on `--ease-move` over `--duration-slower` (an elastic settle), and slides out on `--ease-exit`.
+- **Attached:** no modifier. It sits flush to the screen edge and slides in without overshoot, so it never pulls away from the edge.
+
 ## Parts
 | Part | Element | Required? |
 |---|---|---|
 | Drawer | `aside.navdrawer` with `data-tone` | Required |
-| Rail | `.navdrawer__rail` (`role="tablist"`, vertical) | Required |
+| Rail | `.navdrawer__rail`, holding `.navdrawer__top` (the hamburger that retracts the drawer, `data-navdrawer-close`) and `.navdrawer__tabs` (`role="tablist"`, vertical) | Required |
 | Module tab | `button.navdrawer__tab` (`role="tab"`, `aria-controls`, `data-tone`), icon over label | Required, one per module |
 | Head | `.navdrawer__head`: menu search and close button | Search optional; close required for the overlay |
 | Menu | `.navdrawer__menu` (`role="tabpanel"`), one per module | Required |

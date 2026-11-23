@@ -4,6 +4,10 @@ All notable changes to the Antz Design System. Versions follow semantic versioni
 
 ## Unreleased
 
+### Components
+- **Floating navigation drawer** (`.navdrawer--floating`): set in from the left, top and bottom with a 24px radius. It slides in with the elastic settle (`--ease-move`, `--duration-slower`) and retracts quickly on `--ease-exit`. A hamburger at the top of the rail (`.navdrawer__top`) retracts it from the corner that opened it. The ✕, Escape and the backdrop still work. Tabs go in a `.navdrawer__tabs` group so the hamburger isn't announced as a tab; the older markup still works.
+- **Fix:** closing a drawer or side sheet now waits for the short exit animation, not the longer entrance (it lingered before hiding).
+
 ### Docs site
 - **Home hero photos:** the drawn coat patterns are replaced by ten close-up animal photos from `reference/banner images`: tiger, zebra, leopard, giraffe, elephant skin, blue and red macaw feathers, iridescent plumage, tiger coat and fur. Portrait and square photos are cropped to an 8:3 landscape, and all are compressed to WebP (about 3.4 MB in all, each loaded just before its turn). They sit under a 50% deep-green overlay with the same slow crossfade, about every 7 seconds. A soft dark fade behind the text keeps every slide at AA (headline at least 4.4:1, intro at least 5.4:1). The pause button, still image under reduced motion and plain hero in high contrast are unchanged. Photo credits are in `assets/img/CREDITS.md`.
 

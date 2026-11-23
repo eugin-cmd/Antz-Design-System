@@ -121,10 +121,10 @@
   }
   function close(d) {
     if (d.hidden) return;
-    var dur = parseFloat(getComputedStyle(d).animationDuration) || 0;
     var finish = function () { d.hidden = true; d.classList.remove('is-leaving'); var b = backdropFor(d); if (b) b.hidden = true; };
     doc.querySelectorAll('[data-navdrawer-open="' + d.id + '"]').forEach(function (t) { t.setAttribute('aria-expanded', 'false'); });
-    if (dur > 0) { d.classList.add('is-leaving'); setTimeout(finish, dur * 1000); } else finish();
+    d.classList.add('is-leaving'); var dur = parseFloat(getComputedStyle(d).animationDuration) || 0;
+    if (dur > 0) setTimeout(finish, dur * 1000); else finish();
     if (lastTrigger && lastTrigger.focus) lastTrigger.focus();
   }
   function select(tab) {
@@ -169,9 +169,9 @@
   function open(d, t) { last = t; d.hidden = false; d.classList.remove('is-leaving'); var b = bd(d); if (b) b.hidden = false; if (t) t.setAttribute('aria-expanded', 'true'); var f = d.querySelector('[data-drawer-close], button, a, input'); if (f) f.focus(); }
   function close(d) {
     if (d.hidden) return;
-    var dur = parseFloat(getComputedStyle(d).animationDuration) || 0;
     var done = function () { d.hidden = true; d.classList.remove('is-leaving'); var b = bd(d); if (b) b.hidden = true; };
-    if (dur > 0) { d.classList.add('is-leaving'); setTimeout(done, dur * 1000); } else done();
+    d.classList.add('is-leaving'); var dur = parseFloat(getComputedStyle(d).animationDuration) || 0;
+    if (dur > 0) setTimeout(done, dur * 1000); else done();
     if (last) { last.setAttribute('aria-expanded', 'false'); last.focus(); }
   }
   doc.addEventListener('click', function (e) {

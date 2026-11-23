@@ -370,7 +370,7 @@ body { background: var(--color-bg-canvas); overflow-x: hidden; }
 
 /* Navigation drawer docs demos (1.2) */
 .nd-demo { position: relative; height: 680px; padding: 0; overflow: hidden; background: var(--color-bg-app); }
-.nd-page { margin-inline-start: var(--size-drawer-nav); padding: var(--space-4) var(--space-5); display: flex; flex-direction: column; gap: var(--space-3); }
+.nd-page { margin-inline-start: calc(var(--size-drawer-nav) + var(--space-4)); padding: var(--space-4) var(--space-5); display: flex; flex-direction: column; gap: var(--space-3); }
 .nd-appbar { display: flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-3); border-radius: var(--radius-lg); background: var(--color-surface); box-shadow: var(--shadow-sm); }
 @media (max-width: 899px) { .nd-page { display: none; } }
 .nd-band { display: flex; flex-direction: column; gap: var(--space-1); padding: var(--space-4) var(--space-5) var(--space-8); border-radius: var(--radius-lg); }

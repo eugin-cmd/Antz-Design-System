@@ -1025,9 +1025,9 @@ a.animal:hover { background: var(--color-surface-hover); }
 .navdrawer__tab[aria-selected="true"] { color: var(--color-tone-ink); font-weight: var(--weight-semibold); background: transparent; box-shadow: inset var(--space-2) 0 var(--color-surface-raised); }
 .navdrawer__tab[aria-selected="true"]::before { content: ""; position: absolute; inset-block: 0; inset-inline: var(--space-2) 0; border-start-start-radius: var(--radius-lg); border-end-start-radius: var(--radius-lg); background: var(--gradient-tone-tab); }
 .navdrawer__tab:has(+ .navdrawer__tab[aria-selected="true"]),
-.navdrawer__rail:has(> .navdrawer__tab:first-of-type[aria-selected="true"])::before { border-end-end-radius: var(--radius-lg); }
+.navdrawer__rail:not(:has(.navdrawer__top)):has(.navdrawer__tab:first-of-type[aria-selected="true"])::before { border-end-end-radius: var(--radius-lg); }
 .navdrawer__tab[aria-selected="true"] + .navdrawer__tab,
-.navdrawer__rail:has(> .navdrawer__tab:last-of-type[aria-selected="true"])::after { border-start-end-radius: var(--radius-lg); }
+.navdrawer__rail:has(.navdrawer__tab:last-of-type[aria-selected="true"])::after { border-start-end-radius: var(--radius-lg); }
 .navdrawer__tab:focus-visible { outline-offset: calc(var(--space-1) * -1); }
 
 .navdrawer__panel { display: flex; flex-direction: column; flex: 1; min-width: 0; }
@@ -1309,3 +1309,23 @@ a.animal:hover { background: var(--color-surface-hover); }
 .btn--link { min-height: var(--space-6); }
 .toast__action { min-height: var(--space-6); }
 .navdrawer__head .search input { min-height: var(--space-6); }
+
+/* ── Navigation drawer, floating (1.2): set in from the left, top and bottom with large rounded corners;
+   slides in on the elastic --ease-move (it has room to overshoot), retracts quickly on --ease-exit. ── */
+.navdrawer--floating { inset-block: var(--space-4); inset-inline-start: var(--space-4); width: min(var(--size-drawer-nav), calc(100vw - var(--space-8))); overflow: hidden; border-radius: var(--radius-2xl); animation: ds-navdrawer-float-in var(--duration-slower) var(--ease-move) both; }
+.navdrawer--floating.is-leaving { animation: ds-navdrawer-float-out var(--duration-fast) var(--ease-exit) both; }
+@keyframes ds-navdrawer-float-in { from { transform: translateX(calc(-100% - var(--space-4))); } }
+@keyframes ds-navdrawer-float-out { to { transform: translateX(calc(-100% - var(--space-4))); opacity: 0; } }
+[dir="rtl"] .navdrawer--floating { animation-name: ds-navdrawer-float-in-rtl; }
+[dir="rtl"] .navdrawer--floating.is-leaving { animation-name: ds-navdrawer-float-out-rtl; }
+@keyframes ds-navdrawer-float-in-rtl { from { transform: translateX(calc(100% + var(--space-4))); } }
+@keyframes ds-navdrawer-float-out-rtl { to { transform: translateX(calc(100% + var(--space-4))); opacity: 0; } }
+.navdrawer--inline.navdrawer--floating { inset-block: var(--space-4); inset-inline-start: var(--space-4); animation: none; }
+@media (max-width: 599px) { .navdrawer--floating { inset-block: var(--space-2); inset-inline-start: var(--space-2); width: calc(100vw - var(--space-4)); } }
+
+/* Rail top: the hamburger that retracts the drawer, in the same corner that opened it (1.2) */
+.navdrawer__top { display: flex; justify-content: center; flex: none; padding: var(--space-1) 0 var(--space-2) var(--space-2); background: var(--color-surface-raised); }
+.navdrawer__top .icon-btn { color: var(--color-text-secondary); background: transparent; }
+.navdrawer__top .icon-btn:hover { color: var(--color-text); background: var(--color-surface-hover); }
+.navdrawer__tabs { display: contents; }
+.navdrawer__top:has(+ .navdrawer__tabs > .navdrawer__tab:first-child[aria-selected="true"]) { border-end-end-radius: var(--radius-lg); }
