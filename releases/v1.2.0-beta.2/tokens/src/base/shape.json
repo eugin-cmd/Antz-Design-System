@@ -1,0 +1,212 @@
+{
+  "radius": {
+    "xs": {
+      "$type": "dimension",
+      "$value": "6px",
+      "$description": "kbd, segment inside a pill"
+    },
+    "sm": {
+      "$type": "dimension",
+      "$value": "8px",
+      "$description": "Chips, small tiles"
+    },
+    "control": {
+      "$type": "dimension",
+      "$value": "10px",
+      "$description": "Buttons, inputs, icon tiles"
+    },
+    "md": {
+      "$type": "dimension",
+      "$value": "12px",
+      "$description": "Rows, icon buttons, search, menus"
+    },
+    "lg": {
+      "$type": "dimension",
+      "$value": "16px",
+      "$description": "Cards"
+    },
+    "xl": {
+      "$type": "dimension",
+      "$value": "20px",
+      "$description": "Dialogs, sheets"
+    },
+    "2xl": {
+      "$type": "dimension",
+      "$value": "24px",
+      "$description": "App panels, header bar, hero"
+    },
+    "full": {
+      "$type": "dimension",
+      "$value": "999px",
+      "$description": "Pills, avatars"
+    }
+  },
+  "size": {
+    "control-sm": {
+      "$type": "dimension",
+      "$value": "34px"
+    },
+    "control-md": {
+      "$type": "dimension",
+      "$value": "42px"
+    },
+    "control-lg": {
+      "$type": "dimension",
+      "$value": "48px"
+    },
+    "icon-xs": {
+      "$type": "dimension",
+      "$value": "14px"
+    },
+    "icon-sm": {
+      "$type": "dimension",
+      "$value": "16px"
+    },
+    "icon-md": {
+      "$type": "dimension",
+      "$value": "20px"
+    },
+    "icon-lg": {
+      "$type": "dimension",
+      "$value": "24px"
+    },
+    "touch-min": {
+      "$type": "dimension",
+      "$value": "44px",
+      "$description": "Minimum touch target on tablet and phone"
+    },
+    "row-comfortable": {
+      "$type": "dimension",
+      "$value": "52px"
+    },
+    "row-compact": {
+      "$type": "dimension",
+      "$value": "40px"
+    },
+    "drawer-work": {
+      "$type": "dimension",
+      "$value": "562px",
+      "$description": "Right work drawer (decision D5)"
+    },
+    "drawer-nav": {
+      "$type": "dimension",
+      "$value": "384px",
+      "$description": "Left navigation drawer: module rail plus menu panel (1.2)"
+    },
+    "rail": {
+      "$type": "dimension",
+      "$value": "96px",
+      "$description": "Module rail inside the navigation drawer (1.2)"
+    },
+    "rail-tab": {
+      "$type": "dimension",
+      "$value": "64px",
+      "$description": "Height of a module rail tab: icon over label (1.2)"
+    },
+    "launcher": {
+      "$type": "dimension",
+      "$value": "56px",
+      "$description": "Round module tile in the launcher (1.2)"
+    },
+    "sidenav": {
+      "$type": "dimension",
+      "$value": "260px"
+    },
+    "sidenav-folded": {
+      "$type": "dimension",
+      "$value": "68px"
+    },
+    "appbar": {
+      "$type": "dimension",
+      "$value": "64px"
+    },
+    "launcher-item": {
+      "$type": "dimension",
+      "$value": "124px",
+      "$description": "Width of a launcher item: tile plus a two-line label (1.2)"
+    },
+    "entity-text": {
+      "$type": "dimension",
+      "$value": "180px",
+      "$description": "Minimum width of the name column in an entity header before it wraps (1.2)"
+    },
+    "hero-photo": {
+      "$type": "dimension",
+      "$value": "300px",
+      "$description": "Minimum height of a photo hero (1.2)"
+    },
+    "photo-tile": {
+      "$type": "dimension",
+      "$value": "196px",
+      "$description": "Width of a photo tile in a strip (1.2)"
+    },
+    "bar": {
+      "$type": "dimension",
+      "$value": "44px",
+      "$description": "Width of a bar in a widget bar chart (1.2)"
+    },
+    "day": {
+      "$type": "dimension",
+      "$value": "52px",
+      "$description": "Width of a day in the week strip (1.2)"
+    },
+    "quick-add": {
+      "$type": "dimension",
+      "$value": "34px",
+      "$description": "Icon square in a quick-add tile (1.2)"
+    },
+    "bar-height": {
+      "$type": "dimension",
+      "$value": "110px",
+      "$description": "Height of the columns in a widget bar chart (1.2)"
+    },
+    "module-item": {
+      "$type": "dimension",
+      "$value": "150px",
+      "$description": "Minimum width of an item in the module grid (1.2)"
+    },
+    "blur-glass": {
+      "$type": "dimension",
+      "$value": "10px",
+      "$description": "Backdrop blur behind glass chips on photos (1.2)"
+    }
+  },
+  "icon-stroke": {
+    "$type": "number",
+    "$value": 1.8
+  },
+  "border-width-hairline": {
+    "$type": "dimension",
+    "$value": "0.5px",
+    "$description": "Hairline: selected outlines on high-density screens (one device pixel). Standard screens use --border-width, because half a pixel blurs there."
+  },
+  "border-width": {
+    "$type": "dimension",
+    "$value": "1px"
+  },
+  "border-width-strong": {
+    "$type": "dimension",
+    "$value": "2px"
+  },
+  "focus-ring-width": {
+    "$type": "dimension",
+    "$value": "2px"
+  },
+  "focus-ring-offset": {
+    "$type": "dimension",
+    "$value": "2px"
+  },
+  "mask": {
+    "$description": "Masks that draw shapes in a token colour (the colour comes from the element background).",
+    "dash-outline": {
+      "$type": "string",
+      "$value": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' rx='16' ry='16' fill='none' stroke='black' stroke-width='2' stroke-dasharray='4 4'/%3E%3C/svg%3E\")",
+      "$description": "Dashed outline, 1px: dashes 4px, gaps 4px, corner radius 16px (--radius-lg). For standard screens."
+    },
+    "dash-outline-hairline": {
+      "$type": "string",
+      "$value": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' rx='16' ry='16' fill='none' stroke='black' stroke-width='1' stroke-dasharray='4 4'/%3E%3C/svg%3E\")",
+      "$description": "Dashed outline, 0.5px hairline: dashes 4px, gaps 4px, corner radius 16px. For high-density screens."
+    }
+  }
+}

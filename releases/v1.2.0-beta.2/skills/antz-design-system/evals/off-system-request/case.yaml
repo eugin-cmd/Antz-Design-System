@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: off-system-request
+expected_outcome: |
+  The assistant does not add the purple, neon glow or 30px title. It offers approved Antz alternatives (for example a wash, a stronger type token or emphasis), applies one if appropriate using tokens, writes a proposal for the purple header if the person still wants it, and the file still passes the guardrail check.
+context:
+  scaffold_script: place-files.sh

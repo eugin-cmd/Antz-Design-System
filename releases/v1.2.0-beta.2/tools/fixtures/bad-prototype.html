@@ -1,0 +1,21 @@
+<!doctype html>
+<!-- Test fixture: every line below breaks a rule on purpose. tools/test.mjs expects each rule to fire. -->
+<html lang="en">
+<head>
+<style>
+  .hero { background: linear-gradient(90deg, #52F990, #00AFD6); }              /* ANTZ-GRD-01, ANTZ-COL-03 */
+  .title { color: #1F415B; font-family: "Poppins", sans-serif; }               /* ANTZ-COL-01, ANTZ-TYP-02 */
+  .label { font-size: 13px; font-weight: 700; }                                /* ANTZ-TYP-01, ANTZ-TYP-03 */
+  .card { padding: 15px 22px; border-radius: 14px; box-shadow: 0 4px 12px var(--color-overlay); } /* ANTZ-SPC-01, ANTZ-SHP-01, ANTZ-ELV-01 */
+  .link { color: var(--color-accent); }                                        /* ANTZ-COL-02 */
+  .chip { background: var(--green-40); }                                       /* ANTZ-TOK-01 */
+  .pill { background: var(--color-brand-sparkle); }                            /* ANTZ-TOK-02 */
+  .fade { transition: opacity 320ms ease-in; }                                 /* ANTZ-MOT-01 */
+  .btn:focus { outline: none; }                                                /* ANTZ-A11Y-01 */
+</style>
+</head>
+<body>
+  <button class="icon-btn"><svg class="icon"><use href="#i-x"/></svg></button>  <!-- ANTZ-A11Y-02 -->
+  <img src="animal.jpg">                                                        <!-- ANTZ-A11Y-03 -->
+</body>
+</html>
