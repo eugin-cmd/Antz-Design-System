@@ -6,6 +6,16 @@ All notable changes to the Antz Design System. Versions follow semantic versioni
 
 ### Fixes
 - **Main button in dark high contrast:** the label was white on the light green fill (#7BFCA0), about 1.3:1. Light high contrast sets the label to white for its deep green fill. Dark high contrast changed the fill but not the label, so the browser kept the white. Dark high contrast now sets the label to #00210C (about 15:1).
+- **Forced dark plus OS "increase contrast":** with the OS asking for more contrast and the page forced to dark, the page got light high-contrast values: secondary text #0E1512 on the dark background, light-mode accents and borders (20 tokens). A missing CSS rule now applies dark high contrast in that case. Every token now resolves correctly in all 36 combinations of OS colour scheme, OS contrast, page theme and page contrast, verified in the browser.
+- **Glow and aurora in dark mode:** `--gradient-glow` and `--gradient-aurora` had no dark values, so light text vanished over their light blobs (glow card, Natality widget, aurora card). Both now have dark versions.
+- **Blue gradient:** the area under text is deeper (`--gradient-blue` adds sky 40 and 35 stops). The bright corner stays.
+- **Vivid widgets (sky, teal):** small text is full white and inset tiles are darker. 86% white over a light glass tile fell to 3.3:1, against our own "never small white text on blue or teal" rule.
+- **Mint widget in high contrast:** text switched to white on pale mint. It now uses the constant dark ink `--color-text-on-bright`.
+- **Selected icon tab in dark mode:** white on light green. It now uses the brand fill and its label (`--color-accent` with `--color-text-on-accent`).
+- **Aurora card meta text:** secondary text instead of muted (4.45:1 before).
+- **Spinner and reduced motion:** the spinner had a fixed 0.7s duration and kept turning under reduced motion. It now uses `--duration-spin`, which drops to 0.
+- **Touch targets:** "View details" on the animal card and the docs footer links reach 24px.
+- **Docs and tester:** the device buttons in the theme tester have accessible names, and site search has a full keyboard focus ring.
 - **Contrast gate matches the browser:** the build now re-declares, for dark high contrast, every token that light high contrast sets. It also fails if the CSS cascade could differ from the mode the gate checks. Before, the gate checked a model without the light high-contrast step, which is why this passed. Only this one token was affected.
 
 ## 1.2.0-beta.1 (23 November 2026)

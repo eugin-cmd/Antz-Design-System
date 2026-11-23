@@ -493,6 +493,7 @@
   --duration-enter: 420ms;
   --duration-count: 900ms;
   --duration-shimmer: 1400ms;
+  --duration-spin: 700ms;
 
   /* stagger */
   --stagger: 60ms;
@@ -717,7 +718,7 @@
   --gradient-green: linear-gradient(135deg, var(--green-25) 0%, var(--green-40) 60%, var(--green-50) 100%);
   --gradient-navy: linear-gradient(140deg, var(--navy-20) 0%, var(--navy-brand) 55%, var(--navy-35) 100%);
   --gradient-teal: linear-gradient(140deg, var(--teal-50) 0%, var(--teal-40) 55%, var(--teal-35) 100%);
-  --gradient-blue: radial-gradient(130% 90% at 100% 0%, var(--sky-60) 0%, var(--sky-50) 45%, var(--sky-40) 100%);
+  --gradient-blue: radial-gradient(130% 90% at 100% 0%, var(--sky-60) 0%, var(--sky-50) 22%, var(--sky-40) 55%, var(--sky-35) 100%);
   --gradient-mint: linear-gradient(130deg, var(--green-98) 0%, var(--green-95) 55%, var(--green-90) 100%);
   --gradient-glow: radial-gradient(70% 85% at 100% 100%, #C4F5CF 0%, rgba(196, 245, 207, .45) 40%, rgba(196, 245, 207, 0) 75%);
   --gradient-aurora: radial-gradient(42% 110% at 0% 100%, rgba(140, 222, 238, .75), rgba(140, 222, 238, 0) 72%), radial-gradient(36% 95% at 32% 108%, rgba(140, 240, 165, .85), rgba(140, 240, 165, 0) 72%), radial-gradient(30% 75% at 92% 62%, rgba(250, 190, 162, .6), rgba(250, 190, 162, 0) 75%);
@@ -913,6 +914,10 @@
     --gradient-stop-aqua: var(--wash-night-aqua);
     --gradient-stop-sky: var(--wash-night-sky);
     --gradient-stop-pink: var(--wash-night-pink);
+
+    /* gradient */
+    --gradient-glow: radial-gradient(70% 85% at 100% 100%, rgba(18, 58, 36, .95) 0%, rgba(18, 58, 36, .5) 40%, rgba(18, 58, 36, 0) 75%);
+    --gradient-aurora: radial-gradient(42% 110% at 0% 100%, rgba(18, 56, 58, .9), rgba(18, 56, 58, 0) 72%), radial-gradient(36% 95% at 32% 108%, rgba(18, 58, 42, .95), rgba(18, 58, 42, 0) 72%), radial-gradient(30% 75% at 92% 62%, rgba(58, 34, 40, .8), rgba(58, 34, 40, 0) 75%);
   }
 }
 /* Dark: forced */
@@ -1080,6 +1085,10 @@
   --gradient-stop-aqua: var(--wash-night-aqua);
   --gradient-stop-sky: var(--wash-night-sky);
   --gradient-stop-pink: var(--wash-night-pink);
+
+  /* gradient */
+  --gradient-glow: radial-gradient(70% 85% at 100% 100%, rgba(18, 58, 36, .95) 0%, rgba(18, 58, 36, .5) 40%, rgba(18, 58, 36, 0) 75%);
+  --gradient-aurora: radial-gradient(42% 110% at 0% 100%, rgba(18, 56, 58, .9), rgba(18, 56, 58, 0) 72%), radial-gradient(36% 95% at 32% 108%, rgba(18, 58, 42, .95), rgba(18, 58, 42, 0) 72%), radial-gradient(30% 75% at 92% 62%, rgba(58, 34, 40, .8), rgba(58, 34, 40, 0) 75%);
 }
 
 /* High contrast, light */
@@ -1206,6 +1215,32 @@
   --color-info-text: var(--sky-90);
   --color-text-on-accent: var(--green-10);
 }
+/* High contrast, dark: the page forces dark while the OS asks for more contrast */
+@media (prefers-contrast: more) {
+  :root[data-theme="dark"]:not([data-contrast="standard"]) {
+    /* color */
+    --color-text-secondary: var(--night-95);
+    --color-text-muted: var(--night-75);
+    --color-text-placeholder: var(--night-75);
+    --color-text-link: var(--green-90);
+    --color-border: var(--night-55);
+    --color-border-subtle: var(--night-50);
+    --color-border-strong: var(--night-65);
+    --color-border-input: var(--night-75);
+    --color-accent: var(--green-90);
+    --color-accent-hover: var(--green-95);
+    --color-accent-pressed: var(--green-80);
+    --color-accent-text: var(--green-90);
+    --color-accent-indicator: var(--green-90);
+    --color-focus: var(--green-90);
+    --color-success-text: var(--olive-90);
+    --color-warning-text: var(--coral-90);
+    --color-caution-text: var(--amber-90);
+    --color-danger-text: var(--red-90);
+    --color-info-text: var(--sky-90);
+    --color-text-on-accent: var(--green-10);
+  }
+}
 
 /* Module tones: tone gradients re-resolve wherever [data-tone] sets the current tone */
 [data-tone] {
@@ -1226,5 +1261,5 @@
 
 /* Reduced motion: every duration and distance drops to zero */
 @media (prefers-reduced-motion: reduce) {
-  :root { --duration-fast: 0ms; --duration-base: 0ms; --duration-moderate: 0ms; --duration-slow: 0ms; --duration-slower: 0ms; --duration-enter: 0ms; --duration-count: 0ms; --duration-shimmer: 0ms; --stagger: 0ms; --motion-lift: 0px; --motion-press: 1; --motion-rise: 0px; }
+  :root { --duration-fast: 0ms; --duration-base: 0ms; --duration-moderate: 0ms; --duration-slow: 0ms; --duration-slower: 0ms; --duration-enter: 0ms; --duration-count: 0ms; --duration-shimmer: 0ms; --duration-spin: 0ms; --stagger: 0ms; --motion-lift: 0px; --motion-press: 1; --motion-rise: 0px; }
 }

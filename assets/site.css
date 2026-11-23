@@ -479,3 +479,9 @@ body { background: var(--color-bg-canvas); overflow-x: hidden; }
   :root:not([data-theme="light"]) .logo-on-light { display: none !important; }
   :root:not([data-theme="light"]) .logo-on-dark { display: block !important; }
 }
+
+/* Keyboard focus on the site search gets the full focus ring, not only a border colour change */
+.site-search input:focus-visible { box-shadow: 0 0 0 var(--focus-ring-width) var(--color-focus); }
+
+/* Footer links: 24px tap targets */
+.site-foot a { display: inline-flex; align-items: center; min-height: var(--space-6); }

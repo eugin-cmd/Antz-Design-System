@@ -815,7 +815,8 @@ export const antzTheme = {
       "pulse": 1600,
       "enter": 420,
       "count": 900,
-      "shimmer": 1400
+      "shimmer": 1400,
+      "spin": 700
     },
     "easing": {
       "standard": [

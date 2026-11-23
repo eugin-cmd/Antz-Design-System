@@ -1774,6 +1774,11 @@
           "$type": "duration",
           "$value": "1400ms",
           "$description": "Skeleton sweep"
+        },
+        "spin": {
+          "$type": "duration",
+          "$value": "700ms",
+          "$description": "One turn of the loading spinner. Drops to 0 under reduced motion, so the spinner stops."
         }
       },
       "stagger": {
@@ -2770,7 +2775,7 @@
         },
         "blue": {
           "$type": "gradient",
-          "$value": "radial-gradient(130% 90% at 100% 0%, #009DC1 0%, #00829F 45%, #00677F 100%)"
+          "$value": "radial-gradient(130% 90% at 100% 0%, #009DC1 0%, #00829F 22%, #00677F 55%, #005A70 100%)"
         },
         "mint": {
           "$type": "gradient",
@@ -4655,6 +4660,11 @@
           "$type": "duration",
           "$value": "1400ms",
           "$description": "Skeleton sweep"
+        },
+        "spin": {
+          "$type": "duration",
+          "$value": "700ms",
+          "$description": "One turn of the loading spinner. Drops to 0 under reduced motion, so the spinner stops."
         }
       },
       "stagger": {
@@ -5651,7 +5661,7 @@
         },
         "blue": {
           "$type": "gradient",
-          "$value": "radial-gradient(130% 90% at 100% 0%, #009DC1 0%, #00829F 45%, #00677F 100%)"
+          "$value": "radial-gradient(130% 90% at 100% 0%, #009DC1 0%, #00829F 22%, #00677F 55%, #005A70 100%)"
         },
         "mint": {
           "$type": "gradient",
@@ -5659,11 +5669,11 @@
         },
         "glow": {
           "$type": "gradient",
-          "$value": "radial-gradient(70% 85% at 100% 100%, #C4F5CF 0%, rgba(196, 245, 207, .45) 40%, rgba(196, 245, 207, 0) 75%)"
+          "$value": "radial-gradient(70% 85% at 100% 100%, rgba(18, 58, 36, .95) 0%, rgba(18, 58, 36, .5) 40%, rgba(18, 58, 36, 0) 75%)"
         },
         "aurora": {
           "$type": "gradient",
-          "$value": "radial-gradient(42% 110% at 0% 100%, rgba(140, 222, 238, .75), rgba(140, 222, 238, 0) 72%), radial-gradient(36% 95% at 32% 108%, rgba(140, 240, 165, .85), rgba(140, 240, 165, 0) 72%), radial-gradient(30% 75% at 92% 62%, rgba(250, 190, 162, .6), rgba(250, 190, 162, 0) 75%)"
+          "$value": "radial-gradient(42% 110% at 0% 100%, rgba(18, 56, 58, .9), rgba(18, 56, 58, 0) 72%), radial-gradient(36% 95% at 32% 108%, rgba(18, 58, 42, .95), rgba(18, 58, 42, 0) 72%), radial-gradient(30% 75% at 92% 62%, rgba(58, 34, 40, .8), rgba(58, 34, 40, 0) 75%)"
         },
         "scrim-photo": {
           "$type": "gradient",
@@ -7536,6 +7546,11 @@
           "$type": "duration",
           "$value": "1400ms",
           "$description": "Skeleton sweep"
+        },
+        "spin": {
+          "$type": "duration",
+          "$value": "700ms",
+          "$description": "One turn of the loading spinner. Drops to 0 under reduced motion, so the spinner stops."
         }
       },
       "stagger": {
@@ -8532,7 +8547,7 @@
         },
         "blue": {
           "$type": "gradient",
-          "$value": "radial-gradient(130% 90% at 100% 0%, #009DC1 0%, #00829F 45%, #00677F 100%)"
+          "$value": "radial-gradient(130% 90% at 100% 0%, #009DC1 0%, #00829F 22%, #00677F 55%, #005A70 100%)"
         },
         "mint": {
           "$type": "gradient",
@@ -10417,6 +10432,11 @@
           "$type": "duration",
           "$value": "1400ms",
           "$description": "Skeleton sweep"
+        },
+        "spin": {
+          "$type": "duration",
+          "$value": "700ms",
+          "$description": "One turn of the loading spinner. Drops to 0 under reduced motion, so the spinner stops."
         }
       },
       "stagger": {
@@ -11413,7 +11433,7 @@
         },
         "blue": {
           "$type": "gradient",
-          "$value": "radial-gradient(130% 90% at 100% 0%, #009DC1 0%, #00829F 45%, #00677F 100%)"
+          "$value": "radial-gradient(130% 90% at 100% 0%, #009DC1 0%, #00829F 22%, #00677F 55%, #005A70 100%)"
         },
         "mint": {
           "$type": "gradient",
@@ -11421,11 +11441,11 @@
         },
         "glow": {
           "$type": "gradient",
-          "$value": "radial-gradient(70% 85% at 100% 100%, #C4F5CF 0%, rgba(196, 245, 207, .45) 40%, rgba(196, 245, 207, 0) 75%)"
+          "$value": "radial-gradient(70% 85% at 100% 100%, rgba(18, 58, 36, .95) 0%, rgba(18, 58, 36, .5) 40%, rgba(18, 58, 36, 0) 75%)"
         },
         "aurora": {
           "$type": "gradient",
-          "$value": "radial-gradient(42% 110% at 0% 100%, rgba(140, 222, 238, .75), rgba(140, 222, 238, 0) 72%), radial-gradient(36% 95% at 32% 108%, rgba(140, 240, 165, .85), rgba(140, 240, 165, 0) 72%), radial-gradient(30% 75% at 92% 62%, rgba(250, 190, 162, .6), rgba(250, 190, 162, 0) 75%)"
+          "$value": "radial-gradient(42% 110% at 0% 100%, rgba(18, 56, 58, .9), rgba(18, 56, 58, 0) 72%), radial-gradient(36% 95% at 32% 108%, rgba(18, 58, 42, .95), rgba(18, 58, 42, 0) 72%), radial-gradient(30% 75% at 92% 62%, rgba(58, 34, 40, .8), rgba(58, 34, 40, 0) 75%)"
         },
         "scrim-photo": {
           "$type": "gradient",

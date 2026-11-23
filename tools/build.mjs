@@ -211,7 +211,7 @@ function block(map, indent = '  ') {
   }
   return out;
 }
-const reducedMotion = ['duration.fast', 'duration.base', 'duration.moderate', 'duration.slow', 'duration.slower', 'duration.enter', 'duration.count', 'duration.shimmer']
+const reducedMotion = ['duration.fast', 'duration.base', 'duration.moderate', 'duration.slow', 'duration.slower', 'duration.enter', 'duration.count', 'duration.shimmer', 'duration.spin']
   .map((n) => `--${n.replace('.', '-')}: 0ms;`).join(' ');
 const css = `/* ==========================================================================
    ${HEADER('tokens').replace(/\n/g, '\n   ')}
@@ -256,6 +256,10 @@ const css = `/* ================================================================
   :root[data-contrast="high"]:not([data-theme="light"]) {${block(hcDarkCss, '    ')}  }
 }
 :root[data-theme="dark"][data-contrast="high"] {${block(hcDarkCss)}}
+/* High contrast, dark: the page forces dark while the OS asks for more contrast */
+@media (prefers-contrast: more) {
+  :root[data-theme="dark"]:not([data-contrast="standard"]) {${block(hcDarkCss, '    ')}  }
+}
 
 /* Module tones: tone gradients re-resolve wherever [data-tone] sets the current tone */
 [data-tone] {${block(new Map([...layer.light].filter(([, t]) => t.ext?.['com.antz']?.scope === 'tone')))}}

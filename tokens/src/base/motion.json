@@ -127,6 +127,11 @@
       "$type": "duration",
       "$value": "1400ms",
       "$description": "Skeleton sweep"
+    },
+    "spin": {
+      "$type": "duration",
+      "$value": "700ms",
+      "$description": "One turn of the loading spinner. Drops to 0 under reduced motion, so the spinner stops."
     }
   },
   "stagger": {

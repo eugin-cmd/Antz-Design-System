@@ -1824,6 +1824,11 @@
         "$type": "duration",
         "$value": "1400ms",
         "$description": "Skeleton sweep"
+      },
+      "spin": {
+        "$type": "duration",
+        "$value": "700ms",
+        "$description": "One turn of the loading spinner. Drops to 0 under reduced motion, so the spinner stops."
       }
     },
     "stagger": {
@@ -2798,7 +2803,7 @@
       },
       "blue": {
         "$type": "gradient",
-        "$value": "radial-gradient(130% 90% at 100% 0%, var(--sky-60) 0%, var(--sky-50) 45%, var(--sky-40) 100%)"
+        "$value": "radial-gradient(130% 90% at 100% 0%, var(--sky-60) 0%, var(--sky-50) 22%, var(--sky-40) 55%, var(--sky-35) 100%)"
       },
       "mint": {
         "$type": "gradient",
@@ -3576,6 +3581,18 @@
       "pink": {
         "$type": "color",
         "$value": "{wash.night-pink}"
+      }
+    },
+    "gradient": {
+      "glow": {
+        "$type": "gradient",
+        "$value": "radial-gradient(70% 85% at 100% 100%, rgba(18, 58, 36, .95) 0%, rgba(18, 58, 36, .5) 40%, rgba(18, 58, 36, 0) 75%)",
+        "$description": "Dark glow: a deep green corner, so light text stays readable."
+      },
+      "aurora": {
+        "$type": "gradient",
+        "$value": "radial-gradient(42% 110% at 0% 100%, rgba(18, 56, 58, .9), rgba(18, 56, 58, 0) 72%), radial-gradient(36% 95% at 32% 108%, rgba(18, 58, 42, .95), rgba(18, 58, 42, 0) 72%), radial-gradient(30% 75% at 92% 62%, rgba(58, 34, 40, .8), rgba(58, 34, 40, 0) 75%)",
+        "$description": "Dark aurora: night aqua, mint and rose, so light text stays readable."
       }
     }
   },
