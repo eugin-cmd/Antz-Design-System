@@ -84,7 +84,7 @@ pre code { padding: 0; background: none; font-size: inherit; overflow-wrap: norm
    docs pattern: top bar, grouped left nav, page banner, in-page tabs,
    "on this page" rail and next / previous links. Tokens only.
    ========================================================================== */
-:root { --site-top-h: 60px; --site-nav-w: 272px; --page-toc-w: 216px; --page-pad: var(--space-12); }
+:root { --site-top-h: 76px; --site-nav-w: 272px; --page-toc-w: 216px; --page-pad: var(--space-12); }
 html { scroll-behavior: smooth; scroll-padding-top: calc(var(--site-top-h) + var(--space-16)); }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 body { background: var(--color-bg-canvas); overflow-x: hidden; }
@@ -99,6 +99,11 @@ body { background: var(--color-bg-canvas); overflow-x: hidden; }
 .site-top :focus-visible { outline-color: var(--color-accent-bright); }
 .site-brand { display: inline-flex; align-items: center; gap: var(--space-2-5); margin-right: auto; font-size: var(--text-lg); font-weight: var(--weight-bold); letter-spacing: var(--tracking-snug); white-space: nowrap; }
 .site-brand .tile-icon { color: var(--color-surface-strong); background: var(--color-accent-bright); }
+/* Antz logo on a white plate: the logo keeps its true colours on the dark green bar, in light and dark mode */
+.site-logo { display: inline-flex; align-items: center; height: calc(var(--site-top-h) - var(--space-5)); padding: var(--space-1-5) var(--space-3); border-radius: var(--radius-md); background: var(--color-text-on-strong); box-shadow: var(--shadow-sm); }
+.site-logo img { display: block; width: auto; height: 100%; }
+.site-brand__name { font-size: var(--text-lg); font-weight: var(--weight-bold); }
+@media (max-width: 599px) { .site-brand__name, .site-brand small { display: none; } .site-logo { padding: var(--space-1) var(--space-2-5); } }
 .site-brand small { padding: 2px var(--space-2); border-radius: var(--radius-full); font-size: var(--text-2xs); font-weight: var(--weight-semibold); letter-spacing: 0; background: color-mix(in srgb, var(--color-text-on-strong) 16%, transparent); }
 .site-search { position: relative; display: flex; align-items: center; width: min(340px, 34vw); }
 .site-search .icon { position: absolute; left: var(--space-3); opacity: .8; pointer-events: none; }
@@ -259,7 +264,7 @@ body { background: var(--color-bg-canvas); overflow-x: hidden; }
   .site-search-btn { display: inline-grid !important; }
 }
 @media (max-width: 599px) {
-  :root { --page-pad: var(--space-4); --site-top-h: 56px; }
+  :root { --page-pad: var(--space-4); --site-top-h: 64px; }
   .site-top { gap: var(--space-1); padding: 0 var(--space-2); }
   .site-brand { font-size: var(--text-md); }
   .site-brand small, .theme-seg > button span { display: none; }
