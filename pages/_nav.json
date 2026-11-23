@@ -125,6 +125,11 @@
           "title": "Menus and dialogs"
         },
         {
+          "href": "side-sheets.html",
+          "title": "Side sheets",
+          "isNew": true
+        },
+        {
           "href": "progress.html",
           "title": "Progress"
         },

@@ -8,6 +8,7 @@
 
      Tabs and segmented controls  one indicator glides to the selected item
      Animal card                  compact ⇄ expanded with an eased resize
+     Side sheets (1.2)            open/close work drawers and floating sheets
      Navigation drawer (1.2)      open/close from the hamburger, module tabs,
                                   Escape, focus return; the tone fades
    ========================================================================== */
@@ -155,4 +156,29 @@
       e.preventDefault(); select(tabs[n]); tabs[n].focus();
     }
   });
+})();
+
+/* ── Side sheets (1.2): the work drawer and its floating variant ─────────────
+   A trigger with data-drawer-open="<id>" opens <aside class="drawer" id hidden>;
+   data-drawer-close inside it, its backdrop ([data-drawer-backdrop="<id>"])
+   and Escape close it. Focus moves into the sheet and back to the trigger. */
+(function () {
+  'use strict';
+  var doc = document, last = null;
+  function bd(d) { return doc.querySelector('[data-drawer-backdrop="' + d.id + '"]'); }
+  function open(d, t) { last = t; d.hidden = false; d.classList.remove('is-leaving'); var b = bd(d); if (b) b.hidden = false; if (t) t.setAttribute('aria-expanded', 'true'); var f = d.querySelector('[data-drawer-close], button, a, input'); if (f) f.focus(); }
+  function close(d) {
+    if (d.hidden) return;
+    var dur = parseFloat(getComputedStyle(d).animationDuration) || 0;
+    var done = function () { d.hidden = true; d.classList.remove('is-leaving'); var b = bd(d); if (b) b.hidden = true; };
+    if (dur > 0) { d.classList.add('is-leaving'); setTimeout(done, dur * 1000); } else done();
+    if (last) { last.setAttribute('aria-expanded', 'false'); last.focus(); }
+  }
+  doc.addEventListener('click', function (e) {
+    var t = e.target.closest('[data-drawer-open]');
+    if (t) { var d = doc.getElementById(t.getAttribute('data-drawer-open')); if (d) open(d, t); return; }
+    var c = e.target.closest('[data-drawer-close]'); if (c) { var d2 = c.closest('.drawer'); if (d2) close(d2); return; }
+    var b = e.target.closest('[data-drawer-backdrop]'); if (b) { var d3 = doc.getElementById(b.getAttribute('data-drawer-backdrop')); if (d3) close(d3); }
+  });
+  doc.addEventListener('keydown', function (e) { if (e.key !== 'Escape') return; var d = doc.querySelector('.drawer:not([hidden]):not(.drawer--inline)'); if (d) close(d); });
 })();

@@ -379,3 +379,5 @@ body { background: var(--color-bg-canvas); overflow-x: hidden; }
 .lh-hero__search { width: min(100%, 720px); background: var(--color-surface); box-shadow: var(--shadow-sm); }
 .lh-entity { overflow: hidden; border-radius: var(--radius-lg); background: var(--color-surface); box-shadow: var(--shadow-hairline); }
 .lh-entity__tabs { padding-inline: var(--space-4); }
+.ss-demo { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: var(--space-5); }
+.ss-frame { position: relative; height: 900px; }

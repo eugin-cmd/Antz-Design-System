@@ -12,6 +12,10 @@ All notable changes to the Antz Design System. Versions follow semantic versioni
 - **Display headline gradient** (`.t-gradient`, `--gradient-text-brand`): large text only, with a fallback in high contrast and forced colours.
 - **Entity header** (`.entity-head`) on the new petrol gradient: picture, name, scientific name, key figures and quiet actions.
 - **Side nav group headings** (`.sidenav__group`).
+- **Side sheets** (new docs page): the work drawer now has a **floating** variant (`.drawer--floating`). It is inset from the top, right and bottom edges with large rounded corners, so it reads like a dialog sliding in. It has a meta line over a large title, a section heading (`.drawer__section`) and an evenly split footer (`.drawer__foot--split`). For details and forms. `components.js` opens and closes sheets (`data-drawer-open`, `data-drawer-close`, `data-drawer-backdrop`, Escape, focus return).
+- **Record hero** (`.record-hero`): the lead card of a detail sheet, on the green gradient. Key figures sit in an inset strip, and the responsible person has quick actions (`.icon-btn--on-strong`).
+- **Party card** (`.party`, `--tint`, `--plain`): a person or animal on a record, with a label, name and call or message actions.
+- **Outlined row** (`.row--outlined`) with a labelled quantity (`.row__qty`).
 - 11 new icons: utensils, chef-hat, package, truck, bar-chart, settings, book-open, history, receipt, globe, dashboard.
 - Size tokens: `--size-drawer-nav`, `--size-rail`, `--size-rail-tab`, `--size-launcher`. 154 new contrast checks (588 in total), all passing.
 
