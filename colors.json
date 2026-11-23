@@ -1194,6 +1194,21 @@
       "$value": "#FFFFFFC7",
       "$description": "White at 78%: muted text on dark fills and gradients"
     },
+    "alpha-glass-on-media": {
+      "$type": "color",
+      "$value": "#FFFFFF29",
+      "$description": "White at 16%: glass chips and tiles on photos and dark or vivid gradients"
+    },
+    "alpha-glass-line-on-media": {
+      "$type": "color",
+      "$value": "#FFFFFF52",
+      "$description": "White at 32%: hairline around glass chips on photos"
+    },
+    "alpha-bar-on-media": {
+      "$type": "color",
+      "$value": "#FFFFFFB8",
+      "$description": "White at 72%: bar fills on vivid gradients"
+    },
     "color-brand-primary": {
       "$type": "color",
       "$value": "#37BD69",
@@ -1572,6 +1587,21 @@
       "$value": "#FFFFFF",
       "$description": "Text over a photo scrim or media chip"
     },
+    "color-media-glass": {
+      "$type": "color",
+      "$value": "#FFFFFF29",
+      "$description": "Glass chip or tile on a photo or vivid gradient. Same in every mode."
+    },
+    "color-media-glass-line": {
+      "$type": "color",
+      "$value": "#FFFFFF52",
+      "$description": "Hairline around a glass chip on a photo."
+    },
+    "color-media-bar": {
+      "$type": "color",
+      "$value": "#FFFFFFB8",
+      "$description": "Bar fill in a chart on a vivid gradient."
+    },
     "color-module-green-a": {
       "$type": "color",
       "$value": "#E8F6EE",
@@ -1823,6 +1853,11 @@
     "color-text-gradient-end": {
       "$type": "color",
       "$value": "#006D35"
+    },
+    "color-figure-warm": {
+      "$type": "color",
+      "$value": "#FFB4A4",
+      "$description": "Warm figure on dark fills, e.g. deaths recorded on the ink widget. Identity, not status."
     },
     "hue-green": {
       "$type": "color",
@@ -3126,6 +3161,21 @@
       "$value": "#FFFFFFC7",
       "$description": "White at 78%: muted text on dark fills and gradients"
     },
+    "alpha-glass-on-media": {
+      "$type": "color",
+      "$value": "#FFFFFF29",
+      "$description": "White at 16%: glass chips and tiles on photos and dark or vivid gradients"
+    },
+    "alpha-glass-line-on-media": {
+      "$type": "color",
+      "$value": "#FFFFFF52",
+      "$description": "White at 32%: hairline around glass chips on photos"
+    },
+    "alpha-bar-on-media": {
+      "$type": "color",
+      "$value": "#FFFFFFB8",
+      "$description": "White at 72%: bar fills on vivid gradients"
+    },
     "color-brand-primary": {
       "$type": "color",
       "$value": "#37BD69",
@@ -3504,6 +3554,21 @@
       "$value": "#FFFFFF",
       "$description": "Text over a photo scrim or media chip"
     },
+    "color-media-glass": {
+      "$type": "color",
+      "$value": "#FFFFFF29",
+      "$description": "Glass chip or tile on a photo or vivid gradient. Same in every mode."
+    },
+    "color-media-glass-line": {
+      "$type": "color",
+      "$value": "#FFFFFF52",
+      "$description": "Hairline around a glass chip on a photo."
+    },
+    "color-media-bar": {
+      "$type": "color",
+      "$value": "#FFFFFFB8",
+      "$description": "Bar fill in a chart on a vivid gradient."
+    },
     "color-module-green-a": {
       "$type": "color",
       "$value": "#1A2620",
@@ -3755,6 +3820,11 @@
     "color-text-gradient-end": {
       "$type": "color",
       "$value": "#5EDF86"
+    },
+    "color-figure-warm": {
+      "$type": "color",
+      "$value": "#FFB4A4",
+      "$description": "Warm figure on dark fills, e.g. deaths recorded on the ink widget. Identity, not status."
     },
     "hue-green": {
       "$type": "color",
@@ -5058,6 +5128,21 @@
       "$value": "#FFFFFFC7",
       "$description": "White at 78%: muted text on dark fills and gradients"
     },
+    "alpha-glass-on-media": {
+      "$type": "color",
+      "$value": "#FFFFFF29",
+      "$description": "White at 16%: glass chips and tiles on photos and dark or vivid gradients"
+    },
+    "alpha-glass-line-on-media": {
+      "$type": "color",
+      "$value": "#FFFFFF52",
+      "$description": "White at 32%: hairline around glass chips on photos"
+    },
+    "alpha-bar-on-media": {
+      "$type": "color",
+      "$value": "#FFFFFFB8",
+      "$description": "White at 72%: bar fills on vivid gradients"
+    },
     "color-brand-primary": {
       "$type": "color",
       "$value": "#37BD69",
@@ -5436,6 +5521,21 @@
       "$value": "#FFFFFF",
       "$description": "Text over a photo scrim or media chip"
     },
+    "color-media-glass": {
+      "$type": "color",
+      "$value": "#FFFFFF29",
+      "$description": "Glass chip or tile on a photo or vivid gradient. Same in every mode."
+    },
+    "color-media-glass-line": {
+      "$type": "color",
+      "$value": "#FFFFFF52",
+      "$description": "Hairline around a glass chip on a photo."
+    },
+    "color-media-bar": {
+      "$type": "color",
+      "$value": "#FFFFFFB8",
+      "$description": "Bar fill in a chart on a vivid gradient."
+    },
     "color-module-green-a": {
       "$type": "color",
       "$value": "#E8F6EE",
@@ -5687,6 +5787,11 @@
     "color-text-gradient-end": {
       "$type": "color",
       "$value": "#006D35"
+    },
+    "color-figure-warm": {
+      "$type": "color",
+      "$value": "#FFB4A4",
+      "$description": "Warm figure on dark fills, e.g. deaths recorded on the ink widget. Identity, not status."
     },
     "hue-green": {
       "$type": "color",
@@ -6990,6 +7095,21 @@
       "$value": "#FFFFFFC7",
       "$description": "White at 78%: muted text on dark fills and gradients"
     },
+    "alpha-glass-on-media": {
+      "$type": "color",
+      "$value": "#FFFFFF29",
+      "$description": "White at 16%: glass chips and tiles on photos and dark or vivid gradients"
+    },
+    "alpha-glass-line-on-media": {
+      "$type": "color",
+      "$value": "#FFFFFF52",
+      "$description": "White at 32%: hairline around glass chips on photos"
+    },
+    "alpha-bar-on-media": {
+      "$type": "color",
+      "$value": "#FFFFFFB8",
+      "$description": "White at 72%: bar fills on vivid gradients"
+    },
     "color-brand-primary": {
       "$type": "color",
       "$value": "#37BD69",
@@ -7368,6 +7488,21 @@
       "$value": "#FFFFFF",
       "$description": "Text over a photo scrim or media chip"
     },
+    "color-media-glass": {
+      "$type": "color",
+      "$value": "#FFFFFF29",
+      "$description": "Glass chip or tile on a photo or vivid gradient. Same in every mode."
+    },
+    "color-media-glass-line": {
+      "$type": "color",
+      "$value": "#FFFFFF52",
+      "$description": "Hairline around a glass chip on a photo."
+    },
+    "color-media-bar": {
+      "$type": "color",
+      "$value": "#FFFFFFB8",
+      "$description": "Bar fill in a chart on a vivid gradient."
+    },
     "color-module-green-a": {
       "$type": "color",
       "$value": "#1A2620",
@@ -7619,6 +7754,11 @@
     "color-text-gradient-end": {
       "$type": "color",
       "$value": "#5EDF86"
+    },
+    "color-figure-warm": {
+      "$type": "color",
+      "$value": "#FFB4A4",
+      "$description": "Warm figure on dark fills, e.g. deaths recorded on the ink widget. Identity, not status."
     },
     "hue-green": {
       "$type": "color",

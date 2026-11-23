@@ -200,6 +200,11 @@
       "icon": "trend",
       "links": [
         {
+          "href": "dashboard-widgets.html",
+          "title": "Dashboard widgets",
+          "isNew": true
+        },
+        {
           "href": "stat-figures.html",
           "title": "Stat figures"
         },

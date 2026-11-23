@@ -147,6 +147,7 @@ const PAIRS = [
     [`color.text`, `color.module.${t}.a`, T], [`color.text`, `color.module.${t}.b`, T], [`color.text.secondary`, `color.module.${t}.a`, T], [`color.text.secondary`, `color.module.${t}.b`, T]]),
   ...['green', 'amber', 'sky', 'slate', 'coral'].flatMap((t) => [[`color.text.on-strong`, `color.launch.${t}.start`, U], [`color.text.on-strong`, `color.launch.${t}.end`, U]]),
   ...['start', 'mid', 'end'].flatMap((s) => [[`color.text-gradient.${s}`, 'color.surface', U], [`color.text-gradient.${s}`, 'color.bg.app', U]]),
+  ['color.figure.warm', 'color.surface.strong', U], ['color.text.on-strong', 'color.surface.strong', T],
   // Stat panels on a wash: figures (large text, 3:1) and labels (4.5:1) on every stop
   ...['mint', 'rose', 'butter', 'aqua', 'sky', 'pink'].flatMap((w) => [['color.accent.text', `gradient-stop.${w}`, U], ['color.text', `gradient-stop.${w}`, T], ['color.text.secondary', `gradient-stop.${w}`, T]]),
   ...['green', 'teal', 'sky', 'coral', 'amber', 'violet', 'navy'].flatMap((h) => [[`hue.${h}.ink`, `hue.${h}.soft`, T], [`hue.${h}`, 'color.surface', U]]),

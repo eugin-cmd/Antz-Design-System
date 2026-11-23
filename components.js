@@ -182,3 +182,14 @@
   });
   doc.addEventListener('keydown', function (e) { if (e.key !== 'Escape') return; var d = doc.querySelector('.drawer:not([hidden]):not(.drawer--inline)'); if (d) close(d); });
 })();
+
+/* ── Edit board (1.2): a button with data-board-edit="<board id>" toggles
+   .is-editing on the board, which shows each widget's remove badge. ───────── */
+(function () {
+  'use strict';
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest('[data-board-edit]'); if (!t) return;
+    var b = document.getElementById(t.getAttribute('data-board-edit')); if (!b) return;
+    var on = b.classList.toggle('is-editing'); t.setAttribute('aria-pressed', on ? 'true' : 'false');
+  });
+})();

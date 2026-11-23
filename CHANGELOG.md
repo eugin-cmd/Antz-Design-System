@@ -20,6 +20,14 @@ All notable changes to the Antz Design System. Versions follow semantic versioni
 - 11 new icons: utensils, chef-hat, package, truck, bar-chart, settings, book-open, history, receipt, globe, dashboard.
 - Size tokens: `--size-drawer-nav`, `--size-rail`, `--size-rail-tab`, `--size-launcher`. 154 new contrast checks (588 in total), all passing.
 
+### Dashboard pieces (from Antz Home style 7, DD-003)
+- **Photo hero** (`.hero-photo`): a photograph under a side scrim (`--gradient-scrim-side`) with a glass tag, title and figures in glass icon squares (`.glass-icon`). A compact version with glass chips (`.glass-chip`) leads module homes.
+- **Widgets** (`.widget`, fills `--sky`, `--teal`, `--ink`, `--mint`, `--glow`): head, big figure, and a bar chart (`.bars`), inset stat tiles (`.widget__tiles`) or a split (`.widget__split`). Small period pills (`.segmented--xs`). Edit mode (`.is-editing`) shows remove badges, toggled with `data-board-edit` in `components.js`.
+- **Status tiles** (`.status-tile--danger|warning|caution|success`): counts that need action, on flat status colours.
+- **Quick add** (`.quick-add`), **photo tiles** in a scrolling strip (`.photo-strip`, `.photo-tile`), **icon tabs** (`.icon-tabs`), **week strip and agenda** (`.week-strip`, `.agenda`), **module grid** (`.module-grid`), **module home** card in the side nav (`.sidenav__home`), **greeting** with weather (`.greeting`), and a **score strip** (`.ticker`, `.score-label`).
+- Tokens: glass, glass line and bar colours for media (`--color-media-glass|glass-line|bar`), `--color-figure-warm`, `--gradient-scrim-side`, `--gradient-fade-end` (mask), and sizes for the hero, photo tile, bar, bar height, day, quick-add icon, module item and glass blur. 8 new contrast checks.
+- New docs page: Dashboard widgets (Stat cards).
+
 ### Tools
 - **Antz Design System skill** (`skills/antz-design-system/`): an Agent Skill that makes AI assistants build Antz UI only from the system. Its helper (`scripts/antz.mjs`, no dependencies) reads a pinned release from a local clone or the team site and lists components, classes, tokens, icons and rules. It also runs the guardrail check from any project. Requests outside the system get an approved alternative or a proposal. Includes tests (`evals/`) and a team guide (`skills/README.md`). Releases now include `skills/`.
 

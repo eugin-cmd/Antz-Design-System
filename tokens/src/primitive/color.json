@@ -1255,6 +1255,21 @@
       "$type": "color",
       "$value": "#FFFFFFC7",
       "$description": "White at 78%: muted text on dark fills and gradients"
+    },
+    "glass-on-media": {
+      "$type": "color",
+      "$value": "#FFFFFF29",
+      "$description": "White at 16%: glass chips and tiles on photos and dark or vivid gradients"
+    },
+    "glass-line-on-media": {
+      "$type": "color",
+      "$value": "#FFFFFF52",
+      "$description": "White at 32%: hairline around glass chips on photos"
+    },
+    "bar-on-media": {
+      "$type": "color",
+      "$value": "#FFFFFFB8",
+      "$description": "White at 72%: bar fills on vivid gradients"
     }
   }
 }

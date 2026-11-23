@@ -129,6 +129,46 @@
       "$type": "dimension",
       "$value": "180px",
       "$description": "Minimum width of the name column in an entity header before it wraps (1.2)"
+    },
+    "hero-photo": {
+      "$type": "dimension",
+      "$value": "300px",
+      "$description": "Minimum height of a photo hero (1.2)"
+    },
+    "photo-tile": {
+      "$type": "dimension",
+      "$value": "196px",
+      "$description": "Width of a photo tile in a strip (1.2)"
+    },
+    "bar": {
+      "$type": "dimension",
+      "$value": "44px",
+      "$description": "Width of a bar in a widget bar chart (1.2)"
+    },
+    "day": {
+      "$type": "dimension",
+      "$value": "52px",
+      "$description": "Width of a day in the week strip (1.2)"
+    },
+    "quick-add": {
+      "$type": "dimension",
+      "$value": "34px",
+      "$description": "Icon square in a quick-add tile (1.2)"
+    },
+    "bar-height": {
+      "$type": "dimension",
+      "$value": "110px",
+      "$description": "Height of the columns in a widget bar chart (1.2)"
+    },
+    "module-item": {
+      "$type": "dimension",
+      "$value": "150px",
+      "$description": "Minimum width of an item in the module grid (1.2)"
+    },
+    "blur-glass": {
+      "$type": "dimension",
+      "$value": "10px",
+      "$description": "Backdrop blur behind glass chips on photos (1.2)"
     }
   },
   "icon-stroke": {

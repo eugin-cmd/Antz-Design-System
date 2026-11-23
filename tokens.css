@@ -341,6 +341,9 @@
   --alpha-media-chip: #0E1512A6;
   --alpha-on-strong-secondary: #FFFFFFDB;
   --alpha-on-strong-muted: #FFFFFFC7;
+  --alpha-glass-on-media: #FFFFFF29;
+  --alpha-glass-line-on-media: #FFFFFF52;
+  --alpha-bar-on-media: #FFFFFFB8;
 
   /* ── 2. Base ── */
   /* font-family */
@@ -438,6 +441,14 @@
   --size-appbar: 64px;
   --size-launcher-item: 124px;
   --size-entity-text: 180px;
+  --size-hero-photo: 300px;
+  --size-photo-tile: 196px;
+  --size-bar: 44px;
+  --size-day: 52px;
+  --size-quick-add: 34px;
+  --size-bar-height: 110px;
+  --size-module-item: 150px;
+  --size-blur-glass: 10px;
 
   /* icon-stroke */
   --icon-stroke: 1.8;
@@ -592,6 +603,9 @@
   --color-disabled-bg: var(--ink-350);
   --color-media-chip: var(--alpha-media-chip);
   --color-media-text: var(--ink-0);
+  --color-media-glass: var(--alpha-glass-on-media);
+  --color-media-glass-line: var(--alpha-glass-line-on-media);
+  --color-media-bar: var(--alpha-bar-on-media);
   --color-module-green-a: var(--green-tint);
   --color-module-green-b: var(--teal-tint);
   --color-module-green-ta: var(--wash-soft-mint);
@@ -645,6 +659,7 @@
   --color-text-gradient-start: var(--teal-30);
   --color-text-gradient-mid: var(--teal-50);
   --color-text-gradient-end: var(--green-40);
+  --color-figure-warm: var(--coral-80);
 
   /* hue */
   --hue-green: var(--green-40);
@@ -709,6 +724,8 @@
   --gradient-launch-sky: linear-gradient(135deg, var(--color-launch-sky-start) 30%, var(--color-launch-sky-end) 140%);
   --gradient-launch-slate: linear-gradient(135deg, var(--color-launch-slate-start) 30%, var(--color-launch-slate-end) 140%);
   --gradient-launch-coral: linear-gradient(135deg, var(--color-launch-coral-start) 30%, var(--color-launch-coral-end) 140%);
+  --gradient-scrim-side: linear-gradient(90deg, rgba(6, 18, 11, .78) 0%, rgba(6, 18, 11, .42) 50%, rgba(6, 18, 11, 0) 82%);
+  --gradient-fade-end: linear-gradient(90deg, black calc(100% - 40px), transparent);
 
   /* texture */
   --texture-rings: repeating-radial-gradient(circle at -20% 135%, rgba(255, 255, 255, 0) 0 15px, rgba(255, 255, 255, .055) 15px 16px);

@@ -3226,6 +3226,39 @@
       "dark-hc": "#FFFFFFC7"
     },
     {
+      "name": "alpha.glass-on-media",
+      "css": "--alpha-glass-on-media",
+      "type": "color",
+      "tier": "primitive",
+      "description": "White at 16%: glass chips and tiles on photos and dark or vivid gradients",
+      "light": "#FFFFFF29",
+      "dark": "#FFFFFF29",
+      "light-hc": "#FFFFFF29",
+      "dark-hc": "#FFFFFF29"
+    },
+    {
+      "name": "alpha.glass-line-on-media",
+      "css": "--alpha-glass-line-on-media",
+      "type": "color",
+      "tier": "primitive",
+      "description": "White at 32%: hairline around glass chips on photos",
+      "light": "#FFFFFF52",
+      "dark": "#FFFFFF52",
+      "light-hc": "#FFFFFF52",
+      "dark-hc": "#FFFFFF52"
+    },
+    {
+      "name": "alpha.bar-on-media",
+      "css": "--alpha-bar-on-media",
+      "type": "color",
+      "tier": "primitive",
+      "description": "White at 72%: bar fills on vivid gradients",
+      "light": "#FFFFFFB8",
+      "dark": "#FFFFFFB8",
+      "light-hc": "#FFFFFFB8",
+      "dark-hc": "#FFFFFFB8"
+    },
+    {
       "name": "font-family.sans",
       "css": "--font-family-sans",
       "type": "fontFamily",
@@ -4085,6 +4118,94 @@
       "dark": "180px",
       "light-hc": "180px",
       "dark-hc": "180px"
+    },
+    {
+      "name": "size.hero-photo",
+      "css": "--size-hero-photo",
+      "type": "dimension",
+      "tier": "base",
+      "description": "Minimum height of a photo hero (1.2)",
+      "light": "300px",
+      "dark": "300px",
+      "light-hc": "300px",
+      "dark-hc": "300px"
+    },
+    {
+      "name": "size.photo-tile",
+      "css": "--size-photo-tile",
+      "type": "dimension",
+      "tier": "base",
+      "description": "Width of a photo tile in a strip (1.2)",
+      "light": "196px",
+      "dark": "196px",
+      "light-hc": "196px",
+      "dark-hc": "196px"
+    },
+    {
+      "name": "size.bar",
+      "css": "--size-bar",
+      "type": "dimension",
+      "tier": "base",
+      "description": "Width of a bar in a widget bar chart (1.2)",
+      "light": "44px",
+      "dark": "44px",
+      "light-hc": "44px",
+      "dark-hc": "44px"
+    },
+    {
+      "name": "size.day",
+      "css": "--size-day",
+      "type": "dimension",
+      "tier": "base",
+      "description": "Width of a day in the week strip (1.2)",
+      "light": "52px",
+      "dark": "52px",
+      "light-hc": "52px",
+      "dark-hc": "52px"
+    },
+    {
+      "name": "size.quick-add",
+      "css": "--size-quick-add",
+      "type": "dimension",
+      "tier": "base",
+      "description": "Icon square in a quick-add tile (1.2)",
+      "light": "34px",
+      "dark": "34px",
+      "light-hc": "34px",
+      "dark-hc": "34px"
+    },
+    {
+      "name": "size.bar-height",
+      "css": "--size-bar-height",
+      "type": "dimension",
+      "tier": "base",
+      "description": "Height of the columns in a widget bar chart (1.2)",
+      "light": "110px",
+      "dark": "110px",
+      "light-hc": "110px",
+      "dark-hc": "110px"
+    },
+    {
+      "name": "size.module-item",
+      "css": "--size-module-item",
+      "type": "dimension",
+      "tier": "base",
+      "description": "Minimum width of an item in the module grid (1.2)",
+      "light": "150px",
+      "dark": "150px",
+      "light-hc": "150px",
+      "dark-hc": "150px"
+    },
+    {
+      "name": "size.blur-glass",
+      "css": "--size-blur-glass",
+      "type": "dimension",
+      "tier": "base",
+      "description": "Backdrop blur behind glass chips on photos (1.2)",
+      "light": "10px",
+      "dark": "10px",
+      "light-hc": "10px",
+      "dark-hc": "10px"
     },
     {
       "name": "icon-stroke",
@@ -5668,6 +5789,42 @@
       "ref": "ink.0"
     },
     {
+      "name": "color.media.glass",
+      "css": "--color-media-glass",
+      "type": "color",
+      "tier": "semantic",
+      "description": "Glass chip or tile on a photo or vivid gradient. Same in every mode.",
+      "light": "#FFFFFF29",
+      "dark": "#FFFFFF29",
+      "light-hc": "#FFFFFF29",
+      "dark-hc": "#FFFFFF29",
+      "ref": "alpha.glass-on-media"
+    },
+    {
+      "name": "color.media.glass-line",
+      "css": "--color-media-glass-line",
+      "type": "color",
+      "tier": "semantic",
+      "description": "Hairline around a glass chip on a photo.",
+      "light": "#FFFFFF52",
+      "dark": "#FFFFFF52",
+      "light-hc": "#FFFFFF52",
+      "dark-hc": "#FFFFFF52",
+      "ref": "alpha.glass-line-on-media"
+    },
+    {
+      "name": "color.media.bar",
+      "css": "--color-media-bar",
+      "type": "color",
+      "tier": "semantic",
+      "description": "Bar fill in a chart on a vivid gradient.",
+      "light": "#FFFFFFB8",
+      "dark": "#FFFFFFB8",
+      "light-hc": "#FFFFFFB8",
+      "dark-hc": "#FFFFFFB8",
+      "ref": "alpha.bar-on-media"
+    },
+    {
       "name": "color.module.green.a",
       "css": "--color-module-green-a",
       "type": "color",
@@ -6340,6 +6497,18 @@
       "dark-hc": "#5EDF86",
       "ref": "green.40",
       "darkRef": "green.80"
+    },
+    {
+      "name": "color.figure.warm",
+      "css": "--color-figure-warm",
+      "type": "color",
+      "tier": "semantic",
+      "description": "Warm figure on dark fills, e.g. deaths recorded on the ink widget. Identity, not status.",
+      "light": "#FFB4A4",
+      "dark": "#FFB4A4",
+      "light-hc": "#FFB4A4",
+      "dark-hc": "#FFB4A4",
+      "ref": "coral.80"
     },
     {
       "name": "hue.green",
@@ -7020,6 +7189,28 @@
       "dark": "linear-gradient(135deg, #FA6140 30%, #B08C00 140%)",
       "light-hc": "linear-gradient(135deg, #FA6140 30%, #B08C00 140%)",
       "dark-hc": "linear-gradient(135deg, #FA6140 30%, #B08C00 140%)"
+    },
+    {
+      "name": "gradient.scrim-side",
+      "css": "--gradient-scrim-side",
+      "type": "gradient",
+      "tier": "semantic",
+      "description": "Photo hero: darkens the left of a photo so white text reads (title, stats).",
+      "light": "linear-gradient(90deg, rgba(6, 18, 11, .78) 0%, rgba(6, 18, 11, .42) 50%, rgba(6, 18, 11, 0) 82%)",
+      "dark": "linear-gradient(90deg, rgba(6, 18, 11, .78) 0%, rgba(6, 18, 11, .42) 50%, rgba(6, 18, 11, 0) 82%)",
+      "light-hc": "linear-gradient(90deg, rgba(6, 18, 11, .78) 0%, rgba(6, 18, 11, .42) 50%, rgba(6, 18, 11, 0) 82%)",
+      "dark-hc": "linear-gradient(90deg, rgba(6, 18, 11, .78) 0%, rgba(6, 18, 11, .42) 50%, rgba(6, 18, 11, 0) 82%)"
+    },
+    {
+      "name": "gradient.fade-end",
+      "css": "--gradient-fade-end",
+      "type": "gradient",
+      "tier": "semantic",
+      "description": "Mask for horizontally scrolling strips: fades the last 40px so more content is hinted.",
+      "light": "linear-gradient(90deg, black calc(100% - 40px), transparent)",
+      "dark": "linear-gradient(90deg, black calc(100% - 40px), transparent)",
+      "light-hc": "linear-gradient(90deg, black calc(100% - 40px), transparent)",
+      "dark-hc": "linear-gradient(90deg, black calc(100% - 40px), transparent)"
     },
     {
       "name": "texture.rings",

@@ -381,3 +381,17 @@ body { background: var(--color-bg-canvas); overflow-x: hidden; }
 .lh-entity__tabs { padding-inline: var(--space-4); }
 .ss-demo { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: var(--space-5); }
 .ss-frame { position: relative; height: 900px; }
+/* Dashboard widgets docs demos (1.2) */
+.hd-compact { min-height: 0; }
+.hd-row { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: var(--space-4); }
+.hd-chips { display: flex; gap: var(--space-2); }
+.hd-board, .hd-grid3, .module-grid { width: 100%; }
+.hd-board { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-4); }
+.hd-board .hd-span { grid-column: span 2; }
+@media (max-width: 699px) { .hd-board .hd-span { grid-column: auto; } }
+.hd-grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-4); align-items: start; }
+.hd-today { width: 100%; max-width: 560px; }
+.hd-quick { align-self: start; }
+#media .demo > .widget { width: 100%; }
+#extras .demo { flex-direction: column; align-items: stretch; gap: var(--space-4); }
+.hd-ticker { width: 100%; }

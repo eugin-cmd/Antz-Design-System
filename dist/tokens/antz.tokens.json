@@ -1227,6 +1227,21 @@
           "$type": "color",
           "$value": "#FFFFFFC7",
           "$description": "White at 78%: muted text on dark fills and gradients"
+        },
+        "glass-on-media": {
+          "$type": "color",
+          "$value": "#FFFFFF29",
+          "$description": "White at 16%: glass chips and tiles on photos and dark or vivid gradients"
+        },
+        "glass-line-on-media": {
+          "$type": "color",
+          "$value": "#FFFFFF52",
+          "$description": "White at 32%: hairline around glass chips on photos"
+        },
+        "bar-on-media": {
+          "$type": "color",
+          "$value": "#FFFFFFB8",
+          "$description": "White at 72%: bar fills on vivid gradients"
         }
       },
       "font-family": {
@@ -1588,6 +1603,46 @@
           "$type": "dimension",
           "$value": "180px",
           "$description": "Minimum width of the name column in an entity header before it wraps (1.2)"
+        },
+        "hero-photo": {
+          "$type": "dimension",
+          "$value": "300px",
+          "$description": "Minimum height of a photo hero (1.2)"
+        },
+        "photo-tile": {
+          "$type": "dimension",
+          "$value": "196px",
+          "$description": "Width of a photo tile in a strip (1.2)"
+        },
+        "bar": {
+          "$type": "dimension",
+          "$value": "44px",
+          "$description": "Width of a bar in a widget bar chart (1.2)"
+        },
+        "day": {
+          "$type": "dimension",
+          "$value": "52px",
+          "$description": "Width of a day in the week strip (1.2)"
+        },
+        "quick-add": {
+          "$type": "dimension",
+          "$value": "34px",
+          "$description": "Icon square in a quick-add tile (1.2)"
+        },
+        "bar-height": {
+          "$type": "dimension",
+          "$value": "110px",
+          "$description": "Height of the columns in a widget bar chart (1.2)"
+        },
+        "module-item": {
+          "$type": "dimension",
+          "$value": "150px",
+          "$description": "Minimum width of an item in the module grid (1.2)"
+        },
+        "blur-glass": {
+          "$type": "dimension",
+          "$value": "10px",
+          "$description": "Backdrop blur behind glass chips on photos (1.2)"
         }
       },
       "icon-stroke": {
@@ -2185,6 +2240,21 @@
             "$type": "color",
             "$value": "#FFFFFF",
             "$description": "Text over a photo scrim or media chip"
+          },
+          "glass": {
+            "$type": "color",
+            "$value": "#FFFFFF29",
+            "$description": "Glass chip or tile on a photo or vivid gradient. Same in every mode."
+          },
+          "glass-line": {
+            "$type": "color",
+            "$value": "#FFFFFF52",
+            "$description": "Hairline around a glass chip on a photo."
+          },
+          "bar": {
+            "$type": "color",
+            "$value": "#FFFFFFB8",
+            "$description": "Bar fill in a chart on a vivid gradient."
           }
         },
         "module": {
@@ -2470,6 +2540,13 @@
             "$type": "color",
             "$value": "#006D35"
           }
+        },
+        "figure": {
+          "warm": {
+            "$type": "color",
+            "$value": "#FFB4A4",
+            "$description": "Warm figure on dark fills, e.g. deaths recorded on the ink widget. Identity, not status."
+          }
         }
       },
       "hue": {
@@ -2739,6 +2816,16 @@
           "$type": "gradient",
           "$value": "linear-gradient(135deg, #FA6140 30%, #B08C00 140%)",
           "$description": "Round module tile (launcher), white icon."
+        },
+        "scrim-side": {
+          "$type": "gradient",
+          "$value": "linear-gradient(90deg, rgba(6, 18, 11, .78) 0%, rgba(6, 18, 11, .42) 50%, rgba(6, 18, 11, 0) 82%)",
+          "$description": "Photo hero: darkens the left of a photo so white text reads (title, stats)."
+        },
+        "fade-end": {
+          "$type": "gradient",
+          "$value": "linear-gradient(90deg, black calc(100% - 40px), transparent)",
+          "$description": "Mask for horizontally scrolling strips: fades the last 40px so more content is hinted."
         }
       },
       "texture": {
@@ -3999,6 +4086,21 @@
           "$type": "color",
           "$value": "#FFFFFFC7",
           "$description": "White at 78%: muted text on dark fills and gradients"
+        },
+        "glass-on-media": {
+          "$type": "color",
+          "$value": "#FFFFFF29",
+          "$description": "White at 16%: glass chips and tiles on photos and dark or vivid gradients"
+        },
+        "glass-line-on-media": {
+          "$type": "color",
+          "$value": "#FFFFFF52",
+          "$description": "White at 32%: hairline around glass chips on photos"
+        },
+        "bar-on-media": {
+          "$type": "color",
+          "$value": "#FFFFFFB8",
+          "$description": "White at 72%: bar fills on vivid gradients"
         }
       },
       "font-family": {
@@ -4360,6 +4462,46 @@
           "$type": "dimension",
           "$value": "180px",
           "$description": "Minimum width of the name column in an entity header before it wraps (1.2)"
+        },
+        "hero-photo": {
+          "$type": "dimension",
+          "$value": "300px",
+          "$description": "Minimum height of a photo hero (1.2)"
+        },
+        "photo-tile": {
+          "$type": "dimension",
+          "$value": "196px",
+          "$description": "Width of a photo tile in a strip (1.2)"
+        },
+        "bar": {
+          "$type": "dimension",
+          "$value": "44px",
+          "$description": "Width of a bar in a widget bar chart (1.2)"
+        },
+        "day": {
+          "$type": "dimension",
+          "$value": "52px",
+          "$description": "Width of a day in the week strip (1.2)"
+        },
+        "quick-add": {
+          "$type": "dimension",
+          "$value": "34px",
+          "$description": "Icon square in a quick-add tile (1.2)"
+        },
+        "bar-height": {
+          "$type": "dimension",
+          "$value": "110px",
+          "$description": "Height of the columns in a widget bar chart (1.2)"
+        },
+        "module-item": {
+          "$type": "dimension",
+          "$value": "150px",
+          "$description": "Minimum width of an item in the module grid (1.2)"
+        },
+        "blur-glass": {
+          "$type": "dimension",
+          "$value": "10px",
+          "$description": "Backdrop blur behind glass chips on photos (1.2)"
         }
       },
       "icon-stroke": {
@@ -4957,6 +5099,21 @@
             "$type": "color",
             "$value": "#FFFFFF",
             "$description": "Text over a photo scrim or media chip"
+          },
+          "glass": {
+            "$type": "color",
+            "$value": "#FFFFFF29",
+            "$description": "Glass chip or tile on a photo or vivid gradient. Same in every mode."
+          },
+          "glass-line": {
+            "$type": "color",
+            "$value": "#FFFFFF52",
+            "$description": "Hairline around a glass chip on a photo."
+          },
+          "bar": {
+            "$type": "color",
+            "$value": "#FFFFFFB8",
+            "$description": "Bar fill in a chart on a vivid gradient."
           }
         },
         "module": {
@@ -5242,6 +5399,13 @@
             "$type": "color",
             "$value": "#5EDF86"
           }
+        },
+        "figure": {
+          "warm": {
+            "$type": "color",
+            "$value": "#FFB4A4",
+            "$description": "Warm figure on dark fills, e.g. deaths recorded on the ink widget. Identity, not status."
+          }
         }
       },
       "hue": {
@@ -5511,6 +5675,16 @@
           "$type": "gradient",
           "$value": "linear-gradient(135deg, #FA6140 30%, #B08C00 140%)",
           "$description": "Round module tile (launcher), white icon."
+        },
+        "scrim-side": {
+          "$type": "gradient",
+          "$value": "linear-gradient(90deg, rgba(6, 18, 11, .78) 0%, rgba(6, 18, 11, .42) 50%, rgba(6, 18, 11, 0) 82%)",
+          "$description": "Photo hero: darkens the left of a photo so white text reads (title, stats)."
+        },
+        "fade-end": {
+          "$type": "gradient",
+          "$value": "linear-gradient(90deg, black calc(100% - 40px), transparent)",
+          "$description": "Mask for horizontally scrolling strips: fades the last 40px so more content is hinted."
         }
       },
       "texture": {
@@ -6771,6 +6945,21 @@
           "$type": "color",
           "$value": "#FFFFFFC7",
           "$description": "White at 78%: muted text on dark fills and gradients"
+        },
+        "glass-on-media": {
+          "$type": "color",
+          "$value": "#FFFFFF29",
+          "$description": "White at 16%: glass chips and tiles on photos and dark or vivid gradients"
+        },
+        "glass-line-on-media": {
+          "$type": "color",
+          "$value": "#FFFFFF52",
+          "$description": "White at 32%: hairline around glass chips on photos"
+        },
+        "bar-on-media": {
+          "$type": "color",
+          "$value": "#FFFFFFB8",
+          "$description": "White at 72%: bar fills on vivid gradients"
         }
       },
       "font-family": {
@@ -7132,6 +7321,46 @@
           "$type": "dimension",
           "$value": "180px",
           "$description": "Minimum width of the name column in an entity header before it wraps (1.2)"
+        },
+        "hero-photo": {
+          "$type": "dimension",
+          "$value": "300px",
+          "$description": "Minimum height of a photo hero (1.2)"
+        },
+        "photo-tile": {
+          "$type": "dimension",
+          "$value": "196px",
+          "$description": "Width of a photo tile in a strip (1.2)"
+        },
+        "bar": {
+          "$type": "dimension",
+          "$value": "44px",
+          "$description": "Width of a bar in a widget bar chart (1.2)"
+        },
+        "day": {
+          "$type": "dimension",
+          "$value": "52px",
+          "$description": "Width of a day in the week strip (1.2)"
+        },
+        "quick-add": {
+          "$type": "dimension",
+          "$value": "34px",
+          "$description": "Icon square in a quick-add tile (1.2)"
+        },
+        "bar-height": {
+          "$type": "dimension",
+          "$value": "110px",
+          "$description": "Height of the columns in a widget bar chart (1.2)"
+        },
+        "module-item": {
+          "$type": "dimension",
+          "$value": "150px",
+          "$description": "Minimum width of an item in the module grid (1.2)"
+        },
+        "blur-glass": {
+          "$type": "dimension",
+          "$value": "10px",
+          "$description": "Backdrop blur behind glass chips on photos (1.2)"
         }
       },
       "icon-stroke": {
@@ -7729,6 +7958,21 @@
             "$type": "color",
             "$value": "#FFFFFF",
             "$description": "Text over a photo scrim or media chip"
+          },
+          "glass": {
+            "$type": "color",
+            "$value": "#FFFFFF29",
+            "$description": "Glass chip or tile on a photo or vivid gradient. Same in every mode."
+          },
+          "glass-line": {
+            "$type": "color",
+            "$value": "#FFFFFF52",
+            "$description": "Hairline around a glass chip on a photo."
+          },
+          "bar": {
+            "$type": "color",
+            "$value": "#FFFFFFB8",
+            "$description": "Bar fill in a chart on a vivid gradient."
           }
         },
         "module": {
@@ -8014,6 +8258,13 @@
             "$type": "color",
             "$value": "#006D35"
           }
+        },
+        "figure": {
+          "warm": {
+            "$type": "color",
+            "$value": "#FFB4A4",
+            "$description": "Warm figure on dark fills, e.g. deaths recorded on the ink widget. Identity, not status."
+          }
         }
       },
       "hue": {
@@ -8283,6 +8534,16 @@
           "$type": "gradient",
           "$value": "linear-gradient(135deg, #FA6140 30%, #B08C00 140%)",
           "$description": "Round module tile (launcher), white icon."
+        },
+        "scrim-side": {
+          "$type": "gradient",
+          "$value": "linear-gradient(90deg, rgba(6, 18, 11, .78) 0%, rgba(6, 18, 11, .42) 50%, rgba(6, 18, 11, 0) 82%)",
+          "$description": "Photo hero: darkens the left of a photo so white text reads (title, stats)."
+        },
+        "fade-end": {
+          "$type": "gradient",
+          "$value": "linear-gradient(90deg, black calc(100% - 40px), transparent)",
+          "$description": "Mask for horizontally scrolling strips: fades the last 40px so more content is hinted."
         }
       },
       "texture": {
@@ -9543,6 +9804,21 @@
           "$type": "color",
           "$value": "#FFFFFFC7",
           "$description": "White at 78%: muted text on dark fills and gradients"
+        },
+        "glass-on-media": {
+          "$type": "color",
+          "$value": "#FFFFFF29",
+          "$description": "White at 16%: glass chips and tiles on photos and dark or vivid gradients"
+        },
+        "glass-line-on-media": {
+          "$type": "color",
+          "$value": "#FFFFFF52",
+          "$description": "White at 32%: hairline around glass chips on photos"
+        },
+        "bar-on-media": {
+          "$type": "color",
+          "$value": "#FFFFFFB8",
+          "$description": "White at 72%: bar fills on vivid gradients"
         }
       },
       "font-family": {
@@ -9904,6 +10180,46 @@
           "$type": "dimension",
           "$value": "180px",
           "$description": "Minimum width of the name column in an entity header before it wraps (1.2)"
+        },
+        "hero-photo": {
+          "$type": "dimension",
+          "$value": "300px",
+          "$description": "Minimum height of a photo hero (1.2)"
+        },
+        "photo-tile": {
+          "$type": "dimension",
+          "$value": "196px",
+          "$description": "Width of a photo tile in a strip (1.2)"
+        },
+        "bar": {
+          "$type": "dimension",
+          "$value": "44px",
+          "$description": "Width of a bar in a widget bar chart (1.2)"
+        },
+        "day": {
+          "$type": "dimension",
+          "$value": "52px",
+          "$description": "Width of a day in the week strip (1.2)"
+        },
+        "quick-add": {
+          "$type": "dimension",
+          "$value": "34px",
+          "$description": "Icon square in a quick-add tile (1.2)"
+        },
+        "bar-height": {
+          "$type": "dimension",
+          "$value": "110px",
+          "$description": "Height of the columns in a widget bar chart (1.2)"
+        },
+        "module-item": {
+          "$type": "dimension",
+          "$value": "150px",
+          "$description": "Minimum width of an item in the module grid (1.2)"
+        },
+        "blur-glass": {
+          "$type": "dimension",
+          "$value": "10px",
+          "$description": "Backdrop blur behind glass chips on photos (1.2)"
         }
       },
       "icon-stroke": {
@@ -10501,6 +10817,21 @@
             "$type": "color",
             "$value": "#FFFFFF",
             "$description": "Text over a photo scrim or media chip"
+          },
+          "glass": {
+            "$type": "color",
+            "$value": "#FFFFFF29",
+            "$description": "Glass chip or tile on a photo or vivid gradient. Same in every mode."
+          },
+          "glass-line": {
+            "$type": "color",
+            "$value": "#FFFFFF52",
+            "$description": "Hairline around a glass chip on a photo."
+          },
+          "bar": {
+            "$type": "color",
+            "$value": "#FFFFFFB8",
+            "$description": "Bar fill in a chart on a vivid gradient."
           }
         },
         "module": {
@@ -10786,6 +11117,13 @@
             "$type": "color",
             "$value": "#5EDF86"
           }
+        },
+        "figure": {
+          "warm": {
+            "$type": "color",
+            "$value": "#FFB4A4",
+            "$description": "Warm figure on dark fills, e.g. deaths recorded on the ink widget. Identity, not status."
+          }
         }
       },
       "hue": {
@@ -11055,6 +11393,16 @@
           "$type": "gradient",
           "$value": "linear-gradient(135deg, #FA6140 30%, #B08C00 140%)",
           "$description": "Round module tile (launcher), white icon."
+        },
+        "scrim-side": {
+          "$type": "gradient",
+          "$value": "linear-gradient(90deg, rgba(6, 18, 11, .78) 0%, rgba(6, 18, 11, .42) 50%, rgba(6, 18, 11, 0) 82%)",
+          "$description": "Photo hero: darkens the left of a photo so white text reads (title, stats)."
+        },
+        "fade-end": {
+          "$type": "gradient",
+          "$value": "linear-gradient(90deg, black calc(100% - 40px), transparent)",
+          "$description": "Mask for horizontally scrolling strips: fades the last 40px so more content is hinted."
         }
       },
       "texture": {

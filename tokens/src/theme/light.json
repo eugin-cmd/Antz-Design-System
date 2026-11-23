@@ -413,6 +413,21 @@
         "$type": "color",
         "$value": "{ink.0}",
         "$description": "Text over a photo scrim or media chip"
+      },
+      "glass": {
+        "$type": "color",
+        "$value": "{alpha.glass-on-media}",
+        "$description": "Glass chip or tile on a photo or vivid gradient. Same in every mode."
+      },
+      "glass-line": {
+        "$type": "color",
+        "$value": "{alpha.glass-line-on-media}",
+        "$description": "Hairline around a glass chip on a photo."
+      },
+      "bar": {
+        "$type": "color",
+        "$value": "{alpha.bar-on-media}",
+        "$description": "Bar fill in a chart on a vivid gradient."
       }
     },
     "module": {
@@ -708,6 +723,14 @@
       "end": {
         "$type": "color",
         "$value": "{green.40}"
+      }
+    },
+    "figure": {
+      "$description": "Large figures on dark fills (widgets, heroes). Large text only.",
+      "warm": {
+        "$type": "color",
+        "$value": "{coral.80}",
+        "$description": "Warm figure on dark fills, e.g. deaths recorded on the ink widget. Identity, not status."
       }
     }
   },
@@ -1163,6 +1186,26 @@
       "$type": "gradient",
       "$value": "linear-gradient(135deg, var(--color-launch-coral-start) 30%, var(--color-launch-coral-end) 140%)",
       "$description": "Round module tile (launcher), white icon.",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    },
+    "scrim-side": {
+      "$type": "gradient",
+      "$value": "linear-gradient(90deg, rgba(6, 18, 11, .78) 0%, rgba(6, 18, 11, .42) 50%, rgba(6, 18, 11, 0) 82%)",
+      "$description": "Photo hero: darkens the left of a photo so white text reads (title, stats).",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    },
+    "fade-end": {
+      "$type": "gradient",
+      "$value": "linear-gradient(90deg, black calc(100% - 40px), transparent)",
+      "$description": "Mask for horizontally scrolling strips: fades the last 40px so more content is hinted.",
       "$extensions": {
         "com.antz": {
           "format": "css"
