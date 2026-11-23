@@ -99,11 +99,11 @@ body { background: var(--color-bg-canvas); overflow-x: hidden; }
 .site-top :focus-visible { outline-color: var(--color-accent-bright); }
 .site-brand { display: inline-flex; align-items: center; gap: var(--space-2-5); margin-right: auto; font-size: var(--text-lg); font-weight: var(--weight-bold); letter-spacing: var(--tracking-snug); white-space: nowrap; }
 .site-brand .tile-icon { color: var(--color-surface-strong); background: var(--color-accent-bright); }
-/* Antz logo on a white plate: the logo keeps its true colours on the dark green bar, in light and dark mode */
+/* Antz logo in the top bar (full colour on light, white on dark: see the logo swap below) */
 .site-logo { display: inline-flex; align-items: center; height: calc(var(--site-top-h) - var(--space-5)); padding: var(--space-1-5) var(--space-3); border-radius: var(--radius-md); background: var(--color-text-on-strong); box-shadow: var(--shadow-sm); }
 .site-logo img { display: block; width: auto; height: 100%; }
 .site-brand__name { font-size: var(--text-lg); font-weight: var(--weight-bold); }
-@media (max-width: 599px) { .site-brand__name, .site-brand small { display: none; } .site-logo { padding: var(--space-1) var(--space-2-5); } }
+@media (max-width: 599px) { .site-brand__name, .site-brand small { display: none; } }
 .site-brand small { padding: 2px var(--space-2); border-radius: var(--radius-full); font-size: var(--text-2xs); font-weight: var(--weight-semibold); letter-spacing: 0; background: color-mix(in srgb, var(--color-text-on-strong) 16%, transparent); }
 .site-search { position: relative; display: flex; align-items: center; width: min(340px, 34vw); }
 .site-search .icon { position: absolute; left: var(--space-3); opacity: .8; pointer-events: none; }
@@ -462,9 +462,6 @@ body { background: var(--color-bg-canvas); overflow-x: hidden; }
 .site-top .brand-pick select:hover { background: var(--color-surface-hover); }
 .site-top .brand-pick::after { color: var(--color-text-secondary); }
 .site-top .brand-pick select:focus-visible { outline-color: var(--color-focus); }
-/* The logo's dark mark needs a light ground: in dark mode it sits on a white plate */
-:root[data-theme="dark"] .site-logo { padding: var(--space-1) var(--space-2-5); border-radius: var(--radius-sm); background: var(--color-text-on-strong); }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .site-logo { padding: var(--space-1) var(--space-2-5); border-radius: var(--radius-sm); background: var(--color-text-on-strong); } }
 /* Desktop: the hamburger collapses the sidebar */
 @media (min-width: 1024px) {
   .nav-collapsed .site { grid-template-columns: minmax(0, 1fr); }
@@ -473,3 +470,12 @@ body { background: var(--color-bg-canvas); overflow-x: hidden; }
 @media (max-width: 899px) { .site-brand__name { font-size: var(--text-lg); } }
 @media (max-width: 760px) { .site-brand__name, .site-divider, .site-home-btn { display: none; } }
 @media (max-width: 599px) { .site-brand small { display: none; } }
+
+/* Antz logo per theme: full-colour on light, the white logo on dark */
+.logo-on-dark { display: none !important; }
+:root[data-theme="dark"] .logo-on-light { display: none !important; }
+:root[data-theme="dark"] .logo-on-dark { display: block !important; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .logo-on-light { display: none !important; }
+  :root:not([data-theme="light"]) .logo-on-dark { display: block !important; }
+}

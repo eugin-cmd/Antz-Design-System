@@ -28,9 +28,11 @@
   .tt-brand__name { font-size: var(--text-xl); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-snug); color: var(--color-accent-text); }
   .tt-brand small { padding: 2px var(--space-2); border-radius: var(--radius-full); font-size: var(--text-2xs); font-weight: var(--weight-semibold); color: var(--color-accent-text); background: var(--color-accent-soft); }
   .tt-top .btn--ghost { --btn-fg: var(--color-text); --btn-bg-hover: var(--color-surface-hover); }
-  :root[data-theme="dark"] .tt-logo { padding: var(--space-1) var(--space-2-5); border-radius: var(--radius-sm); background: var(--color-text-on-strong); }
-  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .tt-logo { padding: var(--space-1) var(--space-2-5); border-radius: var(--radius-sm); background: var(--color-text-on-strong); } }
   @media (max-width: 760px) { .tt-divider, .tt-brand__name, .tt-home { display: none; } }
+  .logo-on-dark { display: none !important; }
+  :root[data-theme="dark"] .logo-on-light { display: none !important; }
+  :root[data-theme="dark"] .logo-on-dark { display: block !important; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .logo-on-light { display: none !important; } :root:not([data-theme="light"]) .logo-on-dark { display: block !important; } }
   .tt-top__end { margin-left: auto; display: flex; gap: var(--space-2); align-items: center; }
   .tt { display: grid; grid-template-columns: 300px minmax(0, 1fr); min-height: 0; }
   .tt-side { overflow-y: auto; padding: var(--space-5) var(--space-4); display: flex; flex-direction: column; gap: var(--space-5); background: var(--color-surface); box-shadow: inset -1px 0 0 var(--color-border-subtle); }
@@ -67,7 +69,7 @@
 </head>
 <body data-page="tester">
 <header class="tt-top">
-  <a class="icon-btn tt-home" href="index.html" aria-label="Docs home"><svg class="icon"><use href="#i-home"/></svg></a><a class="tt-brand" href="index.html" aria-label="Antz Design System docs"><span class="tt-logo"><img src="assets/img/antz-logo.svg" alt="Antz" width="509" height="194"></span><span class="tt-divider" aria-hidden="true"></span><span class="tt-brand__name">Theme tester</span><small id="tt-version"></small></a>
+  <a class="icon-btn tt-home" href="index.html" aria-label="Docs home"><svg class="icon"><use href="#i-home"/></svg></a><a class="tt-brand" href="index.html" aria-label="Antz Design System docs"><span class="tt-logo"><img class="logo-on-light" src="assets/img/antz-logo.svg" alt="Antz" width="509" height="194"><img class="logo-on-dark" src="assets/img/antz-logo-white.svg" alt="Antz" width="509" height="194"></span><span class="tt-divider" aria-hidden="true"></span><span class="tt-brand__name">Theme tester</span><small id="tt-version"></small></a>
   <div class="tt-top__end"><button class="btn btn--sm btn--ghost" type="button" id="tt-share"><svg class="icon"><use href="#i-clip"/></svg>Copy link</button><a class="btn btn--sm btn--ghost" href="index.html"><svg class="icon"><use href="#i-arrow-left"/></svg>Docs</a></div>
 </header>
 <div class="tt">
