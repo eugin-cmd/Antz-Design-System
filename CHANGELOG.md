@@ -2,6 +2,12 @@
 
 All notable changes to the Antz Design System. Versions follow semantic versioning: patch for fixes, minor for additions, major for anything renamed, removed or changed in meaning. Every version listed here is published under `releases/` and tagged in Git.
 
+## Unreleased
+
+### Fixes
+- **Main button in dark high contrast:** the label was white on the light green fill (#7BFCA0), about 1.3:1. Light high contrast sets the label to white for its deep green fill. Dark high contrast changed the fill but not the label, so the browser kept the white. Dark high contrast now sets the label to #00210C (about 15:1).
+- **Contrast gate matches the browser:** the build now re-declares, for dark high contrast, every token that light high contrast sets. It also fails if the CSS cascade could differ from the mode the gate checks. Before, the gate checked a model without the light high-contrast step, which is why this passed. Only this one token was affected.
+
 ## 1.2.0-beta.1 (23 November 2026)
 
 Additive: no token or class removed or renamed (94 tokens added). Upgrade by changing `v1.1.0-beta.1` to `v1.2.0-beta.1` in your links. Visual refinements: elastic motion on movement, thinner selected and drop-zone outlines, softer light washes (from 1.1), the record hero on the deep gradient.

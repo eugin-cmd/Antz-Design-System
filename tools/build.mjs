@@ -97,6 +97,21 @@ const MODES = {
   'light-hc': modeSet('primitive', 'base', 'light', 'hc-light'),
   'dark-hc': modeSet('primitive', 'base', 'light', 'dark', 'hc-dark'),
 };
+// Dark high contrast in CSS also receives the light high-contrast rules (both selectors match), so every token that
+// light high contrast changes is re-declared for dark high contrast with its dark value. Then the CSS cascade equals
+// the dark-hc mode the contrast gate checks, and nothing set for light high contrast can leak into dark.
+const hcDarkCss = new Map(layer['hc-dark']);
+for (const [k] of layer['hc-light']) {
+  if (hcDarkCss.has(k)) continue;
+  const v = MODES['dark-hc'].get(k);
+  if (!v) { errors.push(`dark high contrast: ${k} is set for light high contrast but has no dark value`); continue; }
+  hcDarkCss.set(k, v);
+}
+// Guard: what the browser applies in dark high contrast must match what the gate checked.
+{
+  const cascade = new Map([...MODES.dark, ...layer['hc-light'], ...hcDarkCss]);
+  for (const [k, v] of MODES['dark-hc']) if (cascade.get(k) !== v) errors.push(`dark high contrast: CSS cascade differs from the checked mode for ${k}`);
+}
 for (const t of MODES.light.values()) byCss.set(cssName(t), t.name);
 
 function resolve(set, name, seen = new Set()) {
@@ -235,12 +250,12 @@ const css = `/* ================================================================
 
 /* High contrast, dark */
 @media (prefers-contrast: more) and (prefers-color-scheme: dark) {
-  :root:not([data-contrast="standard"]):not([data-theme="light"]) {${block(layer['hc-dark'], '    ')}  }
+  :root:not([data-contrast="standard"]):not([data-theme="light"]) {${block(hcDarkCss, '    ')}  }
 }
 @media (prefers-color-scheme: dark) {
-  :root[data-contrast="high"]:not([data-theme="light"]) {${block(layer['hc-dark'], '    ')}  }
+  :root[data-contrast="high"]:not([data-theme="light"]) {${block(hcDarkCss, '    ')}  }
 }
-:root[data-theme="dark"][data-contrast="high"] {${block(layer['hc-dark'])}}
+:root[data-theme="dark"][data-contrast="high"] {${block(hcDarkCss)}}
 
 /* Module tones: tone gradients re-resolve wherever [data-tone] sets the current tone */
 [data-tone] {${block(new Map([...layer.light].filter(([, t]) => t.ext?.['com.antz']?.scope === 'tone')))}}

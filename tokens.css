@@ -1155,6 +1155,7 @@
     --color-caution-text: var(--amber-90);
     --color-danger-text: var(--red-90);
     --color-info-text: var(--sky-90);
+    --color-text-on-accent: var(--green-10);
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -1179,6 +1180,7 @@
     --color-caution-text: var(--amber-90);
     --color-danger-text: var(--red-90);
     --color-info-text: var(--sky-90);
+    --color-text-on-accent: var(--green-10);
   }
 }
 :root[data-theme="dark"][data-contrast="high"] {
@@ -1202,6 +1204,7 @@
   --color-caution-text: var(--amber-90);
   --color-danger-text: var(--red-90);
   --color-info-text: var(--sky-90);
+  --color-text-on-accent: var(--green-10);
 }
 
 /* Module tones: tone gradients re-resolve wherever [data-tone] sets the current tone */
