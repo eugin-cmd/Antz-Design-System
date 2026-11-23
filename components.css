@@ -1030,6 +1030,21 @@ a.animal:hover { background: var(--color-surface-hover); }
 .navdrawer__tab[aria-selected="true"] + .navdrawer__tab,
 .navdrawer__rail:has(.navdrawer__tab:last-of-type[aria-selected="true"])::after { border-start-end-radius: var(--radius-lg); }
 .navdrawer__tab:focus-visible { outline-offset: calc(var(--space-1) * -1); }
+/* Sliding notch: components.js adds .has-notch and three pieces that share one position (--nd-y, --nd-h),
+   so the selected tab travels to the new one on the elastic settle, like every other tab indicator.
+   The white rail is drawn by the fills above and below; the notch cuts the selected tab out of it. */
+.navdrawer__rail.has-notch { position: relative; }
+.navdrawer__rail.has-notch::before, .navdrawer__rail.has-notch::after, .navdrawer__rail.has-notch .navdrawer__top, .navdrawer__rail.has-notch .navdrawer__tab { background: transparent; box-shadow: none; }
+.navdrawer__rail.has-notch .navdrawer__top, .navdrawer__rail.has-notch .navdrawer__tab { position: relative; z-index: 1; }
+.navdrawer__rail.has-notch .navdrawer__tab[aria-selected="true"]::before { content: none; }
+.navdrawer__fill, .navdrawer__notch { position: absolute; inset-inline: 0; top: 0; z-index: 0; pointer-events: none; transition: transform var(--duration-slower) var(--ease-elastic), top var(--duration-slower) var(--ease-elastic), height var(--duration-slower) var(--ease-elastic); }
+.navdrawer__fill { background: var(--color-surface-raised); }
+.navdrawer__fill--above { height: var(--nd-y, 0px); border-end-end-radius: var(--radius-lg); }
+.navdrawer__fill--below { top: calc(var(--nd-y, 0px) + var(--nd-h, 0px)); height: calc(var(--nd-total, 0px) - var(--nd-y, 0px) - var(--nd-h, 0px)); border-start-end-radius: var(--radius-lg); }
+.navdrawer__notch { height: var(--nd-h, 0px); overflow: hidden; transform: translateY(var(--nd-y, 0px)); }
+.navdrawer__notch::before { content: ""; position: absolute; inset-block: 0; inset-inline: var(--space-2) 0; border-start-start-radius: var(--radius-lg); border-end-start-radius: var(--radius-lg); background: var(--gradient-tone-tab);
+  box-shadow: 0 0 0 calc(var(--radius-lg) + var(--space-2)) var(--color-surface-raised); /* rail white outside the left curve; clipped by the notch */ }
+.navdrawer__rail.is-instant > .navdrawer__fill, .navdrawer__rail.is-instant > .navdrawer__notch { transition: none; }
 
 .navdrawer__panel { display: flex; flex-direction: column; flex: 1; min-width: 0; }
 .navdrawer__head { display: flex; align-items: center; gap: var(--space-2); padding: var(--space-2-5) var(--space-2) var(--space-2) var(--space-3); }

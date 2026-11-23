@@ -136,7 +136,30 @@
       if (m) m.hidden = !on;
     });
     if (tab.dataset.tone) d.dataset.tone = tab.dataset.tone;
+    var rail = tab.closest('.navdrawer__rail'); if (rail) place(rail, false);
   }
+  // Sliding notch: the selected tab travels (elastic) instead of jumping
+  function place(rail, instant) {
+    var sel = rail.querySelector('.navdrawer__tab[aria-selected="true"]'); if (!sel || !rail.offsetHeight) return;
+    if (instant) rail.classList.add('is-instant');
+    rail.style.setProperty('--nd-y', sel.offsetTop + 'px');
+    rail.style.setProperty('--nd-h', sel.offsetHeight + 'px');
+    rail.style.setProperty('--nd-total', rail.scrollHeight + 'px');
+    if (instant) requestAnimationFrame(function () { requestAnimationFrame(function () { rail.classList.remove('is-instant'); }); });
+  }
+  function initRail(rail) {
+    if (rail.classList.contains('has-notch')) return;
+    ['above', 'notch', 'below'].forEach(function (k) {
+      var el = doc.createElement('span'); el.setAttribute('aria-hidden', 'true');
+      el.className = k === 'notch' ? 'navdrawer__notch' : 'navdrawer__fill navdrawer__fill--' + k;
+      rail.appendChild(el);
+    });
+    rail.classList.add('has-notch'); place(rail, true);
+    // Re-place without animation when the rail is shown or resized (overlay drawers start hidden)
+    if (window.ResizeObserver) new ResizeObserver(function () { place(rail, true); }).observe(rail);
+  }
+  function initAll() { doc.querySelectorAll('.navdrawer__rail').forEach(initRail); }
+  if (doc.readyState === 'loading') doc.addEventListener('DOMContentLoaded', initAll); else initAll();
   doc.addEventListener('click', function (e) {
     var t = e.target.closest('[data-navdrawer-open]');
     if (t) { var d = doc.getElementById(t.getAttribute('data-navdrawer-open')); if (d) { if (d.hidden) open(d, t); else close(d); } return; }
