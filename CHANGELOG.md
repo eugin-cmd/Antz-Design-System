@@ -4,6 +4,17 @@ All notable changes to the Antz Design System. Versions follow semantic versioni
 
 ## Unreleased
 
+### Components (from the Kitchen and Diet web app, DD-002)
+- **Navigation drawer** (`.navdrawer`): the hamburger-opened main menu, with a module rail (icon over label) beside the module's menu (search, group headings, items, and a foot with zoo switcher and user). The white rail parts around the active module, so its tab opens into the panel. The panel and tab take the module's tone and fade between tones when the module changes. `components.js` adds open/close, Escape, backdrop, focus return and arrow keys.
+- **Module tones**: seven tones (`--color-module-<tone>-{a,b,ta,tb,ink}`), each with a suggested module. `data-tone` on any element sets the current tone (`--color-tone-*`), and three tone gradients follow it (`--gradient-tone-panel`, `-tab`, `-band`). The build emits these on `[data-tone]`.
+- **Module band** (`.module-band`): the soft strip behind a module page header.
+- **Launcher**: round module tiles (`.tile-module--round`, `--launch-green|amber|sky|slate|coral`, `--plain`) with labels (`.launcher`). Five new launch gradients keep white icons at 3:1.
+- **Display headline gradient** (`.t-gradient`, `--gradient-text-brand`): large text only, with a fallback in high contrast and forced colours.
+- **Entity header** (`.entity-head`) on the new petrol gradient: picture, name, scientific name, key figures and quiet actions.
+- **Side nav group headings** (`.sidenav__group`).
+- 11 new icons: utensils, chef-hat, package, truck, bar-chart, settings, book-open, history, receipt, globe, dashboard.
+- Size tokens: `--size-drawer-nav`, `--size-rail`, `--size-rail-tab`, `--size-launcher`. 154 new contrast checks (588 in total), all passing.
+
 ### Tools
 - **Antz Design System skill** (`skills/antz-design-system/`): an Agent Skill that makes AI assistants build Antz UI only from the system. Its helper (`scripts/antz.mjs`, no dependencies) reads a pinned release from a local clone or the team site and lists components, classes, tokens, icons and rules. It also runs the guardrail check from any project. Requests outside the system get an approved alternative or a proposal. Includes tests (`evals/`) and a team guide (`skills/README.md`). Releases now include `skills/`.
 

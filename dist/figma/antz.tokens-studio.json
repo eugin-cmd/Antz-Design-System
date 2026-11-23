@@ -1552,6 +1552,26 @@
         "$value": "562px",
         "$description": "Right work drawer (decision D5)"
       },
+      "drawer-nav": {
+        "$type": "dimension",
+        "$value": "384px",
+        "$description": "Left navigation drawer: module rail plus menu panel (1.2)"
+      },
+      "rail": {
+        "$type": "dimension",
+        "$value": "96px",
+        "$description": "Module rail inside the navigation drawer (1.2)"
+      },
+      "rail-tab": {
+        "$type": "dimension",
+        "$value": "64px",
+        "$description": "Height of a module rail tab: icon over label (1.2)"
+      },
+      "launcher": {
+        "$type": "dimension",
+        "$value": "56px",
+        "$description": "Round module tile in the launcher (1.2)"
+      },
       "sidenav": {
         "$type": "dimension",
         "$value": "260px"
@@ -2178,6 +2198,290 @@
           "$value": "{ink.0}",
           "$description": "Text over a photo scrim or media chip"
         }
+      },
+      "module": {
+        "green": {
+          "a": {
+            "$type": "color",
+            "$value": "{green.tint}",
+            "$description": "Panel tint, top"
+          },
+          "b": {
+            "$type": "color",
+            "$value": "{teal.tint}",
+            "$description": "Panel tint, bottom"
+          },
+          "ta": {
+            "$type": "color",
+            "$value": "{wash.soft-mint}",
+            "$description": "Active tab and band, start"
+          },
+          "tb": {
+            "$type": "color",
+            "$value": "{wash.soft-aqua}",
+            "$description": "Active tab and band, end"
+          },
+          "ink": {
+            "$type": "color",
+            "$value": "{green.40}",
+            "$description": "Active tab label and icon (4.5:1 on its tints)"
+          }
+        },
+        "amber": {
+          "a": {
+            "$type": "color",
+            "$value": "{amber.98}",
+            "$description": "Panel tint, top"
+          },
+          "b": {
+            "$type": "color",
+            "$value": "{green.tint}",
+            "$description": "Panel tint, bottom"
+          },
+          "ta": {
+            "$type": "color",
+            "$value": "{amber.tint}",
+            "$description": "Active tab and band, start"
+          },
+          "tb": {
+            "$type": "color",
+            "$value": "{wash.soft-mint}",
+            "$description": "Active tab and band, end"
+          },
+          "ink": {
+            "$type": "color",
+            "$value": "{amber.40}",
+            "$description": "Active tab label and icon (4.5:1 on its tints)"
+          }
+        },
+        "navy": {
+          "a": {
+            "$type": "color",
+            "$value": "{sky.98}",
+            "$description": "Panel tint, top"
+          },
+          "b": {
+            "$type": "color",
+            "$value": "{navy.98}",
+            "$description": "Panel tint, bottom"
+          },
+          "ta": {
+            "$type": "color",
+            "$value": "{sky.tint}",
+            "$description": "Active tab and band, start"
+          },
+          "tb": {
+            "$type": "color",
+            "$value": "{navy.tint}",
+            "$description": "Active tab and band, end"
+          },
+          "ink": {
+            "$type": "color",
+            "$value": "{navy.30}",
+            "$description": "Active tab label and icon (4.5:1 on its tints)"
+          }
+        },
+        "slate": {
+          "a": {
+            "$type": "color",
+            "$value": "{ink.75}",
+            "$description": "Panel tint, top"
+          },
+          "b": {
+            "$type": "color",
+            "$value": "{ink.150}",
+            "$description": "Panel tint, bottom"
+          },
+          "ta": {
+            "$type": "color",
+            "$value": "{ink.200}",
+            "$description": "Active tab and band, start"
+          },
+          "tb": {
+            "$type": "color",
+            "$value": "{ink.250}",
+            "$description": "Active tab and band, end"
+          },
+          "ink": {
+            "$type": "color",
+            "$value": "{teal.30}",
+            "$description": "Active tab label and icon (4.5:1 on its tints)"
+          }
+        },
+        "violet": {
+          "a": {
+            "$type": "color",
+            "$value": "{ink.75}",
+            "$description": "Panel tint, top"
+          },
+          "b": {
+            "$type": "color",
+            "$value": "{red.98}",
+            "$description": "Panel tint, bottom"
+          },
+          "ta": {
+            "$type": "color",
+            "$value": "{violet.95}",
+            "$description": "Active tab and band, start"
+          },
+          "tb": {
+            "$type": "color",
+            "$value": "{wash.soft-pink}",
+            "$description": "Active tab and band, end"
+          },
+          "ink": {
+            "$type": "color",
+            "$value": "{violet.30}",
+            "$description": "Active tab label and icon (4.5:1 on its tints)"
+          }
+        },
+        "rose": {
+          "a": {
+            "$type": "color",
+            "$value": "{red.98}",
+            "$description": "Panel tint, top"
+          },
+          "b": {
+            "$type": "color",
+            "$value": "{ink.100}",
+            "$description": "Panel tint, bottom"
+          },
+          "ta": {
+            "$type": "color",
+            "$value": "{wash.soft-pink}",
+            "$description": "Active tab and band, start"
+          },
+          "tb": {
+            "$type": "color",
+            "$value": "{ink.200}",
+            "$description": "Active tab and band, end"
+          },
+          "ink": {
+            "$type": "color",
+            "$value": "{red.40}",
+            "$description": "Active tab label and icon (4.5:1 on its tints)"
+          }
+        },
+        "coral": {
+          "a": {
+            "$type": "color",
+            "$value": "{coral.98}",
+            "$description": "Panel tint, top"
+          },
+          "b": {
+            "$type": "color",
+            "$value": "{amber.98}",
+            "$description": "Panel tint, bottom"
+          },
+          "ta": {
+            "$type": "color",
+            "$value": "{coral.tint}",
+            "$description": "Active tab and band, start"
+          },
+          "tb": {
+            "$type": "color",
+            "$value": "{amber.tint}",
+            "$description": "Active tab and band, end"
+          },
+          "ink": {
+            "$type": "color",
+            "$value": "{coral.40}",
+            "$description": "Active tab label and icon (4.5:1 on its tints)"
+          }
+        }
+      },
+      "tone": {
+        "a": {
+          "$type": "color",
+          "$value": "{color.module.green.a}",
+          "$description": "Panel tint, top"
+        },
+        "b": {
+          "$type": "color",
+          "$value": "{color.module.green.b}",
+          "$description": "Panel tint, bottom"
+        },
+        "ta": {
+          "$type": "color",
+          "$value": "{color.module.green.ta}",
+          "$description": "Active tab and band, start"
+        },
+        "tb": {
+          "$type": "color",
+          "$value": "{color.module.green.tb}",
+          "$description": "Active tab and band, end"
+        },
+        "ink": {
+          "$type": "color",
+          "$value": "{color.module.green.ink}",
+          "$description": "Active tab label and icon (4.5:1 on its tints)"
+        }
+      },
+      "launch": {
+        "green": {
+          "start": {
+            "$type": "color",
+            "$value": "{green.50}"
+          },
+          "end": {
+            "$type": "color",
+            "$value": "{teal.50}"
+          }
+        },
+        "amber": {
+          "start": {
+            "$type": "color",
+            "$value": "{amber.60}"
+          },
+          "end": {
+            "$type": "color",
+            "$value": "{green.50}"
+          }
+        },
+        "sky": {
+          "start": {
+            "$type": "color",
+            "$value": "{sky.50}"
+          },
+          "end": {
+            "$type": "color",
+            "$value": "{navy.brand}"
+          }
+        },
+        "slate": {
+          "start": {
+            "$type": "color",
+            "$value": "{ink.500}"
+          },
+          "end": {
+            "$type": "color",
+            "$value": "{teal.30}"
+          }
+        },
+        "coral": {
+          "start": {
+            "$type": "color",
+            "$value": "{coral.brand}"
+          },
+          "end": {
+            "$type": "color",
+            "$value": "{amber.60}"
+          }
+        }
+      },
+      "text-gradient": {
+        "start": {
+          "$type": "color",
+          "$value": "{teal.30}"
+        },
+        "mid": {
+          "$type": "color",
+          "$value": "{teal.50}"
+        },
+        "end": {
+          "$type": "color",
+          "$value": "{green.40}"
+        }
       }
     },
     "hue": {
@@ -2383,6 +2687,56 @@
         "$type": "gradient",
         "$value": "linear-gradient(180deg, rgba(8, 22, 14, 0) 38%, rgba(8, 22, 14, .45) 62%, rgba(6, 18, 11, .88) 100%)",
         "$description": "Overlay: text over photography only"
+      },
+      "tone-panel": {
+        "$type": "gradient",
+        "$value": "linear-gradient(90deg, transparent 48%, var(--color-surface-raised) 100%), linear-gradient(180deg, var(--color-tone-a), var(--color-tone-b))",
+        "$description": "Navigation drawer background: the module tint, top to bottom, fading to the surface on the right."
+      },
+      "tone-tab": {
+        "$type": "gradient",
+        "$value": "linear-gradient(90deg, color-mix(in srgb, var(--color-tone-ta), var(--color-tone-tb)) 0%, color-mix(in srgb, var(--color-tone-ta) 55%, transparent) 40%, transparent 100%)",
+        "$description": "Active rail tab: opens from the tab into the panel."
+      },
+      "tone-band": {
+        "$type": "gradient",
+        "$value": "linear-gradient(180deg, transparent 30%, var(--color-bg-app) 100%), linear-gradient(90deg, var(--color-tone-a), var(--color-tone-b))",
+        "$description": "Module band: the strip behind a module page header, fading into the page."
+      },
+      "text-brand": {
+        "$type": "gradient",
+        "$value": "linear-gradient(90deg, var(--color-text-gradient-start) 0%, var(--color-text-gradient-mid) 52%, var(--color-text-gradient-end) 100%)",
+        "$description": "Display headline text (one per screen, large text only)."
+      },
+      "petrol": {
+        "$type": "gradient",
+        "$value": "linear-gradient(166deg, var(--navy-20) 8%, var(--teal-25) 50%, var(--teal-40) 92%)",
+        "$description": "Feature: entity header (species, animal, enclosure) with white text."
+      },
+      "launch-green": {
+        "$type": "gradient",
+        "$value": "linear-gradient(135deg, var(--color-launch-green-start) 30%, var(--color-launch-green-end) 140%)",
+        "$description": "Round module tile (launcher), white icon."
+      },
+      "launch-amber": {
+        "$type": "gradient",
+        "$value": "linear-gradient(135deg, var(--color-launch-amber-start) 30%, var(--color-launch-amber-end) 140%)",
+        "$description": "Round module tile (launcher), white icon."
+      },
+      "launch-sky": {
+        "$type": "gradient",
+        "$value": "linear-gradient(135deg, var(--color-launch-sky-start) 30%, var(--color-launch-sky-end) 140%)",
+        "$description": "Round module tile (launcher), white icon."
+      },
+      "launch-slate": {
+        "$type": "gradient",
+        "$value": "linear-gradient(135deg, var(--color-launch-slate-start) 30%, var(--color-launch-slate-end) 140%)",
+        "$description": "Round module tile (launcher), white icon."
+      },
+      "launch-coral": {
+        "$type": "gradient",
+        "$value": "linear-gradient(135deg, var(--color-launch-coral-start) 30%, var(--color-launch-coral-end) 140%)",
+        "$description": "Round module tile (launcher), white icon."
       }
     },
     "texture": {
@@ -2771,6 +3125,176 @@
       "disabled-bg": {
         "$type": "color",
         "$value": "{night.28}"
+      },
+      "module": {
+        "green": {
+          "a": {
+            "$type": "color",
+            "$value": "{night.15}"
+          },
+          "b": {
+            "$type": "color",
+            "$value": "{wash.night-mint}"
+          },
+          "ta": {
+            "$type": "color",
+            "$value": "{green.night-soft}"
+          },
+          "tb": {
+            "$type": "color",
+            "$value": "{wash.night-aqua}"
+          },
+          "ink": {
+            "$type": "color",
+            "$value": "{green.80}"
+          }
+        },
+        "amber": {
+          "a": {
+            "$type": "color",
+            "$value": "{night.15}"
+          },
+          "b": {
+            "$type": "color",
+            "$value": "{wash.night-butter}"
+          },
+          "ta": {
+            "$type": "color",
+            "$value": "{amber.night-soft}"
+          },
+          "tb": {
+            "$type": "color",
+            "$value": "{wash.night-mint}"
+          },
+          "ink": {
+            "$type": "color",
+            "$value": "{amber.80}"
+          }
+        },
+        "navy": {
+          "a": {
+            "$type": "color",
+            "$value": "{night.15}"
+          },
+          "b": {
+            "$type": "color",
+            "$value": "{wash.night-sky}"
+          },
+          "ta": {
+            "$type": "color",
+            "$value": "{navy.night-soft}"
+          },
+          "tb": {
+            "$type": "color",
+            "$value": "{wash.night-sky}"
+          },
+          "ink": {
+            "$type": "color",
+            "$value": "{sky.80}"
+          }
+        },
+        "slate": {
+          "a": {
+            "$type": "color",
+            "$value": "{night.15}"
+          },
+          "b": {
+            "$type": "color",
+            "$value": "{night.25}"
+          },
+          "ta": {
+            "$type": "color",
+            "$value": "{night.28}"
+          },
+          "tb": {
+            "$type": "color",
+            "$value": "{night.30}"
+          },
+          "ink": {
+            "$type": "color",
+            "$value": "{teal.80}"
+          }
+        },
+        "violet": {
+          "a": {
+            "$type": "color",
+            "$value": "{night.15}"
+          },
+          "b": {
+            "$type": "color",
+            "$value": "{violet.night-soft}"
+          },
+          "ta": {
+            "$type": "color",
+            "$value": "{violet.night-soft}"
+          },
+          "tb": {
+            "$type": "color",
+            "$value": "{wash.night-pink}"
+          },
+          "ink": {
+            "$type": "color",
+            "$value": "{violet.80}"
+          }
+        },
+        "rose": {
+          "a": {
+            "$type": "color",
+            "$value": "{night.15}"
+          },
+          "b": {
+            "$type": "color",
+            "$value": "{wash.night-pink}"
+          },
+          "ta": {
+            "$type": "color",
+            "$value": "{red.night-soft}"
+          },
+          "tb": {
+            "$type": "color",
+            "$value": "{wash.night-pink}"
+          },
+          "ink": {
+            "$type": "color",
+            "$value": "{red.80}"
+          }
+        },
+        "coral": {
+          "a": {
+            "$type": "color",
+            "$value": "{night.15}"
+          },
+          "b": {
+            "$type": "color",
+            "$value": "{wash.night-rose}"
+          },
+          "ta": {
+            "$type": "color",
+            "$value": "{coral.night-soft}"
+          },
+          "tb": {
+            "$type": "color",
+            "$value": "{wash.night-butter}"
+          },
+          "ink": {
+            "$type": "color",
+            "$value": "{coral.80}"
+          }
+        }
+      },
+      "text-gradient": {
+        "start": {
+          "$type": "color",
+          "$value": "{teal.80}"
+        },
+        "mid": {
+          "$type": "color",
+          "$value": "{sky.80}"
+        },
+        "end": {
+          "$type": "color",
+          "$value": "{green.80}"
+        }
       }
     },
     "hue": {

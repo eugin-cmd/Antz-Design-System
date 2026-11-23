@@ -147,6 +147,16 @@
       "icon": "zap",
       "links": [
         {
+          "href": "navigation-drawer.html",
+          "title": "Navigation drawer",
+          "isNew": true
+        },
+        {
+          "href": "launcher.html",
+          "title": "Launcher and headers",
+          "isNew": true
+        },
+        {
           "href": "top-bar.html",
           "title": "Top bar and action bar"
         },

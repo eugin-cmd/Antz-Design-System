@@ -427,6 +427,10 @@
   --size-row-comfortable: 52px;
   --size-row-compact: 40px;
   --size-drawer-work: 562px;
+  --size-drawer-nav: 384px;
+  --size-rail: 96px;
+  --size-rail-tab: 64px;
+  --size-launcher: 56px;
   --size-sidenav: 260px;
   --size-sidenav-folded: 68px;
   --size-appbar: 64px;
@@ -582,6 +586,59 @@
   --color-disabled-bg: var(--ink-350);
   --color-media-chip: var(--alpha-media-chip);
   --color-media-text: var(--ink-0);
+  --color-module-green-a: var(--green-tint);
+  --color-module-green-b: var(--teal-tint);
+  --color-module-green-ta: var(--wash-soft-mint);
+  --color-module-green-tb: var(--wash-soft-aqua);
+  --color-module-green-ink: var(--green-40);
+  --color-module-amber-a: var(--amber-98);
+  --color-module-amber-b: var(--green-tint);
+  --color-module-amber-ta: var(--amber-tint);
+  --color-module-amber-tb: var(--wash-soft-mint);
+  --color-module-amber-ink: var(--amber-40);
+  --color-module-navy-a: var(--sky-98);
+  --color-module-navy-b: var(--navy-98);
+  --color-module-navy-ta: var(--sky-tint);
+  --color-module-navy-tb: var(--navy-tint);
+  --color-module-navy-ink: var(--navy-30);
+  --color-module-slate-a: var(--ink-75);
+  --color-module-slate-b: var(--ink-150);
+  --color-module-slate-ta: var(--ink-200);
+  --color-module-slate-tb: var(--ink-250);
+  --color-module-slate-ink: var(--teal-30);
+  --color-module-violet-a: var(--ink-75);
+  --color-module-violet-b: var(--red-98);
+  --color-module-violet-ta: var(--violet-95);
+  --color-module-violet-tb: var(--wash-soft-pink);
+  --color-module-violet-ink: var(--violet-30);
+  --color-module-rose-a: var(--red-98);
+  --color-module-rose-b: var(--ink-100);
+  --color-module-rose-ta: var(--wash-soft-pink);
+  --color-module-rose-tb: var(--ink-200);
+  --color-module-rose-ink: var(--red-40);
+  --color-module-coral-a: var(--coral-98);
+  --color-module-coral-b: var(--amber-98);
+  --color-module-coral-ta: var(--coral-tint);
+  --color-module-coral-tb: var(--amber-tint);
+  --color-module-coral-ink: var(--coral-40);
+  --color-tone-a: var(--color-module-green-a);
+  --color-tone-b: var(--color-module-green-b);
+  --color-tone-ta: var(--color-module-green-ta);
+  --color-tone-tb: var(--color-module-green-tb);
+  --color-tone-ink: var(--color-module-green-ink);
+  --color-launch-green-start: var(--green-50);
+  --color-launch-green-end: var(--teal-50);
+  --color-launch-amber-start: var(--amber-60);
+  --color-launch-amber-end: var(--green-50);
+  --color-launch-sky-start: var(--sky-50);
+  --color-launch-sky-end: var(--navy-brand);
+  --color-launch-slate-start: var(--ink-500);
+  --color-launch-slate-end: var(--teal-30);
+  --color-launch-coral-start: var(--coral-brand);
+  --color-launch-coral-end: var(--amber-60);
+  --color-text-gradient-start: var(--teal-30);
+  --color-text-gradient-mid: var(--teal-50);
+  --color-text-gradient-end: var(--green-40);
 
   /* hue */
   --hue-green: var(--green-40);
@@ -636,6 +693,16 @@
   --gradient-glow: radial-gradient(70% 85% at 100% 100%, #C4F5CF 0%, rgba(196, 245, 207, .45) 40%, rgba(196, 245, 207, 0) 75%);
   --gradient-aurora: radial-gradient(42% 110% at 0% 100%, rgba(140, 222, 238, .75), rgba(140, 222, 238, 0) 72%), radial-gradient(36% 95% at 32% 108%, rgba(140, 240, 165, .85), rgba(140, 240, 165, 0) 72%), radial-gradient(30% 75% at 92% 62%, rgba(250, 190, 162, .6), rgba(250, 190, 162, 0) 75%);
   --gradient-scrim-photo: linear-gradient(180deg, rgba(8, 22, 14, 0) 38%, rgba(8, 22, 14, .45) 62%, rgba(6, 18, 11, .88) 100%);
+  --gradient-tone-panel: linear-gradient(90deg, transparent 48%, var(--color-surface-raised) 100%), linear-gradient(180deg, var(--color-tone-a), var(--color-tone-b));
+  --gradient-tone-tab: linear-gradient(90deg, color-mix(in srgb, var(--color-tone-ta), var(--color-tone-tb)) 0%, color-mix(in srgb, var(--color-tone-ta) 55%, transparent) 40%, transparent 100%);
+  --gradient-tone-band: linear-gradient(180deg, transparent 30%, var(--color-bg-app) 100%), linear-gradient(90deg, var(--color-tone-a), var(--color-tone-b));
+  --gradient-text-brand: linear-gradient(90deg, var(--color-text-gradient-start) 0%, var(--color-text-gradient-mid) 52%, var(--color-text-gradient-end) 100%);
+  --gradient-petrol: linear-gradient(166deg, var(--navy-20) 8%, var(--teal-25) 50%, var(--teal-40) 92%);
+  --gradient-launch-green: linear-gradient(135deg, var(--color-launch-green-start) 30%, var(--color-launch-green-end) 140%);
+  --gradient-launch-amber: linear-gradient(135deg, var(--color-launch-amber-start) 30%, var(--color-launch-amber-end) 140%);
+  --gradient-launch-sky: linear-gradient(135deg, var(--color-launch-sky-start) 30%, var(--color-launch-sky-end) 140%);
+  --gradient-launch-slate: linear-gradient(135deg, var(--color-launch-slate-start) 30%, var(--color-launch-slate-end) 140%);
+  --gradient-launch-coral: linear-gradient(135deg, var(--color-launch-coral-start) 30%, var(--color-launch-coral-end) 140%);
 
   /* texture */
   --texture-rings: repeating-radial-gradient(circle at -20% 135%, rgba(255, 255, 255, 0) 0 15px, rgba(255, 255, 255, .055) 15px 16px);
@@ -737,6 +804,44 @@
     --color-focus: var(--green-80);
     --color-focus-glow: var(--alpha-focus-glow-dark);
     --color-disabled-bg: var(--night-28);
+    --color-module-green-a: var(--night-15);
+    --color-module-green-b: var(--wash-night-mint);
+    --color-module-green-ta: var(--green-night-soft);
+    --color-module-green-tb: var(--wash-night-aqua);
+    --color-module-green-ink: var(--green-80);
+    --color-module-amber-a: var(--night-15);
+    --color-module-amber-b: var(--wash-night-butter);
+    --color-module-amber-ta: var(--amber-night-soft);
+    --color-module-amber-tb: var(--wash-night-mint);
+    --color-module-amber-ink: var(--amber-80);
+    --color-module-navy-a: var(--night-15);
+    --color-module-navy-b: var(--wash-night-sky);
+    --color-module-navy-ta: var(--navy-night-soft);
+    --color-module-navy-tb: var(--wash-night-sky);
+    --color-module-navy-ink: var(--sky-80);
+    --color-module-slate-a: var(--night-15);
+    --color-module-slate-b: var(--night-25);
+    --color-module-slate-ta: var(--night-28);
+    --color-module-slate-tb: var(--night-30);
+    --color-module-slate-ink: var(--teal-80);
+    --color-module-violet-a: var(--night-15);
+    --color-module-violet-b: var(--violet-night-soft);
+    --color-module-violet-ta: var(--violet-night-soft);
+    --color-module-violet-tb: var(--wash-night-pink);
+    --color-module-violet-ink: var(--violet-80);
+    --color-module-rose-a: var(--night-15);
+    --color-module-rose-b: var(--wash-night-pink);
+    --color-module-rose-ta: var(--red-night-soft);
+    --color-module-rose-tb: var(--wash-night-pink);
+    --color-module-rose-ink: var(--red-80);
+    --color-module-coral-a: var(--night-15);
+    --color-module-coral-b: var(--wash-night-rose);
+    --color-module-coral-ta: var(--coral-night-soft);
+    --color-module-coral-tb: var(--wash-night-butter);
+    --color-module-coral-ink: var(--coral-80);
+    --color-text-gradient-start: var(--teal-80);
+    --color-text-gradient-mid: var(--sky-80);
+    --color-text-gradient-end: var(--green-80);
 
     /* hue */
     --hue-green: var(--green-80);
@@ -866,6 +971,44 @@
   --color-focus: var(--green-80);
   --color-focus-glow: var(--alpha-focus-glow-dark);
   --color-disabled-bg: var(--night-28);
+  --color-module-green-a: var(--night-15);
+  --color-module-green-b: var(--wash-night-mint);
+  --color-module-green-ta: var(--green-night-soft);
+  --color-module-green-tb: var(--wash-night-aqua);
+  --color-module-green-ink: var(--green-80);
+  --color-module-amber-a: var(--night-15);
+  --color-module-amber-b: var(--wash-night-butter);
+  --color-module-amber-ta: var(--amber-night-soft);
+  --color-module-amber-tb: var(--wash-night-mint);
+  --color-module-amber-ink: var(--amber-80);
+  --color-module-navy-a: var(--night-15);
+  --color-module-navy-b: var(--wash-night-sky);
+  --color-module-navy-ta: var(--navy-night-soft);
+  --color-module-navy-tb: var(--wash-night-sky);
+  --color-module-navy-ink: var(--sky-80);
+  --color-module-slate-a: var(--night-15);
+  --color-module-slate-b: var(--night-25);
+  --color-module-slate-ta: var(--night-28);
+  --color-module-slate-tb: var(--night-30);
+  --color-module-slate-ink: var(--teal-80);
+  --color-module-violet-a: var(--night-15);
+  --color-module-violet-b: var(--violet-night-soft);
+  --color-module-violet-ta: var(--violet-night-soft);
+  --color-module-violet-tb: var(--wash-night-pink);
+  --color-module-violet-ink: var(--violet-80);
+  --color-module-rose-a: var(--night-15);
+  --color-module-rose-b: var(--wash-night-pink);
+  --color-module-rose-ta: var(--red-night-soft);
+  --color-module-rose-tb: var(--wash-night-pink);
+  --color-module-rose-ink: var(--red-80);
+  --color-module-coral-a: var(--night-15);
+  --color-module-coral-b: var(--wash-night-rose);
+  --color-module-coral-ta: var(--coral-night-soft);
+  --color-module-coral-tb: var(--wash-night-butter);
+  --color-module-coral-ink: var(--coral-80);
+  --color-text-gradient-start: var(--teal-80);
+  --color-text-gradient-mid: var(--sky-80);
+  --color-text-gradient-end: var(--green-80);
 
   /* hue */
   --hue-green: var(--green-80);
@@ -1028,6 +1171,14 @@
   --color-caution-text: var(--amber-90);
   --color-danger-text: var(--red-90);
   --color-info-text: var(--sky-90);
+}
+
+/* Module tones: tone gradients re-resolve wherever [data-tone] sets the current tone */
+[data-tone] {
+  /* gradient */
+  --gradient-tone-panel: linear-gradient(90deg, transparent 48%, var(--color-surface-raised) 100%), linear-gradient(180deg, var(--color-tone-a), var(--color-tone-b));
+  --gradient-tone-tab: linear-gradient(90deg, color-mix(in srgb, var(--color-tone-ta), var(--color-tone-tb)) 0%, color-mix(in srgb, var(--color-tone-ta) 55%, transparent) 40%, transparent 100%);
+  --gradient-tone-band: linear-gradient(180deg, transparent 30%, var(--color-bg-app) 100%), linear-gradient(90deg, var(--color-tone-a), var(--color-tone-b));
 }
 
 /* Compact density: data-dense tables and forms */

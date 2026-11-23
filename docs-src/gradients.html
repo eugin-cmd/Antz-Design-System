@@ -53,10 +53,21 @@
   <p>Each reference SVG is a two-stop linear gradient on a large canvas. Two colour stops and a direction describe it completely, so it ships as a token, not an image. That way it themes (dark counterparts), versions and lints like every other value. Its six stop colours are primitives (<code>--wash-mint</code>, <code>--wash-rose</code>, <code>--wash-butter</code>, <code>--wash-aqua</code>, <code>--wash-sky</code>, <code>--wash-pink</code>). Keep SVG or bitmap files only for illustrations that contain a gradient.</p>
   <p class="t-small t-secondary">The PDF versions of the gradients mentioned in the brief were not in the reference folder; only the SVGs were inspected.</p>
 </div>
+<div class="doc" id="tone-gradients">
+  <h3>Module tone, launch and entity gradients (1.2)</h3>
+  <p class="lead">From the Kitchen and Diet web app. <b>Tone gradients</b> follow the current module tone (<code>data-tone</code>): <code>--gradient-tone-panel</code> (navigation drawer), <code>--gradient-tone-tab</code> (active rail tab) and <code>--gradient-tone-band</code> (module band). <b>Launch gradients</b> colour the round module tiles. <b>Petrol</b> is for entity headers, and <b>text-brand</b> for one display headline per screen. See <a href="navigation-drawer.html">Navigation drawer</a> and <a href="launcher.html">Launcher and headers</a>.</p>
+  <div class="demo demo--canvas"><div class="launcher" style="justify-content:flex-start">
+    <span class="launcher__item"><span class="tile-module tile-module--round tile-module--launch-green"><svg class="icon"><use href="#i-paw"/></svg></span>launch-green</span>
+    <span class="launcher__item"><span class="tile-module tile-module--round tile-module--launch-amber"><svg class="icon"><use href="#i-chef-hat"/></svg></span>launch-amber</span>
+    <span class="launcher__item"><span class="tile-module tile-module--round tile-module--launch-sky"><svg class="icon"><use href="#i-truck"/></svg></span>launch-sky</span>
+    <span class="launcher__item"><span class="tile-module tile-module--round tile-module--launch-slate"><svg class="icon"><use href="#i-calendar"/></svg></span>launch-slate</span>
+    <span class="launcher__item"><span class="tile-module tile-module--round tile-module--launch-coral"><svg class="icon"><use href="#i-settings"/></svg></span>launch-coral</span>
+  </div></div>
+</div>
 <!--usage-->
 <div class="doc" id="gradients-usage"><h3>Gradients</h3><div class="dd">
   <div class="do"><b><svg class="icon icon--sm"><use href="#i-check"/></svg>Do</b><ul><li>Use one wash per screen, on a large area.</li><li>Put the primary wash on welcome and hero bands.</li><li>Keep text on washes in the normal text colours.</li><li>Use feature gradients only behind large figures.</li></ul></div>
-  <div class="dont"><b><svg class="icon icon--sm"><use href="#i-x"/></svg>Don't</b><ul><li>Put a gradient on buttons, chips or inputs.</li><li>Use gradients in charts or to show status.</li><li>Place the rose-ended washes next to error states (rose equals the error container).</li><li>Write your own <code>linear-gradient()</code>.</li></ul></div>
+  <div class="dont"><b><svg class="icon icon--sm"><use href="#i-x"/></svg>Don't</b><ul><li>Put a gradient on buttons, chips or inputs.</li><li>Use gradients in charts or to show status.</li><li>Place the rose-ended washes next to error states (rose equals the error container).</li><li>Write your own <code>linear-gradient()</code>.</li><li>Use module tones or launch gradients to show status.</li></ul></div>
 </div></div>
 <!--code-->
 <div class="doc" id="gradients-code"><h3>Gradients</h3><pre><code>&lt;section class="hero-band wash wash--primary"&gt;…&lt;/section&gt;

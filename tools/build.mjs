@@ -142,6 +142,11 @@ const PAIRS = [
   ['color.tertiary.on-solid', 'color.tertiary.solid', T], ['color.tertiary.text', 'color.tertiary.soft', T], ['color.tertiary.text', 'color.surface', T],
   ...['success', 'warning', 'caution', 'danger', 'info'].flatMap((s) => [[`color.${s}.text`, `color.${s}.bg`, T], [`color.${s}.text`, 'color.surface', T], [`color.${s}.on-solid`, `color.${s}.solid`, T], [`color.signal.${s}`, 'color.surface', U]]),
   ['color.neutral.text', 'color.neutral.bg', T],
+  // Module tones (navigation drawer, rail tabs, module band) and launcher tiles (1.2)
+  ...['green', 'amber', 'navy', 'slate', 'violet', 'rose', 'coral'].flatMap((t) => [[`color.module.${t}.ink`, `color.module.${t}.ta`, T], [`color.module.${t}.ink`, `color.module.${t}.tb`, T], [`color.module.${t}.ink`, `color.module.${t}.a`, T],
+    [`color.text`, `color.module.${t}.a`, T], [`color.text`, `color.module.${t}.b`, T], [`color.text.secondary`, `color.module.${t}.a`, T], [`color.text.secondary`, `color.module.${t}.b`, T]]),
+  ...['green', 'amber', 'sky', 'slate', 'coral'].flatMap((t) => [[`color.text.on-strong`, `color.launch.${t}.start`, U], [`color.text.on-strong`, `color.launch.${t}.end`, U]]),
+  ...['start', 'mid', 'end'].flatMap((s) => [[`color.text-gradient.${s}`, 'color.surface', U], [`color.text-gradient.${s}`, 'color.bg.app', U]]),
   // Stat panels on a wash: figures (large text, 3:1) and labels (4.5:1) on every stop
   ...['mint', 'rose', 'butter', 'aqua', 'sky', 'pink'].flatMap((w) => [['color.accent.text', `gradient-stop.${w}`, U], ['color.text', `gradient-stop.${w}`, T], ['color.text.secondary', `gradient-stop.${w}`, T]]),
   ...['green', 'teal', 'sky', 'coral', 'amber', 'violet', 'navy'].flatMap((h) => [[`hue.${h}.ink`, `hue.${h}.soft`, T], [`hue.${h}`, 'color.surface', U]]),
@@ -235,6 +240,9 @@ const css = `/* ================================================================
   :root[data-contrast="high"]:not([data-theme="light"]) {${block(layer['hc-dark'], '    ')}  }
 }
 :root[data-theme="dark"][data-contrast="high"] {${block(layer['hc-dark'])}}
+
+/* Module tones: tone gradients re-resolve wherever [data-tone] sets the current tone */
+[data-tone] {${block(new Map([...layer.light].filter(([, t]) => t.ext?.['com.antz']?.scope === 'tone')))}}
 
 /* Compact density: data-dense tables and forms */
 [data-density="compact"] {${block(layer.compact)}}

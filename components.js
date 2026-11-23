@@ -8,6 +8,8 @@
 
      Tabs and segmented controls  one indicator glides to the selected item
      Animal card                  compact ⇄ expanded with an eased resize
+     Navigation drawer (1.2)      open/close from the hamburger, module tabs,
+                                  Escape, focus return; the tone fades
    ========================================================================== */
 (function () {
   'use strict';
@@ -96,4 +98,61 @@
   }
   if (doc.readyState === 'loading') doc.addEventListener('DOMContentLoaded', start); else start();
   window.AntzComponents = { refresh: function (root) { scan(root || doc); } };
+})();
+
+/* ── Navigation drawer (1.2) ───────────────────────────────────────────────
+   Markup: a trigger with data-navdrawer-open="<drawer id>", an
+   <aside class="navdrawer" id="<drawer id>" hidden>, and (optional) a
+   .drawer-backdrop with data-navdrawer-backdrop="<drawer id>" hidden.
+   Rail tabs (role="tab", aria-controls → a .navdrawer__menu, data-tone) switch
+   the menu and the drawer's tone; the tone colours fade (CSS @property). */
+(function () {
+  'use strict';
+  var doc = document, lastTrigger = null;
+  function backdropFor(d) { return doc.querySelector('[data-navdrawer-backdrop="' + d.id + '"]'); }
+  function open(d, trigger) {
+    lastTrigger = trigger || doc.activeElement;
+    d.hidden = false; d.classList.remove('is-leaving');
+    var b = backdropFor(d); if (b) b.hidden = false;
+    doc.querySelectorAll('[data-navdrawer-open="' + d.id + '"]').forEach(function (t) { t.setAttribute('aria-expanded', 'true'); });
+    var focus = d.querySelector('.navdrawer__tab[aria-selected="true"]') || d.querySelector('button, a, input');
+    if (focus) focus.focus();
+  }
+  function close(d) {
+    if (d.hidden) return;
+    var dur = parseFloat(getComputedStyle(d).animationDuration) || 0;
+    var finish = function () { d.hidden = true; d.classList.remove('is-leaving'); var b = backdropFor(d); if (b) b.hidden = true; };
+    doc.querySelectorAll('[data-navdrawer-open="' + d.id + '"]').forEach(function (t) { t.setAttribute('aria-expanded', 'false'); });
+    if (dur > 0) { d.classList.add('is-leaving'); setTimeout(finish, dur * 1000); } else finish();
+    if (lastTrigger && lastTrigger.focus) lastTrigger.focus();
+  }
+  function select(tab) {
+    var d = tab.closest('.navdrawer'); if (!d) return;
+    d.querySelectorAll('.navdrawer__tab').forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute('aria-selected', on ? 'true' : 'false'); t.tabIndex = on ? 0 : -1;
+      var m = t.getAttribute('aria-controls') && doc.getElementById(t.getAttribute('aria-controls'));
+      if (m) m.hidden = !on;
+    });
+    if (tab.dataset.tone) d.dataset.tone = tab.dataset.tone;
+  }
+  doc.addEventListener('click', function (e) {
+    var t = e.target.closest('[data-navdrawer-open]');
+    if (t) { var d = doc.getElementById(t.getAttribute('data-navdrawer-open')); if (d) { if (d.hidden) open(d, t); else close(d); } return; }
+    var c = e.target.closest('[data-navdrawer-close]');
+    if (c) { var d2 = c.closest('.navdrawer'); if (d2) close(d2); return; }
+    var bd = e.target.closest('[data-navdrawer-backdrop]');
+    if (bd) { var d3 = doc.getElementById(bd.getAttribute('data-navdrawer-backdrop')); if (d3) close(d3); return; }
+    var tab = e.target.closest('.navdrawer__tab'); if (tab) select(tab);
+  });
+  doc.addEventListener('keydown', function (e) {
+    var d = e.target.closest && e.target.closest('.navdrawer');
+    if (e.key === 'Escape') { var open1 = d || doc.querySelector('.navdrawer:not([hidden])'); if (open1 && !open1.hasAttribute('data-navdrawer-static')) close(open1); return; }
+    var tab = e.target.closest && e.target.closest('.navdrawer__tab');
+    if (tab && (e.key === 'ArrowDown' || e.key === 'ArrowUp' || e.key === 'Home' || e.key === 'End')) {
+      var tabs = Array.prototype.slice.call(tab.parentNode.querySelectorAll('.navdrawer__tab')), i = tabs.indexOf(tab);
+      var n = e.key === 'Home' ? 0 : e.key === 'End' ? tabs.length - 1 : (i + (e.key === 'ArrowDown' ? 1 : -1) + tabs.length) % tabs.length;
+      e.preventDefault(); select(tabs[n]); tabs[n].focus();
+    }
+  });
 })();

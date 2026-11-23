@@ -1537,6 +1537,26 @@
           "$value": "562px",
           "$description": "Right work drawer (decision D5)"
         },
+        "drawer-nav": {
+          "$type": "dimension",
+          "$value": "384px",
+          "$description": "Left navigation drawer: module rail plus menu panel (1.2)"
+        },
+        "rail": {
+          "$type": "dimension",
+          "$value": "96px",
+          "$description": "Module rail inside the navigation drawer (1.2)"
+        },
+        "rail-tab": {
+          "$type": "dimension",
+          "$value": "64px",
+          "$description": "Height of a module rail tab: icon over label (1.2)"
+        },
+        "launcher": {
+          "$type": "dimension",
+          "$value": "56px",
+          "$description": "Round module tile in the launcher (1.2)"
+        },
         "sidenav": {
           "$type": "dimension",
           "$value": "260px"
@@ -2136,6 +2156,290 @@
             "$value": "#FFFFFF",
             "$description": "Text over a photo scrim or media chip"
           }
+        },
+        "module": {
+          "green": {
+            "a": {
+              "$type": "color",
+              "$value": "#E8F6EE",
+              "$description": "Panel tint, top"
+            },
+            "b": {
+              "$type": "color",
+              "$value": "#DDF5F3",
+              "$description": "Panel tint, bottom"
+            },
+            "ta": {
+              "$type": "color",
+              "$value": "#DFF9E8",
+              "$description": "Active tab and band, start"
+            },
+            "tb": {
+              "$type": "color",
+              "$value": "#DFFAF8",
+              "$description": "Active tab and band, end"
+            },
+            "ink": {
+              "$type": "color",
+              "$value": "#006D35",
+              "$description": "Active tab label and icon (4.5:1 on its tints)"
+            }
+          },
+          "amber": {
+            "a": {
+              "$type": "color",
+              "$value": "#FFF8F0",
+              "$description": "Panel tint, top"
+            },
+            "b": {
+              "$type": "color",
+              "$value": "#E8F6EE",
+              "$description": "Panel tint, bottom"
+            },
+            "ta": {
+              "$type": "color",
+              "$value": "#FFF4D9",
+              "$description": "Active tab and band, start"
+            },
+            "tb": {
+              "$type": "color",
+              "$value": "#DFF9E8",
+              "$description": "Active tab and band, end"
+            },
+            "ink": {
+              "$type": "color",
+              "$value": "#745B00",
+              "$description": "Active tab label and icon (4.5:1 on its tints)"
+            }
+          },
+          "navy": {
+            "a": {
+              "$type": "color",
+              "$value": "#F2FBFF",
+              "$description": "Panel tint, top"
+            },
+            "b": {
+              "$type": "color",
+              "$value": "#F7F9FF",
+              "$description": "Panel tint, bottom"
+            },
+            "ta": {
+              "$type": "color",
+              "$value": "#E1F5FB",
+              "$description": "Active tab and band, start"
+            },
+            "tb": {
+              "$type": "color",
+              "$value": "#E3ECF3",
+              "$description": "Active tab and band, end"
+            },
+            "ink": {
+              "$type": "color",
+              "$value": "#294A64",
+              "$description": "Active tab label and icon (4.5:1 on its tints)"
+            }
+          },
+          "slate": {
+            "a": {
+              "$type": "color",
+              "$value": "#F3F8F5",
+              "$description": "Panel tint, top"
+            },
+            "b": {
+              "$type": "color",
+              "$value": "#EDF2EF",
+              "$description": "Panel tint, bottom"
+            },
+            "ta": {
+              "$type": "color",
+              "$value": "#E2EAE6",
+              "$description": "Active tab and band, start"
+            },
+            "tb": {
+              "$type": "color",
+              "$value": "#DCE6E1",
+              "$description": "Active tab and band, end"
+            },
+            "ink": {
+              "$type": "color",
+              "$value": "#005049",
+              "$description": "Active tab label and icon (4.5:1 on its tints)"
+            }
+          },
+          "violet": {
+            "a": {
+              "$type": "color",
+              "$value": "#F3F8F5",
+              "$description": "Panel tint, top"
+            },
+            "b": {
+              "$type": "color",
+              "$value": "#FFF8F7",
+              "$description": "Panel tint, bottom"
+            },
+            "ta": {
+              "$type": "color",
+              "$value": "#EEE9FF",
+              "$description": "Active tab and band, start"
+            },
+            "tb": {
+              "$type": "color",
+              "$value": "#FCE6EA",
+              "$description": "Active tab and band, end"
+            },
+            "ink": {
+              "$type": "color",
+              "$value": "#4B33A8",
+              "$description": "Active tab label and icon (4.5:1 on its tints)"
+            }
+          },
+          "rose": {
+            "a": {
+              "$type": "color",
+              "$value": "#FFF8F7",
+              "$description": "Panel tint, top"
+            },
+            "b": {
+              "$type": "color",
+              "$value": "#F2F5F4",
+              "$description": "Panel tint, bottom"
+            },
+            "ta": {
+              "$type": "color",
+              "$value": "#FCE6EA",
+              "$description": "Active tab and band, start"
+            },
+            "tb": {
+              "$type": "color",
+              "$value": "#E2EAE6",
+              "$description": "Active tab and band, end"
+            },
+            "ink": {
+              "$type": "color",
+              "$value": "#BD0538",
+              "$description": "Active tab label and icon (4.5:1 on its tints)"
+            }
+          },
+          "coral": {
+            "a": {
+              "$type": "color",
+              "$value": "#FFF8F6",
+              "$description": "Panel tint, top"
+            },
+            "b": {
+              "$type": "color",
+              "$value": "#FFF8F0",
+              "$description": "Panel tint, bottom"
+            },
+            "ta": {
+              "$type": "color",
+              "$value": "#FFEBE5",
+              "$description": "Active tab and band, start"
+            },
+            "tb": {
+              "$type": "color",
+              "$value": "#FFF4D9",
+              "$description": "Active tab and band, end"
+            },
+            "ink": {
+              "$type": "color",
+              "$value": "#B12D10",
+              "$description": "Active tab label and icon (4.5:1 on its tints)"
+            }
+          }
+        },
+        "tone": {
+          "a": {
+            "$type": "color",
+            "$value": "#E8F6EE",
+            "$description": "Panel tint, top"
+          },
+          "b": {
+            "$type": "color",
+            "$value": "#DDF5F3",
+            "$description": "Panel tint, bottom"
+          },
+          "ta": {
+            "$type": "color",
+            "$value": "#DFF9E8",
+            "$description": "Active tab and band, start"
+          },
+          "tb": {
+            "$type": "color",
+            "$value": "#DFFAF8",
+            "$description": "Active tab and band, end"
+          },
+          "ink": {
+            "$type": "color",
+            "$value": "#006D35",
+            "$description": "Active tab label and icon (4.5:1 on its tints)"
+          }
+        },
+        "launch": {
+          "green": {
+            "start": {
+              "$type": "color",
+              "$value": "#008944"
+            },
+            "end": {
+              "$type": "color",
+              "$value": "#00867A"
+            }
+          },
+          "amber": {
+            "start": {
+              "$type": "color",
+              "$value": "#B08C00"
+            },
+            "end": {
+              "$type": "color",
+              "$value": "#008944"
+            }
+          },
+          "sky": {
+            "start": {
+              "$type": "color",
+              "$value": "#00829F"
+            },
+            "end": {
+              "$type": "color",
+              "$value": "#1F415B"
+            }
+          },
+          "slate": {
+            "start": {
+              "$type": "color",
+              "$value": "#7A8684"
+            },
+            "end": {
+              "$type": "color",
+              "$value": "#005049"
+            }
+          },
+          "coral": {
+            "start": {
+              "$type": "color",
+              "$value": "#FA6140"
+            },
+            "end": {
+              "$type": "color",
+              "$value": "#B08C00"
+            }
+          }
+        },
+        "text-gradient": {
+          "start": {
+            "$type": "color",
+            "$value": "#005049"
+          },
+          "mid": {
+            "$type": "color",
+            "$value": "#00867A"
+          },
+          "end": {
+            "$type": "color",
+            "$value": "#006D35"
+          }
         }
       },
       "hue": {
@@ -2355,6 +2659,56 @@
           "$type": "gradient",
           "$value": "linear-gradient(180deg, rgba(8, 22, 14, 0) 38%, rgba(8, 22, 14, .45) 62%, rgba(6, 18, 11, .88) 100%)",
           "$description": "Overlay: text over photography only"
+        },
+        "tone-panel": {
+          "$type": "gradient",
+          "$value": "linear-gradient(90deg, transparent 48%, #FFFFFF 100%), linear-gradient(180deg, #E8F6EE, #DDF5F3)",
+          "$description": "Navigation drawer background: the module tint, top to bottom, fading to the surface on the right."
+        },
+        "tone-tab": {
+          "$type": "gradient",
+          "$value": "linear-gradient(90deg, color-mix(in srgb, #DFF9E8, #DFFAF8) 0%, color-mix(in srgb, #DFF9E8 55%, transparent) 40%, transparent 100%)",
+          "$description": "Active rail tab: opens from the tab into the panel."
+        },
+        "tone-band": {
+          "$type": "gradient",
+          "$value": "linear-gradient(180deg, transparent 30%, #DDEFE4 100%), linear-gradient(90deg, #E8F6EE, #DDF5F3)",
+          "$description": "Module band: the strip behind a module page header, fading into the page."
+        },
+        "text-brand": {
+          "$type": "gradient",
+          "$value": "linear-gradient(90deg, #005049 0%, #00867A 52%, #006D35 100%)",
+          "$description": "Display headline text (one per screen, large text only)."
+        },
+        "petrol": {
+          "$type": "gradient",
+          "$value": "linear-gradient(166deg, #0E334C 8%, #00443D 50%, #006A61 92%)",
+          "$description": "Feature: entity header (species, animal, enclosure) with white text."
+        },
+        "launch-green": {
+          "$type": "gradient",
+          "$value": "linear-gradient(135deg, #008944 30%, #00867A 140%)",
+          "$description": "Round module tile (launcher), white icon."
+        },
+        "launch-amber": {
+          "$type": "gradient",
+          "$value": "linear-gradient(135deg, #B08C00 30%, #008944 140%)",
+          "$description": "Round module tile (launcher), white icon."
+        },
+        "launch-sky": {
+          "$type": "gradient",
+          "$value": "linear-gradient(135deg, #00829F 30%, #1F415B 140%)",
+          "$description": "Round module tile (launcher), white icon."
+        },
+        "launch-slate": {
+          "$type": "gradient",
+          "$value": "linear-gradient(135deg, #7A8684 30%, #005049 140%)",
+          "$description": "Round module tile (launcher), white icon."
+        },
+        "launch-coral": {
+          "$type": "gradient",
+          "$value": "linear-gradient(135deg, #FA6140 30%, #B08C00 140%)",
+          "$description": "Round module tile (launcher), white icon."
         }
       },
       "texture": {
@@ -3925,6 +4279,26 @@
           "$value": "562px",
           "$description": "Right work drawer (decision D5)"
         },
+        "drawer-nav": {
+          "$type": "dimension",
+          "$value": "384px",
+          "$description": "Left navigation drawer: module rail plus menu panel (1.2)"
+        },
+        "rail": {
+          "$type": "dimension",
+          "$value": "96px",
+          "$description": "Module rail inside the navigation drawer (1.2)"
+        },
+        "rail-tab": {
+          "$type": "dimension",
+          "$value": "64px",
+          "$description": "Height of a module rail tab: icon over label (1.2)"
+        },
+        "launcher": {
+          "$type": "dimension",
+          "$value": "56px",
+          "$description": "Round module tile in the launcher (1.2)"
+        },
         "sidenav": {
           "$type": "dimension",
           "$value": "260px"
@@ -4524,6 +4898,290 @@
             "$value": "#FFFFFF",
             "$description": "Text over a photo scrim or media chip"
           }
+        },
+        "module": {
+          "green": {
+            "a": {
+              "$type": "color",
+              "$value": "#1A2620",
+              "$description": "Panel tint, top"
+            },
+            "b": {
+              "$type": "color",
+              "$value": "#123A2A",
+              "$description": "Panel tint, bottom"
+            },
+            "ta": {
+              "$type": "color",
+              "$value": "#123A24",
+              "$description": "Active tab and band, start"
+            },
+            "tb": {
+              "$type": "color",
+              "$value": "#12383A",
+              "$description": "Active tab and band, end"
+            },
+            "ink": {
+              "$type": "color",
+              "$value": "#5EDF86",
+              "$description": "Active tab label and icon (4.5:1 on its tints)"
+            }
+          },
+          "amber": {
+            "a": {
+              "$type": "color",
+              "$value": "#1A2620",
+              "$description": "Panel tint, top"
+            },
+            "b": {
+              "$type": "color",
+              "$value": "#38321A",
+              "$description": "Panel tint, bottom"
+            },
+            "ta": {
+              "$type": "color",
+              "$value": "#33270B",
+              "$description": "Active tab and band, start"
+            },
+            "tb": {
+              "$type": "color",
+              "$value": "#123A2A",
+              "$description": "Active tab and band, end"
+            },
+            "ink": {
+              "$type": "color",
+              "$value": "#EEC126",
+              "$description": "Active tab label and icon (4.5:1 on its tints)"
+            }
+          },
+          "navy": {
+            "a": {
+              "$type": "color",
+              "$value": "#1A2620",
+              "$description": "Panel tint, top"
+            },
+            "b": {
+              "$type": "color",
+              "$value": "#133543",
+              "$description": "Panel tint, bottom"
+            },
+            "ta": {
+              "$type": "color",
+              "$value": "#142636",
+              "$description": "Active tab and band, start"
+            },
+            "tb": {
+              "$type": "color",
+              "$value": "#133543",
+              "$description": "Active tab and band, end"
+            },
+            "ink": {
+              "$type": "color",
+              "$value": "#51D5FE",
+              "$description": "Active tab label and icon (4.5:1 on its tints)"
+            }
+          },
+          "slate": {
+            "a": {
+              "$type": "color",
+              "$value": "#1A2620",
+              "$description": "Panel tint, top"
+            },
+            "b": {
+              "$type": "color",
+              "$value": "#22302A",
+              "$description": "Panel tint, bottom"
+            },
+            "ta": {
+              "$type": "color",
+              "$value": "#26332D",
+              "$description": "Active tab and band, start"
+            },
+            "tb": {
+              "$type": "color",
+              "$value": "#2A3832",
+              "$description": "Active tab and band, end"
+            },
+            "ink": {
+              "$type": "color",
+              "$value": "#18DECC",
+              "$description": "Active tab label and icon (4.5:1 on its tints)"
+            }
+          },
+          "violet": {
+            "a": {
+              "$type": "color",
+              "$value": "#1A2620",
+              "$description": "Panel tint, top"
+            },
+            "b": {
+              "$type": "color",
+              "$value": "#241D45",
+              "$description": "Panel tint, bottom"
+            },
+            "ta": {
+              "$type": "color",
+              "$value": "#241D45",
+              "$description": "Active tab and band, start"
+            },
+            "tb": {
+              "$type": "color",
+              "$value": "#3D2129",
+              "$description": "Active tab and band, end"
+            },
+            "ink": {
+              "$type": "color",
+              "$value": "#BBA9FF",
+              "$description": "Active tab label and icon (4.5:1 on its tints)"
+            }
+          },
+          "rose": {
+            "a": {
+              "$type": "color",
+              "$value": "#1A2620",
+              "$description": "Panel tint, top"
+            },
+            "b": {
+              "$type": "color",
+              "$value": "#3D2129",
+              "$description": "Panel tint, bottom"
+            },
+            "ta": {
+              "$type": "color",
+              "$value": "#3A1418",
+              "$description": "Active tab and band, start"
+            },
+            "tb": {
+              "$type": "color",
+              "$value": "#3D2129",
+              "$description": "Active tab and band, end"
+            },
+            "ink": {
+              "$type": "color",
+              "$value": "#FFB3B6",
+              "$description": "Active tab label and icon (4.5:1 on its tints)"
+            }
+          },
+          "coral": {
+            "a": {
+              "$type": "color",
+              "$value": "#1A2620",
+              "$description": "Panel tint, top"
+            },
+            "b": {
+              "$type": "color",
+              "$value": "#3A2228",
+              "$description": "Panel tint, bottom"
+            },
+            "ta": {
+              "$type": "color",
+              "$value": "#3A1A12",
+              "$description": "Active tab and band, start"
+            },
+            "tb": {
+              "$type": "color",
+              "$value": "#38321A",
+              "$description": "Active tab and band, end"
+            },
+            "ink": {
+              "$type": "color",
+              "$value": "#FFB4A4",
+              "$description": "Active tab label and icon (4.5:1 on its tints)"
+            }
+          }
+        },
+        "tone": {
+          "a": {
+            "$type": "color",
+            "$value": "#1A2620",
+            "$description": "Panel tint, top"
+          },
+          "b": {
+            "$type": "color",
+            "$value": "#123A2A",
+            "$description": "Panel tint, bottom"
+          },
+          "ta": {
+            "$type": "color",
+            "$value": "#123A24",
+            "$description": "Active tab and band, start"
+          },
+          "tb": {
+            "$type": "color",
+            "$value": "#12383A",
+            "$description": "Active tab and band, end"
+          },
+          "ink": {
+            "$type": "color",
+            "$value": "#5EDF86",
+            "$description": "Active tab label and icon (4.5:1 on its tints)"
+          }
+        },
+        "launch": {
+          "green": {
+            "start": {
+              "$type": "color",
+              "$value": "#008944"
+            },
+            "end": {
+              "$type": "color",
+              "$value": "#00867A"
+            }
+          },
+          "amber": {
+            "start": {
+              "$type": "color",
+              "$value": "#B08C00"
+            },
+            "end": {
+              "$type": "color",
+              "$value": "#008944"
+            }
+          },
+          "sky": {
+            "start": {
+              "$type": "color",
+              "$value": "#00829F"
+            },
+            "end": {
+              "$type": "color",
+              "$value": "#1F415B"
+            }
+          },
+          "slate": {
+            "start": {
+              "$type": "color",
+              "$value": "#7A8684"
+            },
+            "end": {
+              "$type": "color",
+              "$value": "#005049"
+            }
+          },
+          "coral": {
+            "start": {
+              "$type": "color",
+              "$value": "#FA6140"
+            },
+            "end": {
+              "$type": "color",
+              "$value": "#B08C00"
+            }
+          }
+        },
+        "text-gradient": {
+          "start": {
+            "$type": "color",
+            "$value": "#18DECC"
+          },
+          "mid": {
+            "$type": "color",
+            "$value": "#51D5FE"
+          },
+          "end": {
+            "$type": "color",
+            "$value": "#5EDF86"
+          }
         }
       },
       "hue": {
@@ -4743,6 +5401,56 @@
           "$type": "gradient",
           "$value": "linear-gradient(180deg, rgba(8, 22, 14, 0) 38%, rgba(8, 22, 14, .45) 62%, rgba(6, 18, 11, .88) 100%)",
           "$description": "Overlay: text over photography only"
+        },
+        "tone-panel": {
+          "$type": "gradient",
+          "$value": "linear-gradient(90deg, transparent 48%, #1A2620 100%), linear-gradient(180deg, #1A2620, #123A2A)",
+          "$description": "Navigation drawer background: the module tint, top to bottom, fading to the surface on the right."
+        },
+        "tone-tab": {
+          "$type": "gradient",
+          "$value": "linear-gradient(90deg, color-mix(in srgb, #123A24, #12383A) 0%, color-mix(in srgb, #123A24 55%, transparent) 40%, transparent 100%)",
+          "$description": "Active rail tab: opens from the tab into the panel."
+        },
+        "tone-band": {
+          "$type": "gradient",
+          "$value": "linear-gradient(180deg, transparent 30%, #0A110E 100%), linear-gradient(90deg, #1A2620, #123A2A)",
+          "$description": "Module band: the strip behind a module page header, fading into the page."
+        },
+        "text-brand": {
+          "$type": "gradient",
+          "$value": "linear-gradient(90deg, #18DECC 0%, #51D5FE 52%, #5EDF86 100%)",
+          "$description": "Display headline text (one per screen, large text only)."
+        },
+        "petrol": {
+          "$type": "gradient",
+          "$value": "linear-gradient(166deg, #0E334C 8%, #00443D 50%, #006A61 92%)",
+          "$description": "Feature: entity header (species, animal, enclosure) with white text."
+        },
+        "launch-green": {
+          "$type": "gradient",
+          "$value": "linear-gradient(135deg, #008944 30%, #00867A 140%)",
+          "$description": "Round module tile (launcher), white icon."
+        },
+        "launch-amber": {
+          "$type": "gradient",
+          "$value": "linear-gradient(135deg, #B08C00 30%, #008944 140%)",
+          "$description": "Round module tile (launcher), white icon."
+        },
+        "launch-sky": {
+          "$type": "gradient",
+          "$value": "linear-gradient(135deg, #00829F 30%, #1F415B 140%)",
+          "$description": "Round module tile (launcher), white icon."
+        },
+        "launch-slate": {
+          "$type": "gradient",
+          "$value": "linear-gradient(135deg, #7A8684 30%, #005049 140%)",
+          "$description": "Round module tile (launcher), white icon."
+        },
+        "launch-coral": {
+          "$type": "gradient",
+          "$value": "linear-gradient(135deg, #FA6140 30%, #B08C00 140%)",
+          "$description": "Round module tile (launcher), white icon."
         }
       },
       "texture": {
@@ -6313,6 +7021,26 @@
           "$value": "562px",
           "$description": "Right work drawer (decision D5)"
         },
+        "drawer-nav": {
+          "$type": "dimension",
+          "$value": "384px",
+          "$description": "Left navigation drawer: module rail plus menu panel (1.2)"
+        },
+        "rail": {
+          "$type": "dimension",
+          "$value": "96px",
+          "$description": "Module rail inside the navigation drawer (1.2)"
+        },
+        "rail-tab": {
+          "$type": "dimension",
+          "$value": "64px",
+          "$description": "Height of a module rail tab: icon over label (1.2)"
+        },
+        "launcher": {
+          "$type": "dimension",
+          "$value": "56px",
+          "$description": "Round module tile in the launcher (1.2)"
+        },
         "sidenav": {
           "$type": "dimension",
           "$value": "260px"
@@ -6912,6 +7640,290 @@
             "$value": "#FFFFFF",
             "$description": "Text over a photo scrim or media chip"
           }
+        },
+        "module": {
+          "green": {
+            "a": {
+              "$type": "color",
+              "$value": "#E8F6EE",
+              "$description": "Panel tint, top"
+            },
+            "b": {
+              "$type": "color",
+              "$value": "#DDF5F3",
+              "$description": "Panel tint, bottom"
+            },
+            "ta": {
+              "$type": "color",
+              "$value": "#DFF9E8",
+              "$description": "Active tab and band, start"
+            },
+            "tb": {
+              "$type": "color",
+              "$value": "#DFFAF8",
+              "$description": "Active tab and band, end"
+            },
+            "ink": {
+              "$type": "color",
+              "$value": "#006D35",
+              "$description": "Active tab label and icon (4.5:1 on its tints)"
+            }
+          },
+          "amber": {
+            "a": {
+              "$type": "color",
+              "$value": "#FFF8F0",
+              "$description": "Panel tint, top"
+            },
+            "b": {
+              "$type": "color",
+              "$value": "#E8F6EE",
+              "$description": "Panel tint, bottom"
+            },
+            "ta": {
+              "$type": "color",
+              "$value": "#FFF4D9",
+              "$description": "Active tab and band, start"
+            },
+            "tb": {
+              "$type": "color",
+              "$value": "#DFF9E8",
+              "$description": "Active tab and band, end"
+            },
+            "ink": {
+              "$type": "color",
+              "$value": "#745B00",
+              "$description": "Active tab label and icon (4.5:1 on its tints)"
+            }
+          },
+          "navy": {
+            "a": {
+              "$type": "color",
+              "$value": "#F2FBFF",
+              "$description": "Panel tint, top"
+            },
+            "b": {
+              "$type": "color",
+              "$value": "#F7F9FF",
+              "$description": "Panel tint, bottom"
+            },
+            "ta": {
+              "$type": "color",
+              "$value": "#E1F5FB",
+              "$description": "Active tab and band, start"
+            },
+            "tb": {
+              "$type": "color",
+              "$value": "#E3ECF3",
+              "$description": "Active tab and band, end"
+            },
+            "ink": {
+              "$type": "color",
+              "$value": "#294A64",
+              "$description": "Active tab label and icon (4.5:1 on its tints)"
+            }
+          },
+          "slate": {
+            "a": {
+              "$type": "color",
+              "$value": "#F3F8F5",
+              "$description": "Panel tint, top"
+            },
+            "b": {
+              "$type": "color",
+              "$value": "#EDF2EF",
+              "$description": "Panel tint, bottom"
+            },
+            "ta": {
+              "$type": "color",
+              "$value": "#E2EAE6",
+              "$description": "Active tab and band, start"
+            },
+            "tb": {
+              "$type": "color",
+              "$value": "#DCE6E1",
+              "$description": "Active tab and band, end"
+            },
+            "ink": {
+              "$type": "color",
+              "$value": "#005049",
+              "$description": "Active tab label and icon (4.5:1 on its tints)"
+            }
+          },
+          "violet": {
+            "a": {
+              "$type": "color",
+              "$value": "#F3F8F5",
+              "$description": "Panel tint, top"
+            },
+            "b": {
+              "$type": "color",
+              "$value": "#FFF8F7",
+              "$description": "Panel tint, bottom"
+            },
+            "ta": {
+              "$type": "color",
+              "$value": "#EEE9FF",
+              "$description": "Active tab and band, start"
+            },
+            "tb": {
+              "$type": "color",
+              "$value": "#FCE6EA",
+              "$description": "Active tab and band, end"
+            },
+            "ink": {
+              "$type": "color",
+              "$value": "#4B33A8",
+              "$description": "Active tab label and icon (4.5:1 on its tints)"
+            }
+          },
+          "rose": {
+            "a": {
+              "$type": "color",
+              "$value": "#FFF8F7",
+              "$description": "Panel tint, top"
+            },
+            "b": {
+              "$type": "color",
+              "$value": "#F2F5F4",
+              "$description": "Panel tint, bottom"
+            },
+            "ta": {
+              "$type": "color",
+              "$value": "#FCE6EA",
+              "$description": "Active tab and band, start"
+            },
+            "tb": {
+              "$type": "color",
+              "$value": "#E2EAE6",
+              "$description": "Active tab and band, end"
+            },
+            "ink": {
+              "$type": "color",
+              "$value": "#BD0538",
+              "$description": "Active tab label and icon (4.5:1 on its tints)"
+            }
+          },
+          "coral": {
+            "a": {
+              "$type": "color",
+              "$value": "#FFF8F6",
+              "$description": "Panel tint, top"
+            },
+            "b": {
+              "$type": "color",
+              "$value": "#FFF8F0",
+              "$description": "Panel tint, bottom"
+            },
+            "ta": {
+              "$type": "color",
+              "$value": "#FFEBE5",
+              "$description": "Active tab and band, start"
+            },
+            "tb": {
+              "$type": "color",
+              "$value": "#FFF4D9",
+              "$description": "Active tab and band, end"
+            },
+            "ink": {
+              "$type": "color",
+              "$value": "#B12D10",
+              "$description": "Active tab label and icon (4.5:1 on its tints)"
+            }
+          }
+        },
+        "tone": {
+          "a": {
+            "$type": "color",
+            "$value": "#E8F6EE",
+            "$description": "Panel tint, top"
+          },
+          "b": {
+            "$type": "color",
+            "$value": "#DDF5F3",
+            "$description": "Panel tint, bottom"
+          },
+          "ta": {
+            "$type": "color",
+            "$value": "#DFF9E8",
+            "$description": "Active tab and band, start"
+          },
+          "tb": {
+            "$type": "color",
+            "$value": "#DFFAF8",
+            "$description": "Active tab and band, end"
+          },
+          "ink": {
+            "$type": "color",
+            "$value": "#006D35",
+            "$description": "Active tab label and icon (4.5:1 on its tints)"
+          }
+        },
+        "launch": {
+          "green": {
+            "start": {
+              "$type": "color",
+              "$value": "#008944"
+            },
+            "end": {
+              "$type": "color",
+              "$value": "#00867A"
+            }
+          },
+          "amber": {
+            "start": {
+              "$type": "color",
+              "$value": "#B08C00"
+            },
+            "end": {
+              "$type": "color",
+              "$value": "#008944"
+            }
+          },
+          "sky": {
+            "start": {
+              "$type": "color",
+              "$value": "#00829F"
+            },
+            "end": {
+              "$type": "color",
+              "$value": "#1F415B"
+            }
+          },
+          "slate": {
+            "start": {
+              "$type": "color",
+              "$value": "#7A8684"
+            },
+            "end": {
+              "$type": "color",
+              "$value": "#005049"
+            }
+          },
+          "coral": {
+            "start": {
+              "$type": "color",
+              "$value": "#FA6140"
+            },
+            "end": {
+              "$type": "color",
+              "$value": "#B08C00"
+            }
+          }
+        },
+        "text-gradient": {
+          "start": {
+            "$type": "color",
+            "$value": "#005049"
+          },
+          "mid": {
+            "$type": "color",
+            "$value": "#00867A"
+          },
+          "end": {
+            "$type": "color",
+            "$value": "#006D35"
+          }
         }
       },
       "hue": {
@@ -7131,6 +8143,56 @@
           "$type": "gradient",
           "$value": "linear-gradient(180deg, rgba(8, 22, 14, 0) 38%, rgba(8, 22, 14, .45) 62%, rgba(6, 18, 11, .88) 100%)",
           "$description": "Overlay: text over photography only"
+        },
+        "tone-panel": {
+          "$type": "gradient",
+          "$value": "linear-gradient(90deg, transparent 48%, #FFFFFF 100%), linear-gradient(180deg, #E8F6EE, #DDF5F3)",
+          "$description": "Navigation drawer background: the module tint, top to bottom, fading to the surface on the right."
+        },
+        "tone-tab": {
+          "$type": "gradient",
+          "$value": "linear-gradient(90deg, color-mix(in srgb, #DFF9E8, #DFFAF8) 0%, color-mix(in srgb, #DFF9E8 55%, transparent) 40%, transparent 100%)",
+          "$description": "Active rail tab: opens from the tab into the panel."
+        },
+        "tone-band": {
+          "$type": "gradient",
+          "$value": "linear-gradient(180deg, transparent 30%, #DDEFE4 100%), linear-gradient(90deg, #E8F6EE, #DDF5F3)",
+          "$description": "Module band: the strip behind a module page header, fading into the page."
+        },
+        "text-brand": {
+          "$type": "gradient",
+          "$value": "linear-gradient(90deg, #005049 0%, #00867A 52%, #006D35 100%)",
+          "$description": "Display headline text (one per screen, large text only)."
+        },
+        "petrol": {
+          "$type": "gradient",
+          "$value": "linear-gradient(166deg, #0E334C 8%, #00443D 50%, #006A61 92%)",
+          "$description": "Feature: entity header (species, animal, enclosure) with white text."
+        },
+        "launch-green": {
+          "$type": "gradient",
+          "$value": "linear-gradient(135deg, #008944 30%, #00867A 140%)",
+          "$description": "Round module tile (launcher), white icon."
+        },
+        "launch-amber": {
+          "$type": "gradient",
+          "$value": "linear-gradient(135deg, #B08C00 30%, #008944 140%)",
+          "$description": "Round module tile (launcher), white icon."
+        },
+        "launch-sky": {
+          "$type": "gradient",
+          "$value": "linear-gradient(135deg, #00829F 30%, #1F415B 140%)",
+          "$description": "Round module tile (launcher), white icon."
+        },
+        "launch-slate": {
+          "$type": "gradient",
+          "$value": "linear-gradient(135deg, #7A8684 30%, #005049 140%)",
+          "$description": "Round module tile (launcher), white icon."
+        },
+        "launch-coral": {
+          "$type": "gradient",
+          "$value": "linear-gradient(135deg, #FA6140 30%, #B08C00 140%)",
+          "$description": "Round module tile (launcher), white icon."
         }
       },
       "texture": {
@@ -8701,6 +9763,26 @@
           "$value": "562px",
           "$description": "Right work drawer (decision D5)"
         },
+        "drawer-nav": {
+          "$type": "dimension",
+          "$value": "384px",
+          "$description": "Left navigation drawer: module rail plus menu panel (1.2)"
+        },
+        "rail": {
+          "$type": "dimension",
+          "$value": "96px",
+          "$description": "Module rail inside the navigation drawer (1.2)"
+        },
+        "rail-tab": {
+          "$type": "dimension",
+          "$value": "64px",
+          "$description": "Height of a module rail tab: icon over label (1.2)"
+        },
+        "launcher": {
+          "$type": "dimension",
+          "$value": "56px",
+          "$description": "Round module tile in the launcher (1.2)"
+        },
         "sidenav": {
           "$type": "dimension",
           "$value": "260px"
@@ -9300,6 +10382,290 @@
             "$value": "#FFFFFF",
             "$description": "Text over a photo scrim or media chip"
           }
+        },
+        "module": {
+          "green": {
+            "a": {
+              "$type": "color",
+              "$value": "#1A2620",
+              "$description": "Panel tint, top"
+            },
+            "b": {
+              "$type": "color",
+              "$value": "#123A2A",
+              "$description": "Panel tint, bottom"
+            },
+            "ta": {
+              "$type": "color",
+              "$value": "#123A24",
+              "$description": "Active tab and band, start"
+            },
+            "tb": {
+              "$type": "color",
+              "$value": "#12383A",
+              "$description": "Active tab and band, end"
+            },
+            "ink": {
+              "$type": "color",
+              "$value": "#5EDF86",
+              "$description": "Active tab label and icon (4.5:1 on its tints)"
+            }
+          },
+          "amber": {
+            "a": {
+              "$type": "color",
+              "$value": "#1A2620",
+              "$description": "Panel tint, top"
+            },
+            "b": {
+              "$type": "color",
+              "$value": "#38321A",
+              "$description": "Panel tint, bottom"
+            },
+            "ta": {
+              "$type": "color",
+              "$value": "#33270B",
+              "$description": "Active tab and band, start"
+            },
+            "tb": {
+              "$type": "color",
+              "$value": "#123A2A",
+              "$description": "Active tab and band, end"
+            },
+            "ink": {
+              "$type": "color",
+              "$value": "#EEC126",
+              "$description": "Active tab label and icon (4.5:1 on its tints)"
+            }
+          },
+          "navy": {
+            "a": {
+              "$type": "color",
+              "$value": "#1A2620",
+              "$description": "Panel tint, top"
+            },
+            "b": {
+              "$type": "color",
+              "$value": "#133543",
+              "$description": "Panel tint, bottom"
+            },
+            "ta": {
+              "$type": "color",
+              "$value": "#142636",
+              "$description": "Active tab and band, start"
+            },
+            "tb": {
+              "$type": "color",
+              "$value": "#133543",
+              "$description": "Active tab and band, end"
+            },
+            "ink": {
+              "$type": "color",
+              "$value": "#51D5FE",
+              "$description": "Active tab label and icon (4.5:1 on its tints)"
+            }
+          },
+          "slate": {
+            "a": {
+              "$type": "color",
+              "$value": "#1A2620",
+              "$description": "Panel tint, top"
+            },
+            "b": {
+              "$type": "color",
+              "$value": "#22302A",
+              "$description": "Panel tint, bottom"
+            },
+            "ta": {
+              "$type": "color",
+              "$value": "#26332D",
+              "$description": "Active tab and band, start"
+            },
+            "tb": {
+              "$type": "color",
+              "$value": "#2A3832",
+              "$description": "Active tab and band, end"
+            },
+            "ink": {
+              "$type": "color",
+              "$value": "#18DECC",
+              "$description": "Active tab label and icon (4.5:1 on its tints)"
+            }
+          },
+          "violet": {
+            "a": {
+              "$type": "color",
+              "$value": "#1A2620",
+              "$description": "Panel tint, top"
+            },
+            "b": {
+              "$type": "color",
+              "$value": "#241D45",
+              "$description": "Panel tint, bottom"
+            },
+            "ta": {
+              "$type": "color",
+              "$value": "#241D45",
+              "$description": "Active tab and band, start"
+            },
+            "tb": {
+              "$type": "color",
+              "$value": "#3D2129",
+              "$description": "Active tab and band, end"
+            },
+            "ink": {
+              "$type": "color",
+              "$value": "#BBA9FF",
+              "$description": "Active tab label and icon (4.5:1 on its tints)"
+            }
+          },
+          "rose": {
+            "a": {
+              "$type": "color",
+              "$value": "#1A2620",
+              "$description": "Panel tint, top"
+            },
+            "b": {
+              "$type": "color",
+              "$value": "#3D2129",
+              "$description": "Panel tint, bottom"
+            },
+            "ta": {
+              "$type": "color",
+              "$value": "#3A1418",
+              "$description": "Active tab and band, start"
+            },
+            "tb": {
+              "$type": "color",
+              "$value": "#3D2129",
+              "$description": "Active tab and band, end"
+            },
+            "ink": {
+              "$type": "color",
+              "$value": "#FFB3B6",
+              "$description": "Active tab label and icon (4.5:1 on its tints)"
+            }
+          },
+          "coral": {
+            "a": {
+              "$type": "color",
+              "$value": "#1A2620",
+              "$description": "Panel tint, top"
+            },
+            "b": {
+              "$type": "color",
+              "$value": "#3A2228",
+              "$description": "Panel tint, bottom"
+            },
+            "ta": {
+              "$type": "color",
+              "$value": "#3A1A12",
+              "$description": "Active tab and band, start"
+            },
+            "tb": {
+              "$type": "color",
+              "$value": "#38321A",
+              "$description": "Active tab and band, end"
+            },
+            "ink": {
+              "$type": "color",
+              "$value": "#FFB4A4",
+              "$description": "Active tab label and icon (4.5:1 on its tints)"
+            }
+          }
+        },
+        "tone": {
+          "a": {
+            "$type": "color",
+            "$value": "#1A2620",
+            "$description": "Panel tint, top"
+          },
+          "b": {
+            "$type": "color",
+            "$value": "#123A2A",
+            "$description": "Panel tint, bottom"
+          },
+          "ta": {
+            "$type": "color",
+            "$value": "#123A24",
+            "$description": "Active tab and band, start"
+          },
+          "tb": {
+            "$type": "color",
+            "$value": "#12383A",
+            "$description": "Active tab and band, end"
+          },
+          "ink": {
+            "$type": "color",
+            "$value": "#5EDF86",
+            "$description": "Active tab label and icon (4.5:1 on its tints)"
+          }
+        },
+        "launch": {
+          "green": {
+            "start": {
+              "$type": "color",
+              "$value": "#008944"
+            },
+            "end": {
+              "$type": "color",
+              "$value": "#00867A"
+            }
+          },
+          "amber": {
+            "start": {
+              "$type": "color",
+              "$value": "#B08C00"
+            },
+            "end": {
+              "$type": "color",
+              "$value": "#008944"
+            }
+          },
+          "sky": {
+            "start": {
+              "$type": "color",
+              "$value": "#00829F"
+            },
+            "end": {
+              "$type": "color",
+              "$value": "#1F415B"
+            }
+          },
+          "slate": {
+            "start": {
+              "$type": "color",
+              "$value": "#7A8684"
+            },
+            "end": {
+              "$type": "color",
+              "$value": "#005049"
+            }
+          },
+          "coral": {
+            "start": {
+              "$type": "color",
+              "$value": "#FA6140"
+            },
+            "end": {
+              "$type": "color",
+              "$value": "#B08C00"
+            }
+          }
+        },
+        "text-gradient": {
+          "start": {
+            "$type": "color",
+            "$value": "#18DECC"
+          },
+          "mid": {
+            "$type": "color",
+            "$value": "#51D5FE"
+          },
+          "end": {
+            "$type": "color",
+            "$value": "#5EDF86"
+          }
         }
       },
       "hue": {
@@ -9519,6 +10885,56 @@
           "$type": "gradient",
           "$value": "linear-gradient(180deg, rgba(8, 22, 14, 0) 38%, rgba(8, 22, 14, .45) 62%, rgba(6, 18, 11, .88) 100%)",
           "$description": "Overlay: text over photography only"
+        },
+        "tone-panel": {
+          "$type": "gradient",
+          "$value": "linear-gradient(90deg, transparent 48%, #1A2620 100%), linear-gradient(180deg, #1A2620, #123A2A)",
+          "$description": "Navigation drawer background: the module tint, top to bottom, fading to the surface on the right."
+        },
+        "tone-tab": {
+          "$type": "gradient",
+          "$value": "linear-gradient(90deg, color-mix(in srgb, #123A24, #12383A) 0%, color-mix(in srgb, #123A24 55%, transparent) 40%, transparent 100%)",
+          "$description": "Active rail tab: opens from the tab into the panel."
+        },
+        "tone-band": {
+          "$type": "gradient",
+          "$value": "linear-gradient(180deg, transparent 30%, #0A110E 100%), linear-gradient(90deg, #1A2620, #123A2A)",
+          "$description": "Module band: the strip behind a module page header, fading into the page."
+        },
+        "text-brand": {
+          "$type": "gradient",
+          "$value": "linear-gradient(90deg, #18DECC 0%, #51D5FE 52%, #5EDF86 100%)",
+          "$description": "Display headline text (one per screen, large text only)."
+        },
+        "petrol": {
+          "$type": "gradient",
+          "$value": "linear-gradient(166deg, #0E334C 8%, #00443D 50%, #006A61 92%)",
+          "$description": "Feature: entity header (species, animal, enclosure) with white text."
+        },
+        "launch-green": {
+          "$type": "gradient",
+          "$value": "linear-gradient(135deg, #008944 30%, #00867A 140%)",
+          "$description": "Round module tile (launcher), white icon."
+        },
+        "launch-amber": {
+          "$type": "gradient",
+          "$value": "linear-gradient(135deg, #B08C00 30%, #008944 140%)",
+          "$description": "Round module tile (launcher), white icon."
+        },
+        "launch-sky": {
+          "$type": "gradient",
+          "$value": "linear-gradient(135deg, #00829F 30%, #1F415B 140%)",
+          "$description": "Round module tile (launcher), white icon."
+        },
+        "launch-slate": {
+          "$type": "gradient",
+          "$value": "linear-gradient(135deg, #7A8684 30%, #005049 140%)",
+          "$description": "Round module tile (launcher), white icon."
+        },
+        "launch-coral": {
+          "$type": "gradient",
+          "$value": "linear-gradient(135deg, #FA6140 30%, #B08C00 140%)",
+          "$description": "Round module tile (launcher), white icon."
         }
       },
       "texture": {

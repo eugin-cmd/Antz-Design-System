@@ -362,6 +362,176 @@
     "disabled-bg": {
       "$type": "color",
       "$value": "{night.28}"
+    },
+    "module": {
+      "green": {
+        "a": {
+          "$type": "color",
+          "$value": "{night.15}"
+        },
+        "b": {
+          "$type": "color",
+          "$value": "{wash.night-mint}"
+        },
+        "ta": {
+          "$type": "color",
+          "$value": "{green.night-soft}"
+        },
+        "tb": {
+          "$type": "color",
+          "$value": "{wash.night-aqua}"
+        },
+        "ink": {
+          "$type": "color",
+          "$value": "{green.80}"
+        }
+      },
+      "amber": {
+        "a": {
+          "$type": "color",
+          "$value": "{night.15}"
+        },
+        "b": {
+          "$type": "color",
+          "$value": "{wash.night-butter}"
+        },
+        "ta": {
+          "$type": "color",
+          "$value": "{amber.night-soft}"
+        },
+        "tb": {
+          "$type": "color",
+          "$value": "{wash.night-mint}"
+        },
+        "ink": {
+          "$type": "color",
+          "$value": "{amber.80}"
+        }
+      },
+      "navy": {
+        "a": {
+          "$type": "color",
+          "$value": "{night.15}"
+        },
+        "b": {
+          "$type": "color",
+          "$value": "{wash.night-sky}"
+        },
+        "ta": {
+          "$type": "color",
+          "$value": "{navy.night-soft}"
+        },
+        "tb": {
+          "$type": "color",
+          "$value": "{wash.night-sky}"
+        },
+        "ink": {
+          "$type": "color",
+          "$value": "{sky.80}"
+        }
+      },
+      "slate": {
+        "a": {
+          "$type": "color",
+          "$value": "{night.15}"
+        },
+        "b": {
+          "$type": "color",
+          "$value": "{night.25}"
+        },
+        "ta": {
+          "$type": "color",
+          "$value": "{night.28}"
+        },
+        "tb": {
+          "$type": "color",
+          "$value": "{night.30}"
+        },
+        "ink": {
+          "$type": "color",
+          "$value": "{teal.80}"
+        }
+      },
+      "violet": {
+        "a": {
+          "$type": "color",
+          "$value": "{night.15}"
+        },
+        "b": {
+          "$type": "color",
+          "$value": "{violet.night-soft}"
+        },
+        "ta": {
+          "$type": "color",
+          "$value": "{violet.night-soft}"
+        },
+        "tb": {
+          "$type": "color",
+          "$value": "{wash.night-pink}"
+        },
+        "ink": {
+          "$type": "color",
+          "$value": "{violet.80}"
+        }
+      },
+      "rose": {
+        "a": {
+          "$type": "color",
+          "$value": "{night.15}"
+        },
+        "b": {
+          "$type": "color",
+          "$value": "{wash.night-pink}"
+        },
+        "ta": {
+          "$type": "color",
+          "$value": "{red.night-soft}"
+        },
+        "tb": {
+          "$type": "color",
+          "$value": "{wash.night-pink}"
+        },
+        "ink": {
+          "$type": "color",
+          "$value": "{red.80}"
+        }
+      },
+      "coral": {
+        "a": {
+          "$type": "color",
+          "$value": "{night.15}"
+        },
+        "b": {
+          "$type": "color",
+          "$value": "{wash.night-rose}"
+        },
+        "ta": {
+          "$type": "color",
+          "$value": "{coral.night-soft}"
+        },
+        "tb": {
+          "$type": "color",
+          "$value": "{wash.night-butter}"
+        },
+        "ink": {
+          "$type": "color",
+          "$value": "{coral.80}"
+        }
+      }
+    },
+    "text-gradient": {
+      "start": {
+        "$type": "color",
+        "$value": "{teal.80}"
+      },
+      "mid": {
+        "$type": "color",
+        "$value": "{sky.80}"
+      },
+      "end": {
+        "$type": "color",
+        "$value": "{green.80}"
+      }
     }
   },
   "hue": {

@@ -1552,6 +1552,258 @@
       "$value": "#FFFFFF",
       "$description": "Text over a photo scrim or media chip"
     },
+    "color-module-green-a": {
+      "$type": "color",
+      "$value": "#E8F6EE",
+      "$description": "Panel tint, top"
+    },
+    "color-module-green-b": {
+      "$type": "color",
+      "$value": "#DDF5F3",
+      "$description": "Panel tint, bottom"
+    },
+    "color-module-green-ta": {
+      "$type": "color",
+      "$value": "#DFF9E8",
+      "$description": "Active tab and band, start"
+    },
+    "color-module-green-tb": {
+      "$type": "color",
+      "$value": "#DFFAF8",
+      "$description": "Active tab and band, end"
+    },
+    "color-module-green-ink": {
+      "$type": "color",
+      "$value": "#006D35",
+      "$description": "Active tab label and icon (4.5:1 on its tints)"
+    },
+    "color-module-amber-a": {
+      "$type": "color",
+      "$value": "#FFF8F0",
+      "$description": "Panel tint, top"
+    },
+    "color-module-amber-b": {
+      "$type": "color",
+      "$value": "#E8F6EE",
+      "$description": "Panel tint, bottom"
+    },
+    "color-module-amber-ta": {
+      "$type": "color",
+      "$value": "#FFF4D9",
+      "$description": "Active tab and band, start"
+    },
+    "color-module-amber-tb": {
+      "$type": "color",
+      "$value": "#DFF9E8",
+      "$description": "Active tab and band, end"
+    },
+    "color-module-amber-ink": {
+      "$type": "color",
+      "$value": "#745B00",
+      "$description": "Active tab label and icon (4.5:1 on its tints)"
+    },
+    "color-module-navy-a": {
+      "$type": "color",
+      "$value": "#F2FBFF",
+      "$description": "Panel tint, top"
+    },
+    "color-module-navy-b": {
+      "$type": "color",
+      "$value": "#F7F9FF",
+      "$description": "Panel tint, bottom"
+    },
+    "color-module-navy-ta": {
+      "$type": "color",
+      "$value": "#E1F5FB",
+      "$description": "Active tab and band, start"
+    },
+    "color-module-navy-tb": {
+      "$type": "color",
+      "$value": "#E3ECF3",
+      "$description": "Active tab and band, end"
+    },
+    "color-module-navy-ink": {
+      "$type": "color",
+      "$value": "#294A64",
+      "$description": "Active tab label and icon (4.5:1 on its tints)"
+    },
+    "color-module-slate-a": {
+      "$type": "color",
+      "$value": "#F3F8F5",
+      "$description": "Panel tint, top"
+    },
+    "color-module-slate-b": {
+      "$type": "color",
+      "$value": "#EDF2EF",
+      "$description": "Panel tint, bottom"
+    },
+    "color-module-slate-ta": {
+      "$type": "color",
+      "$value": "#E2EAE6",
+      "$description": "Active tab and band, start"
+    },
+    "color-module-slate-tb": {
+      "$type": "color",
+      "$value": "#DCE6E1",
+      "$description": "Active tab and band, end"
+    },
+    "color-module-slate-ink": {
+      "$type": "color",
+      "$value": "#005049",
+      "$description": "Active tab label and icon (4.5:1 on its tints)"
+    },
+    "color-module-violet-a": {
+      "$type": "color",
+      "$value": "#F3F8F5",
+      "$description": "Panel tint, top"
+    },
+    "color-module-violet-b": {
+      "$type": "color",
+      "$value": "#FFF8F7",
+      "$description": "Panel tint, bottom"
+    },
+    "color-module-violet-ta": {
+      "$type": "color",
+      "$value": "#EEE9FF",
+      "$description": "Active tab and band, start"
+    },
+    "color-module-violet-tb": {
+      "$type": "color",
+      "$value": "#FCE6EA",
+      "$description": "Active tab and band, end"
+    },
+    "color-module-violet-ink": {
+      "$type": "color",
+      "$value": "#4B33A8",
+      "$description": "Active tab label and icon (4.5:1 on its tints)"
+    },
+    "color-module-rose-a": {
+      "$type": "color",
+      "$value": "#FFF8F7",
+      "$description": "Panel tint, top"
+    },
+    "color-module-rose-b": {
+      "$type": "color",
+      "$value": "#F2F5F4",
+      "$description": "Panel tint, bottom"
+    },
+    "color-module-rose-ta": {
+      "$type": "color",
+      "$value": "#FCE6EA",
+      "$description": "Active tab and band, start"
+    },
+    "color-module-rose-tb": {
+      "$type": "color",
+      "$value": "#E2EAE6",
+      "$description": "Active tab and band, end"
+    },
+    "color-module-rose-ink": {
+      "$type": "color",
+      "$value": "#BD0538",
+      "$description": "Active tab label and icon (4.5:1 on its tints)"
+    },
+    "color-module-coral-a": {
+      "$type": "color",
+      "$value": "#FFF8F6",
+      "$description": "Panel tint, top"
+    },
+    "color-module-coral-b": {
+      "$type": "color",
+      "$value": "#FFF8F0",
+      "$description": "Panel tint, bottom"
+    },
+    "color-module-coral-ta": {
+      "$type": "color",
+      "$value": "#FFEBE5",
+      "$description": "Active tab and band, start"
+    },
+    "color-module-coral-tb": {
+      "$type": "color",
+      "$value": "#FFF4D9",
+      "$description": "Active tab and band, end"
+    },
+    "color-module-coral-ink": {
+      "$type": "color",
+      "$value": "#B12D10",
+      "$description": "Active tab label and icon (4.5:1 on its tints)"
+    },
+    "color-tone-a": {
+      "$type": "color",
+      "$value": "#E8F6EE",
+      "$description": "Panel tint, top"
+    },
+    "color-tone-b": {
+      "$type": "color",
+      "$value": "#DDF5F3",
+      "$description": "Panel tint, bottom"
+    },
+    "color-tone-ta": {
+      "$type": "color",
+      "$value": "#DFF9E8",
+      "$description": "Active tab and band, start"
+    },
+    "color-tone-tb": {
+      "$type": "color",
+      "$value": "#DFFAF8",
+      "$description": "Active tab and band, end"
+    },
+    "color-tone-ink": {
+      "$type": "color",
+      "$value": "#006D35",
+      "$description": "Active tab label and icon (4.5:1 on its tints)"
+    },
+    "color-launch-green-start": {
+      "$type": "color",
+      "$value": "#008944"
+    },
+    "color-launch-green-end": {
+      "$type": "color",
+      "$value": "#00867A"
+    },
+    "color-launch-amber-start": {
+      "$type": "color",
+      "$value": "#B08C00"
+    },
+    "color-launch-amber-end": {
+      "$type": "color",
+      "$value": "#008944"
+    },
+    "color-launch-sky-start": {
+      "$type": "color",
+      "$value": "#00829F"
+    },
+    "color-launch-sky-end": {
+      "$type": "color",
+      "$value": "#1F415B"
+    },
+    "color-launch-slate-start": {
+      "$type": "color",
+      "$value": "#7A8684"
+    },
+    "color-launch-slate-end": {
+      "$type": "color",
+      "$value": "#005049"
+    },
+    "color-launch-coral-start": {
+      "$type": "color",
+      "$value": "#FA6140"
+    },
+    "color-launch-coral-end": {
+      "$type": "color",
+      "$value": "#B08C00"
+    },
+    "color-text-gradient-start": {
+      "$type": "color",
+      "$value": "#005049"
+    },
+    "color-text-gradient-mid": {
+      "$type": "color",
+      "$value": "#00867A"
+    },
+    "color-text-gradient-end": {
+      "$type": "color",
+      "$value": "#006D35"
+    },
     "hue-green": {
       "$type": "color",
       "$value": "#006D35"
@@ -3211,6 +3463,258 @@
       "$type": "color",
       "$value": "#FFFFFF",
       "$description": "Text over a photo scrim or media chip"
+    },
+    "color-module-green-a": {
+      "$type": "color",
+      "$value": "#1A2620",
+      "$description": "Panel tint, top"
+    },
+    "color-module-green-b": {
+      "$type": "color",
+      "$value": "#123A2A",
+      "$description": "Panel tint, bottom"
+    },
+    "color-module-green-ta": {
+      "$type": "color",
+      "$value": "#123A24",
+      "$description": "Active tab and band, start"
+    },
+    "color-module-green-tb": {
+      "$type": "color",
+      "$value": "#12383A",
+      "$description": "Active tab and band, end"
+    },
+    "color-module-green-ink": {
+      "$type": "color",
+      "$value": "#5EDF86",
+      "$description": "Active tab label and icon (4.5:1 on its tints)"
+    },
+    "color-module-amber-a": {
+      "$type": "color",
+      "$value": "#1A2620",
+      "$description": "Panel tint, top"
+    },
+    "color-module-amber-b": {
+      "$type": "color",
+      "$value": "#38321A",
+      "$description": "Panel tint, bottom"
+    },
+    "color-module-amber-ta": {
+      "$type": "color",
+      "$value": "#33270B",
+      "$description": "Active tab and band, start"
+    },
+    "color-module-amber-tb": {
+      "$type": "color",
+      "$value": "#123A2A",
+      "$description": "Active tab and band, end"
+    },
+    "color-module-amber-ink": {
+      "$type": "color",
+      "$value": "#EEC126",
+      "$description": "Active tab label and icon (4.5:1 on its tints)"
+    },
+    "color-module-navy-a": {
+      "$type": "color",
+      "$value": "#1A2620",
+      "$description": "Panel tint, top"
+    },
+    "color-module-navy-b": {
+      "$type": "color",
+      "$value": "#133543",
+      "$description": "Panel tint, bottom"
+    },
+    "color-module-navy-ta": {
+      "$type": "color",
+      "$value": "#142636",
+      "$description": "Active tab and band, start"
+    },
+    "color-module-navy-tb": {
+      "$type": "color",
+      "$value": "#133543",
+      "$description": "Active tab and band, end"
+    },
+    "color-module-navy-ink": {
+      "$type": "color",
+      "$value": "#51D5FE",
+      "$description": "Active tab label and icon (4.5:1 on its tints)"
+    },
+    "color-module-slate-a": {
+      "$type": "color",
+      "$value": "#1A2620",
+      "$description": "Panel tint, top"
+    },
+    "color-module-slate-b": {
+      "$type": "color",
+      "$value": "#22302A",
+      "$description": "Panel tint, bottom"
+    },
+    "color-module-slate-ta": {
+      "$type": "color",
+      "$value": "#26332D",
+      "$description": "Active tab and band, start"
+    },
+    "color-module-slate-tb": {
+      "$type": "color",
+      "$value": "#2A3832",
+      "$description": "Active tab and band, end"
+    },
+    "color-module-slate-ink": {
+      "$type": "color",
+      "$value": "#18DECC",
+      "$description": "Active tab label and icon (4.5:1 on its tints)"
+    },
+    "color-module-violet-a": {
+      "$type": "color",
+      "$value": "#1A2620",
+      "$description": "Panel tint, top"
+    },
+    "color-module-violet-b": {
+      "$type": "color",
+      "$value": "#241D45",
+      "$description": "Panel tint, bottom"
+    },
+    "color-module-violet-ta": {
+      "$type": "color",
+      "$value": "#241D45",
+      "$description": "Active tab and band, start"
+    },
+    "color-module-violet-tb": {
+      "$type": "color",
+      "$value": "#3D2129",
+      "$description": "Active tab and band, end"
+    },
+    "color-module-violet-ink": {
+      "$type": "color",
+      "$value": "#BBA9FF",
+      "$description": "Active tab label and icon (4.5:1 on its tints)"
+    },
+    "color-module-rose-a": {
+      "$type": "color",
+      "$value": "#1A2620",
+      "$description": "Panel tint, top"
+    },
+    "color-module-rose-b": {
+      "$type": "color",
+      "$value": "#3D2129",
+      "$description": "Panel tint, bottom"
+    },
+    "color-module-rose-ta": {
+      "$type": "color",
+      "$value": "#3A1418",
+      "$description": "Active tab and band, start"
+    },
+    "color-module-rose-tb": {
+      "$type": "color",
+      "$value": "#3D2129",
+      "$description": "Active tab and band, end"
+    },
+    "color-module-rose-ink": {
+      "$type": "color",
+      "$value": "#FFB3B6",
+      "$description": "Active tab label and icon (4.5:1 on its tints)"
+    },
+    "color-module-coral-a": {
+      "$type": "color",
+      "$value": "#1A2620",
+      "$description": "Panel tint, top"
+    },
+    "color-module-coral-b": {
+      "$type": "color",
+      "$value": "#3A2228",
+      "$description": "Panel tint, bottom"
+    },
+    "color-module-coral-ta": {
+      "$type": "color",
+      "$value": "#3A1A12",
+      "$description": "Active tab and band, start"
+    },
+    "color-module-coral-tb": {
+      "$type": "color",
+      "$value": "#38321A",
+      "$description": "Active tab and band, end"
+    },
+    "color-module-coral-ink": {
+      "$type": "color",
+      "$value": "#FFB4A4",
+      "$description": "Active tab label and icon (4.5:1 on its tints)"
+    },
+    "color-tone-a": {
+      "$type": "color",
+      "$value": "#1A2620",
+      "$description": "Panel tint, top"
+    },
+    "color-tone-b": {
+      "$type": "color",
+      "$value": "#123A2A",
+      "$description": "Panel tint, bottom"
+    },
+    "color-tone-ta": {
+      "$type": "color",
+      "$value": "#123A24",
+      "$description": "Active tab and band, start"
+    },
+    "color-tone-tb": {
+      "$type": "color",
+      "$value": "#12383A",
+      "$description": "Active tab and band, end"
+    },
+    "color-tone-ink": {
+      "$type": "color",
+      "$value": "#5EDF86",
+      "$description": "Active tab label and icon (4.5:1 on its tints)"
+    },
+    "color-launch-green-start": {
+      "$type": "color",
+      "$value": "#008944"
+    },
+    "color-launch-green-end": {
+      "$type": "color",
+      "$value": "#00867A"
+    },
+    "color-launch-amber-start": {
+      "$type": "color",
+      "$value": "#B08C00"
+    },
+    "color-launch-amber-end": {
+      "$type": "color",
+      "$value": "#008944"
+    },
+    "color-launch-sky-start": {
+      "$type": "color",
+      "$value": "#00829F"
+    },
+    "color-launch-sky-end": {
+      "$type": "color",
+      "$value": "#1F415B"
+    },
+    "color-launch-slate-start": {
+      "$type": "color",
+      "$value": "#7A8684"
+    },
+    "color-launch-slate-end": {
+      "$type": "color",
+      "$value": "#005049"
+    },
+    "color-launch-coral-start": {
+      "$type": "color",
+      "$value": "#FA6140"
+    },
+    "color-launch-coral-end": {
+      "$type": "color",
+      "$value": "#B08C00"
+    },
+    "color-text-gradient-start": {
+      "$type": "color",
+      "$value": "#18DECC"
+    },
+    "color-text-gradient-mid": {
+      "$type": "color",
+      "$value": "#51D5FE"
+    },
+    "color-text-gradient-end": {
+      "$type": "color",
+      "$value": "#5EDF86"
     },
     "hue-green": {
       "$type": "color",
@@ -4872,6 +5376,258 @@
       "$value": "#FFFFFF",
       "$description": "Text over a photo scrim or media chip"
     },
+    "color-module-green-a": {
+      "$type": "color",
+      "$value": "#E8F6EE",
+      "$description": "Panel tint, top"
+    },
+    "color-module-green-b": {
+      "$type": "color",
+      "$value": "#DDF5F3",
+      "$description": "Panel tint, bottom"
+    },
+    "color-module-green-ta": {
+      "$type": "color",
+      "$value": "#DFF9E8",
+      "$description": "Active tab and band, start"
+    },
+    "color-module-green-tb": {
+      "$type": "color",
+      "$value": "#DFFAF8",
+      "$description": "Active tab and band, end"
+    },
+    "color-module-green-ink": {
+      "$type": "color",
+      "$value": "#006D35",
+      "$description": "Active tab label and icon (4.5:1 on its tints)"
+    },
+    "color-module-amber-a": {
+      "$type": "color",
+      "$value": "#FFF8F0",
+      "$description": "Panel tint, top"
+    },
+    "color-module-amber-b": {
+      "$type": "color",
+      "$value": "#E8F6EE",
+      "$description": "Panel tint, bottom"
+    },
+    "color-module-amber-ta": {
+      "$type": "color",
+      "$value": "#FFF4D9",
+      "$description": "Active tab and band, start"
+    },
+    "color-module-amber-tb": {
+      "$type": "color",
+      "$value": "#DFF9E8",
+      "$description": "Active tab and band, end"
+    },
+    "color-module-amber-ink": {
+      "$type": "color",
+      "$value": "#745B00",
+      "$description": "Active tab label and icon (4.5:1 on its tints)"
+    },
+    "color-module-navy-a": {
+      "$type": "color",
+      "$value": "#F2FBFF",
+      "$description": "Panel tint, top"
+    },
+    "color-module-navy-b": {
+      "$type": "color",
+      "$value": "#F7F9FF",
+      "$description": "Panel tint, bottom"
+    },
+    "color-module-navy-ta": {
+      "$type": "color",
+      "$value": "#E1F5FB",
+      "$description": "Active tab and band, start"
+    },
+    "color-module-navy-tb": {
+      "$type": "color",
+      "$value": "#E3ECF3",
+      "$description": "Active tab and band, end"
+    },
+    "color-module-navy-ink": {
+      "$type": "color",
+      "$value": "#294A64",
+      "$description": "Active tab label and icon (4.5:1 on its tints)"
+    },
+    "color-module-slate-a": {
+      "$type": "color",
+      "$value": "#F3F8F5",
+      "$description": "Panel tint, top"
+    },
+    "color-module-slate-b": {
+      "$type": "color",
+      "$value": "#EDF2EF",
+      "$description": "Panel tint, bottom"
+    },
+    "color-module-slate-ta": {
+      "$type": "color",
+      "$value": "#E2EAE6",
+      "$description": "Active tab and band, start"
+    },
+    "color-module-slate-tb": {
+      "$type": "color",
+      "$value": "#DCE6E1",
+      "$description": "Active tab and band, end"
+    },
+    "color-module-slate-ink": {
+      "$type": "color",
+      "$value": "#005049",
+      "$description": "Active tab label and icon (4.5:1 on its tints)"
+    },
+    "color-module-violet-a": {
+      "$type": "color",
+      "$value": "#F3F8F5",
+      "$description": "Panel tint, top"
+    },
+    "color-module-violet-b": {
+      "$type": "color",
+      "$value": "#FFF8F7",
+      "$description": "Panel tint, bottom"
+    },
+    "color-module-violet-ta": {
+      "$type": "color",
+      "$value": "#EEE9FF",
+      "$description": "Active tab and band, start"
+    },
+    "color-module-violet-tb": {
+      "$type": "color",
+      "$value": "#FCE6EA",
+      "$description": "Active tab and band, end"
+    },
+    "color-module-violet-ink": {
+      "$type": "color",
+      "$value": "#4B33A8",
+      "$description": "Active tab label and icon (4.5:1 on its tints)"
+    },
+    "color-module-rose-a": {
+      "$type": "color",
+      "$value": "#FFF8F7",
+      "$description": "Panel tint, top"
+    },
+    "color-module-rose-b": {
+      "$type": "color",
+      "$value": "#F2F5F4",
+      "$description": "Panel tint, bottom"
+    },
+    "color-module-rose-ta": {
+      "$type": "color",
+      "$value": "#FCE6EA",
+      "$description": "Active tab and band, start"
+    },
+    "color-module-rose-tb": {
+      "$type": "color",
+      "$value": "#E2EAE6",
+      "$description": "Active tab and band, end"
+    },
+    "color-module-rose-ink": {
+      "$type": "color",
+      "$value": "#BD0538",
+      "$description": "Active tab label and icon (4.5:1 on its tints)"
+    },
+    "color-module-coral-a": {
+      "$type": "color",
+      "$value": "#FFF8F6",
+      "$description": "Panel tint, top"
+    },
+    "color-module-coral-b": {
+      "$type": "color",
+      "$value": "#FFF8F0",
+      "$description": "Panel tint, bottom"
+    },
+    "color-module-coral-ta": {
+      "$type": "color",
+      "$value": "#FFEBE5",
+      "$description": "Active tab and band, start"
+    },
+    "color-module-coral-tb": {
+      "$type": "color",
+      "$value": "#FFF4D9",
+      "$description": "Active tab and band, end"
+    },
+    "color-module-coral-ink": {
+      "$type": "color",
+      "$value": "#B12D10",
+      "$description": "Active tab label and icon (4.5:1 on its tints)"
+    },
+    "color-tone-a": {
+      "$type": "color",
+      "$value": "#E8F6EE",
+      "$description": "Panel tint, top"
+    },
+    "color-tone-b": {
+      "$type": "color",
+      "$value": "#DDF5F3",
+      "$description": "Panel tint, bottom"
+    },
+    "color-tone-ta": {
+      "$type": "color",
+      "$value": "#DFF9E8",
+      "$description": "Active tab and band, start"
+    },
+    "color-tone-tb": {
+      "$type": "color",
+      "$value": "#DFFAF8",
+      "$description": "Active tab and band, end"
+    },
+    "color-tone-ink": {
+      "$type": "color",
+      "$value": "#006D35",
+      "$description": "Active tab label and icon (4.5:1 on its tints)"
+    },
+    "color-launch-green-start": {
+      "$type": "color",
+      "$value": "#008944"
+    },
+    "color-launch-green-end": {
+      "$type": "color",
+      "$value": "#00867A"
+    },
+    "color-launch-amber-start": {
+      "$type": "color",
+      "$value": "#B08C00"
+    },
+    "color-launch-amber-end": {
+      "$type": "color",
+      "$value": "#008944"
+    },
+    "color-launch-sky-start": {
+      "$type": "color",
+      "$value": "#00829F"
+    },
+    "color-launch-sky-end": {
+      "$type": "color",
+      "$value": "#1F415B"
+    },
+    "color-launch-slate-start": {
+      "$type": "color",
+      "$value": "#7A8684"
+    },
+    "color-launch-slate-end": {
+      "$type": "color",
+      "$value": "#005049"
+    },
+    "color-launch-coral-start": {
+      "$type": "color",
+      "$value": "#FA6140"
+    },
+    "color-launch-coral-end": {
+      "$type": "color",
+      "$value": "#B08C00"
+    },
+    "color-text-gradient-start": {
+      "$type": "color",
+      "$value": "#005049"
+    },
+    "color-text-gradient-mid": {
+      "$type": "color",
+      "$value": "#00867A"
+    },
+    "color-text-gradient-end": {
+      "$type": "color",
+      "$value": "#006D35"
+    },
     "hue-green": {
       "$type": "color",
       "$value": "#006D35"
@@ -6531,6 +7287,258 @@
       "$type": "color",
       "$value": "#FFFFFF",
       "$description": "Text over a photo scrim or media chip"
+    },
+    "color-module-green-a": {
+      "$type": "color",
+      "$value": "#1A2620",
+      "$description": "Panel tint, top"
+    },
+    "color-module-green-b": {
+      "$type": "color",
+      "$value": "#123A2A",
+      "$description": "Panel tint, bottom"
+    },
+    "color-module-green-ta": {
+      "$type": "color",
+      "$value": "#123A24",
+      "$description": "Active tab and band, start"
+    },
+    "color-module-green-tb": {
+      "$type": "color",
+      "$value": "#12383A",
+      "$description": "Active tab and band, end"
+    },
+    "color-module-green-ink": {
+      "$type": "color",
+      "$value": "#5EDF86",
+      "$description": "Active tab label and icon (4.5:1 on its tints)"
+    },
+    "color-module-amber-a": {
+      "$type": "color",
+      "$value": "#1A2620",
+      "$description": "Panel tint, top"
+    },
+    "color-module-amber-b": {
+      "$type": "color",
+      "$value": "#38321A",
+      "$description": "Panel tint, bottom"
+    },
+    "color-module-amber-ta": {
+      "$type": "color",
+      "$value": "#33270B",
+      "$description": "Active tab and band, start"
+    },
+    "color-module-amber-tb": {
+      "$type": "color",
+      "$value": "#123A2A",
+      "$description": "Active tab and band, end"
+    },
+    "color-module-amber-ink": {
+      "$type": "color",
+      "$value": "#EEC126",
+      "$description": "Active tab label and icon (4.5:1 on its tints)"
+    },
+    "color-module-navy-a": {
+      "$type": "color",
+      "$value": "#1A2620",
+      "$description": "Panel tint, top"
+    },
+    "color-module-navy-b": {
+      "$type": "color",
+      "$value": "#133543",
+      "$description": "Panel tint, bottom"
+    },
+    "color-module-navy-ta": {
+      "$type": "color",
+      "$value": "#142636",
+      "$description": "Active tab and band, start"
+    },
+    "color-module-navy-tb": {
+      "$type": "color",
+      "$value": "#133543",
+      "$description": "Active tab and band, end"
+    },
+    "color-module-navy-ink": {
+      "$type": "color",
+      "$value": "#51D5FE",
+      "$description": "Active tab label and icon (4.5:1 on its tints)"
+    },
+    "color-module-slate-a": {
+      "$type": "color",
+      "$value": "#1A2620",
+      "$description": "Panel tint, top"
+    },
+    "color-module-slate-b": {
+      "$type": "color",
+      "$value": "#22302A",
+      "$description": "Panel tint, bottom"
+    },
+    "color-module-slate-ta": {
+      "$type": "color",
+      "$value": "#26332D",
+      "$description": "Active tab and band, start"
+    },
+    "color-module-slate-tb": {
+      "$type": "color",
+      "$value": "#2A3832",
+      "$description": "Active tab and band, end"
+    },
+    "color-module-slate-ink": {
+      "$type": "color",
+      "$value": "#18DECC",
+      "$description": "Active tab label and icon (4.5:1 on its tints)"
+    },
+    "color-module-violet-a": {
+      "$type": "color",
+      "$value": "#1A2620",
+      "$description": "Panel tint, top"
+    },
+    "color-module-violet-b": {
+      "$type": "color",
+      "$value": "#241D45",
+      "$description": "Panel tint, bottom"
+    },
+    "color-module-violet-ta": {
+      "$type": "color",
+      "$value": "#241D45",
+      "$description": "Active tab and band, start"
+    },
+    "color-module-violet-tb": {
+      "$type": "color",
+      "$value": "#3D2129",
+      "$description": "Active tab and band, end"
+    },
+    "color-module-violet-ink": {
+      "$type": "color",
+      "$value": "#BBA9FF",
+      "$description": "Active tab label and icon (4.5:1 on its tints)"
+    },
+    "color-module-rose-a": {
+      "$type": "color",
+      "$value": "#1A2620",
+      "$description": "Panel tint, top"
+    },
+    "color-module-rose-b": {
+      "$type": "color",
+      "$value": "#3D2129",
+      "$description": "Panel tint, bottom"
+    },
+    "color-module-rose-ta": {
+      "$type": "color",
+      "$value": "#3A1418",
+      "$description": "Active tab and band, start"
+    },
+    "color-module-rose-tb": {
+      "$type": "color",
+      "$value": "#3D2129",
+      "$description": "Active tab and band, end"
+    },
+    "color-module-rose-ink": {
+      "$type": "color",
+      "$value": "#FFB3B6",
+      "$description": "Active tab label and icon (4.5:1 on its tints)"
+    },
+    "color-module-coral-a": {
+      "$type": "color",
+      "$value": "#1A2620",
+      "$description": "Panel tint, top"
+    },
+    "color-module-coral-b": {
+      "$type": "color",
+      "$value": "#3A2228",
+      "$description": "Panel tint, bottom"
+    },
+    "color-module-coral-ta": {
+      "$type": "color",
+      "$value": "#3A1A12",
+      "$description": "Active tab and band, start"
+    },
+    "color-module-coral-tb": {
+      "$type": "color",
+      "$value": "#38321A",
+      "$description": "Active tab and band, end"
+    },
+    "color-module-coral-ink": {
+      "$type": "color",
+      "$value": "#FFB4A4",
+      "$description": "Active tab label and icon (4.5:1 on its tints)"
+    },
+    "color-tone-a": {
+      "$type": "color",
+      "$value": "#1A2620",
+      "$description": "Panel tint, top"
+    },
+    "color-tone-b": {
+      "$type": "color",
+      "$value": "#123A2A",
+      "$description": "Panel tint, bottom"
+    },
+    "color-tone-ta": {
+      "$type": "color",
+      "$value": "#123A24",
+      "$description": "Active tab and band, start"
+    },
+    "color-tone-tb": {
+      "$type": "color",
+      "$value": "#12383A",
+      "$description": "Active tab and band, end"
+    },
+    "color-tone-ink": {
+      "$type": "color",
+      "$value": "#5EDF86",
+      "$description": "Active tab label and icon (4.5:1 on its tints)"
+    },
+    "color-launch-green-start": {
+      "$type": "color",
+      "$value": "#008944"
+    },
+    "color-launch-green-end": {
+      "$type": "color",
+      "$value": "#00867A"
+    },
+    "color-launch-amber-start": {
+      "$type": "color",
+      "$value": "#B08C00"
+    },
+    "color-launch-amber-end": {
+      "$type": "color",
+      "$value": "#008944"
+    },
+    "color-launch-sky-start": {
+      "$type": "color",
+      "$value": "#00829F"
+    },
+    "color-launch-sky-end": {
+      "$type": "color",
+      "$value": "#1F415B"
+    },
+    "color-launch-slate-start": {
+      "$type": "color",
+      "$value": "#7A8684"
+    },
+    "color-launch-slate-end": {
+      "$type": "color",
+      "$value": "#005049"
+    },
+    "color-launch-coral-start": {
+      "$type": "color",
+      "$value": "#FA6140"
+    },
+    "color-launch-coral-end": {
+      "$type": "color",
+      "$value": "#B08C00"
+    },
+    "color-text-gradient-start": {
+      "$type": "color",
+      "$value": "#18DECC"
+    },
+    "color-text-gradient-mid": {
+      "$type": "color",
+      "$value": "#51D5FE"
+    },
+    "color-text-gradient-end": {
+      "$type": "color",
+      "$value": "#5EDF86"
     },
     "hue-green": {
       "$type": "color",

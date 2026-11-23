@@ -88,6 +88,26 @@
       "$value": "562px",
       "$description": "Right work drawer (decision D5)"
     },
+    "drawer-nav": {
+      "$type": "dimension",
+      "$value": "384px",
+      "$description": "Left navigation drawer: module rail plus menu panel (1.2)"
+    },
+    "rail": {
+      "$type": "dimension",
+      "$value": "96px",
+      "$description": "Module rail inside the navigation drawer (1.2)"
+    },
+    "rail-tab": {
+      "$type": "dimension",
+      "$value": "64px",
+      "$description": "Height of a module rail tab: icon over label (1.2)"
+    },
+    "launcher": {
+      "$type": "dimension",
+      "$value": "56px",
+      "$description": "Round module tile in the launcher (1.2)"
+    },
     "sidenav": {
       "$type": "dimension",
       "$value": "260px"
