@@ -10,6 +10,7 @@
 
 /* ── Base ─────────────────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; } /* components set their own display; hidden must always win (1.2) */
 body {
   margin: 0;
   font-family: var(--font-body);

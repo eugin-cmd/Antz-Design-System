@@ -62,6 +62,11 @@
           "title": "Motion"
         },
         {
+          "href": "motion-gallery.html",
+          "title": "Motion gallery",
+          "isNew": true
+        },
+        {
           "href": "gradients.html",
           "title": "Gradients",
           "isNew": true
