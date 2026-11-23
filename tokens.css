@@ -453,6 +453,9 @@
   /* icon-stroke */
   --icon-stroke: 1.8;
 
+  /* border-width-hairline */
+  --border-width-hairline: 0.5px;
+
   /* border-width */
   --border-width: 1px;
 

@@ -548,8 +548,16 @@ label.row { cursor: pointer; }
 .priority__opt:has(input:focus-visible) .priority__mark { outline: var(--focus-ring-width) solid var(--color-focus); outline-offset: var(--focus-ring-offset); }
 
 /* ── Attachments (Figma Attachments, attachment type, preview, list) ──── */
-.dropzone { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-1-5); min-height: 148px; padding: var(--space-5) var(--space-4); border: 1.5px dashed var(--color-border-input); border-radius: var(--radius-lg); text-align: center; font-size: var(--text-sm); color: var(--color-text-muted); background: var(--color-surface-sunken); cursor: pointer; transition: border-color var(--duration-fast), background var(--duration-fast); }
+.dropzone { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-1-5); min-height: 148px; padding: var(--space-5) var(--space-4); border: var(--border-width) dashed var(--color-border-input); border-radius: var(--radius-lg); text-align: center; font-size: var(--text-sm); color: var(--color-text-muted); background: var(--color-surface-sunken); cursor: pointer; transition: border-color var(--duration-fast), background var(--duration-fast); }
 .dropzone:hover, .dropzone:focus-within { border-color: var(--color-accent-indicator); background: var(--color-surface-selected); }
+/* Hairline dashed outline (--border-width-hairline, 0.5px) on high-density screens: drawn at double size and
+   scaled by half, so every browser shows a true hairline. Standard screens keep a crisp 1px dashed line. */
+@media (min-resolution: 2dppx) {
+  .dropzone { border-color: transparent; }
+  .dropzone::before { content: ""; position: absolute; top: calc(var(--border-width) * -1); left: calc(var(--border-width) * -1); width: calc(200% + var(--border-width) * 4); height: calc(200% + var(--border-width) * 4); border: var(--border-width) dashed var(--color-border-input); border-radius: calc(var(--radius-lg) * 2); transform: scale(.5); transform-origin: 0 0; pointer-events: none; transition: border-color var(--duration-fast); }
+  .dropzone:hover, .dropzone:focus-within { border-color: transparent; }
+  .dropzone:hover::before, .dropzone:focus-within::before { border-color: var(--color-accent-indicator); }
+}
 .dropzone b { font-size: var(--text-md); color: var(--color-text); }
 .dropzone input { position: absolute; width: 1px; height: 1px; opacity: 0; }
 .attach-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 120px), 1fr)); gap: var(--space-3); }

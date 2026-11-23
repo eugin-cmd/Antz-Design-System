@@ -1649,6 +1649,11 @@
         "$type": "number",
         "$value": 1.8
       },
+      "border-width-hairline": {
+        "$type": "dimension",
+        "$value": "0.5px",
+        "$description": "Hairline: dashed outlines such as the drop zone. One device pixel on high-density screens; browsers draw it as 1px on standard screens."
+      },
       "border-width": {
         "$type": "dimension",
         "$value": "1px"
@@ -4507,6 +4512,11 @@
       "icon-stroke": {
         "$type": "number",
         "$value": 1.8
+      },
+      "border-width-hairline": {
+        "$type": "dimension",
+        "$value": "0.5px",
+        "$description": "Hairline: dashed outlines such as the drop zone. One device pixel on high-density screens; browsers draw it as 1px on standard screens."
       },
       "border-width": {
         "$type": "dimension",
@@ -7367,6 +7377,11 @@
         "$type": "number",
         "$value": 1.8
       },
+      "border-width-hairline": {
+        "$type": "dimension",
+        "$value": "0.5px",
+        "$description": "Hairline: dashed outlines such as the drop zone. One device pixel on high-density screens; browsers draw it as 1px on standard screens."
+      },
       "border-width": {
         "$type": "dimension",
         "$value": "1px"
@@ -10225,6 +10240,11 @@
       "icon-stroke": {
         "$type": "number",
         "$value": 1.8
+      },
+      "border-width-hairline": {
+        "$type": "dimension",
+        "$value": "0.5px",
+        "$description": "Hairline: dashed outlines such as the drop zone. One device pixel on high-density screens; browsers draw it as 1px on standard screens."
       },
       "border-width": {
         "$type": "dimension",

@@ -4219,6 +4219,17 @@
       "dark-hc": 1.8
     },
     {
+      "name": "border-width-hairline",
+      "css": "--border-width-hairline",
+      "type": "dimension",
+      "tier": "base",
+      "description": "Hairline: dashed outlines such as the drop zone. One device pixel on high-density screens; browsers draw it as 1px on standard screens.",
+      "light": "0.5px",
+      "dark": "0.5px",
+      "light-hc": "0.5px",
+      "dark-hc": "0.5px"
+    },
+    {
       "name": "border-width",
       "css": "--border-width",
       "type": "dimension",

@@ -28,6 +28,9 @@ All notable changes to the Antz Design System. Versions follow semantic versioni
 - Tokens: glass, glass line and bar colours for media (`--color-media-glass|glass-line|bar`), `--color-figure-warm`, `--gradient-scrim-side`, `--gradient-fade-end` (mask), and sizes for the hero, photo tile, bar, bar height, day, quick-add icon, module item and glass blur. 8 new contrast checks.
 - New docs page: Dashboard widgets (Stat cards).
 
+### Refinements
+- **Drop zone outline is a hairline:** the dashed outline of `.dropzone` is now 0.5px (new token `--border-width-hairline`) on high-density screens, drawn at double size and scaled by half so every browser shows it. Standard screens keep a crisp 1px dashed line, because a half pixel can't be drawn there. Same border colour, so contrast is unchanged.
+
 ### Tools
 - **Antz Design System skill** (`skills/antz-design-system/`): an Agent Skill that makes AI assistants build Antz UI only from the system. Its helper (`scripts/antz.mjs`, no dependencies) reads a pinned release from a local clone or the team site and lists components, classes, tokens, icons and rules. It also runs the guardrail check from any project. Requests outside the system get an approved alternative or a proposal. Includes tests (`evals/`) and a team guide (`skills/README.md`). Releases now include `skills/`.
 
