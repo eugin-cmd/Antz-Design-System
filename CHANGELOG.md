@@ -4,6 +4,9 @@ All notable changes to the Antz Design System. Versions follow semantic versioni
 
 ## Unreleased
 
+### Tools
+- **Antz Design System skill** (`skills/antz-design-system/`): an Agent Skill that makes AI assistants build Antz UI only from the system. Its helper (`scripts/antz.mjs`, no dependencies) reads a pinned release from a local clone or the team site and lists components, classes, tokens, icons and rules. It also runs the guardrail check from any project. Requests outside the system get an approved alternative or a proposal. Includes tests (`evals/`) and a team guide (`skills/README.md`). Releases now include `skills/`.
+
 ### Governance
 - **System Owner named:** Eugin Robinson is the Antz Design Governance owner, from 22 November 2026. Recorded in `governance/README.md`, the Governance page and as the approver of exception EXC-001. Other roles are still to be assigned.
 

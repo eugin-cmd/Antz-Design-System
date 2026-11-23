@@ -89,7 +89,7 @@ run('node tools/check.mjs');
 run('node tools/test.mjs');
 verify();
 
-const INCLUDE = ['tokens.css', 'components.css', 'components.js', 'colors.json', 'VERSION', 'CHANGELOG.md', 'README.md', 'HOW-IT-WORKS.md', 'AGENTS.md', 'CLAUDE.md', 'index.html', 'tester.html', 'tester-frame.html', 'assets', 'pages', 'themes', 'dist', 'tokens', 'governance', 'specs', 'tools'];
+const INCLUDE = ['tokens.css', 'components.css', 'components.js', 'colors.json', 'VERSION', 'CHANGELOG.md', 'README.md', 'HOW-IT-WORKS.md', 'AGENTS.md', 'CLAUDE.md', 'index.html', 'tester.html', 'tester-frame.html', 'assets', 'pages', 'themes', 'dist', 'tokens', 'governance', 'specs', 'tools', 'skills'];
 fs.mkdirSync(dest, { recursive: true });
 for (const item of INCLUDE) {
   const src = path.join(ROOT, item);
