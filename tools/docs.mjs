@@ -16,7 +16,9 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const VERSION = fs.readFileSync(path.join(ROOT, 'VERSION'), 'utf8').trim();
-const ASSET_V = VERSION.replace(/[^0-9a-z]/gi, '');
+// Cache-busting tag: a short hash of the shared assets, so every deploy that changes them makes browsers fetch the new files.
+const ASSET_V = (await import('node:crypto')).createHash('sha256').update(['tokens.css', 'components.css', 'components.js', 'assets/site.css', 'assets/site.js', 'assets/screens.js']
+  .map((f) => { try { return fs.readFileSync(path.join(ROOT, f)); } catch { return ''; } }).join('')).digest('hex').slice(0, 10);
 const NAV = JSON.parse(fs.readFileSync(path.join(ROOT, 'pages/_nav.json'), 'utf8'));
 const SITE = 'Antz Design System';
 const label = VERSION.replace(/-beta\.(\d+)/, ' beta $1').replace(/-rc\.(\d+)/, ' RC $1');
@@ -123,6 +125,12 @@ for (const rel of targets) {
   s = s.replace(/<footer class="site-foot">[\s\S]*?<\/footer>/, footer(pre));
   fs.writeFileSync(p, s);
   count++;
+}
+// The theme tester pages carry the same cache-busting tag
+for (const f of ['tester.html', 'tester-frame.html']) {
+  const p = path.join(ROOT, f); if (!fs.existsSync(p)) continue;
+  const t = fs.readFileSync(p, 'utf8'); const u = t.replace(/(tokens|components|site|screens|token-index)\.(css|js)\?v=[0-9a-z]+/g, `$1.$2?v=${ASSET_V}`);
+  if (u !== t) fs.writeFileSync(p, u);
 }
 // Screen templates as a script, so the theme tester works when opened straight from disk (file://).
 const screens = {};
