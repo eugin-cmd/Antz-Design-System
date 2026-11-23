@@ -1,0 +1,328 @@
+{
+  "$description": "Docs navigation. tools/docs.mjs writes it into every page. Add a page here, then run node tools/docs.mjs.",
+  "groups": [
+    {
+      "title": "Getting started",
+      "icon": "home",
+      "links": [
+        {
+          "href": "get-started.html",
+          "title": "Get started"
+        },
+        {
+          "href": "how-it-works.html",
+          "title": "How it works",
+          "isNew": true
+        },
+        {
+          "href": "principles.html",
+          "title": "Principles"
+        }
+      ]
+    },
+    {
+      "title": "Foundations",
+      "icon": "sliders",
+      "links": [
+        {
+          "href": "colour.html",
+          "title": "Colour"
+        },
+        {
+          "href": "colour-guardrails.html",
+          "title": "Colour guardrails"
+        },
+        {
+          "href": "themes.html",
+          "title": "Themes and modes",
+          "isNew": true
+        },
+        {
+          "href": "contrast.html",
+          "title": "Contrast"
+        },
+        {
+          "href": "type.html",
+          "title": "Typography"
+        },
+        {
+          "href": "spacing.html",
+          "title": "Spacing"
+        },
+        {
+          "href": "radii.html",
+          "title": "Radii"
+        },
+        {
+          "href": "elevation.html",
+          "title": "Elevation"
+        },
+        {
+          "href": "motion.html",
+          "title": "Motion"
+        },
+        {
+          "href": "motion-gallery.html",
+          "title": "Motion gallery",
+          "isNew": true
+        },
+        {
+          "href": "gradients.html",
+          "title": "Gradients",
+          "isNew": true
+        },
+        {
+          "href": "icons.html",
+          "title": "Icons"
+        },
+        {
+          "href": "layout.html",
+          "title": "Layout and breakpoints"
+        },
+        {
+          "href": "responsive.html",
+          "title": "Responsive"
+        }
+      ]
+    },
+    {
+      "title": "Components",
+      "icon": "grid",
+      "links": [
+        {
+          "href": "buttons.html",
+          "title": "Buttons"
+        },
+        {
+          "href": "text-fields.html",
+          "title": "Text fields"
+        },
+        {
+          "href": "selection.html",
+          "title": "Selection controls"
+        },
+        {
+          "href": "chips-and-tabs.html",
+          "title": "Chips and tabs"
+        },
+        {
+          "href": "badges.html",
+          "title": "Badges and status"
+        },
+        {
+          "href": "avatars.html",
+          "title": "Avatars"
+        },
+        {
+          "href": "cards.html",
+          "title": "Cards"
+        },
+        {
+          "href": "list-rows.html",
+          "title": "List rows"
+        },
+        {
+          "href": "alerts-and-toasts.html",
+          "title": "Alerts and toasts"
+        },
+        {
+          "href": "menus-and-dialogs.html",
+          "title": "Menus and dialogs"
+        },
+        {
+          "href": "side-sheets.html",
+          "title": "Side sheets",
+          "isNew": true
+        },
+        {
+          "href": "progress.html",
+          "title": "Progress"
+        },
+        {
+          "href": "table.html",
+          "title": "Table"
+        },
+        {
+          "href": "loading.html",
+          "title": "Loading and empty"
+        },
+        {
+          "href": "navigation.html",
+          "title": "Navigation"
+        }
+      ]
+    },
+    {
+      "title": "Pattern components",
+      "icon": "zap",
+      "links": [
+        {
+          "href": "navigation-drawer.html",
+          "title": "Navigation drawer",
+          "isNew": true
+        },
+        {
+          "href": "launcher.html",
+          "title": "Launcher and headers",
+          "isNew": true
+        },
+        {
+          "href": "top-bar.html",
+          "title": "Top bar and action bar"
+        },
+        {
+          "href": "post-card.html",
+          "title": "Post card"
+        },
+        {
+          "href": "attachments.html",
+          "title": "Attachments"
+        },
+        {
+          "href": "priority.html",
+          "title": "Priority picker"
+        },
+        {
+          "href": "lists.html",
+          "title": "Lists"
+        },
+        {
+          "href": "date-picker.html",
+          "title": "Date picker"
+        },
+        {
+          "href": "animal-card.html",
+          "title": "Animal card"
+        },
+        {
+          "href": "progress-ring.html",
+          "title": "Progress bar and ring"
+        }
+      ]
+    },
+    {
+      "title": "Stat cards",
+      "icon": "trend",
+      "links": [
+        {
+          "href": "dashboard-widgets.html",
+          "title": "Dashboard widgets",
+          "isNew": true
+        },
+        {
+          "href": "stat-figures.html",
+          "title": "Stat figures"
+        },
+        {
+          "href": "key-insights.html",
+          "title": "Key insights"
+        },
+        {
+          "href": "insights-summary.html",
+          "title": "Insights summary"
+        },
+        {
+          "href": "site-card.html",
+          "title": "Site card"
+        },
+        {
+          "href": "day-week-month.html",
+          "title": "Day, week, month"
+        }
+      ]
+    },
+    {
+      "title": "Screens",
+      "icon": "smartphone",
+      "links": [
+        {
+          "href": "screens.html",
+          "title": "All screens"
+        },
+        {
+          "href": "screen-home.html",
+          "title": "Home"
+        },
+        {
+          "href": "screen-housing.html",
+          "title": "Housing"
+        },
+        {
+          "href": "screen-people.html",
+          "title": "Choose people"
+        },
+        {
+          "href": "screen-task.html",
+          "title": "Add task"
+        },
+        {
+          "href": "screen-request.html",
+          "title": "New request"
+        },
+        {
+          "href": "screen-date.html",
+          "title": "Set a date"
+        }
+      ]
+    },
+    {
+      "title": "Content",
+      "icon": "chat",
+      "links": [
+        {
+          "href": "voice.html",
+          "title": "Voice and words"
+        }
+      ]
+    },
+    {
+      "title": "Governance",
+      "icon": "shield",
+      "links": [
+        {
+          "href": "guardrails.html",
+          "title": "Guardrails",
+          "isNew": true
+        },
+        {
+          "href": "governance.html",
+          "title": "Roles, changes and exceptions",
+          "isNew": true
+        },
+        {
+          "href": "versions.html",
+          "title": "Versions and releases",
+          "isNew": true
+        }
+      ]
+    },
+    {
+      "title": "Resources",
+      "icon": "download",
+      "links": [
+        {
+          "href": "../tester.html",
+          "title": "Theme tester",
+          "isNew": true
+        },
+        {
+          "href": "resources.html",
+          "title": "Downloads"
+        },
+        {
+          "href": "developers.html",
+          "title": "Developer outputs",
+          "isNew": true
+        },
+        {
+          "href": "figma-mapping.html",
+          "title": "Figma mapping"
+        },
+        {
+          "href": "import-theme.html",
+          "title": "Import theme"
+        }
+      ]
+    }
+  ]
+}
