@@ -502,3 +502,29 @@ body { background: var(--color-bg-canvas); overflow-x: hidden; }
 :root[data-contrast="high"] .hero__patterns, :root[data-contrast="high"] .hero__pause { display: none; }
 @media (prefers-contrast: more) { :root:not([data-contrast="standard"]) .hero__patterns, :root:not([data-contrast="standard"]) .hero__pause { display: none; } }
 @media (prefers-reduced-motion: reduce) { .hero__pause { display: none; } }
+
+/* ── Docs sidebar = the floating navigation drawer (1.2) ──────────────────────
+   Sections are the rail, pages the menu; each section has a module tone. Desktop: a rounded panel inset
+   below the top bar, sliding in on load (elastic); the top-bar hamburger retracts and restores it.
+   Below 1024px it opens over the page from the hamburger. */
+:root { --site-nav-w: calc(var(--size-drawer-nav) + var(--space-4)); }
+.site-nav.navdrawer { overflow: hidden; padding: 0; border: 0; color: var(--color-text-secondary); background-color: var(--color-surface-raised); background-image: var(--gradient-tone-panel); box-shadow: var(--shadow-lg); }
+.navdrawer--site { position: sticky; top: calc(var(--site-top-h) + var(--space-4)); inset-inline-start: auto; inset-block: auto; align-self: start; z-index: var(--z-sticky);
+  width: var(--size-drawer-nav); height: calc(100vh - var(--site-top-h) - var(--space-8)); margin: var(--space-4) 0 var(--space-4) var(--space-4); }
+.navdrawer--site .navdrawer__item { min-height: var(--size-control-md); font-size: var(--text-md); }
+.navdrawer--site .navdrawer__item .nav-new { margin-inline-start: auto; }
+.navdrawer--site .navdrawer__tab > span { font-size: var(--text-2xs); }
+.navdrawer--site .navdrawer__head .search { display: flex; }
+.navdrawer--site .navdrawer__foot small a { color: inherit; }
+.navdrawer--site .nav-results__list { display: flex; flex-direction: column; gap: var(--space-0-5); }
+.navdrawer--site .nav-results__list small { margin-inline-start: auto; font-size: var(--text-2xs); color: var(--color-text-muted); }
+/* Desktop: retract and restore (site.js adds .is-leaving, then .nav-collapsed) */
+@media (min-width: 1024px) {
+  .nav-collapsed .site { grid-template-columns: minmax(0, 1fr); }
+  .nav-collapsed .site-nav { display: none; }
+}
+/* Below 1024px: a floating overlay opened by the hamburger */
+@media (max-width: 1023px) {
+  .site-nav.navdrawer--site { position: fixed; top: calc(var(--site-top-h) + var(--space-2)); bottom: var(--space-2); inset-inline-start: var(--space-2); height: auto; align-self: stretch; /* start would size it to content and overflow above the top bar */ margin: 0; width: min(var(--size-drawer-nav), calc(100vw - var(--space-4))); z-index: var(--z-dialog); transform: none; visibility: visible; display: none; }
+  .nav-open .site-nav.navdrawer--site { display: flex; }
+}

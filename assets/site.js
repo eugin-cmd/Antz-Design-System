@@ -25,10 +25,11 @@
   }
 
   /* Drawer (below 1024px) */
-  function setNav(open) {
+  function setNav(open, focusSearch) {
     body.classList.toggle('nav-open', open);
     $$('[data-nav-toggle]').forEach(function (b) { b.setAttribute('aria-expanded', String(open)); });
-    if (open) { var s = $('.nav-search input'); if (s) setTimeout(function () { s.focus(); }, 60); }
+    // Focus the search only when the search button opened the menu: focusing a field on phones pans the page
+    if (open) { var target = focusSearch ? $('.nav-search input') : $('#site-nav [aria-selected="true"]'); if (target) setTimeout(function () { target.focus({ preventScroll: true }); }, 60); }
   }
   // Hamburger: opens the menu drawer below 1024px; on wider screens it collapses or restores the sidebar (remembered).
   var wide = window.matchMedia('(min-width: 1024px)');
@@ -37,11 +38,17 @@
     if (wide.matches) b.setAttribute('aria-expanded', String(!body.classList.contains('nav-collapsed')));
     b.addEventListener('click', function () {
       if (!wide.matches) { setNav(!body.classList.contains('nav-open')); return; }
-      var c = body.classList.toggle('nav-collapsed'); b.setAttribute('aria-expanded', String(!c));
+      var navEl = document.getElementById('site-nav'), c = !body.classList.contains('nav-collapsed');
+      b.setAttribute('aria-expanded', String(!c));
       try { localStorage.setItem('antz-ds-nav', c ? 'collapsed' : 'open'); } catch (e) {}
+      if (c && navEl) {
+        navEl.classList.add('is-leaving');
+        var d = parseFloat(getComputedStyle(navEl).animationDuration) || 0;
+        setTimeout(function () { navEl.classList.remove('is-leaving'); body.classList.add('nav-collapsed'); }, d * 1000);
+      } else body.classList.toggle('nav-collapsed', c);
     });
   });
-  $$('[data-nav-search]').forEach(function (b) { b.addEventListener('click', function () { setNav(true); }); });
+  $$('[data-nav-search]').forEach(function (b) { b.addEventListener('click', function () { setNav(true, true); }); });
   var scrim = $('.site-scrim'); if (scrim) scrim.addEventListener('click', function () { setNav(false); });
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && body.classList.contains('nav-open')) setNav(false);
@@ -59,21 +66,21 @@
   /* Search filters the nav; Enter opens the first match */
   var navLinks = $$('.site-nav .nav-link');
   function filterNav(q) {
-    q = q.trim().toLowerCase();
-    var first = null;
-    $$('.nav-group').forEach(function (g) {
-      var label = g.querySelector('.nav-group__toggle').textContent.toLowerCase(), any = false;
-      $$('.nav-link', g).forEach(function (a) {
-        var hit = !q || a.textContent.toLowerCase().indexOf(q) > -1 || label.indexOf(q) > -1;
-        a.parentElement.hidden = !hit; if (hit) { any = true; if (q && !first) first = a; }
+    q = (q || '').trim().toLowerCase();
+    var nav = $('.site-nav'); if (!nav) return null;
+    var results = $('.nav-results', nav), list = $('.nav-results__list', nav), empty = $('.nav-empty', nav);
+    var menus = $$('.navdrawer__menu:not(.nav-results)', nav), first = null;
+    if (!results) return null;
+    if (!q) { results.hidden = true; menus.forEach(function (m) { var t = document.getElementById(m.getAttribute('aria-labelledby')); m.hidden = !(t && t.getAttribute('aria-selected') === 'true'); }); return null; }
+    menus.forEach(function (m) { m.hidden = true; }); results.hidden = false; list.innerHTML = '';
+    menus.forEach(function (m) {
+      var section = ($('.navdrawer__group', m) || {}).textContent || '';
+      $$('.nav-link', m).forEach(function (a) {
+        if ((a.textContent + ' ' + section).toLowerCase().indexOf(q) < 0) return;
+        var c = a.cloneNode(true); c.insertAdjacentHTML('beforeend', '<small>' + section + '</small>'); list.appendChild(c); if (!first) first = c;
       });
-      g.hidden = !any;
-      var btn = g.querySelector('.nav-group__toggle');
-      if (q) setGroup(btn, any); else setGroup(btn, btn.dataset.current === 'true');
     });
-    var solo = $('.site-nav > .nav-link');
-    if (solo) { var hit = !q || solo.textContent.toLowerCase().indexOf(q) > -1; solo.hidden = !hit; if (hit && q && !first) first = solo; }
-    var empty = $('.nav-empty'); if (empty) empty.hidden = !q || !!first;
+    if (empty) empty.hidden = !!first;
     return first;
   }
   $$('.site-search input, .nav-search input').forEach(function (inp) {

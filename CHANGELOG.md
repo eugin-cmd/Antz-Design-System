@@ -10,6 +10,7 @@ All notable changes to the Antz Design System. Versions follow semantic versioni
 
 ### Docs site
 - **Home hero photos:** the drawn coat patterns are replaced by ten close-up animal photos from `reference/banner images`: tiger, zebra, leopard, giraffe, elephant skin, blue and red macaw feathers, iridescent plumage, tiger coat and fur. Portrait and square photos are cropped to an 8:3 landscape, and all are compressed to WebP (about 3.4 MB in all, each loaded just before its turn). They sit under a 50% deep-green overlay with the same slow crossfade, about every 7 seconds. A soft dark fade behind the text keeps every slide at AA (headline at least 4.4:1, intro at least 5.4:1). The pause button, still image under reduced motion and plain hero in high contrast are unchanged. Photo credits are in `assets/img/CREDITS.md`.
+- **Sidebar is now the floating navigation drawer:** sections are the rail (each with its module tone), pages the menu, with page search in the drawer head. On desktop it floats with rounded corners, set in from the left, top and bottom, and slides in on load with the elastic settle. The top-bar hamburger retracts it (exit animation, the page widens) and restores it; the choice is remembered. Below 1024px it opens over the page from the hamburger, under the top bar.
 
 ## 1.2.0-beta.3 (23 November 2026)
 

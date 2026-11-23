@@ -83,18 +83,23 @@ const HEAD_SCRIPT = `<script>try { var d = document.documentElement, t = localSt
 function header(pre) {
   return `<header class="site-top"><button class="icon-btn site-menu-btn" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav" data-nav-toggle><svg class="icon"><use href="#i-menu"/></svg></button><a class="icon-btn site-home-btn" href="${pre}index.html" aria-label="Home"><svg class="icon"><use href="#i-home"/></svg></a><a class="site-brand" href="${pre}index.html" aria-label="${SITE}, home"><span class="site-logo"><img class="logo-on-light" src="${pre}assets/img/antz-logo.svg" alt="Antz" width="509" height="194"><img class="logo-on-dark" src="${pre}assets/img/antz-logo-white.svg" alt="Antz" width="509" height="194"></span><span class="site-divider" aria-hidden="true"></span><span class="site-brand__name">Antz Design System</span><small>v${label}</small></a><label class="site-search"><svg class="icon"><use href="#i-search"/></svg><input type="search" placeholder="Search pages" aria-label="Search pages"><kbd>/</kbd></label><button class="icon-btn site-search-btn" type="button" aria-label="Search pages" data-nav-search><svg class="icon"><use href="#i-search"/></svg></button><a class="btn btn--sm site-tester-link" href="${pre}tester.html"><svg class="icon"><use href="#i-sliders"/></svg>Theme tester</a><button class="icon-btn icon-btn--sm site-contrast-btn" type="button" aria-label="High contrast" aria-pressed="false" data-contrast-toggle title="High contrast"><svg class="icon"><use href="#i-eye"/></svg></button><div class="segmented segmented--pill theme-seg" role="group" aria-label="Theme"><button type="button" data-theme-set="auto" aria-pressed="true"><svg class="icon icon--sm"><use href="#i-monitor"/></svg><span>Auto</span></button><button type="button" data-theme-set="light" aria-pressed="false"><svg class="icon icon--sm"><use href="#i-sun"/></svg><span>Light</span></button><button type="button" data-theme-set="dark" aria-pressed="false"><svg class="icon icon--sm"><use href="#i-moon"/></svg><span>Dark</span></button></div></header>`;
 }
+// Sidebar: the navigation drawer component (floating), with the docs sections as the rail and their pages as the menu.
+const TONES = ['green', 'amber', 'navy', 'violet', 'coral', 'slate', 'rose', 'green', 'navy'];
 function nav(pre, current) {
-  let html = `<nav class="site-nav" id="site-nav" aria-label="Documentation"><label class="search nav-search"><svg class="icon"><use href="#i-search"/></svg><input type="search" placeholder="Search pages" aria-label="Search pages"></label><a class="nav-link" href="${pre}index.html"${current === 'index.html' ? ' aria-current="page"' : ''}>Welcome</a>`;
-  NAV.groups.forEach((g, i) => {
-    const open = g.links.some((l) => l.href === current);
-    html += `<div class="nav-group"><button class="nav-group__toggle" type="button" aria-expanded="${open}" aria-controls="ng-${i + 1}" data-current="${open}"><svg class="icon"><use href="#i-${g.icon}"/></svg><span>${g.title}</span><svg class="icon"><use href="#i-chevron-down"/></svg></button><ul class="nav-group__list" id="ng-${i + 1}"${open ? '' : ' hidden'}>`;
-    for (const l of g.links) {
-      const href = l.href.startsWith('../') ? (pre ? l.href : l.href.slice(3)) : (pre ? '' : 'pages/') + l.href;
-      html += `<li><a class="nav-link" href="${href}"${l.href === current ? ' aria-current="page"' : ''}>${l.title}${l.isNew ? ' <span class="nav-new">New</span>' : ''}</a></li>`;
-    }
-    html += '</ul></div>';
-  });
-  return html + '<p class="nav-empty t-caption" hidden>No page matches.</p></nav>';
+  const href = (l) => (l.href.startsWith('../') ? (pre ? l.href : l.href.slice(3)) : (pre ? '' : 'pages/') + l.href);
+  let sel = NAV.groups.findIndex((g) => g.links.some((l) => l.href === current)); if (sel < 0) sel = 0;
+  const tabs = NAV.groups.map((g, i) => `<button class="navdrawer__tab" type="button" role="tab" id="sn-tab-${i + 1}" aria-controls="sn-${i + 1}" aria-selected="${i === sel}" tabindex="${i === sel ? 0 : -1}" data-tone="${TONES[i % TONES.length]}"><svg class="icon" aria-hidden="true"><use href="#i-${g.icon}"/></svg><span>${g.title.replace('Pattern components', 'Patterns').replace('Getting started', 'Start')}</span></button>`).join('');
+  const menus = NAV.groups.map((g, i) => {
+    let m = `<div class="navdrawer__menu" role="tabpanel" id="sn-${i + 1}" aria-labelledby="sn-tab-${i + 1}"${i === sel ? '' : ' hidden'}><p class="navdrawer__group">${g.title}</p>`;
+    if (i === 0) m += `<a class="navdrawer__item nav-link" href="${pre}index.html"${current === 'index.html' ? ' aria-current="page"' : ''}>Welcome</a>`;
+    for (const l of g.links) m += `<a class="navdrawer__item nav-link" href="${href(l)}"${l.href === current ? ' aria-current="page"' : ''}>${l.title}${l.isNew ? ' <span class="nav-new">New</span>' : ''}</a>`;
+    return m + '</div>';
+  }).join('');
+  return `<nav class="site-nav navdrawer navdrawer--floating navdrawer--site" id="site-nav" aria-label="Documentation" data-tone="${TONES[sel % TONES.length]}" data-navdrawer-static>`
+    + `<div class="navdrawer__rail"><div class="navdrawer__tabs" role="tablist" aria-orientation="vertical" aria-label="Sections">${tabs}</div></div>`
+    + `<div class="navdrawer__panel"><div class="navdrawer__head"><label class="search nav-search"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg><input type="search" placeholder="Search pages" aria-label="Search pages"></label></div>`
+    + menus + `<div class="navdrawer__menu nav-results" hidden><p class="navdrawer__group">Results</p><div class="nav-results__list"></div><p class="nav-empty t-caption" hidden>No page matches.</p></div>`
+    + `<footer class="navdrawer__foot"><div class="navdrawer__user"><div><b>Antz Design System</b><small>v${VERSION} · <a href="${pre}pages/versions.html">Versions</a></small></div><a class="icon-btn icon-btn--ghost" href="${pre}tester.html" aria-label="Theme tester"><svg class="icon" aria-hidden="true"><use href="#i-sliders"/></svg></a></div></footer></div></nav>`;
 }
 const order = NAV.groups.flatMap((g) => g.links.filter((l) => !l.href.startsWith('../')).map((l) => ({ ...l, group: g.title })));
 function pager(current) {
