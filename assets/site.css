@@ -528,3 +528,11 @@ body { background: var(--color-bg-canvas); overflow-x: hidden; }
   .site-nav.navdrawer--site { position: fixed; top: calc(var(--site-top-h) + var(--space-2)); bottom: var(--space-2); inset-inline-start: var(--space-2); height: auto; align-self: stretch; /* start would size it to content and overflow above the top bar */ margin: 0; width: min(var(--size-drawer-nav), calc(100vw - var(--space-4))); z-index: var(--z-dialog); transform: none; visibility: visible; display: none; }
   .nav-open .site-nav.navdrawer--site { display: flex; }
 }
+
+/* Banners run full width behind the floating sidebar; their text starts where the panel ends, plus the page padding */
+@media (min-width: 1024px) {
+  :root { --site-nav-bleed: var(--site-nav-w); }
+  .nav-collapsed { --site-nav-bleed: 0px; }
+  .hero, .page-banner { margin-inline-start: calc(-1 * var(--site-nav-bleed)); padding-inline-start: calc(var(--site-nav-bleed) + var(--page-pad)); }
+  .site-nav.navdrawer--site { margin-block-start: var(--space-4); }
+}

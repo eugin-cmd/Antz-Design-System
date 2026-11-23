@@ -31,16 +31,16 @@
     // Focus the search only when the search button opened the menu: focusing a field on phones pans the page
     if (open) { var target = focusSearch ? $('.nav-search input') : $('#site-nav [aria-selected="true"]'); if (target) setTimeout(function () { target.focus({ preventScroll: true }); }, 60); }
   }
-  // Hamburger: opens the menu drawer below 1024px; on wider screens it collapses or restores the sidebar (remembered).
+  // Hamburger: opens the menu drawer below 1024px; on wider screens it retracts or restores the sidebar.
+  // The sidebar always loads open (it slides in on every page).
   var wide = window.matchMedia('(min-width: 1024px)');
-  try { if (localStorage.getItem('antz-ds-nav') === 'collapsed') body.classList.add('nav-collapsed'); } catch (e) {}
+  try { localStorage.removeItem('antz-ds-nav'); } catch (e) {}
   $$('[data-nav-toggle]').forEach(function (b) {
     if (wide.matches) b.setAttribute('aria-expanded', String(!body.classList.contains('nav-collapsed')));
     b.addEventListener('click', function () {
       if (!wide.matches) { setNav(!body.classList.contains('nav-open')); return; }
       var navEl = document.getElementById('site-nav'), c = !body.classList.contains('nav-collapsed');
       b.setAttribute('aria-expanded', String(!c));
-      try { localStorage.setItem('antz-ds-nav', c ? 'collapsed' : 'open'); } catch (e) {}
       if (c && navEl) {
         navEl.classList.add('is-leaving');
         var d = parseFloat(getComputedStyle(navEl).animationDuration) || 0;
