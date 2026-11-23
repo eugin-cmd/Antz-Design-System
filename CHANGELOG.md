@@ -2,7 +2,9 @@
 
 All notable changes to the Antz Design System. Versions follow semantic versioning: patch for fixes, minor for additions, major for anything renamed, removed or changed in meaning. Every version listed here is published under `releases/` and tagged in Git.
 
-## Unreleased
+## 1.2.0-beta.3 (23 November 2026)
+
+Adds the rendered audit (`tools/audit.mjs`), with what it found fixed: 24px touch targets, blue and teal card text, and a deeper blue gradient. Also adds the home hero animal coats. Upgrade by changing `v1.2.0-beta.2` to `v1.2.0-beta.3`; nothing removed or renamed.
 
 ### Tools
 - **Rendered audit** (`tools/audit.mjs`, needs Chrome and Node 22, no packages): checks what the browser actually shows. That covers every colour token in all 36 combinations of OS and page settings, every text element on every page in four modes (suspects re-measured on real pixels), reduced motion, links, JavaScript errors and tap targets. Deliberate "don't" examples opt out with `data-audit-ignore`. Now a release step.
