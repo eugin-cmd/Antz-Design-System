@@ -533,6 +533,6 @@ body { background: var(--color-bg-canvas); overflow-x: hidden; }
 @media (min-width: 1024px) {
   :root { --site-nav-bleed: var(--site-nav-w); }
   .nav-collapsed { --site-nav-bleed: 0px; }
-  .hero, .page-banner { margin-inline-start: calc(-1 * var(--site-nav-bleed)); padding-inline-start: calc(var(--site-nav-bleed) + var(--page-pad)); }
+  .hero, .page-banner, .page-tabs { margin-inline-start: calc(-1 * var(--site-nav-bleed)); padding-inline-start: calc(var(--site-nav-bleed) + var(--page-pad)); }
   .site-nav.navdrawer--site { margin-block-start: var(--space-4); }
 }
