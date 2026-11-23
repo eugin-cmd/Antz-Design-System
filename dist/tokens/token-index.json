@@ -4219,17 +4219,6 @@
       "dark-hc": 1.8
     },
     {
-      "name": "border-width-hairline",
-      "css": "--border-width-hairline",
-      "type": "dimension",
-      "tier": "base",
-      "description": "Hairline: dashed outlines such as the drop zone. One device pixel on high-density screens; browsers draw it as 1px on standard screens.",
-      "light": "0.5px",
-      "dark": "0.5px",
-      "light-hc": "0.5px",
-      "dark-hc": "0.5px"
-    },
-    {
       "name": "border-width",
       "css": "--border-width",
       "type": "dimension",
@@ -4272,6 +4261,28 @@
       "dark": "2px",
       "light-hc": "2px",
       "dark-hc": "2px"
+    },
+    {
+      "name": "mask.dash-outline",
+      "css": "--mask-dash-outline",
+      "type": "string",
+      "tier": "base",
+      "description": "Dashed outline, 1px: dashes 4px, gaps 4px, corner radius 16px (--radius-lg). For standard screens.",
+      "light": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' rx='16' ry='16' fill='none' stroke='black' stroke-width='2' stroke-dasharray='4 4'/%3E%3C/svg%3E\")",
+      "dark": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' rx='16' ry='16' fill='none' stroke='black' stroke-width='2' stroke-dasharray='4 4'/%3E%3C/svg%3E\")",
+      "light-hc": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' rx='16' ry='16' fill='none' stroke='black' stroke-width='2' stroke-dasharray='4 4'/%3E%3C/svg%3E\")",
+      "dark-hc": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' rx='16' ry='16' fill='none' stroke='black' stroke-width='2' stroke-dasharray='4 4'/%3E%3C/svg%3E\")"
+    },
+    {
+      "name": "mask.dash-outline-hairline",
+      "css": "--mask-dash-outline-hairline",
+      "type": "string",
+      "tier": "base",
+      "description": "Dashed outline, 0.5px hairline: dashes 4px, gaps 4px, corner radius 16px. For high-density screens.",
+      "light": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' rx='16' ry='16' fill='none' stroke='black' stroke-width='1' stroke-dasharray='4 4'/%3E%3C/svg%3E\")",
+      "dark": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' rx='16' ry='16' fill='none' stroke='black' stroke-width='1' stroke-dasharray='4 4'/%3E%3C/svg%3E\")",
+      "light-hc": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' rx='16' ry='16' fill='none' stroke='black' stroke-width='1' stroke-dasharray='4 4'/%3E%3C/svg%3E\")",
+      "dark-hc": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' rx='16' ry='16' fill='none' stroke='black' stroke-width='1' stroke-dasharray='4 4'/%3E%3C/svg%3E\")"
     },
     {
       "name": "ease.standard",

@@ -453,9 +453,6 @@
   /* icon-stroke */
   --icon-stroke: 1.8;
 
-  /* border-width-hairline */
-  --border-width-hairline: 0.5px;
-
   /* border-width */
   --border-width: 1px;
 
@@ -467,6 +464,10 @@
 
   /* focus-ring-offset */
   --focus-ring-offset: 2px;
+
+  /* mask */
+  --mask-dash-outline: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' rx='16' ry='16' fill='none' stroke='black' stroke-width='2' stroke-dasharray='4 4'/%3E%3C/svg%3E");
+  --mask-dash-outline-hairline: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' rx='16' ry='16' fill='none' stroke='black' stroke-width='1' stroke-dasharray='4 4'/%3E%3C/svg%3E");
 
   /* ease */
   --ease-standard: cubic-bezier(0.2, 0.7, 0.2, 1);
