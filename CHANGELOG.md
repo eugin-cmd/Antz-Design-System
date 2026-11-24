@@ -2,6 +2,11 @@
 
 All notable changes to the Antz Design System. Versions follow semantic versioning: patch for fixes, minor for additions, major for anything renamed, removed or changed in meaning. Every version listed here is published under `releases/` and tagged in Git.
 
+## Unreleased
+
+### Docs site
+- **Sidebar on every page:** since the sidebar became a navigation drawer, `tools/docs.mjs` no longer refreshed it on the 51 hand-written pages (its class is now `site-nav navdrawer …`), so those pages lacked the newer links (Colour scales, ANTZ Rounded icons) and showed v1.2.0-beta.3. Fixed, and the tool now fails if any page's sidebar is not regenerated. The docs pages inside the frozen v1.2.0-beta.4 copy keep the old sidebar; its tokens, components and scripts are unaffected.
+
 ## 1.2.0-beta.4 (24 November 2026)
 
 Adds the icon system: the ANTZ Rounded set (207 line and filled icons, 30 Primary tiles) with 44 component icons redrawn, 118 animated line icons that play once, and DD-004 on which icons to use where (`--icon-stroke` is now 2). Also adds the colour scales (110 tokens), the floating navigation drawer with its sliding tab, and the redesigned docs sidebar. Upgrade by changing `v1.2.0-beta.3` to `v1.2.0-beta.4`; nothing removed or renamed. Icons render slightly bolder (2px).
