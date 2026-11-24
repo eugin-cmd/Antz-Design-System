@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-repairs" role="img" aria-label="Repairs">
+<defs><linearGradient id="antz-l-repairs-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-repairs .i,.antz-l-repairs .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-repairs .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-repairs .a{stroke:url(#antz-l-repairs-acc)}
+.antz-l-repairs .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-repairs .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-repairs .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+.antz-l-repairs-0{stroke-dasharray:1;animation:antz-l-repairs-0 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
+.antz-l-repairs-1{animation:antz-l-repairs-1 3600ms cubic-bezier(0.34, 1.56, 0.64, 1) infinite}
+.antz-l-repairs-g{transform-origin:24px 40px;animation:antz-l-repairs-g 3600ms cubic-bezier(0.65, 0, 0.35, 1) infinite}
+@keyframes antz-l-repairs-0{0%,0%{stroke-dashoffset:1}35%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes antz-l-repairs-1{0%,15%{transform:scale(0);opacity:0}16%{opacity:1}27%,90%{transform:scale(1);opacity:1}97%,100%{transform:scale(1);opacity:0}}
+@keyframes antz-l-repairs-g{0%,52%{transform:rotate(0)}56%{transform:rotate(-7deg)}61%{transform:rotate(6deg)}66%{transform:rotate(-3deg)}71%,100%{transform:rotate(0)}}
+@media (prefers-reduced-motion:reduce){.antz-l-repairs *{animation:none!important;stroke-dashoffset:0!important;opacity:1!important;transform:none!important}}
+</style>
+<g class="antz-l-repairs-g">
+<path class="a antz-l-repairs-0" d="M33.5 6.5a8 8 0 0 0-9.8 10.1L8.7 31.6a3.5 3.5 0 0 0 5 5l15-15A8 8 0 0 0 39.4 14l-4.9 4.9-4.3-1.1-1.1-4.3Z" pathLength="1"/>
+<path class="a antz-l-repairs-1" d="M38 30v4M36 32h4"/>
+</g>
+</svg>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-export" role="img" aria-label="Export">
+<defs><linearGradient id="antz-l-export-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-export .i,.antz-l-export .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-export .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-export .a{stroke:url(#antz-l-export-acc)}
+.antz-l-export .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-export .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-export .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+.antz-l-export-0{stroke-dasharray:1;animation:antz-l-export-0 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
+.antz-l-export-1{stroke-dasharray:1;animation:antz-l-export-1 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
+.antz-l-export-2{animation:antz-l-export-2 3600ms cubic-bezier(0.34, 1.56, 0.64, 1) infinite}
+@keyframes antz-l-export-0{0%,0%{stroke-dashoffset:1}21%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes antz-l-export-1{0%,9%{stroke-dashoffset:1}30%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes antz-l-export-2{0%,30%{transform:translateX(-7px);opacity:0}31.5%{opacity:1}46%,90%{transform:none;opacity:1}97%,100%{transform:none;opacity:0}}
+@media (prefers-reduced-motion:reduce){.antz-l-export *{animation:none!important;stroke-dashoffset:0!important;opacity:1!important;transform:none!important}}
+</style>
+<path class="i antz-l-export-0" d="M28 41H12a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h12l8 8v6" pathLength="1"/>
+<path class="i antz-l-export-1" d="M24 7v8h8" pathLength="1"/>
+<path class="a antz-l-export-2" d="M22 31h20M36 25l6 6-6 6"/>
+</svg>

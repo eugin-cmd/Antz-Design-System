@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-bear" role="img" aria-label="Bear">
+<defs><linearGradient id="antz-l-bear-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-bear .i,.antz-l-bear .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-bear .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-bear .a{stroke:url(#antz-l-bear-acc)}
+.antz-l-bear .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-bear .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-bear .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+.antz-l-bear-0{stroke-dasharray:1;animation:antz-l-bear-0 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
+.antz-l-bear-1{stroke-dasharray:1;animation:antz-l-bear-1 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
+.antz-l-bear-2{animation:antz-l-bear-2 3600ms cubic-bezier(0.34, 1.56, 0.64, 1) infinite}
+.antz-l-bear-3{animation:antz-l-bear-3 3600ms cubic-bezier(0.34, 1.56, 0.64, 1) infinite}
+.antz-l-bear-4{stroke-dasharray:1;animation:antz-l-bear-4 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
+.antz-l-bear-5{animation:antz-l-bear-5 3600ms cubic-bezier(0.34, 1.56, 0.64, 1) infinite}
+.antz-l-bear-g{transform-origin:24px 24px;animation:antz-l-bear-g 3600ms cubic-bezier(0.65, 0, 0.35, 1) infinite}
+@keyframes antz-l-bear-0{0%,0%{stroke-dashoffset:1}21%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes antz-l-bear-1{0%,6.3%{stroke-dashoffset:1}27.3%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes antz-l-bear-2{0%,10.8%{transform:scale(0);opacity:0}11.8%{opacity:1}22.8%,90%{transform:scale(1);opacity:1}97%,100%{transform:scale(1);opacity:0}}
+@keyframes antz-l-bear-3{0%,11.7%{transform:scale(0);opacity:0}12.7%{opacity:1}23.7%,90%{transform:scale(1);opacity:1}97%,100%{transform:scale(1);opacity:0}}
+@keyframes antz-l-bear-4{0%,30%{stroke-dashoffset:1}44%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes antz-l-bear-5{0%,36%{transform:scale(0);opacity:0}37%{opacity:1}48%,90%{transform:scale(1);opacity:1}97%,100%{transform:scale(1);opacity:0}}
+@keyframes antz-l-bear-g{0%,52%{transform:translateY(0)}57%{transform:translateY(-5px)}63%{transform:translateY(0)}67%{transform:translateY(-2px)}71%,100%{transform:translateY(0)}}
+@media (prefers-reduced-motion:reduce){.antz-l-bear *{animation:none!important;stroke-dashoffset:0!important;opacity:1!important;transform:none!important}}
+</style>
+<g class="antz-l-bear-g">
+<circle class="i antz-l-bear-0" cx="24" cy="25" r="13" pathLength="1"/>
+<path class="i antz-l-bear-1" d="M13.4 17.5a4 4 0 1 1 5.1-4.3M29.5 13.2a4 4 0 1 1 5.1 4.3" pathLength="1"/>
+<circle class="i antz-l-bear-2" cx="19" cy="22" r="1"/>
+<circle class="i antz-l-bear-3" cx="29" cy="22" r="1"/>
+<path class="a antz-l-bear-4" d="M18.5 30.5a5.5 4.5 0 1 0 11 0 5.5 4.5 0 1 0-11 0" pathLength="1"/>
+<path class="a antz-l-bear-5" d="M22.5 28.5h3l-1.5 1.5Z"/>
+</g>
+</svg>

@@ -17,3 +17,14 @@ Tile set, plus 28 interface icons with micro-animations (`set: "ui"` in index.js
 upload, success, delete, favourite, calendar, send, lock, visibility, location, alert, star, camera, add, filter,
 sort, edit, share, copy, print, log out, link, attach, microphone, folder, bookmark; and 12 animal care icons
 (`set: "care"`): vaccine, pill, vital signs, temperature, weight, water, weather, birds, fish, transport, scan tag, map. Not yet reviewed by the ANTZ icon team; Roshni's tile icons in `../primary/` are unchanged.
+
+## Sets (index.json `set`)
+| Set | Icons |
+| --- | --- |
+| `primary` | the 30 module icons, matching the Tile set |
+| `animals` | elephant, big cat, bird, turtle, monkey, giraffe, deer, snake, frog, butterfly, bear, rabbit |
+| `care` | vaccine, pill, vital signs, temperature, weight, water, weather, birds, fish, transport, scan tag, map |
+| `health` | stethoscope, microscope, X-ray, blood sample, wound care, surgery, quarantine, dental, eye check, DNA, prescription, ambulance |
+| `facilities` | enclosure gate, keys, tools, cleaning, feed store, water tank, CCTV, power, climate control, repairs, safety inspection, waste |
+| `data` | line, pie and area charts, trending up and down, KPI gauge, table, export, schedule, timer, milestone, hourglass |
+| `ui` | 28 interface icons with micro-animations |

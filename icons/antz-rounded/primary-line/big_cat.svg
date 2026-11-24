@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-big_cat" role="img" aria-label="Big cat">
+<defs><linearGradient id="antz-l-big_cat-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-big_cat .i,.antz-l-big_cat .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-big_cat .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-big_cat .a{stroke:url(#antz-l-big_cat-acc)}
+.antz-l-big_cat .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-big_cat .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-big_cat .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+.antz-l-big_cat-0{stroke-dasharray:1;animation:antz-l-big_cat-0 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
+.antz-l-big_cat-1{stroke-dasharray:1;animation:antz-l-big_cat-1 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
+.antz-l-big_cat-2{animation:antz-l-big_cat-2 3600ms cubic-bezier(0.34, 1.56, 0.64, 1) infinite}
+.antz-l-big_cat-3{animation:antz-l-big_cat-3 3600ms cubic-bezier(0.34, 1.56, 0.64, 1) infinite}
+.antz-l-big_cat-4{stroke-dasharray:1;animation:antz-l-big_cat-4 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
+.antz-l-big_cat-5{stroke-dasharray:1;animation:antz-l-big_cat-5 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
+.antz-l-big_cat-6{transform-box:view-box;transform-origin:24px 28px;animation:antz-l-big_cat-6 3600ms cubic-bezier(0.34, 1.56, 0.64, 1) infinite}
+@keyframes antz-l-big_cat-0{0%,0%{stroke-dashoffset:1}21%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes antz-l-big_cat-1{0%,6.3%{stroke-dashoffset:1}27.3%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes antz-l-big_cat-2{0%,9.9%{transform:scale(0);opacity:0}10.9%{opacity:1}21.9%,90%{transform:scale(1);opacity:1}97%,100%{transform:scale(1);opacity:0}}
+@keyframes antz-l-big_cat-3{0%,10.8%{transform:scale(0);opacity:0}11.8%{opacity:1}22.8%,90%{transform:scale(1);opacity:1}97%,100%{transform:scale(1);opacity:0}}
+@keyframes antz-l-big_cat-4{0%,12.6%{stroke-dashoffset:1}33.6%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes antz-l-big_cat-5{0%,30%{stroke-dashoffset:1}44%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes antz-l-big_cat-6{0%,34.8%{transform:scaleX(.4);opacity:0}36.3%{opacity:1}50.8%,90%{transform:none;opacity:1}97%,100%{transform:none;opacity:0}}
+@media (prefers-reduced-motion:reduce){.antz-l-big_cat *{animation:none!important;stroke-dashoffset:0!important;opacity:1!important;transform:none!important}}
+</style>
+<circle class="i antz-l-big_cat-0" cx="24" cy="24" r="13" pathLength="1"/>
+<path class="i antz-l-big_cat-1" d="M14 15.6 12 8l7.6 3.8M34 15.6 36 8l-7.6 3.8" pathLength="1"/>
+<circle class="i antz-l-big_cat-2" cx="19" cy="22" r="1.1"/>
+<circle class="i antz-l-big_cat-3" cx="29" cy="22" r="1.1"/>
+<path class="i antz-l-big_cat-4" d="M22 27.5h4l-2 2.5ZM24 30v2M21 33.5a3 3 0 0 0 3-1.5 3 3 0 0 0 3 1.5" pathLength="1"/>
+<path class="a antz-l-big_cat-5" d="M24 15v4M20.5 16l1 3M27.5 16l-1 3" pathLength="1"/>
+<path class="a antz-l-big_cat-6" d="M8 26l-4-.8M8 30l-4 .8M40 26l4-.8M40 30l4 .8"/>
+</svg>

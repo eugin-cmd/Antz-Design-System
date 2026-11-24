@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-safety" role="img" aria-label="Safety inspection">
+<defs><linearGradient id="antz-l-safety-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-safety .i,.antz-l-safety .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-safety .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-safety .a{stroke:url(#antz-l-safety-acc)}
+.antz-l-safety .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-safety .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-safety .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+.antz-l-safety-0{stroke-dasharray:1;animation:antz-l-safety-0 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
+.antz-l-safety-1{stroke-dasharray:1;animation:antz-l-safety-1 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
+.antz-l-safety-2{stroke-dasharray:1;animation:antz-l-safety-2 3600ms cubic-bezier(0.34, 1.56, 0.64, 1) infinite}
+@keyframes antz-l-safety-0{0%,0%{stroke-dashoffset:1}21%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes antz-l-safety-1{0%,5.4%{stroke-dashoffset:1}26.4%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes antz-l-safety-2{0%,30%{stroke-dashoffset:1;transform:scale(1)}44%{stroke-dashoffset:0;transform:scale(1)}52%{transform:scale(1.18)}64%,90%{stroke-dashoffset:0;transform:scale(1);opacity:1}97%,100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.antz-l-safety *{animation:none!important;stroke-dashoffset:0!important;opacity:1!important;transform:none!important}}
+</style>
+<path class="i antz-l-safety-0" d="M8 32a16 16 0 0 1 32 0" pathLength="1"/>
+<rect class="i antz-l-safety-1" x="5" y="32" width="38" height="5" rx="2" pathLength="1"/>
+<path class="a antz-l-safety-2" d="M24 16v9M18 18.5l1.5 6M30 18.5l-1.5 6" pathLength="1"/>
+</svg>

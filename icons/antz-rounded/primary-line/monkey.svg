@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-monkey" role="img" aria-label="Monkey">
+<defs><linearGradient id="antz-l-monkey-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-monkey .i,.antz-l-monkey .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-monkey .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-monkey .a{stroke:url(#antz-l-monkey-acc)}
+.antz-l-monkey .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-monkey .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-monkey .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+.antz-l-monkey-0{stroke-dasharray:1;animation:antz-l-monkey-0 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
+.antz-l-monkey-1{stroke-dasharray:1;animation:antz-l-monkey-1 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
+.antz-l-monkey-2{animation:antz-l-monkey-2 3600ms cubic-bezier(0.34, 1.56, 0.64, 1) infinite}
+.antz-l-monkey-3{animation:antz-l-monkey-3 3600ms cubic-bezier(0.34, 1.56, 0.64, 1) infinite}
+.antz-l-monkey-4{stroke-dasharray:1;animation:antz-l-monkey-4 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
+.antz-l-monkey-5{stroke-dasharray:1;animation:antz-l-monkey-5 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
+.antz-l-monkey-g{transform-origin:24px 24px;animation:antz-l-monkey-g 3600ms cubic-bezier(0.65, 0, 0.35, 1) infinite}
+@keyframes antz-l-monkey-0{0%,0%{stroke-dashoffset:1}21%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes antz-l-monkey-1{0%,6.3%{stroke-dashoffset:1}27.3%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes antz-l-monkey-2{0%,10.8%{transform:scale(0);opacity:0}11.8%{opacity:1}22.8%,90%{transform:scale(1);opacity:1}97%,100%{transform:scale(1);opacity:0}}
+@keyframes antz-l-monkey-3{0%,11.7%{transform:scale(0);opacity:0}12.7%{opacity:1}23.7%,90%{transform:scale(1);opacity:1}97%,100%{transform:scale(1);opacity:0}}
+@keyframes antz-l-monkey-4{0%,30%{stroke-dashoffset:1}44%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes antz-l-monkey-5{0%,34.8%{stroke-dashoffset:1}48.8%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes antz-l-monkey-g{0%,52%{transform:translateY(0)}57%{transform:translateY(-5px)}63%{transform:translateY(0)}67%{transform:translateY(-2px)}71%,100%{transform:translateY(0)}}
+@media (prefers-reduced-motion:reduce){.antz-l-monkey *{animation:none!important;stroke-dashoffset:0!important;opacity:1!important;transform:none!important}}
+</style>
+<g class="antz-l-monkey-g">
+<circle class="i antz-l-monkey-0" cx="24" cy="22" r="11" pathLength="1"/>
+<path class="i antz-l-monkey-1" d="M13.7 18.2a4 4 0 1 0 0 7.6M34.3 18.2a4 4 0 1 1 0 7.6" pathLength="1"/>
+<circle class="i antz-l-monkey-2" cx="20" cy="18" r="1"/>
+<circle class="i antz-l-monkey-3" cx="28" cy="18" r="1"/>
+<path class="a antz-l-monkey-4" d="M18 26c0-3 2.5-4.5 6-4.5s6 1.5 6 4.5-2.5 5.5-6 5.5-6-2.5-6-5.5Z" pathLength="1"/>
+<path class="a antz-l-monkey-5" d="M21.5 27.5a3 3 0 0 0 5 0" pathLength="1"/>
+</g>
+</svg>

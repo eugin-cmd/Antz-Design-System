@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-bandage" role="img" aria-label="Wound care">
+<defs><linearGradient id="antz-l-bandage-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-bandage .i,.antz-l-bandage .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-bandage .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-bandage .a{stroke:url(#antz-l-bandage-acc)}
+.antz-l-bandage .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-bandage .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-bandage .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+.antz-l-bandage-0{stroke-dasharray:1;animation:antz-l-bandage-0 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
+.antz-l-bandage-1{animation:antz-l-bandage-1 3600ms cubic-bezier(0.34, 1.56, 0.64, 1) infinite}
+.antz-l-bandage-2{animation:antz-l-bandage-2 3600ms cubic-bezier(0.34, 1.56, 0.64, 1) infinite}
+.antz-l-bandage-3{animation:antz-l-bandage-3 3600ms cubic-bezier(0.34, 1.56, 0.64, 1) infinite}
+.antz-l-bandage-4{animation:antz-l-bandage-4 3600ms cubic-bezier(0.34, 1.56, 0.64, 1) infinite}
+.antz-l-bandage-5{animation:antz-l-bandage-5 3600ms cubic-bezier(0.34, 1.56, 0.64, 1) infinite}
+@keyframes antz-l-bandage-0{0%,0%{stroke-dashoffset:1}21%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes antz-l-bandage-1{0%,30%{transform:scale(0);opacity:0}31%{opacity:1}42%,90%{transform:scale(1);opacity:1}97%,100%{transform:scale(1);opacity:0}}
+@keyframes antz-l-bandage-2{0%,33.6%{transform:scale(0);opacity:0}34.6%{opacity:1}45.6%,90%{transform:scale(1);opacity:1}97%,100%{transform:scale(1);opacity:0}}
+@keyframes antz-l-bandage-3{0%,34.8%{transform:scale(0);opacity:0}35.8%{opacity:1}46.8%,90%{transform:scale(1);opacity:1}97%,100%{transform:scale(1);opacity:0}}
+@keyframes antz-l-bandage-4{0%,36%{transform:scale(0);opacity:0}37%{opacity:1}48%,90%{transform:scale(1);opacity:1}97%,100%{transform:scale(1);opacity:0}}
+@keyframes antz-l-bandage-5{0%,37.2%{transform:scale(0);opacity:0}38.2%{opacity:1}49.2%,90%{transform:scale(1);opacity:1}97%,100%{transform:scale(1);opacity:0}}
+@media (prefers-reduced-motion:reduce){.antz-l-bandage *{animation:none!important;stroke-dashoffset:0!important;opacity:1!important;transform:none!important}}
+</style>
+<path class="i antz-l-bandage-0" d="M21.2 36.8 36.8 21.2A7 7 0 0 0 26.8 11.2L11.2 26.8A7 7 0 0 0 21.2 36.8Z" pathLength="1"/>
+<path class="a antz-l-bandage-1" d="M24 18.3 29.7 24 24 29.7 18.3 24Z"/>
+<circle class="a antz-l-bandage-2" cx="24" cy="22" r="0.6"/>
+<circle class="a antz-l-bandage-3" cx="24" cy="26" r="0.6"/>
+<circle class="a antz-l-bandage-4" cx="22" cy="24" r="0.6"/>
+<circle class="a antz-l-bandage-5" cx="26" cy="24" r="0.6"/>
+</svg>

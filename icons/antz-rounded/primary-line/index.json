@@ -633,6 +633,438 @@
       "order": 70,
       "status": "proposal",
       "svg": "map.svg"
+    },
+    {
+      "name": "elephant",
+      "label": "Elephant",
+      "module": "Animals",
+      "set": "animals",
+      "order": 71,
+      "status": "proposal",
+      "svg": "elephant.svg"
+    },
+    {
+      "name": "big_cat",
+      "label": "Big cat",
+      "module": "Animals",
+      "set": "animals",
+      "order": 72,
+      "status": "proposal",
+      "svg": "big_cat.svg"
+    },
+    {
+      "name": "bird",
+      "label": "Bird",
+      "module": "Animals",
+      "set": "animals",
+      "order": 73,
+      "status": "proposal",
+      "svg": "bird.svg"
+    },
+    {
+      "name": "turtle",
+      "label": "Turtle",
+      "module": "Animals",
+      "set": "animals",
+      "order": 74,
+      "status": "proposal",
+      "svg": "turtle.svg"
+    },
+    {
+      "name": "monkey",
+      "label": "Monkey",
+      "module": "Animals",
+      "set": "animals",
+      "order": 75,
+      "status": "proposal",
+      "svg": "monkey.svg"
+    },
+    {
+      "name": "giraffe",
+      "label": "Giraffe",
+      "module": "Animals",
+      "set": "animals",
+      "order": 76,
+      "status": "proposal",
+      "svg": "giraffe.svg"
+    },
+    {
+      "name": "deer",
+      "label": "Deer",
+      "module": "Animals",
+      "set": "animals",
+      "order": 77,
+      "status": "proposal",
+      "svg": "deer.svg"
+    },
+    {
+      "name": "snake",
+      "label": "Snake",
+      "module": "Animals",
+      "set": "animals",
+      "order": 78,
+      "status": "proposal",
+      "svg": "snake.svg"
+    },
+    {
+      "name": "frog",
+      "label": "Frog",
+      "module": "Animals",
+      "set": "animals",
+      "order": 79,
+      "status": "proposal",
+      "svg": "frog.svg"
+    },
+    {
+      "name": "butterfly",
+      "label": "Butterfly",
+      "module": "Animals",
+      "set": "animals",
+      "order": 80,
+      "status": "proposal",
+      "svg": "butterfly.svg"
+    },
+    {
+      "name": "bear",
+      "label": "Bear",
+      "module": "Animals",
+      "set": "animals",
+      "order": 81,
+      "status": "proposal",
+      "svg": "bear.svg"
+    },
+    {
+      "name": "rabbit",
+      "label": "Rabbit",
+      "module": "Animals",
+      "set": "animals",
+      "order": 82,
+      "status": "proposal",
+      "svg": "rabbit.svg"
+    },
+    {
+      "name": "gate",
+      "label": "Enclosure gate",
+      "module": "Facilities",
+      "set": "facilities",
+      "order": 83,
+      "status": "proposal",
+      "svg": "gate.svg"
+    },
+    {
+      "name": "keys",
+      "label": "Keys",
+      "module": "Facilities",
+      "set": "facilities",
+      "order": 84,
+      "status": "proposal",
+      "svg": "keys.svg"
+    },
+    {
+      "name": "toolbox",
+      "label": "Tools",
+      "module": "Facilities",
+      "set": "facilities",
+      "order": 85,
+      "status": "proposal",
+      "svg": "toolbox.svg"
+    },
+    {
+      "name": "cleaning",
+      "label": "Cleaning",
+      "module": "Facilities",
+      "set": "facilities",
+      "order": 86,
+      "status": "proposal",
+      "svg": "cleaning.svg"
+    },
+    {
+      "name": "feed_store",
+      "label": "Feed store",
+      "module": "Facilities",
+      "set": "facilities",
+      "order": 87,
+      "status": "proposal",
+      "svg": "feed_store.svg"
+    },
+    {
+      "name": "water_tank",
+      "label": "Water tank",
+      "module": "Facilities",
+      "set": "facilities",
+      "order": 88,
+      "status": "proposal",
+      "svg": "water_tank.svg"
+    },
+    {
+      "name": "cctv",
+      "label": "CCTV",
+      "module": "Facilities",
+      "set": "facilities",
+      "order": 89,
+      "status": "proposal",
+      "svg": "cctv.svg"
+    },
+    {
+      "name": "power",
+      "label": "Power",
+      "module": "Facilities",
+      "set": "facilities",
+      "order": 90,
+      "status": "proposal",
+      "svg": "power.svg"
+    },
+    {
+      "name": "climate",
+      "label": "Climate control",
+      "module": "Facilities",
+      "set": "facilities",
+      "order": 91,
+      "status": "proposal",
+      "svg": "climate.svg"
+    },
+    {
+      "name": "repairs",
+      "label": "Repairs",
+      "module": "Facilities",
+      "set": "facilities",
+      "order": 92,
+      "status": "proposal",
+      "svg": "repairs.svg"
+    },
+    {
+      "name": "safety",
+      "label": "Safety inspection",
+      "module": "Facilities",
+      "set": "facilities",
+      "order": 93,
+      "status": "proposal",
+      "svg": "safety.svg"
+    },
+    {
+      "name": "waste",
+      "label": "Waste",
+      "module": "Facilities",
+      "set": "facilities",
+      "order": 94,
+      "status": "proposal",
+      "svg": "waste.svg"
+    },
+    {
+      "name": "stethoscope",
+      "label": "Stethoscope",
+      "module": "Health and lab",
+      "set": "health",
+      "order": 95,
+      "status": "proposal",
+      "svg": "stethoscope.svg"
+    },
+    {
+      "name": "microscope",
+      "label": "Microscope",
+      "module": "Health and lab",
+      "set": "health",
+      "order": 96,
+      "status": "proposal",
+      "svg": "microscope.svg"
+    },
+    {
+      "name": "xray",
+      "label": "X-ray",
+      "module": "Health and lab",
+      "set": "health",
+      "order": 97,
+      "status": "proposal",
+      "svg": "xray.svg"
+    },
+    {
+      "name": "blood_sample",
+      "label": "Blood sample",
+      "module": "Health and lab",
+      "set": "health",
+      "order": 98,
+      "status": "proposal",
+      "svg": "blood_sample.svg"
+    },
+    {
+      "name": "bandage",
+      "label": "Wound care",
+      "module": "Health and lab",
+      "set": "health",
+      "order": 99,
+      "status": "proposal",
+      "svg": "bandage.svg"
+    },
+    {
+      "name": "surgery",
+      "label": "Surgery",
+      "module": "Health and lab",
+      "set": "health",
+      "order": 100,
+      "status": "proposal",
+      "svg": "surgery.svg"
+    },
+    {
+      "name": "quarantine",
+      "label": "Quarantine",
+      "module": "Health and lab",
+      "set": "health",
+      "order": 101,
+      "status": "proposal",
+      "svg": "quarantine.svg"
+    },
+    {
+      "name": "dental",
+      "label": "Dental",
+      "module": "Health and lab",
+      "set": "health",
+      "order": 102,
+      "status": "proposal",
+      "svg": "dental.svg"
+    },
+    {
+      "name": "eye_check",
+      "label": "Eye check",
+      "module": "Health and lab",
+      "set": "health",
+      "order": 103,
+      "status": "proposal",
+      "svg": "eye_check.svg"
+    },
+    {
+      "name": "dna",
+      "label": "DNA",
+      "module": "Health and lab",
+      "set": "health",
+      "order": 104,
+      "status": "proposal",
+      "svg": "dna.svg"
+    },
+    {
+      "name": "prescription",
+      "label": "Prescription",
+      "module": "Health and lab",
+      "set": "health",
+      "order": 105,
+      "status": "proposal",
+      "svg": "prescription.svg"
+    },
+    {
+      "name": "ambulance",
+      "label": "Ambulance",
+      "module": "Health and lab",
+      "set": "health",
+      "order": 106,
+      "status": "proposal",
+      "svg": "ambulance.svg"
+    },
+    {
+      "name": "line_chart",
+      "label": "Line chart",
+      "module": "Data and time",
+      "set": "data",
+      "order": 107,
+      "status": "proposal",
+      "svg": "line_chart.svg"
+    },
+    {
+      "name": "pie_chart",
+      "label": "Pie chart",
+      "module": "Data and time",
+      "set": "data",
+      "order": 108,
+      "status": "proposal",
+      "svg": "pie_chart.svg"
+    },
+    {
+      "name": "area_chart",
+      "label": "Area chart",
+      "module": "Data and time",
+      "set": "data",
+      "order": 109,
+      "status": "proposal",
+      "svg": "area_chart.svg"
+    },
+    {
+      "name": "trend_up",
+      "label": "Trending up",
+      "module": "Data and time",
+      "set": "data",
+      "order": 110,
+      "status": "proposal",
+      "svg": "trend_up.svg"
+    },
+    {
+      "name": "trend_down",
+      "label": "Trending down",
+      "module": "Data and time",
+      "set": "data",
+      "order": 111,
+      "status": "proposal",
+      "svg": "trend_down.svg"
+    },
+    {
+      "name": "gauge",
+      "label": "KPI gauge",
+      "module": "Data and time",
+      "set": "data",
+      "order": 112,
+      "status": "proposal",
+      "svg": "gauge.svg"
+    },
+    {
+      "name": "table",
+      "label": "Table",
+      "module": "Data and time",
+      "set": "data",
+      "order": 113,
+      "status": "proposal",
+      "svg": "table.svg"
+    },
+    {
+      "name": "export",
+      "label": "Export",
+      "module": "Data and time",
+      "set": "data",
+      "order": 114,
+      "status": "proposal",
+      "svg": "export.svg"
+    },
+    {
+      "name": "schedule",
+      "label": "Schedule",
+      "module": "Data and time",
+      "set": "data",
+      "order": 115,
+      "status": "proposal",
+      "svg": "schedule.svg"
+    },
+    {
+      "name": "timer",
+      "label": "Timer",
+      "module": "Data and time",
+      "set": "data",
+      "order": 116,
+      "status": "proposal",
+      "svg": "timer.svg"
+    },
+    {
+      "name": "milestone",
+      "label": "Milestone",
+      "module": "Data and time",
+      "set": "data",
+      "order": 117,
+      "status": "proposal",
+      "svg": "milestone.svg"
+    },
+    {
+      "name": "hourglass",
+      "label": "Hourglass",
+      "module": "Data and time",
+      "set": "data",
+      "order": 118,
+      "status": "proposal",
+      "svg": "hourglass.svg"
     }
   ]
 }
