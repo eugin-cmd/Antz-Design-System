@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-staff" role="img" aria-label="Staff">
+<defs><linearGradient id="antz-l-staff-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-staff .i,.antz-l-staff .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-staff .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-staff .a{stroke:url(#antz-l-staff-acc)}
+.antz-l-staff .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-staff .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+.antz-l-staff-0{stroke-dasharray:1;animation:antz-l-staff-0 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
+.antz-l-staff-1{stroke-dasharray:1;animation:antz-l-staff-1 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
+.antz-l-staff-2{stroke-dasharray:1;animation:antz-l-staff-2 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
+.antz-l-staff-3{animation:antz-l-staff-3 3600ms cubic-bezier(0.34, 1.56, 0.64, 1) infinite}
+@keyframes antz-l-staff-0{0%,0%{stroke-dashoffset:1}21%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes antz-l-staff-1{0%,6.3%{stroke-dashoffset:1}27.3%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes antz-l-staff-2{0%,30%{stroke-dashoffset:1}44%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes antz-l-staff-3{0%,35.4%{transform:scale(0);opacity:0}36.4%{opacity:1}47.4%,90%{transform:scale(1);opacity:1}97%,100%{transform:scale(1);opacity:0}}
+@media (prefers-reduced-motion:reduce){.antz-l-staff *{animation:none!important;stroke-dashoffset:0!important;opacity:1!important;transform:none!important}}
+</style>
+<circle class="i antz-l-staff-0" cx="24" cy="15" r="7" pathLength="1"/>
+<path class="i antz-l-staff-1" d="M10 41v-2a9 9 0 0 1 9-9h10a9 9 0 0 1 9 9v2" pathLength="1"/>
+<path class="a antz-l-staff-2" d="M20 30l4 6 4-6" pathLength="1"/>
+<rect class="a antz-l-staff-3" x="29" y="34" width="5" height="4" rx="1"/>
+</svg>

@@ -8,11 +8,11 @@
 .antz-l-eggs-0{stroke-dasharray:1;animation:antz-l-eggs-0 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
 .antz-l-eggs-1{stroke-dasharray:1;animation:antz-l-eggs-1 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
 .antz-l-eggs-2{stroke-dasharray:1;animation:antz-l-eggs-2 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
-.antz-l-eggs-g{transform-origin:24px 40px;animation:antz-l-eggs-w 3600ms cubic-bezier(0.65, 0, 0.35, 1) infinite}
+.antz-l-eggs-g{transform-origin:24px 40px;animation:antz-l-eggs-g 3600ms cubic-bezier(0.65, 0, 0.35, 1) infinite}
 @keyframes antz-l-eggs-0{0%,0%{stroke-dashoffset:1}21%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
 @keyframes antz-l-eggs-1{0%,10.8%{stroke-dashoffset:1}31.8%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
 @keyframes antz-l-eggs-2{0%,30%{stroke-dashoffset:1}44%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
-@keyframes antz-l-eggs-w{0%,52%{transform:rotate(0)}56%{transform:rotate(-7deg)}61%{transform:rotate(6deg)}66%{transform:rotate(-3deg)}71%,100%{transform:rotate(0)}}
+@keyframes antz-l-eggs-g{0%,52%{transform:rotate(0)}56%{transform:rotate(-7deg)}61%{transform:rotate(6deg)}66%{transform:rotate(-3deg)}71%,100%{transform:rotate(0)}}
 @media (prefers-reduced-motion:reduce){.antz-l-eggs *{animation:none!important;stroke-dashoffset:0!important;opacity:1!important;transform:none!important}}
 </style>
 <g class="antz-l-eggs-g">

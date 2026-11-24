@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-diet" role="img" aria-label="Diet">
+<defs><linearGradient id="antz-l-diet-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-diet .i,.antz-l-diet .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-diet .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-diet .a{stroke:url(#antz-l-diet-acc)}
+.antz-l-diet .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-diet .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+.antz-l-diet-0{stroke-dasharray:1;animation:antz-l-diet-0 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
+.antz-l-diet-1{stroke-dasharray:1;animation:antz-l-diet-1 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
+.antz-l-diet-2{stroke-dasharray:1;animation:antz-l-diet-2 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
+.antz-l-diet-3{stroke-dasharray:1;animation:antz-l-diet-3 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
+@keyframes antz-l-diet-0{0%,0%{stroke-dashoffset:1}21%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes antz-l-diet-1{0%,9%{stroke-dashoffset:1}30%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes antz-l-diet-2{0%,30%{stroke-dashoffset:1}44%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes antz-l-diet-3{0%,34.8%{stroke-dashoffset:1}48.8%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
+@media (prefers-reduced-motion:reduce){.antz-l-diet *{animation:none!important;stroke-dashoffset:0!important;opacity:1!important;transform:none!important}}
+</style>
+<path class="i antz-l-diet-0" d="M7 26h34c0 8.3-7.6 14-17 14S7 34.3 7 26Z" pathLength="1"/>
+<path class="i antz-l-diet-1" d="M19 43h10" pathLength="1"/>
+<path class="a antz-l-diet-2" d="M24 21c0-5.5 3.5-9.5 9-10.5 0 5.5-3.5 9.5-9 10.5Z" pathLength="1"/>
+<path class="a antz-l-diet-3" d="M24 26v-5" pathLength="1"/>
+</svg>

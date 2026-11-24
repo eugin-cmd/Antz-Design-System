@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-success" role="img" aria-label="Success">
+<defs><linearGradient id="antz-l-success-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-success .i,.antz-l-success .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-success .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-success .a{stroke:url(#antz-l-success-acc)}
+.antz-l-success .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-success .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+.antz-l-success-0{stroke-dasharray:1;animation:antz-l-success-0 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
+.antz-l-success-1{stroke-dasharray:1;animation:antz-l-success-1 3600ms cubic-bezier(0.34, 1.56, 0.64, 1) infinite}
+@keyframes antz-l-success-0{0%,0%{stroke-dashoffset:1}21%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes antz-l-success-1{0%,30%{stroke-dashoffset:1;transform:scale(1)}44%{stroke-dashoffset:0;transform:scale(1)}52%{transform:scale(1.18)}64%,90%{stroke-dashoffset:0;transform:scale(1);opacity:1}97%,100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.antz-l-success *{animation:none!important;stroke-dashoffset:0!important;opacity:1!important;transform:none!important}}
+</style>
+<circle class="i antz-l-success-0" cx="24" cy="24" r="17" pathLength="1"/>
+<path class="a antz-l-success-1" d="M16 24.5l5.5 5.5L32 19" pathLength="1"/>
+</svg>

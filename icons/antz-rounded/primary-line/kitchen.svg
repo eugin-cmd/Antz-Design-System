@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-kitchen" role="img" aria-label="Kitchen">
+<defs><linearGradient id="antz-l-kitchen-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-kitchen .i,.antz-l-kitchen .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-kitchen .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-kitchen .a{stroke:url(#antz-l-kitchen-acc)}
+.antz-l-kitchen .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-kitchen .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+.antz-l-kitchen-0{stroke-dasharray:1;animation:antz-l-kitchen-0 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
+.antz-l-kitchen-1{stroke-dasharray:1;animation:antz-l-kitchen-1 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
+.antz-l-kitchen-2{stroke-dasharray:1;animation:antz-l-kitchen-2 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
+.antz-l-kitchen-3{stroke-dasharray:1;animation:antz-l-kitchen-3 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
+.antz-l-kitchen-4{stroke-dasharray:1;animation:antz-l-kitchen-4 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
+.antz-l-kitchen-5{stroke-dasharray:1;animation:antz-l-kitchen-5 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
+@keyframes antz-l-kitchen-0{0%,0%{stroke-dashoffset:1}21%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes antz-l-kitchen-1{0%,5.4%{stroke-dashoffset:1}26.4%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes antz-l-kitchen-2{0%,9.9%{stroke-dashoffset:1}30.9%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes antz-l-kitchen-3{0%,30%{stroke-dashoffset:1}44%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes antz-l-kitchen-4{0%,33.6%{stroke-dashoffset:1}47.6%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes antz-l-kitchen-5{0%,37.2%{stroke-dashoffset:1}51.2%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
+@media (prefers-reduced-motion:reduce){.antz-l-kitchen *{animation:none!important;stroke-dashoffset:0!important;opacity:1!important;transform:none!important}}
+</style>
+<path class="i antz-l-kitchen-0" d="M10 23h28v11a6 6 0 0 1-6 6H16a6 6 0 0 1-6-6Z" pathLength="1"/>
+<path class="i antz-l-kitchen-1" d="M7 23h34M10 27H6M38 27h4" pathLength="1"/>
+<path class="i antz-l-kitchen-2" d="M21 19h6" pathLength="1"/>
+<path class="a antz-l-kitchen-3" d="M18 15c-1.5-2 1.5-3.5 0-6" pathLength="1"/>
+<path class="a antz-l-kitchen-4" d="M24 15c-1.5-2 1.5-3.5 0-6" pathLength="1"/>
+<path class="a antz-l-kitchen-5" d="M30 15c-1.5-2 1.5-3.5 0-6" pathLength="1"/>
+</svg>
