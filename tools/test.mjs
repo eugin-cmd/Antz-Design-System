@@ -12,6 +12,7 @@ const ok = (cond, msg) => { console.log(`${cond ? '  ✓' : '  ✗'} ${msg}`); i
 
 console.log('Antz guardrail self-test');
 ok(node('tools/build.mjs', '--check').code === 0, 'token build and contrast gate pass');
+ok(node('tools/icons.mjs', '--check').code === 0, 'ANTZ Rounded icons: sprite, UI icons and docs grid are up to date');
 const bad = JSON.parse(node('tools/check.mjs', '--json', 'tools/fixtures/bad-prototype.html').out);
 const hit = new Set(bad.findings.map((f) => f.rule));
 for (const r of ['ANTZ-GRD-01', 'ANTZ-COL-03', 'ANTZ-COL-01', 'ANTZ-TYP-02', 'ANTZ-TYP-01', 'ANTZ-TYP-03', 'ANTZ-SPC-01', 'ANTZ-SHP-01', 'ANTZ-ELV-01', 'ANTZ-COL-02', 'ANTZ-TOK-01', 'ANTZ-TOK-02', 'ANTZ-MOT-01', 'ANTZ-A11Y-01', 'ANTZ-A11Y-02', 'ANTZ-A11Y-03'])

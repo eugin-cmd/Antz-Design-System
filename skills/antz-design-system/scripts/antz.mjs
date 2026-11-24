@@ -177,7 +177,7 @@ const commands = {
     if (flag('--sprite')) { console.log(sprite); return; }
     const ids = [...sprite.matchAll(/<symbol id="i-([^"]+)"/g)].map((x) => x[1]);
     console.log(`${ids.length} icons (24px outline, stroke follows currentColor):\n${ids.join(', ')}`);
-    console.log('\nUse: <svg class="icon" aria-hidden="true"><use href="#i-NAME"/></svg>. Paste the sprite once per page (node antz.mjs icons --sprite), before the first icon. Need an icon that is not here? That is a proposal.');
+    console.log('\nUse: <svg class="icon" aria-hidden="true"><use href="#i-NAME"/></svg>. Paste the sprite once per page (node antz.mjs icons --sprite), before the first icon. More icons: the ANTZ Rounded set (207, line and filled, drafts) is icons/antz-rounded/sprite.svg, used as #antz-NAME and #antz-NAME-filled; see pages/icon-library.html. Need an icon that is not here? That is a proposal.');
   },
 
   async rules() {

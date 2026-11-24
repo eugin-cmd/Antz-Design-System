@@ -81,6 +81,11 @@
           "title": "Icons"
         },
         {
+          "href": "icon-library.html",
+          "title": "ANTZ Rounded icons",
+          "isNew": true
+        },
+        {
           "href": "layout.html",
           "title": "Layout and breakpoints"
         },
