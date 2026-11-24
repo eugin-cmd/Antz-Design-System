@@ -26,8 +26,8 @@
     <p class="lead ar-lead">Animated tile badges for module navigation: one icon per module. The SVG follows the tile colour you pick; the Lottie files (one per colour scheme) are in <code>icons/antz-rounded/primary/lottie/</code>. Animation stops under reduced motion.</p>
     <div class="ar-toolbar">
       <label class="search search--pill ar-search"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg><input type="search" placeholder="Search name, label, module, base icon" aria-label="Search Primary icons" data-ar-pq></label>
-      <div class="segmented segmented--pill" role="group" aria-label="Icon family" data-ar-seg="family"><button type="button" data-v="tile" aria-pressed="true">Tile</button><button type="button" data-v="line" aria-pressed="false">Line (proposal)</button></div>
-      <div class="segmented segmented--pill" role="group" aria-label="Style" data-ar-seg="pstyle" data-ar-tileonly><button type="button" data-v="svg" aria-pressed="true">Filled</button><button type="button" data-v="svgStroke" aria-pressed="false">Stroke</button></div>
+      <div class="segmented segmented--pill" role="group" aria-label="Icon family" data-ar-seg="family"><button type="button" data-v="line" aria-pressed="true">Line (proposal)</button><button type="button" data-v="tile" aria-pressed="false">Tile</button></div>
+      <div class="segmented segmented--pill" role="group" aria-label="Style" data-ar-seg="pstyle" data-ar-tileonly hidden><button type="button" data-v="svg" aria-pressed="true">Filled</button><button type="button" data-v="svgStroke" aria-pressed="false">Stroke</button></div>
       <div class="segmented segmented--pill" role="group" aria-label="Motion" data-ar-seg="motion"><button type="button" data-v="play" aria-pressed="true"><svg class="icon icon--sm" aria-hidden="true"><use href="#i-play-plain"/></svg>Play</button><button type="button" data-v="pause" aria-pressed="false"><svg class="icon icon--sm" aria-hidden="true"><use href="#i-pause"/></svg>Pause</button><button type="button" data-v="reduced" aria-pressed="false">Reduced</button></div>
       <div class="segmented segmented--pill" role="group" aria-label="Layout" data-ar-seg="layout"><button type="button" data-v="tiles" aria-pressed="true"><svg class="icon icon--sm" aria-hidden="true"><use href="#i-grid"/></svg>Tiles</button><button type="button" data-v="wall" aria-pressed="false">Wall</button></div>
     </div>
@@ -35,10 +35,10 @@
       <label class="check"><input type="checkbox" data-ar-group> Group by module</label>
       <span class="ar-field"><span>Per row</span><span class="segmented segmented--pill" role="group" aria-label="Per row" data-ar-seg="perrow"><button type="button" data-v="3" aria-pressed="false">3</button><button type="button" data-v="4" aria-pressed="true">4</button><button type="button" data-v="5" aria-pressed="false">5</button><button type="button" data-v="6" aria-pressed="false">6</button></span></span>
     </div>
-    <p class="t-small t-secondary ar-line-note" data-ar-lineonly hidden><b>Line (proposal):</b> outline icons in the text colour with one accent detail in a green-to-teal gradient (<code>--scale-primary-600</code> to <code>--scale-secondary-600</code>, 3:1 or more on light and dark). The outline draws on, the accent settles with the elastic ease. Original drawings; 6 samples so far.</p>
-    <h4 class="ar-sub" data-ar-tileonly>Tile colour</h4>
-    <div class="ar-colours" role="radiogroup" aria-label="Tile colour" data-ar-colours data-ar-tileonly></div>
-    <p class="t-caption ar-contrast" data-ar-contrast data-ar-tileonly></p>
+    <p class="t-small t-secondary ar-line-note" data-ar-lineonly><b>Line (proposal):</b> outline icons in the text colour with one accent detail in a green-to-teal gradient (<code>--scale-primary-600</code> to <code>--scale-secondary-600</code>, 3:1 or more on light and dark). The outline draws on, the accent settles with the elastic ease. Original drawings; 6 samples so far.</p>
+    <h4 class="ar-sub" data-ar-tileonly hidden>Tile colour</h4>
+    <div class="ar-colours" role="radiogroup" aria-label="Tile colour" data-ar-colours data-ar-tileonly hidden></div>
+    <p class="t-caption ar-contrast" data-ar-contrast data-ar-tileonly hidden></p>
     <div class="ar-prims" data-ar-prims></div>
   </section>
 </div>
@@ -84,7 +84,7 @@
   var STATUS = { to_design: 'To design', draft: 'Draft', approved: 'Approved', proposal: 'Proposal' };
   // Tile colours: scale tokens (tile, ink). Green is the theme default.
   var COLOURS = [['green', 'Green', 'primary', 500, 800], ['teal', 'Teal', 'secondary', 500, 800], ['navy', 'Navy', 'tertiary', 300, 800], ['amber', 'Amber', 'caution', 500, 800], ['coral', 'Coral', 'warning', 500, 900], ['sky', 'Sky', 'info', 500, 900], ['neutral', 'Neutral', 'neutral', 500, 900], ['white', 'White', null, 0, 800]];
-  var st = { family: 'tile', view: 'line', q: '', module: '', status: 'all', size: 24, pq: '', pstyle: 'svg', motion: 'play', layout: 'tiles', perrow: 4, group: false, colour: 'green', dstyle: 'line', cur: null };
+  var st = { family: 'line', view: 'line', q: '', module: '', status: 'all', size: 24, pq: '', pstyle: 'svg', motion: 'play', layout: 'tiles', perrow: 4, group: false, colour: 'green', dstyle: 'line', cur: null };
   var icons = [], prim = [], primLine = [], svgCache = {};
 
   function hex(v) { var c = getComputedStyle(document.documentElement).getPropertyValue(v).trim(); return c || '#FFFFFF'; }
@@ -164,7 +164,7 @@
     $$('[data-ar-tileonly]').forEach(function (el) { el.hidden = st.family === 'line'; }); $$('[data-ar-lineonly]').forEach(function (el) { el.hidden = st.family !== 'line'; });
     var q = st.pq, list = (st.family === 'line' ? primLine : prim).filter(function (p) { return !q || [p.name, p.label, p.module, p.baseIcon].join(' ').toLowerCase().indexOf(q) >= 0; });
     var box = $('[data-ar-prims]');
-    box.className = 'ar-prims ar-prims--' + st.layout + (st.motion === 'pause' ? ' is-paused' : '') + (st.motion === 'reduced' ? ' is-reduced' : '');
+    box.className = 'ar-prims ar-prims--' + st.family + ' ar-prims--' + st.layout + (st.motion === 'pause' ? ' is-paused' : '') + (st.motion === 'reduced' ? ' is-reduced' : '');
     box.style.setProperty('--ar-perrow', st.layout === 'wall' ? st.perrow + 2 : st.perrow);
     var card = function (p) { return '<figure class="ar-prim" data-p="' + esc(p.name) + '"><span class="ar-prim__art"></span>' + (st.layout === 'wall' ? '' : '<figcaption><b>' + esc(p.label) + '</b><code>' + esc(p.name) + '</code><span><span class="status status--plain status--tertiary">' + esc(STATUS[p.status] || p.status) + '</span> <span class="t-caption">' + ((p.loopMs || 3600) / 1000).toFixed(1) + ' s loop</span></span></figcaption>') + '</figure>'; };
     if (st.group) { var g = {}, o = []; list.forEach(function (p) { if (!g[p.module]) { g[p.module] = []; o.push(p.module); } g[p.module].push(p); }); box.innerHTML = o.map(function (m) { return '<h4 class="ar-group">' + esc(m) + '</h4><div class="ar-prim-grid">' + g[m].map(card).join('') + '</div>'; }).join(''); }

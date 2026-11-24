@@ -3,7 +3,7 @@
 An outline style for the Primary (module) icons, proposed on 24 November 2026 at the System Owner's request, after
 the "lineal colour" animated icons on Flaticon (style reference only: every drawing here is original).
 
-- 48px grid, live area 4 to 44, 2px round strokes (the ANTZ Rounded weight), no fills.
+- 48px grid, live area 4 to 44, 1.5px round strokes, no fills: slim, even lines with fine secondary detail. Use at 48 to 72px.
 - Ink: `--color-text`, so it follows light, dark and high contrast when the SVG is inline.
 - One accent detail per icon, a gradient from `--scale-primary-600` (#21924E) to `--scale-secondary-600` (#00A698):
   each end passes 3:1 as a graphic on light and dark surfaces.

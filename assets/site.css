@@ -591,6 +591,7 @@ body { background: var(--color-bg-canvas); overflow-x: hidden; }
 .ar-prim { display: flex; flex-direction: column; align-items: center; gap: var(--space-3); min-width: 0; margin: 0; padding: var(--space-4); border-radius: var(--radius-lg); text-align: center; background: var(--color-surface); box-shadow: inset 0 0 0 1px var(--color-border); }
 .ar-prim__art { display: block; width: 100%; aspect-ratio: 1; }
 .ar-prim__art svg { display: block; width: 100%; height: 100%; }
+.ar-prims--line .ar-prim__art { width: calc(var(--size-control-lg) * 1.5); max-width: 100%; margin-block: var(--space-3); } /* line style at about 72px: slim strokes, as drawn */
 .ar-prim figcaption { display: flex; flex-direction: column; align-items: center; gap: var(--space-0-5); font-size: var(--text-sm); }
 .ar-prim figcaption code { padding: 0; font-size: var(--text-2xs); color: var(--color-text-secondary); background: none; }
 .ar-prims--wall .ar-prim-grid { gap: var(--space-2); }
