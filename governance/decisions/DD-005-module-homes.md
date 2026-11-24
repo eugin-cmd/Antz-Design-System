@@ -36,6 +36,10 @@ widgets people can add, remove and restyle from a gallery, and module homes like
 - **Pills and figures keep AA in all four modes.** The peach fill stays light in dark mode, so its text tokens don't
   change; pills on light fills carry their own tint; the rendered audit checks every screen.
 - **Overdue counts use the danger text colour**, not a coral fill.
+- **Review against the rules (24 Nov 2026):** widgets that carry bad news (missing or escaped, under treatment, to be
+  discarded, necropsy pending, fetal death) are plain widgets with a status-coloured pill, not peach; peach is used
+  for a neutral module figure (eggs hatched). Observation notes sit on a plain card, not the celebrate wash, because
+  they can carry an alert. Dialogs keep focus inside while open. Screens use classes, not inline layout styles.
 - **Product names and logos** in the reference (Vantara) are not used; screens show Antz.
 
 ## Screens

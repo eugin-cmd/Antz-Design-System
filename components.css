@@ -1511,10 +1511,10 @@ a.animal:hover { background: var(--color-surface-hover); }
 .notes time { font-size: var(--text-xs); color: var(--color-text-muted); }
 
 /* Popovers: dropdown panels opened from a trigger with data-popover="<id>" (components.js) */
-.popover { position: absolute; z-index: var(--z-popover); display: flex; flex-direction: column; gap: var(--space-2); width: min(var(--size-popover), calc(100vw - var(--space-8))); max-height: min(70vh, calc(var(--size-drawer-work) * 1.2)); overflow-y: auto; padding: var(--space-3); border-radius: var(--radius-xl); background: var(--color-surface-raised); box-shadow: var(--shadow-lg); animation: ds-scale-in var(--duration-fast) var(--ease-move) both; transform-origin: top left; }
+.popover { position: absolute; top: calc(100% + var(--space-2)); inset-inline-start: 0; z-index: var(--z-popover); display: flex; flex-direction: column; gap: var(--space-2); width: min(var(--size-popover), calc(100vw - var(--space-8))); max-height: min(70vh, calc(var(--size-drawer-work) * 1.2)); overflow-y: auto; padding: var(--space-3); border-radius: var(--radius-xl); background: var(--color-surface-raised); box-shadow: var(--shadow-lg); animation: ds-scale-in var(--duration-fast) var(--ease-move) both; transform-origin: top left; }
 .popover[hidden] { display: none; }
 .popover--lg { width: min(var(--size-popover-lg), calc(100vw - var(--space-8))); }
-.popover--end { transform-origin: top right; }
+.popover--end { inset-inline: auto 0; transform-origin: top right; }
 .pop-anchor { position: relative; display: inline-flex; }
 .popover .module-grid__group { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .popover .module-grid__item { align-items: center; padding: var(--space-2) var(--space-1); text-align: center; background: none; }
@@ -1590,3 +1590,15 @@ a.animal:hover { background: var(--color-surface-hover); }
 .widget--peach .widget__pill { color: var(--color-peach-text); background: color-mix(in srgb, var(--color-peach-text) 8%, transparent); }
 .widget--mint .widget__pill { color: var(--color-text-on-bright); background: color-mix(in srgb, var(--color-text-on-bright) 8%, transparent); }
 .widget--sky .widget__pill, .widget--teal .widget__pill { background: color-mix(in srgb, var(--color-surface-strong) 40%, transparent); }
+
+/* Small modifiers used by the screens (instead of inline styles) */
+.widget__tiles--grid { grid-auto-flow: row; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.card--soft { background: var(--color-accent-soft); }
+.photo-tile--wide { flex: none; aspect-ratio: auto; height: calc(var(--size-hero-photo) / 2); }
+.dock--center { align-self: center; }
+.gallery__default--flat { background: var(--color-surface-sunken); box-shadow: none; }
+.menu__item > .count { margin-inline-start: auto; }
+.menu__item--accent { font-weight: var(--weight-semibold); color: var(--color-accent-text); }
+.menu__item--accent .icon { color: currentColor; }
+.dialog__head .search { flex: 1; max-width: var(--size-popover-lg); }
+[data-gallery-back].btn--text { align-self: flex-start; }

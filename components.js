@@ -241,7 +241,7 @@
    Popovers: a trigger with data-popover="<id>" toggles <div class="popover" id hidden>.
    Outside click and Escape close it; focus returns to the trigger.
    Dialogs: data-dialog-open="<id>" shows <div class="dialog-backdrop" id hidden>;
-   data-dialog-close, a click on the backdrop itself, or Escape close it.
+   data-dialog-close, a click on the backdrop itself, or Escape close it. Focus stays inside while open.
    Pickers: .picker__opt marks the chosen option (aria-selected) and closes its popover.
    Choices: role="radio" chips in a group (.filter-panel fieldset) are single choice.
    Board: .widget__remove hides a widget while editing; data-board-undo="<board id>" brings them back.
@@ -316,7 +316,20 @@
       var folded = nav.classList.toggle('is-folded'); t.setAttribute('aria-expanded', String(!folded)); t.setAttribute('aria-label', folded ? 'Expand the side panel' : 'Fold the side panel');
     }
   });
+  // Modal dialogs keep focus inside while open (Tab and Shift+Tab wrap)
+  var FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+  function trap(e) {
+    var d = doc.querySelector('.dialog-backdrop[id]:not([hidden])'); if (!d) return;
+    var box = d.querySelector('[role="dialog"]') || d;
+    var items = Array.prototype.filter.call(box.querySelectorAll(FOCUSABLE), function (el) { return el.offsetParent !== null || el === doc.activeElement; });
+    if (!items.length) return;
+    var first = items[0], last = items[items.length - 1];
+    if (!box.contains(doc.activeElement)) { e.preventDefault(); first.focus(); return; }
+    if (e.shiftKey && doc.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && doc.activeElement === last) { e.preventDefault(); first.focus(); }
+  }
   doc.addEventListener('keydown', function (e) {
+    if (e.key === 'Tab') { trap(e); return; }
     if (e.key !== 'Escape') return;
     if (openPop) { closePop(true); return; }
     var d = (lastDialogTrigger && lastDialogTrigger.closest('.shell-host') || doc).querySelector('.dialog-backdrop[id]:not([hidden])') || doc.querySelector('.dialog-backdrop[id]:not([hidden])'); if (d) closeDialog(d);
