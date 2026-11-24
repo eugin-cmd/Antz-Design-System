@@ -3,9 +3,10 @@
  * ANTZ Rounded icons (icons/antz-rounded/): build the sprite, apply the UI replacements, generate the docs grid.
  *
  *   node tools/icons.mjs           write icons/antz-rounded/sprite.svg, update the #i-* symbols in assets/site.js
- *                                  listed in replacements.json, and the grid in docs-src/icon-library.html
+ *                                  listed in replacements.json, and the replacement tables in docs-src/icon-library.html
  *   node tools/icons.mjs --check   exit 1 if any of those is out of date (used by tools/test.mjs)
  *
+ * The docs page renders the icon grids itself from index.json; this script fills in the replacement tables.
  * Zero dependencies. Source files are never changed; ids inside each icon are prefixed so masks never clash.
  */
 import fs from 'node:fs';
@@ -64,22 +65,13 @@ out('assets/site.js', js);
 
 // 3. Docs grid (between markers in docs-src/icon-library.html)
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
-const byModule = new Map();
-for (const ic of icons) { if (!byModule.has(ic.module)) byModule.set(ic.module, []); byModule.get(ic.module).push(ic); }
-const glyph = (id) => `<svg class="ar-glyph" aria-hidden="true"><use href="#${id}"/></svg>`;
-const grid = [...byModule].map(([mod, list]) => `<h4>${esc(mod)} <span class="t-caption">${list.length}</span></h4>\n<div class="ar-grid">${list.map((ic) =>
-  `<button type="button" class="ar-tile" data-copy="antz-${ic.name}" data-search="${esc([ic.name, ic.label, ic.module, ...(ic.tags || [])].join(' ').toLowerCase())}" aria-label="${esc(ic.label)}: copy antz-${ic.name}">${glyph(`antz-${ic.name}`)}${glyph(`antz-${ic.name}-filled`)}<b>${esc(ic.label)}</b><code>${ic.name}</code>${ic.status === 'approved' ? '' : `<span class="status status--plain status--caution">${esc(ic.status === 'draft' ? 'Draft' : ic.status)}</span>`}</button>`).join('')}</div>`).join('\n');
 const pairs = Object.entries(map.replace).map(([ui, name]) => `<tr><td><svg class="icon" aria-hidden="true"><use href="#i-${ui}"/></svg> <code>i-${ui}</code></td><td><code>antz-${name}</code></td></tr>`).join('');
 const kept = Object.entries(map.kept).map(([ui, why]) => `<tr><td><svg class="icon" aria-hidden="true"><use href="#i-${ui}"/></svg> <code>i-${ui}</code></td><td>${esc(why)}</td></tr>`).join('');
-const prim = JSON.parse(read('icons/antz-rounded/primary/index.json'));
-const ptiles = prim.icons.sort((a, b) => (a.order || 0) - (b.order || 0)).map((p) => `<figure class="ar-prim"><img src="../icons/antz-rounded/primary/${esc(p.svg)}" alt="" width="48" height="48" loading="lazy"><figcaption><b>${esc(p.label)}</b><span class="t-caption">${esc(p.module)}</span></figcaption></figure>`).join('');
 const docs = 'docs-src/icon-library.html';
 if (fs.existsSync(path.join(ROOT, docs))) {
   const src = read(docs)
-    .replace(/<!-- antz-icons:start -->[\s\S]*?<!-- antz-icons:end -->/, `<!-- antz-icons:start -->\n${grid}\n<!-- antz-icons:end -->`)
     .replace(/<!-- antz-pairs:start -->[\s\S]*?<!-- antz-pairs:end -->/, `<!-- antz-pairs:start -->${pairs}<!-- antz-pairs:end -->`)
-    .replace(/<!-- antz-kept:start -->[\s\S]*?<!-- antz-kept:end -->/, `<!-- antz-kept:start -->${kept}<!-- antz-kept:end -->`)
-    .replace(/<!-- antz-primary:start -->[\s\S]*?<!-- antz-primary:end -->/, `<!-- antz-primary:start --><div class="ar-prims">${ptiles}</div><!-- antz-primary:end -->`);
+    .replace(/<!-- antz-kept:start -->[\s\S]*?<!-- antz-kept:end -->/, `<!-- antz-kept:start -->${kept}<!-- antz-kept:end -->`);
   out(docs, src);
 }
 
