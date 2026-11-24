@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-location" role="img" aria-label="Location">
+<defs><linearGradient id="antz-l-location-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-location .i,.antz-l-location .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-location .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-location .a{stroke:url(#antz-l-location-acc)}
+.antz-l-location .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-location .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-location .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+</style>
+<g class="antz-l-location-g">
+<path class="i antz-l-location-0" d="M24 42s-13-11.5-13-21a13 13 0 0 1 26 0c0 9.5-13 21-13 21Z" pathLength="1"/>
+<circle class="a antz-l-location-1" cx="24" cy="21" r="4.5"/>
+</g>
+</svg>

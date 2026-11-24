@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-pill" role="img" aria-label="Pill">
+<defs><linearGradient id="antz-l-pill-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-pill .i,.antz-l-pill .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-pill .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-pill .a{stroke:url(#antz-l-pill-acc)}
+.antz-l-pill .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-pill .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-pill .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+</style>
+<g class="antz-l-pill-g">
+<path class="i antz-l-pill-0" d="M20.5 36 36 20.5A6 6 0 0 0 27.5 12L12 27.5A6 6 0 0 0 20.5 36Z" pathLength="1"/>
+<path class="a antz-l-pill-1" d="M19.8 19.8 28.2 28.2" pathLength="1"/>
+<path class="a antz-l-pill-2" d="M38 34v5M35.5 36.5h5"/>
+</g>
+</svg>

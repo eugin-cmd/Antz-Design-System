@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-area_chart" role="img" aria-label="Area chart">
+<defs><linearGradient id="antz-l-area_chart-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-area_chart .i,.antz-l-area_chart .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-area_chart .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-area_chart .a{stroke:url(#antz-l-area_chart-acc)}
+.antz-l-area_chart .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-area_chart .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-area_chart .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+.antz-l-area_chart-0{stroke-dasharray:1;animation:antz-l-area_chart-0 2800ms cubic-bezier(0.16, 1, 0.3, 1) both}
+.antz-l-area_chart-1{transform-box:view-box;transform-origin:24px 37px;animation:antz-l-area_chart-1 2800ms cubic-bezier(0.34, 1.56, 0.64, 1) both}
+@keyframes antz-l-area_chart-0{0%,0%{stroke-dashoffset:1}21%,100%{stroke-dashoffset:0}}
+@keyframes antz-l-area_chart-1{0%,30%{transform:scaleY(0);opacity:0}31.5%{opacity:1}46%,100%{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){.antz-l-area_chart *{animation:none!important;stroke-dashoffset:0!important;opacity:1!important;transform:none!important}}
+</style>
+<path class="i antz-l-area_chart-0" d="M7 7v32a2 2 0 0 0 2 2h32" pathLength="1"/>
+<path class="a antz-l-area_chart-1" d="M11 37V28l8-7 7 5 9-10 5 4v17Z"/>
+</svg>

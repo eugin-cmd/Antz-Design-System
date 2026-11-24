@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-surgery" role="img" aria-label="Surgery">
+<defs><linearGradient id="antz-l-surgery-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-surgery .i,.antz-l-surgery .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-surgery .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-surgery .a{stroke:url(#antz-l-surgery-acc)}
+.antz-l-surgery .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-surgery .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-surgery .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+</style>
+<path class="i antz-l-surgery-0" d="M7 41l15-15" pathLength="1"/>
+<path class="i antz-l-surgery-1" d="M8 13h3M15 13h3M22 13h3" pathLength="1"/>
+<path class="a antz-l-surgery-2" d="M22 26l12-12c3-3 7-2 7 1-6 8-12 12-17 13Z"/>
+</svg>

@@ -1,0 +1,1264 @@
+{
+  "color": {
+    "$description": "Semantic colour, light theme. Components and product code use only these.",
+    "brand": {
+      "primary": {
+        "$type": "color",
+        "$value": "{green.brand}",
+        "$description": "Logo and brand moments. Identical in every theme"
+      },
+      "secondary": {
+        "$type": "color",
+        "$value": "{teal.brand}"
+      },
+      "tertiary": {
+        "$type": "color",
+        "$value": "{navy.brand}"
+      }
+    },
+    "bg": {
+      "app": {
+        "$type": "color",
+        "$value": "{board.app}",
+        "$description": "Page background: the Antz green board"
+      },
+      "canvas": {
+        "$type": "color",
+        "$value": "{board.canvas}"
+      }
+    },
+    "surface": {
+      "$root": {
+        "$type": "color",
+        "$value": "{ink.0}",
+        "$description": "Cards, header, panels"
+      },
+      "raised": {
+        "$type": "color",
+        "$value": "{ink.0}"
+      },
+      "sunken": {
+        "$type": "color",
+        "$value": "{ink.75}"
+      },
+      "muted": {
+        "$type": "color",
+        "$value": "{ink.100}"
+      },
+      "hover": {
+        "$type": "color",
+        "$value": "{ink.80}"
+      },
+      "selected": {
+        "$type": "color",
+        "$value": "{green.tint}"
+      },
+      "inverse": {
+        "$type": "color",
+        "$value": "{ink.900}"
+      },
+      "strong": {
+        "$type": "color",
+        "$value": "{charcoal.700}"
+      },
+      "tertiary": {
+        "$type": "color",
+        "$value": "{navy.brand}",
+        "$description": "Deep feature fill (navy). Same in both themes"
+      }
+    },
+    "overlay": {
+      "$type": "color",
+      "$value": "{alpha.overlay-light}"
+    },
+    "glass": {
+      "$type": "color",
+      "$value": "{alpha.glass-light}"
+    },
+    "glass-border": {
+      "$type": "color",
+      "$value": "{alpha.glass-border-light}"
+    },
+    "text": {
+      "$root": {
+        "$type": "color",
+        "$value": "{ink.900}",
+        "$description": "Main text"
+      },
+      "secondary": {
+        "$type": "color",
+        "$value": "{ink.700}"
+      },
+      "muted": {
+        "$type": "color",
+        "$value": "{ink.550}",
+        "$description": "Meta, captions (AA)"
+      },
+      "placeholder": {
+        "$type": "color",
+        "$value": "{ink.550}"
+      },
+      "disabled": {
+        "$type": "color",
+        "$value": "{ink.400}",
+        "$description": "Exempt from contrast (WCAG)"
+      },
+      "inverse": {
+        "$type": "color",
+        "$value": "{ink.0}"
+      },
+      "on-accent": {
+        "$type": "color",
+        "$value": "{green.10}",
+        "$description": "Label and icon on the brand fill (7.07:1)"
+      },
+      "on-strong": {
+        "$type": "color",
+        "$value": "{ink.0}"
+      },
+      "on-tertiary": {
+        "$type": "color",
+        "$value": "{ink.0}"
+      },
+      "link": {
+        "$type": "color",
+        "$value": "{green.40}"
+      },
+      "on-bright": {
+        "$type": "color",
+        "$value": "{green.15}"
+      },
+      "on-strong-secondary": {
+        "$type": "color",
+        "$value": "{alpha.on-strong-secondary}",
+        "$description": "Secondary text on dark fills and gradients (feature cards, entity header, record hero). Same in every mode."
+      },
+      "on-strong-muted": {
+        "$type": "color",
+        "$value": "{alpha.on-strong-muted}",
+        "$description": "Muted text (IDs, meta) on dark fills and gradients. Same in every mode."
+      }
+    },
+    "border": {
+      "$root": {
+        "$type": "color",
+        "$value": "{ink.200}"
+      },
+      "subtle": {
+        "$type": "color",
+        "$value": "{ink.150}"
+      },
+      "strong": {
+        "$type": "color",
+        "$value": "{ink.300}"
+      },
+      "input": {
+        "$type": "color",
+        "$value": "{ink.450}",
+        "$description": "3:1 against the surface"
+      }
+    },
+    "accent": {
+      "$root": {
+        "$type": "color",
+        "$value": "{green.brand}",
+        "$description": "Brand fill: main button, active pill, selection. Fill only on light surfaces (2.43:1 on white)."
+      },
+      "hover": {
+        "$type": "color",
+        "$value": "{green.brand-hover}"
+      },
+      "pressed": {
+        "$type": "color",
+        "$value": "{green.brand-pressed}"
+      },
+      "soft": {
+        "$type": "color",
+        "$value": "{green.soft}"
+      },
+      "soft-hover": {
+        "$type": "color",
+        "$value": "{green.soft-hover}"
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{green.40}",
+        "$description": "Brand-coloured text, links, outlined buttons (6.48:1)"
+      },
+      "bright": {
+        "$type": "color",
+        "$value": "{green.90}",
+        "$description": "Highlight fill (New tag). Replaces lime #52F990"
+      },
+      "indicator": {
+        "$type": "color",
+        "$value": "{green.50}",
+        "$description": "Thin indicators on light: tab underline, progress, switch, checkbox (4.5:1)"
+      },
+      "on-indicator": {
+        "$type": "color",
+        "$value": "{ink.0}",
+        "$description": "Tick, thumb or icon on the indicator colour"
+      }
+    },
+    "secondary": {
+      "solid": {
+        "$type": "color",
+        "$value": "{teal.40}"
+      },
+      "on-solid": {
+        "$type": "color",
+        "$value": "{ink.0}"
+      },
+      "soft": {
+        "$type": "color",
+        "$value": "{teal.tint}"
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{teal.30}"
+      }
+    },
+    "tertiary": {
+      "solid": {
+        "$type": "color",
+        "$value": "{navy.brand}"
+      },
+      "on-solid": {
+        "$type": "color",
+        "$value": "{ink.0}"
+      },
+      "soft": {
+        "$type": "color",
+        "$value": "{navy.tint}"
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{navy.brand}"
+      }
+    },
+    "success": {
+      "bg": {
+        "$type": "color",
+        "$value": "{olive.tint}"
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{olive.30}"
+      },
+      "solid": {
+        "$type": "color",
+        "$value": "{olive.40}"
+      },
+      "on-solid": {
+        "$type": "color",
+        "$value": "{ink.0}"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{olive.border}"
+      }
+    },
+    "warning": {
+      "bg": {
+        "$type": "color",
+        "$value": "{coral.tint}"
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{coral.35}"
+      },
+      "solid": {
+        "$type": "color",
+        "$value": "{coral.40}"
+      },
+      "on-solid": {
+        "$type": "color",
+        "$value": "{ink.0}"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{coral.border}"
+      }
+    },
+    "caution": {
+      "bg": {
+        "$type": "color",
+        "$value": "{amber.tint}"
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{amber.40}"
+      },
+      "solid": {
+        "$type": "color",
+        "$value": "{amber.brand}"
+      },
+      "on-solid": {
+        "$type": "color",
+        "$value": "{amber.10}"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{amber.border}"
+      }
+    },
+    "danger": {
+      "bg": {
+        "$type": "color",
+        "$value": "{red.95}"
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{red.40}"
+      },
+      "solid": {
+        "$type": "color",
+        "$value": "{red.40}"
+      },
+      "on-solid": {
+        "$type": "color",
+        "$value": "{ink.0}"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{red.90}"
+      },
+      "hover": {
+        "$type": "color",
+        "$value": "{red.30}"
+      }
+    },
+    "info": {
+      "bg": {
+        "$type": "color",
+        "$value": "{sky.tint}"
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{sky.40}"
+      },
+      "solid": {
+        "$type": "color",
+        "$value": "{sky.40}"
+      },
+      "on-solid": {
+        "$type": "color",
+        "$value": "{ink.0}"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{sky.border}"
+      }
+    },
+    "neutral": {
+      "bg": {
+        "$type": "color",
+        "$value": "{ink.100}"
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{ink.700}"
+      },
+      "solid": {
+        "$type": "color",
+        "$value": "{ink.500}"
+      }
+    },
+    "signal": {
+      "$description": "Dots, bars and icons: non-text, 3:1 or more.",
+      "danger": {
+        "$type": "color",
+        "$value": "{red.brand}"
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{coral.brand}"
+      },
+      "caution": {
+        "$type": "color",
+        "$value": "{amber.50}"
+      },
+      "success": {
+        "$type": "color",
+        "$value": "{olive.50}"
+      },
+      "info": {
+        "$type": "color",
+        "$value": "{sky.50}"
+      }
+    },
+    "focus": {
+      "$root": {
+        "$type": "color",
+        "$value": "{green.40}",
+        "$description": "Focus ring. Never removed"
+      },
+      "glow": {
+        "$type": "color",
+        "$value": "{alpha.focus-glow-light}"
+      }
+    },
+    "disabled-bg": {
+      "$type": "color",
+      "$value": "{ink.350}"
+    },
+    "media": {
+      "$description": "Chips and text placed over photography. Same in both themes; always sits on --gradient-scrim-photo or a dark glass chip.",
+      "chip": {
+        "$type": "color",
+        "$value": "{alpha.media-chip}"
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{ink.0}",
+        "$description": "Text over a photo scrim or media chip"
+      },
+      "glass": {
+        "$type": "color",
+        "$value": "{alpha.glass-on-media}",
+        "$description": "Glass chip or tile on a photo or vivid gradient. Same in every mode."
+      },
+      "glass-line": {
+        "$type": "color",
+        "$value": "{alpha.glass-line-on-media}",
+        "$description": "Hairline around a glass chip on a photo."
+      },
+      "bar": {
+        "$type": "color",
+        "$value": "{alpha.bar-on-media}",
+        "$description": "Bar fill in a chart on a vivid gradient."
+      }
+    },
+    "module": {
+      "$description": "Module tones: a soft tint pair and an ink per product module. They colour the navigation drawer, the module band and the active rail tab, so people can tell which module they are in. Identity only: never status, never data. Suggested modules in each description.",
+      "green": {
+        "$description": "Green tone. Suggested for: Diet.",
+        "a": {
+          "$type": "color",
+          "$value": "{green.tint}",
+          "$description": "Panel tint, top"
+        },
+        "b": {
+          "$type": "color",
+          "$value": "{teal.tint}",
+          "$description": "Panel tint, bottom"
+        },
+        "ta": {
+          "$type": "color",
+          "$value": "{wash.soft-mint}",
+          "$description": "Active tab and band, start"
+        },
+        "tb": {
+          "$type": "color",
+          "$value": "{wash.soft-aqua}",
+          "$description": "Active tab and band, end"
+        },
+        "ink": {
+          "$type": "color",
+          "$value": "{green.40}",
+          "$description": "Active tab label and icon (4.5:1 on its tints)"
+        }
+      },
+      "amber": {
+        "$description": "Amber tone. Suggested for: Kitchen.",
+        "a": {
+          "$type": "color",
+          "$value": "{amber.98}",
+          "$description": "Panel tint, top"
+        },
+        "b": {
+          "$type": "color",
+          "$value": "{green.tint}",
+          "$description": "Panel tint, bottom"
+        },
+        "ta": {
+          "$type": "color",
+          "$value": "{amber.tint}",
+          "$description": "Active tab and band, start"
+        },
+        "tb": {
+          "$type": "color",
+          "$value": "{wash.soft-mint}",
+          "$description": "Active tab and band, end"
+        },
+        "ink": {
+          "$type": "color",
+          "$value": "{amber.40}",
+          "$description": "Active tab label and icon (4.5:1 on its tints)"
+        }
+      },
+      "navy": {
+        "$description": "Navy tone. Suggested for: Inventory.",
+        "a": {
+          "$type": "color",
+          "$value": "{sky.98}",
+          "$description": "Panel tint, top"
+        },
+        "b": {
+          "$type": "color",
+          "$value": "{navy.98}",
+          "$description": "Panel tint, bottom"
+        },
+        "ta": {
+          "$type": "color",
+          "$value": "{sky.tint}",
+          "$description": "Active tab and band, start"
+        },
+        "tb": {
+          "$type": "color",
+          "$value": "{navy.tint}",
+          "$description": "Active tab and band, end"
+        },
+        "ink": {
+          "$type": "color",
+          "$value": "{navy.30}",
+          "$description": "Active tab label and icon (4.5:1 on its tints)"
+        }
+      },
+      "slate": {
+        "$description": "Slate tone. Suggested for: Invoices, Procurement.",
+        "a": {
+          "$type": "color",
+          "$value": "{ink.75}",
+          "$description": "Panel tint, top"
+        },
+        "b": {
+          "$type": "color",
+          "$value": "{ink.150}",
+          "$description": "Panel tint, bottom"
+        },
+        "ta": {
+          "$type": "color",
+          "$value": "{ink.200}",
+          "$description": "Active tab and band, start"
+        },
+        "tb": {
+          "$type": "color",
+          "$value": "{ink.250}",
+          "$description": "Active tab and band, end"
+        },
+        "ink": {
+          "$type": "color",
+          "$value": "{teal.30}",
+          "$description": "Active tab label and icon (4.5:1 on its tints)"
+        }
+      },
+      "violet": {
+        "$description": "Violet tone. Suggested for: MIS and reports.",
+        "a": {
+          "$type": "color",
+          "$value": "{ink.75}",
+          "$description": "Panel tint, top"
+        },
+        "b": {
+          "$type": "color",
+          "$value": "{red.98}",
+          "$description": "Panel tint, bottom"
+        },
+        "ta": {
+          "$type": "color",
+          "$value": "{violet.95}",
+          "$description": "Active tab and band, start"
+        },
+        "tb": {
+          "$type": "color",
+          "$value": "{wash.soft-pink}",
+          "$description": "Active tab and band, end"
+        },
+        "ink": {
+          "$type": "color",
+          "$value": "{violet.30}",
+          "$description": "Active tab label and icon (4.5:1 on its tints)"
+        }
+      },
+      "rose": {
+        "$description": "Rose tone. Suggested for: Security.",
+        "a": {
+          "$type": "color",
+          "$value": "{red.98}",
+          "$description": "Panel tint, top"
+        },
+        "b": {
+          "$type": "color",
+          "$value": "{ink.100}",
+          "$description": "Panel tint, bottom"
+        },
+        "ta": {
+          "$type": "color",
+          "$value": "{wash.soft-pink}",
+          "$description": "Active tab and band, start"
+        },
+        "tb": {
+          "$type": "color",
+          "$value": "{ink.200}",
+          "$description": "Active tab and band, end"
+        },
+        "ink": {
+          "$type": "color",
+          "$value": "{red.40}",
+          "$description": "Active tab label and icon (4.5:1 on its tints)"
+        }
+      },
+      "coral": {
+        "$description": "Coral tone. Suggested for: Admin.",
+        "a": {
+          "$type": "color",
+          "$value": "{coral.98}",
+          "$description": "Panel tint, top"
+        },
+        "b": {
+          "$type": "color",
+          "$value": "{amber.98}",
+          "$description": "Panel tint, bottom"
+        },
+        "ta": {
+          "$type": "color",
+          "$value": "{coral.tint}",
+          "$description": "Active tab and band, start"
+        },
+        "tb": {
+          "$type": "color",
+          "$value": "{amber.tint}",
+          "$description": "Active tab and band, end"
+        },
+        "ink": {
+          "$type": "color",
+          "$value": "{coral.40}",
+          "$description": "Active tab label and icon (4.5:1 on its tints)"
+        }
+      }
+    },
+    "tone": {
+      "$description": "The current module tone. Defaults to green; [data-tone=\"<tone>\"] on any element switches it (components.css), and the tone gradients follow. Use these, not the module tokens, inside components.",
+      "a": {
+        "$type": "color",
+        "$value": "{color.module.green.a}",
+        "$description": "Panel tint, top"
+      },
+      "b": {
+        "$type": "color",
+        "$value": "{color.module.green.b}",
+        "$description": "Panel tint, bottom"
+      },
+      "ta": {
+        "$type": "color",
+        "$value": "{color.module.green.ta}",
+        "$description": "Active tab and band, start"
+      },
+      "tb": {
+        "$type": "color",
+        "$value": "{color.module.green.tb}",
+        "$description": "Active tab and band, end"
+      },
+      "ink": {
+        "$type": "color",
+        "$value": "{color.module.green.ink}",
+        "$description": "Active tab label and icon (4.5:1 on its tints)"
+      }
+    },
+    "launch": {
+      "$description": "Stops for the round module tiles (launcher). Every stop keeps a white icon at 3:1 or more.",
+      "green": {
+        "start": {
+          "$type": "color",
+          "$value": "{green.50}"
+        },
+        "end": {
+          "$type": "color",
+          "$value": "{teal.50}"
+        }
+      },
+      "amber": {
+        "start": {
+          "$type": "color",
+          "$value": "{amber.60}"
+        },
+        "end": {
+          "$type": "color",
+          "$value": "{green.50}"
+        }
+      },
+      "sky": {
+        "start": {
+          "$type": "color",
+          "$value": "{sky.50}"
+        },
+        "end": {
+          "$type": "color",
+          "$value": "{navy.brand}"
+        }
+      },
+      "slate": {
+        "start": {
+          "$type": "color",
+          "$value": "{ink.500}"
+        },
+        "end": {
+          "$type": "color",
+          "$value": "{teal.30}"
+        }
+      },
+      "coral": {
+        "start": {
+          "$type": "color",
+          "$value": "{coral.brand}"
+        },
+        "end": {
+          "$type": "color",
+          "$value": "{amber.60}"
+        }
+      }
+    },
+    "text-gradient": {
+      "$description": "Stops for the display headline gradient. Large text only (3:1).",
+      "start": {
+        "$type": "color",
+        "$value": "{teal.30}"
+      },
+      "mid": {
+        "$type": "color",
+        "$value": "{teal.50}"
+      },
+      "end": {
+        "$type": "color",
+        "$value": "{green.40}"
+      }
+    },
+    "figure": {
+      "$description": "Large figures on dark fills (widgets, heroes). Large text only.",
+      "warm": {
+        "$type": "color",
+        "$value": "{coral.80}",
+        "$description": "Warm figure on dark fills, e.g. deaths recorded on the ink widget. Identity, not status."
+      }
+    }
+  },
+  "hue": {
+    "$description": "Categorical colours for avatars, icon tiles and chart series. -soft is a fill, -ink is text on it.",
+    "green": {
+      "$root": {
+        "$type": "color",
+        "$value": "{green.40}"
+      },
+      "soft": {
+        "$type": "color",
+        "$value": "{green.tint}"
+      },
+      "ink": {
+        "$type": "color",
+        "$value": "{green.40}"
+      }
+    },
+    "teal": {
+      "$root": {
+        "$type": "color",
+        "$value": "{teal.50}"
+      },
+      "soft": {
+        "$type": "color",
+        "$value": "{teal.tint}"
+      },
+      "ink": {
+        "$type": "color",
+        "$value": "{teal.30}"
+      }
+    },
+    "sky": {
+      "$root": {
+        "$type": "color",
+        "$value": "{sky.50}"
+      },
+      "soft": {
+        "$type": "color",
+        "$value": "{sky.tint}"
+      },
+      "ink": {
+        "$type": "color",
+        "$value": "{sky.30}"
+      }
+    },
+    "coral": {
+      "$root": {
+        "$type": "color",
+        "$value": "{coral.brand}"
+      },
+      "soft": {
+        "$type": "color",
+        "$value": "{coral.tint}"
+      },
+      "ink": {
+        "$type": "color",
+        "$value": "{coral.35}"
+      }
+    },
+    "amber": {
+      "$root": {
+        "$type": "color",
+        "$value": "{amber.50}"
+      },
+      "soft": {
+        "$type": "color",
+        "$value": "{amber.tint}"
+      },
+      "ink": {
+        "$type": "color",
+        "$value": "{amber.35}"
+      }
+    },
+    "violet": {
+      "$root": {
+        "$type": "color",
+        "$value": "{violet.40}"
+      },
+      "soft": {
+        "$type": "color",
+        "$value": "{violet.95}"
+      },
+      "ink": {
+        "$type": "color",
+        "$value": "{violet.30}"
+      }
+    },
+    "navy": {
+      "$root": {
+        "$type": "color",
+        "$value": "{navy.brand}"
+      },
+      "soft": {
+        "$type": "color",
+        "$value": "{navy.tint}"
+      },
+      "ink": {
+        "$type": "color",
+        "$value": "{navy.brand}"
+      }
+    }
+  },
+  "shadow": {
+    "none": {
+      "$type": "shadow",
+      "$value": "none",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    },
+    "xs": {
+      "$type": "shadow",
+      "$value": "0 1px 2px rgba(0, 0, 0, .08)",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    },
+    "sm": {
+      "$type": "shadow",
+      "$value": "0 1px 2px rgba(0, 60, 30, .05), 0 14px 30px -22px rgba(0, 60, 30, .45)",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    },
+    "md": {
+      "$type": "shadow",
+      "$value": "0 2px 4px rgba(20, 40, 30, .05), 0 18px 34px -18px rgba(20, 40, 30, .45)",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    },
+    "lg": {
+      "$type": "shadow",
+      "$value": "0 30px 70px -24px rgba(0, 40, 20, .5), 0 0 0 1px var(--color-border-subtle)",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    },
+    "xl": {
+      "$type": "shadow",
+      "$value": "0 40px 90px -30px rgba(0, 40, 20, .55)",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    },
+    "float": {
+      "$type": "shadow",
+      "$value": "0 18px 40px -18px rgba(0, 40, 20, .45)",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    },
+    "accent": {
+      "$type": "shadow",
+      "$value": "0 10px 22px -12px rgba(55, 189, 105, .85)",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    },
+    "hairline": {
+      "$type": "shadow",
+      "$value": "inset 0 0 0 1px var(--color-border)",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    }
+  },
+  "gradient": {
+    "$description": "Tiered gradients. Wash = the four reference SVGs (large soft backgrounds, dark text only). Module = identity tiles. Feature = dark cards with large figures. Ad hoc gradients are not allowed.",
+    "wash-primary": {
+      "$type": "gradient",
+      "$value": "linear-gradient(to bottom right, var(--gradient-stop-mint), var(--gradient-stop-rose))",
+      "$description": "Gradient 1. Hero and welcome bands, dashboard header, onboarding. Same hue as the brand",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    },
+    "wash-celebrate": {
+      "$type": "gradient",
+      "$value": "linear-gradient(to bottom right, var(--gradient-stop-butter), var(--gradient-stop-rose))",
+      "$description": "Gradient 2. Announcements, featured cards, milestones",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    },
+    "wash-calm": {
+      "$type": "gradient",
+      "$value": "linear-gradient(to bottom right, var(--gradient-stop-butter), var(--gradient-stop-aqua))",
+      "$description": "Gradient 3. Info panels, tips, empty states",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    },
+    "wash-illustrative": {
+      "$type": "gradient",
+      "$value": "linear-gradient(to bottom right, var(--gradient-stop-sky), var(--gradient-stop-pink))",
+      "$description": "Gradient 4. Illustrations, onboarding, docs, marketing",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    },
+    "module-green-navy": {
+      "$type": "gradient",
+      "$value": "linear-gradient(135deg, var(--green-brand), var(--navy-25))",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    },
+    "module-teal-green": {
+      "$type": "gradient",
+      "$value": "linear-gradient(135deg, var(--teal-80), var(--green-brand))",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    },
+    "module-cyan-navy": {
+      "$type": "gradient",
+      "$value": "linear-gradient(135deg, var(--sky-60), var(--navy-25))",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    },
+    "module-coral-red": {
+      "$type": "gradient",
+      "$value": "linear-gradient(135deg, var(--coral-brand), var(--red-50))",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    },
+    "module-yellow-cyan": {
+      "$type": "gradient",
+      "$value": "linear-gradient(135deg, var(--amber-brand), var(--sky-brand))",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    },
+    "deep": {
+      "$type": "gradient",
+      "$value": "linear-gradient(140deg, var(--green-15) 0%, var(--green-25) 55%, var(--green-40) 100%)",
+      "$description": "Feature: white and highlight text pass AA on every stop",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    },
+    "green": {
+      "$type": "gradient",
+      "$value": "linear-gradient(135deg, var(--green-25) 0%, var(--green-40) 60%, var(--green-50) 100%)",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    },
+    "navy": {
+      "$type": "gradient",
+      "$value": "linear-gradient(140deg, var(--navy-20) 0%, var(--navy-brand) 55%, var(--navy-35) 100%)",
+      "$description": "Feature: tertiary feature card",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    },
+    "teal": {
+      "$type": "gradient",
+      "$value": "linear-gradient(140deg, var(--teal-50) 0%, var(--teal-40) 55%, var(--teal-35) 100%)",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    },
+    "blue": {
+      "$type": "gradient",
+      "$value": "radial-gradient(130% 90% at 100% 0%, var(--sky-60) 0%, var(--sky-50) 12%, var(--sky-40) 38%, var(--sky-35) 80%)",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    },
+    "mint": {
+      "$type": "gradient",
+      "$value": "linear-gradient(130deg, var(--green-98) 0%, var(--green-95) 55%, var(--green-90) 100%)",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    },
+    "glow": {
+      "$type": "gradient",
+      "$value": "radial-gradient(70% 85% at 100% 100%, #C4F5CF 0%, rgba(196, 245, 207, .45) 40%, rgba(196, 245, 207, 0) 75%)",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    },
+    "aurora": {
+      "$type": "gradient",
+      "$value": "radial-gradient(42% 110% at 0% 100%, rgba(140, 222, 238, .75), rgba(140, 222, 238, 0) 72%), radial-gradient(36% 95% at 32% 108%, rgba(140, 240, 165, .85), rgba(140, 240, 165, 0) 72%), radial-gradient(30% 75% at 92% 62%, rgba(250, 190, 162, .6), rgba(250, 190, 162, 0) 75%)",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    },
+    "scrim-photo": {
+      "$type": "gradient",
+      "$value": "linear-gradient(180deg, rgba(8, 22, 14, 0) 38%, rgba(8, 22, 14, .45) 62%, rgba(6, 18, 11, .88) 100%)",
+      "$description": "Overlay: text over photography only",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    },
+    "tone-panel": {
+      "$type": "gradient",
+      "$value": "linear-gradient(90deg, transparent 48%, var(--color-surface-raised) 100%), linear-gradient(180deg, var(--color-tone-a), var(--color-tone-b))",
+      "$description": "Navigation drawer background: the module tint, top to bottom, fading to the surface on the right.",
+      "$extensions": {
+        "com.antz": {
+          "format": "css",
+          "scope": "tone"
+        }
+      }
+    },
+    "tone-tab": {
+      "$type": "gradient",
+      "$value": "linear-gradient(90deg, color-mix(in srgb, var(--color-tone-ta), var(--color-tone-tb)) 0%, color-mix(in srgb, var(--color-tone-ta) 55%, transparent) 40%, transparent 100%)",
+      "$description": "Active rail tab: opens from the tab into the panel.",
+      "$extensions": {
+        "com.antz": {
+          "format": "css",
+          "scope": "tone"
+        }
+      }
+    },
+    "tone-tab-corners": {
+      "$type": "gradient",
+      "$value": "radial-gradient(circle at 100% 100%, transparent calc(var(--radius-lg) - var(--border-width-hairline)), var(--color-surface-raised) var(--radius-lg)) var(--space-2) 0 / var(--radius-lg) var(--radius-lg) no-repeat, radial-gradient(circle at 100% 0, transparent calc(var(--radius-lg) - var(--border-width-hairline)), var(--color-surface-raised) var(--radius-lg)) var(--space-2) 100% / var(--radius-lg) var(--radius-lg) no-repeat",
+      "$description": "Active rail tab: rail white in the two corner squares outside its left radius, so the corners read as true curves on any tone. A background layer list (position and size included).",
+      "$extensions": {
+        "com.antz": {
+          "format": "css",
+          "scope": "tone"
+        }
+      }
+    },
+    "tone-band": {
+      "$type": "gradient",
+      "$value": "linear-gradient(180deg, transparent 30%, var(--color-bg-app) 100%), linear-gradient(90deg, var(--color-tone-a), var(--color-tone-b))",
+      "$description": "Module band: the strip behind a module page header, fading into the page.",
+      "$extensions": {
+        "com.antz": {
+          "format": "css",
+          "scope": "tone"
+        }
+      }
+    },
+    "text-brand": {
+      "$type": "gradient",
+      "$value": "linear-gradient(90deg, var(--color-text-gradient-start) 0%, var(--color-text-gradient-mid) 52%, var(--color-text-gradient-end) 100%)",
+      "$description": "Display headline text (one per screen, large text only).",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    },
+    "petrol": {
+      "$type": "gradient",
+      "$value": "linear-gradient(166deg, var(--navy-20) 8%, var(--teal-25) 50%, var(--teal-40) 92%)",
+      "$description": "Feature: entity header (species, animal, enclosure) with white text.",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    },
+    "launch-green": {
+      "$type": "gradient",
+      "$value": "linear-gradient(135deg, var(--color-launch-green-start) 30%, var(--color-launch-green-end) 140%)",
+      "$description": "Round module tile (launcher), white icon.",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    },
+    "launch-amber": {
+      "$type": "gradient",
+      "$value": "linear-gradient(135deg, var(--color-launch-amber-start) 30%, var(--color-launch-amber-end) 140%)",
+      "$description": "Round module tile (launcher), white icon.",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    },
+    "launch-sky": {
+      "$type": "gradient",
+      "$value": "linear-gradient(135deg, var(--color-launch-sky-start) 30%, var(--color-launch-sky-end) 140%)",
+      "$description": "Round module tile (launcher), white icon.",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    },
+    "launch-slate": {
+      "$type": "gradient",
+      "$value": "linear-gradient(135deg, var(--color-launch-slate-start) 30%, var(--color-launch-slate-end) 140%)",
+      "$description": "Round module tile (launcher), white icon.",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    },
+    "launch-coral": {
+      "$type": "gradient",
+      "$value": "linear-gradient(135deg, var(--color-launch-coral-start) 30%, var(--color-launch-coral-end) 140%)",
+      "$description": "Round module tile (launcher), white icon.",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    },
+    "scrim-side": {
+      "$type": "gradient",
+      "$value": "linear-gradient(90deg, rgba(6, 18, 11, .78) 0%, rgba(6, 18, 11, .42) 50%, rgba(6, 18, 11, 0) 82%)",
+      "$description": "Photo hero: darkens the left of a photo so white text reads (title, stats).",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    },
+    "fade-end": {
+      "$type": "gradient",
+      "$value": "linear-gradient(90deg, black calc(100% - 40px), transparent)",
+      "$description": "Mask for horizontally scrolling strips: fades the last 40px so more content is hinted.",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    }
+  },
+  "texture": {
+    "rings": {
+      "$type": "gradient",
+      "$value": "repeating-radial-gradient(circle at -20% 135%, rgba(255, 255, 255, 0) 0 15px, rgba(255, 255, 255, .055) 15px 16px)",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    }
+  },
+  "gradient-stop": {
+    "mint": {
+      "$type": "color",
+      "$value": "{wash.soft-mint}"
+    },
+    "rose": {
+      "$type": "color",
+      "$value": "{wash.soft-rose}"
+    },
+    "butter": {
+      "$type": "color",
+      "$value": "{wash.soft-butter}"
+    },
+    "aqua": {
+      "$type": "color",
+      "$value": "{wash.soft-aqua}"
+    },
+    "sky": {
+      "$type": "color",
+      "$value": "{wash.soft-sky}"
+    },
+    "pink": {
+      "$type": "color",
+      "$value": "{wash.soft-pink}"
+    }
+  }
+}

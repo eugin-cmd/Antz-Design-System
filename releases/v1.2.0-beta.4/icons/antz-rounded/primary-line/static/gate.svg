@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-gate" role="img" aria-label="Enclosure gate">
+<defs><linearGradient id="antz-l-gate-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-gate .i,.antz-l-gate .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-gate .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-gate .a{stroke:url(#antz-l-gate-acc)}
+.antz-l-gate .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-gate .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-gate .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+</style>
+<path class="i antz-l-gate-0" d="M8 42V10M40 42V10M6 10h4M38 10h4" pathLength="1"/>
+<path class="a antz-l-gate-1" d="M12 16h24v18H12ZM18 16v18M24 16v18M30 16v18"/>
+</svg>

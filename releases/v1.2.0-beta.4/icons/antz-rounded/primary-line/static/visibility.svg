@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-visibility" role="img" aria-label="Visibility">
+<defs><linearGradient id="antz-l-visibility-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-visibility .i,.antz-l-visibility .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-visibility .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-visibility .a{stroke:url(#antz-l-visibility-acc)}
+.antz-l-visibility .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-visibility .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-visibility .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+</style>
+<g class="antz-l-visibility-g">
+<path class="i antz-l-visibility-0" d="M4 24s7.5-13 20-13 20 13 20 13-7.5 13-20 13S4 24 4 24Z" pathLength="1"/>
+<circle class="a antz-l-visibility-1" cx="24" cy="24" r="6"/>
+</g>
+</svg>
