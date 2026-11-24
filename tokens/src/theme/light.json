@@ -732,6 +732,22 @@
         "$value": "{coral.80}",
         "$description": "Warm figure on dark fills, e.g. deaths recorded on the ink widget. Identity, not status."
       }
+    },
+    "peach": {
+      "$description": "Text on the peach widget fill (coral 95 to 80). The fill stays light in dark mode, so these do not change. Identity, never status.",
+      "text": {
+        "$type": "color",
+        "$value": "{coral.10}"
+      },
+      "caption": {
+        "$type": "color",
+        "$value": "{coral.25}"
+      },
+      "figure": {
+        "$type": "color",
+        "$value": "{coral.35}",
+        "$description": "Large figures only (4.5:1 or more on the whole fill)."
+      }
     }
   },
   "hue": {
@@ -1232,6 +1248,16 @@
           "format": "css"
         }
       }
+    },
+    "peach": {
+      "$type": "gradient",
+      "$value": "linear-gradient(140deg, var(--coral-95) 0%, var(--coral-90) 45%, var(--coral-80) 100%)",
+      "$description": "Widget fill: soft coral to peach, with --color-peach-* text. Identity (for example Medical or Mortality figures), never status."
+    },
+    "maroon": {
+      "$type": "gradient",
+      "$value": "linear-gradient(150deg, var(--coral-10) 0%, var(--coral-20) 60%, var(--coral-25) 100%)",
+      "$description": "Dark warm hero fill (for example the Mortality module hero), white text. Pair with --texture-rings."
     }
   },
   "texture": {

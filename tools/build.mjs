@@ -157,6 +157,9 @@ const PAIRS = [
   ['color.tertiary.on-solid', 'color.tertiary.solid', T], ['color.tertiary.text', 'color.tertiary.soft', T], ['color.tertiary.text', 'color.surface', T],
   ...['success', 'warning', 'caution', 'danger', 'info'].flatMap((s) => [[`color.${s}.text`, `color.${s}.bg`, T], [`color.${s}.text`, 'color.surface', T], [`color.${s}.on-solid`, `color.${s}.solid`, T], [`color.signal.${s}`, 'color.surface', U]]),
   ['color.neutral.text', 'color.neutral.bg', T],
+  // Peach widget (gradient coral 95 to 80) and maroon hero (coral 10 to 25)
+  ['color.peach.text', 'coral.80', T], ['color.peach.caption', 'coral.80', T], ['color.peach.figure', 'coral.80', T], ['color.peach.caption', 'coral.95', T],
+  ['color.text.on-strong', 'coral.25', T],
   // Module tones (navigation drawer, rail tabs, module band) and launcher tiles (1.2)
   ...['green', 'amber', 'navy', 'slate', 'violet', 'rose', 'coral'].flatMap((t) => [[`color.module.${t}.ink`, `color.module.${t}.ta`, T], [`color.module.${t}.ink`, `color.module.${t}.tb`, T], [`color.module.${t}.ink`, `color.module.${t}.a`, T],
     [`color.text`, `color.module.${t}.a`, T], [`color.text`, `color.module.${t}.b`, T], [`color.text.secondary`, `color.module.${t}.a`, T], [`color.text.secondary`, `color.module.${t}.b`, T]]),

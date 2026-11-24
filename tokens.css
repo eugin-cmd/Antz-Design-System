@@ -561,6 +561,10 @@
   --size-bar-height: 110px;
   --size-module-item: 150px;
   --size-blur-glass: 10px;
+  --size-popover: 320px;
+  --size-popover-lg: 420px;
+  --size-dialog-wide: 1120px;
+  --size-donut: 104px;
 
   /* icon-stroke */
   --icon-stroke: 2;
@@ -781,6 +785,9 @@
   --color-text-gradient-mid: var(--teal-50);
   --color-text-gradient-end: var(--green-40);
   --color-figure-warm: var(--coral-80);
+  --color-peach-text: var(--coral-10);
+  --color-peach-caption: var(--coral-25);
+  --color-peach-figure: var(--coral-35);
 
   /* hue */
   --hue-green: var(--green-40);
@@ -850,6 +857,8 @@
   --gradient-launch-coral: linear-gradient(135deg, var(--color-launch-coral-start) 30%, var(--color-launch-coral-end) 140%);
   --gradient-scrim-side: linear-gradient(90deg, rgba(6, 18, 11, .78) 0%, rgba(6, 18, 11, .42) 50%, rgba(6, 18, 11, 0) 82%);
   --gradient-fade-end: linear-gradient(90deg, black calc(100% - 40px), transparent);
+  --gradient-peach: linear-gradient(140deg, var(--coral-95) 0%, var(--coral-90) 45%, var(--coral-80) 100%);
+  --gradient-maroon: linear-gradient(150deg, var(--coral-10) 0%, var(--coral-20) 60%, var(--coral-25) 100%);
 
   /* texture */
   --texture-rings: repeating-radial-gradient(circle at -20% 135%, rgba(255, 255, 255, 0) 0 15px, rgba(255, 255, 255, .055) 15px 16px);

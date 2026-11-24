@@ -236,3 +236,89 @@
   doc.addEventListener('click', function (e) { var h = host(e.target); if (h) replay(h); });
   window.AntzIcons = { replay: replay };
 })();
+
+/* ── Module homes and the widget board (1.2, DD-005) ─────────────────────────
+   Popovers: a trigger with data-popover="<id>" toggles <div class="popover" id hidden>.
+   Outside click and Escape close it; focus returns to the trigger.
+   Dialogs: data-dialog-open="<id>" shows <div class="dialog-backdrop" id hidden>;
+   data-dialog-close, a click on the backdrop itself, or Escape close it.
+   Pickers: .picker__opt marks the chosen option (aria-selected) and closes its popover.
+   Choices: role="radio" chips in a group (.filter-panel fieldset) are single choice.
+   Board: .widget__remove hides a widget while editing; data-board-undo="<board id>" brings them back.
+   Gallery: data-gallery-pick shows step 2 (style and size); data-gallery-back returns.
+   Modules dialog: data-module-pick="<name>" selects a module and names it in the detail pane.
+   Module panel: data-modnav-fold folds .modnav to icons. */
+(function () {
+  'use strict';
+  var doc = document, openPop = null, popTrigger = null, lastDialogTrigger = null;
+  function closePop(focus) {
+    if (!openPop) return;
+    openPop.hidden = true;
+    if (popTrigger) { popTrigger.setAttribute('aria-expanded', 'false'); if (focus) popTrigger.focus(); }
+    openPop = null; popTrigger = null;
+  }
+  // Screens are cloned into several device frames, so ids repeat: look in the clicked frame first
+  function byId(el, id) { var scope = el.closest('.shell-host'); return (scope && scope.querySelector('#' + CSS.escape(id))) || doc.getElementById(id); }
+  function openDialog(d, t) {
+    lastDialogTrigger = t; d.hidden = false;
+    var f = d.querySelector('[data-dialog-close], input, button'); if (f) f.focus();
+  }
+  function closeDialog(d) { if (!d || d.hidden) return; d.hidden = true; if (lastDialogTrigger) lastDialogTrigger.focus(); }
+  doc.addEventListener('click', function (e) {
+    var t;
+    if ((t = e.target.closest('[data-popover]'))) {
+      var p = byId(t, t.getAttribute('data-popover')); if (!p) return;
+      var was = openPop === p; closePop(false);
+      if (!was) { p.hidden = false; openPop = p; popTrigger = t; t.setAttribute('aria-expanded', 'true'); var f = p.querySelector('input, [aria-selected="true"], button'); if (f) f.focus({ preventScroll: true }); }
+      return;
+    }
+    if (openPop && !openPop.contains(e.target)) closePop(false);
+    if ((t = e.target.closest('.picker__opt'))) {
+      var list = t.closest('.picker__list'); if (list) list.querySelectorAll('.picker__opt').forEach(function (o) { o.setAttribute('aria-selected', String(o === t)); });
+      var pop = t.closest('.popover'); if (pop && pop === openPop) { var label = popTrigger && popTrigger.querySelector('[data-pick-label]'); if (label) label.textContent = t.dataset.label || t.firstChild.textContent.trim(); closePop(true); }
+      return;
+    }
+    if ((t = e.target.closest('[role="radio"]'))) {
+      var g = t.closest('[role="radiogroup"], fieldset'); if (g) g.querySelectorAll('[role="radio"]').forEach(function (r) { r.setAttribute('aria-checked', String(r === t)); });
+      return;
+    }
+    if ((t = e.target.closest('[data-dialog-open]'))) { var d = byId(t, t.getAttribute('data-dialog-open')); if (d) openDialog(d, t); return; }
+    if ((t = e.target.closest('[data-dialog-close]'))) { closeDialog(t.closest('.dialog-backdrop')); return; }
+    if (e.target.classList && e.target.classList.contains('dialog-backdrop') && e.target.id) { closeDialog(e.target); return; }
+    if ((t = e.target.closest('.widget__remove'))) {
+      var w = t.closest('.widget, .board > *'); if (w) { w.hidden = true; w.setAttribute('data-removed', ''); }
+      return;
+    }
+    if ((t = e.target.closest('[data-board-undo]'))) {
+      var b = byId(t, t.getAttribute('data-board-undo')); if (b) b.querySelectorAll('[data-removed]').forEach(function (x) { x.hidden = false; x.removeAttribute('data-removed'); });
+      return;
+    }
+    if ((t = e.target.closest('[data-gallery-pick]'))) {
+      var gal = t.closest('[data-gallery]'); if (!gal) return;
+      gal.querySelector('[data-step="1"]').hidden = true; gal.querySelector('[data-step="2"]').hidden = false;
+      var name = gal.querySelector('[data-gallery-name]'); if (name) name.textContent = t.getAttribute('data-gallery-pick');
+      var back = gal.querySelector('[data-gallery-back]'); if (back) back.focus();
+      return;
+    }
+    if ((t = e.target.closest('[data-gallery-back]'))) {
+      var gal2 = t.closest('[data-gallery]'); if (!gal2) return;
+      gal2.querySelector('[data-step="2"]').hidden = true; gal2.querySelector('[data-step="1"]').hidden = false;
+      return;
+    }
+    if ((t = e.target.closest('[data-module-pick]'))) {
+      var md = t.closest('.modules-dialog'); if (!md) return;
+      md.querySelectorAll('[data-module-pick]').forEach(function (m) { m.setAttribute('aria-current', String(m === t)); });
+      var nm = md.querySelector('[data-module-name]'); if (nm) nm.textContent = t.getAttribute('data-module-pick');
+      return;
+    }
+    if ((t = e.target.closest('[data-modnav-fold]'))) {
+      var nav = t.closest('.modnav'); if (!nav) return;
+      var folded = nav.classList.toggle('is-folded'); t.setAttribute('aria-expanded', String(!folded)); t.setAttribute('aria-label', folded ? 'Expand the side panel' : 'Fold the side panel');
+    }
+  });
+  doc.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    if (openPop) { closePop(true); return; }
+    var d = (lastDialogTrigger && lastDialogTrigger.closest('.shell-host') || doc).querySelector('.dialog-backdrop[id]:not([hidden])') || doc.querySelector('.dialog-backdrop[id]:not([hidden])'); if (d) closeDialog(d);
+  });
+})();

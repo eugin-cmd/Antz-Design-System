@@ -2106,6 +2106,26 @@
           "$type": "dimension",
           "$value": "10px",
           "$description": "Backdrop blur behind glass chips on photos (1.2)"
+        },
+        "popover": {
+          "$type": "dimension",
+          "$value": "320px",
+          "$description": "Dropdown panels: site picker, filters (1.2, module homes)"
+        },
+        "popover-lg": {
+          "$type": "dimension",
+          "$value": "420px",
+          "$description": "Wide dropdowns: module switcher, menu (1.2, module homes)"
+        },
+        "dialog-wide": {
+          "$type": "dimension",
+          "$value": "1120px",
+          "$description": "Wide dialogs: widget gallery, all modules (1.2, module homes)"
+        },
+        "donut": {
+          "$type": "dimension",
+          "$value": "104px",
+          "$description": "Donut chart in a widget (1.2)"
         }
       },
       "icon-stroke": {
@@ -3038,6 +3058,21 @@
             "$value": "#FFB4A4",
             "$description": "Warm figure on dark fills, e.g. deaths recorded on the ink widget. Identity, not status."
           }
+        },
+        "peach": {
+          "text": {
+            "$type": "color",
+            "$value": "#3D0600"
+          },
+          "caption": {
+            "$type": "color",
+            "$value": "#771300"
+          },
+          "figure": {
+            "$type": "color",
+            "$value": "#A02104",
+            "$description": "Large figures only (4.5:1 or more on the whole fill)."
+          }
         }
       },
       "hue": {
@@ -3332,6 +3367,16 @@
           "$type": "gradient",
           "$value": "linear-gradient(90deg, black calc(100% - 40px), transparent)",
           "$description": "Mask for horizontally scrolling strips: fades the last 40px so more content is hinted."
+        },
+        "peach": {
+          "$type": "gradient",
+          "$value": "linear-gradient(140deg, #FFEDE9 0%, #FFDAD3 45%, #FFB4A4 100%)",
+          "$description": "Widget fill: soft coral to peach, with --color-peach-* text. Identity (for example Medical or Mortality figures), never status."
+        },
+        "maroon": {
+          "$type": "gradient",
+          "$value": "linear-gradient(150deg, #3D0600 0%, #630E00 60%, #771300 100%)",
+          "$description": "Dark warm hero fill (for example the Mortality module hero), white text. Pair with --texture-rings."
         }
       },
       "texture": {
@@ -5471,6 +5516,26 @@
           "$type": "dimension",
           "$value": "10px",
           "$description": "Backdrop blur behind glass chips on photos (1.2)"
+        },
+        "popover": {
+          "$type": "dimension",
+          "$value": "320px",
+          "$description": "Dropdown panels: site picker, filters (1.2, module homes)"
+        },
+        "popover-lg": {
+          "$type": "dimension",
+          "$value": "420px",
+          "$description": "Wide dropdowns: module switcher, menu (1.2, module homes)"
+        },
+        "dialog-wide": {
+          "$type": "dimension",
+          "$value": "1120px",
+          "$description": "Wide dialogs: widget gallery, all modules (1.2, module homes)"
+        },
+        "donut": {
+          "$type": "dimension",
+          "$value": "104px",
+          "$description": "Donut chart in a widget (1.2)"
         }
       },
       "icon-stroke": {
@@ -6403,6 +6468,21 @@
             "$value": "#FFB4A4",
             "$description": "Warm figure on dark fills, e.g. deaths recorded on the ink widget. Identity, not status."
           }
+        },
+        "peach": {
+          "text": {
+            "$type": "color",
+            "$value": "#3D0600"
+          },
+          "caption": {
+            "$type": "color",
+            "$value": "#771300"
+          },
+          "figure": {
+            "$type": "color",
+            "$value": "#A02104",
+            "$description": "Large figures only (4.5:1 or more on the whole fill)."
+          }
         }
       },
       "hue": {
@@ -6697,6 +6777,16 @@
           "$type": "gradient",
           "$value": "linear-gradient(90deg, black calc(100% - 40px), transparent)",
           "$description": "Mask for horizontally scrolling strips: fades the last 40px so more content is hinted."
+        },
+        "peach": {
+          "$type": "gradient",
+          "$value": "linear-gradient(140deg, #FFEDE9 0%, #FFDAD3 45%, #FFB4A4 100%)",
+          "$description": "Widget fill: soft coral to peach, with --color-peach-* text. Identity (for example Medical or Mortality figures), never status."
+        },
+        "maroon": {
+          "$type": "gradient",
+          "$value": "linear-gradient(150deg, #3D0600 0%, #630E00 60%, #771300 100%)",
+          "$description": "Dark warm hero fill (for example the Mortality module hero), white text. Pair with --texture-rings."
         }
       },
       "texture": {
@@ -8836,6 +8926,26 @@
           "$type": "dimension",
           "$value": "10px",
           "$description": "Backdrop blur behind glass chips on photos (1.2)"
+        },
+        "popover": {
+          "$type": "dimension",
+          "$value": "320px",
+          "$description": "Dropdown panels: site picker, filters (1.2, module homes)"
+        },
+        "popover-lg": {
+          "$type": "dimension",
+          "$value": "420px",
+          "$description": "Wide dropdowns: module switcher, menu (1.2, module homes)"
+        },
+        "dialog-wide": {
+          "$type": "dimension",
+          "$value": "1120px",
+          "$description": "Wide dialogs: widget gallery, all modules (1.2, module homes)"
+        },
+        "donut": {
+          "$type": "dimension",
+          "$value": "104px",
+          "$description": "Donut chart in a widget (1.2)"
         }
       },
       "icon-stroke": {
@@ -9768,6 +9878,21 @@
             "$value": "#FFB4A4",
             "$description": "Warm figure on dark fills, e.g. deaths recorded on the ink widget. Identity, not status."
           }
+        },
+        "peach": {
+          "text": {
+            "$type": "color",
+            "$value": "#3D0600"
+          },
+          "caption": {
+            "$type": "color",
+            "$value": "#771300"
+          },
+          "figure": {
+            "$type": "color",
+            "$value": "#A02104",
+            "$description": "Large figures only (4.5:1 or more on the whole fill)."
+          }
         }
       },
       "hue": {
@@ -10062,6 +10187,16 @@
           "$type": "gradient",
           "$value": "linear-gradient(90deg, black calc(100% - 40px), transparent)",
           "$description": "Mask for horizontally scrolling strips: fades the last 40px so more content is hinted."
+        },
+        "peach": {
+          "$type": "gradient",
+          "$value": "linear-gradient(140deg, #FFEDE9 0%, #FFDAD3 45%, #FFB4A4 100%)",
+          "$description": "Widget fill: soft coral to peach, with --color-peach-* text. Identity (for example Medical or Mortality figures), never status."
+        },
+        "maroon": {
+          "$type": "gradient",
+          "$value": "linear-gradient(150deg, #3D0600 0%, #630E00 60%, #771300 100%)",
+          "$description": "Dark warm hero fill (for example the Mortality module hero), white text. Pair with --texture-rings."
         }
       },
       "texture": {
@@ -12201,6 +12336,26 @@
           "$type": "dimension",
           "$value": "10px",
           "$description": "Backdrop blur behind glass chips on photos (1.2)"
+        },
+        "popover": {
+          "$type": "dimension",
+          "$value": "320px",
+          "$description": "Dropdown panels: site picker, filters (1.2, module homes)"
+        },
+        "popover-lg": {
+          "$type": "dimension",
+          "$value": "420px",
+          "$description": "Wide dropdowns: module switcher, menu (1.2, module homes)"
+        },
+        "dialog-wide": {
+          "$type": "dimension",
+          "$value": "1120px",
+          "$description": "Wide dialogs: widget gallery, all modules (1.2, module homes)"
+        },
+        "donut": {
+          "$type": "dimension",
+          "$value": "104px",
+          "$description": "Donut chart in a widget (1.2)"
         }
       },
       "icon-stroke": {
@@ -13133,6 +13288,21 @@
             "$value": "#FFB4A4",
             "$description": "Warm figure on dark fills, e.g. deaths recorded on the ink widget. Identity, not status."
           }
+        },
+        "peach": {
+          "text": {
+            "$type": "color",
+            "$value": "#3D0600"
+          },
+          "caption": {
+            "$type": "color",
+            "$value": "#771300"
+          },
+          "figure": {
+            "$type": "color",
+            "$value": "#A02104",
+            "$description": "Large figures only (4.5:1 or more on the whole fill)."
+          }
         }
       },
       "hue": {
@@ -13427,6 +13597,16 @@
           "$type": "gradient",
           "$value": "linear-gradient(90deg, black calc(100% - 40px), transparent)",
           "$description": "Mask for horizontally scrolling strips: fades the last 40px so more content is hinted."
+        },
+        "peach": {
+          "$type": "gradient",
+          "$value": "linear-gradient(140deg, #FFEDE9 0%, #FFDAD3 45%, #FFB4A4 100%)",
+          "$description": "Widget fill: soft coral to peach, with --color-peach-* text. Identity (for example Medical or Mortality figures), never status."
+        },
+        "maroon": {
+          "$type": "gradient",
+          "$value": "linear-gradient(150deg, #3D0600 0%, #630E00 60%, #771300 100%)",
+          "$description": "Dark warm hero fill (for example the Mortality module hero), white text. Pair with --texture-rings."
         }
       },
       "texture": {

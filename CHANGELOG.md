@@ -4,6 +4,13 @@ All notable changes to the Antz Design System. Versions follow semantic versioni
 
 ## Unreleased
 
+### Screens and components: module homes (DD-005)
+- **Home is a widget board** like Antz Home style 7: board bar (Menu, site picker, add, edit with Undo changes and Done), photo hero, widgets in two columns, quick add, Today, announcements and observation notes. **Add widgets** gallery (categories, search, Default view, On board, then style and size), **All modules** dialog, **Menu** with its filter panel, site picker and account menu. Mobile, tablet and desktop.
+- **Module homes** for Animals, Housing, Eggs and Mortality: module bar (back, module switcher, breadcrumb, site and period pickers), module side panel (folds; a strip on phones), hero, widgets and lists.
+- **New components:** `.board`, `.board-bar`, `.modbar`, `.module-switch`, `.crumbs`, `.pick`, `.modnav`, `.modhome`, `.hero-strip`, `.glass-stats`, `.meter`, `.list-card`, `.item`, `.rank`, `.activity`, `.donut`, `.legend`, `.trend`, `.dots`, `.notes`, `.popover`, `.picker`, `.filter-panel`, `.dialog--wide`, `.gallery`, `.widget-styles`, `.modules-dialog`, `.menu-btn`, `.round-btn`, `.task-row`; widget fills `--peach`, `--maroon`, `--navy`, `.widget__pill`, `.widget--hero`.
+- **New tokens (761):** `--gradient-peach`, `--gradient-maroon`, `--color-peach-text|caption|figure`, `--size-popover`, `--size-popover-lg`, `--size-dialog-wide`, `--size-donut`; 616 contrast checks.
+- **components.js:** popovers, dialogs, pickers, single-choice chips, remove and undo on the board, the two-step gallery, the modules dialog, the folding side panel. Screen previews now suffix id references too, so each device frame works on its own.
+
 ### Docs site
 - **Home hero:** the photos sit under a 55% black overlay (was 50% deep green), and a holographic iridescent sheen drifts slowly in the bottom-right corner, feathering off towards the left. It stays clear of the text column: the intro holds 6.2:1 on the brightest photo at every point of the drift (6.3:1 without the sheen). The hero's pause button stops it, it is still under reduced motion, and hidden in high contrast. New tokens `--gradient-iridescent` (from the colour scales) and `--gradient-feather-corner` (a mask), 752 tokens.
 - **Page banners on dark gradients:** each page's title and tabs sit on one of four dark feature gradients with light text, kept per section: deep green for Getting started and Resources; navy for Foundations, Stat cards and Governance; petrol for Components and Screens; green for Patterns and Content. One continuous gradient runs across the banner and the tabs (no seam). (Tried the soft washes first: too little contrast with the page.)

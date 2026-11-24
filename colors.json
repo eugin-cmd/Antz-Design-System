@@ -2300,6 +2300,19 @@
       "$value": "#FFB4A4",
       "$description": "Warm figure on dark fills, e.g. deaths recorded on the ink widget. Identity, not status."
     },
+    "color-peach-text": {
+      "$type": "color",
+      "$value": "#3D0600"
+    },
+    "color-peach-caption": {
+      "$type": "color",
+      "$value": "#771300"
+    },
+    "color-peach-figure": {
+      "$type": "color",
+      "$value": "#A02104",
+      "$description": "Large figures only (4.5:1 or more on the whole fill)."
+    },
     "hue-green": {
       "$type": "color",
       "$value": "#006D35"
@@ -4707,6 +4720,19 @@
       "$type": "color",
       "$value": "#FFB4A4",
       "$description": "Warm figure on dark fills, e.g. deaths recorded on the ink widget. Identity, not status."
+    },
+    "color-peach-text": {
+      "$type": "color",
+      "$value": "#3D0600"
+    },
+    "color-peach-caption": {
+      "$type": "color",
+      "$value": "#771300"
+    },
+    "color-peach-figure": {
+      "$type": "color",
+      "$value": "#A02104",
+      "$description": "Large figures only (4.5:1 or more on the whole fill)."
     },
     "hue-green": {
       "$type": "color",
@@ -7116,6 +7142,19 @@
       "$value": "#FFB4A4",
       "$description": "Warm figure on dark fills, e.g. deaths recorded on the ink widget. Identity, not status."
     },
+    "color-peach-text": {
+      "$type": "color",
+      "$value": "#3D0600"
+    },
+    "color-peach-caption": {
+      "$type": "color",
+      "$value": "#771300"
+    },
+    "color-peach-figure": {
+      "$type": "color",
+      "$value": "#A02104",
+      "$description": "Large figures only (4.5:1 or more on the whole fill)."
+    },
     "hue-green": {
       "$type": "color",
       "$value": "#006D35"
@@ -9523,6 +9562,19 @@
       "$type": "color",
       "$value": "#FFB4A4",
       "$description": "Warm figure on dark fills, e.g. deaths recorded on the ink widget. Identity, not status."
+    },
+    "color-peach-text": {
+      "$type": "color",
+      "$value": "#3D0600"
+    },
+    "color-peach-caption": {
+      "$type": "color",
+      "$value": "#771300"
+    },
+    "color-peach-figure": {
+      "$type": "color",
+      "$value": "#A02104",
+      "$description": "Large figures only (4.5:1 or more on the whole fill)."
     },
     "hue-green": {
       "$type": "color",

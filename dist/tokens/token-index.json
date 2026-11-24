@@ -5418,6 +5418,50 @@
       "dark-hc": "10px"
     },
     {
+      "name": "size.popover",
+      "css": "--size-popover",
+      "type": "dimension",
+      "tier": "base",
+      "description": "Dropdown panels: site picker, filters (1.2, module homes)",
+      "light": "320px",
+      "dark": "320px",
+      "light-hc": "320px",
+      "dark-hc": "320px"
+    },
+    {
+      "name": "size.popover-lg",
+      "css": "--size-popover-lg",
+      "type": "dimension",
+      "tier": "base",
+      "description": "Wide dropdowns: module switcher, menu (1.2, module homes)",
+      "light": "420px",
+      "dark": "420px",
+      "light-hc": "420px",
+      "dark-hc": "420px"
+    },
+    {
+      "name": "size.dialog-wide",
+      "css": "--size-dialog-wide",
+      "type": "dimension",
+      "tier": "base",
+      "description": "Wide dialogs: widget gallery, all modules (1.2, module homes)",
+      "light": "1120px",
+      "dark": "1120px",
+      "light-hc": "1120px",
+      "dark-hc": "1120px"
+    },
+    {
+      "name": "size.donut",
+      "css": "--size-donut",
+      "type": "dimension",
+      "tier": "base",
+      "description": "Donut chart in a widget (1.2)",
+      "light": "104px",
+      "dark": "104px",
+      "light-hc": "104px",
+      "dark-hc": "104px"
+    },
+    {
       "name": "icon-stroke",
       "css": "--icon-stroke",
       "type": "number",
@@ -7777,6 +7821,42 @@
       "ref": "coral.80"
     },
     {
+      "name": "color.peach.text",
+      "css": "--color-peach-text",
+      "type": "color",
+      "tier": "semantic",
+      "description": "",
+      "light": "#3D0600",
+      "dark": "#3D0600",
+      "light-hc": "#3D0600",
+      "dark-hc": "#3D0600",
+      "ref": "coral.10"
+    },
+    {
+      "name": "color.peach.caption",
+      "css": "--color-peach-caption",
+      "type": "color",
+      "tier": "semantic",
+      "description": "",
+      "light": "#771300",
+      "dark": "#771300",
+      "light-hc": "#771300",
+      "dark-hc": "#771300",
+      "ref": "coral.25"
+    },
+    {
+      "name": "color.peach.figure",
+      "css": "--color-peach-figure",
+      "type": "color",
+      "tier": "semantic",
+      "description": "Large figures only (4.5:1 or more on the whole fill).",
+      "light": "#A02104",
+      "dark": "#A02104",
+      "light-hc": "#A02104",
+      "dark-hc": "#A02104",
+      "ref": "coral.35"
+    },
+    {
       "name": "hue.green",
       "css": "--hue-green",
       "type": "color",
@@ -8510,6 +8590,28 @@
       "dark": "linear-gradient(90deg, black calc(100% - 40px), transparent)",
       "light-hc": "linear-gradient(90deg, black calc(100% - 40px), transparent)",
       "dark-hc": "linear-gradient(90deg, black calc(100% - 40px), transparent)"
+    },
+    {
+      "name": "gradient.peach",
+      "css": "--gradient-peach",
+      "type": "gradient",
+      "tier": "semantic",
+      "description": "Widget fill: soft coral to peach, with --color-peach-* text. Identity (for example Medical or Mortality figures), never status.",
+      "light": "linear-gradient(140deg, #FFEDE9 0%, #FFDAD3 45%, #FFB4A4 100%)",
+      "dark": "linear-gradient(140deg, #FFEDE9 0%, #FFDAD3 45%, #FFB4A4 100%)",
+      "light-hc": "linear-gradient(140deg, #FFEDE9 0%, #FFDAD3 45%, #FFB4A4 100%)",
+      "dark-hc": "linear-gradient(140deg, #FFEDE9 0%, #FFDAD3 45%, #FFB4A4 100%)"
+    },
+    {
+      "name": "gradient.maroon",
+      "css": "--gradient-maroon",
+      "type": "gradient",
+      "tier": "semantic",
+      "description": "Dark warm hero fill (for example the Mortality module hero), white text. Pair with --texture-rings.",
+      "light": "linear-gradient(150deg, #3D0600 0%, #630E00 60%, #771300 100%)",
+      "dark": "linear-gradient(150deg, #3D0600 0%, #630E00 60%, #771300 100%)",
+      "light-hc": "linear-gradient(150deg, #3D0600 0%, #630E00 60%, #771300 100%)",
+      "dark-hc": "linear-gradient(150deg, #3D0600 0%, #630E00 60%, #771300 100%)"
     },
     {
       "name": "texture.rings",

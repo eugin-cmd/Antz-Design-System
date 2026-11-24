@@ -251,11 +251,28 @@
         },
         {
           "href": "screen-home.html",
-          "title": "Home"
+          "title": "Home",
+          "isNew": true
         },
         {
           "href": "screen-housing.html",
-          "title": "Housing"
+          "title": "Housing",
+          "isNew": true
+        },
+        {
+          "href": "screen-animals.html",
+          "title": "Animals",
+          "isNew": true
+        },
+        {
+          "href": "screen-eggs.html",
+          "title": "Eggs",
+          "isNew": true
+        },
+        {
+          "href": "screen-mortality.html",
+          "title": "Mortality",
+          "isNew": true
         },
         {
           "href": "screen-people.html",
