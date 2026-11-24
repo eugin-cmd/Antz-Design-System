@@ -182,7 +182,7 @@
   function load(p) {
     var url = st.family === 'line' ? BASE + 'primary-line/' + p.svg : BASE + 'primary/' + p[st.pstyle];
     if (svgCache[url]) return Promise.resolve(svgCache[url]);
-    return fetch(url).then(function (r) { return r.text(); }).then(function (t) { svgCache[url] = t.replace(/<svg /, '<svg aria-hidden="true" ').replace(/ role="img"/, '').replace(/ aria-label="[^"]*"/, ''); return svgCache[url]; });
+    return fetch(url, { cache: 'no-cache' }).then(function (r) { return r.text(); }).then(function (t) { svgCache[url] = t.replace(/<svg /, '<svg aria-hidden="true" ').replace(/ role="img"/, '').replace(/ aria-label="[^"]*"/, ''); return svgCache[url]; });
   }
   function renderPrim() {
     $$('[data-ar-tileonly]').forEach(function (el) { el.hidden = st.family === 'line'; }); $$('[data-ar-lineonly]').forEach(function (el) { el.hidden = st.family !== 'line'; });
@@ -239,10 +239,10 @@
   });
 
   Promise.all([
-    fetch(BASE + 'sprite.svg').then(function (r) { return r.text(); }).then(function (t) { document.body.insertAdjacentHTML('afterbegin', t); }),
-    fetch(BASE + 'index.json').then(function (r) { return r.json(); }).then(function (d) { icons = d.icons; }),
-    fetch(BASE + 'primary/index.json').then(function (r) { return r.json(); }).then(function (d) { prim = d.icons.sort(function (a, b) { return (a.order || 0) - (b.order || 0); }); }),
-    fetch(BASE + 'primary-line/index.json').then(function (r) { return r.json(); }).then(function (d) { primLine = d.icons; }).catch(function () {})
+    fetch(BASE + 'sprite.svg', { cache: 'no-cache' }).then(function (r) { return r.text(); }).then(function (t) { document.body.insertAdjacentHTML('afterbegin', t); }),
+    fetch(BASE + 'index.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (d) { icons = d.icons; }),
+    fetch(BASE + 'primary/index.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (d) { prim = d.icons.sort(function (a, b) { return (a.order || 0) - (b.order || 0); }); }),
+    fetch(BASE + 'primary-line/index.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (d) { primLine = d.icons; }).catch(function () {})
   ]).then(function () {
     $$('[data-ar-total="line"],[data-ar-total="filled"]').forEach(function (s) { s.textContent = icons.length; });
     $$('[data-ar-total="primary"]').forEach(function (s) { s.textContent = prim.length; });

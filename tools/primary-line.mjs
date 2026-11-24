@@ -50,13 +50,13 @@ const ICONS = {
   home: { label: 'Home', module: 'Home', ink: [
       ['path', { d: 'M6 22 24 8l18 14' }],
       ['path', { d: 'M10 19v19a2 2 0 0 0 2 2h24a2 2 0 0 0 2-2V19' }, { at: 0.2 }],
-      ['path', { d: 'M32 13V8h4v8' }, { at: 0.4 }],
+      ['path', { d: 'M32 14.2V10h4v7.3' }, { at: 0.4 }],
       ['rect', { x: 29, y: 25, width: 6, height: 6, rx: 1 }, { at: 0.55 }],
       ['path', { d: 'M32 25v6M29 28h6' }, { at: 0.7 }],
     ], accent: [
       ['path', { d: 'M15 40v-9a4 4 0 0 1 8 0v9' }],
-      ['circle', { cx: 34, cy: 5, r: 1.2 }, { motion: 'rise', at: 0.3, dist: 4 }],
-      ['circle', { cx: 36.5, cy: 4.5, r: 0.9 }, { motion: 'rise', at: 0.6, dist: 3 }],
+      ['circle', { cx: 34, cy: 6, r: 1.1 }, { motion: 'rise', at: 0.3, dist: 3 }],
+      ['circle', { cx: 36.5, cy: 5, r: 0.8 }, { motion: 'rise', at: 0.6, dist: 2.5 }],
     ] },
   dashboard: { label: 'Dashboard', module: 'Dashboard (web home)', ink: [
       ['rect', { x: 7, y: 7, width: 15, height: 15, rx: 3 }],
@@ -165,7 +165,7 @@ const ICONS = {
   mortality: { label: 'Mortality', module: 'Mortality', ink: [
       ['path', { d: 'M14 40V18a10 10 0 0 1 20 0v22' }],
       ['path', { d: 'M7 40h34' }, { at: 0.3 }],
-      ['path', { d: 'M20 19h8M20 24h8' }, { at: 0.55 }],
+      ['path', { d: 'M20 17h8M20 21.5h8' }, { at: 0.55 }],
     ], accent: [
       ['path', { d: 'M24 37v-6' }],
       ['path', { d: 'M24 32.5c-2.8 0-4.5-1.8-4.5-4.5 2.8 0 4.5 1.8 4.5 4.5Zm0-1.5c0-2.8 1.8-4.5 4.5-4.5 0 2.8-1.8 4.5-4.5 4.5Z' }, { at: 0.35 }],
@@ -207,8 +207,8 @@ const ICONS = {
       ['path', { d: 'M36 29l4 4' }, { motion: 'move', from: 'translate(5px,-5px)', at: 0.05, front: true }],
     ] },
   announcements: { label: 'Announcements', module: 'Announcements', ink: [
-      ['path', { d: 'M8 20v8a2 2 0 0 0 2 2h4l14 8V10l-14 8h-4a2 2 0 0 0-2 2Z' }],
-      ['path', { d: 'M14 30l2 9h4l-2-8.5' }, { at: 0.5 }],
+      ['path', { d: 'M14 18h-4a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h4Z' }],
+      ['path', { d: 'M14 18l14-8v28l-14-8' }, { at: 0.3 }],
     ], accent: [
       ['path', { d: 'M33 19a6.5 6.5 0 0 1 0 10' }],
       ['path', { d: 'M37 14a13 13 0 0 1 0 20' }, { at: 0.4 }],
@@ -241,8 +241,8 @@ const ICONS = {
       ['circle', { cx: 24, cy: 15, r: 7 }],
       ['path', { d: 'M10 41v-2a9 9 0 0 1 9-9h10a9 9 0 0 1 9 9v2' }, { at: 0.35 }],
     ], accent: [
-      ['path', { d: 'M20 30l4 6 4-6' }],
-      ['rect', { x: 29, y: 34, width: 5, height: 4, rx: 1 }, { motion: 'pop', at: 0.45 }],
+      ['rect', { x: 20.5, y: 33.5, width: 7, height: 5, rx: 1.5 }, { motion: 'pop' }],
+      ['path', { d: 'M22.8 36h2.4' }, { at: 0.45 }],
     ] },
   department: { label: 'Department', module: 'Departments', ink: [
       ['path', { d: 'M6 18 24 8l18 10Z' }],

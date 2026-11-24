@@ -20,16 +20,16 @@
 @keyframes antz-l-home-3{0%,9.9%{stroke-dashoffset:1}30.9%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
 @keyframes antz-l-home-4{0%,12.6%{stroke-dashoffset:1}33.6%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
 @keyframes antz-l-home-5{0%,30%{stroke-dashoffset:1}44%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
-@keyframes antz-l-home-6{0%,33.6%{transform:translateY(0);opacity:0}37.6%{opacity:1}63.6%{transform:translateY(-4px);opacity:0}100%{opacity:0}}
-@keyframes antz-l-home-7{0%,37.2%{transform:translateY(0);opacity:0}41.2%{opacity:1}67.2%{transform:translateY(-3px);opacity:0}100%{opacity:0}}
+@keyframes antz-l-home-6{0%,33.6%{transform:translateY(0);opacity:0}37.6%{opacity:1}63.6%{transform:translateY(-3px);opacity:0}100%{opacity:0}}
+@keyframes antz-l-home-7{0%,37.2%{transform:translateY(0);opacity:0}41.2%{opacity:1}67.2%{transform:translateY(-2.5px);opacity:0}100%{opacity:0}}
 @media (prefers-reduced-motion:reduce){.antz-l-home *{animation:none!important;stroke-dashoffset:0!important;opacity:1!important;transform:none!important}}
 </style>
 <path class="i antz-l-home-0" d="M6 22 24 8l18 14" pathLength="1"/>
 <path class="i antz-l-home-1" d="M10 19v19a2 2 0 0 0 2 2h24a2 2 0 0 0 2-2V19" pathLength="1"/>
-<path class="i antz-l-home-2" d="M32 13V8h4v8" pathLength="1"/>
+<path class="i antz-l-home-2" d="M32 14.2V10h4v7.3" pathLength="1"/>
 <rect class="i antz-l-home-3" x="29" y="25" width="6" height="6" rx="1" pathLength="1"/>
 <path class="i antz-l-home-4" d="M32 25v6M29 28h6" pathLength="1"/>
 <path class="a antz-l-home-5" d="M15 40v-9a4 4 0 0 1 8 0v9" pathLength="1"/>
-<circle class="a antz-l-home-6" cx="34" cy="5" r="1.2"/>
-<circle class="a antz-l-home-7" cx="36.5" cy="4.5" r="0.9"/>
+<circle class="a antz-l-home-6" cx="34" cy="6" r="1.1"/>
+<circle class="a antz-l-home-7" cx="36.5" cy="5" r="0.8"/>
 </svg>
