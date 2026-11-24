@@ -4,6 +4,10 @@ All notable changes to the Antz Design System. Versions follow semantic versioni
 
 ## Unreleased
 
+### Foundations: colour scales
+- **Colour scales from the ANTZ Design Library (Figma):** 10 families (primary, secondary, tertiary, error, neutral, neutral variant, success, warning, caution, info), 11 steps each, 50 to 950, as 110 primitive tokens `--scale-<family>-<step>` (750 tokens). Exported to CSS, Figma, MUI (`palette.antz.scale`) and React Native (`antzTheme.scale`). Primary 500 is the pinned brand #37BD69; Figma shows the retired #36BC69 there. Added at the System Owner's request, 2026-11-24.
+- **Docs:** new Foundations page, Colour scales. The build generates its swatch grid from the tokens, with the label colour that passes AA on each step. **Theme tester:** a Colour scales tab; select a swatch to copy its variable.
+
 ### Components
 - **Navigation drawer: sliding tab.** Switching modules, the selected rail tab travels to the new one on the elastic settle (`--ease-elastic`, `--duration-slower`), corners and all, like every other tab indicator. `components.js` adds the moving pieces; without it the drawer keeps the static look. Instant under reduced motion.
 - **Floating navigation drawer** (`.navdrawer--floating`): set in from the left, top and bottom with a 24px radius. It slides in with the elastic settle (`--ease-move`, `--duration-slower`) and retracts quickly on `--ease-exit`. A hamburger at the top of the rail (`.navdrawer__top`) retracts it from the corner that opened it. The ✕, Escape and the backdrop still work. Tabs go in a `.navdrawer__tabs` group so the hamburger isn't announced as a tab; the older markup still works.

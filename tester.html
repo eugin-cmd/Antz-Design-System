@@ -10,8 +10,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="tokens.css?v=3f716e89c3">
-<link rel="stylesheet" href="components.css?v=3f716e89c3">
+<link rel="stylesheet" href="tokens.css?v=62e8f7209a">
+<link rel="stylesheet" href="components.css?v=62e8f7209a">
 <style>
   /* Tester chrome (not part of the system). Tokens only. */
   html, body { height: 100%; }
@@ -58,6 +58,15 @@
   .tt-tok code { display: block; font-size: var(--text-xs); background: none; padding: 0; }
   .tt-tok small { color: var(--color-text-muted); font-size: var(--text-2xs); font-family: var(--font-mono); }
   .tt-aa td, .tt-aa th { white-space: nowrap; }
+  .tt-scales { display: flex; flex-direction: column; gap: var(--space-3); }
+  .tt-scale { display: grid; grid-template-columns: 120px minmax(0, 1fr); align-items: center; gap: var(--space-3); }
+  .tt-scale > b { font-size: var(--text-sm); }
+  .tt-scale__row { display: grid; grid-template-columns: repeat(11, minmax(var(--size-control-lg), 1fr)); gap: var(--space-1); overflow-x: auto; }
+  .tt-scale__row button { display: flex; flex-direction: column; align-items: stretch; gap: var(--space-0-5); min-width: 0; padding: 0; border: 0; font: inherit; text-align: left; background: none; cursor: pointer; }
+  .tt-scale__row i { display: block; height: var(--size-control-sm); border-radius: var(--radius-xs); box-shadow: var(--shadow-hairline); }
+  .tt-scale__row button:hover i, .tt-scale__row button:focus-visible i { box-shadow: 0 0 0 var(--border-width-strong) var(--color-focus); }
+  .tt-scale__row small { font-size: var(--text-2xs); color: var(--color-text-secondary); font-family: var(--font-mono); white-space: nowrap; }
+  @media (max-width: 720px) { .tt-scale { grid-template-columns: minmax(0, 1fr); } }
   .tt-swatch { display: inline-flex; align-items: center; justify-content: center; min-width: 46px; height: 26px; padding: 0 var(--space-2); border-radius: var(--radius-xs); font-weight: var(--weight-semibold); font-size: var(--text-xs); }
   .tt-wash { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-1-5); }
   .tt-wash button { height: 40px; border: 0; border-radius: var(--radius-sm); cursor: pointer; box-shadow: var(--shadow-hairline); font-size: var(--text-2xs); font-weight: var(--weight-semibold); color: var(--color-text); }
@@ -99,7 +108,7 @@
     <div class="tt-stage" id="tt-stage" aria-live="polite"></div>
     <section class="tt-dock" id="tt-dock" data-open="true" aria-label="Inspect">
       <div class="tt-dock__bar">
-        <div class="segmented segmented--line" role="tablist" aria-label="Inspect" id="tt-tabs"><button role="tab" type="button" data-v="audit" aria-selected="true">Contrast audit</button><button role="tab" type="button" data-v="tokens" aria-selected="false">Colour tokens</button><button role="tab" type="button" data-v="export" aria-selected="false">Use this mode</button></div>
+        <div class="segmented segmented--line" role="tablist" aria-label="Inspect" id="tt-tabs"><button role="tab" type="button" data-v="audit" aria-selected="true">Contrast audit</button><button role="tab" type="button" data-v="tokens" aria-selected="false">Colour tokens</button><button role="tab" type="button" data-v="scales" aria-selected="false">Colour scales</button><button role="tab" type="button" data-v="export" aria-selected="false">Use this mode</button></div>
         <span class="t-caption" id="tt-mode-label" style="margin-left:auto"></span>
         <button class="icon-btn icon-btn--sm icon-btn--ghost" type="button" id="tt-dock-toggle" aria-label="Collapse inspector" aria-expanded="true"><svg class="icon"><use href="#i-chevron-down"/></svg></button>
       </div>
@@ -112,9 +121,9 @@
 <script>
 /* Icon sprite: reuse the docs sprite by loading site.js's symbols without its chrome. */
 </script>
-<script src="components.js?v=3f716e89c3"></script>
-<script src="assets/site.js?v=3f716e89c3"></script>
-<script src="dist/tokens/token-index.js?v=3f716e89c3"></script>
+<script src="components.js?v=62e8f7209a"></script>
+<script src="assets/site.js?v=62e8f7209a"></script>
+<script src="dist/tokens/token-index.js?v=62e8f7209a"></script>
 <script>
 (function () {
   var $ = function (s, el) { return (el || document).querySelector(s); };
@@ -213,6 +222,16 @@
         }).join('') + '</tr>';
       }).join('');
       body.innerHTML = '<p class="t-small t-secondary">Computed from the built tokens (<code>dist/tokens/token-index.json</code>). The build checks every approved pair in all four modes and refuses to ship a failure; this shows the key ones for the modes on screen.</p><div class="table-wrap"><table class="table tt-aa"><thead>' + head + '</thead><tbody>' + rows + '</tbody></table></div>';
+    } else if (state.tab === 'scales') {
+      var fams = {}, order = [];
+      index.tokens.forEach(function (t) { if (t.type !== 'color' || t.name.indexOf('scale.') !== 0) return; var p = t.name.split('.'); if (!fams[p[1]]) { fams[p[1]] = []; order.push(p[1]); } fams[p[1]].push(t); });
+      var title = function (f) { return f.charAt(0).toUpperCase() + f.slice(1).replace('-', ' '); };
+      body.innerHTML = '<p class="t-small t-secondary">The ten colour scales from the ANTZ Design Library: 50 to 950, base at 500. One value in every mode (primitives). Select a swatch to copy its CSS variable. Components use the semantic colour tokens; see <a href="pages/colour-scales.html">Colour scales</a>.</p><div class="tt-scales">' + order.map(function (f) {
+        return '<div class="tt-scale"><b>' + esc(title(f)) + '</b><div class="tt-scale__row">' + fams[f].map(function (t) {
+          var step = t.name.split('.')[2], hex = t.light;
+          return '<button type="button" data-copy="var(' + t.css + ')" aria-label="' + esc(title(f) + ' ' + step + ', ' + hex + ': copy ' + t.css) + '"><i style="background:' + hex + '"></i><small>' + step + '</small><small>' + hex + '</small></button>';
+        }).join('') + '</div></div>';
+      }).join('') + '</div>';
     } else if (state.tab === 'tokens') {
       var k = modeKey(m[0][0], m[0][1]);
       var list = index.tokens.filter(function (t) { return t.type === 'color' && t.tier === 'semantic' && t[k] && t[k].length >= 7; });

@@ -321,6 +321,10 @@ const figma = {
 };
 write('dist/figma/antz.tokens-studio.json', JSON.stringify(figma, null, 2) + '\n');
 
+// Colour scales (ANTZ Design Library): { primary: { 50: '#…', … }, … } for MUI and React Native
+const SCALES = {};
+for (const t of layer.primitive.values()) { if (t.path[0] !== 'scale' || t.type !== 'color') continue; ((SCALES[t.path[1]] ||= {}))[t.path[2]] = t.value; }
+
 // MUI theme options
 const R = (m, n) => resolved[m].get(n);
 const px = (v) => parseFloat(v);
@@ -339,7 +343,7 @@ function mui(m) {
       background: { default: R(m, 'color.bg.app'), paper: R(m, 'color.surface') },
       divider: R(m, 'color.border'),
       action: { hover: R(m, 'color.surface.hover'), selected: R(m, 'color.surface.selected'), disabledBackground: R(m, 'color.disabled-bg'), disabled: R(m, 'color.text.disabled') },
-      antz: { brand: R(m, 'color.brand.primary'), brandText: R(m, 'color.accent.text'), focus: R(m, 'color.focus'), tertiary: R(m, 'color.tertiary.solid'), caution: R(m, 'color.caution.solid'), board: R(m, 'color.bg.app') },
+      antz: { scale: SCALES, brand: R(m, 'color.brand.primary'), brandText: R(m, 'color.accent.text'), focus: R(m, 'color.focus'), tertiary: R(m, 'color.tertiary.solid'), caution: R(m, 'color.caution.solid'), board: R(m, 'color.bg.app') },
     },
     typography: {
       fontFamily: R(m, 'font.body'), fontSize: px(R(m, 'text.md')),
@@ -378,6 +382,7 @@ const muiSrc = `/**
  *   const theme = createTheme(prefersDark ? antzDark : antzLight);
  *
  * Breakpoints are deliberately not overridden: the dashboard keeps MUI's defaults.
+ * palette.antz.scale holds the colour scales (palette.antz.scale.primary[600]); use them for illustration and data, not for components.
  * palette.antz carries Antz-only roles (brand, brandText, focus, tertiary, caution, board).
  */
 export const antzVersion = ${JSON.stringify(VERSION)};
@@ -399,6 +404,7 @@ const scale = (prefix) => Object.fromEntries(index.filter((t) => t.name.startsWi
 const rn = {
   version: VERSION,
   colors: { light: rnColors('light'), dark: rnColors('dark'), lightHighContrast: rnColors('light-hc'), darkHighContrast: rnColors('dark-hc') },
+  scale: SCALES, // colour scales: antzTheme.scale.primary[600]
   space: scale('space'), radius: scale('radius'), fontSize: scale('text'),
   fontFamily: { body: 'Inter', heading: 'Inter', mono: 'Menlo' },
   fontWeight: { light: '300', regular: '400', medium: '500', semibold: '600', bold: '700' },
@@ -451,6 +457,23 @@ if (fs.existsSync(guardPage)) {
   }).join('\n');
   const page = fs.readFileSync(guardPage, 'utf8').replace(/<!-- contrast-pairs:start -->[\s\S]*?<!-- contrast-pairs:end -->/, `<!-- contrast-pairs:start -->\n${rows}\n<!-- contrast-pairs:end -->`);
   fs.writeFileSync(guardPage, page);
+}
+
+// Docs: the Colour scales grid is generated from the scale primitives, so it can't drift.
+const scalesPage = path.join(ROOT, 'docs-src/colour-scales.html');
+if (fs.existsSync(scalesPage)) {
+  const FAM = { primary: 'Primary', secondary: 'Secondary', tertiary: 'Tertiary', error: 'Error', neutral: 'Neutral', 'neutral-variant': 'Neutral variant', success: 'Success', warning: 'Warning', caution: 'Caution', info: 'Info' };
+  const ink = resolved.light.get('color.text');
+  const grid = Object.entries(SCALES).map(([fam, steps]) => {
+    const sw = Object.entries(steps).map(([st, hex]) => {
+      const w = ratio('#FFFFFF', hex), k = ratio(ink, hex), white = w >= k;
+      const label = (white ? w : k) >= 4.5 ? `${white ? 'White' : 'Ink'} ${(white ? w : k).toFixed(1)}` : `Large ${(white ? w : k).toFixed(1)}`;
+      return `<figure class="scale__sw${st === '500' ? ' is-base' : ''}" title="--scale-${fam}-${st}"><span style="background:var(--scale-${fam}-${st})"></span><figcaption><b>${st}${st === '500' ? ' · base' : ''}</b><code>${hex}</code><small>${label}</small></figcaption></figure>`;
+    }).join('');
+    return `<div class="scale"><div class="scale__head"><b>${FAM[fam] || fam}</b><code>--scale-${fam}-50 … 950</code></div><div class="scale__row">${sw}</div></div>`;
+  }).join('\n');
+  const src = fs.readFileSync(scalesPage, 'utf8').replace(/<!-- colour-scales:start -->[\s\S]*?<!-- colour-scales:end -->/, `<!-- colour-scales:start -->\n<div class="scales">\n${grid}\n</div>\n<!-- colour-scales:end -->`);
+  fs.writeFileSync(scalesPage, src);
 }
 
 console.log(`✓ Antz Design System ${VERSION} built. ${summary}. All pass.`);

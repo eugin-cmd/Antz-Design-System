@@ -33,6 +33,11 @@
           "title": "Colour guardrails"
         },
         {
+          "href": "colour-scales.html",
+          "title": "Colour scales",
+          "isNew": true
+        },
+        {
           "href": "themes.html",
           "title": "Themes and modes",
           "isNew": true
