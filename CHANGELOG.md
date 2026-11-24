@@ -5,6 +5,7 @@ All notable changes to the Antz Design System. Versions follow semantic versioni
 ## Unreleased
 
 ### Docs site
+- **Page banners on the washes:** each page's title and tabs sit on one of the four washes, kept per section (ANTZ-GRD-02): primary for Getting started and Resources; calm for Foundations, Stat cards and Governance; illustrative for Components and Screens; celebrate for Patterns and Content. One continuous gradient runs across the banner and the tabs (no seam); dark mode uses the dark washes.
 - **Sidebar on every page:** since the sidebar became a navigation drawer, `tools/docs.mjs` no longer refreshed it on the 51 hand-written pages (its class is now `site-nav navdrawer …`), so those pages lacked the newer links (Colour scales, ANTZ Rounded icons) and showed v1.2.0-beta.3. Fixed, and the tool now fails if any page's sidebar is not regenerated. The docs pages inside the frozen v1.2.0-beta.4 copy keep the old sidebar; its tokens, components and scripts are unaffected.
 
 ## 1.2.0-beta.4 (24 November 2026)

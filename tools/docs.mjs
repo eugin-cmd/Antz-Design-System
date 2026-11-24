@@ -20,6 +20,9 @@ const VERSION = fs.readFileSync(path.join(ROOT, 'VERSION'), 'utf8').trim();
 const ASSET_V = (await import('node:crypto')).createHash('sha256').update(['tokens.css', 'components.css', 'components.js', 'assets/site.css', 'assets/site.js', 'assets/screens.js']
   .map((f) => { try { return fs.readFileSync(path.join(ROOT, f)); } catch { return ''; } }).join('')).digest('hex').slice(0, 10);
 const NAV = JSON.parse(fs.readFileSync(path.join(ROOT, 'pages/_nav.json'), 'utf8'));
+// Page banner wash per section (ANTZ-GRD-02: chosen by topic and kept per topic; the four alternate across the site)
+const WASH = { 'Getting started': 'primary', Foundations: 'calm', Components: 'illustrative', 'Pattern components': 'celebrate', 'Stat cards': 'calm', Screens: 'illustrative', Content: 'celebrate', Governance: 'calm', Resources: 'primary' };
+const washOf = (href) => { const g = NAV.groups.find((x) => x.links.some((l) => l.href === href)); return (g && WASH[g.title]) || 'primary'; };
 const SITE = 'Antz Design System';
 const label = VERSION.replace(/-beta\.(\d+)/, ' beta $1').replace(/-rc\.(\d+)/, ' RC $1');
 
@@ -125,6 +128,7 @@ for (const rel of targets) {
   if (!s.includes('components.js')) s = s.replace(/<script src="([.\/]*)assets\/site\.js/, '<script src="$1components.js?v=1"></script>\n<script src="$1assets/site.js');
   s = s.replace(/(tokens|components|site)\.(css|js)\?v=[0-9a-z]+/g, `$1.$2?v=${ASSET_V}`);
   s = s.replace(/<header class="site-top">[\s\S]*?<\/header>/, header(pre));
+  s = s.replace(/<main class="site-main"( data-wash="[a-z]+")?/, `<main class="site-main" data-wash="${washOf(cur)}"`);
   s = s.replace(/<nav class="site-nav[^"]*"[\s\S]*?<\/nav>/, nav(pre, cur)); // any class list starting with site-nav (it is also a navdrawer)
   if (!s.includes('navdrawer--site')) throw new Error(`docs: the sidebar was not regenerated in ${rel} (no <nav class="site-nav …">)`);
   if (inPages) s = s.replace(/<nav class="pager"[\s\S]*?<\/nav>/, pager(cur));

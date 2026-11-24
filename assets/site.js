@@ -671,3 +671,12 @@
   if (reduce.addEventListener) reduce.addEventListener('change', function () { if (reduce.matches) stop(); else start(); });
   start();
 })();
+
+/* Page wash: one gradient across the banner and the tabs (site.css reads --wash-h, so the tabs show its bottom slice) */
+(function () {
+  var main = document.querySelector('.site-main[data-wash]'), banner = main && main.querySelector('.page-banner'), tabs = main && main.querySelector('.page-tabs');
+  if (!banner) return;
+  function size() { main.style.setProperty('--wash-h', (banner.offsetHeight + (tabs ? tabs.offsetHeight : 0)) + 'px'); }
+  size(); window.addEventListener('resize', size);
+  if (window.ResizeObserver) new ResizeObserver(size).observe(banner);
+})();
