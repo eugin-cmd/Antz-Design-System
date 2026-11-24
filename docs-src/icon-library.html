@@ -35,7 +35,7 @@
       <label class="check"><input type="checkbox" data-ar-group> Group by module</label>
       <span class="ar-field"><span>Per row</span><span class="segmented segmented--pill" role="group" aria-label="Per row" data-ar-seg="perrow"><button type="button" data-v="3" aria-pressed="false">3</button><button type="button" data-v="4" aria-pressed="true">4</button><button type="button" data-v="5" aria-pressed="false">5</button><button type="button" data-v="6" aria-pressed="false">6</button></span></span>
     </div>
-    <p class="t-small t-secondary ar-line-note" data-ar-lineonly><b>Line (proposal):</b> outline icons in the text colour with one accent detail in a green-to-teal gradient (<code>--scale-primary-600</code> to <code>--scale-secondary-600</code>, 3:1 or more on light and dark). The outline draws on, the accent settles with the elastic ease. Original drawings: all 30 module icons, plus 16 interface icons with micro-animations (search, refresh, download, upload, success, delete, favourite, calendar, send, lock, visibility, location, alert, star, camera, add).</p>
+    <p class="t-small t-secondary ar-line-note" data-ar-lineonly><b>Line (proposal):</b> outline icons in the text colour with one accent detail in a green-to-teal gradient (<code>--scale-primary-600</code> to <code>--scale-secondary-600</code>, 3:1 or more on light and dark). The outline draws on, the accent settles with the elastic ease. Original drawings: all 30 module icons, 12 animal care icons and 28 interface icons with micro-animations. Where elements overlap, the front one cuts a small gap into what is behind it, so it reads as solid on any background.</p>
     <h4 class="ar-sub" data-ar-tileonly hidden>Tile colour</h4>
     <div class="ar-colours" role="radiogroup" aria-label="Tile colour" data-ar-colours data-ar-tileonly hidden></div>
     <p class="t-caption ar-contrast" data-ar-contrast data-ar-tileonly hidden></p>
@@ -168,7 +168,7 @@
     box.style.setProperty('--ar-perrow', st.layout === 'wall' ? st.perrow + 2 : st.perrow);
     var card = function (p) { return '<figure class="ar-prim" data-p="' + esc(p.name) + '"><span class="ar-prim__art"></span>' + (st.layout === 'wall' ? '' : '<figcaption><b>' + esc(p.label) + '</b><code>' + esc(p.name) + '</code><span><span class="status status--plain status--tertiary">' + esc(STATUS[p.status] || p.status) + '</span> <span class="t-caption">' + ((p.loopMs || 3600) / 1000).toFixed(1) + ' s loop</span></span></figcaption>') + '</figure>'; };
     if (st.family === 'line' && !st.group) {
-      var sets = [['primary', 'Module icons'], ['ui', 'Interface icons, micro-animations']];
+      var sets = [['primary', 'Module icons'], ['care', 'Animal care and operations'], ['ui', 'Interface icons, micro-animations']];
       box.innerHTML = sets.map(function (x) { var l = list.filter(function (p) { return (p.set || 'primary') === x[0]; }); return l.length ? '<h4 class="ar-group">' + x[1] + ' <span class="t-caption">' + l.length + '</span></h4><div class="ar-prim-grid">' + l.map(card).join('') + '</div>' : ''; }).join('');
     } else if (st.group) { var g = {}, o = []; list.forEach(function (p) { if (!g[p.module]) { g[p.module] = []; o.push(p.module); } g[p.module].push(p); }); box.innerHTML = o.map(function (m) { return '<h4 class="ar-group">' + esc(m) + '</h4><div class="ar-prim-grid">' + g[m].map(card).join('') + '</div>'; }).join(''); }
     else box.innerHTML = '<div class="ar-prim-grid">' + list.map(card).join('') + '</div>';

@@ -41,6 +41,17 @@ function star(cx, cy, R, r) {
   return 'M' + pts.map(([x, y]) => `${r1(x)} ${r1(y)}`).join('L') + 'Z';
 }
 
+// Short rays around a centre, from radius ra to rb, n of them, skipping angles in `skip` (degrees)
+function rays(cx, cy, ra, rb, n, skip = []) {
+  let d = '';
+  for (let i = 0; i < n; i++) {
+    const deg = (i * 360) / n; if (skip.includes(deg)) continue;
+    const a = (deg * Math.PI) / 180;
+    d += `M${r1(cx + ra * Math.cos(a))} ${r1(cy + ra * Math.sin(a))}L${r1(cx + rb * Math.cos(a))} ${r1(cy + rb * Math.sin(a))}`;
+  }
+  return d;
+}
+
 /* Each icon: ink and accent shapes. A shape is [tag, attrs, motion?].
    Motions: 'draw' (default), 'pop' (scale in), 'pulse' (draw, then a beat), 'rise' (drifts up and fades),
    'move' (comes in from `from`, a CSS transform, and settles elastically; `origin` sets the pivot).
@@ -370,6 +381,157 @@ const ICONS = {
     ], accent: [
       ['path', { d: 'M24 16v16M16 24h16' }, { motion: 'move', from: 'rotate(-90deg) scale(0)', origin: '24px 24px' }],
     ] },
+  // ── More interface icons ──
+  filter: { set: 'ui', label: 'Filter', module: 'Interface', ink: [
+      ['path', { d: 'M8 9h32L28 23v13l-8 4V23Z' }],
+    ], accent: [
+      ['path', { d: 'M17 15h14' }],
+    ] },
+  sort: { set: 'ui', label: 'Sort', module: 'Interface', ink: [
+      ['path', { d: 'M16 8v32M10 34l6 6 6-6' }],
+    ], accent: [
+      ['path', { d: 'M32 40V8M26 14l6-6 6 6' }, { motion: 'move', from: 'translateY(7px)' }],
+    ] },
+  edit: { set: 'ui', label: 'Edit', module: 'Interface', ink: [
+      ['path', { d: 'M8 41h20' }],
+    ], accent: [
+      ['path', { d: 'M30 9l7 7-19 19h-7v-7Z' }, { motion: 'move', from: 'translate(-5px,5px) rotate(-8deg)' }],
+      ['path', { d: 'M26 13l7 7' }, { motion: 'move', from: 'translate(-5px,5px)', at: 0.05 }],
+    ] },
+  share: { set: 'ui', label: 'Share', module: 'Interface', ink: [
+      ['circle', { cx: 34, cy: 11, r: 5 }, { motion: 'pop' }],
+      ['circle', { cx: 14, cy: 24, r: 5 }, { motion: 'pop', at: 0.3 }],
+      ['circle', { cx: 34, cy: 37, r: 5 }, { motion: 'pop', at: 0.6 }],
+    ], accent: [
+      ['path', { d: 'M19.9 20.2 28.1 14.8' }],
+      ['path', { d: 'M19.9 27.8 28.1 33.2' }, { at: 0.4 }],
+    ] },
+  copy: { set: 'ui', label: 'Copy', module: 'Interface', ink: [
+      ['path', { d: 'M13 30h-1a3 3 0 0 1-3-3V11a3 3 0 0 1 3-3h16a3 3 0 0 1 3 3v2' }],
+    ], accent: [
+      ['rect', { x: 18, y: 18, width: 22, height: 22, rx: 3 }, { motion: 'move', from: 'translate(-6px,-6px)' }],
+    ] },
+  print: { set: 'ui', label: 'Print', module: 'Interface', ink: [
+      ['path', { d: 'M12 33H9a3 3 0 0 1-3-3V19a3 3 0 0 1 3-3h30a3 3 0 0 1 3 3v11a3 3 0 0 1-3 3h-3' }],
+      ['path', { d: 'M14 16V7h20v9' }, { at: 0.4 }],
+      ['circle', { cx: 37, cy: 22, r: 1 }, { motion: 'pop', at: 0.7 }],
+    ], accent: [
+      ['path', { d: 'M14 27h20v14H14Z' }, { motion: 'move', from: 'translateY(-7px)' }],
+      ['path', { d: 'M18 32h12M18 36h8' }, { motion: 'move', from: 'translateY(-7px)', at: 0.05 }],
+    ] },
+  logout: { set: 'ui', label: 'Log out', module: 'Interface', ink: [
+      ['path', { d: 'M20 8h-9a3 3 0 0 0-3 3v26a3 3 0 0 0 3 3h9' }],
+    ], accent: [
+      ['path', { d: 'M18 24h22M33 17l7 7-7 7' }, { motion: 'move', from: 'translateX(-7px)' }],
+    ] },
+  link: { set: 'ui', label: 'Link', module: 'Interface', ink: [
+      ['path', { d: 'M22 15l3-3a7 7 0 0 1 10 10l-3 3' }],
+      ['path', { d: 'M26 33l-3 3a7 7 0 0 1-10-10l3-3' }, { at: 0.4 }],
+    ], accent: [
+      ['path', { d: 'M20 28l8-8' }, { motion: 'pulse' }],
+    ] },
+  attach: { set: 'ui', label: 'Attach', module: 'Interface', ink: [], accent: [
+      ['path', { d: 'M32 15 18.5 28.5a3.5 3.5 0 0 0 5 5l14-14a7 7 0 0 0-10-10l-14 14a10.5 10.5 0 0 0 15 15L40 27' }],
+    ] },
+  mic: { set: 'ui', label: 'Microphone', module: 'Interface', ink: [
+      ['rect', { x: 18, y: 6, width: 12, height: 22, rx: 6 }],
+      ['path', { d: 'M11 22a13 13 0 0 0 26 0M24 35v6M18 41h12' }, { at: 0.4 }],
+    ], accent: [
+      ['path', { d: 'M22 14h4M22 19h4' }, { motion: 'pulse' }],
+    ] },
+  folder: { set: 'ui', label: 'Folder', module: 'Interface', ink: [
+      ['path', { d: 'M6 14a3 3 0 0 1 3-3h9l4 4h17a3 3 0 0 1 3 3v19a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3Z' }],
+    ], accent: [
+      ['path', { d: 'M13 24h22' }],
+      ['path', { d: 'M13 31h13' }, { at: 0.4 }],
+    ] },
+  bookmark: { set: 'ui', label: 'Bookmark', module: 'Interface', ink: [
+      ['path', { d: 'M13 7h22a2 2 0 0 1 2 2v32l-13-9-13 9V9a2 2 0 0 1 2-2Z' }],
+    ], accent: [
+      ['path', { d: star(24, 19.5, 6, 2.6) }, { motion: 'pop' }],
+    ] },
+
+  // ── Animal care and operations ──
+  vaccine: { set: 'care', label: 'Vaccine', module: 'Animal care', ink: [
+      ['rect', { x: 18, y: 13, width: 12, height: 22, rx: 2 }],
+      ['path', { d: 'M24 35v7' }, { at: 0.5 }],
+      ['path', { d: 'M18 19h3M18 24h3M18 29h3' }, { at: 0.7 }],
+    ], accent: [
+      ['path', { d: 'M19 6h10M24 6v7' }, { motion: 'move', from: 'translateY(-5px)' }],
+      ['path', { d: 'M25 24v8' }, { motion: 'move', from: 'scaleY(0)', origin: '25px 32px', at: 0.3 }],
+    ] },
+  pill: { set: 'care', label: 'Pill', module: 'Animal care', wiggle: true, ink: [
+      ['path', { d: 'M20.5 36 36 20.5A6 6 0 0 0 27.5 12L12 27.5A6 6 0 0 0 20.5 36Z' }], // capsule at 45°, drawn as a path (no transform attribute)
+    ], accent: [
+      ['path', { d: 'M19.8 19.8 28.2 28.2' }],
+      ['path', { d: 'M38 34v5M35.5 36.5h5' }, { motion: 'pop', at: 0.5 }],
+    ] },
+  vitals: { set: 'care', label: 'Vital signs', module: 'Animal care', ink: [
+      ['path', { d: 'M24 40S7 30.5 7 18.5A9.5 9.5 0 0 1 24 13a9.5 9.5 0 0 1 17 5.5C41 30.5 24 40 24 40Z' }],
+    ], accent: [
+      ['path', { d: 'M4 25h9l3-6 5 12 4-10 3 4h16' }, { front: true }],
+    ] },
+  thermometer: { set: 'care', label: 'Temperature', module: 'Animal care', ink: [
+      ['path', { d: 'M20 28V10a4 4 0 0 1 8 0v18a8 8 0 1 1-8 0Z' }],
+      ['path', { d: 'M32 12h3M32 17h3M32 22h3' }, { at: 0.6 }],
+    ], accent: [
+      ['circle', { cx: 24, cy: 34, r: 3 }, { motion: 'pop' }],
+      ['path', { d: 'M24 31V16' }, { motion: 'move', from: 'scaleY(0)', origin: '24px 31px', at: 0.3 }],
+    ] },
+  weight: { set: 'care', label: 'Weight', module: 'Animal care', ink: [
+      ['rect', { x: 7, y: 10, width: 34, height: 30, rx: 5 }],
+      ['path', { d: 'M15 26a9 9 0 0 1 18 0' }, { at: 0.5 }],
+    ], accent: [
+      ['path', { d: 'M24 26l4-6' }, { motion: 'move', from: 'rotate(-80deg)', origin: '24px 26px' }],
+      ['circle', { cx: 24, cy: 26, r: 1.2 }, { motion: 'pop', at: 0.2 }],
+    ] },
+  water: { set: 'care', label: 'Water', module: 'Animal care', bounce: true, ink: [
+      ['path', { d: 'M24 6s12 13.5 12 22a12 12 0 0 1-24 0c0-8.5 12-22 12-22Z' }],
+    ], accent: [
+      ['path', { d: 'M18 29a6 6 0 0 0 5 5.5' }],
+    ] },
+  weather: { set: 'care', label: 'Weather', module: 'Animal care', ink: [
+      ['path', { d: 'M15 40h20a7 7 0 0 0 .6-14A9.5 9.5 0 0 0 17 28.6 5.8 5.8 0 0 0 15 40Z' }, { front: true }],
+    ], accent: [
+      ['circle', { cx: 17, cy: 16, r: 5.5 }, { motion: 'pop' }],
+      ['path', { d: rays(17, 16, 9, 12, 8) }, { motion: 'pop', at: 0.4 }],
+    ] },
+  feather: { set: 'care', label: 'Birds', module: 'Animal care', wiggle: true, ink: [
+      ['path', { d: 'M39 9c-15.5 0-26 10.5-26 26 15.5 0 26-10.5 26-26Z' }],
+    ], accent: [
+      ['path', { d: 'M8 40 30 18' }],
+      ['path', { d: 'M22 26h4.5M26 22h4.5' }, { at: 0.4 }],
+    ] },
+  fish: { set: 'care', label: 'Fish', module: 'Animal care', wiggle: true, ink: [
+      ['path', { d: 'M15 24c4-7 10-10 16.5-10 5.5 0 9 4.5 10.5 10-1.5 5.5-5 10-10.5 10C25 34 19 31 15 24Z' }],
+      ['path', { d: 'M15 24 7 17v14Z' }, { at: 0.4 }],
+    ], accent: [
+      ['path', { d: 'M27 18a9 9 0 0 1 0 12' }],
+      ['circle', { cx: 35, cy: 21.5, r: 1.3 }, { motion: 'pop', at: 0.4 }],
+    ] },
+  transport: { set: 'care', label: 'Transport', module: 'Animal care', bounce: true, ink: [
+      ['path', { d: 'M27 34H7a2 2 0 0 1-2-2V12a2 2 0 0 1 2-2h18a2 2 0 0 1 2 2v22h14v-9l-6-7h-8' }],
+    ], accent: [
+      ['circle', { cx: 13, cy: 35, r: 4 }, { motion: 'pop', front: true }],
+      ['circle', { cx: 34, cy: 35, r: 4 }, { motion: 'pop', at: 0.3, front: true }],
+    ] },
+  scan: { set: 'care', label: 'Scan tag', module: 'Animal care', ink: [
+      ['path', { d: 'M7 15v-4a4 4 0 0 1 4-4h4M33 7h4a4 4 0 0 1 4 4v4M41 33v4a4 4 0 0 1-4 4h-4M15 41h-4a4 4 0 0 1-4-4v-4' }],
+      ['rect', { x: 14, y: 14, width: 8, height: 8, rx: 1.5 }, { at: 0.3 }],
+      ['rect', { x: 26, y: 14, width: 8, height: 8, rx: 1.5 }, { at: 0.45 }],
+      ['rect', { x: 14, y: 26, width: 8, height: 8, rx: 1.5 }, { at: 0.6 }],
+      ['path', { d: 'M27 27h1M33 27h1M27 33h1M33 33h1' }, { at: 0.75 }],
+    ], accent: [
+      ['path', { d: 'M10 24h28' }, { motion: 'move', from: 'translateY(-12px)', front: true }],
+    ] },
+  map: { set: 'care', label: 'Map', module: 'Animal care', ink: [
+      ['path', { d: 'M6 11l11-4 14 4 11-4v30l-11 4-14-4-11 4Z' }],
+      ['path', { d: 'M17 7v30M31 11v30' }, { at: 0.4 }],
+    ], accent: [
+      ['path', { d: 'M24 31s-6.5-5.5-6.5-10.5a6.5 6.5 0 0 1 13 0C30.5 25.5 24 31 24 31Z' }, { motion: 'move', from: 'translateY(-6px)', front: true }],
+      ['circle', { cx: 24, cy: 20.5, r: 2 }, { motion: 'pop', at: 0.4, front: true }],
+    ] },
+
 };
 
 const pct = (x) => `${Math.round(x * 1000) / 10}%`;
@@ -444,5 +606,5 @@ for (const [name, ic] of Object.entries(ICONS)) {
   index.icons.push({ name, label: ic.label, module: ic.module, set: ic.set || 'primary', order: ++order, status: 'proposal', svg: `${name}.svg` });
 }
 fs.writeFileSync(path.join(OUT, 'index.json'), JSON.stringify(index, null, 2) + '\n');
-const nP = index.icons.filter((i) => i.set === 'primary').length;
-console.log(`✓ ANTZ Line animated: ${nP} Primary and ${index.icons.length - nP} interface icons in icons/antz-rounded/primary-line/`);
+const count = (k) => index.icons.filter((i) => i.set === k).length;
+console.log(`✓ ANTZ Line animated: ${count('primary')} module, ${count('care')} animal care and ${count('ui')} interface icons in icons/antz-rounded/primary-line/`);

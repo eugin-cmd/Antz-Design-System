@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-filter" role="img" aria-label="Filter">
+<defs><linearGradient id="antz-l-filter-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-filter .i,.antz-l-filter .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-filter .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-filter .a{stroke:url(#antz-l-filter-acc)}
+.antz-l-filter .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-filter .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-filter .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+.antz-l-filter-0{stroke-dasharray:1;animation:antz-l-filter-0 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
+.antz-l-filter-1{stroke-dasharray:1;animation:antz-l-filter-1 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
+@keyframes antz-l-filter-0{0%,0%{stroke-dashoffset:1}21%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes antz-l-filter-1{0%,30%{stroke-dashoffset:1}44%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
+@media (prefers-reduced-motion:reduce){.antz-l-filter *{animation:none!important;stroke-dashoffset:0!important;opacity:1!important;transform:none!important}}
+</style>
+<path class="i antz-l-filter-0" d="M8 9h32L28 23v13l-8 4V23Z" pathLength="1"/>
+<path class="a antz-l-filter-1" d="M17 15h14" pathLength="1"/>
+</svg>

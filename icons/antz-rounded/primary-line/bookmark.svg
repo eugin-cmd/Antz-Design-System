@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-bookmark" role="img" aria-label="Bookmark">
+<defs><linearGradient id="antz-l-bookmark-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-bookmark .i,.antz-l-bookmark .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-bookmark .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-bookmark .a{stroke:url(#antz-l-bookmark-acc)}
+.antz-l-bookmark .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-bookmark .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-bookmark .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+.antz-l-bookmark-0{stroke-dasharray:1;animation:antz-l-bookmark-0 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
+.antz-l-bookmark-1{animation:antz-l-bookmark-1 3600ms cubic-bezier(0.34, 1.56, 0.64, 1) infinite}
+@keyframes antz-l-bookmark-0{0%,0%{stroke-dashoffset:1}21%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes antz-l-bookmark-1{0%,30%{transform:scale(0);opacity:0}31%{opacity:1}42%,90%{transform:scale(1);opacity:1}97%,100%{transform:scale(1);opacity:0}}
+@media (prefers-reduced-motion:reduce){.antz-l-bookmark *{animation:none!important;stroke-dashoffset:0!important;opacity:1!important;transform:none!important}}
+</style>
+<path class="i antz-l-bookmark-0" d="M13 7h22a2 2 0 0 1 2 2v32l-13-9-13 9V9a2 2 0 0 1 2-2Z" pathLength="1"/>
+<path class="a antz-l-bookmark-1" d="M24 13.5L25.5 17.4L29.7 17.6L26.5 20.3L27.5 24.4L24 22.1L20.5 24.4L21.5 20.3L18.3 17.6L22.5 17.4Z"/>
+</svg>

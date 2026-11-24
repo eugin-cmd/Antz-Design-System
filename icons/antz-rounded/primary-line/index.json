@@ -417,6 +417,222 @@
       "order": 46,
       "status": "proposal",
       "svg": "add.svg"
+    },
+    {
+      "name": "filter",
+      "label": "Filter",
+      "module": "Interface",
+      "set": "ui",
+      "order": 47,
+      "status": "proposal",
+      "svg": "filter.svg"
+    },
+    {
+      "name": "sort",
+      "label": "Sort",
+      "module": "Interface",
+      "set": "ui",
+      "order": 48,
+      "status": "proposal",
+      "svg": "sort.svg"
+    },
+    {
+      "name": "edit",
+      "label": "Edit",
+      "module": "Interface",
+      "set": "ui",
+      "order": 49,
+      "status": "proposal",
+      "svg": "edit.svg"
+    },
+    {
+      "name": "share",
+      "label": "Share",
+      "module": "Interface",
+      "set": "ui",
+      "order": 50,
+      "status": "proposal",
+      "svg": "share.svg"
+    },
+    {
+      "name": "copy",
+      "label": "Copy",
+      "module": "Interface",
+      "set": "ui",
+      "order": 51,
+      "status": "proposal",
+      "svg": "copy.svg"
+    },
+    {
+      "name": "print",
+      "label": "Print",
+      "module": "Interface",
+      "set": "ui",
+      "order": 52,
+      "status": "proposal",
+      "svg": "print.svg"
+    },
+    {
+      "name": "logout",
+      "label": "Log out",
+      "module": "Interface",
+      "set": "ui",
+      "order": 53,
+      "status": "proposal",
+      "svg": "logout.svg"
+    },
+    {
+      "name": "link",
+      "label": "Link",
+      "module": "Interface",
+      "set": "ui",
+      "order": 54,
+      "status": "proposal",
+      "svg": "link.svg"
+    },
+    {
+      "name": "attach",
+      "label": "Attach",
+      "module": "Interface",
+      "set": "ui",
+      "order": 55,
+      "status": "proposal",
+      "svg": "attach.svg"
+    },
+    {
+      "name": "mic",
+      "label": "Microphone",
+      "module": "Interface",
+      "set": "ui",
+      "order": 56,
+      "status": "proposal",
+      "svg": "mic.svg"
+    },
+    {
+      "name": "folder",
+      "label": "Folder",
+      "module": "Interface",
+      "set": "ui",
+      "order": 57,
+      "status": "proposal",
+      "svg": "folder.svg"
+    },
+    {
+      "name": "bookmark",
+      "label": "Bookmark",
+      "module": "Interface",
+      "set": "ui",
+      "order": 58,
+      "status": "proposal",
+      "svg": "bookmark.svg"
+    },
+    {
+      "name": "vaccine",
+      "label": "Vaccine",
+      "module": "Animal care",
+      "set": "care",
+      "order": 59,
+      "status": "proposal",
+      "svg": "vaccine.svg"
+    },
+    {
+      "name": "pill",
+      "label": "Pill",
+      "module": "Animal care",
+      "set": "care",
+      "order": 60,
+      "status": "proposal",
+      "svg": "pill.svg"
+    },
+    {
+      "name": "vitals",
+      "label": "Vital signs",
+      "module": "Animal care",
+      "set": "care",
+      "order": 61,
+      "status": "proposal",
+      "svg": "vitals.svg"
+    },
+    {
+      "name": "thermometer",
+      "label": "Temperature",
+      "module": "Animal care",
+      "set": "care",
+      "order": 62,
+      "status": "proposal",
+      "svg": "thermometer.svg"
+    },
+    {
+      "name": "weight",
+      "label": "Weight",
+      "module": "Animal care",
+      "set": "care",
+      "order": 63,
+      "status": "proposal",
+      "svg": "weight.svg"
+    },
+    {
+      "name": "water",
+      "label": "Water",
+      "module": "Animal care",
+      "set": "care",
+      "order": 64,
+      "status": "proposal",
+      "svg": "water.svg"
+    },
+    {
+      "name": "weather",
+      "label": "Weather",
+      "module": "Animal care",
+      "set": "care",
+      "order": 65,
+      "status": "proposal",
+      "svg": "weather.svg"
+    },
+    {
+      "name": "feather",
+      "label": "Birds",
+      "module": "Animal care",
+      "set": "care",
+      "order": 66,
+      "status": "proposal",
+      "svg": "feather.svg"
+    },
+    {
+      "name": "fish",
+      "label": "Fish",
+      "module": "Animal care",
+      "set": "care",
+      "order": 67,
+      "status": "proposal",
+      "svg": "fish.svg"
+    },
+    {
+      "name": "transport",
+      "label": "Transport",
+      "module": "Animal care",
+      "set": "care",
+      "order": 68,
+      "status": "proposal",
+      "svg": "transport.svg"
+    },
+    {
+      "name": "scan",
+      "label": "Scan tag",
+      "module": "Animal care",
+      "set": "care",
+      "order": 69,
+      "status": "proposal",
+      "svg": "scan.svg"
+    },
+    {
+      "name": "map",
+      "label": "Map",
+      "module": "Animal care",
+      "set": "care",
+      "order": 70,
+      "status": "proposal",
+      "svg": "map.svg"
     }
   ]
 }
