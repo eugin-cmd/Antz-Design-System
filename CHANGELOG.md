@@ -2,7 +2,9 @@
 
 All notable changes to the Antz Design System. Versions follow semantic versioning: patch for fixes, minor for additions, major for anything renamed, removed or changed in meaning. Every version listed here is published under `releases/` and tagged in Git.
 
-## Unreleased
+## 1.2.0-beta.4 (24 November 2026)
+
+Adds the icon system: the ANTZ Rounded set (207 line and filled icons, 30 Primary tiles) with 44 component icons redrawn, 118 animated line icons that play once, and DD-004 on which icons to use where (`--icon-stroke` is now 2). Also adds the colour scales (110 tokens), the floating navigation drawer with its sliding tab, and the redesigned docs sidebar. Upgrade by changing `v1.2.0-beta.3` to `v1.2.0-beta.4`; nothing removed or renamed. Icons render slightly bolder (2px).
 
 ### Icons: ANTZ Rounded
 - **ANTZ Rounded icon set** imported from the ANTZ Icon Library and Builder (github.com/roshni-draws/icon-library-ads, commit 263fcaf) into `icons/antz-rounded/`: 207 icons in line and filled, 30 animated Primary icons (SVG plus Lottie per colour scheme), the index and style specs. All are **drafts**. The retired #36BC69 in the Primary icons is corrected to #37BD69. The builder app stays in its own repository (`SOURCE.md` has the update steps).

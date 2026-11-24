@@ -43,8 +43,8 @@ You keep working in one web codebase for web, tablet and mobile prototypes.
 
 1. **Link a pinned release**, never the working copy:
    ```html
-   <link rel="stylesheet" href="antz-design-system/releases/v1.2.0-beta.3/tokens.css">
-   <link rel="stylesheet" href="antz-design-system/releases/v1.2.0-beta.3/components.css">
+   <link rel="stylesheet" href="antz-design-system/releases/v1.2.0-beta.4/tokens.css">
+   <link rel="stylesheet" href="antz-design-system/releases/v1.2.0-beta.4/components.css">
    ```
 2. **Use classes first:** `.btn--primary`, `.card`, `.status--caution`, `.wash--primary`, `.drawer`, `.tile-module`. Every component page in the docs shows the markup.
 3. **Write your own CSS with tokens only:** `var(--color-…)`, `var(--space-…)`, `var(--text-…)`, `var(--radius-…)`, `var(--shadow-…)`, `var(--duration-…)`, `var(--ease-…)`, `var(--gradient-…)`.
@@ -103,7 +103,7 @@ Run the guardrails in product repos: start with `--report`, then make the check 
 
 - **One product:** point its link back to the earlier `releases/vX.Y.Z/`. Nothing else changes.
 - **Browse an old version:** open `releases/vX.Y.Z/index.html`, or pick it on the Versions page.
-- **Compare versions:** `git diff v1.2.0-beta.2 v1.2.0-beta.3 -- tokens/src components.css`.
+- **Compare versions:** `git diff v1.2.0-beta.4 v1.2.0-beta.4 -- tokens/src components.css`.
 - **Restore all source:** `git checkout v1.0.0-beta.1`.
 
 ## 7. Exceptions

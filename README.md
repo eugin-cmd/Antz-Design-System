@@ -13,7 +13,7 @@ The governed design system for every Antz product: web dashboard, tablet and pho
 
 ## For teams starting now
 
-1. Clone the repository: `git clone https://github.com/eugin-cmd/Antz-Design-System.git`. The current release is **v1.2.0-beta.3**, on `main`.
+1. Clone the repository: `git clone https://github.com/eugin-cmd/Antz-Design-System.git`. The current release is **v1.2.0-beta.4**, on `main`.
 2. Link the pinned release, never the working copy (see the snippets below). Upgrading later means changing the version in the path; rolling back means changing it back.
 3. If you will change the system itself, turn on the pre-commit hook once: `git config core.hooksPath tools/hooks`.
 4. Check your own prototype or product folder with `node tools/check.mjs path/to/folder --report` and fix what it lists.
@@ -32,9 +32,9 @@ In a prototype (designers):
 
 ```html
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="antz-design-system/releases/v1.2.0-beta.3/tokens.css">
-<link rel="stylesheet" href="antz-design-system/releases/v1.2.0-beta.3/components.css">
-<script src="antz-design-system/releases/v1.2.0-beta.3/components.js" defer></script>  <!-- optional: motion for tabs and the animal card -->
+<link rel="stylesheet" href="antz-design-system/releases/v1.2.0-beta.4/tokens.css">
+<link rel="stylesheet" href="antz-design-system/releases/v1.2.0-beta.4/components.css">
+<script src="antz-design-system/releases/v1.2.0-beta.4/components.js" defer></script>  <!-- optional: motion for tabs and the animal card -->
 ```
 
 In the dashboard (MUI): `createTheme(antzThemeOptions({ mode, contrast }))` from `dist/mui/antz-mui-theme.js`.
@@ -70,7 +70,7 @@ The pre-commit hook (`tools/hooks/pre-commit`, enabled with `git config core.hoo
 | `tools/` | Build, check, test, docs, release | Yes |
 | `themes/` | Brand themes imported from the Previewer (Foundation feature) | Via the importer |
 
-## Status and known limits (1.2.0-beta.3)
+## Status and known limits (1.2.0-beta.4)
 
 - Designer CSS, tokens, themes, guardrails, docs, tester and release tooling are complete for this beta.
 - React and React Native **component packages** are not built yet. Developers get themes and tokens; component contracts come next (see the proposal roadmap).
