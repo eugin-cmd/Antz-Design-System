@@ -491,8 +491,8 @@ body { background: var(--color-bg-canvas); overflow-x: hidden; }
    site.js loads each photo just before its turn. */
 .hero { position: relative; isolation: isolate; overflow: hidden; }
 .hero__patterns { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
-.hero__patterns::after { content: ""; position: absolute; inset: 0; z-index: 1; background: var(--gradient-deep); opacity: .5; }
-/* Text side: a soft dark fade behind the headline keeps it AA on the brightest photos (zebra, giraffe); the right stays photo + 50% green */
+.hero__patterns::after { content: ""; position: absolute; inset: 0; z-index: 1; background: var(--neutral-0); opacity: .55; } /* black, 55% */
+/* Text side: a soft dark fade behind the headline keeps it AA on the brightest photos (zebra, giraffe); the right stays photo under the 55% black overlay */
 .hero__patterns::before { content: ""; position: absolute; inset: 0; z-index: 2; background: var(--gradient-scrim-side); }
 .hero__slide { position: absolute; inset: 0; opacity: 0; background: center / cover no-repeat; transition: opacity calc(var(--duration-slower) * 5) var(--ease-standard); }
 .hero__slide.is-on { opacity: 1; }
@@ -609,3 +609,14 @@ body { background: var(--color-bg-canvas); overflow-x: hidden; }
 .site-main[data-wash] .page-banner, .site-main[data-wash] .page-tabs { background-color: var(--color-surface); background-image: var(--page-wash); background-repeat: no-repeat; background-size: 100% var(--wash-h, 100%); }
 .site-main[data-wash] .page-banner { background-position: 0 0; }
 .site-main[data-wash] .page-tabs { background-position: 0 100%; }
+
+/* Home hero: a holographic iridescent sheen in the bottom-right corner, feathering off towards the left.
+   It drifts slowly (about 18s each way); the hero's pause button stops it, and it is still under reduced motion. */
+.hero__iris { position: absolute; inset: 0; z-index: -1; pointer-events: none; background-image: var(--gradient-iridescent); background-size: 300% 300%; mix-blend-mode: screen; opacity: .7;
+  -webkit-mask-image: var(--gradient-feather-corner); mask-image: var(--gradient-feather-corner);
+  animation: hero-iris calc(var(--duration-slower) * 36) var(--ease-in-out) infinite alternate; }
+@keyframes hero-iris { from { background-position: 0% 30%; filter: hue-rotate(0deg); } to { background-position: 100% 70%; filter: hue-rotate(35deg); } }
+.hero.is-paused .hero__iris { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) { .hero__iris { animation: none; } }
+:root[data-contrast="high"] .hero__iris { display: none; }
+@media (prefers-contrast: more) { :root:not([data-contrast="standard"]) .hero__iris { display: none; } }

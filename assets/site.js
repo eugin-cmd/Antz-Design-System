@@ -665,6 +665,7 @@
     paused = !paused; btn.setAttribute('aria-pressed', String(paused));
     btn.setAttribute('aria-label', paused ? 'Play the background animation' : 'Pause the background animation');
     btn.querySelector('use').setAttribute('href', paused ? '#i-play-plain' : '#i-pause');
+    var hero = box.closest('.hero'); if (hero) hero.classList.toggle('is-paused', paused); // also stops the iridescent sheen
     if (paused) stop(); else start();
   });
   document.addEventListener('visibilitychange', function () { if (document.hidden) stop(); else start(); });

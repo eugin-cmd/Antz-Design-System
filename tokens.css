@@ -821,6 +821,8 @@
   --gradient-wash-celebrate: linear-gradient(to bottom right, var(--gradient-stop-butter), var(--gradient-stop-rose));
   --gradient-wash-calm: linear-gradient(to bottom right, var(--gradient-stop-butter), var(--gradient-stop-aqua));
   --gradient-wash-illustrative: linear-gradient(to bottom right, var(--gradient-stop-sky), var(--gradient-stop-pink));
+  --gradient-iridescent: linear-gradient(115deg, var(--scale-secondary-400), var(--violet-70), var(--scale-error-300), var(--scale-caution-300), var(--scale-primary-400), var(--scale-info-400), var(--scale-secondary-400));
+  --gradient-feather-corner: radial-gradient(ellipse 42% 115% at 100% 100%, #000 0%, rgba(0, 0, 0, 0.55) 40%, transparent 70%);
   --gradient-module-green-navy: linear-gradient(135deg, var(--green-brand), var(--navy-25));
   --gradient-module-teal-green: linear-gradient(135deg, var(--teal-80), var(--green-brand));
   --gradient-module-cyan-navy: linear-gradient(135deg, var(--sky-60), var(--navy-25));

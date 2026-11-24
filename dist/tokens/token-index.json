@@ -8193,6 +8193,28 @@
       "dark-hc": "linear-gradient(to bottom right, #133543, #3D2129)"
     },
     {
+      "name": "gradient.iridescent",
+      "css": "--gradient-iridescent",
+      "type": "gradient",
+      "tier": "semantic",
+      "description": "Holographic sheen from the colour scales: an ambient accent on dark photo heroes only, drifted slowly (background-size 300%), feathered with --gradient-feather-corner. Never behind text, never on components.",
+      "light": "linear-gradient(115deg, #67E0D1, #9B85F0, #F99196, #EFD68F, #6CCB88, #5EC0DE, #67E0D1)",
+      "dark": "linear-gradient(115deg, #67E0D1, #9B85F0, #F99196, #EFD68F, #6CCB88, #5EC0DE, #67E0D1)",
+      "light-hc": "linear-gradient(115deg, #67E0D1, #9B85F0, #F99196, #EFD68F, #6CCB88, #5EC0DE, #67E0D1)",
+      "dark-hc": "linear-gradient(115deg, #67E0D1, #9B85F0, #F99196, #EFD68F, #6CCB88, #5EC0DE, #67E0D1)"
+    },
+    {
+      "name": "gradient.feather-corner",
+      "css": "--gradient-feather-corner",
+      "type": "gradient",
+      "tier": "semantic",
+      "description": "Mask, not a colour: strongest in the bottom-right corner, feathering off towards the left and top. Use as mask-image.",
+      "light": "radial-gradient(ellipse 42% 115% at 100% 100%, #000 0%, rgba(0, 0, 0, 0.55) 40%, transparent 70%)",
+      "dark": "radial-gradient(ellipse 42% 115% at 100% 100%, #000 0%, rgba(0, 0, 0, 0.55) 40%, transparent 70%)",
+      "light-hc": "radial-gradient(ellipse 42% 115% at 100% 100%, #000 0%, rgba(0, 0, 0, 0.55) 40%, transparent 70%)",
+      "dark-hc": "radial-gradient(ellipse 42% 115% at 100% 100%, #000 0%, rgba(0, 0, 0, 0.55) 40%, transparent 70%)"
+    },
+    {
       "name": "gradient.module-green-navy",
       "css": "--gradient-module-green-navy",
       "type": "gradient",

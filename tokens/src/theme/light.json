@@ -960,6 +960,16 @@
         }
       }
     },
+    "iridescent": {
+      "$type": "gradient",
+      "$value": "linear-gradient(115deg, var(--scale-secondary-400), var(--violet-70), var(--scale-error-300), var(--scale-caution-300), var(--scale-primary-400), var(--scale-info-400), var(--scale-secondary-400))",
+      "$description": "Holographic sheen from the colour scales: an ambient accent on dark photo heroes only, drifted slowly (background-size 300%), feathered with --gradient-feather-corner. Never behind text, never on components."
+    },
+    "feather-corner": {
+      "$type": "gradient",
+      "$value": "radial-gradient(ellipse 42% 115% at 100% 100%, #000 0%, rgba(0, 0, 0, 0.55) 40%, transparent 70%)",
+      "$description": "Mask, not a colour: strongest in the bottom-right corner, feathering off towards the left and top. Use as mask-image."
+    },
     "module-green-navy": {
       "$type": "gradient",
       "$value": "linear-gradient(135deg, var(--green-brand), var(--navy-25))",
