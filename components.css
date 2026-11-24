@@ -1516,9 +1516,9 @@ a.animal:hover { background: var(--color-surface-hover); }
 .popover--lg { width: min(var(--size-popover-lg), calc(100vw - var(--space-8))); }
 .popover--end { inset-inline: auto 0; transform-origin: top right; }
 .pop-anchor { position: relative; display: inline-flex; }
-.popover .module-grid__group { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-.popover .module-grid__item { align-items: center; padding: var(--space-2) var(--space-1); text-align: center; background: none; }
-.popover .module-grid__item:hover, .popover .module-grid__item[aria-current="page"] { background: var(--color-surface-sunken); }
+.popover--switch .module-grid__group { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.popover--switch .module-grid__item { align-items: center; padding: var(--space-2) var(--space-1); text-align: center; background: none; }
+.popover--switch .module-grid__item:hover, .popover--switch .module-grid__item[aria-current="page"] { background: var(--color-surface-sunken); }
 /* Picker: a searchable list with counts and a check on the chosen one */
 .picker__list { display: flex; flex-direction: column; margin: 0; padding: 0; list-style: none; }
 .picker__opt { display: flex; align-items: center; gap: var(--space-2); width: 100%; min-height: var(--size-control-lg); padding: 0 var(--space-2); border: 0; border-radius: var(--radius-sm); font: inherit; font-size: var(--text-md); text-align: start; color: var(--color-text); background: none; cursor: pointer; }
@@ -1602,3 +1602,23 @@ a.animal:hover { background: var(--color-surface-hover); }
 .menu__item--accent .icon { color: currentColor; }
 .dialog__head .search { flex: 1; max-width: var(--size-popover-lg); }
 [data-gallery-back].btn--text { align-self: flex-start; }
+
+/* Menu panel (style 7): a clean head with search and filter tools, then large module tiles in "My order".
+   Search and the filter panel open in place from the head (data-toggle). */
+.popover--menu { width: min(calc(var(--size-popover-lg) * 1.75), calc(100vw - var(--space-8))); gap: var(--space-3); padding: var(--space-2) var(--space-5) var(--space-5); border-radius: var(--radius-2xl); }
+.popover__head { position: sticky; top: calc(var(--space-2) * -1); z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); margin: 0 calc(var(--space-5) * -1); padding: var(--space-3) var(--space-5); background: var(--color-surface-raised); box-shadow: 0 var(--space-2) var(--space-3) calc(var(--space-2) * -1) var(--color-border); }
+.popover__head > b { font-size: var(--text-2xl); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-heading); }
+.popover__tools { display: flex; gap: var(--space-1); }
+.popover__tools [aria-expanded="true"] { color: var(--color-accent-text); background: var(--color-accent-soft); }
+.popover__search { width: 100%; }
+.popover__panel { padding: var(--space-4); border-radius: var(--radius-xl); background: var(--color-surface); box-shadow: var(--shadow-md); }
+.popover__label { margin: var(--space-2) 0 0; }
+.module-tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-3); }
+.module-tile { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; padding: var(--space-3) var(--space-3) var(--space-4); border-radius: var(--radius-xl); color: var(--color-text); background: var(--color-accent-soft); text-decoration: none; transition: background-color var(--duration-fast) var(--ease-standard), transform var(--duration-base) var(--ease-move); }
+.module-tile:hover { background: color-mix(in srgb, var(--color-accent-soft) 70%, var(--color-accent) 12%); transform: translateY(var(--motion-lift)); }
+.module-tile .tile-icon { width: var(--size-control-lg); height: var(--size-control-lg); margin-bottom: var(--space-6); border-radius: var(--radius-lg); }
+.module-tile .tile-icon .icon { width: var(--size-icon-lg); height: var(--size-icon-lg); }
+.module-tile b { max-width: 100%; font-size: var(--text-lg); font-weight: var(--weight-semibold); line-height: var(--leading-snug); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.module-tile small { max-width: 100%; font-size: var(--text-md); color: var(--color-text-secondary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+@container shell (max-width: 1023.98px) { .module-tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@container shell (max-width: 599.98px) { .module-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } .popover--menu { padding-inline: var(--space-3); } .popover__head { margin-inline: calc(var(--space-3) * -1); padding-inline: var(--space-3); } }

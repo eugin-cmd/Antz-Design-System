@@ -158,7 +158,7 @@
       $$('[id]', node).forEach(function (el) { el.id += suffix; });
       $$('label[for]', node).forEach(function (el) { el.setAttribute('for', el.getAttribute('for') + suffix); });
       // References to ids get the same suffix (popovers, dialogs, boards, sheets, drawers)
-      ['data-popover', 'data-dialog-open', 'data-board-edit', 'data-board-undo', 'data-drawer-open', 'data-drawer-backdrop', 'data-navdrawer-open', 'data-navdrawer-backdrop', 'aria-controls'].forEach(function (attr) {
+      ['data-popover', 'data-toggle', 'data-dialog-open', 'data-board-edit', 'data-board-undo', 'data-drawer-open', 'data-drawer-backdrop', 'data-navdrawer-open', 'data-navdrawer-backdrop', 'aria-controls'].forEach(function (attr) {
         $$('[' + attr + ']', node).forEach(function (el) { el.setAttribute(attr, el.getAttribute(attr).split(' ').map(function (v) { return v + suffix; }).join(' ')); });
       });
       $$('input[type="radio"][name]', node).forEach(function (el) { el.name += suffix; });

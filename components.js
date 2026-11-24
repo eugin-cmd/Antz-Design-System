@@ -247,7 +247,8 @@
    Board: .widget__remove hides a widget while editing; data-board-undo="<board id>" brings them back.
    Gallery: data-gallery-pick shows step 2 (style and size); data-gallery-back returns.
    Modules dialog: data-module-pick="<name>" selects a module and names it in the detail pane.
-   Module panel: data-modnav-fold folds .modnav to icons. */
+   Module panel: data-modnav-fold folds .modnav to icons.
+   Toggles: data-toggle="<id>" shows or hides a panel in place (menu search and filters). */
 (function () {
   'use strict';
   var doc = document, openPop = null, popTrigger = null, lastDialogTrigger = null;
@@ -309,6 +310,15 @@
       var md = t.closest('.modules-dialog'); if (!md) return;
       md.querySelectorAll('[data-module-pick]').forEach(function (m) { m.setAttribute('aria-current', String(m === t)); });
       var nm = md.querySelector('[data-module-name]'); if (nm) nm.textContent = t.getAttribute('data-module-pick');
+      return;
+    }
+    if ((t = e.target.closest('[data-toggle]'))) {
+      // Show or hide a panel in place (menu search, filters); the trigger reflects it in aria-expanded
+      var target = byId(t, t.getAttribute('data-toggle')); if (!target) return;
+      target.hidden = !target.hidden;
+      var scope = t.closest('.popover') || doc;
+      scope.querySelectorAll('[data-toggle="' + t.getAttribute('data-toggle') + '"]').forEach(function (x) { if (x.hasAttribute('aria-expanded')) x.setAttribute('aria-expanded', String(!target.hidden)); });
+      if (!target.hidden) { var f = target.querySelector('input, [aria-checked="true"], button'); if (f) f.focus({ preventScroll: true }); }
       return;
     }
     if ((t = e.target.closest('[data-modnav-fold]'))) {
