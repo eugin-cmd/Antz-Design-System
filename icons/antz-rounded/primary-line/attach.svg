@@ -6,8 +6,8 @@
 .antz-l-attach .a{stroke:url(#antz-l-attach-acc)}
 .antz-l-attach .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
 .antz-l-attach .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-attach .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
-.antz-l-attach-0{stroke-dasharray:1;animation:antz-l-attach-0 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
-@keyframes antz-l-attach-0{0%,0%{stroke-dashoffset:1}35%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
+.antz-l-attach-0{stroke-dasharray:1;animation:antz-l-attach-0 2800ms cubic-bezier(0.16, 1, 0.3, 1) both}
+@keyframes antz-l-attach-0{0%,0%{stroke-dashoffset:1}35%,100%{stroke-dashoffset:0}}
 @media (prefers-reduced-motion:reduce){.antz-l-attach *{animation:none!important;stroke-dashoffset:0!important;opacity:1!important;transform:none!important}}
 </style>
 <path class="a antz-l-attach-0" d="M32 15 18.5 28.5a3.5 3.5 0 0 0 5 5l14-14a7 7 0 0 0-10-10l-14 14a10.5 10.5 0 0 0 15 15L40 27" pathLength="1"/>

@@ -6,15 +6,15 @@
 .antz-l-ambulance .a{stroke:url(#antz-l-ambulance-acc)}
 .antz-l-ambulance .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
 .antz-l-ambulance .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-ambulance .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
-.antz-l-ambulance-0{stroke-dasharray:1;animation:antz-l-ambulance-0 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
-.antz-l-ambulance-1{stroke-dasharray:1;animation:antz-l-ambulance-1 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
-.antz-l-ambulance-2{stroke-dasharray:1;animation:antz-l-ambulance-2 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
-.antz-l-ambulance-3{stroke-dasharray:1;animation:antz-l-ambulance-3 3600ms cubic-bezier(0.34, 1.56, 0.64, 1) infinite}
-.antz-l-ambulance-g{transform-origin:24px 24px;animation:antz-l-ambulance-g 3600ms cubic-bezier(0.65, 0, 0.35, 1) infinite}
-@keyframes antz-l-ambulance-0{0%,0%{stroke-dashoffset:1}21%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
-@keyframes antz-l-ambulance-1{0%,9%{stroke-dashoffset:1}30%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
-@keyframes antz-l-ambulance-2{0%,10.8%{stroke-dashoffset:1}31.8%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
-@keyframes antz-l-ambulance-3{0%,30%{stroke-dashoffset:1;transform:scale(1)}44%{stroke-dashoffset:0;transform:scale(1)}52%{transform:scale(1.18)}64%,90%{stroke-dashoffset:0;transform:scale(1);opacity:1}97%,100%{opacity:0}}
+.antz-l-ambulance-0{stroke-dasharray:1;animation:antz-l-ambulance-0 2800ms cubic-bezier(0.16, 1, 0.3, 1) both}
+.antz-l-ambulance-1{stroke-dasharray:1;animation:antz-l-ambulance-1 2800ms cubic-bezier(0.16, 1, 0.3, 1) both}
+.antz-l-ambulance-2{stroke-dasharray:1;animation:antz-l-ambulance-2 2800ms cubic-bezier(0.16, 1, 0.3, 1) both}
+.antz-l-ambulance-3{stroke-dasharray:1;animation:antz-l-ambulance-3 2800ms cubic-bezier(0.34, 1.56, 0.64, 1) both}
+.antz-l-ambulance-g{transform-origin:24px 24px;animation:antz-l-ambulance-g 2800ms cubic-bezier(0.65, 0, 0.35, 1) both}
+@keyframes antz-l-ambulance-0{0%,0%{stroke-dashoffset:1}21%,100%{stroke-dashoffset:0}}
+@keyframes antz-l-ambulance-1{0%,9%{stroke-dashoffset:1}30%,100%{stroke-dashoffset:0}}
+@keyframes antz-l-ambulance-2{0%,10.8%{stroke-dashoffset:1}31.8%,100%{stroke-dashoffset:0}}
+@keyframes antz-l-ambulance-3{0%,30%{stroke-dashoffset:1;transform:scale(1)}44%{stroke-dashoffset:0;transform:scale(1)}52%{transform:scale(1.18)}64%,100%{stroke-dashoffset:0;transform:scale(1)}}
 @keyframes antz-l-ambulance-g{0%,52%{transform:translateY(0)}57%{transform:translateY(-5px)}63%{transform:translateY(0)}67%{transform:translateY(-2px)}71%,100%{transform:translateY(0)}}
 @media (prefers-reduced-motion:reduce){.antz-l-ambulance *{animation:none!important;stroke-dashoffset:0!important;opacity:1!important;transform:none!important}}
 </style>

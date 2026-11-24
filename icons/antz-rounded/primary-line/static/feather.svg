@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-feather" role="img" aria-label="Birds">
+<defs><linearGradient id="antz-l-feather-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-feather .i,.antz-l-feather .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-feather .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-feather .a{stroke:url(#antz-l-feather-acc)}
+.antz-l-feather .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-feather .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-feather .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+</style>
+<g class="antz-l-feather-g">
+<path class="i antz-l-feather-0" d="M39 9c-15.5 0-26 10.5-26 26 15.5 0 26-10.5 26-26Z" pathLength="1"/>
+<path class="a antz-l-feather-1" d="M8 40 30 18" pathLength="1"/>
+<path class="a antz-l-feather-2" d="M22 26h4.5M26 22h4.5" pathLength="1"/>
+</g>
+</svg>

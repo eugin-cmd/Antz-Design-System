@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-milestone" role="img" aria-label="Milestone">
+<defs><linearGradient id="antz-l-milestone-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-milestone .i,.antz-l-milestone .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-milestone .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-milestone .a{stroke:url(#antz-l-milestone-acc)}
+.antz-l-milestone .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-milestone .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-milestone .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+</style>
+<path class="i antz-l-milestone-0" d="M14 42V7M8 42h12" pathLength="1"/>
+<path class="a antz-l-milestone-1" d="M14 8h20l-4 6 4 6H14"/>
+</svg>

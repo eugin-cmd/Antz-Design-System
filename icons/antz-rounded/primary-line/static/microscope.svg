@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-microscope" role="img" aria-label="Microscope">
+<defs><linearGradient id="antz-l-microscope-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-microscope .i,.antz-l-microscope .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-microscope .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-microscope .a{stroke:url(#antz-l-microscope-acc)}
+.antz-l-microscope .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-microscope .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-microscope .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+</style>
+<path class="i antz-l-microscope-0" d="M10 40h28" pathLength="1"/>
+<path class="i antz-l-microscope-1" d="M27 12c6 1 10 6 10 12 0 7-4 11-9 12v4" pathLength="1"/>
+<path class="i antz-l-microscope-2" d="M21.5 20v4h4v-4" pathLength="1"/>
+<rect class="a antz-l-microscope-3" x="20" y="6" width="7" height="14" rx="1.5"/>
+<path class="a antz-l-microscope-4" d="M14 28h16" pathLength="1"/>
+</svg>

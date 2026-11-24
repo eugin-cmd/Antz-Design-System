@@ -6,8 +6,8 @@
 .antz-l-favourite .a{stroke:url(#antz-l-favourite-acc)}
 .antz-l-favourite .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
 .antz-l-favourite .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-favourite .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
-.antz-l-favourite-0{stroke-dasharray:1;animation:antz-l-favourite-0 3600ms cubic-bezier(0.34, 1.56, 0.64, 1) infinite}
-@keyframes antz-l-favourite-0{0%,0%{stroke-dashoffset:1;transform:scale(1)}35%{stroke-dashoffset:0;transform:scale(1)}43%{transform:scale(1.18)}55%,90%{stroke-dashoffset:0;transform:scale(1);opacity:1}97%,100%{opacity:0}}
+.antz-l-favourite-0{stroke-dasharray:1;animation:antz-l-favourite-0 2800ms cubic-bezier(0.34, 1.56, 0.64, 1) both}
+@keyframes antz-l-favourite-0{0%,0%{stroke-dashoffset:1;transform:scale(1)}35%{stroke-dashoffset:0;transform:scale(1)}43%{transform:scale(1.18)}55%,100%{stroke-dashoffset:0;transform:scale(1)}}
 @media (prefers-reduced-motion:reduce){.antz-l-favourite *{animation:none!important;stroke-dashoffset:0!important;opacity:1!important;transform:none!important}}
 </style>
 <path class="a antz-l-favourite-0" d="M24 40S7 30.5 7 18.5A9.5 9.5 0 0 1 24 13a9.5 9.5 0 0 1 17 5.5C41 30.5 24 40 24 40Z" pathLength="1"/>

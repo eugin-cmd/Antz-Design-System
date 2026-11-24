@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-weight" role="img" aria-label="Weight">
+<defs><linearGradient id="antz-l-weight-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-weight .i,.antz-l-weight .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-weight .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-weight .a{stroke:url(#antz-l-weight-acc)}
+.antz-l-weight .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-weight .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-weight .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+</style>
+<rect class="i antz-l-weight-0" x="7" y="10" width="34" height="30" rx="5" pathLength="1"/>
+<path class="i antz-l-weight-1" d="M15 26a9 9 0 0 1 18 0" pathLength="1"/>
+<path class="a antz-l-weight-2" d="M24 26l4-6"/>
+<circle class="a antz-l-weight-3" cx="24" cy="26" r="1.2"/>
+</svg>

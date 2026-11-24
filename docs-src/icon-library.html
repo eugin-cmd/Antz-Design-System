@@ -35,7 +35,7 @@
       <label class="check"><input type="checkbox" data-ar-group> Group by module</label>
       <span class="ar-field"><span>Per row</span><span class="segmented segmented--pill" role="group" aria-label="Per row" data-ar-seg="perrow"><button type="button" data-v="3" aria-pressed="false">3</button><button type="button" data-v="4" aria-pressed="true">4</button><button type="button" data-v="5" aria-pressed="false">5</button><button type="button" data-v="6" aria-pressed="false">6</button></span></span>
     </div>
-    <p class="t-small t-secondary ar-line-note" data-ar-lineonly><b>Line (proposal):</b> outline icons in the text colour with one accent detail in a green-to-teal gradient (<code>--scale-primary-600</code> to <code>--scale-secondary-600</code>, 3:1 or more on light and dark). The outline draws on, the accent settles with the elastic ease. Original drawings: 118 icons in seven groups: the 30 module icons, animals, animal care, health and lab, facilities and maintenance, data and time, and interface icons with micro-animations. Where elements overlap, the front one cuts a small gap into what is behind it, so it reads as solid on any background.</p>
+    <p class="t-small t-secondary ar-line-note" data-ar-lineonly><b>Line (proposal):</b> outline icons in the text colour with one accent detail in a green-to-teal gradient (<code>--scale-primary-600</code> to <code>--scale-secondary-600</code>, 3:1 or more on light and dark). The outline draws on and the accent settles with the elastic ease, once (2.8s); then the icon rests. Hover, focus or tap an icon to replay it. Original drawings: 118 icons in seven groups: the 30 module icons, animals, animal care, health and lab, facilities and maintenance, data and time, and interface icons with micro-animations. Where elements overlap, the front one cuts a small gap into what is behind it, so it reads as solid on any background.</p>
     <h4 class="ar-sub" data-ar-tileonly hidden>Tile colour</h4>
     <div class="ar-colours" role="radiogroup" aria-label="Tile colour" data-ar-colours data-ar-tileonly hidden></div>
     <p class="t-caption ar-contrast" data-ar-contrast data-ar-tileonly hidden></p>
@@ -68,6 +68,19 @@
   </div>
 </aside>
 
+<div class="doc" id="which-icons">
+  <h3>Which icons to use <span class="status status--plain status--caution">Proposed, DD-004</span></h3>
+  <div class="spec-wrap"><table class="spec"><thead><tr><th>Use</th><th>Icons</th><th>Size</th></tr></thead><tbody>
+    <tr><td>Controls, navigation, buttons, inputs, lists, tables, status</td><td>Component icons (<code>#i-name</code>), ANTZ Rounded line; filled for the selected state</td><td>16 to 24px</td></tr>
+    <tr><td>Module navigation, empty states, onboarding, confirmations</td><td>Animated line icons, played once; or the still version</td><td>48 to 72px</td></tr>
+    <tr><td>Module tiles in a product that uses the tile launcher</td><td>Primary tile icons (one module-navigation style per product)</td><td>48px and up</td></tr>
+  </tbody></table></div>
+  <ul class="t-small">
+    <li><b>Animation plays once</b> (2.8s) and rests on its final frame. Add <code>data-icon-replay</code> to the icon or its control to replay it on hover, focus or tap. No loops (WCAG 2.2.2); reduced motion shows the final frame.</li>
+    <li><b>One animated icon playing in view at a time</b>, never inside dense controls.</li>
+    <li><b>Missing an icon?</b> Ask the icon team; don't borrow from another set.</li>
+  </ul>
+</div>
 <div class="doc" id="antz-in-ui">
   <h3>In the components</h3>
   <p class="lead">Where an ANTZ Rounded icon means the same thing, the component icon (<code>#i-name</code>) is drawn with it, so every component and screen uses the new drawing with no markup change. They keep the components' 1.8 stroke.</p>
@@ -166,7 +179,8 @@
     var box = $('[data-ar-prims]');
     box.className = 'ar-prims ar-prims--' + st.family + ' ar-prims--' + st.layout + (st.motion === 'pause' ? ' is-paused' : '') + (st.motion === 'reduced' ? ' is-reduced' : '');
     box.style.setProperty('--ar-perrow', st.layout === 'wall' ? st.perrow + 2 : st.perrow);
-    var card = function (p) { return '<figure class="ar-prim" data-p="' + esc(p.name) + '"><span class="ar-prim__art"></span>' + (st.layout === 'wall' ? '' : '<figcaption><b>' + esc(p.label) + '</b><code>' + esc(p.name) + '</code><span><span class="status status--plain status--tertiary">' + esc(STATUS[p.status] || p.status) + '</span> <span class="t-caption">' + ((p.loopMs || 3600) / 1000).toFixed(1) + ' s loop</span></span></figcaption>') + '</figure>'; };
+    var once = st.family === 'line';
+    var card = function (p) { return '<figure class="ar-prim" data-p="' + esc(p.name) + '"' + (once ? ' data-icon-replay tabindex="0" aria-label="' + esc(p.label) + ': replay"' : '') + '><span class="ar-prim__art"></span>' + (st.layout === 'wall' ? '' : '<figcaption><b>' + esc(p.label) + '</b><code>' + esc(p.name) + '</code><span><span class="status status--plain status--tertiary">' + esc(STATUS[p.status] || p.status) + '</span> <span class="t-caption">' + (once ? '2.8 s, plays once' : ((p.loopMs || 3600) / 1000).toFixed(1) + ' s loop') + '</span></span></figcaption>') + '</figure>'; };
     if (st.family === 'line' && !st.group) {
       var sets = [['primary', 'Module icons'], ['animals', 'Animals'], ['care', 'Animal care and operations'], ['health', 'Health and lab'], ['facilities', 'Facilities and maintenance'], ['data', 'Data, reports and time'], ['ui', 'Interface icons, micro-animations']];
       box.innerHTML = sets.map(function (x) { var l = list.filter(function (p) { return (p.set || 'primary') === x[0]; }); return l.length ? '<h4 class="ar-group">' + x[1] + ' <span class="t-caption">' + l.length + '</span></h4><div class="ar-prim-grid">' + l.map(card).join('') + '</div>' : ''; }).join('');
@@ -199,6 +213,7 @@
     if ((t = e.target.closest('[data-ar-seg] button'))) {
       var name = t.closest('[data-ar-seg]').dataset.arSeg; st[name] = name === 'perrow' ? +t.dataset.v : t.dataset.v; seg(name, t.dataset.v);
       if (name === 'dstyle') return setDetailStyle();
+      if (name === 'motion' && t.dataset.v === 'play' && st.family === 'line' && window.AntzIcons) { $('[data-ar-prims]').className = $('[data-ar-prims]').className.replace(/ is-(paused|reduced)/g, ''); return window.AntzIcons.replay($('[data-ar-prims]')); }
       if (name === 'pstyle') return renderPrim();
       return renderPrim();
     }
@@ -241,6 +256,11 @@
 &lt;svg class="icon" aria-hidden="true"&gt;&lt;use href="#antz-calendar-filled"/&gt;&lt;/svg&gt;   &lt;!-- filled --&gt;</code></pre></details>
 <details class="code"><summary>Primary icons: tile colour</summary><pre><code>&lt;!-- Inline the SVG (icons/antz-rounded/primary/svg/home.svg) and set its roles --&gt;
 &lt;div style="--antz-primary-container: var(--scale-secondary-500); --antz-on-primary-container: var(--scale-secondary-800)"&gt;…&lt;/div&gt;</code></pre></details>
+<details class="code"><summary>Animated line icons: play once, replay</summary><pre><code>&lt;!-- Inline the SVG (icons/antz-rounded/primary-line/&lt;name&gt;.svg): it plays once and holds its final frame --&gt;
+&lt;a class="tile-module" href="medical.html" data-icon-replay&gt;…inline SVG…&lt;span&gt;Medical&lt;/span&gt;&lt;/a&gt;
+&lt;!-- No motion wanted: the still version --&gt;
+&lt;img src="icons/antz-rounded/primary-line/static/medical.svg" alt="" width="48" height="48"&gt;
+// From script: AntzIcons.replay(element)</code></pre></details>
 <details class="code"><summary>React Native and Flutter</summary><pre><code>// One file per icon: icons/antz-rounded/line/&lt;name&gt;.svg and filled/&lt;name&gt;.svg (react-native-svg, flutter_svg)
 // Primary icons: icons/antz-rounded/primary/lottie/&lt;name&gt;.&lt;scheme&gt;.json (lottie-react-native, lottie for Flutter)</code></pre></details>
 <p class="t-small t-secondary">The index (names, labels, modules, status, tags) is <code>icons/antz-rounded/index.json</code>. Source and update steps: <code>icons/antz-rounded/SOURCE.md</code>.</p></div>

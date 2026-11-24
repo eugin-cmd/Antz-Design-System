@@ -5,7 +5,10 @@
  * and settled with the elastic ease. Original drawings on a 48px grid (live area 4–44), 1.5px round strokes: slim
  * and even, shown at 48 to 72px.
  *
- *   node tools/primary-line.mjs     write icons/antz-rounded/primary-line/<name>.svg and index.json
+ *   node tools/primary-line.mjs     write icons/antz-rounded/primary-line/<name>.svg, static/<name>.svg and index.json
+ *
+ * Each icon plays once (2.8s) and holds its final frame: no loop, so it meets WCAG 2.2.2 without a pause control.
+ * Replay it on hover, focus or tap with data-icon-replay (components.js). static/ is the final frame with no motion.
  *
  * Colours come from tokens when the SVG is inline: ink is --color-text (follows light, dark and high contrast); the
  * accent runs --scale-primary-600 to --scale-secondary-600, which pass 3:1 on light and dark surfaces. As an <img>
@@ -21,7 +24,7 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = path.join(ROOT, 'icons/antz-rounded/primary-line');
-const LOOP = 3600; // ms
+const DUR = 2800; // ms: plays once and holds its final frame (WCAG 2.2.2: under 5s, no loop)
 const EASE = { draw: 'cubic-bezier(0.16, 1, 0.3, 1)', pop: 'cubic-bezier(0.34, 1.56, 0.64, 1)', sway: 'cubic-bezier(0.65, 0, 0.35, 1)' }; // --ease-out, --ease-elastic, --ease-in-out
 
 const r1 = (x) => Math.round(x * 10) / 10;
@@ -877,21 +880,21 @@ const ICONS = {
 };
 
 const pct = (x) => `${Math.round(x * 1000) / 10}%`;
-function svgFor(name, ic) {
+function svgFor(name, ic, animated = true) {
   const c = `antz-l-${name}`, kf = [], shapes = [], fronts = [], cuts = [];
   const GAP = 1.5; // clear space around a front element, px
-  // Timeline (fractions of the loop): ink draws 0–0.30, accent 0.30–0.50, hold, fade 0.90–0.97, rest
+  // Timeline (fractions of the run): ink draws 0–0.30, accent 0.30–0.50, whole-icon motion 0.50–0.80, then the final frame holds
   const phase = (from, to, at = 0) => from + (to - from) * at * 0.6;
   const attrs = (o) => Object.entries(o).map(([k, v]) => `${k}="${v}"`).join(' ');
   let n = 0;
   const add = (cls, [tag, a, m = {}], from, to) => {
     const id = `${c}-${n++}`, motion = m.motion || 'draw', s = phase(from, to, m.at || 0), e = Math.min(s + (to - from) * 0.7, 0.88);
     const frames = {
-      draw: `0%,${pct(s)}{stroke-dashoffset:1}${pct(e)},90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}`,
-      pop: `0%,${pct(s)}{transform:scale(0);opacity:0}${pct(s + 0.01)}{opacity:1}${pct(s + 0.12)},90%{transform:scale(1);opacity:1}97%,100%{transform:scale(1);opacity:0}`,
-      pulse: `0%,${pct(s)}{stroke-dashoffset:1;transform:scale(1)}${pct(e)}{stroke-dashoffset:0;transform:scale(1)}${pct(e + 0.08)}{transform:scale(1.18)}${pct(e + 0.2)},90%{stroke-dashoffset:0;transform:scale(1);opacity:1}97%,100%{opacity:0}`,
+      draw: `0%,${pct(s)}{stroke-dashoffset:1}${pct(e)},100%{stroke-dashoffset:0}`,
+      pop: `0%,${pct(s)}{transform:scale(0);opacity:0}${pct(s + 0.01)}{opacity:1}${pct(s + 0.12)},100%{transform:scale(1);opacity:1}`,
+      pulse: `0%,${pct(s)}{stroke-dashoffset:1;transform:scale(1)}${pct(e)}{stroke-dashoffset:0;transform:scale(1)}${pct(e + 0.08)}{transform:scale(1.18)}${pct(e + 0.2)},100%{stroke-dashoffset:0;transform:scale(1)}`,
       rise: `0%,${pct(s)}{transform:translateY(0);opacity:0}${pct(s + 0.04)}{opacity:1}${pct(s + 0.3)}{transform:translateY(-${m.dist || 12}px);opacity:0}100%{opacity:0}`,
-      move: `0%,${pct(s)}{transform:${m.from};opacity:0}${pct(s + 0.015)}{opacity:1}${pct(s + 0.16)},90%{transform:none;opacity:1}97%,100%{transform:none;opacity:0}`,
+      move: `0%,${pct(s)}{transform:${m.from};opacity:0}${pct(s + 0.015)}{opacity:1}${pct(s + 0.16)},100%{transform:none;opacity:1}`,
     }[motion];
     kf.push(`@keyframes ${id}{${frames}}`);
     const ease = motion === 'pop' || motion === 'pulse' || motion === 'move' ? EASE.pop : motion === 'rise' ? EASE.sway : EASE.draw;
@@ -903,7 +906,7 @@ function svgFor(name, ic) {
       fronts.push(el);
       cuts.push(`<${tag} class="k ${id}" ${attrs(a)}${isDraw ? ' pathLength="1"' : ''} fill="${closed ? '#000' : 'none'}"/>`);
     } else shapes.push(el);
-    return `.${id}{${isDraw ? 'stroke-dasharray:1;' : ''}${m.origin ? `transform-box:view-box;transform-origin:${m.origin};` : ''}animation:${id} ${LOOP}ms ${ease} infinite}`;
+    return `.${id}{${isDraw ? 'stroke-dasharray:1;' : ''}${m.origin ? `transform-box:view-box;transform-origin:${m.origin};` : ''}animation:${id} ${DUR}ms ${ease} both}`;
   };
   const rules = [...ic.ink.map((s) => add('i', s, 0, 0.3)), ...ic.accent.map((s) => add('a', s, ic.ink.length ? 0.3 : 0, 0.5))];
   // Whole-icon motion after the accent settles
@@ -916,15 +919,14 @@ function svgFor(name, ic) {
   };
   let group = '';
   const gk = Object.keys(GROUP).find((k) => ic[k]);
-  if (gk) { const [origin, ease, frames] = GROUP[gk]; kf.push(`@keyframes ${c}-g{${frames}}`); group = `.${c}-g{transform-origin:${origin};animation:${c}-g ${LOOP}ms ${ease} infinite}`; }
+  if (gk) { const [origin, ease, frames] = GROUP[gk]; kf.push(`@keyframes ${c}-g{${frames}}`); group = `.${c}-g{transform-origin:${origin};animation:${c}-g ${DUR}ms ${ease} both}`; }
   const style = [
     `.${c} .i,.${c} .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}`,
     `.${c} .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}`,
     `.${c} .a{stroke:url(#${c}-acc)}`,
     `.${c} .k{stroke:#000;stroke-width:${1.5 + GAP * 2};stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}`,
     `.${c} .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.${c} .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}`,
-    ...rules, group, ...kf,
-    `@media (prefers-reduced-motion:reduce){.${c} *{animation:none!important;stroke-dashoffset:0!important;opacity:1!important;transform:none!important}}`,
+    ...(animated ? [...rules, group, ...kf, `@media (prefers-reduced-motion:reduce){.${c} *{animation:none!important;stroke-dashoffset:0!important;opacity:1!important;transform:none!important}}`] : []),
   ].filter(Boolean).join('\n');
   // Elements behind are masked where a front element sits; front elements draw on top, unmasked
   const body = fronts.length ? `<g mask="url(#${c}-cut)">\n${shapes.join('\n')}\n</g>\n${fronts.join('\n')}` : shapes.join('\n');
@@ -939,13 +941,14 @@ ${group ? `<g class="${c}-g">\n${body}\n</g>` : body}
 `;
 }
 
-fs.mkdirSync(OUT, { recursive: true });
-for (const f of fs.readdirSync(OUT)) if (f.endsWith('.svg') && !ICONS[f.slice(0, -4)]) fs.unlinkSync(path.join(OUT, f)); // drop icons no longer defined
-const index = { $description: 'ANTZ Line animated: proposal outline style for the Primary icons, plus interface icons with micro-animations. Generated by tools/primary-line.mjs.', style: 'antz-line-animated', status: 'proposal', loopMs: LOOP, icons: [] };
+fs.mkdirSync(path.join(OUT, 'static'), { recursive: true });
+for (const dir of [OUT, path.join(OUT, 'static')]) for (const f of fs.readdirSync(dir)) if (f.endsWith('.svg') && !ICONS[f.slice(0, -4)]) fs.unlinkSync(path.join(dir, f)); // drop icons no longer defined
+const index = { $description: 'ANTZ Line animated: proposal outline style for the Primary icons, plus sets of icons with micro-animations. Each plays once (durationMs) and holds its final frame; replay on hover, focus or tap. static/ has the same icons without motion. Generated by tools/primary-line.mjs.', style: 'antz-line-animated', status: 'proposal', playback: 'once', durationMs: DUR, icons: [] };
 let order = 0;
 for (const [name, ic] of Object.entries(ICONS)) {
   fs.writeFileSync(path.join(OUT, `${name}.svg`), svgFor(name, ic));
-  index.icons.push({ name, label: ic.label, module: ic.module, set: ic.set || 'primary', order: ++order, status: 'proposal', svg: `${name}.svg` });
+  fs.writeFileSync(path.join(OUT, 'static', `${name}.svg`), svgFor(name, ic, false));
+  index.icons.push({ name, label: ic.label, module: ic.module, set: ic.set || 'primary', order: ++order, status: 'proposal', svg: `${name}.svg`, static: `static/${name}.svg` });
 }
 fs.writeFileSync(path.join(OUT, 'index.json'), JSON.stringify(index, null, 2) + '\n');
 const count = (k) => index.icons.filter((i) => i.set === k).length;

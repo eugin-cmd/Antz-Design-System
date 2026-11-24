@@ -6,15 +6,15 @@
 .antz-l-refresh .a{stroke:url(#antz-l-refresh-acc)}
 .antz-l-refresh .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
 .antz-l-refresh .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-refresh .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
-.antz-l-refresh-0{stroke-dasharray:1;animation:antz-l-refresh-0 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
-.antz-l-refresh-1{stroke-dasharray:1;animation:antz-l-refresh-1 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
-.antz-l-refresh-2{stroke-dasharray:1;animation:antz-l-refresh-2 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
-.antz-l-refresh-3{stroke-dasharray:1;animation:antz-l-refresh-3 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
-.antz-l-refresh-g{transform-origin:24px 24px;animation:antz-l-refresh-g 3600ms cubic-bezier(0.34, 1.56, 0.64, 1) infinite}
-@keyframes antz-l-refresh-0{0%,0%{stroke-dashoffset:1}21%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
-@keyframes antz-l-refresh-1{0%,5.4%{stroke-dashoffset:1}26.4%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
-@keyframes antz-l-refresh-2{0%,30%{stroke-dashoffset:1}44%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
-@keyframes antz-l-refresh-3{0%,33.6%{stroke-dashoffset:1}47.6%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
+.antz-l-refresh-0{stroke-dasharray:1;animation:antz-l-refresh-0 2800ms cubic-bezier(0.16, 1, 0.3, 1) both}
+.antz-l-refresh-1{stroke-dasharray:1;animation:antz-l-refresh-1 2800ms cubic-bezier(0.16, 1, 0.3, 1) both}
+.antz-l-refresh-2{stroke-dasharray:1;animation:antz-l-refresh-2 2800ms cubic-bezier(0.16, 1, 0.3, 1) both}
+.antz-l-refresh-3{stroke-dasharray:1;animation:antz-l-refresh-3 2800ms cubic-bezier(0.16, 1, 0.3, 1) both}
+.antz-l-refresh-g{transform-origin:24px 24px;animation:antz-l-refresh-g 2800ms cubic-bezier(0.34, 1.56, 0.64, 1) both}
+@keyframes antz-l-refresh-0{0%,0%{stroke-dashoffset:1}21%,100%{stroke-dashoffset:0}}
+@keyframes antz-l-refresh-1{0%,5.4%{stroke-dashoffset:1}26.4%,100%{stroke-dashoffset:0}}
+@keyframes antz-l-refresh-2{0%,30%{stroke-dashoffset:1}44%,100%{stroke-dashoffset:0}}
+@keyframes antz-l-refresh-3{0%,33.6%{stroke-dashoffset:1}47.6%,100%{stroke-dashoffset:0}}
 @keyframes antz-l-refresh-g{0%,50%{transform:rotate(0)}66%,100%{transform:rotate(180deg)}}
 @media (prefers-reduced-motion:reduce){.antz-l-refresh *{animation:none!important;stroke-dashoffset:0!important;opacity:1!important;transform:none!important}}
 </style>

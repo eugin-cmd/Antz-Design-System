@@ -216,3 +216,23 @@
     var on = b.classList.toggle('is-editing'); t.setAttribute('aria-pressed', on ? 'true' : 'false');
   });
 })();
+
+/* ── Animated icons (1.2): play once, replay on demand ─────────────────────────
+   ANTZ Line animated icons play once (2.8s) and hold their final frame, so nothing
+   loops (WCAG 2.2.2). Put data-icon-replay on the icon or on its control (a tile,
+   a nav item, a button) and the icon replays on hover, keyboard focus or tap.
+   window.AntzIcons.replay(el) replays every icon animation inside el. Reduced
+   motion: there is nothing to replay (the icons show their final frame). */
+(function () {
+  'use strict';
+  var doc = document;
+  function replay(el) {
+    if (!el || !el.getAnimations) return;
+    el.getAnimations({ subtree: true }).forEach(function (a) { a.cancel(); a.play(); });
+  }
+  function host(t) { return t && t.closest ? t.closest('[data-icon-replay]') : null; }
+  doc.addEventListener('mouseover', function (e) { var h = host(e.target); if (h && !h.contains(e.relatedTarget)) replay(h); });
+  doc.addEventListener('focusin', function (e) { var h = host(e.target); if (h && !h.contains(e.relatedTarget)) replay(h); });
+  doc.addEventListener('click', function (e) { var h = host(e.target); if (h) replay(h); });
+  window.AntzIcons = { replay: replay };
+})();

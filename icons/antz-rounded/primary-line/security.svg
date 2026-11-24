@@ -6,10 +6,10 @@
 .antz-l-security .a{stroke:url(#antz-l-security-acc)}
 .antz-l-security .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
 .antz-l-security .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-security .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
-.antz-l-security-0{stroke-dasharray:1;animation:antz-l-security-0 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
-.antz-l-security-1{stroke-dasharray:1;animation:antz-l-security-1 3600ms cubic-bezier(0.34, 1.56, 0.64, 1) infinite}
-@keyframes antz-l-security-0{0%,0%{stroke-dashoffset:1}21%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
-@keyframes antz-l-security-1{0%,30%{stroke-dashoffset:1;transform:scale(1)}44%{stroke-dashoffset:0;transform:scale(1)}52%{transform:scale(1.18)}64%,90%{stroke-dashoffset:0;transform:scale(1);opacity:1}97%,100%{opacity:0}}
+.antz-l-security-0{stroke-dasharray:1;animation:antz-l-security-0 2800ms cubic-bezier(0.16, 1, 0.3, 1) both}
+.antz-l-security-1{stroke-dasharray:1;animation:antz-l-security-1 2800ms cubic-bezier(0.34, 1.56, 0.64, 1) both}
+@keyframes antz-l-security-0{0%,0%{stroke-dashoffset:1}21%,100%{stroke-dashoffset:0}}
+@keyframes antz-l-security-1{0%,30%{stroke-dashoffset:1;transform:scale(1)}44%{stroke-dashoffset:0;transform:scale(1)}52%{transform:scale(1.18)}64%,100%{stroke-dashoffset:0;transform:scale(1)}}
 @media (prefers-reduced-motion:reduce){.antz-l-security *{animation:none!important;stroke-dashoffset:0!important;opacity:1!important;transform:none!important}}
 </style>
 <path class="i antz-l-security-0" d="M24 6l14 5v11c0 9-6 15-14 20-8-5-14-11-14-20V11Z" pathLength="1"/>

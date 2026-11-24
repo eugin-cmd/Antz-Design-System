@@ -6,15 +6,15 @@
 .antz-l-fish .a{stroke:url(#antz-l-fish-acc)}
 .antz-l-fish .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
 .antz-l-fish .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-fish .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
-.antz-l-fish-0{stroke-dasharray:1;animation:antz-l-fish-0 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
-.antz-l-fish-1{stroke-dasharray:1;animation:antz-l-fish-1 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
-.antz-l-fish-2{stroke-dasharray:1;animation:antz-l-fish-2 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
-.antz-l-fish-3{animation:antz-l-fish-3 3600ms cubic-bezier(0.34, 1.56, 0.64, 1) infinite}
-.antz-l-fish-g{transform-origin:24px 40px;animation:antz-l-fish-g 3600ms cubic-bezier(0.65, 0, 0.35, 1) infinite}
-@keyframes antz-l-fish-0{0%,0%{stroke-dashoffset:1}21%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
-@keyframes antz-l-fish-1{0%,7.2%{stroke-dashoffset:1}28.2%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
-@keyframes antz-l-fish-2{0%,30%{stroke-dashoffset:1}44%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
-@keyframes antz-l-fish-3{0%,34.8%{transform:scale(0);opacity:0}35.8%{opacity:1}46.8%,90%{transform:scale(1);opacity:1}97%,100%{transform:scale(1);opacity:0}}
+.antz-l-fish-0{stroke-dasharray:1;animation:antz-l-fish-0 2800ms cubic-bezier(0.16, 1, 0.3, 1) both}
+.antz-l-fish-1{stroke-dasharray:1;animation:antz-l-fish-1 2800ms cubic-bezier(0.16, 1, 0.3, 1) both}
+.antz-l-fish-2{stroke-dasharray:1;animation:antz-l-fish-2 2800ms cubic-bezier(0.16, 1, 0.3, 1) both}
+.antz-l-fish-3{animation:antz-l-fish-3 2800ms cubic-bezier(0.34, 1.56, 0.64, 1) both}
+.antz-l-fish-g{transform-origin:24px 40px;animation:antz-l-fish-g 2800ms cubic-bezier(0.65, 0, 0.35, 1) both}
+@keyframes antz-l-fish-0{0%,0%{stroke-dashoffset:1}21%,100%{stroke-dashoffset:0}}
+@keyframes antz-l-fish-1{0%,7.2%{stroke-dashoffset:1}28.2%,100%{stroke-dashoffset:0}}
+@keyframes antz-l-fish-2{0%,30%{stroke-dashoffset:1}44%,100%{stroke-dashoffset:0}}
+@keyframes antz-l-fish-3{0%,34.8%{transform:scale(0);opacity:0}35.8%{opacity:1}46.8%,100%{transform:scale(1);opacity:1}}
 @keyframes antz-l-fish-g{0%,52%{transform:rotate(0)}56%{transform:rotate(-7deg)}61%{transform:rotate(6deg)}66%{transform:rotate(-3deg)}71%,100%{transform:rotate(0)}}
 @media (prefers-reduced-motion:reduce){.antz-l-fish *{animation:none!important;stroke-dashoffset:0!important;opacity:1!important;transform:none!important}}
 </style>

@@ -6,17 +6,17 @@
 .antz-l-lab .a{stroke:url(#antz-l-lab-acc)}
 .antz-l-lab .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
 .antz-l-lab .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-lab .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
-.antz-l-lab-0{stroke-dasharray:1;animation:antz-l-lab-0 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
-.antz-l-lab-1{stroke-dasharray:1;animation:antz-l-lab-1 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
-.antz-l-lab-2{stroke-dasharray:1;animation:antz-l-lab-2 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
-.antz-l-lab-3{stroke-dasharray:1;animation:antz-l-lab-3 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
-.antz-l-lab-4{animation:antz-l-lab-4 3600ms cubic-bezier(0.65, 0, 0.35, 1) infinite}
-.antz-l-lab-5{animation:antz-l-lab-5 3600ms cubic-bezier(0.65, 0, 0.35, 1) infinite}
-.antz-l-lab-6{animation:antz-l-lab-6 3600ms cubic-bezier(0.65, 0, 0.35, 1) infinite}
-@keyframes antz-l-lab-0{0%,0%{stroke-dashoffset:1}21%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
-@keyframes antz-l-lab-1{0%,2.7%{stroke-dashoffset:1}23.7%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
-@keyframes antz-l-lab-2{0%,10.8%{stroke-dashoffset:1}31.8%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
-@keyframes antz-l-lab-3{0%,30%{stroke-dashoffset:1}44%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
+.antz-l-lab-0{stroke-dasharray:1;animation:antz-l-lab-0 2800ms cubic-bezier(0.16, 1, 0.3, 1) both}
+.antz-l-lab-1{stroke-dasharray:1;animation:antz-l-lab-1 2800ms cubic-bezier(0.16, 1, 0.3, 1) both}
+.antz-l-lab-2{stroke-dasharray:1;animation:antz-l-lab-2 2800ms cubic-bezier(0.16, 1, 0.3, 1) both}
+.antz-l-lab-3{stroke-dasharray:1;animation:antz-l-lab-3 2800ms cubic-bezier(0.16, 1, 0.3, 1) both}
+.antz-l-lab-4{animation:antz-l-lab-4 2800ms cubic-bezier(0.65, 0, 0.35, 1) both}
+.antz-l-lab-5{animation:antz-l-lab-5 2800ms cubic-bezier(0.65, 0, 0.35, 1) both}
+.antz-l-lab-6{animation:antz-l-lab-6 2800ms cubic-bezier(0.65, 0, 0.35, 1) both}
+@keyframes antz-l-lab-0{0%,0%{stroke-dashoffset:1}21%,100%{stroke-dashoffset:0}}
+@keyframes antz-l-lab-1{0%,2.7%{stroke-dashoffset:1}23.7%,100%{stroke-dashoffset:0}}
+@keyframes antz-l-lab-2{0%,10.8%{stroke-dashoffset:1}31.8%,100%{stroke-dashoffset:0}}
+@keyframes antz-l-lab-3{0%,30%{stroke-dashoffset:1}44%,100%{stroke-dashoffset:0}}
 @keyframes antz-l-lab-4{0%,32.4%{transform:translateY(0);opacity:0}36.4%{opacity:1}62.4%{transform:translateY(-12px);opacity:0}100%{opacity:0}}
 @keyframes antz-l-lab-5{0%,36%{transform:translateY(0);opacity:0}40%{opacity:1}66%{transform:translateY(-12px);opacity:0}100%{opacity:0}}
 @keyframes antz-l-lab-6{0%,39%{transform:translateY(0);opacity:0}43%{opacity:1}69%{transform:translateY(-12px);opacity:0}100%{opacity:0}}

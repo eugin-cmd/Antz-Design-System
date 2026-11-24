@@ -6,11 +6,11 @@
 .antz-l-repairs .a{stroke:url(#antz-l-repairs-acc)}
 .antz-l-repairs .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
 .antz-l-repairs .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-repairs .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
-.antz-l-repairs-0{stroke-dasharray:1;animation:antz-l-repairs-0 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
-.antz-l-repairs-1{animation:antz-l-repairs-1 3600ms cubic-bezier(0.34, 1.56, 0.64, 1) infinite}
-.antz-l-repairs-g{transform-origin:24px 40px;animation:antz-l-repairs-g 3600ms cubic-bezier(0.65, 0, 0.35, 1) infinite}
-@keyframes antz-l-repairs-0{0%,0%{stroke-dashoffset:1}35%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
-@keyframes antz-l-repairs-1{0%,15%{transform:scale(0);opacity:0}16%{opacity:1}27%,90%{transform:scale(1);opacity:1}97%,100%{transform:scale(1);opacity:0}}
+.antz-l-repairs-0{stroke-dasharray:1;animation:antz-l-repairs-0 2800ms cubic-bezier(0.16, 1, 0.3, 1) both}
+.antz-l-repairs-1{animation:antz-l-repairs-1 2800ms cubic-bezier(0.34, 1.56, 0.64, 1) both}
+.antz-l-repairs-g{transform-origin:24px 40px;animation:antz-l-repairs-g 2800ms cubic-bezier(0.65, 0, 0.35, 1) both}
+@keyframes antz-l-repairs-0{0%,0%{stroke-dashoffset:1}35%,100%{stroke-dashoffset:0}}
+@keyframes antz-l-repairs-1{0%,15%{transform:scale(0);opacity:0}16%{opacity:1}27%,100%{transform:scale(1);opacity:1}}
 @keyframes antz-l-repairs-g{0%,52%{transform:rotate(0)}56%{transform:rotate(-7deg)}61%{transform:rotate(6deg)}66%{transform:rotate(-3deg)}71%,100%{transform:rotate(0)}}
 @media (prefers-reduced-motion:reduce){.antz-l-repairs *{animation:none!important;stroke-dashoffset:0!important;opacity:1!important;transform:none!important}}
 </style>

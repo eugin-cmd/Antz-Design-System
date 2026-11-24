@@ -6,18 +6,18 @@
 .antz-l-kitchen .a{stroke:url(#antz-l-kitchen-acc)}
 .antz-l-kitchen .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
 .antz-l-kitchen .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-kitchen .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
-.antz-l-kitchen-0{stroke-dasharray:1;animation:antz-l-kitchen-0 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
-.antz-l-kitchen-1{stroke-dasharray:1;animation:antz-l-kitchen-1 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
-.antz-l-kitchen-2{stroke-dasharray:1;animation:antz-l-kitchen-2 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
-.antz-l-kitchen-3{stroke-dasharray:1;animation:antz-l-kitchen-3 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
-.antz-l-kitchen-4{stroke-dasharray:1;animation:antz-l-kitchen-4 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
-.antz-l-kitchen-5{stroke-dasharray:1;animation:antz-l-kitchen-5 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
-@keyframes antz-l-kitchen-0{0%,0%{stroke-dashoffset:1}21%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
-@keyframes antz-l-kitchen-1{0%,5.4%{stroke-dashoffset:1}26.4%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
-@keyframes antz-l-kitchen-2{0%,9.9%{stroke-dashoffset:1}30.9%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
-@keyframes antz-l-kitchen-3{0%,30%{stroke-dashoffset:1}44%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
-@keyframes antz-l-kitchen-4{0%,33.6%{stroke-dashoffset:1}47.6%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
-@keyframes antz-l-kitchen-5{0%,37.2%{stroke-dashoffset:1}51.2%,90%{stroke-dashoffset:0;opacity:1}97%,100%{stroke-dashoffset:0;opacity:0}}
+.antz-l-kitchen-0{stroke-dasharray:1;animation:antz-l-kitchen-0 2800ms cubic-bezier(0.16, 1, 0.3, 1) both}
+.antz-l-kitchen-1{stroke-dasharray:1;animation:antz-l-kitchen-1 2800ms cubic-bezier(0.16, 1, 0.3, 1) both}
+.antz-l-kitchen-2{stroke-dasharray:1;animation:antz-l-kitchen-2 2800ms cubic-bezier(0.16, 1, 0.3, 1) both}
+.antz-l-kitchen-3{stroke-dasharray:1;animation:antz-l-kitchen-3 2800ms cubic-bezier(0.16, 1, 0.3, 1) both}
+.antz-l-kitchen-4{stroke-dasharray:1;animation:antz-l-kitchen-4 2800ms cubic-bezier(0.16, 1, 0.3, 1) both}
+.antz-l-kitchen-5{stroke-dasharray:1;animation:antz-l-kitchen-5 2800ms cubic-bezier(0.16, 1, 0.3, 1) both}
+@keyframes antz-l-kitchen-0{0%,0%{stroke-dashoffset:1}21%,100%{stroke-dashoffset:0}}
+@keyframes antz-l-kitchen-1{0%,5.4%{stroke-dashoffset:1}26.4%,100%{stroke-dashoffset:0}}
+@keyframes antz-l-kitchen-2{0%,9.9%{stroke-dashoffset:1}30.9%,100%{stroke-dashoffset:0}}
+@keyframes antz-l-kitchen-3{0%,30%{stroke-dashoffset:1}44%,100%{stroke-dashoffset:0}}
+@keyframes antz-l-kitchen-4{0%,33.6%{stroke-dashoffset:1}47.6%,100%{stroke-dashoffset:0}}
+@keyframes antz-l-kitchen-5{0%,37.2%{stroke-dashoffset:1}51.2%,100%{stroke-dashoffset:0}}
 @media (prefers-reduced-motion:reduce){.antz-l-kitchen *{animation:none!important;stroke-dashoffset:0!important;opacity:1!important;transform:none!important}}
 </style>
 <path class="i antz-l-kitchen-0" d="M10 23h28v11a6 6 0 0 1-6 6H16a6 6 0 0 1-6-6Z" pathLength="1"/>
