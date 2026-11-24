@@ -20,9 +20,9 @@ const VERSION = fs.readFileSync(path.join(ROOT, 'VERSION'), 'utf8').trim();
 const ASSET_V = (await import('node:crypto')).createHash('sha256').update(['tokens.css', 'components.css', 'components.js', 'assets/site.css', 'assets/site.js', 'assets/screens.js']
   .map((f) => { try { return fs.readFileSync(path.join(ROOT, f)); } catch { return ''; } }).join('')).digest('hex').slice(0, 10);
 const NAV = JSON.parse(fs.readFileSync(path.join(ROOT, 'pages/_nav.json'), 'utf8'));
-// Page banner wash per section (ANTZ-GRD-02: chosen by topic and kept per topic; the four alternate across the site)
-const WASH = { 'Getting started': 'primary', Foundations: 'calm', Components: 'illustrative', 'Pattern components': 'celebrate', 'Stat cards': 'calm', Screens: 'illustrative', Content: 'celebrate', Governance: 'calm', Resources: 'primary' };
-const washOf = (href) => { const g = NAV.groups.find((x) => x.links.some((l) => l.href === href)); return (g && WASH[g.title]) || 'primary'; };
+// Page banner band per section: one of four dark feature gradients, kept per topic and alternating across the site
+const WASH = { 'Getting started': 'deep', Foundations: 'navy', Components: 'petrol', 'Pattern components': 'green', 'Stat cards': 'navy', Screens: 'petrol', Content: 'green', Governance: 'navy', Resources: 'deep' };
+const washOf = (href) => { const g = NAV.groups.find((x) => x.links.some((l) => l.href === href)); return (g && WASH[g.title]) || 'deep'; };
 const SITE = 'Antz Design System';
 const label = VERSION.replace(/-beta\.(\d+)/, ' beta $1').replace(/-rc\.(\d+)/, ' RC $1');
 

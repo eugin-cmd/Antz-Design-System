@@ -600,13 +600,13 @@ body { background: var(--color-bg-canvas); overflow-x: hidden; }
 .ar-prims.is-reduced * { animation: none !important; }
 @media (max-width: 720px) { .ar-prim-grid { grid-template-columns: repeat(min(var(--ar-perrow), 2), minmax(0, 1fr)); } .ar-prims--wall .ar-prim-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 
-/* Page banner and tabs on the section's wash (ANTZ-GRD-02). One gradient runs across both:
-   site.js sets --wash-h (banner + tabs height), so the tabs show the bottom slice and there is no seam. */
-.site-main[data-wash="primary"] { --page-wash: var(--gradient-wash-primary); }
-.site-main[data-wash="calm"] { --page-wash: var(--gradient-wash-calm); }
-.site-main[data-wash="celebrate"] { --page-wash: var(--gradient-wash-celebrate); }
-.site-main[data-wash="illustrative"] { --page-wash: var(--gradient-wash-illustrative); }
-.site-main[data-wash] .page-banner, .site-main[data-wash] .page-tabs { background-color: var(--color-surface); background-image: var(--page-wash); background-repeat: no-repeat; background-size: 100% var(--wash-h, 100%); }
+/* Page banner and tabs on a dark feature gradient per section (deep, navy, petrol, green), with light text.
+   One gradient runs across both: site.js sets --wash-h (banner + tabs height), so the tabs show its bottom slice. */
+.site-main[data-wash="deep"] { --page-wash: var(--gradient-deep); }
+.site-main[data-wash="navy"] { --page-wash: var(--gradient-navy); }
+.site-main[data-wash="petrol"] { --page-wash: var(--gradient-petrol); }
+.site-main[data-wash="green"] { --page-wash: var(--gradient-green); }
+.site-main[data-wash] .page-banner, .site-main[data-wash] .page-tabs { background-color: var(--color-surface-strong); background-image: var(--page-wash); background-repeat: no-repeat; background-size: 100% var(--wash-h, 100%); }
 .site-main[data-wash] .page-banner { background-position: 0 0; }
 .site-main[data-wash] .page-tabs { background-position: 0 100%; }
 
@@ -620,3 +620,13 @@ body { background: var(--color-bg-canvas); overflow-x: hidden; }
 @media (prefers-reduced-motion: reduce) { .hero__iris { animation: none; } }
 :root[data-contrast="high"] .hero__iris { display: none; }
 @media (prefers-contrast: more) { :root:not([data-contrast="standard"]) .hero__iris { display: none; } }
+.site-main[data-wash] .page-banner { color: var(--color-text-on-strong); }
+.site-main[data-wash] .page-banner .t-overline { color: var(--color-accent-bright); }
+.site-main[data-wash] .page-banner__intro { color: color-mix(in srgb, var(--color-text-on-strong) 86%, transparent); }
+.site-main[data-wash] .page-banner__art { color: var(--color-accent-bright); background: color-mix(in srgb, var(--color-text-on-strong) 12%, transparent); }
+.site-main[data-wash] .page-tabs { box-shadow: inset 0 -1px 0 color-mix(in srgb, var(--color-text-on-strong) 18%, transparent); }
+.site-main[data-wash] .page-tabs > button { color: color-mix(in srgb, var(--color-text-on-strong) 80%, transparent); }
+.site-main[data-wash] .page-tabs > button:hover { color: var(--color-text-on-strong); }
+.site-main[data-wash] .page-tabs > button[aria-selected="true"] { color: var(--color-text-on-strong); } /* white: the bright-green underline marks the active tab */
+.site-main[data-wash] .page-tabs > button:focus-visible { outline-color: var(--color-text-on-strong); }
+.site-main[data-wash] .page-tabs > .tab-indicator { background: var(--color-accent-bright); }
