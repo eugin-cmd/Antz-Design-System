@@ -10,8 +10,9 @@ These rules apply to any AI assistant (Claude Code, Copilot, Cursor, Codex or an
 4. Status uses status tokens (`success`, `warning`, `caution`, `danger`, `info`), never the brand green.
 5. One main (filled brand) action per header, drawer or dialog. Add and edit happen in the right work drawer (`.drawer`, 562px).
 6. Every icon-only button has `aria-label`. Every image has `alt`. Never remove focus outlines.
-7. Run `node tools/check.mjs <changed files>` and fix every finding before you finish. When you change tokens, run `node tools/build.mjs` and `node tools/test.mjs`.
-8. Products and prototypes link a pinned release: `releases/vX.Y.Z/tokens.css`, never the repository root.
+7. Icons (DD-004): interface icons are the component icons (`<use href="#i-name">`, ANTZ Rounded); filled only for the selected state. Animated line icons (`icons/antz-rounded/primary-line/`) are for module navigation, empty states, onboarding and confirmations at 48 to 72px, play once (replay with `data-icon-replay`), one playing in view at a time, never in dense controls. Never borrow icons from another set: ask the icon team.
+8. Run `node tools/check.mjs <changed files>` and fix every finding before you finish. When you change tokens, run `node tools/build.mjs` and `node tools/test.mjs`.
+9. Products and prototypes link a pinned release: `releases/vX.Y.Z/tokens.css`, never the repository root.
 
 ## Never
 

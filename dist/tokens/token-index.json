@@ -5422,11 +5422,11 @@
       "css": "--icon-stroke",
       "type": "number",
       "tier": "base",
-      "description": "",
-      "light": 1.8,
-      "dark": 1.8,
-      "light-hc": 1.8,
-      "dark-hc": 1.8
+      "description": "Interface icon stroke: ANTZ Rounded icons render at the weight they are drawn, 2px on the 24px grid (DD-004).",
+      "light": 2,
+      "dark": 2,
+      "light-hc": 2,
+      "dark-hc": 2
     },
     {
       "name": "border-width-hairline",

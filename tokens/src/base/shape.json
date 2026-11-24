@@ -173,7 +173,8 @@
   },
   "icon-stroke": {
     "$type": "number",
-    "$value": 1.8
+    "$value": 2,
+    "$description": "Interface icon stroke: ANTZ Rounded icons render at the weight they are drawn, 2px on the 24px grid (DD-004)."
   },
   "border-width-hairline": {
     "$type": "dimension",

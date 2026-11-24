@@ -1,7 +1,8 @@
 ---
 id: DD-004
 title: Icon system - which icons, where
-status: proposed
+status: accepted
+accepted: 2026-11-24 (System Owner)
 date: 2026-11-24
 owner: System Owner
 approver: System Owner (Eugin Robinson)
@@ -38,7 +39,7 @@ which to use where. Screens built today could mix them.
 4. **One module-navigation style per product.** Primary tile icons and animated line icons both serve module
    navigation. A product uses one of them, not both; the icon team recommends which becomes the default.
 5. **One weight per size.** Interface icons render at the weight they are drawn: 2px on the 24px grid
-   (`--icon-stroke` moves from 1.8 to 2 when this is accepted, a visible but small change to every component icon).
+   (`--icon-stroke` is 2, changed from 1.8 when this was accepted: a small, visible change to every component icon).
    Animated line icons are 1.5px on the 48px grid and are only shown at 48 to 72px.
 6. **The icon team owns the drawings.** New icons and changes are drawn and checked in the ANTZ icon builder against
    its guardrails; the design system imports them (`icons/antz-rounded/SOURCE.md`). The animated line set moves into
@@ -48,7 +49,7 @@ which to use where. Screens built today could mix them.
 
 ## Consequences
 - Designers and developers have one answer for "which icon": ANTZ Rounded for interface, animated line for moments.
-- `--icon-stroke` 1.8 → 2 changes every component icon slightly; it is applied together with this decision.
-- The skill and `AGENTS.md` gain the rules above once accepted.
+- `--icon-stroke` 1.8 → 2 changed every component icon slightly; applied with this decision.
+- The skill and `AGENTS.md` carry the rules.
 - Open with the icon team (Roshni): the 10 missing component icons, approving the drafts, adopting the animated
   line set in the builder, and the default module-navigation style.

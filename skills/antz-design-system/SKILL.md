@@ -45,6 +45,7 @@ Run `rules` for the full register. These are the ones people most often trip ove
 - **One main (filled brand) action** per header, drawer or dialog. **Add and edit happen in the right work drawer** (`.drawer`, 562px), not in new modals or pages.
 - **Gradient washes** (`--gradient-wash-primary|celebrate|calm|illustrative`) are for large soft backgrounds and stat panels only, chosen by meaning, at most two per screen; never on buttons, data, status or small text. Mortality, alerts and overdue figures never sit on the celebrate wash.
 - **Motion** uses `--duration-*` and `--ease-*` (under 500ms; reduced motion is automatic). Anything that moves or arrives (lifts, presses, hovers, menus, dialogs, toasts, sheets, rises, indicators) uses `--ease-move`, the elastic settle. Colour and opacity changes use `--ease-standard`, exits `--ease-exit`. Data bars, loops and edge-attached panels never overshoot.
+- **Icons (DD-004):** interface icons are the component icons (`#i-name`, ANTZ Rounded, 2px), filled only for a selected state. Animated line icons (`icons/antz-rounded/primary-line/`) are for module navigation, empty states, onboarding and confirmations at 48 to 72px; they play once (replay with `data-icon-replay`), one in view at a time, never in dense controls; use `static/` where motion adds nothing. Missing an icon? Ask the icon team, never borrow from another set.
 - **No second versions** of existing components: confirm dialog, toast, filter drawer, table, drawer, card.
 
 ## When a request goes outside the system
