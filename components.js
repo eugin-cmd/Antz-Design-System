@@ -248,7 +248,8 @@
    Gallery: data-gallery-pick shows step 2 (style and size); data-gallery-back returns.
    Modules dialog: data-module-pick="<name>" selects a module and names it in the detail pane.
    Module panel: data-modnav-fold folds .modnav to icons.
-   Toggles: data-toggle="<id>" shows or hides a panel in place (menu search and filters). */
+   Toggles: data-toggle="<id>" shows or hides a panel in place (menu search and filters).
+   Pins: .module-tile__pin toggles aria-pressed and its label (Pin / Unpin). */
 (function () {
   'use strict';
   var doc = document, openPop = null, popTrigger = null, lastDialogTrigger = null;
@@ -310,6 +311,11 @@
       var md = t.closest('.modules-dialog'); if (!md) return;
       md.querySelectorAll('[data-module-pick]').forEach(function (m) { m.setAttribute('aria-current', String(m === t)); });
       var nm = md.querySelector('[data-module-name]'); if (nm) nm.textContent = t.getAttribute('data-module-pick');
+      return;
+    }
+    if ((t = e.target.closest('.module-tile__pin'))) {
+      var pinned = t.getAttribute('aria-pressed') !== 'true'; t.setAttribute('aria-pressed', String(pinned));
+      var nm2 = (t.getAttribute('aria-label') || '').replace(/^(Pin|Unpin) /, ''); t.setAttribute('aria-label', (pinned ? 'Unpin ' : 'Pin ') + nm2);
       return;
     }
     if ((t = e.target.closest('[data-toggle]'))) {

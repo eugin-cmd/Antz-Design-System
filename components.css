@@ -1614,8 +1614,16 @@ a.animal:hover { background: var(--color-surface-hover); }
 .popover__panel { padding: var(--space-4); border-radius: var(--radius-xl); background: var(--color-surface); box-shadow: var(--shadow-md); }
 .popover__label { margin: var(--space-2) 0 0; }
 .module-tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-3); }
-.module-tile { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; padding: var(--space-3) var(--space-3) var(--space-4); border-radius: var(--radius-xl); color: var(--color-text); background: var(--color-accent-soft); text-decoration: none; transition: background-color var(--duration-fast) var(--ease-standard), transform var(--duration-base) var(--ease-move); }
-.module-tile:hover { background: color-mix(in srgb, var(--color-accent-soft) 70%, var(--color-accent) 12%); transform: translateY(var(--motion-lift)); }
+.module-tile { position: relative; min-width: 0; border-radius: var(--radius-xl); background: var(--color-accent-soft); transition: background-color var(--duration-fast) var(--ease-standard), box-shadow var(--duration-moderate) var(--ease-standard), transform var(--duration-base) var(--ease-move); }
+.module-tile__link { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; padding: var(--space-3) var(--space-3) var(--space-4); border-radius: inherit; color: var(--color-text); text-decoration: none; }
+.module-tile:hover, .module-tile:focus-within { background: var(--color-surface); box-shadow: var(--shadow-md), inset 0 0 0 1px var(--color-border); transform: translateY(var(--motion-lift)); }
+.module-tile__pin { position: absolute; top: var(--space-2-5); inset-inline-end: var(--space-2-5); display: grid; place-items: center; width: var(--size-control-sm); height: var(--size-control-sm); border: 0; border-radius: var(--radius-full); color: var(--color-text-muted); background: transparent; cursor: pointer; opacity: 0; transition: opacity var(--duration-fast) var(--ease-standard), color var(--duration-fast) var(--ease-standard); }
+.module-tile:hover .module-tile__pin, .module-tile:focus-within .module-tile__pin, .module-tile__pin[aria-pressed="true"] { opacity: 1; }
+.module-tile__pin:hover { color: var(--color-text); background: var(--color-surface-hover); }
+.module-tile__pin[aria-pressed="true"] { color: var(--color-accent-text); }
+.module-tile__pin .icon { width: var(--size-icon-md); height: var(--size-icon-md); transition: transform var(--duration-base) var(--ease-move); }
+.module-tile__pin[aria-pressed="true"] .icon { transform: rotate(-30deg); }
+@media (hover: none) { .module-tile__pin { opacity: 1; } } /* touch: no hover, so the pin always shows */
 .module-tile .tile-icon { width: var(--size-control-lg); height: var(--size-control-lg); margin-bottom: var(--space-6); border-radius: var(--radius-lg); }
 .module-tile .tile-icon .icon { width: var(--size-icon-lg); height: var(--size-icon-lg); }
 .module-tile b { max-width: 100%; font-size: var(--text-lg); font-weight: var(--weight-semibold); line-height: var(--leading-snug); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

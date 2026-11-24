@@ -51,5 +51,5 @@ which to use where. Screens built today could mix them.
 - Designers and developers have one answer for "which icon": ANTZ Rounded for interface, animated line for moments.
 - `--icon-stroke` 1.8 → 2 changed every component icon slightly; applied with this decision.
 - The skill and `AGENTS.md` carry the rules.
-- Open with the icon team (Roshni): the 10 missing component icons, approving the drafts, adopting the animated
+- Open with the icon team (Roshni): a pushpin (`i-pushpin` is provisional, drawn for the module menu on 24 Nov 2026), the 10 missing component icons, approving the drafts, adopting the animated
   line set in the builder, and the default module-navigation style.
