@@ -1,9 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-notifications" role="img" aria-label="Notifications">
-<defs><linearGradient id="antz-l-notifications-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<defs><linearGradient id="antz-l-notifications-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient><mask id="antz-l-notifications-cut" maskUnits="userSpaceOnUse" x="-8" y="-8" width="64" height="64"><rect x="-8" y="-8" width="64" height="64" fill="#fff"/><circle class="k antz-l-notifications-5" cx="35" cy="13" r="2.6" fill="#000"/></mask></defs>
 <style>
 .antz-l-notifications .i,.antz-l-notifications .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
 .antz-l-notifications .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
 .antz-l-notifications .a{stroke:url(#antz-l-notifications-acc)}
+.antz-l-notifications .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
 .antz-l-notifications .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-notifications .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
 .antz-l-notifications-0{stroke-dasharray:1;animation:antz-l-notifications-0 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
 .antz-l-notifications-1{stroke-dasharray:1;animation:antz-l-notifications-1 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
@@ -22,11 +23,13 @@
 @media (prefers-reduced-motion:reduce){.antz-l-notifications *{animation:none!important;stroke-dashoffset:0!important;opacity:1!important;transform:none!important}}
 </style>
 <g class="antz-l-notifications-g">
+<g mask="url(#antz-l-notifications-cut)">
 <path class="i antz-l-notifications-0" d="M13 33V23a11 11 0 0 1 22 0v10l3.5 4h-29Z" pathLength="1"/>
 <path class="i antz-l-notifications-1" d="M24 12V9" pathLength="1"/>
 <path class="i antz-l-notifications-2" d="M20.5 41a3.5 3.5 0 0 0 7 0" pathLength="1"/>
 <path class="i antz-l-notifications-3" d="M17.5 23a6.5 6.5 0 0 1 4-6" pathLength="1"/>
 <path class="a antz-l-notifications-4" d="M7 17a17 17 0 0 1 5-7M41 17a17 17 0 0 0-5-7" pathLength="1"/>
+</g>
 <circle class="a antz-l-notifications-5" cx="35" cy="13" r="2.6"/>
 </g>
 </svg>

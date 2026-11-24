@@ -4,6 +4,7 @@
 .antz-l-refresh .i,.antz-l-refresh .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
 .antz-l-refresh .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
 .antz-l-refresh .a{stroke:url(#antz-l-refresh-acc)}
+.antz-l-refresh .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
 .antz-l-refresh .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-refresh .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
 .antz-l-refresh-0{stroke-dasharray:1;animation:antz-l-refresh-0 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
 .antz-l-refresh-1{stroke-dasharray:1;animation:antz-l-refresh-1 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}

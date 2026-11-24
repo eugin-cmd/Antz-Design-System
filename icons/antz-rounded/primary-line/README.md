@@ -7,6 +7,8 @@ the "lineal colour" animated icons on Flaticon (style reference only: every draw
 - Ink: `--color-text`, so it follows light, dark and high contrast when the SVG is inline.
 - One accent detail per icon, a gradient from `--scale-primary-600` (#21924E) to `--scale-secondary-600` (#00A698):
   each end passes 3:1 as a graphic on light and dark surfaces.
+- Overlaps: an element in front (a magnifier, a pencil, a stamp) knocks out the lines behind it with a 1.5px gap,
+  through a mask rather than a white fill, so it reads as solid on any background and the cut-out moves with it.
 - Motion: the outline draws on (`--ease-out`), the accent pops or moves with the elastic settle (`--ease-elastic`),
   a rest, then it fades and loops every 3.6s. Reduced motion shows the final frame.
 

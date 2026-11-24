@@ -9,7 +9,11 @@
  *
  * Colours come from tokens when the SVG is inline: ink is --color-text (follows light, dark and high contrast); the
  * accent runs --scale-primary-600 to --scale-secondary-600, which pass 3:1 on light and dark surfaces. As an <img>
- * the light fallbacks apply. Under reduced motion the icon shows its final frame. Zero dependencies.
+ * the light fallbacks apply. Under reduced motion the icon shows its final frame.
+ *
+ * Overlaps: a shape marked `front: true` knocks out whatever is behind it (a mask, with a 1.5px gap around its
+ * outline), so it reads as solid on any background, light or dark, and the cut-out moves with its animation.
+ * Zero dependencies.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -132,8 +136,8 @@ const ICONS = {
       ['path', { d: 'M10 19v21M38 19v21M6 40h36' }, { at: 0.25 }],
       ['path', { d: 'M10 28h8M30 28h8M10 34h8M30 34h8' }, { at: 0.55 }],
     ], accent: [
-      ['path', { d: 'M18 40V28a6 6 0 0 1 12 0v12' }],
-      ['circle', { cx: 26.5, cy: 34, r: 1 }, { motion: 'pop', at: 0.5 }],
+      ['path', { d: 'M18 40V28a6 6 0 0 1 12 0v12' }, { front: true }],
+      ['circle', { cx: 26.5, cy: 34, r: 1 }, { motion: 'pop', at: 0.5, front: true }],
     ] },
   move_animal: { label: 'Move animal', module: 'Move animal between enclosures', ink: [
       ['rect', { x: 5, y: 22, width: 14, height: 18, rx: 3 }],
@@ -171,8 +175,8 @@ const ICONS = {
       ['path', { d: 'M15 9V7a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2' }, { at: 0.25 }],
       ['path', { d: 'M13 18h14M13 23h10M13 28h6' }, { at: 0.5 }],
     ], accent: [
-      ['circle', { cx: 31, cy: 31, r: 6 }, { motion: 'move', from: 'translate(-5px,-5px)', origin: '31px 31px' }],
-      ['path', { d: 'M35.5 35.5 41 41' }, { motion: 'move', from: 'translate(-5px,-5px)', at: 0.1 }],
+      ['circle', { cx: 31, cy: 31, r: 6 }, { motion: 'move', from: 'translate(-5px,-5px)', origin: '31px 31px', front: true }],
+      ['path', { d: 'M35.5 35.5 41 41' }, { motion: 'move', from: 'translate(-5px,-5px)', at: 0.1, front: true }],
     ] },
   assessments: { label: 'Assessments', module: 'Assessments', ink: [
       ['rect', { x: 10, y: 9, width: 28, height: 32, rx: 3 }],
@@ -192,15 +196,15 @@ const ICONS = {
       ['path', { d: 'M27 6v9h9' }, { at: 0.3 }],
       ['path', { d: 'M15 22h13M15 27h8' }, { at: 0.55 }],
     ], accent: [
-      ['circle', { cx: 32, cy: 35, r: 6 }, { motion: 'pop' }],
-      ['path', { d: 'M29.5 35l2 2 3.5-4' }, { at: 0.4 }],
+      ['circle', { cx: 32, cy: 35, r: 6 }, { motion: 'pop', front: true }],
+      ['path', { d: 'M29.5 35l2 2 3.5-4' }, { at: 0.4, front: true }],
     ] },
   notes: { label: 'Notes', module: 'Notes and journal', ink: [
       ['rect', { x: 8, y: 7, width: 24, height: 34, rx: 3 }],
       ['path', { d: 'M13 16h14M13 22h14M13 28h8' }, { at: 0.4 }],
     ], accent: [
-      ['path', { d: 'M28 41v-4l11-11 4 4-11 11Z' }, { motion: 'move', from: 'translate(5px,-5px) rotate(12deg)' }],
-      ['path', { d: 'M36 29l4 4' }, { motion: 'move', from: 'translate(5px,-5px)', at: 0.05 }],
+      ['path', { d: 'M28 41v-4l11-11 4 4-11 11Z' }, { motion: 'move', from: 'translate(5px,-5px) rotate(12deg)', front: true }],
+      ['path', { d: 'M36 29l4 4' }, { motion: 'move', from: 'translate(5px,-5px)', at: 0.05, front: true }],
     ] },
   announcements: { label: 'Announcements', module: 'Announcements', ink: [
       ['path', { d: 'M8 20v8a2 2 0 0 0 2 2h4l14 8V10l-14 8h-4a2 2 0 0 0-2 2Z' }],
@@ -216,7 +220,7 @@ const ICONS = {
       ['path', { d: 'M17.5 23a6.5 6.5 0 0 1 4-6' }, { at: 0.65 }],
     ], accent: [
       ['path', { d: 'M7 17a17 17 0 0 1 5-7M41 17a17 17 0 0 0-5-7' }],
-      ['circle', { cx: 35, cy: 13, r: 2.6 }, { motion: 'pop', at: 0.4 }],
+      ['circle', { cx: 35, cy: 13, r: 2.6 }, { motion: 'pop', at: 0.4, front: true }],
     ] },
   chat: { label: 'Chat', module: 'Chat', ink: [
       ['path', { d: 'M12 8h24a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-8 7v-7h-2a4 4 0 0 1-4-4V12a4 4 0 0 1 4-4Z' }],
@@ -258,8 +262,8 @@ const ICONS = {
       ['rect', { x: 6, y: 8, width: 32, height: 24, rx: 3 }],
       ['path', { d: 'M12 16h20M12 22h11' }, { at: 0.45 }],
     ], accent: [
-      ['circle', { cx: 33, cy: 31, r: 5 }, { motion: 'pop' }],
-      ['path', { d: 'M30 35.5 28 42l5-2.5 5 2.5-2-6.5' }, { at: 0.4 }],
+      ['circle', { cx: 33, cy: 31, r: 5 }, { motion: 'pop', front: true }],
+      ['path', { d: 'M30 35.5 28 42l5-2.5 5 2.5-2-6.5' }, { at: 0.4, front: true }],
     ] },
   activity_log: { label: 'Activity log', module: 'Activity log', ink: [
       ['path', { d: 'M8.5 27A16 16 0 1 0 12.7 12.7L8 17' }],
@@ -370,7 +374,8 @@ const ICONS = {
 
 const pct = (x) => `${Math.round(x * 1000) / 10}%`;
 function svgFor(name, ic) {
-  const c = `antz-l-${name}`, kf = [], shapes = [];
+  const c = `antz-l-${name}`, kf = [], shapes = [], fronts = [], cuts = [];
+  const GAP = 1.5; // clear space around a front element, px
   // Timeline (fractions of the loop): ink draws 0–0.30, accent 0.30–0.50, hold, fade 0.90–0.97, rest
   const phase = (from, to, at = 0) => from + (to - from) * at * 0.6;
   const attrs = (o) => Object.entries(o).map(([k, v]) => `${k}="${v}"`).join(' ');
@@ -387,7 +392,13 @@ function svgFor(name, ic) {
     kf.push(`@keyframes ${id}{${frames}}`);
     const ease = motion === 'pop' || motion === 'pulse' || motion === 'move' ? EASE.pop : motion === 'rise' ? EASE.sway : EASE.draw;
     const isDraw = motion === 'draw' || motion === 'pulse';
-    shapes.push(`<${tag} class="${cls} ${id}" ${attrs(a)}${isDraw ? ' pathLength="1"' : ''}/>`);
+    const el = `<${tag} class="${cls} ${id}" ${attrs(a)}${isDraw ? ' pathLength="1"' : ''}/>`;
+    if (m.front) {
+      // The same shape, in black, in the mask: it moves and fades with the element, so the cut-out follows it
+      const closed = tag !== 'path' || /z\s*$/i.test(a.d);
+      fronts.push(el);
+      cuts.push(`<${tag} class="k ${id}" ${attrs(a)}${isDraw ? ' pathLength="1"' : ''} fill="${closed ? '#000' : 'none'}"/>`);
+    } else shapes.push(el);
     return `.${id}{${isDraw ? 'stroke-dasharray:1;' : ''}${m.origin ? `transform-box:view-box;transform-origin:${m.origin};` : ''}animation:${id} ${LOOP}ms ${ease} infinite}`;
   };
   const rules = [...ic.ink.map((s) => add('i', s, 0, 0.3)), ...ic.accent.map((s) => add('a', s, ic.ink.length ? 0.3 : 0, 0.5))];
@@ -406,13 +417,16 @@ function svgFor(name, ic) {
     `.${c} .i,.${c} .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}`,
     `.${c} .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}`,
     `.${c} .a{stroke:url(#${c}-acc)}`,
+    `.${c} .k{stroke:#000;stroke-width:${1.5 + GAP * 2};stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}`,
     `.${c} .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.${c} .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}`,
     ...rules, group, ...kf,
     `@media (prefers-reduced-motion:reduce){.${c} *{animation:none!important;stroke-dashoffset:0!important;opacity:1!important;transform:none!important}}`,
   ].filter(Boolean).join('\n');
-  const body = shapes.join('\n');
+  // Elements behind are masked where a front element sits; front elements draw on top, unmasked
+  const body = fronts.length ? `<g mask="url(#${c}-cut)">\n${shapes.join('\n')}\n</g>\n${fronts.join('\n')}` : shapes.join('\n');
+  const mask = fronts.length ? `<mask id="${c}-cut" maskUnits="userSpaceOnUse" x="-8" y="-8" width="64" height="64"><rect x="-8" y="-8" width="64" height="64" fill="#fff"/>${cuts.join('')}</mask>` : '';
   return `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="${c}" role="img" aria-label="${ic.label}">
-<defs><linearGradient id="${c}-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<defs><linearGradient id="${c}-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient>${mask}</defs>
 <style>
 ${style}
 </style>

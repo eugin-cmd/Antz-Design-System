@@ -1,9 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-housing" role="img" aria-label="Housing">
-<defs><linearGradient id="antz-l-housing-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<defs><linearGradient id="antz-l-housing-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient><mask id="antz-l-housing-cut" maskUnits="userSpaceOnUse" x="-8" y="-8" width="64" height="64"><rect x="-8" y="-8" width="64" height="64" fill="#fff"/><path class="k antz-l-housing-3" d="M18 40V28a6 6 0 0 1 12 0v12" pathLength="1" fill="none"/><circle class="k antz-l-housing-4" cx="26.5" cy="34" r="1" fill="#000"/></mask></defs>
 <style>
 .antz-l-housing .i,.antz-l-housing .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
 .antz-l-housing .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
 .antz-l-housing .a{stroke:url(#antz-l-housing-acc)}
+.antz-l-housing .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
 .antz-l-housing .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-housing .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
 .antz-l-housing-0{stroke-dasharray:1;animation:antz-l-housing-0 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
 .antz-l-housing-1{stroke-dasharray:1;animation:antz-l-housing-1 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
@@ -17,9 +18,11 @@
 @keyframes antz-l-housing-4{0%,36%{transform:scale(0);opacity:0}37%{opacity:1}48%,90%{transform:scale(1);opacity:1}97%,100%{transform:scale(1);opacity:0}}
 @media (prefers-reduced-motion:reduce){.antz-l-housing *{animation:none!important;stroke-dashoffset:0!important;opacity:1!important;transform:none!important}}
 </style>
+<g mask="url(#antz-l-housing-cut)">
 <path class="i antz-l-housing-0" d="M6 22 24 9l18 13" pathLength="1"/>
 <path class="i antz-l-housing-1" d="M10 19v21M38 19v21M6 40h36" pathLength="1"/>
 <path class="i antz-l-housing-2" d="M10 28h8M30 28h8M10 34h8M30 34h8" pathLength="1"/>
+</g>
 <path class="a antz-l-housing-3" d="M18 40V28a6 6 0 0 1 12 0v12" pathLength="1"/>
 <circle class="a antz-l-housing-4" cx="26.5" cy="34" r="1"/>
 </svg>

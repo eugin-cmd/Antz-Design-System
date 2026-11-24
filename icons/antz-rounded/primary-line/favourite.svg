@@ -4,6 +4,7 @@
 .antz-l-favourite .i,.antz-l-favourite .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
 .antz-l-favourite .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
 .antz-l-favourite .a{stroke:url(#antz-l-favourite-acc)}
+.antz-l-favourite .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
 .antz-l-favourite .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-favourite .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
 .antz-l-favourite-0{stroke-dasharray:1;animation:antz-l-favourite-0 3600ms cubic-bezier(0.34, 1.56, 0.64, 1) infinite}
 @keyframes antz-l-favourite-0{0%,0%{stroke-dashoffset:1;transform:scale(1)}35%{stroke-dashoffset:0;transform:scale(1)}43%{transform:scale(1.18)}55%,90%{stroke-dashoffset:0;transform:scale(1);opacity:1}97%,100%{opacity:0}}

@@ -4,6 +4,7 @@
 .antz-l-kitchen .i,.antz-l-kitchen .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
 .antz-l-kitchen .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
 .antz-l-kitchen .a{stroke:url(#antz-l-kitchen-acc)}
+.antz-l-kitchen .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
 .antz-l-kitchen .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-kitchen .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
 .antz-l-kitchen-0{stroke-dasharray:1;animation:antz-l-kitchen-0 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
 .antz-l-kitchen-1{stroke-dasharray:1;animation:antz-l-kitchen-1 3600ms cubic-bezier(0.16, 1, 0.3, 1) infinite}
