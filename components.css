@@ -95,6 +95,9 @@ button { font: inherit; color: inherit; }
 .icon-btn--ghost { background: transparent; }
 .icon-btn--sm { width: 36px; height: 36px; border-radius: var(--radius-control); }
 .icon-btn--sm .icon { width: 17px; height: 17px; }
+/* Unread dot (DD-007): a small danger dot on the corner; put the count in the aria-label */
+.icon-btn--dot { position: relative; }
+.icon-btn--dot::after { content: ""; position: absolute; top: var(--space-1-5); inset-inline-end: var(--space-1-5); width: var(--space-2); height: var(--space-2); border-radius: var(--radius-full); background: var(--color-danger-solid); box-shadow: 0 0 0 var(--border-width-strong) var(--color-surface); }
 .icon-btn:disabled { color: var(--color-text-disabled); background: transparent; cursor: not-allowed; transform: none; }
 .icon-btn__dot { position: absolute; top: 11px; right: 12px; width: 8px; height: 8px; border-radius: 50%; background: var(--color-signal-danger); box-shadow: 0 0 0 2px var(--color-surface-muted); }
 
