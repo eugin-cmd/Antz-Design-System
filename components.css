@@ -1516,9 +1516,13 @@ a.animal:hover { background: var(--color-surface-hover); }
 .popover--lg { width: min(var(--size-popover-lg), calc(100vw - var(--space-8))); }
 .popover--end { inset-inline: auto 0; transform-origin: top right; }
 .pop-anchor { position: relative; display: inline-flex; }
-.popover--switch .module-grid__group { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-.popover--switch .module-grid__item { align-items: center; padding: var(--space-2) var(--space-1); text-align: center; background: none; }
-.popover--switch .module-grid__item:hover, .popover--switch .module-grid__item[aria-current="page"] { background: var(--color-surface-sunken); }
+.popover--switch .module-grid__group { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.popover--switch .module-grid__item { min-width: 0; align-items: center; padding: var(--space-3) var(--space-1); border-radius: var(--radius-lg); text-align: center; background: none; }
+/* Three columns leave room for names up to about 14 characters on one line; anything longer wraps inside its tile instead of spilling out. */
+.popover--switch .module-grid__item b { max-width: 100%; line-height: var(--leading-snug); hyphens: auto; overflow-wrap: break-word; }
+.popover--switch .module-grid__item:hover { background: var(--color-surface-sunken); }
+/* The module you are in: a warm cream tile, so it reads as "you are here" rather than as hover. */
+.popover--switch .module-grid__item[aria-current="page"] { background: var(--hue-amber-soft); }
 /* Picker: a searchable list with counts and a check on the chosen one */
 .picker__list { display: flex; flex-direction: column; margin: 0; padding: 0; list-style: none; }
 .picker__opt { display: flex; align-items: center; gap: var(--space-2); width: 100%; min-height: var(--size-control-lg); padding: 0 var(--space-2); border: 0; border-radius: var(--radius-sm); font: inherit; font-size: var(--text-md); text-align: start; color: var(--color-text); background: none; cursor: pointer; }
@@ -1611,6 +1615,10 @@ a.animal:hover { background: var(--color-surface-hover); }
 .popover__tools { display: flex; gap: var(--space-1); }
 .popover__tools [aria-expanded="true"] { color: var(--color-accent-text); background: var(--color-accent-soft); }
 .popover__search { width: 100%; }
+/* Search inside a popover: a fixed height (it must not shrink when the list below scrolls), its fill kept on focus,
+   and a 2px ring without the outer glow that would crowd the popover edge. */
+.popover > .search { flex: none; height: var(--size-control-md); }
+.popover .search:focus-within { background: var(--color-surface-muted); box-shadow: 0 0 0 2px var(--color-focus); }
 .popover__panel { padding: var(--space-4); border-radius: var(--radius-xl); background: var(--color-surface); box-shadow: var(--shadow-md); }
 .popover__label { margin: var(--space-2) 0 0; }
 .module-tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-3); }
@@ -1756,7 +1764,10 @@ a.rec:hover { background: var(--color-surface-hover); }
 /* Split button: the main action plus a menu of related actions */
 .btn-split { display: flex; width: 100%; }
 .btn-split > .btn:first-child { flex: 1; justify-content: flex-start; border-start-end-radius: 0; border-end-end-radius: 0; }
-.btn-split > .btn + .btn { flex: none; padding-inline: var(--space-3); border-start-start-radius: 0; border-end-start-radius: 0; box-shadow: inset var(--border-width) 0 0 color-mix(in srgb, currentColor 30%, transparent); }
+/* The menu trigger may sit directly in the split or inside .pop-anchor (so its menu can open). */
+.btn-split > .pop-anchor { flex: none; }
+.btn-split > .btn + .btn,
+.btn-split > .pop-anchor > .btn { flex: none; padding-inline: var(--space-3); border-start-start-radius: 0; border-end-start-radius: 0; box-shadow: inset var(--border-width) 0 0 color-mix(in srgb, currentColor 30%, transparent); }
 /* Quick dock: Quick actions and chat, floating at the foot of the board */
 .quick-dock { position: sticky; bottom: var(--space-4); z-index: var(--z-sticky); display: inline-flex; align-items: center; gap: var(--space-2); align-self: center; padding: var(--space-1-5); border-radius: var(--radius-full); background: var(--color-glass); box-shadow: var(--shadow-lg), inset 0 0 0 var(--border-width) var(--color-glass-border); -webkit-backdrop-filter: blur(var(--size-blur-glass)); backdrop-filter: blur(var(--size-blur-glass)); }
 .quick-dock > .btn { border-radius: var(--radius-full); }

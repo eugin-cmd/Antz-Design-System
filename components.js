@@ -271,7 +271,9 @@
     if ((t = e.target.closest('[data-popover]'))) {
       var p = byId(t, t.getAttribute('data-popover')); if (!p) return;
       var was = openPop === p; closePop(false);
-      if (!was) { p.hidden = false; openPop = p; popTrigger = t; t.setAttribute('aria-expanded', 'true'); var f = p.querySelector('input, [aria-selected="true"], button'); if (f) f.focus({ preventScroll: true }); }
+      // Opened from the keyboard (e.detail is 0): move focus in so people can type straight away.
+      // Opened by pointer: leave the search field at rest; it takes focus when tapped.
+      if (!was) { p.hidden = false; openPop = p; popTrigger = t; t.setAttribute('aria-expanded', 'true'); if (e.detail === 0) { var f = p.querySelector('input, [aria-selected="true"], button'); if (f) f.focus({ preventScroll: true }); } }
       return;
     }
     if (openPop && !openPop.contains(e.target)) closePop(false);

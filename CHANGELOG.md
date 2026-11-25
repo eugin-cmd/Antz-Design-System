@@ -7,6 +7,14 @@ All notable changes to the Antz Design System. Versions follow semantic versioni
 ### Tables
 - **Pinned column shadow:** once a wide table scrolls, the pinned first column casts a soft shadow on the columns sliding under it, as in the Pharmacy app, instead of a hairline. New elevation token `--shadow-edge` (light and dark). The pinned table uses separate borders so the cells can cast it. 866 tokens.
 
+### Fixes
+- **Split button:** the menu trigger sits inside `.pop-anchor` so its menu can open, which the split styles missed. It now joins the main action with square inner corners and the divider, instead of showing as a separate rounded button.
+- **Module switcher:** the grid has three columns instead of four, so long names such as "Announcements" fit on one line at full size instead of spilling past their tile. Anything longer wraps inside the tile. The module you are in now sits on a warm cream tile (`--hue-amber-soft`, with rounder corners) instead of the grey used for hover.
+- **Search in popovers (module switcher on every module home):**
+  - opened with a mouse or touch, the search field stays at rest (filled, no ring) instead of jumping to its focus style; opened from the keyboard, focus still moves in so people can type straight away;
+  - it keeps its height (`--size-control-md`) instead of shrinking when the list below is long;
+  - on focus it keeps its fill and a 2px ring, without the outer glow that crowded the popover edge.
+
 ### Governance
 - **DD-006 accepted** by the System Owner (25 November 2026): role homes, every module home, record lists, quick add, the Pharmacy app pieces and the four colour families.
 
