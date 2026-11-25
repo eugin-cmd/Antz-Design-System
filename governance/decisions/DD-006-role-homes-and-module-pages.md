@@ -43,6 +43,7 @@ within the guardrails. DD-003 and DD-005 covered the first two parts.
   They now use primitives with `color-mix(… transparent)` for see-through: sage 5 (scrims), wash mint (glow), vivid mint key,
   coral border and one new tone, `--lagoon-mist` #8CDEEE (aurora); in dark, the night washes they already matched exactly.
   Only black, white and transparent stay as keywords for masks. The build now fails on any colour literal in a gradient.
+- **Animal record cards** (Animals > Recently added): a variant of `.animal-card`, the grid `.animal-cards`, one size token `--size-thumb` (56px) and the screen Animals · recently added.
 - **Behaviour (components.js):** dialog tabs, `data-toast`, plus DD-005's popovers, dialogs and pickers.
 
 ## Adapted, and why

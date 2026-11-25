@@ -822,6 +822,62 @@ for slug, t in [('collections', 'Collections'), ('necropsy', 'Necropsy'), ('feta
     if href not in hs: scr['links'].insert(hs.index(after) + 1, collections.OrderedDict([('href', href), ('title', t), ('isNew', True)]))
     after = href
 
+# ═══ Animals · Recently added: the record card (a variant of .animal-card) ═══
+SEX = {'M': ('', 'Male'), 'F': (' sex-tag--f', 'Female'), 'UD': (' sex-tag--ud', 'Undetermined'), 'ID': (' sex-tag--id', 'Indeterminate')}
+def animal_rec(aaid, name, sci, sex, when, encl, zone, site, img=None):
+    cls, word = SEX[sex]
+    media = f'<img src="{IMG}{img}" alt="">' if img else I('paw')
+    return (f'<a class="animal-card animal-card--record" href="#"><span class="animal-card__media">{media}<span class="sex-tag{cls}" title="{word}">{sex}<span class="sr-only"> ({word})</span></span></span>'
+            f'<span class="animal-card__body"><span class="animal-card__id">AAID {aaid}</span><b class="animal-card__name">{esc(name)}</b><i class="animal-card__sci">{esc(sci)}</i></span>'
+            f'<span class="animal-card__when">{esc(when)}</span>'
+            f'<span class="animal-card__foot"><span class="ac-place">{I("home")}<b>{esc(encl)}</b></span>'
+            f'<span class="ac-place ac-place--sub"><span>{I("grid")}{esc(zone)}</span><span>{I("pin")}{esc(site)}</span></span></span></a>')
+RECENT = [('428169', 'Mouna · Black kite', 'Milvus migrans', 'F', 'Today', 'Big cat 1', 'Carnivore zone', 'Adirampattinam', None),
+          ('428152', 'Sloth bear', 'Melursus ursinus', 'UD', 'Today', 'Paddock 4', 'Herbivore range', 'Adirampattinam', None),
+          ('428135', 'Indian rock python', 'Python molurus', 'ID', 'Yesterday', 'Reptile 2', 'Reptile house', 'Adirampattinam', None),
+          ('428118', 'Indian leopard', 'Panthera pardus fusca', 'M', 'Yesterday', 'Pond 2', '10 Acre', 'Adirampattinam', 'leopard.webp'),
+          ('428101', 'Kaveri · Bengal tiger', 'Panthera tigris tigris', 'F', '2 days ago', 'Big cat 1', '10 Acre', 'Adirampattinam', None),
+          ('428084', 'Asian elephant', 'Elephas maximus', 'M', '2 days ago', 'Holding 1', 'Elephant range', 'Clearspring', None),
+          ('428067', 'Indian peafowl', 'Pavo cristatus', 'F', '3 days ago', 'Q-bay 2', 'Bird park', 'Adirampattinam', None),
+          ('428050', 'Reticulated giraffe', 'Giraffa reticulata', 'UD', '3 days ago', 'Paddock 7', 'Savanna', 'Srushti site', None),
+          ('428033', 'Bonnet macaque', 'Macaca radiata', 'ID', '4 days ago', 'Paddock 9', 'Primate zone', 'Srushti site', None),
+          ('428016', 'Scarlet macaw', 'Ara macao', 'F', '4 days ago', 'Aviary 3', 'Bird park', 'Adirampattinam', None),
+          ('427999', "Grant's zebra", 'Equus quagga boehmi', 'M', '5 days ago', 'Paddock 4', 'Savanna', 'Clearspring', None),
+          ('427982', 'Blue-and-yellow macaw', 'Ara ararauna', 'M', '5 days ago', 'Aviary 1', 'Bird park', 'Adirampattinam', None),
+          ('427965', 'Mahseer', 'Tor putitora', 'F', '6 days ago', 'Pond 1', 'Aquatic zone', 'Adirampattinam', None),
+          ('427948', 'Chital', 'Axis axis', 'UD', '6 days ago', 'Primate 1', 'Herbivore range', 'Crimson Frosted', None)]
+AN_NAV = [('Pages', [('clock', 'sky', 'Recently added', '148'), ('paw', 'green', 'All animals', '26.2K'), ('swap', 'navy', 'Transferred animals', '497'),
+                     ('trash', 'coral', 'Deleted animals', '120'), ('alert', 'amber', 'Missing / escaped', '140')])]
+REC_CARDS = '<div class="animal-cards">' + ''.join(animal_rec(*r) for r in RECENT) + '</div>'
+AN_RECENT = module_page('Animals', 'All sites', AN_NAV, 'Add animal',
+    '<div class="list-head"><div><h2>Recently added <small>148</small></h2><p>Animals added in the last 7 days.</p></div></div>'
+    + f'<section class="list-panel"><div class="toolbar">{search("Search AAID, name, species or enclosure")}'
+    + f'<button class="btn btn--outline btn--sm" type="button">{I("sliders")}Filters</button><button class="pick pick--outline" type="button">{I("swap")}Newest first{I("chevron-down")}</button></div>'
+    + REC_CARDS + pagination(14, 148, 3) + '</section>', active='Recently added')
+screen_page('animals-recent', 'Animals · recently added', 'Animals added in the last 7 days as record cards: photo and sex, AAID and names, how long ago, and where each animal lives.', 'paw', 'sky', AN_RECENT,
+            ['One card per row; the side panel becomes a strip above the list.', 'Two cards per row; the side panel stacks above the list.', 'Side panel beside the list; two cards per row.', 'Side panel beside the list; three cards per row.'],
+            ['Use record cards when the photo helps people recognise the animal; use record rows for long lists to scan.', 'Say how long ago in words (Today, 3 days ago).'],
+            ['Colour the card to show status: put alerts on the full animal card.', 'Drop the scientific name: it tells similar species apart.'])
+add_link('Screens', 'screen-animals-recent.html', 'Animals · recently added', 'screen-animals.html')
+
+# The record card on the Animal card page (hand-written page; this section is generated between markers)
+def put_section(path, start, end, html, before):
+    t = open(path).read()
+    if start in t: t = t[:t.index(start)] + start + html + end + t[t.index(end) + len(end):]
+    else:
+        assert t.count(before) == 1, before
+        t = t.replace(before, start + html + end + before, 1)
+    open(path, 'w').write(t)
+REC_DOC = ('<div class="doc" id="p-animal-record"><h3>Record cards</h3>'
+           '<p class="lead">A grid of small cards for a list of animals, for example <b>Recently added</b>. Each shows the photo (or a paw) with a solid <b>sex tag</b> on its corner, the AAID, the name and the scientific name, a <b>time pill</b> and, under a hairline, where the animal lives: enclosure, zone and site. It is a variant of the animal card (<code>animal-card--record</code>), not a new card. The grid fits three, two or one cards to the space.</p>'
+           '<div class="demo demo--canvas">' + '<div class="animal-cards">' + ''.join(animal_rec(*r) for r in RECENT[:6]) + '</div></div></div>')
+REC_CODE = ('<div class="doc" id="p-animal-record-code"><h3>Record cards</h3><h4>Classes</h4><div class="chips">'
+            + ''.join(f'<code>{c}</code>' for c in ['.animal-cards', '.animal-card--record', '.animal-card__media', '.sex-tag', '.animal-card__id', '.animal-card__name', '.animal-card__sci', '.animal-card__when', '.animal-card__foot', '.ac-place', '.ac-place--sub', '--size-thumb'])
+            + '</div><details class="code" open><summary>Markup</summary><pre><code>' + esc(animal_rec(*RECENT[3]).replace('><', '>\n<')) + '</code></pre></details></div>')
+put_section('pages/animal-card.html', '<!--record-cards-->', '<!--/record-cards-->', REC_DOC, '</div></section><section class="tab-panel" id="panel-usage"')
+put_section('pages/animal-card.html', '<!--record-cards-code-->', '<!--/record-cards-code-->', REC_CODE, '</section>\n<nav class="pager"')
+print('animal record cards ok')
+
 # Component page: module home pieces (Pattern components)
 mh_demo = (frame('<div class="board">' + band_hero('navy', 'Waiting for necropsy · all centres', '67', 'carcasses received · 27 high priority', glass_btn('Start the next one'), cls='board__full') + '</div>')
            + frame('<div class="board">' + band_hero('ink', 'Population change · every site', '+527', 'net change in animals', '<div class="net-split"><div><b>+840</b><small>came in</small></div><div><b>−313</b><small>went out</small></div></div>', cls='board__full') + '</div>')

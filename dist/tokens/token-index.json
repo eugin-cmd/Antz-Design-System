@@ -6375,6 +6375,17 @@
       "dark-hc": "196px"
     },
     {
+      "name": "size.thumb",
+      "css": "--size-thumb",
+      "type": "dimension",
+      "tier": "base",
+      "description": "Record thumbnail: the photo on animal record cards (DD-006)",
+      "light": "56px",
+      "dark": "56px",
+      "light-hc": "56px",
+      "dark-hc": "56px"
+    },
+    {
       "name": "size.bar",
       "css": "--size-bar",
       "type": "dimension",

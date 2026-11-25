@@ -4,6 +4,12 @@ All notable changes to the Antz Design System. Versions follow semantic versioni
 
 ## Unreleased
 
+### Animal record cards (from Antz Home style 7, Animals > Recently added)
+- **Record card:** a variant of the animal card (`animal-card--record`), not a second animal card: the photo or a paw with a solid sex tag on its corner, the AAID, name and scientific name, a time pill, and the enclosure, zone and site under a hairline. `.animal-cards` fits three, two or one to the space. On the Animal card page.
+- **Screen:** Animals · recently added, with the module side panel, search, filters, sort, the card grid and pagination.
+- **Token:** `--size-thumb` (56px), the record thumbnail. 864 tokens.
+- Sex tags keep our colours (male sky, female coral, undetermined amber, indeterminate teal) rather than the reference's.
+
 ### Component pages: every variant the screens use is now demoed
 - **Module homes:** band hero in wine and bronze, the bright glass button, a falling trend delta.
 - **Widget board:** the four-column board, the board menu's filter panel with its foot, the account menu with its flat access summary, the centred quick actions dock.

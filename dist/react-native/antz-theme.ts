@@ -953,6 +953,7 @@ export const antzTheme = {
     "entity-text": 180,
     "hero-photo": 300,
     "photo-tile": 196,
+    "thumb": 56,
     "bar": 44,
     "day": 52,
     "quick-add": 34,

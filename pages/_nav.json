@@ -330,6 +330,11 @@
           "isNew": true
         },
         {
+          "href": "screen-animals-recent.html",
+          "title": "Animals · recently added",
+          "isNew": true
+        },
+        {
           "href": "screen-eggs.html",
           "title": "Eggs",
           "isNew": true
