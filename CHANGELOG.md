@@ -4,6 +4,12 @@ All notable changes to the Antz Design System. Versions follow semantic versioni
 
 ## Unreleased
 
+### Going back: rollback, deploy and snapshots
+- **`tools/rollback.mjs`:** restores any published version's source as a new commit. It shows what would change first, runs the gates and undoes itself if one fails. `git revert HEAD` undoes the rollback. Releases, the changelog and the decision log are kept.
+- **`tools/deploy.mjs`:** deploys only committed work, with the deploy settings, `robots.txt` and noindex header now kept in the repository (`deploy/`) instead of a temporary folder. It checks the site is still private after every deploy.
+- **Snapshots:** every deploy is labelled with its commit and kept at its own address. `--list` shows them, `--rollback <id>` puts one back live in seconds, and `--preview <name>` shares unreleased work without going live.
+- Documented on the Versions page and in HOW-IT-WORKS.md (section 6). Fixed the compare example, which compared beta 4 with itself.
+
 ### Screens and components: role homes and every module home (DD-006, proposed)
 - **Role homes:** Home with one module (Pharmacy), three modules (Animals, Eggs, Collections) and seven modules (Medical and care).
 - **Module homes:** Collections, Necropsy, Fetal death, Tags, Medical, Administer, Lab, Approvals, Reports, Security, Focus hub, Users, Help desk, Pharmacy, Hospital and Announcements, plus list pages for Pharmacy requests and dispense, and Hospital patients and incoming.

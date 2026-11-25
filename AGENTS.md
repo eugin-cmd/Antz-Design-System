@@ -13,6 +13,7 @@ These rules apply to any AI assistant (Claude Code, Copilot, Cursor, Codex or an
 7. Icons (DD-004): interface icons are the component icons (`<use href="#i-name">`, ANTZ Rounded); filled only for the selected state. Animated line icons (`icons/antz-rounded/primary-line/`) are for module navigation, empty states, onboarding and confirmations at 48 to 72px, play once (replay with `data-icon-replay`), one playing in view at a time, never in dense controls. Never borrow icons from another set: ask the icon team.
 8. Run `node tools/check.mjs <changed files>` and fix every finding before you finish. When you change tokens, run `node tools/build.mjs` and `node tools/test.mjs`.
 9. Products and prototypes link a pinned release: `releases/vX.Y.Z/tokens.css`, never the repository root.
+10. Deploy the docs site only with `node tools/deploy.mjs` (it keeps the site private and labels the snapshot). Go back with `node tools/rollback.mjs` (source) or `node tools/deploy.mjs --rollback <id>` (live site). See HOW-IT-WORKS.md, section 6.
 
 ## Never
 
@@ -24,6 +25,7 @@ These rules apply to any AI assistant (Claude Code, Copilot, Cursor, Codex or an
 - Use the retired values #52F990, #38BD69 or #36BC69.
 - Add an exception to `governance/exceptions.json` on your own. Exceptions need a human approver.
 - Bypass the pre-commit hook (`--no-verify`).
+- Rewrite history to go back (`git reset --hard` on shared work, force-push, deleting tags). Going back is always a new commit.
 
 ## When you are unsure
 

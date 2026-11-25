@@ -101,10 +101,23 @@ Run the guardrails in product repos: start with `--report`, then make the check 
 
 ## 6. Going back
 
+Three levels, from smallest to largest. None of them erases history.
+
 - **One product:** point its link back to the earlier `releases/vX.Y.Z/`. Nothing else changes.
-- **Browse an old version:** open `releases/vX.Y.Z/index.html`, or pick it on the Versions page.
-- **Compare versions:** `git diff v1.2.0-beta.4 v1.2.0-beta.4 -- tokens/src components.css`.
-- **Restore all source:** `git checkout v1.0.0-beta.1`.
+- **The system's source:** `node tools/rollback.mjs --list`, then `node tools/rollback.mjs 1.2.0-beta.3` to see what would change, and `node tools/rollback.mjs 1.2.0-beta.3 --yes` to restore it. It is saved as a new commit, so everything in between stays in Git. The gates run first, and if one fails the restore is undone. `git revert HEAD` undoes the rollback. Published releases, the changelog and the decision log are kept as they are. Bump `VERSION` before the next release (a published number can't be reused).
+- **The live site:** `node tools/deploy.mjs --list` shows every deploy as a snapshot, labelled with its commit, each at its own permanent address. `node tools/deploy.mjs --rollback <id>` puts one back live in seconds, with no rebuild. That changes only the site. To bring the source back too, use `rollback.mjs`, then deploy.
+
+**Deploying and previews**
+
+- `node tools/deploy.mjs` makes the current commit live. Only committed work goes up, plus `deploy/robots.txt` and `deploy/_headers`, which keep the site private. After every deploy it checks that the site is still private.
+- `node tools/deploy.mjs --preview dd-007` uploads unreleased work without making it live, at `https://dd-007-antz-design-system.eugin-736.workers.dev`.
+- `node tools/deploy.mjs --ref v1.2.0-beta.3 --preview beta-3` shows any past tag or commit the same way.
+- Settings live in `deploy/site.json`.
+
+**Browse and compare**
+
+- Open `releases/vX.Y.Z/index.html`, or pick a version on the Versions page.
+- `git diff v1.2.0-beta.3 v1.2.0-beta.4 -- tokens/src components.css` shows what changed between two versions.
 
 ## 7. Exceptions
 

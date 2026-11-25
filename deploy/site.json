@@ -1,0 +1,7 @@
+{
+  "$description": "Cloudflare deploy settings for the docs site. Read by tools/deploy.mjs. Every deploy is kept by Cloudflare as a version with its own permanent preview URL.",
+  "name": "antz-design-system",
+  "account_id": "736171125be397298e8e72830dd94358",
+  "subdomain": "eugin-736.workers.dev",
+  "compatibility_date": "2025-09-01"
+}
