@@ -4,6 +4,9 @@ All notable changes to the Antz Design System. Versions follow semantic versioni
 
 ## Unreleased
 
+### Tables
+- **Pinned column shadow:** once a wide table scrolls, the pinned first column casts a soft shadow on the columns sliding under it, as in the Pharmacy app, instead of a hairline. New elevation token `--shadow-edge` (light and dark). The pinned table uses separate borders so the cells can cast it. 866 tokens.
+
 ### Governance
 - **DD-006 accepted** by the System Owner (25 November 2026): role homes, every module home, record lists, quick add, the Pharmacy app pieces and the four colour families.
 

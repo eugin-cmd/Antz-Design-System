@@ -1043,7 +1043,7 @@ write_doc('record-detail', {'title': 'Record detail', 'group': 'Pattern componen
 add_link('Pattern components', 'record-detail.html', 'Record detail', 'module-bar.html')
 
 # The pinned table on the Table page
-PIN_DOC = ('<div class="doc" id="table-pinned"><h3>Wide, with a pinned first column</h3><p class="lead">When a table has more columns than fit, let it scroll sideways and <b>pin the first column</b> (<code>table--pinned</code>): the record ID stays put and the other columns slide under it, with a hairline at its edge once you scroll. Cells can carry progress (<code>table__progress</code>), a status with a note, people (<code>table__person</code>) and long waits (<code>table__late</code>).</p>'
+PIN_DOC = ('<div class="doc" id="table-pinned"><h3>Wide, with a pinned first column</h3><p class="lead">When a table has more columns than fit, let it scroll sideways and <b>pin the first column</b> (<code>table--pinned</code>): the record ID stays put and the other columns slide under it, with a soft shadow at its edge once you scroll. Cells can carry progress (<code>table__progress</code>), a status with a note, people (<code>table__person</code>) and long waits (<code>table__late</code>).</p>'
            '<div class="demo demo--col">' + PINNED_TABLE + '</div></div>')
 put_section('pages/table.html', '<!--table-pinned-->', '<!--/table-pinned-->', PIN_DOC, '<!--table-styles-->')
 print('pharmacy app ok')

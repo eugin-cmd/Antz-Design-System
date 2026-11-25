@@ -3609,6 +3609,11 @@
           "$type": "shadow",
           "$value": "0 18px 40px -18px rgba(0, 40, 20, .45)"
         },
+        "edge": {
+          "$type": "shadow",
+          "$value": "12px 0 18px -10px rgba(16, 40, 30, .3)",
+          "$description": "A soft shadow cast sideways from a pinned edge, for example the first column of a wide table as the others scroll under it."
+        },
         "accent": {
           "$type": "shadow",
           "$value": "0 10px 22px -12px rgba(55, 189, 105, .85)"
@@ -7460,6 +7465,11 @@
         "float": {
           "$type": "shadow",
           "$value": "0 18px 40px -18px rgba(0, 0, 0, .8)"
+        },
+        "edge": {
+          "$type": "shadow",
+          "$value": "12px 0 18px -10px rgba(0, 0, 0, .9)",
+          "$description": "A soft shadow cast sideways from a pinned edge, for example the first column of a wide table as the others scroll under it."
         },
         "accent": {
           "$type": "shadow",
@@ -11313,6 +11323,11 @@
           "$type": "shadow",
           "$value": "0 18px 40px -18px rgba(0, 40, 20, .45)"
         },
+        "edge": {
+          "$type": "shadow",
+          "$value": "12px 0 18px -10px rgba(16, 40, 30, .3)",
+          "$description": "A soft shadow cast sideways from a pinned edge, for example the first column of a wide table as the others scroll under it."
+        },
         "accent": {
           "$type": "shadow",
           "$value": "0 10px 22px -12px rgba(55, 189, 105, .85)"
@@ -15164,6 +15179,11 @@
         "float": {
           "$type": "shadow",
           "$value": "0 18px 40px -18px rgba(0, 0, 0, .8)"
+        },
+        "edge": {
+          "$type": "shadow",
+          "$value": "12px 0 18px -10px rgba(0, 0, 0, .9)",
+          "$description": "A soft shadow cast sideways from a pinned edge, for example the first column of a wide table as the others scroll under it."
         },
         "accent": {
           "$type": "shadow",

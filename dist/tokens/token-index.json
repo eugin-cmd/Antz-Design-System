@@ -9277,6 +9277,17 @@
       "dark-hc": "0 18px 40px -18px rgba(0, 0, 0, .8)"
     },
     {
+      "name": "shadow.edge",
+      "css": "--shadow-edge",
+      "type": "shadow",
+      "tier": "semantic",
+      "description": "A soft shadow cast sideways from a pinned edge, for example the first column of a wide table as the others scroll under it.",
+      "light": "12px 0 18px -10px rgba(16, 40, 30, .3)",
+      "dark": "12px 0 18px -10px rgba(0, 0, 0, .9)",
+      "light-hc": "12px 0 18px -10px rgba(16, 40, 30, .3)",
+      "dark-hc": "12px 0 18px -10px rgba(0, 0, 0, .9)"
+    },
+    {
       "name": "shadow.accent",
       "css": "--shadow-accent",
       "type": "shadow",

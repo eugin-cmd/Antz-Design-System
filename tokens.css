@@ -925,6 +925,7 @@
   --shadow-lg: 0 30px 70px -24px rgba(0, 40, 20, .5), 0 0 0 1px var(--color-border-subtle);
   --shadow-xl: 0 40px 90px -30px rgba(0, 40, 20, .55);
   --shadow-float: 0 18px 40px -18px rgba(0, 40, 20, .45);
+  --shadow-edge: 12px 0 18px -10px rgba(16, 40, 30, .3);
   --shadow-accent: 0 10px 22px -12px rgba(55, 189, 105, .85);
   --shadow-hairline: inset 0 0 0 1px var(--color-border);
 
@@ -1141,6 +1142,7 @@
     --shadow-lg: 0 30px 70px -24px rgba(0, 0, 0, .8), 0 0 0 1px var(--color-border);
     --shadow-xl: 0 40px 90px -30px rgba(0, 0, 0, .85), 0 0 0 1px var(--color-border);
     --shadow-float: 0 18px 40px -18px rgba(0, 0, 0, .8);
+    --shadow-edge: 12px 0 18px -10px rgba(0, 0, 0, .9);
     --shadow-accent: 0 10px 24px -12px rgba(55, 189, 105, .55);
 
     /* gradient-stop */
@@ -1312,6 +1314,7 @@
   --shadow-lg: 0 30px 70px -24px rgba(0, 0, 0, .8), 0 0 0 1px var(--color-border);
   --shadow-xl: 0 40px 90px -30px rgba(0, 0, 0, .85), 0 0 0 1px var(--color-border);
   --shadow-float: 0 18px 40px -18px rgba(0, 0, 0, .8);
+  --shadow-edge: 12px 0 18px -10px rgba(0, 0, 0, .9);
   --shadow-accent: 0 10px 24px -12px rgba(55, 189, 105, .55);
 
   /* gradient-stop */

@@ -2023,10 +2023,10 @@ fieldset.field, .drawer fieldset.filter-panel, .dialog fieldset.filter-panel { m
    detail page (head, facts, tabbed tables) and the detail side sheet.
    ========================================================================== */
 /* Wide table: the first column stays put while the other columns scroll under it */
-.table--pinned { min-width: max-content; }
+.table--pinned { min-width: max-content; border-collapse: separate; border-spacing: 0; } /* separate borders, so the pinned column can cast its shadow */
 .table--pinned th, .table--pinned td { padding: var(--space-3-5) var(--space-5); white-space: nowrap; }
 .table--pinned :is(th, td):first-child { position: sticky; left: 0; z-index: 1; background: var(--color-surface); transition: box-shadow var(--duration-fast); }
-.table-wrap.is-scrolled .table--pinned :is(th, td):first-child { box-shadow: inset calc(var(--border-width) * -1) 0 0 var(--color-border); }
+.table-wrap.is-scrolled .table--pinned :is(th, td):first-child { box-shadow: var(--shadow-edge); }
 .table__id { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-1); }
 .table__id b { font-weight: var(--weight-bold); font-variant-numeric: tabular-nums; }
 .table__late { font-weight: var(--weight-semibold); color: var(--color-warning-text); }

@@ -689,6 +689,10 @@
         }
       }
     },
+    "edge": {
+      "$type": "shadow",
+      "$value": "12px 0 18px -10px rgba(0, 0, 0, .9)"
+    },
     "accent": {
       "$type": "shadow",
       "$value": "0 10px 24px -12px rgba(55, 189, 105, .55)",
