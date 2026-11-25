@@ -243,6 +243,7 @@
    Dialogs: data-dialog-open="<id>" shows <div class="dialog-backdrop" id hidden>;
    data-dialog-close, a click on the backdrop itself, or Escape close it. Focus stays inside while open.
    Pickers: .picker__opt marks the chosen option (aria-selected) and closes its popover.
+            An option's data-icon also swaps the trigger's [data-pick-icon] (the sort menu).
    Choices: role="radio" chips in a group (.filter-panel fieldset) are single choice.
    Board: .widget__remove hides a widget while editing; data-board-undo="<board id>" brings them back.
    Gallery: data-gallery-pick shows step 2 (style and size); data-gallery-back returns.
@@ -279,7 +280,7 @@
     if (openPop && !openPop.contains(e.target)) closePop(false);
     if ((t = e.target.closest('.picker__opt'))) {
       var list = t.closest('.picker__list'); if (list) list.querySelectorAll('.picker__opt').forEach(function (o) { o.setAttribute('aria-selected', String(o === t)); });
-      var pop = t.closest('.popover'); if (pop && pop === openPop) { var label = popTrigger && popTrigger.querySelector('[data-pick-label]'); if (label) label.textContent = t.dataset.label || t.firstChild.textContent.trim(); closePop(true); }
+      var pop = t.closest('.popover'); if (pop && pop === openPop) { var label = popTrigger && popTrigger.querySelector('[data-pick-label]'); if (label) label.textContent = t.dataset.label || t.firstChild.textContent.trim(); var pic = popTrigger && popTrigger.querySelector('[data-pick-icon] use'); if (pic && t.dataset.icon) pic.setAttribute('href', '#i-' + t.dataset.icon); closePop(true); }
       return;
     }
     if ((t = e.target.closest('[role="radio"]'))) {

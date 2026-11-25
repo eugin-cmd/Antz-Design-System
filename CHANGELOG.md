@@ -8,9 +8,9 @@ All notable changes to the Antz Design System. Versions follow semantic versioni
 Every element of the Antz Home style 2 "Recently added" page, as options next to the current styles. Nothing changes for existing markup; the other module screens are unchanged.
 - **Record cards:** species photos (credited), the paw when there is none, the full name on hover when it is cut off, and the reference's 14 animals.
 - **Side panel:** `modnav--soft`, with the overview tile without its outline and the active page's count in brand text.
-- **Module bar:** an unread dot (`icon-btn--dot`), a photo avatar, a brighter switcher tile and a version without the breadcrumb.
+- **Module bar:** the existing unread dot (`icon-btn__dot`), a photo avatar, a brighter switcher tile and a version without the breadcrumb.
 - **Layout:** `modhome--tinted` sets the main column on the canvas tint behind a white list panel; `modhome--strip` turns the side panel into rows above the list on tablets.
-- **Sort menu:** a picker with Newest first, Oldest first, Species A–Z and AAID; new UI icons `i-sort-newest`, `i-sort-oldest`, `i-sort-az` from ANTZ Rounded.
+- **Sort menu:** a picker with Newest first, Oldest first, Species A–Z and AAID, whose trigger icon follows the chosen order; new UI icons `i-sort-newest`, `i-sort-oldest`, `i-sort-az` from ANTZ Rounded.
 - **Screen:** Animals · recently added uses all of them.
 - **Not adopted:** dark-green buttons with white labels (FD-003), the client logo, the reference's sex-tag colours (they fail contrast, and the system's stay), and a panel-collapse icon (requested from the icon team).
 

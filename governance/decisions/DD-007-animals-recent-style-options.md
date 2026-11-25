@@ -22,14 +22,14 @@ Design: `docs/superpowers/specs/2026-11-25-animals-recent-style-options-design.m
   is no photo, the full name on hover (`title`) when it is cut off with "…", and the reference's 14 animals.
 - **Soft side panel** `modnav--soft` (Module bar page): the overview tile keeps its tint without the outline; the
   active page's count turns brand text (`--color-accent-text`, AA on the active row in light and dark).
-- **Module bar options** (Module bar page): no breadcrumb; an **unread dot** `icon-btn--dot` (`--color-danger-solid`
-  with a surface ring, the count stays in the `aria-label`); a **photo avatar**; a **brighter switcher tile** (the
+- **Module bar options** (Module bar page): no breadcrumb; the existing **unread dot** `icon-btn__dot` (as in the app
+  bar; the count stays in the `aria-label`); a **photo avatar**; a **brighter switcher tile** (the
   module's hue instead of its ink; white icon 4.47:1 on light sky).
 - **Tinted panel** `modhome--tinted`: the main column on `--color-bg-canvas` so a white list panel stands off it.
 - **Tablet strip** `modhome--strip`: from 600 to 840px the side panel becomes rows above the list (overview tile first,
   then the pages with counts). Phones already show a strip.
 - **Sort menu** (Popovers and pickers page): a picker on the sort button with Newest first, Oldest first, Species A–Z
-  and AAID. New UI icons `i-sort-newest`, `i-sort-oldest`, `i-sort-az`, drawn from ANTZ Rounded (`sort_newest_first`,
+  and AAID; each order has its icon, and choosing one swaps the trigger's icon (`data-icon`, `data-pick-icon`). New UI icons `i-sort-newest`, `i-sort-oldest`, `i-sort-az`, drawn from ANTZ Rounded (`sort_newest_first`,
   `sort_oldest_first`, `sort_a_to_z`).
 - **Screen:** Animals · recently added uses every option. Its generator helpers (`modbar`, `modnav`, `module_page`)
   take the options as parameters that default off, so the other module screens are byte-for-byte unchanged.

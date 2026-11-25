@@ -95,9 +95,6 @@ button { font: inherit; color: inherit; }
 .icon-btn--ghost { background: transparent; }
 .icon-btn--sm { width: 36px; height: 36px; border-radius: var(--radius-control); }
 .icon-btn--sm .icon { width: 17px; height: 17px; }
-/* Unread dot (DD-007): a small danger dot on the corner; put the count in the aria-label */
-.icon-btn--dot { position: relative; }
-.icon-btn--dot::after { content: ""; position: absolute; top: var(--space-1-5); inset-inline-end: var(--space-1-5); width: var(--space-2); height: var(--space-2); border-radius: var(--radius-full); background: var(--color-danger-solid); box-shadow: 0 0 0 var(--border-width-strong) var(--color-surface); }
 .icon-btn:disabled { color: var(--color-text-disabled); background: transparent; cursor: not-allowed; transform: none; }
 .icon-btn__dot { position: absolute; top: 11px; right: 12px; width: 8px; height: 8px; border-radius: 50%; background: var(--color-signal-danger); box-shadow: 0 0 0 2px var(--color-surface-muted); }
 
@@ -1416,7 +1413,8 @@ a.animal:hover { background: var(--color-surface-hover); }
 .modnav__item > small { margin-inline-start: auto; font-size: var(--text-sm); color: var(--color-text-muted); font-variant-numeric: tabular-nums; }
 .modnav .btn--primary { margin-top: var(--space-2); }
 /* Soft side panel (DD-007): the overview tile without its outline, and the active page's count in brand text */
-.modnav--soft .sidenav__home { box-shadow: none; }
+@media not (prefers-contrast: more) { :root:not([data-contrast="high"]) .modnav--soft .sidenav__home { box-shadow: none; } }
+@media (prefers-contrast: more) { :root[data-contrast="standard"] .modnav--soft .sidenav__home { box-shadow: none; } } /* high contrast keeps the outline */
 .modnav--soft .modnav__item[aria-current="page"] > small { font-weight: var(--weight-semibold); color: var(--color-accent-text); }
 .modnav.is-folded { width: auto; align-items: center; }
 .modnav.is-folded .modnav__label, .modnav.is-folded .modnav__item > span:not(.tile-icon), .modnav.is-folded .modnav__item > small, .modnav.is-folded .sidenav__home > div, .modnav.is-folded .btn--primary > span { display: none; }
