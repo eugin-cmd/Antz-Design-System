@@ -1431,6 +1431,17 @@ a.animal:hover { background: var(--color-surface-hover); }
 .modhome__body { display: flex; align-items: flex-start; gap: var(--space-4); min-width: 0; }
 .modhome__main { display: flex; flex-direction: column; gap: var(--space-4); flex: 1; min-width: 0; padding: var(--space-5); border-radius: var(--radius-2xl); background: color-mix(in srgb, var(--color-surface) 55%, transparent); }
 @container shell (max-width: 599.98px) { .modhome__body { flex-direction: column; align-items: stretch; } .modhome__main { padding: 0; background: none; } }
+/* Tinted content panel (DD-007): modhome--tinted sets the main column on the canvas tint so a white list panel stands off it */
+.modhome--tinted .modhome__main { background: var(--color-bg-canvas); }
+/* Page strip on tablets (DD-007): modhome--strip turns the side panel into rows above the list from 600 to 840px wide
+   (below 600px every side panel is already a strip). The overview tile takes the first row; the pages follow. */
+@container shell (min-width: 600px) and (max-width: 839.98px) {
+  .modhome--strip .modhome__body { flex-direction: column; align-items: stretch; }
+  .modhome--strip .modnav { flex-direction: row; flex-wrap: wrap; align-items: center; width: auto; }
+  .modhome--strip .modnav__fold, .modhome--strip .modnav__label, .modhome--strip .modnav__sub { display: none; }
+  .modhome--strip .modnav .sidenav__home { flex: 1 0 100%; margin: 0; }
+  .modhome--strip .modnav__item, .modhome--strip .modnav .btn--primary { flex: none; margin: 0; }
+}
 
 /* Hero strip: a photo beside a deep band with a headline ("Today's egg collection") */
 .hero-strip { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 3fr); min-height: calc(var(--size-hero-photo) / 2); overflow: hidden; border-radius: var(--radius-2xl); color: var(--color-text-on-strong); background: var(--texture-rings), var(--gradient-navy); }

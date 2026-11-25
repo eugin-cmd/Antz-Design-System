@@ -44,7 +44,10 @@
     "test-tube": "lab_sample",
     "bar-chart": "bar_chart",
     "settings": "settings_gear",
-    "history": "history"
+    "history": "history",
+    "sort-newest": "sort_newest_first",
+    "sort-oldest": "sort_oldest_first",
+    "sort-az": "sort_a_to_z"
   },
   "kept": {
     "check": "done is a check in a circle",

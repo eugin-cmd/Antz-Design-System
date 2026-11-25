@@ -110,6 +110,11 @@ def pick(pid, label, icon, options, site=True, end=True, cls=''):
     return (f'<span class="pop-anchor{(" " + cls) if cls else ""}"><button class="pick{" pick--site" if site else ""}" type="button" aria-haspopup="listbox" aria-expanded="false" data-popover="{pid}">'
             f'{I(icon)}<span data-pick-label>{esc(label)}</span>{I("chevron-down")}</button>{picker_popover(pid, options, end, searchable=site)}</span>')
 
+# Sort menu (DD-007): a picker on the sort button
+SORTS = [('Newest first', None), ('Oldest first', None), ('Species A–Z', None), ('AAID', None)]
+def sort_pick(pid, label='Newest first'):
+    return (f'<span class="pop-anchor"><button class="pick pick--outline" type="button" aria-haspopup="listbox" aria-expanded="false" data-popover="{pid}">'
+            f'{I("sort-newest")}<span data-pick-label>{esc(label)}</span>{I("chevron-down")}</button>{picker_popover(pid, SORTS)}</span>')
 SITES = [('All sites', '9 sites'), ('Crimson Frosted', '14,445 animals'), ('Clearspring', '12,820 animals'), ('Hollowpine', '11,081 animals')]
 PERIODS = [('All time', None), ('Last 7 days', None), ('Last 30 days', None), ('This year', None)]
 
@@ -151,8 +156,8 @@ def modnav(current, sections, action, active=None, soft=False):
             if subs: out += '<ul class="modnav__sub">' + ''.join(f'<li><a href="#"{AC if s == active else ""}>{esc(s)}</a></li>' for s in subs) + '</ul>'
     return out + f'<button class="btn btn--primary" type="button">{I("plus")}<span>{esc(action)}</span></button></nav>'
 
-def module_page(current, site_label, sections, action, main, active=None, site_icon='pin', period=False, bar=None, nav=None, strip=False):
-    return (f'<div class="shell">{tabbar()}<div class="shell__main"><div class="screen__scroll modhome{" modhome--strip" if strip else ""}">{modbar(current, site_label, site_icon, period, **(bar or {}))}'
+def module_page(current, site_label, sections, action, main, active=None, site_icon='pin', period=False, bar=None, nav=None, strip=False, tinted=False):
+    return (f'<div class="shell">{tabbar()}<div class="shell__main"><div class="screen__scroll modhome{" modhome--strip" if strip else ""}{" modhome--tinted" if tinted else ""}">{modbar(current, site_label, site_icon, period, **(bar or {}))}'
             f'<div class="modhome__body">{modnav(current, sections, action, active, **(nav or {}))}<main class="modhome__main">{main}</main></div></div></div></div>')
 
 # ── Quick add dialog (Note, Request, Announcement) ────────────────────────
@@ -515,7 +520,9 @@ pp_demo = ('<div class="cell demo-cell--pop">' + pick('doc-site', 'All sites', '
            + '<div class="cell demo-cell--pop-lg">' + module_switch('Pharmacy') + '</div>'
            + '<div class="cell">' + f'<div class="btn-split btn-split--narrow"><button class="btn btn--secondary-solid" type="button">{I("plus")}Add to pharmacy</button><span class="pop-anchor"><button class="btn btn--secondary-solid" type="button" aria-label="More ways to add" aria-haspopup="menu" aria-expanded="false" data-popover="doc-add">{I("chevron-down")}</button><div class="popover popover--end" id="doc-add" hidden>' + ''.join(f'<a class="menu__item" href="#">{I(ic)}{t}</a>' for ic, t in [('package', 'Receive medicines'), ('swap', 'Dispense to a keeper'), ('send', 'Request from Central')]) + '</div></span></div></div>')
 write_doc('popovers-and-pickers', {'title': 'Popovers and pickers', 'group': 'Components', 'intro': 'Dropdown panels opened from a trigger: the site and period pickers, the module switcher and the split button\'s menu. Escape and an outside click close them.', 'icon': 'chevron-down', 'hue': 'teal'},
-          doc('pp-demo', 'Pickers, switcher and split button', 'Select a trigger to open its panel. <b>Pickers</b> mark the chosen option and update the label. The <b>module switcher</b> shows every module in a compact grid. The <b>split button</b> pairs one action with a menu of related ones.', pp_demo, canvas=False),
+          doc('pp-demo', 'Pickers, switcher and split button', 'Select a trigger to open its panel. <b>Pickers</b> mark the chosen option and update the label. The <b>module switcher</b> shows every module in a compact grid. The <b>split button</b> pairs one action with a menu of related ones.', pp_demo, canvas=False)
+          + doc('pp-sort', 'Sort menu', 'A <b>picker</b> on the sort button of a list toolbar: Newest first, Oldest first, Species A–Z and AAID. The chosen order shows in the trigger; the icon comes from ANTZ Rounded (<code>i-sort-newest</code>, <code>i-sort-oldest</code>, <code>i-sort-az</code>).',
+                '<div class="cell demo-cell--pop">' + sort_pick('doc-sort') + '</div>', canvas=False),
           usage('pp-usage', 'Popovers and pickers', ['Use the site picker in the module bar and the board bar.', 'Keep the chosen option visible in the trigger.'], ['Put forms in a popover: use the work drawer.', 'Open a popover on hover.']),
           code('pp-code', 'Popovers and pickers', ['.pop-anchor', '.popover', '.popover--end', '.popover--lg', '.popover--switch', '.picker__list', '.picker__opt', '.pick', '.pick--site', '.module-switch', '.btn-split', '[data-popover]', '[data-pick-label]'],
                pick('site', 'All sites', 'pin', SITES[:2])))
@@ -858,8 +865,9 @@ REC_CARDS = '<div class="animal-cards">' + ''.join(animal_rec(*r) for r in RECEN
 AN_RECENT = module_page('Animals', 'All sites', AN_NAV, 'Add animal',
     '<div class="list-head"><div><h2>Recently added <small>148</small></h2><p>Animals added in the last 7 days.</p></div></div>'
     + f'<section class="list-panel"><div class="toolbar">{search("Search AAID, name, species or enclosure")}'
-    + f'<button class="btn btn--outline btn--sm" type="button">{I("sliders")}Filters</button><button class="pick pick--outline" type="button">{I("swap")}Newest first{I("chevron-down")}</button></div>'
-    + REC_CARDS + pagination(14, 148, 3) + '</section>', active='Recently added')
+    + f'<button class="btn btn--outline btn--sm" type="button">{I("sliders")}Filters</button>{sort_pick("sort-pick")}</div>'
+    + REC_CARDS + pagination(14, 148, 3) + '</section>', active='Recently added',
+    bar={'crumbs': False, 'bell_dot': True, 'avatar_img': 'species/portrait.webp', 'switch_tone': 'vivid'}, nav={'soft': True}, strip=True, tinted=True)
 screen_page('animals-recent', 'Animals · recently added', 'Animals added in the last 7 days as record cards: photo and sex, AAID and names, how long ago, and where each animal lives.', 'paw', 'sky', AN_RECENT,
             ['One card per row; the side panel becomes a strip above the list.', 'Two cards per row; the side panel stacks above the list.', 'Side panel beside the list; two cards per row.', 'Side panel beside the list; three cards per row.'],
             ['Use record cards when the photo helps people recognise the animal; use record rows for long lists to scan.', 'Say how long ago in words (Today, 3 days ago).'],
@@ -1151,9 +1159,11 @@ write_doc('module-bar', {'title': 'Module bar and side panel', 'group': 'Pattern
           + doc('mb-soft', 'Soft side panel', 'Add <code>modnav--soft</code> for a quieter panel: the <b>overview tile</b> keeps its tint but drops the outline, and the <b>active page\'s count</b> turns brand green (<code>--color-accent-text</code>). The default panel stays as it is; use one style per product.',
                 frame('<div class="modhome"><div class="modhome__body">' + modnav('Animals', AN_NAV, 'Add animal', active='Recently added', soft=True) + '<main class="modhome__main"><p class="t-small t-secondary">Main column</p></main></div></div>'))
           + doc('mb-options', 'Module bar options', 'Options for a lighter bar, used together on <b>Animals · recently added</b>: drop the <b>breadcrumb</b>, mark unread notifications with a <b>dot</b> (<code>icon-btn--dot</code>; keep the count in the <code>aria-label</code>), show the person\'s <b>photo</b> in the avatar, and give the module switcher a <b>brighter tile</b> (the module\'s hue instead of its ink).',
-                frame('<div class="modhome">' + modbar('Animals', 'All sites', crumbs=False, bell_dot=True, avatar_img='species/portrait.webp', switch_tone='vivid') + '</div>')),
+                frame('<div class="modhome">' + modbar('Animals', 'All sites', crumbs=False, bell_dot=True, avatar_img='species/portrait.webp', switch_tone='vivid') + '</div>'))
+          + doc('mb-layout', 'Tinted panel and tablet strip', 'Two layout options for list pages. <code>modhome--tinted</code> sets the main column on the canvas tint (<code>--color-bg-canvas</code>) so a white <b>list panel</b> stands off it. <code>modhome--strip</code> turns the side panel into rows above the list on tablets (600 to 840px wide): the overview tile first, then the pages with their counts. Phones always show the strip. Resize the frame or open <b>Animals · recently added</b> to see both.',
+                frame(module_page('Animals', 'All sites', AN_NAV, 'Add animal', '<section class="list-panel"><p class="t-small t-secondary" style="padding: var(--space-4)">List panel</p></section>', active='Recently added', nav={'soft': True}, strip=True, tinted=True), '820px')),
           usage('mb-usage', 'Module bar and side panel', ['Keep one main action at the foot of the panel.', 'Group pages by task: Daily work, Shipments, Stock.'], ['Nest deeper than one level of sub-pages.', 'Hide the panel on phones: it becomes a strip.']),
-          code('mb-code', 'Module bar and side panel', ['.modbar', '.modbar__end', '.module-switch', '.crumbs', '.pick', '.pick--site', '.pick--outline', '.modnav', '.modnav__fold', '.modnav__label', '.modnav__item', '.modnav__sub', '.modnav.is-folded', '.modhome', '.modhome__body', '.modhome__main', '.section-head', '[data-modnav-fold]'],
+          code('mb-code', 'Module bar and side panel', ['.modbar', '.modbar__end', '.module-switch', '.crumbs', '.pick', '.pick--site', '.pick--outline', '.modnav', '.modnav__fold', '.modnav__label', '.modnav__item', '.modnav__sub', '.modnav.is-folded', '.modhome', '.modhome--tinted', '.modhome--strip', '.modhome__body', '.modhome__main', '.modnav--soft', '.icon-btn--dot', '.section-head', '[data-modnav-fold]'],
                '<header class="modbar">…</header>\n<div class="modhome__body"><nav class="modnav">…</nav><main class="modhome__main">…</main></div>'))
 
 # 3. Timelines, charts and heroes (Stat cards)
