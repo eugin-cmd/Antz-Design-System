@@ -113,25 +113,30 @@ def pick(pid, label, icon, options, site=True, end=True, cls=''):
 SITES = [('All sites', '9 sites'), ('Crimson Frosted', '14,445 animals'), ('Clearspring', '12,820 animals'), ('Hollowpine', '11,081 animals')]
 PERIODS = [('All time', None), ('Last 7 days', None), ('Last 30 days', None), ('This year', None)]
 
-def module_switch(current):
+def module_switch(current, tone=None):
     groups = collections.OrderedDict()
     for g, n, sub, ic, hue in MODULES: groups.setdefault(g, []).append((n, ic, hue))
     grid = '<div class="module-grid">' + ''.join(f'<section><p class="t-overline">{esc(g)}</p><div class="module-grid__group">' + ''.join(
         f'<a class="module-grid__item" href="#"{AC if n == current else ""}>{tile(ic, hue, True)}<b>{esc(n)}</b></a>' for n, ic, hue in its) + '</div></section>' for g, its in groups.items()) + '</div>'
     g, n, sub, ic, hue = BY[current]
+    if tone == 'vivid': hue = hue.replace('-ink', '')  # the brighter hue behind a white icon (DD-007)
     return (f'<span class="pop-anchor"><button class="module-switch" type="button" aria-haspopup="true" aria-expanded="false" data-popover="mod-switch">{tile(ic, hue, True)}<span>{esc(n)}</span>{I("chevron-down")}</button>'
             f'<div class="popover popover--lg popover--switch" id="mod-switch" hidden>{search("Find a module")}{grid}</div></span>')
 
-def modbar(current, site_label, site_icon='pin', period=False):
-    p = pick('period-pick', 'All time', 'calendar', PERIODS, site=False, cls='show-tablet-up') if period else ''
-    return (f'<header class="modbar"><a class="icon-btn" href="#" aria-label="Back to Home">{I("arrow-left")}</a>{module_switch(current)}'
-            f'<nav class="crumbs show-desktop" aria-label="Breadcrumb"><a href="#">Home</a>{I("chevron-right")}<span aria-current="page">{esc(current)}</span></nav>'
-            f'<div class="modbar__end">{pick("site-pick", site_label, site_icon, [(site_label, None)] + SITES[1:])}{p}'
-            f'<span class="show-tablet-up"><button class="icon-btn" type="button" aria-label="Notifications, 3 new">{I("bell")}</button></span>{avatar("AR", "amber")}</div></header>')
+def avatar_photo(src, name): return f'<span class="avatar"><img src="{IMG}{src}" alt="{esc(name)}"></span>'
 
-def modnav(current, sections, action, active=None):
+def modbar(current, site_label, site_icon='pin', period=False, crumbs=True, bell_dot=False, avatar_img=None, switch_tone=None):
+    p = pick('period-pick', 'All time', 'calendar', PERIODS, site=False, cls='show-tablet-up') if period else ''
+    nav = (f'<nav class="crumbs show-desktop" aria-label="Breadcrumb"><a href="#">Home</a>{I("chevron-right")}<span aria-current="page">{esc(current)}</span></nav>') if crumbs else ''
+    bell = 'icon-btn icon-btn--dot' if bell_dot else 'icon-btn'
+    who = avatar_photo(avatar_img, 'Your account') if avatar_img else avatar("AR", "amber")
+    return (f'<header class="modbar"><a class="icon-btn" href="#" aria-label="Back to Home">{I("arrow-left")}</a>{module_switch(current, switch_tone)}'
+            f'{nav}<div class="modbar__end">{pick("site-pick", site_label, site_icon, [(site_label, None)] + SITES[1:])}{p}'
+            f'<span class="show-tablet-up"><button class="{bell}" type="button" aria-label="Notifications, 3 new">{I("bell")}</button></span>{who}</div></header>')
+
+def modnav(current, sections, action, active=None, soft=False):
     g, n, sub, ic, hue = BY[current]
-    out = (f'<nav class="modnav" aria-label="{esc(n)} pages"><button class="icon-btn icon-btn--ghost modnav__fold show-tablet-up" type="button" aria-label="Fold the side panel" aria-expanded="true" data-modnav-fold>{I("menu")}</button>'
+    out = (f'<nav class="modnav{" modnav--soft" if soft else ""}" aria-label="{esc(n)} pages"><button class="icon-btn icon-btn--ghost modnav__fold show-tablet-up" type="button" aria-label="Fold the side panel" aria-expanded="true" data-modnav-fold>{I("menu")}</button>'
            f'<a class="sidenav__home" href="#"{AC if active is None else ""} style="--c:var(--hue-{hue})">{tile("grid", hue, True)}<div><b>{esc(n)} overview</b><small>Module home</small></div></a>')
     for label, items in sections:
         if label: out += f'<p class="t-overline modnav__label">{esc(label)}</p>'
@@ -146,9 +151,9 @@ def modnav(current, sections, action, active=None):
             if subs: out += '<ul class="modnav__sub">' + ''.join(f'<li><a href="#"{AC if s == active else ""}>{esc(s)}</a></li>' for s in subs) + '</ul>'
     return out + f'<button class="btn btn--primary" type="button">{I("plus")}<span>{esc(action)}</span></button></nav>'
 
-def module_page(current, site_label, sections, action, main, active=None, site_icon='pin', period=False):
-    return (f'<div class="shell">{tabbar()}<div class="shell__main"><div class="screen__scroll modhome">{modbar(current, site_label, site_icon, period)}'
-            f'<div class="modhome__body">{modnav(current, sections, action, active)}<main class="modhome__main">{main}</main></div></div></div></div>')
+def module_page(current, site_label, sections, action, main, active=None, site_icon='pin', period=False, bar=None, nav=None, strip=False):
+    return (f'<div class="shell">{tabbar()}<div class="shell__main"><div class="screen__scroll modhome{" modhome--strip" if strip else ""}">{modbar(current, site_label, site_icon, period, **(bar or {}))}'
+            f'<div class="modhome__body">{modnav(current, sections, action, active, **(nav or {}))}<main class="modhome__main">{main}</main></div></div></div></div>')
 
 # ── Quick add dialog (Note, Request, Announcement) ────────────────────────
 def quick_add_dialog(did='quick-add'):
