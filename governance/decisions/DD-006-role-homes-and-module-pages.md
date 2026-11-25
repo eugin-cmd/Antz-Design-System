@@ -1,7 +1,8 @@
 ---
 id: DD-006
 title: Role homes, every module home, record lists and quick add, from Antz Home style 7 (part 3)
-status: proposed
+status: accepted
+accepted: 2026-11-25 (System Owner)
 date: 2026-11-25
 owner: System Owner
 approver: System Owner (Eugin Robinson)
