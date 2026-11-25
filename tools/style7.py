@@ -833,24 +833,25 @@ def animal_rec(aaid, name, sci, sex, when, encl, zone, site, img=None):
     cls, word = SEX[sex]
     media = f'<img src="{IMG}{img}" alt="">' if img else I('paw')
     return (f'<a class="animal-card animal-card--record" href="#"><span class="animal-card__media">{media}<span class="sex-tag{cls}" title="{word}">{sex}<span class="sr-only"> ({word})</span></span></span>'
-            f'<span class="animal-card__body"><span class="animal-card__id">AAID {aaid}</span><b class="animal-card__name">{esc(name)}</b><i class="animal-card__sci">{esc(sci)}</i></span>'
+            f'<span class="animal-card__body"><span class="animal-card__id">AAID {aaid}</span><b class="animal-card__name" title="{esc(name)}">{esc(name)}</b><i class="animal-card__sci">{esc(sci)}</i></span>'
             f'<span class="animal-card__when">{esc(when)}</span>'
             f'<span class="animal-card__foot"><span class="ac-place">{I("home")}<b>{esc(encl)}</b></span>'
             f'<span class="ac-place ac-place--sub"><span>{I("grid")}{esc(zone)}</span><span>{I("pin")}{esc(site)}</span></span></span></a>')
-RECENT = [('428169', 'Mouna · Black kite', 'Milvus migrans', 'F', 'Today', 'Big cat 1', 'Carnivore zone', 'Adirampattinam', None),
-          ('428152', 'Sloth bear', 'Melursus ursinus', 'UD', 'Today', 'Paddock 4', 'Herbivore range', 'Adirampattinam', None),
+# The 14 animals of Antz Home style 2 "Recently added"; photos in assets/img/species (DD-007, credited in CREDITS.md)
+RECENT = [('428169', 'Mouna · Black kite', 'Milvus migrans', 'F', 'Today', 'Big cat 1', 'Carnivore zone', 'Adirampattinam', 'species/black-kite.webp'),
+          ('428152', 'Sloth bear', 'Melursus ursinus', 'UD', 'Today', 'Paddock 4', 'Herbivore range', 'Adirampattinam', 'species/sloth-bear.webp'),
           ('428135', 'Indian rock python', 'Python molurus', 'ID', 'Yesterday', 'Reptile 2', 'Reptile house', 'Adirampattinam', None),
-          ('428118', 'Indian leopard', 'Panthera pardus fusca', 'M', 'Yesterday', 'Pond 2', '10 Acre', 'Adirampattinam', 'leopard.webp'),
-          ('428101', 'Kaveri · Bengal tiger', 'Panthera tigris tigris', 'F', '2 days ago', 'Big cat 1', '10 Acre', 'Adirampattinam', None),
-          ('428084', 'Asian elephant', 'Elephas maximus', 'M', '2 days ago', 'Holding 1', 'Elephant range', 'Clearspring', None),
-          ('428067', 'Indian peafowl', 'Pavo cristatus', 'F', '3 days ago', 'Q-bay 2', 'Bird park', 'Adirampattinam', None),
-          ('428050', 'Reticulated giraffe', 'Giraffa reticulata', 'UD', '3 days ago', 'Paddock 7', 'Savanna', 'Srushti site', None),
-          ('428033', 'Bonnet macaque', 'Macaca radiata', 'ID', '4 days ago', 'Paddock 9', 'Primate zone', 'Srushti site', None),
-          ('428016', 'Scarlet macaw', 'Ara macao', 'F', '4 days ago', 'Aviary 3', 'Bird park', 'Adirampattinam', None),
-          ('427999', "Grant's zebra", 'Equus quagga boehmi', 'M', '5 days ago', 'Paddock 4', 'Savanna', 'Clearspring', None),
-          ('427982', 'Blue-and-yellow macaw', 'Ara ararauna', 'M', '5 days ago', 'Aviary 1', 'Bird park', 'Adirampattinam', None),
-          ('427965', 'Mahseer', 'Tor putitora', 'F', '6 days ago', 'Pond 1', 'Aquatic zone', 'Adirampattinam', None),
-          ('427948', 'Chital', 'Axis axis', 'UD', '6 days ago', 'Primate 1', 'Herbivore range', 'Crimson Frosted', None)]
+          ('428118', 'Hill myna', 'Gracula religiosa', 'F', 'Yesterday', 'Primate 1', 'Primate zone', 'Clearspring', 'species/hill-myna.webp'),
+          ('428101', 'Indian leopard', 'Panthera pardus fusca', 'M', '2 days ago', 'Pond 2', '10 Acre', 'Adirampattinam', 'species/indian-leopard.webp'),
+          ('428084', 'Raja · Sumatran orangutan', 'Pongo abelii', 'M', '2 days ago', 'Holding 1', 'Bird park', 'Adirampattinam', 'species/sumatran-orangutan.webp'),
+          ('428067', 'Indian peafowl', 'Pavo cristatus', 'F', '3 days ago', 'Q-bay 2', 'Carnivore zone', 'Adirampattinam', None),
+          ('428050', 'Asiatic lion', 'Panthera leo persica', 'UD', '3 days ago', 'Aviary 7', 'Herbivore range', 'Adirampattinam', 'species/asiatic-lion.webp'),
+          ('428033', 'Bonnet macaque', 'Macaca radiata', 'ID', '4 days ago', 'Paddock 9', 'Reptile house', 'Srushti site', 'species/bonnet-macaque.webp'),
+          ('428016', 'Rose-ringed parakeet', 'Psittacula krameri', 'F', '4 days ago', 'Aviary 3', 'Primate zone', 'Adirampattinam', 'species/rose-ringed-parakeet.webp'),
+          ('427999', 'Kaveri · Bengal tiger', 'Panthera tigris tigris', 'M', '5 days ago', 'Big cat 1', '10 Acre', 'Adirampattinam', None),
+          ('427982', 'Gaur', 'Bos gaurus', 'M', '5 days ago', 'Paddock 4', 'Bird park', 'Adirampattinam', 'species/gaur.webp'),
+          ('427965', 'Mahseer', 'Tor putitora', 'F', '6 days ago', 'Reptile 2', 'Carnivore zone', 'Adirampattinam', None),
+          ('427948', 'Chital', 'Axis axis', 'UD', '6 days ago', 'Primate 1', 'Herbivore range', 'Crimson Frosted', 'species/chital.webp')]
 AN_NAV = [('Pages', [('clock', 'sky', 'Recently added', '148'), ('paw', 'green', 'All animals', '26.2K'), ('swap', 'navy', 'Transferred animals', '497'),
                      ('trash', 'coral', 'Deleted animals', '120'), ('alert', 'amber', 'Missing / escaped', '140')])]
 REC_CARDS = '<div class="animal-cards">' + ''.join(animal_rec(*r) for r in RECENT) + '</div>'
