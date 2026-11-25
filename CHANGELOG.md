@@ -4,6 +4,14 @@ All notable changes to the Antz Design System. Versions follow semantic versioni
 
 ## Unreleased
 
+### Component pages: every variant the screens use is now demoed
+- **Module homes:** band hero in wine and bronze, the bright glass button, a falling trend delta.
+- **Widget board:** the four-column board, the board menu's filter panel with its foot, the account menu with its flat access summary, the centred quick actions dock.
+- **Record lists:** people rows with round photos and presence.
+- **Module bar:** the whole module home layout (`modhome`): bar, side panel and main column together.
+- **Dashboard widgets:** the wide photo tile and the two-by-two tile grid.
+- **Layout and breakpoints:** split columns (`split`, `split--aside`, `split--even`, `split__col`). Fixed the Don't list, which still named the old Style 6 breakpoints.
+
 ### Going back: rollback, deploy and snapshots
 - **`tools/rollback.mjs`:** restores any published version's source as a new commit. It shows what would change first, runs the gates and undoes itself if one fails. `git revert HEAD` undoes the rollback. Releases, the changelog and the decision log are kept.
 - **`tools/deploy.mjs`:** deploys only committed work, with the deploy settings, `robots.txt` and noindex header now kept in the repository (`deploy/`) instead of a temporary folder. It checks the site is still private after every deploy.
