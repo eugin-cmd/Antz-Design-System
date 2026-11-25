@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-calendar" role="img" aria-label="Calendar">
+<defs><linearGradient id="antz-l-calendar-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-calendar .i,.antz-l-calendar .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-calendar .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-calendar .a{stroke:url(#antz-l-calendar-acc)}
+.antz-l-calendar .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-calendar .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-calendar .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+</style>
+<rect class="i antz-l-calendar-0" x="7" y="11" width="34" height="30" rx="4" pathLength="1"/>
+<path class="i antz-l-calendar-1" d="M16 7v8M32 7v8M7 19h34" pathLength="1"/>
+<circle class="a antz-l-calendar-2" cx="16" cy="27" r="1.6"/>
+<circle class="a antz-l-calendar-3" cx="24" cy="27" r="1.6"/>
+<circle class="a antz-l-calendar-4" cx="32" cy="27" r="1.6"/>
+<circle class="a antz-l-calendar-5" cx="16" cy="34" r="1.6"/>
+<circle class="a antz-l-calendar-6" cx="24" cy="34" r="1.6"/>
+</svg>

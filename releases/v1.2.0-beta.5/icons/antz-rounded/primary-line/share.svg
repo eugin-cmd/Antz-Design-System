@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-share" role="img" aria-label="Share">
+<defs><linearGradient id="antz-l-share-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-share .i,.antz-l-share .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-share .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-share .a{stroke:url(#antz-l-share-acc)}
+.antz-l-share .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-share .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-share .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+.antz-l-share-0{animation:antz-l-share-0 2800ms cubic-bezier(0.34, 1.56, 0.64, 1) both}
+.antz-l-share-1{animation:antz-l-share-1 2800ms cubic-bezier(0.34, 1.56, 0.64, 1) both}
+.antz-l-share-2{animation:antz-l-share-2 2800ms cubic-bezier(0.34, 1.56, 0.64, 1) both}
+.antz-l-share-3{stroke-dasharray:1;animation:antz-l-share-3 2800ms cubic-bezier(0.16, 1, 0.3, 1) both}
+.antz-l-share-4{stroke-dasharray:1;animation:antz-l-share-4 2800ms cubic-bezier(0.16, 1, 0.3, 1) both}
+@keyframes antz-l-share-0{0%,0%{transform:scale(0);opacity:0}1%{opacity:1}12%,100%{transform:scale(1);opacity:1}}
+@keyframes antz-l-share-1{0%,5.4%{transform:scale(0);opacity:0}6.4%{opacity:1}17.4%,100%{transform:scale(1);opacity:1}}
+@keyframes antz-l-share-2{0%,10.8%{transform:scale(0);opacity:0}11.8%{opacity:1}22.8%,100%{transform:scale(1);opacity:1}}
+@keyframes antz-l-share-3{0%,30%{stroke-dashoffset:1}44%,100%{stroke-dashoffset:0}}
+@keyframes antz-l-share-4{0%,34.8%{stroke-dashoffset:1}48.8%,100%{stroke-dashoffset:0}}
+@media (prefers-reduced-motion:reduce){.antz-l-share *{animation:none!important;stroke-dashoffset:0!important;opacity:1!important;transform:none!important}}
+</style>
+<circle class="i antz-l-share-0" cx="34" cy="11" r="5"/>
+<circle class="i antz-l-share-1" cx="14" cy="24" r="5"/>
+<circle class="i antz-l-share-2" cx="34" cy="37" r="5"/>
+<path class="a antz-l-share-3" d="M19.9 20.2 28.1 14.8" pathLength="1"/>
+<path class="a antz-l-share-4" d="M19.9 27.8 28.1 33.2" pathLength="1"/>
+</svg>

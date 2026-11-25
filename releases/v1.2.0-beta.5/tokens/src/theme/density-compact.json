@@ -1,0 +1,21 @@
+{
+  "size": {
+    "$description": "Compact density for data-dense tables and forms. Applies with data-density=\"compact\".",
+    "control-sm": {
+      "$type": "dimension",
+      "$value": "30px"
+    },
+    "control-md": {
+      "$type": "dimension",
+      "$value": "36px"
+    },
+    "control-lg": {
+      "$type": "dimension",
+      "$value": "40px"
+    },
+    "row-comfortable": {
+      "$type": "dimension",
+      "$value": "40px"
+    }
+  }
+}

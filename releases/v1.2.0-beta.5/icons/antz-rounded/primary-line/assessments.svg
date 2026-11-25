@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-assessments" role="img" aria-label="Assessments">
+<defs><linearGradient id="antz-l-assessments-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-assessments .i,.antz-l-assessments .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-assessments .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-assessments .a{stroke:url(#antz-l-assessments-acc)}
+.antz-l-assessments .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-assessments .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-assessments .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+.antz-l-assessments-0{stroke-dasharray:1;animation:antz-l-assessments-0 2800ms cubic-bezier(0.16, 1, 0.3, 1) both}
+.antz-l-assessments-1{stroke-dasharray:1;animation:antz-l-assessments-1 2800ms cubic-bezier(0.16, 1, 0.3, 1) both}
+.antz-l-assessments-2{stroke-dasharray:1;animation:antz-l-assessments-2 2800ms cubic-bezier(0.16, 1, 0.3, 1) both}
+.antz-l-assessments-3{stroke-dasharray:1;animation:antz-l-assessments-3 2800ms cubic-bezier(0.16, 1, 0.3, 1) both}
+.antz-l-assessments-4{stroke-dasharray:1;animation:antz-l-assessments-4 2800ms cubic-bezier(0.16, 1, 0.3, 1) both}
+@keyframes antz-l-assessments-0{0%,0%{stroke-dashoffset:1}21%,100%{stroke-dashoffset:0}}
+@keyframes antz-l-assessments-1{0%,4.5%{stroke-dashoffset:1}25.5%,100%{stroke-dashoffset:0}}
+@keyframes antz-l-assessments-2{0%,9%{stroke-dashoffset:1}30%,100%{stroke-dashoffset:0}}
+@keyframes antz-l-assessments-3{0%,30%{stroke-dashoffset:1}44%,100%{stroke-dashoffset:0}}
+@keyframes antz-l-assessments-4{0%,35.4%{stroke-dashoffset:1}49.4%,100%{stroke-dashoffset:0}}
+@media (prefers-reduced-motion:reduce){.antz-l-assessments *{animation:none!important;stroke-dashoffset:0!important;opacity:1!important;transform:none!important}}
+</style>
+<rect class="i antz-l-assessments-0" x="10" y="9" width="28" height="32" rx="3" pathLength="1"/>
+<rect class="i antz-l-assessments-1" x="18" y="6" width="12" height="6" rx="2" pathLength="1"/>
+<path class="i antz-l-assessments-2" d="M23 21h10M23 30h10" pathLength="1"/>
+<path class="a antz-l-assessments-3" d="M15 21l2 2 3-3.5" pathLength="1"/>
+<path class="a antz-l-assessments-4" d="M15 30l2 2 3-3.5" pathLength="1"/>
+</svg>

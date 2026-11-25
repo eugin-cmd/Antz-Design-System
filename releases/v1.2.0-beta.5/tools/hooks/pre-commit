@@ -1,0 +1,13 @@
+#!/bin/sh
+# Antz Design System pre-commit gate. Installed with: git config core.hooksPath tools/hooks
+# Blocks a commit when tokens are invalid, contrast fails, generated files are stale,
+# a guardrail is broken, or a published release was modified.
+set -e
+node tools/build.mjs --check
+node tools/build.mjs > /dev/null
+if ! git diff --quiet -- tokens.css colors.json dist; then
+  echo "✗ Generated files were stale and have been rebuilt. Review and stage them: git add tokens.css colors.json dist"
+  exit 1
+fi
+node tools/check.mjs
+node tools/release.mjs --verify

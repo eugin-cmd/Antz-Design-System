@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-star" role="img" aria-label="Star">
+<defs><linearGradient id="antz-l-star-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-star .i,.antz-l-star .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-star .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-star .a{stroke:url(#antz-l-star-acc)}
+.antz-l-star .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-star .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-star .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+.antz-l-star-0{stroke-dasharray:1;animation:antz-l-star-0 2800ms cubic-bezier(0.16, 1, 0.3, 1) both}
+.antz-l-star-1{animation:antz-l-star-1 2800ms cubic-bezier(0.34, 1.56, 0.64, 1) both}
+.antz-l-star-2{animation:antz-l-star-2 2800ms cubic-bezier(0.34, 1.56, 0.64, 1) both}
+@keyframes antz-l-star-0{0%,0%{stroke-dashoffset:1}21%,100%{stroke-dashoffset:0}}
+@keyframes antz-l-star-1{0%,30%{transform:scale(0);opacity:0}31%{opacity:1}42%,100%{transform:scale(1);opacity:1}}
+@keyframes antz-l-star-2{0%,34.8%{transform:scale(0);opacity:0}35.8%{opacity:1}46.8%,100%{transform:scale(1);opacity:1}}
+@media (prefers-reduced-motion:reduce){.antz-l-star *{animation:none!important;stroke-dashoffset:0!important;opacity:1!important;transform:none!important}}
+</style>
+<path class="i antz-l-star-0" d="M23 9L27.1 19.3L38.2 20.1L29.7 27.2L32.4 37.9L23 32L13.6 37.9L16.3 27.2L7.8 20.1L18.9 19.3Z" pathLength="1"/>
+<path class="a antz-l-star-1" d="M39 6v5M36.5 8.5h5"/>
+<path class="a antz-l-star-2" d="M41 17v3M39.5 18.5h3"/>
+</svg>

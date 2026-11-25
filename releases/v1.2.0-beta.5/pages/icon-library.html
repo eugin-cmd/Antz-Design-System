@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en" data-root="..">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ANTZ Rounded icons · Antz Design System</title>
+<link rel="icon" href="data:,">
+<meta name="description" content="The ANTZ Rounded icon set: 207 icons in line and filled, and 30 animated Primary icons for module navigation. Drawn by the ANTZ icon team; all are drafts for now.">
+<script>try { var d = document.documentElement, t = localStorage.getItem('antz-ds-theme'), c = localStorage.getItem('antz-ds-contrast'), n = localStorage.getItem('antz-ds-density'); if (t === 'light' || t === 'dark') d.dataset.theme = t; if (c === 'high' || c === 'standard') d.dataset.contrast = c; if (n === 'compact') d.dataset.density = n; var b = (/[?&]brand=([a-z0-9-]+)/.exec(location.search) || [])[1]; if (b) { if (b === 'antz') localStorage.removeItem('antz-ds-brand'); else localStorage.setItem('antz-ds-brand', b); } else b = localStorage.getItem('antz-ds-brand'); if (b && b !== 'antz' && /^[a-z0-9]+(-[a-z0-9]+)*$/.test(b)) { d.dataset.brand = b; var lt = null; try { lt = JSON.parse(localStorage.getItem('antz-ds-local-themes') || 'null'); } catch (e) {} var lc = lt && lt.themes && lt.themes[b], l; if (lc && typeof lc.css === 'string') { l = document.createElement('style'); l.textContent = lc.css; } else { l = document.createElement('link'); l.rel = 'stylesheet'; l.setAttribute('blocking', 'render'); l.href = (d.dataset.root || '.') + '/themes/' + b + '.css'; } l.id = 'brand-css'; document.head.appendChild(l); } } catch (e) {}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../tokens.css?v=9e25625aa6">
+<link rel="stylesheet" href="../components.css?v=9e25625aa6">
+<link rel="stylesheet" href="../assets/site.css?v=9e25625aa6">
+</head>
+<body data-page="icon-library">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-top"><button class="icon-btn site-menu-btn" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav" data-nav-toggle><svg class="icon"><use href="#i-menu"/></svg></button><a class="icon-btn site-home-btn" href="../index.html" aria-label="Home"><svg class="icon"><use href="#i-home"/></svg></a><a class="site-brand" href="../index.html" aria-label="Antz Design System, home"><span class="site-logo"><img class="logo-on-light" src="../assets/img/antz-logo.svg" alt="Antz" width="509" height="194"><img class="logo-on-dark" src="../assets/img/antz-logo-white.svg" alt="Antz" width="509" height="194"></span><span class="site-divider" aria-hidden="true"></span><span class="site-brand__name">Antz Design System</span><small>v1.2.0 beta 5</small></a><label class="site-search"><svg class="icon"><use href="#i-search"/></svg><input type="search" placeholder="Search pages" aria-label="Search pages"><kbd>/</kbd></label><button class="icon-btn site-search-btn" type="button" aria-label="Search pages" data-nav-search><svg class="icon"><use href="#i-search"/></svg></button><a class="btn btn--sm site-tester-link" href="../tester.html"><svg class="icon"><use href="#i-sliders"/></svg>Theme tester</a><button class="icon-btn icon-btn--sm site-contrast-btn" type="button" aria-label="High contrast" aria-pressed="false" data-contrast-toggle title="High contrast"><svg class="icon"><use href="#i-eye"/></svg></button><div class="segmented segmented--pill theme-seg" role="group" aria-label="Theme"><button type="button" data-theme-set="auto" aria-pressed="true"><svg class="icon icon--sm"><use href="#i-monitor"/></svg><span>Auto</span></button><button type="button" data-theme-set="light" aria-pressed="false"><svg class="icon icon--sm"><use href="#i-sun"/></svg><span>Light</span></button><button type="button" data-theme-set="dark" aria-pressed="false"><svg class="icon icon--sm"><use href="#i-moon"/></svg><span>Dark</span></button></div></header><div class="site-scrim"></div>
+<div class="site">
+<nav class="site-nav navdrawer navdrawer--floating navdrawer--site" id="site-nav" aria-label="Documentation" data-tone="amber" data-navdrawer-static><div class="navdrawer__rail"><div class="navdrawer__tabs" role="tablist" aria-orientation="vertical" aria-label="Sections"><button class="navdrawer__tab" type="button" role="tab" id="sn-tab-1" aria-controls="sn-1" aria-selected="false" tabindex="-1" data-tone="green"><svg class="icon" aria-hidden="true"><use href="#i-home"/></svg><span>Start</span></button><button class="navdrawer__tab" type="button" role="tab" id="sn-tab-2" aria-controls="sn-2" aria-selected="true" tabindex="0" data-tone="amber"><svg class="icon" aria-hidden="true"><use href="#i-sliders"/></svg><span>Foundations</span></button><button class="navdrawer__tab" type="button" role="tab" id="sn-tab-3" aria-controls="sn-3" aria-selected="false" tabindex="-1" data-tone="navy"><svg class="icon" aria-hidden="true"><use href="#i-grid"/></svg><span>Components</span></button><button class="navdrawer__tab" type="button" role="tab" id="sn-tab-4" aria-controls="sn-4" aria-selected="false" tabindex="-1" data-tone="violet"><svg class="icon" aria-hidden="true"><use href="#i-zap"/></svg><span>Patterns</span></button><button class="navdrawer__tab" type="button" role="tab" id="sn-tab-5" aria-controls="sn-5" aria-selected="false" tabindex="-1" data-tone="coral"><svg class="icon" aria-hidden="true"><use href="#i-trend"/></svg><span>Stat cards</span></button><button class="navdrawer__tab" type="button" role="tab" id="sn-tab-6" aria-controls="sn-6" aria-selected="false" tabindex="-1" data-tone="slate"><svg class="icon" aria-hidden="true"><use href="#i-smartphone"/></svg><span>Screens</span></button><button class="navdrawer__tab" type="button" role="tab" id="sn-tab-7" aria-controls="sn-7" aria-selected="false" tabindex="-1" data-tone="rose"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg><span>Content</span></button><button class="navdrawer__tab" type="button" role="tab" id="sn-tab-8" aria-controls="sn-8" aria-selected="false" tabindex="-1" data-tone="green"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg><span>Governance</span></button><button class="navdrawer__tab" type="button" role="tab" id="sn-tab-9" aria-controls="sn-9" aria-selected="false" tabindex="-1" data-tone="navy"><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg><span>Resources</span></button></div></div><div class="navdrawer__panel"><div class="navdrawer__head"><label class="search nav-search"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg><input type="search" placeholder="Search pages" aria-label="Search pages"></label></div><div class="navdrawer__menu" role="tabpanel" id="sn-1" aria-labelledby="sn-tab-1" hidden><p class="navdrawer__group">Getting started</p><a class="navdrawer__item nav-link" href="../index.html">Welcome</a><a class="navdrawer__item nav-link" href="get-started.html">Get started</a><a class="navdrawer__item nav-link" href="how-it-works.html">How it works <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="principles.html">Principles</a></div><div class="navdrawer__menu" role="tabpanel" id="sn-2" aria-labelledby="sn-tab-2"><p class="navdrawer__group">Foundations</p><a class="navdrawer__item nav-link" href="colour.html">Colour</a><a class="navdrawer__item nav-link" href="colour-guardrails.html">Colour guardrails</a><a class="navdrawer__item nav-link" href="colour-scales.html">Colour scales <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="themes.html">Themes and modes <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="contrast.html">Contrast</a><a class="navdrawer__item nav-link" href="type.html">Typography</a><a class="navdrawer__item nav-link" href="spacing.html">Spacing</a><a class="navdrawer__item nav-link" href="radii.html">Radii</a><a class="navdrawer__item nav-link" href="elevation.html">Elevation</a><a class="navdrawer__item nav-link" href="motion.html">Motion</a><a class="navdrawer__item nav-link" href="motion-gallery.html">Motion gallery <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="gradients.html">Gradients <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="icons.html">Icons</a><a class="navdrawer__item nav-link" href="icon-library.html" aria-current="page">ANTZ Rounded icons <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="layout.html">Layout and breakpoints</a><a class="navdrawer__item nav-link" href="responsive.html">Responsive</a></div><div class="navdrawer__menu" role="tabpanel" id="sn-3" aria-labelledby="sn-tab-3" hidden><p class="navdrawer__group">Components</p><a class="navdrawer__item nav-link" href="buttons.html">Buttons</a><a class="navdrawer__item nav-link" href="text-fields.html">Text fields</a><a class="navdrawer__item nav-link" href="selection.html">Selection controls</a><a class="navdrawer__item nav-link" href="chips-and-tabs.html">Chips and tabs</a><a class="navdrawer__item nav-link" href="badges.html">Badges and status</a><a class="navdrawer__item nav-link" href="avatars.html">Avatars</a><a class="navdrawer__item nav-link" href="cards.html">Cards</a><a class="navdrawer__item nav-link" href="list-rows.html">List rows</a><a class="navdrawer__item nav-link" href="alerts-and-toasts.html">Alerts and toasts</a><a class="navdrawer__item nav-link" href="menus-and-dialogs.html">Menus and dialogs</a><a class="navdrawer__item nav-link" href="popovers-and-pickers.html">Popovers and pickers <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="side-sheets.html">Side sheets <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="sheet-forms.html">Side sheet forms <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="progress.html">Progress</a><a class="navdrawer__item nav-link" href="table.html">Table</a><a class="navdrawer__item nav-link" href="record-lists.html">Record lists <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="loading.html">Loading and empty</a><a class="navdrawer__item nav-link" href="navigation.html">Navigation</a></div><div class="navdrawer__menu" role="tabpanel" id="sn-4" aria-labelledby="sn-tab-4" hidden><p class="navdrawer__group">Pattern components</p><a class="navdrawer__item nav-link" href="navigation-drawer.html">Navigation drawer <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="launcher.html">Launcher and headers <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="role-homes.html">Role homes <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="widget-board.html">Widget board <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="module-bar.html">Module bar and side panel <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="record-detail.html">Record detail <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="module-homes.html">Module homes <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="quick-add.html">Quick add <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="top-bar.html">Top bar and action bar</a><a class="navdrawer__item nav-link" href="post-card.html">Post card</a><a class="navdrawer__item nav-link" href="attachments.html">Attachments</a><a class="navdrawer__item nav-link" href="priority.html">Priority picker</a><a class="navdrawer__item nav-link" href="lists.html">Lists</a><a class="navdrawer__item nav-link" href="date-picker.html">Date picker</a><a class="navdrawer__item nav-link" href="animal-card.html">Animal card</a><a class="navdrawer__item nav-link" href="progress-ring.html">Progress bar and ring</a></div><div class="navdrawer__menu" role="tabpanel" id="sn-5" aria-labelledby="sn-tab-5" hidden><p class="navdrawer__group">Stat cards</p><a class="navdrawer__item nav-link" href="dashboard-widgets.html">Dashboard widgets <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="lists-and-charts.html">Lists and charts <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="timelines-and-charts.html">Timelines and charts <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="stat-figures.html">Stat figures</a><a class="navdrawer__item nav-link" href="key-insights.html">Key insights</a><a class="navdrawer__item nav-link" href="insights-summary.html">Insights summary</a><a class="navdrawer__item nav-link" href="site-card.html">Site card</a><a class="navdrawer__item nav-link" href="day-week-month.html">Day, week, month</a></div><div class="navdrawer__menu" role="tabpanel" id="sn-6" aria-labelledby="sn-tab-6" hidden><p class="navdrawer__group">Screens</p><a class="navdrawer__item nav-link" href="screens.html">All screens</a><a class="navdrawer__item nav-link" href="screen-home.html">Home <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="screen-home-pharmacy.html">Home · one module <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="screen-home-animal-care.html">Home · three modules <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="screen-home-medical.html">Home · seven modules <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="screen-housing.html">Housing <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="screen-animals.html">Animals <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="screen-animals-recent.html">Animals · recently added <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="screen-eggs.html">Eggs <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="screen-mortality.html">Mortality <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="screen-pharmacy.html">Pharmacy <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="screen-pharmacy-requests.html">Pharmacy · requests <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="screen-pharmacy-request-detail.html">Pharmacy · request detail <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="screen-pharmacy-dispense.html">Pharmacy · dispense <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="screen-pharmacy-dispense-detail.html">Pharmacy · dispense detail <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="screen-hospital.html">Hospital <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="screen-hospital-patients.html">Hospital · patients <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="screen-hospital-incoming.html">Hospital · incoming <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="screen-announcements.html">Announcements <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="screen-collections.html">Collections <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="screen-necropsy.html">Necropsy <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="screen-fetal-death.html">Fetal death <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="screen-tags.html">Tags <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="screen-medical.html">Medical <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="screen-administer.html">Administer <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="screen-lab.html">Lab <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="screen-approvals.html">Approvals <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="screen-reports.html">Reports <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="screen-security.html">Security <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="screen-focus-hub.html">Focus hub <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="screen-users.html">Users <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="screen-help-desk.html">Help desk <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="screen-people.html">Choose people</a><a class="navdrawer__item nav-link" href="screen-task.html">Add task</a><a class="navdrawer__item nav-link" href="screen-request.html">New request</a><a class="navdrawer__item nav-link" href="screen-date.html">Set a date</a></div><div class="navdrawer__menu" role="tabpanel" id="sn-7" aria-labelledby="sn-tab-7" hidden><p class="navdrawer__group">Content</p><a class="navdrawer__item nav-link" href="voice.html">Voice and words</a></div><div class="navdrawer__menu" role="tabpanel" id="sn-8" aria-labelledby="sn-tab-8" hidden><p class="navdrawer__group">Governance</p><a class="navdrawer__item nav-link" href="guardrails.html">Guardrails <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="governance.html">Roles, changes and exceptions <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="versions.html">Versions and releases <span class="nav-new">New</span></a></div><div class="navdrawer__menu" role="tabpanel" id="sn-9" aria-labelledby="sn-tab-9" hidden><p class="navdrawer__group">Resources</p><a class="navdrawer__item nav-link" href="../tester.html">Theme tester <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="resources.html">Downloads</a><a class="navdrawer__item nav-link" href="developers.html">Developer outputs <span class="nav-new">New</span></a><a class="navdrawer__item nav-link" href="figma-mapping.html">Figma mapping</a><a class="navdrawer__item nav-link" href="import-theme.html">Import theme</a></div><div class="navdrawer__menu nav-results" hidden><p class="navdrawer__group">Results</p><div class="nav-results__list"></div><p class="nav-empty t-caption" hidden>No page matches.</p></div><footer class="navdrawer__foot"><div class="navdrawer__user"><div><b>Antz Design System</b><small>v1.2.0-beta.5 · <a href="../pages/versions.html">Versions</a></small></div><a class="icon-btn icon-btn--ghost" href="../tester.html" aria-label="Theme tester"><svg class="icon" aria-hidden="true"><use href="#i-sliders"/></svg></a></div></footer></div></nav>
+<main class="site-main" data-wash="navy" id="main">
+<header class="page-banner"><div class="page-banner__text"><span class="t-overline">Foundations</span><h1 class="page-banner__title">ANTZ Rounded icons</h1><p class="page-banner__intro">The ANTZ Rounded icon set: 207 icons in line and filled, and 30 animated Primary icons for module navigation. Drawn by the ANTZ icon team; all are drafts for now.</p></div><div class="page-banner__art" style="--c:var(--hue-green)" aria-hidden="true"><svg class="icon"><use href="#i-grid"/></svg></div></header>
+<div class="page-tabs" role="tablist" aria-label="Page sections"><button role="tab" type="button" id="tab-overview" aria-controls="panel-overview" aria-selected="true" data-tab="overview">Overview</button><button role="tab" type="button" id="tab-usage" aria-controls="panel-usage" aria-selected="false" data-tab="usage" tabindex="-1">Usage</button><button role="tab" type="button" id="tab-code" aria-controls="panel-code" aria-selected="false" data-tab="code" tabindex="-1">Code</button></div>
+<div class="page-body"><div class="page-content">
+<section class="tab-panel" id="panel-overview" data-tab="overview" role="tabpanel" aria-labelledby="tab-overview"><div class="doc ar" id="antz-rounded">
+  <div class="segmented segmented--line ar-views" role="tablist" aria-label="Icon library">
+    <button type="button" role="tab" data-ar-view="line" aria-selected="true">Line icons <span class="ar-count" data-ar-total="line"></span></button>
+    <button type="button" role="tab" data-ar-view="filled" aria-selected="false">Filled icons <span class="ar-count" data-ar-total="filled"></span></button>
+    <button type="button" role="tab" data-ar-view="primary" aria-selected="false">Primary icons <span class="ar-count" data-ar-total="primary"></span></button>
+  </div>
+
+  <!-- Line and filled -->
+  <section class="ar-panel" data-ar-panel="set">
+    <h3 class="ar-title" data-ar-title>Line icons</h3>
+    <p class="lead ar-lead" data-ar-lead></p>
+    <div class="ar-toolbar">
+      <label class="search search--pill ar-search"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg><input type="search" placeholder="Search name, label, old file" aria-label="Search icons" data-ar-q></label>
+      <label class="ar-field"><span>Module</span><span class="select-wrap"><select class="select" data-ar-module aria-label="Module"></select></span></label>
+      <div class="segmented segmented--pill" role="group" aria-label="Status" data-ar-status><button type="button" data-v="all" aria-pressed="true">All</button><button type="button" data-v="to_design" aria-pressed="false">To design <span class="ar-count" data-ar-n="to_design"></span></button><button type="button" data-v="draft" aria-pressed="false">Draft <span class="ar-count" data-ar-n="draft"></span></button><button type="button" data-v="approved" aria-pressed="false">Approved <span class="ar-count" data-ar-n="approved"></span></button></div>
+      <label class="ar-field"><span>Size</span><span class="select-wrap"><select class="select" data-ar-size aria-label="Icon size"><option value="16">16 px</option><option value="20">20 px</option><option value="24" selected>24 px</option><option value="32">32 px</option><option value="48">48 px</option></select></span></label>
+    </div>
+    <div class="ar-sets" data-ar-sets><noscript><p>The icon browser needs JavaScript. The files are in <code>icons/antz-rounded/</code>.</p></noscript></div>
+    <p class="t-caption" data-ar-empty hidden>No icon matches.</p>
+  </section>
+
+  <!-- Primary -->
+  <section class="ar-panel" data-ar-panel="primary" hidden>
+    <h3 class="ar-title">Primary icons <span class="ar-count" data-ar-total="primary"></span></h3>
+    <p class="lead ar-lead">Animated tile badges for module navigation: one icon per module. The SVG follows the tile colour you pick; the Lottie files (one per colour scheme) are in <code>icons/antz-rounded/primary/lottie/</code>. Animation stops under reduced motion.</p>
+    <div class="ar-toolbar">
+      <label class="search search--pill ar-search"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg><input type="search" placeholder="Search name, label, module, base icon" aria-label="Search Primary icons" data-ar-pq></label>
+      <div class="segmented segmented--pill" role="group" aria-label="Icon family" data-ar-seg="family"><button type="button" data-v="line" aria-pressed="true">Line (proposal)</button><button type="button" data-v="tile" aria-pressed="false">Tile</button></div>
+      <div class="segmented segmented--pill" role="group" aria-label="Style" data-ar-seg="pstyle" data-ar-tileonly hidden><button type="button" data-v="svg" aria-pressed="true">Filled</button><button type="button" data-v="svgStroke" aria-pressed="false">Stroke</button></div>
+      <div class="segmented segmented--pill" role="group" aria-label="Motion" data-ar-seg="motion"><button type="button" data-v="play" aria-pressed="true"><svg class="icon icon--sm" aria-hidden="true"><use href="#i-play-plain"/></svg>Play</button><button type="button" data-v="pause" aria-pressed="false"><svg class="icon icon--sm" aria-hidden="true"><use href="#i-pause"/></svg>Pause</button><button type="button" data-v="reduced" aria-pressed="false">Reduced</button></div>
+      <div class="segmented segmented--pill" role="group" aria-label="Layout" data-ar-seg="layout"><button type="button" data-v="tiles" aria-pressed="true"><svg class="icon icon--sm" aria-hidden="true"><use href="#i-grid"/></svg>Tiles</button><button type="button" data-v="wall" aria-pressed="false">Wall</button></div>
+    </div>
+    <div class="ar-toolbar">
+      <label class="check"><input type="checkbox" data-ar-group> Group by module</label>
+      <span class="ar-field"><span>Per row</span><span class="segmented segmented--pill" role="group" aria-label="Per row" data-ar-seg="perrow"><button type="button" data-v="3" aria-pressed="false">3</button><button type="button" data-v="4" aria-pressed="true">4</button><button type="button" data-v="5" aria-pressed="false">5</button><button type="button" data-v="6" aria-pressed="false">6</button></span></span>
+    </div>
+    <p class="t-small t-secondary ar-line-note" data-ar-lineonly><b>Line (proposal):</b> outline icons in the text colour with one accent detail in a green-to-teal gradient (<code>--scale-primary-600</code> to <code>--scale-secondary-600</code>, 3:1 or more on light and dark). The outline draws on and the accent settles with the elastic ease, once (2.8s); then the icon rests. Hover, focus or tap an icon to replay it. Original drawings: 118 icons in seven groups: the 30 module icons, animals, animal care, health and lab, facilities and maintenance, data and time, and interface icons with micro-animations. Where elements overlap, the front one cuts a small gap into what is behind it, so it reads as solid on any background.</p>
+    <h4 class="ar-sub" data-ar-tileonly hidden>Tile colour</h4>
+    <div class="ar-colours" role="radiogroup" aria-label="Tile colour" data-ar-colours data-ar-tileonly hidden></div>
+    <p class="t-caption ar-contrast" data-ar-contrast data-ar-tileonly hidden></p>
+    <div class="ar-prims" data-ar-prims></div>
+  </section>
+</div>
+
+<!-- Detail sheet -->
+<div class="drawer-backdrop" data-drawer-backdrop="ar-sheet" hidden></div>
+<aside class="drawer drawer--floating ar-sheet" id="ar-sheet" role="dialog" aria-modal="true" aria-labelledby="ar-sheet-title" hidden>
+  <header class="drawer__head"><div><h2 class="drawer__title" id="ar-sheet-title" data-ar-d="label"></h2><span class="drawer__meta" data-ar-d="meta"></span></div><button class="icon-btn" type="button" aria-label="Close" data-drawer-close><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></button></header>
+  <div class="drawer__body">
+    <div class="ar-preview">
+      <svg class="ar-preview__art" viewBox="0 0 24 24" aria-hidden="true"><g class="ar-keylines" data-ar-keylines></g><use data-ar-d="use" href=""/></svg>
+      <div class="ar-preview__bar">
+        <div class="segmented segmented--pill" role="group" aria-label="Style" data-ar-seg="dstyle"><button type="button" data-v="line" aria-pressed="true">Line</button><button type="button" data-v="filled" aria-pressed="false">Filled</button></div>
+        <label class="check"><input type="checkbox" data-ar-kl checked> Grid and keylines</label>
+      </div>
+    </div>
+    <div class="ar-actions">
+      <button class="btn btn--secondary btn--sm" type="button" data-ar-copy="id"><svg class="icon" aria-hidden="true"><use href="#i-clipboard"/></svg>Copy sprite id</button>
+      <button class="btn btn--outline btn--sm" type="button" data-ar-copy="name">Copy name</button>
+      <button class="btn btn--outline btn--sm" type="button" data-ar-copy="svg">Copy SVG</button>
+      <a class="btn btn--text btn--sm" href="https://icon-library-ads.vercel.app/#/library/line" target="_blank" rel="noopener">Open the icon builder<svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a>
+    </div>
+    <section class="drawer__section"><h3 class="t-overline">Status</h3><p><span data-ar-d="status"></span></p><p class="t-small t-secondary">Status is set in the ANTZ icon builder; the guard-rail checks run there.</p></section>
+    <section class="drawer__section"><h3 class="t-overline">Reference</h3><p class="t-small" data-ar-d="ref"></p></section>
+    <section class="drawer__section"><h3 class="t-overline">Old sources <span class="t-caption" data-ar-d="nsrc"></span></h3><p class="t-small t-secondary">The current mobile-app SVGs this icon replaces.</p><ul class="ar-sources" data-ar-d="sources"></ul></section>
+    <section class="drawer__section" data-ar-d="notes-wrap"><h3 class="t-overline">Notes</h3><p class="t-small" data-ar-d="notes"></p></section>
+  </div>
+</aside>
+
+<div class="doc" id="which-icons">
+  <h3>Which icons to use <span class="status status--plain status--success">DD-004</span></h3>
+  <div class="spec-wrap"><table class="spec"><thead><tr><th>Use</th><th>Icons</th><th>Size</th></tr></thead><tbody>
+    <tr><td>Controls, navigation, buttons, inputs, lists, tables, status</td><td>Component icons (<code>#i-name</code>), ANTZ Rounded line; filled for the selected state</td><td>16 to 24px</td></tr>
+    <tr><td>Module navigation, empty states, onboarding, confirmations</td><td>Animated line icons, played once; or the still version</td><td>48 to 72px</td></tr>
+    <tr><td>Module tiles in a product that uses the tile launcher</td><td>Primary tile icons (one module-navigation style per product)</td><td>48px and up</td></tr>
+  </tbody></table></div>
+  <ul class="t-small">
+    <li><b>Animation plays once</b> (2.8s) and rests on its final frame. Add <code>data-icon-replay</code> to the icon or its control to replay it on hover, focus or tap. No loops (WCAG 2.2.2); reduced motion shows the final frame.</li>
+    <li><b>One animated icon playing in view at a time</b>, never inside dense controls.</li>
+    <li><b>Missing an icon?</b> Ask the icon team; don't borrow from another set.</li>
+  </ul>
+</div>
+<div class="doc" id="antz-in-ui">
+  <h3>In the components</h3>
+  <p class="lead">Where an ANTZ Rounded icon means the same thing, the component icon (<code>#i-name</code>) is drawn with it, so every component and screen uses the new drawing with no markup change. They render at their drawn 2px weight (<code>--icon-stroke</code>, DD-004).</p>
+  <div class="spec-wrap"><table class="spec"><thead><tr><th>Component icon</th><th>Drawn with</th></tr></thead><tbody><!-- antz-pairs:start --><tr><td><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg> <code>i-search</code></td><td><code>antz-search</code></td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-bell"/></svg> <code>i-bell</code></td><td><code>antz-bell</code></td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg> <code>i-plus</code></td><td><code>antz-add</code></td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-pencil"/></svg> <code>i-pencil</code></td><td><code>antz-edit</code></td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg> <code>i-x</code></td><td><code>antz-close</code></td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg> <code>i-chevron-down</code></td><td><code>antz-expand_more</code></td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-chevron-up"/></svg> <code>i-chevron-up</code></td><td><code>antz-expand_less</code></td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-swap"/></svg> <code>i-swap</code></td><td><code>antz-swap</code></td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-clip"/></svg> <code>i-clip</code></td><td><code>antz-attach_file</code></td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg> <code>i-users</code></td><td><code>antz-people</code></td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg> <code>i-chat</code></td><td><code>antz-chat</code></td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg> <code>i-clock</code></td><td><code>antz-time</code></td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg> <code>i-alert</code></td><td><code>antz-warning</code></td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg> <code>i-info</code></td><td><code>antz-info</code></td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg> <code>i-lock</code></td><td><code>antz-lock</code></td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-eye"/></svg> <code>i-eye</code></td><td><code>antz-visibility</code></td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-grid"/></svg> <code>i-grid</code></td><td><code>antz-grid_view</code></td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-sun"/></svg> <code>i-sun</code></td><td><code>antz-wb_sunny</code></td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-moon"/></svg> <code>i-moon</code></td><td><code>antz-bedtime</code></td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg> <code>i-file</code></td><td><code>antz-document</code></td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg> <code>i-calendar</code></td><td><code>antz-calendar</code></td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg> <code>i-arrow-right</code></td><td><code>antz-arrow_forward</code></td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-filter"/></svg> <code>i-filter</code></td><td><code>antz-filter</code></td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-user"/></svg> <code>i-user</code></td><td><code>antz-person</code></td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg> <code>i-phone</code></td><td><code>antz-call</code></td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-trash"/></svg> <code>i-trash</code></td><td><code>antz-delete</code></td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-image"/></svg> <code>i-image</code></td><td><code>antz-image</code></td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-play"/></svg> <code>i-play</code></td><td><code>antz-play_circle</code></td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-tag"/></svg> <code>i-tag</code></td><td><code>antz-sell</code></td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-paw"/></svg> <code>i-paw</code></td><td><code>antz-animal</code></td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg> <code>i-pin</code></td><td><code>antz-location</code></td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-clipboard"/></svg> <code>i-clipboard</code></td><td><code>antz-assessment</code></td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-megaphone"/></svg> <code>i-megaphone</code></td><td><code>antz-announcement</code></td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-refresh"/></svg> <code>i-refresh</code></td><td><code>antz-refresh</code></td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> <code>i-download</code></td><td><code>antz-download</code></td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-maximize"/></svg> <code>i-maximize</code></td><td><code>antz-fullscreen</code></td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-minimize"/></svg> <code>i-minimize</code></td><td><code>antz-close_fullscreen</code></td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-scale"/></svg> <code>i-scale</code></td><td><code>antz-monitor_weight</code></td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-medicine"/></svg> <code>i-medicine</code></td><td><code>antz-medication</code></td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-syringe"/></svg> <code>i-syringe</code></td><td><code>antz-vaccine</code></td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-test-tube"/></svg> <code>i-test-tube</code></td><td><code>antz-lab_sample</code></td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-bar-chart"/></svg> <code>i-bar-chart</code></td><td><code>antz-bar_chart</code></td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-settings"/></svg> <code>i-settings</code></td><td><code>antz-settings_gear</code></td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-history"/></svg> <code>i-history</code></td><td><code>antz-history</code></td></tr><!-- antz-pairs:end --></tbody></table></div>
+  <h4>Kept, for now</h4>
+  <p class="t-small t-secondary">These have no true equivalent in the set yet: the closest icon means something else.</p>
+  <div class="spec-wrap"><table class="spec"><thead><tr><th>Component icon</th><th>Why it stays</th></tr></thead><tbody><!-- antz-kept:start --><tr><td><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> <code>i-check</code></td><td>done is a check in a circle</td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-help"/></svg> <code>i-help</code></td><td>contact_support is a speech bubble</td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-home"/></svg> <code>i-home</code></td><td>home_health has a medical cross</td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg> <code>i-shield</code></td><td>health_and_safety has a cross</td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-scan"/></svg> <code>i-scan</code></td><td>qr_code_scanner is a QR code</td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-trend"/></svg> <code>i-trend</code></td><td>monitoring is a chart</td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-utensils"/></svg> <code>i-utensils</code></td><td>dietitian is an apple</td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-chef-hat"/></svg> <code>i-chef-hat</code></td><td>cooking_pot is a pot</td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-dashboard"/></svg> <code>i-dashboard</code></td><td>grid_view is equal tiles</td></tr><tr><td><svg class="icon" aria-hidden="true"><use href="#i-heart"/></svg> <code>i-heart</code></td><td>like is a thumbs up</td></tr><!-- antz-kept:end --></tbody></table></div>
+</div>
+<script>
+(function () {
+  'use strict';
+  var BASE = '../icons/antz-rounded/', $ = function (s, el) { return (el || document).querySelector(s); }, $$ = function (s, el) { return Array.prototype.slice.call((el || document).querySelectorAll(s)); };
+  var esc = function (s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;'); };
+  var STATUS = { to_design: 'To design', draft: 'Draft', approved: 'Approved', proposal: 'Proposal' };
+  // Tile colours: scale tokens (tile, ink). Green is the theme default.
+  var COLOURS = [['green', 'Green', 'primary', 500, 800], ['teal', 'Teal', 'secondary', 500, 800], ['navy', 'Navy', 'tertiary', 300, 800], ['amber', 'Amber', 'caution', 500, 800], ['coral', 'Coral', 'warning', 500, 900], ['sky', 'Sky', 'info', 500, 900], ['neutral', 'Neutral', 'neutral', 500, 900], ['white', 'White', null, 0, 800]];
+  var st = { family: 'line', view: 'line', q: '', module: '', status: 'all', size: 24, pq: '', pstyle: 'svg', motion: 'play', layout: 'tiles', perrow: 4, group: false, colour: 'green', dstyle: 'line', cur: null };
+  var icons = [], prim = [], primLine = [], svgCache = {};
+
+  function hex(v) { var c = getComputedStyle(document.documentElement).getPropertyValue(v).trim(); return c || '#FFFFFF'; }
+  function lum(h) { h = h.replace('#', ''); return [0, 2, 4].map(function (i) { var x = parseInt(h.substr(i, 2), 16) / 255; return x <= 0.03928 ? x / 12.92 : Math.pow((x + 0.055) / 1.055, 2.4); }).reduce(function (a, x, i) { return a + x * [0.2126, 0.7152, 0.0722][i]; }, 0); }
+  function ratio(a, b) { var x = lum(a), y = lum(b); return ((Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05)).toFixed(2); }
+  function copy(t, btn) { try { navigator.clipboard.writeText(t); } catch (e) {} if (btn) { var o = btn.lastChild.textContent; btn.lastChild.textContent = 'Copied'; setTimeout(function () { btn.lastChild.textContent = o; }, 1200); } }
+  function seg(name, v) { $$('[data-ar-seg="' + name + '"] button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.v === String(v))); }); }
+
+  // ── Line and filled ──
+  function matches(i) {
+    if (st.module && i.module !== st.module) return false;
+    if (st.status !== 'all' && i.status !== st.status) return false;
+    if (!st.q) return true;
+    return [i.name, i.label, i.module, i.reference, (i.tags || []).join(' '), (i.sources || []).join(' ')].join(' ').toLowerCase().indexOf(st.q) >= 0;
+  }
+  function renderSet() {
+    var filled = st.view === 'filled', drawn = icons.filter(function (i) { return i.status !== 'to_design'; }).length;
+    $('[data-ar-title]').textContent = filled ? 'Filled icons' : 'Line icons';
+    $('[data-ar-lead]').textContent = drawn + ' drawn, ' + (icons.length - drawn) + ' to design. ' + (filled ? 'Solid, with details cut out at 2px: use for the selected or active state.' : '2px round strokes on a 24px grid: the default style.') + ' Select an icon for details.';
+    var groups = {}, order = [];
+    icons.forEach(function (i) { if (!groups[i.module]) { groups[i.module] = { all: 0, list: [] }; order.push(i.module); } groups[i.module].all++; if (matches(i)) groups[i.module].list.push(i); });
+    var html = order.filter(function (m) { return groups[m].list.length; }).map(function (m) {
+      return '<h4 class="ar-group">' + esc(m) + ' <span class="t-caption">' + groups[m].list.length + ' of ' + groups[m].all + '</span></h4><div class="ar-grid">' + groups[m].list.map(function (i) {
+        return '<button type="button" class="ar-tile' + (st.cur === i.name ? ' is-on' : '') + '" data-ar-icon="' + esc(i.name) + '" data-drawer-open="ar-sheet" aria-label="' + esc(i.label + ', ' + (STATUS[i.status] || i.status) + '. Show details') + '"><svg class="ar-glyph" aria-hidden="true"><use href="#antz-' + esc(i.name) + (filled ? '-filled' : '') + '"/></svg><b>' + esc(i.label) + '</b><code>' + esc(i.name) + '</code>' + (i.status === 'approved' ? '<span class="status status--plain status--success">Approved</span>' : '<span class="status status--plain status--tertiary">' + esc(STATUS[i.status] || i.status) + '</span>') + '</button>';
+      }).join('') + '</div>';
+    }).join('');
+    var sets = $('[data-ar-sets]'); sets.innerHTML = html; sets.style.setProperty('--ar-size', st.size + 'px');
+    $('[data-ar-empty]').hidden = !!html;
+  }
+  function buildFilters() {
+    var mods = {}; icons.forEach(function (i) { mods[i.module] = (mods[i.module] || 0) + 1; });
+    $('[data-ar-module]').innerHTML = '<option value="">All modules (' + icons.length + ')</option>' + Object.keys(mods).map(function (m) { return '<option value="' + esc(m) + '">' + esc(m) + ' (' + mods[m] + ')</option>'; }).join('');
+    var n = { all: icons.length, to_design: 0, draft: 0, approved: 0 }; icons.forEach(function (i) { n[i.status] = (n[i.status] || 0) + 1; });
+    $$('[data-ar-n]').forEach(function (el) { el.textContent = n[el.dataset.arN] || 0; }); // counts only: the group keeps its sliding indicator
+  }
+
+  // ── Detail sheet ──
+  function keylines() {
+    var g = '';
+    for (var k = 1; k < 24; k++) g += '<path d="M' + k + ' 0V24M0 ' + k + 'H24" class="ar-kl-grid"/>';
+    g += '<rect x="2" y="2" width="20" height="20" class="ar-kl-live"/><rect x="3" y="3" width="18" height="18" rx="2" class="ar-kl-key"/><circle cx="12" cy="12" r="10" class="ar-kl-key"/><rect x="4" y="2" width="16" height="20" rx="2" class="ar-kl-key"/><rect x="2" y="4" width="20" height="16" rx="2" class="ar-kl-key"/>';
+    $('[data-ar-keylines]').innerHTML = g;
+  }
+  function showDetail(name) {
+    var i = icons.filter(function (x) { return x.name === name; })[0]; if (!i) return;
+    st.cur = name; st.dstyle = st.view === 'filled' ? 'filled' : 'line'; seg('dstyle', st.dstyle);
+    $('[data-ar-d="label"]').textContent = i.label;
+    $('[data-ar-d="meta"]').textContent = i.name + ' in ' + i.module;
+    $('[data-ar-d="status"]').innerHTML = '<span class="status status--plain ' + (i.status === 'approved' ? 'status--success' : 'status--tertiary') + '">' + esc(STATUS[i.status] || i.status) + '</span>';
+    $('[data-ar-d="ref"]').innerHTML = i.reference ? 'Material Symbols <code>' + esc(i.reference) + '</code> (reference only)' : 'No Material reference: drawn for ANTZ.';
+    var src = i.sources || [];
+    $('[data-ar-d="nsrc"]').textContent = src.length;
+    $('[data-ar-d="sources"]').innerHTML = src.length ? src.map(function (s) { return '<li><code>' + esc(s) + '</code></li>'; }).join('') : '<li class="t-secondary">None: a new icon.</li>';
+    $('[data-ar-d="notes"]').textContent = i.notes || ''; $('[data-ar-d="notes-wrap"]').hidden = !i.notes;
+    setDetailStyle();
+    $$('.ar-tile').forEach(function (t) { t.classList.toggle('is-on', t.dataset.arIcon === name); });
+  }
+  function setDetailStyle() { $('[data-ar-d="use"]').setAttribute('href', '#antz-' + st.cur + (st.dstyle === 'filled' ? '-filled' : '')); }
+
+  // ── Primary ──
+  function colour() { return COLOURS.filter(function (c) { return c[0] === st.colour; })[0]; }
+  function applyColour() {
+    var c = colour(), box = $('[data-ar-prims]');
+    var tile = c[2] ? 'var(--scale-' + c[2] + '-' + c[3] + ')' : 'var(--color-surface)', ink = 'var(--scale-' + (c[2] || 'primary') + '-' + c[4] + ')';
+    box.style.setProperty('--antz-primary-container', tile); box.style.setProperty('--antz-on-primary-container', ink); box.style.setProperty('--antz-on-primary-fixed-variant', ink);
+    var th = c[2] ? hex('--scale-' + c[2] + '-' + c[3]) : '#FFFFFF', ih = hex('--scale-' + (c[2] || 'primary') + '-' + c[4]), fh = '#CCE5FF';
+    var r = ratio(ih, th);
+    $('[data-ar-contrast]').innerHTML = '<b>' + c[1] + '</b> · tile ' + th + ', ink ' + ih + ' · ink on tile ' + r + ':1' + (r < 4.5 ? ' <span class="status status--plain status--danger">Below AA</span>' : '') + ' · ink on fill ' + ratio(ih, fh) + ':1 · fill on tile ' + ratio(fh, th) + ':1';
+    $$('[data-ar-colours] button').forEach(function (b) { b.setAttribute('aria-checked', String(b.dataset.v === st.colour)); });
+  }
+  function load(p) {
+    var url = st.family === 'line' ? BASE + 'primary-line/' + p.svg : BASE + 'primary/' + p[st.pstyle];
+    if (svgCache[url]) return Promise.resolve(svgCache[url]);
+    return fetch(url, { cache: 'no-cache' }).then(function (r) { return r.text(); }).then(function (t) { svgCache[url] = t.replace(/<svg /, '<svg aria-hidden="true" ').replace(/ role="img"/, '').replace(/ aria-label="[^"]*"/, ''); return svgCache[url]; });
+  }
+  function renderPrim() {
+    $$('[data-ar-tileonly]').forEach(function (el) { el.hidden = st.family === 'line'; }); $$('[data-ar-lineonly]').forEach(function (el) { el.hidden = st.family !== 'line'; });
+    var q = st.pq, list = (st.family === 'line' ? primLine : prim).filter(function (p) { return !q || [p.name, p.label, p.module, p.baseIcon].join(' ').toLowerCase().indexOf(q) >= 0; });
+    var box = $('[data-ar-prims]');
+    box.className = 'ar-prims ar-prims--' + st.family + ' ar-prims--' + st.layout + (st.motion === 'pause' ? ' is-paused' : '') + (st.motion === 'reduced' ? ' is-reduced' : '');
+    box.style.setProperty('--ar-perrow', st.layout === 'wall' ? st.perrow + 2 : st.perrow);
+    var once = st.family === 'line';
+    var card = function (p) { return '<figure class="ar-prim" data-p="' + esc(p.name) + '"' + (once ? ' data-icon-replay tabindex="0" aria-label="' + esc(p.label) + ': replay"' : '') + '><span class="ar-prim__art"></span>' + (st.layout === 'wall' ? '' : '<figcaption><b>' + esc(p.label) + '</b><code>' + esc(p.name) + '</code><span><span class="status status--plain status--tertiary">' + esc(STATUS[p.status] || p.status) + '</span> <span class="t-caption">' + (once ? '2.8 s, plays once' : ((p.loopMs || 3600) / 1000).toFixed(1) + ' s loop') + '</span></span></figcaption>') + '</figure>'; };
+    if (st.family === 'line' && !st.group) {
+      var sets = [['primary', 'Module icons'], ['animals', 'Animals'], ['care', 'Animal care and operations'], ['health', 'Health and lab'], ['facilities', 'Facilities and maintenance'], ['data', 'Data, reports and time'], ['ui', 'Interface icons, micro-animations']];
+      box.innerHTML = sets.map(function (x) { var l = list.filter(function (p) { return (p.set || 'primary') === x[0]; }); return l.length ? '<h4 class="ar-group">' + x[1] + ' <span class="t-caption">' + l.length + '</span></h4><div class="ar-prim-grid">' + l.map(card).join('') + '</div>' : ''; }).join('');
+    } else if (st.group) { var g = {}, o = []; list.forEach(function (p) { if (!g[p.module]) { g[p.module] = []; o.push(p.module); } g[p.module].push(p); }); box.innerHTML = o.map(function (m) { return '<h4 class="ar-group">' + esc(m) + '</h4><div class="ar-prim-grid">' + g[m].map(card).join('') + '</div>'; }).join(''); }
+    else box.innerHTML = '<div class="ar-prim-grid">' + list.map(card).join('') + '</div>';
+    list.forEach(function (p) { load(p).then(function (svg) { var el = box.querySelector('[data-p="' + p.name + '"] .ar-prim__art'); if (el) el.innerHTML = svg; }); });
+    applyColour();
+  }
+
+  // ── Views ──
+  function setView(v, push) {
+    st.view = v;
+    $$('[data-ar-view]').forEach(function (b) { b.setAttribute('aria-selected', String(b.dataset.arView === v)); });
+    $('[data-ar-panel="set"]').hidden = v === 'primary'; $('[data-ar-panel="primary"]').hidden = v !== 'primary';
+    if (v === 'primary') renderPrim(); else renderSet();
+    if (push) try { history.replaceState(null, '', '#icons-' + v); } catch (e) {}
+  }
+
+  document.addEventListener('click', function (e) {
+    var t;
+    if ((t = e.target.closest('[data-ar-view]'))) return setView(t.dataset.arView, true);
+    if ((t = e.target.closest('[data-ar-icon]'))) return showDetail(t.dataset.arIcon);
+    if ((t = e.target.closest('[data-ar-status] button'))) { st.status = t.dataset.v; $$('[data-ar-status] button').forEach(function (b) { b.setAttribute('aria-pressed', String(b === t)); }); return renderSet(); }
+    if ((t = e.target.closest('[data-ar-colours] button'))) { st.colour = t.dataset.v; return applyColour(); }
+    if ((t = e.target.closest('[data-ar-copy]'))) {
+      var k = t.dataset.arCopy, id = 'antz-' + st.cur + (st.dstyle === 'filled' ? '-filled' : '');
+      if (k === 'id') return copy(id, t); if (k === 'name') return copy(st.cur, t);
+      return fetch(BASE + st.dstyle + '/' + st.cur + '.svg').then(function (r) { return r.text(); }).then(function (s) { copy(s, t); });
+    }
+    if ((t = e.target.closest('[data-ar-seg] button'))) {
+      var name = t.closest('[data-ar-seg]').dataset.arSeg; st[name] = name === 'perrow' ? +t.dataset.v : t.dataset.v; seg(name, t.dataset.v);
+      if (name === 'dstyle') return setDetailStyle();
+      if (name === 'motion' && t.dataset.v === 'play' && st.family === 'line' && window.AntzIcons) { $('[data-ar-prims]').className = $('[data-ar-prims]').className.replace(/ is-(paused|reduced)/g, ''); return window.AntzIcons.replay($('[data-ar-prims]')); }
+      if (name === 'pstyle') return renderPrim();
+      return renderPrim();
+    }
+  });
+  document.addEventListener('input', function (e) {
+    if (e.target.matches('[data-ar-q]')) { st.q = e.target.value.trim().toLowerCase(); renderSet(); }
+    if (e.target.matches('[data-ar-pq]')) { st.pq = e.target.value.trim().toLowerCase(); renderPrim(); }
+  });
+  document.addEventListener('change', function (e) {
+    if (e.target.matches('[data-ar-module]')) { st.module = e.target.value; renderSet(); }
+    if (e.target.matches('[data-ar-size]')) { st.size = +e.target.value; renderSet(); }
+    if (e.target.matches('[data-ar-group]')) { st.group = e.target.checked; renderPrim(); }
+    if (e.target.matches('[data-ar-kl]')) $('[data-ar-keylines]').hidden = !e.target.checked;
+  });
+
+  Promise.all([
+    fetch(BASE + 'sprite.svg', { cache: 'no-cache' }).then(function (r) { return r.text(); }).then(function (t) { document.body.insertAdjacentHTML('afterbegin', t); }),
+    fetch(BASE + 'index.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (d) { icons = d.icons; }),
+    fetch(BASE + 'primary/index.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (d) { prim = d.icons.sort(function (a, b) { return (a.order || 0) - (b.order || 0); }); }),
+    fetch(BASE + 'primary-line/index.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (d) { primLine = d.icons; }).catch(function () {})
+  ]).then(function () {
+    $$('[data-ar-total="line"],[data-ar-total="filled"]').forEach(function (s) { s.textContent = icons.length; });
+    $$('[data-ar-total="primary"]').forEach(function (s) { s.textContent = prim.length; });
+    $('[data-ar-colours]').innerHTML = COLOURS.map(function (c) { return '<button type="button" role="radio" class="ar-colour" data-v="' + c[0] + '" aria-checked="false"><i style="background:' + (c[2] ? 'var(--scale-' + c[2] + '-' + c[3] + ')' : 'var(--color-surface)') + ';box-shadow:inset 0 0 0 4px var(--scale-' + (c[2] || 'primary') + '-' + c[4] + ')"></i>' + c[1] + '</button>'; }).join('');
+    buildFilters(); keylines();
+    var h = (location.hash || '').replace('#icons-', '');
+    setView(['line', 'filled', 'primary'].indexOf(h) >= 0 ? h : 'line', false);
+  }).catch(function () { $('[data-ar-sets]').innerHTML = '<p class="t-secondary">The icon files could not be loaded. They are in <code>icons/antz-rounded/</code>.</p>'; });
+})();
+</script></section><section class="tab-panel" id="panel-usage" data-tab="usage" role="tabpanel" aria-labelledby="tab-usage" hidden><div class="doc" id="antz-usage"><h3>ANTZ Rounded icons</h3><div class="dd">
+  <div class="do"><b><svg class="icon"><use href="#i-check"/></svg>Do</b><ul><li>Use line by default and filled for the selected or active state of the same icon.</li><li>Colour icons with <code>currentColor</code>, from text or semantic tokens.</li><li>Use Primary icons only for module navigation tiles, with a tile colour whose ink passes AA.</li><li>Need an icon that isn't here? Ask the icon team: new icons are drawn in the ANTZ icon builder.</li></ul></div>
+  <div class="dont"><b><svg class="icon"><use href="#i-x"/></svg>Don't</b><ul><li>Treat a Draft icon as final in shipped work without checking with the icon team.</li><li>Mix line and filled in one group of controls.</li><li>Redraw, stretch or recolour parts of an icon.</li></ul></div>
+</div></div></section><section class="tab-panel" id="panel-code" data-tab="code" role="tabpanel" aria-labelledby="tab-code" hidden><div class="doc" id="antz-code"><h3>ANTZ Rounded icons</h3>
+<details class="code" open><summary>Web: sprite</summary><pre><code>&lt;!-- once per page: the contents of icons/antz-rounded/sprite.svg --&gt;
+&lt;svg class="icon" aria-hidden="true"&gt;&lt;use href="#antz-calendar"/&gt;&lt;/svg&gt;          &lt;!-- line --&gt;
+&lt;svg class="icon" aria-hidden="true"&gt;&lt;use href="#antz-calendar-filled"/&gt;&lt;/svg&gt;   &lt;!-- filled --&gt;</code></pre></details>
+<details class="code"><summary>Primary icons: tile colour</summary><pre><code>&lt;!-- Inline the SVG (icons/antz-rounded/primary/svg/home.svg) and set its roles --&gt;
+&lt;div style="--antz-primary-container: var(--scale-secondary-500); --antz-on-primary-container: var(--scale-secondary-800)"&gt;…&lt;/div&gt;</code></pre></details>
+<details class="code"><summary>Animated line icons: play once, replay</summary><pre><code>&lt;!-- Inline the SVG (icons/antz-rounded/primary-line/&lt;name&gt;.svg): it plays once and holds its final frame --&gt;
+&lt;a class="tile-module" href="medical.html" data-icon-replay&gt;…inline SVG…&lt;span&gt;Medical&lt;/span&gt;&lt;/a&gt;
+&lt;!-- No motion wanted: the still version --&gt;
+&lt;img src="icons/antz-rounded/primary-line/static/medical.svg" alt="" width="48" height="48"&gt;
+// From script: AntzIcons.replay(element)</code></pre></details>
+<details class="code"><summary>React Native and Flutter</summary><pre><code>// One file per icon: icons/antz-rounded/line/&lt;name&gt;.svg and filled/&lt;name&gt;.svg (react-native-svg, flutter_svg)
+// Primary icons: icons/antz-rounded/primary/lottie/&lt;name&gt;.&lt;scheme&gt;.json (lottie-react-native, lottie for Flutter)</code></pre></details>
+<p class="t-small t-secondary">The index (names, labels, modules, status, tags) is <code>icons/antz-rounded/index.json</code>. Source and update steps: <code>icons/antz-rounded/SOURCE.md</code>.</p></div></section>
+<nav class="pager" aria-label="Previous and next page"><a class="pager__prev" href="icons.html"><svg class="icon"><use href="#i-arrow-left"/></svg><span><small>Previous</small><b>Icons</b></span></a><a class="pager__next" href="layout.html"><span><small>Next · Foundations</small><b>Layout and breakpoints</b></span><svg class="icon"><use href="#i-arrow-right"/></svg></a></nav>
+</div><aside class="page-toc" id="page-toc" aria-label="On this page"></aside></div>
+<footer class="site-foot">Antz Design System v1.2.0 beta 5 · <a href="../pages/versions.html">Versions</a> · <a href="../CHANGELOG.md">Changelog</a> · <a href="../HOW-IT-WORKS.md">How it works</a> · <a href="../colors.json" download>colors.json</a></footer>
+</main>
+</div>
+<div class="toast-region" id="toasts" role="status" aria-live="polite"></div>
+<script src="../components.js?v=9e25625aa6"></script>
+<script src="../assets/site.js?v=9e25625aa6"></script>
+</body>
+</html>

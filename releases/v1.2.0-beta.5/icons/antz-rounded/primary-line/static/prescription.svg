@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-prescription" role="img" aria-label="Prescription">
+<defs><linearGradient id="antz-l-prescription-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-prescription .i,.antz-l-prescription .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-prescription .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-prescription .a{stroke:url(#antz-l-prescription-acc)}
+.antz-l-prescription .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-prescription .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-prescription .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+</style>
+<rect class="i antz-l-prescription-0" x="9" y="7" width="26" height="34" rx="3" pathLength="1"/>
+<path class="i antz-l-prescription-1" d="M15 15h14M15 21h14M15 27h8" pathLength="1"/>
+<path class="a antz-l-prescription-2" d="M15 34c2-2 3 1 5-1s3 1 5-1" pathLength="1"/>
+</svg>

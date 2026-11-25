@@ -1,0 +1,231 @@
+{
+  "$description": "Antz Design System rule registry. Every rule has an id, an owner, a severity and how it is enforced. tools/check.mjs reads this file; a rule marked enforcedBy 'check' is checked automatically. Change a rule only through an RFC (governance/rfc/).",
+  "version": "1.0.0-beta.1",
+  "rules": [
+    {
+      "id": "ANTZ-COL-01",
+      "area": "colour",
+      "severity": "error",
+      "enforcedBy": "check",
+      "owner": "Design System Maintainers",
+      "statement": "No raw colours (hex, rgb, hsl) outside tokens. Use a semantic --color-* or --hue-* token.",
+      "source": "Library v2 WCOL-01"
+    },
+    {
+      "id": "ANTZ-COL-02",
+      "area": "colour",
+      "severity": "error",
+      "enforcedBy": "check",
+      "owner": "System Owner",
+      "statement": "The brand green #37BD69 is a fill on light surfaces, never text, a thin line or a small icon. Use --color-accent-text for brand text and --color-accent-indicator for thin indicators.",
+      "source": "FD-001"
+    },
+    {
+      "id": "ANTZ-COL-03",
+      "area": "colour",
+      "severity": "error",
+      "enforcedBy": "check",
+      "owner": "System Owner",
+      "statement": "Retired brand values are not used: lime #52F990, #38BD69, #36BC69.",
+      "source": "FD-001"
+    },
+    {
+      "id": "ANTZ-COL-04",
+      "area": "colour",
+      "severity": "error",
+      "enforcedBy": "review",
+      "owner": "Design System Maintainers",
+      "statement": "Brand green never means a status. Success uses the success tokens.",
+      "source": "FD-002"
+    },
+    {
+      "id": "ANTZ-COL-05",
+      "area": "colour",
+      "severity": "error",
+      "enforcedBy": "review",
+      "owner": "Design System Maintainers",
+      "statement": "One main (filled brand) action per header, drawer or dialog.",
+      "source": "Library v2 WCOL-02, WCTL-03"
+    },
+    {
+      "id": "ANTZ-TOK-01",
+      "area": "tokens",
+      "severity": "error",
+      "enforcedBy": "check",
+      "owner": "Design System Maintainers",
+      "statement": "Primitive tokens (--green-40, --ink-700, ...) are never used outside tokens.css. Use the semantic token for the purpose."
+    },
+    {
+      "id": "ANTZ-TOK-02",
+      "area": "tokens",
+      "severity": "error",
+      "enforcedBy": "check",
+      "owner": "Design System Maintainers",
+      "statement": "No invented tokens: every var(--*) must exist in tokens.css or be a local custom property defined in the same file."
+    },
+    {
+      "id": "ANTZ-TOK-03",
+      "area": "tokens",
+      "severity": "error",
+      "enforcedBy": "build",
+      "owner": "Design System Maintainers",
+      "statement": "Semantic colour tokens reference primitives; they never hold raw values. Generated files are never edited by hand."
+    },
+    {
+      "id": "ANTZ-TYP-01",
+      "area": "typography",
+      "severity": "error",
+      "enforcedBy": "check",
+      "owner": "Design System Maintainers",
+      "statement": "Font sizes come from --text-* tokens. No px, rem or em font sizes.",
+      "source": "Library v2 WTYP-01"
+    },
+    {
+      "id": "ANTZ-TYP-02",
+      "area": "typography",
+      "severity": "error",
+      "enforcedBy": "check",
+      "owner": "System Owner",
+      "statement": "Only approved fonts: font-family must use --font-body, --font-heading or --font-mono.",
+      "source": "Brief 14.1"
+    },
+    {
+      "id": "ANTZ-TYP-03",
+      "area": "typography",
+      "severity": "error",
+      "enforcedBy": "check",
+      "owner": "Design System Maintainers",
+      "statement": "Font weights come from --weight-* tokens.",
+      "source": "Library v2 WTYP-02"
+    },
+    {
+      "id": "ANTZ-SPC-01",
+      "area": "spacing",
+      "severity": "error",
+      "enforcedBy": "check",
+      "owner": "Design System Maintainers",
+      "statement": "Margin, padding and gap use --space-* tokens. Off-scale pixel values are not allowed (1px hairlines excepted).",
+      "source": "Library v2 WSPC-01"
+    },
+    {
+      "id": "ANTZ-SHP-01",
+      "area": "shape",
+      "severity": "error",
+      "enforcedBy": "check",
+      "owner": "Design System Maintainers",
+      "statement": "Border radius uses --radius-* tokens (or 50% for circles).",
+      "source": "Library v2 WSPC-02"
+    },
+    {
+      "id": "ANTZ-ELV-01",
+      "area": "elevation",
+      "severity": "error",
+      "enforcedBy": "check",
+      "owner": "Design System Maintainers",
+      "statement": "Box shadows use --shadow-* tokens.",
+      "source": "Library v2 WSPC-03"
+    },
+    {
+      "id": "ANTZ-MOT-01",
+      "area": "motion",
+      "severity": "error",
+      "enforcedBy": "check",
+      "owner": "Design System Maintainers",
+      "statement": "No arbitrary animation timings: durations use --duration-*, easing uses --ease-*.",
+      "source": "Brief 14.1"
+    },
+    {
+      "id": "ANTZ-MOT-02",
+      "area": "motion",
+      "severity": "error",
+      "enforcedBy": "review",
+      "owner": "Accessibility Lead",
+      "statement": "Every animation stops under prefers-reduced-motion (the duration tokens do this automatically). Interface motion never exceeds 500ms."
+    },
+    {
+      "id": "ANTZ-GRD-01",
+      "area": "gradient",
+      "severity": "error",
+      "enforcedBy": "check",
+      "owner": "Design System Maintainers",
+      "statement": "No ad hoc gradients. Use --gradient-* tokens (washes, module, feature, scrim)."
+    },
+    {
+      "id": "ANTZ-GRD-02",
+      "area": "gradient",
+      "severity": "error",
+      "enforcedBy": "review",
+      "owner": "Design System Maintainers",
+      "statement": "Washes are for large soft backgrounds and stat panels only. Pick the wash by meaning and keep it per topic; at most two different washes on one screen; never on buttons, data marks, status, or behind small text without the secondary text colour. Mortality, alerts and overdue figures never sit on the celebrate wash.",
+      "source": "DD-001"
+    },
+    {
+      "id": "ANTZ-A11Y-01",
+      "area": "accessibility",
+      "severity": "error",
+      "enforcedBy": "check",
+      "owner": "Accessibility Lead",
+      "statement": "Focus outlines are never removed (outline: none / 0) unless the same rule supplies a visible replacement.",
+      "source": "Library v2 table focus debt"
+    },
+    {
+      "id": "ANTZ-A11Y-02",
+      "area": "accessibility",
+      "severity": "error",
+      "enforcedBy": "check",
+      "owner": "Accessibility Lead",
+      "statement": "Icon-only buttons have an aria-label (or aria-labelledby).",
+      "source": "Library v2 WCTL-04"
+    },
+    {
+      "id": "ANTZ-A11Y-03",
+      "area": "accessibility",
+      "severity": "error",
+      "enforcedBy": "check",
+      "owner": "Accessibility Lead",
+      "statement": "Images have alt text (alt=\"\" for decoration)."
+    },
+    {
+      "id": "ANTZ-A11Y-04",
+      "area": "accessibility",
+      "severity": "error",
+      "enforcedBy": "build",
+      "owner": "Accessibility Lead",
+      "statement": "Every approved colour pair passes WCAG 2.2 AA (4.5:1 text, 3:1 UI) in light, dark and both high-contrast modes."
+    },
+    {
+      "id": "ANTZ-CMP-01",
+      "area": "components",
+      "severity": "error",
+      "enforcedBy": "review",
+      "owner": "Design System Maintainers",
+      "statement": "Use an existing component before building one. Duplicates (a second confirm dialog, toast or filter drawer) are not allowed.",
+      "source": "Library v2 WSRC-03"
+    },
+    {
+      "id": "ANTZ-CMP-02",
+      "area": "components",
+      "severity": "error",
+      "enforcedBy": "review",
+      "owner": "Design System Maintainers",
+      "statement": "Add and edit happen in the right work drawer (562px).",
+      "source": "Library v2 WOVL-01, D5"
+    },
+    {
+      "id": "ANTZ-REL-01",
+      "area": "release",
+      "severity": "error",
+      "enforcedBy": "release",
+      "owner": "Design System Maintainers",
+      "statement": "Published versions (releases/vX.Y.Z) are immutable. Changes reach them only through tools/release.mjs after the gate passes."
+    },
+    {
+      "id": "ANTZ-REL-02",
+      "area": "release",
+      "severity": "error",
+      "enforcedBy": "release",
+      "owner": "Design System Maintainers",
+      "statement": "Products link a pinned release (releases/vX.Y.Z/), never the working copy at the repository root."
+    }
+  ]
+}

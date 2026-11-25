@@ -1,0 +1,97 @@
+{
+  "color": {
+    "$description": "High contrast, dark.",
+    "text": {
+      "secondary": {
+        "$type": "color",
+        "$value": "{night.95}"
+      },
+      "muted": {
+        "$type": "color",
+        "$value": "{night.75}"
+      },
+      "placeholder": {
+        "$type": "color",
+        "$value": "{night.75}"
+      },
+      "link": {
+        "$type": "color",
+        "$value": "{green.90}"
+      }
+    },
+    "border": {
+      "$root": {
+        "$type": "color",
+        "$value": "{night.55}"
+      },
+      "subtle": {
+        "$type": "color",
+        "$value": "{night.50}"
+      },
+      "strong": {
+        "$type": "color",
+        "$value": "{night.65}"
+      },
+      "input": {
+        "$type": "color",
+        "$value": "{night.75}"
+      }
+    },
+    "accent": {
+      "$root": {
+        "$type": "color",
+        "$value": "{green.90}"
+      },
+      "hover": {
+        "$type": "color",
+        "$value": "{green.95}"
+      },
+      "pressed": {
+        "$type": "color",
+        "$value": "{green.80}"
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{green.90}"
+      },
+      "indicator": {
+        "$type": "color",
+        "$value": "{green.90}"
+      }
+    },
+    "focus": {
+      "$value": "{green.90}",
+      "$type": "color"
+    },
+    "success": {
+      "text": {
+        "$type": "color",
+        "$value": "{olive.90}"
+      }
+    },
+    "warning": {
+      "text": {
+        "$type": "color",
+        "$value": "{coral.90}"
+      }
+    },
+    "caution": {
+      "text": {
+        "$type": "color",
+        "$value": "{amber.90}"
+      }
+    },
+    "danger": {
+      "text": {
+        "$type": "color",
+        "$value": "{red.90}"
+      }
+    },
+    "info": {
+      "text": {
+        "$type": "color",
+        "$value": "{sky.90}"
+      }
+    }
+  }
+}

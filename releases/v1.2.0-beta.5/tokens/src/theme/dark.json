@@ -1,0 +1,750 @@
+{
+  "color": {
+    "$description": "Semantic colour, dark theme. Designed separately: surfaces lighten as they rise; the brand fill stays #37BD69.",
+    "bg": {
+      "app": {
+        "$type": "color",
+        "$value": "{night.0}"
+      },
+      "canvas": {
+        "$type": "color",
+        "$value": "{night.5}"
+      }
+    },
+    "surface": {
+      "$root": {
+        "$type": "color",
+        "$value": "{night.10}"
+      },
+      "raised": {
+        "$type": "color",
+        "$value": "{night.15}"
+      },
+      "sunken": {
+        "$type": "color",
+        "$value": "{night.5}"
+      },
+      "muted": {
+        "$type": "color",
+        "$value": "{night.20}"
+      },
+      "hover": {
+        "$type": "color",
+        "$value": "{night.25}"
+      },
+      "selected": {
+        "$type": "color",
+        "$value": "{green.night-selected}"
+      },
+      "inverse": {
+        "$type": "color",
+        "$value": "{board.canvas}"
+      },
+      "strong": {
+        "$type": "color",
+        "$value": "{charcoal.night}"
+      },
+      "tertiary": {
+        "$type": "color",
+        "$value": "{navy.brand}"
+      }
+    },
+    "overlay": {
+      "$type": "color",
+      "$value": "{alpha.overlay-dark}"
+    },
+    "glass": {
+      "$type": "color",
+      "$value": "{alpha.glass-dark}"
+    },
+    "glass-border": {
+      "$type": "color",
+      "$value": "{alpha.glass-border-dark}"
+    },
+    "text": {
+      "$root": {
+        "$type": "color",
+        "$value": "{night.95}"
+      },
+      "secondary": {
+        "$type": "color",
+        "$value": "{night.75}"
+      },
+      "muted": {
+        "$type": "color",
+        "$value": "{night.65}"
+      },
+      "placeholder": {
+        "$type": "color",
+        "$value": "{night.60}"
+      },
+      "disabled": {
+        "$type": "color",
+        "$value": "{night.50}"
+      },
+      "inverse": {
+        "$type": "color",
+        "$value": "{ink.900}"
+      },
+      "on-accent": {
+        "$type": "color",
+        "$value": "{green.10}"
+      },
+      "on-strong": {
+        "$type": "color",
+        "$value": "{ink.0}"
+      },
+      "on-tertiary": {
+        "$type": "color",
+        "$value": "{ink.0}"
+      },
+      "link": {
+        "$type": "color",
+        "$value": "{green.80}"
+      },
+      "on-bright": {
+        "$type": "color",
+        "$value": "{green.15}"
+      }
+    },
+    "border": {
+      "$root": {
+        "$type": "color",
+        "$value": "{night.30}"
+      },
+      "subtle": {
+        "$type": "color",
+        "$value": "{night.22}"
+      },
+      "strong": {
+        "$type": "color",
+        "$value": "{night.35}"
+      },
+      "input": {
+        "$type": "color",
+        "$value": "{night.55}"
+      }
+    },
+    "accent": {
+      "$root": {
+        "$type": "color",
+        "$value": "{green.brand}"
+      },
+      "hover": {
+        "$type": "color",
+        "$value": "{green.brand-hover-dark}"
+      },
+      "pressed": {
+        "$type": "color",
+        "$value": "{green.brand-pressed-dark}"
+      },
+      "soft": {
+        "$type": "color",
+        "$value": "{green.night-soft}"
+      },
+      "soft-hover": {
+        "$type": "color",
+        "$value": "{green.night-soft-hover}"
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{green.80}"
+      },
+      "bright": {
+        "$type": "color",
+        "$value": "{green.80}"
+      },
+      "indicator": {
+        "$type": "color",
+        "$value": "{green.brand}"
+      },
+      "on-indicator": {
+        "$type": "color",
+        "$value": "{green.10}"
+      }
+    },
+    "secondary": {
+      "solid": {
+        "$type": "color",
+        "$value": "{teal.80}"
+      },
+      "on-solid": {
+        "$type": "color",
+        "$value": "{teal.10}"
+      },
+      "soft": {
+        "$type": "color",
+        "$value": "{teal.night-soft}"
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{teal.80}"
+      }
+    },
+    "tertiary": {
+      "solid": {
+        "$type": "color",
+        "$value": "{navy.80}"
+      },
+      "on-solid": {
+        "$type": "color",
+        "$value": "{navy.10}"
+      },
+      "soft": {
+        "$type": "color",
+        "$value": "{navy.night-soft}"
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{navy.80}"
+      }
+    },
+    "success": {
+      "bg": {
+        "$type": "color",
+        "$value": "{olive.night-soft}"
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{olive.80}"
+      },
+      "solid": {
+        "$type": "color",
+        "$value": "{olive.80}"
+      },
+      "on-solid": {
+        "$type": "color",
+        "$value": "{olive.10}"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{olive.night-border}"
+      }
+    },
+    "warning": {
+      "bg": {
+        "$type": "color",
+        "$value": "{coral.night-soft}"
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{coral.80}"
+      },
+      "solid": {
+        "$type": "color",
+        "$value": "{coral.70}"
+      },
+      "on-solid": {
+        "$type": "color",
+        "$value": "{coral.10}"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{coral.night-border}"
+      }
+    },
+    "caution": {
+      "bg": {
+        "$type": "color",
+        "$value": "{amber.night-soft}"
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{amber.80}"
+      },
+      "solid": {
+        "$type": "color",
+        "$value": "{amber.80}"
+      },
+      "on-solid": {
+        "$type": "color",
+        "$value": "{amber.10}"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{amber.night-border}"
+      }
+    },
+    "danger": {
+      "bg": {
+        "$type": "color",
+        "$value": "{red.night-soft}"
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{red.80}"
+      },
+      "solid": {
+        "$type": "color",
+        "$value": "{red.70}"
+      },
+      "on-solid": {
+        "$type": "color",
+        "$value": "{red.10}"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{red.night-border}"
+      },
+      "hover": {
+        "$type": "color",
+        "$value": "{red.80}"
+      }
+    },
+    "info": {
+      "bg": {
+        "$type": "color",
+        "$value": "{sky.night-soft}"
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{sky.80}"
+      },
+      "solid": {
+        "$type": "color",
+        "$value": "{sky.80}"
+      },
+      "on-solid": {
+        "$type": "color",
+        "$value": "{sky.10}"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{sky.night-border}"
+      }
+    },
+    "neutral": {
+      "bg": {
+        "$type": "color",
+        "$value": "{night.20}"
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{night.75}"
+      },
+      "solid": {
+        "$type": "color",
+        "$value": "{night.65}"
+      }
+    },
+    "signal": {
+      "danger": {
+        "$type": "color",
+        "$value": "{red.70}"
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{coral.70}"
+      },
+      "caution": {
+        "$type": "color",
+        "$value": "{amber.80}"
+      },
+      "success": {
+        "$type": "color",
+        "$value": "{olive.80}"
+      },
+      "info": {
+        "$type": "color",
+        "$value": "{sky.80}"
+      }
+    },
+    "focus": {
+      "$root": {
+        "$type": "color",
+        "$value": "{green.80}"
+      },
+      "glow": {
+        "$type": "color",
+        "$value": "{alpha.focus-glow-dark}"
+      }
+    },
+    "disabled-bg": {
+      "$type": "color",
+      "$value": "{night.28}"
+    },
+    "module": {
+      "green": {
+        "a": {
+          "$type": "color",
+          "$value": "{night.15}"
+        },
+        "b": {
+          "$type": "color",
+          "$value": "{wash.night-mint}"
+        },
+        "ta": {
+          "$type": "color",
+          "$value": "{green.night-soft}"
+        },
+        "tb": {
+          "$type": "color",
+          "$value": "{wash.night-aqua}"
+        },
+        "ink": {
+          "$type": "color",
+          "$value": "{green.80}"
+        }
+      },
+      "amber": {
+        "a": {
+          "$type": "color",
+          "$value": "{night.15}"
+        },
+        "b": {
+          "$type": "color",
+          "$value": "{wash.night-butter}"
+        },
+        "ta": {
+          "$type": "color",
+          "$value": "{amber.night-soft}"
+        },
+        "tb": {
+          "$type": "color",
+          "$value": "{wash.night-mint}"
+        },
+        "ink": {
+          "$type": "color",
+          "$value": "{amber.80}"
+        }
+      },
+      "navy": {
+        "a": {
+          "$type": "color",
+          "$value": "{night.15}"
+        },
+        "b": {
+          "$type": "color",
+          "$value": "{wash.night-sky}"
+        },
+        "ta": {
+          "$type": "color",
+          "$value": "{navy.night-soft}"
+        },
+        "tb": {
+          "$type": "color",
+          "$value": "{wash.night-sky}"
+        },
+        "ink": {
+          "$type": "color",
+          "$value": "{sky.80}"
+        }
+      },
+      "slate": {
+        "a": {
+          "$type": "color",
+          "$value": "{night.15}"
+        },
+        "b": {
+          "$type": "color",
+          "$value": "{night.25}"
+        },
+        "ta": {
+          "$type": "color",
+          "$value": "{night.28}"
+        },
+        "tb": {
+          "$type": "color",
+          "$value": "{night.30}"
+        },
+        "ink": {
+          "$type": "color",
+          "$value": "{teal.80}"
+        }
+      },
+      "violet": {
+        "a": {
+          "$type": "color",
+          "$value": "{night.15}"
+        },
+        "b": {
+          "$type": "color",
+          "$value": "{violet.night-soft}"
+        },
+        "ta": {
+          "$type": "color",
+          "$value": "{violet.night-soft}"
+        },
+        "tb": {
+          "$type": "color",
+          "$value": "{wash.night-pink}"
+        },
+        "ink": {
+          "$type": "color",
+          "$value": "{violet.80}"
+        }
+      },
+      "rose": {
+        "a": {
+          "$type": "color",
+          "$value": "{night.15}"
+        },
+        "b": {
+          "$type": "color",
+          "$value": "{wash.night-pink}"
+        },
+        "ta": {
+          "$type": "color",
+          "$value": "{red.night-soft}"
+        },
+        "tb": {
+          "$type": "color",
+          "$value": "{wash.night-pink}"
+        },
+        "ink": {
+          "$type": "color",
+          "$value": "{red.80}"
+        }
+      },
+      "coral": {
+        "a": {
+          "$type": "color",
+          "$value": "{night.15}"
+        },
+        "b": {
+          "$type": "color",
+          "$value": "{wash.night-rose}"
+        },
+        "ta": {
+          "$type": "color",
+          "$value": "{coral.night-soft}"
+        },
+        "tb": {
+          "$type": "color",
+          "$value": "{wash.night-butter}"
+        },
+        "ink": {
+          "$type": "color",
+          "$value": "{coral.80}"
+        }
+      }
+    },
+    "text-gradient": {
+      "start": {
+        "$type": "color",
+        "$value": "{teal.80}"
+      },
+      "mid": {
+        "$type": "color",
+        "$value": "{sky.80}"
+      },
+      "end": {
+        "$type": "color",
+        "$value": "{green.80}"
+      }
+    }
+  },
+  "hue": {
+    "green": {
+      "$root": {
+        "$type": "color",
+        "$value": "{green.80}"
+      },
+      "soft": {
+        "$type": "color",
+        "$value": "{green.night-soft}"
+      },
+      "ink": {
+        "$type": "color",
+        "$value": "{green.80}"
+      }
+    },
+    "teal": {
+      "$root": {
+        "$type": "color",
+        "$value": "{teal.80}"
+      },
+      "soft": {
+        "$type": "color",
+        "$value": "{teal.night-soft}"
+      },
+      "ink": {
+        "$type": "color",
+        "$value": "{teal.80}"
+      }
+    },
+    "sky": {
+      "$root": {
+        "$type": "color",
+        "$value": "{sky.80}"
+      },
+      "soft": {
+        "$type": "color",
+        "$value": "{sky.night-soft}"
+      },
+      "ink": {
+        "$type": "color",
+        "$value": "{sky.80}"
+      }
+    },
+    "coral": {
+      "$root": {
+        "$type": "color",
+        "$value": "{coral.70}"
+      },
+      "soft": {
+        "$type": "color",
+        "$value": "{coral.night-soft}"
+      },
+      "ink": {
+        "$type": "color",
+        "$value": "{coral.80}"
+      }
+    },
+    "amber": {
+      "$root": {
+        "$type": "color",
+        "$value": "{amber.80}"
+      },
+      "soft": {
+        "$type": "color",
+        "$value": "{amber.night-soft}"
+      },
+      "ink": {
+        "$type": "color",
+        "$value": "{amber.80}"
+      }
+    },
+    "violet": {
+      "$root": {
+        "$type": "color",
+        "$value": "{violet.70}"
+      },
+      "soft": {
+        "$type": "color",
+        "$value": "{violet.night-soft}"
+      },
+      "ink": {
+        "$type": "color",
+        "$value": "{violet.80}"
+      }
+    },
+    "navy": {
+      "$root": {
+        "$type": "color",
+        "$value": "{navy.80}"
+      },
+      "soft": {
+        "$type": "color",
+        "$value": "{navy.night-soft}"
+      },
+      "ink": {
+        "$type": "color",
+        "$value": "{navy.80}"
+      }
+    }
+  },
+  "shadow": {
+    "xs": {
+      "$type": "shadow",
+      "$value": "0 1px 2px rgba(0, 0, 0, .4)",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    },
+    "sm": {
+      "$type": "shadow",
+      "$value": "0 1px 2px rgba(0, 0, 0, .3), 0 14px 30px -22px rgba(0, 0, 0, .8)",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    },
+    "md": {
+      "$type": "shadow",
+      "$value": "0 2px 4px rgba(0, 0, 0, .3), 0 18px 34px -18px rgba(0, 0, 0, .8)",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    },
+    "lg": {
+      "$type": "shadow",
+      "$value": "0 30px 70px -24px rgba(0, 0, 0, .8), 0 0 0 1px var(--color-border)",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    },
+    "xl": {
+      "$type": "shadow",
+      "$value": "0 40px 90px -30px rgba(0, 0, 0, .85), 0 0 0 1px var(--color-border)",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    },
+    "float": {
+      "$type": "shadow",
+      "$value": "0 18px 40px -18px rgba(0, 0, 0, .8)",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    },
+    "accent": {
+      "$type": "shadow",
+      "$value": "0 10px 24px -12px rgba(55, 189, 105, .55)",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    }
+  },
+  "gradient-stop": {
+    "mint": {
+      "$type": "color",
+      "$value": "{wash.night-mint}"
+    },
+    "rose": {
+      "$type": "color",
+      "$value": "{wash.night-rose}"
+    },
+    "butter": {
+      "$type": "color",
+      "$value": "{wash.night-butter}"
+    },
+    "aqua": {
+      "$type": "color",
+      "$value": "{wash.night-aqua}"
+    },
+    "sky": {
+      "$type": "color",
+      "$value": "{wash.night-sky}"
+    },
+    "pink": {
+      "$type": "color",
+      "$value": "{wash.night-pink}"
+    }
+  },
+  "gradient": {
+    "glow": {
+      "$type": "gradient",
+      "$value": "radial-gradient(70% 85% at 100% 100%, color-mix(in srgb, var(--green-night-soft) 95%, transparent) 0%, color-mix(in srgb, var(--green-night-soft) 50%, transparent) 40%, transparent 75%)",
+      "$description": "Dark glow: a deep green corner, so light text stays readable.",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    },
+    "aurora": {
+      "$type": "gradient",
+      "$value": "radial-gradient(42% 110% at 0% 100%, color-mix(in srgb, var(--wash-night-aqua) 90%, transparent), transparent 72%), radial-gradient(36% 95% at 32% 108%, color-mix(in srgb, var(--wash-night-mint) 95%, transparent), transparent 72%), radial-gradient(30% 75% at 92% 62%, color-mix(in srgb, var(--wash-night-rose) 80%, transparent), transparent 75%)",
+      "$description": "Dark aurora: night aqua, mint and rose, so light text stays readable.",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    }
+  }
+}
