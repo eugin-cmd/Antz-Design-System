@@ -1241,6 +1241,391 @@
         "$description": "White at 72%: bar fills on vivid gradients"
       }
     },
+    "lagoon": {
+      "0": {
+        "$type": "color",
+        "$value": "#000000"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "#001414"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "#002020"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "#002B2B"
+      },
+      "20": {
+        "$type": "color",
+        "$value": "#003737"
+      },
+      "25": {
+        "$type": "color",
+        "$value": "#004343"
+      },
+      "30": {
+        "$type": "color",
+        "$value": "#005050"
+      },
+      "35": {
+        "$type": "color",
+        "$value": "#005C5C"
+      },
+      "40": {
+        "$type": "color",
+        "$value": "#006A6A"
+      },
+      "50": {
+        "$type": "color",
+        "$value": "#008585"
+      },
+      "60": {
+        "$type": "color",
+        "$value": "#00A1A1"
+      },
+      "70": {
+        "$type": "color",
+        "$value": "#00BEBE"
+      },
+      "80": {
+        "$type": "color",
+        "$value": "#2CDCDB"
+      },
+      "85": {
+        "$type": "color",
+        "$value": "#44EAEA"
+      },
+      "88": {
+        "$type": "color",
+        "$value": "#51F3F2"
+      },
+      "90": {
+        "$type": "color",
+        "$value": "#58F9F8"
+      },
+      "92": {
+        "$type": "color",
+        "$value": "#60FEFE"
+      },
+      "95": {
+        "$type": "color",
+        "$value": "#ACFFFE"
+      },
+      "97": {
+        "$type": "color",
+        "$value": "#D1FFFE"
+      },
+      "98": {
+        "$type": "color",
+        "$value": "#E1FFFE"
+      },
+      "99": {
+        "$type": "color",
+        "$value": "#F0FFFF"
+      },
+      "100": {
+        "$type": "color",
+        "$value": "#FFFFFF"
+      },
+      "key": {
+        "$type": "color",
+        "$value": "#00ABAB",
+        "$description": "The reference key colour."
+      },
+      "mist": {
+        "$type": "color",
+        "$value": "#8CDEEE",
+        "$description": "Soft cyan glow (the light aurora). Off-ramp tone, like sky.tint."
+      }
+    },
+    "mint": {
+      "0": {
+        "$type": "color",
+        "$value": "#000000"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "#001502"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "#002204"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "#002D0D"
+      },
+      "20": {
+        "$type": "color",
+        "$value": "#003914"
+      },
+      "25": {
+        "$type": "color",
+        "$value": "#00461A"
+      },
+      "30": {
+        "$type": "color",
+        "$value": "#005320"
+      },
+      "35": {
+        "$type": "color",
+        "$value": "#006027"
+      },
+      "40": {
+        "$type": "color",
+        "$value": "#006E2D"
+      },
+      "50": {
+        "$type": "color",
+        "$value": "#008A3B"
+      },
+      "60": {
+        "$type": "color",
+        "$value": "#13A74B"
+      },
+      "70": {
+        "$type": "color",
+        "$value": "#3FC264"
+      },
+      "80": {
+        "$type": "color",
+        "$value": "#60DF7E"
+      },
+      "85": {
+        "$type": "color",
+        "$value": "#6FED8B"
+      },
+      "88": {
+        "$type": "color",
+        "$value": "#78F693"
+      },
+      "90": {
+        "$type": "color",
+        "$value": "#7EFC98"
+      },
+      "92": {
+        "$type": "color",
+        "$value": "#93FFA7"
+      },
+      "95": {
+        "$type": "color",
+        "$value": "#C3FFCB"
+      },
+      "97": {
+        "$type": "color",
+        "$value": "#DDFFE0"
+      },
+      "98": {
+        "$type": "color",
+        "$value": "#E9FFEB"
+      },
+      "99": {
+        "$type": "color",
+        "$value": "#F4FFF5"
+      },
+      "100": {
+        "$type": "color",
+        "$value": "#FFFFFF"
+      },
+      "key": {
+        "$type": "color",
+        "$value": "#86F09A",
+        "$description": "The reference key colour."
+      }
+    },
+    "wine": {
+      "0": {
+        "$type": "color",
+        "$value": "#000000"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "#2D0001"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "#40000D"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "#530016"
+      },
+      "20": {
+        "$type": "color",
+        "$value": "#67001E"
+      },
+      "25": {
+        "$type": "color",
+        "$value": "#7C0125"
+      },
+      "30": {
+        "$type": "color",
+        "$value": "#8A1730"
+      },
+      "35": {
+        "$type": "color",
+        "$value": "#99273B"
+      },
+      "40": {
+        "$type": "color",
+        "$value": "#A83546"
+      },
+      "50": {
+        "$type": "color",
+        "$value": "#C5505E"
+      },
+      "60": {
+        "$type": "color",
+        "$value": "#E36B76"
+      },
+      "70": {
+        "$type": "color",
+        "$value": "#FF8791"
+      },
+      "80": {
+        "$type": "color",
+        "$value": "#FFB2B6"
+      },
+      "85": {
+        "$type": "color",
+        "$value": "#FFC6C8"
+      },
+      "88": {
+        "$type": "color",
+        "$value": "#FFD2D3"
+      },
+      "90": {
+        "$type": "color",
+        "$value": "#FFDADA"
+      },
+      "92": {
+        "$type": "color",
+        "$value": "#FFE1E2"
+      },
+      "95": {
+        "$type": "color",
+        "$value": "#FFECED"
+      },
+      "97": {
+        "$type": "color",
+        "$value": "#FFF4F4"
+      },
+      "98": {
+        "$type": "color",
+        "$value": "#FFF8F8"
+      },
+      "99": {
+        "$type": "color",
+        "$value": "#FFFBFB"
+      },
+      "100": {
+        "$type": "color",
+        "$value": "#FFFFFF"
+      },
+      "key": {
+        "$type": "color",
+        "$value": "#7A1A2C",
+        "$description": "The reference key colour."
+      }
+    },
+    "bronze": {
+      "0": {
+        "$type": "color",
+        "$value": "#000000"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "#190F00"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "#261900"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "#342200"
+      },
+      "20": {
+        "$type": "color",
+        "$value": "#432C00"
+      },
+      "25": {
+        "$type": "color",
+        "$value": "#513600"
+      },
+      "30": {
+        "$type": "color",
+        "$value": "#604100"
+      },
+      "35": {
+        "$type": "color",
+        "$value": "#6F4B00"
+      },
+      "40": {
+        "$type": "color",
+        "$value": "#7F5700"
+      },
+      "50": {
+        "$type": "color",
+        "$value": "#9E6E0E"
+      },
+      "60": {
+        "$type": "color",
+        "$value": "#BB872C"
+      },
+      "70": {
+        "$type": "color",
+        "$value": "#D9A146"
+      },
+      "80": {
+        "$type": "color",
+        "$value": "#F7BC60"
+      },
+      "85": {
+        "$type": "color",
+        "$value": "#FFCC81"
+      },
+      "88": {
+        "$type": "color",
+        "$value": "#FFD69F"
+      },
+      "90": {
+        "$type": "color",
+        "$value": "#FFDDB1"
+      },
+      "92": {
+        "$type": "color",
+        "$value": "#FFE4C2"
+      },
+      "95": {
+        "$type": "color",
+        "$value": "#FFEEDA"
+      },
+      "97": {
+        "$type": "color",
+        "$value": "#FFF5E9"
+      },
+      "98": {
+        "$type": "color",
+        "$value": "#FFF8F0"
+      },
+      "99": {
+        "$type": "color",
+        "$value": "#FFFCF8"
+      },
+      "100": {
+        "$type": "color",
+        "$value": "#FFFFFF"
+      },
+      "key": {
+        "$type": "color",
+        "$value": "#7A5300",
+        "$description": "The reference key colour."
+      }
+    },
     "scale": {
       "primary": {
         "50": {
@@ -3115,6 +3500,21 @@
           "$value": "{coral.35}",
           "$description": "Large figures only (4.5:1 or more on the whole fill)."
         }
+      },
+      "butter": {
+        "text": {
+          "$type": "color",
+          "$value": "{amber.10}"
+        },
+        "caption": {
+          "$type": "color",
+          "$value": "{amber.30}"
+        },
+        "figure": {
+          "$type": "color",
+          "$value": "{amber.30}",
+          "$description": "Large figures only."
+        }
       }
     },
     "hue": {
@@ -3269,7 +3669,7 @@
       },
       "feather-corner": {
         "$type": "gradient",
-        "$value": "radial-gradient(ellipse 42% 115% at 100% 100%, #000 0%, rgba(0, 0, 0, 0.55) 40%, transparent 70%)",
+        "$value": "radial-gradient(ellipse 42% 115% at 100% 100%, black 0%, color-mix(in srgb, black 55%, transparent) 40%, transparent 70%)",
         "$description": "Mask, not a colour: strongest in the bottom-right corner, feathering off towards the left and top. Use as mask-image."
       },
       "module-green-navy": {
@@ -3308,27 +3708,29 @@
       },
       "teal": {
         "$type": "gradient",
-        "$value": "linear-gradient(140deg, var(--teal-50) 0%, var(--teal-40) 55%, var(--teal-35) 100%)"
+        "$value": "linear-gradient(140deg, var(--lagoon-40) 0%, var(--lagoon-35) 50%, var(--lagoon-25) 100%)",
+        "$description": "Teal fill (lagoon family): widgets and cards, white text. Deep enough that white text keeps 4.5:1. Identity, never status."
       },
       "blue": {
         "$type": "gradient",
-        "$value": "radial-gradient(130% 90% at 100% 0%, var(--sky-60) 0%, var(--sky-50) 12%, var(--sky-40) 38%, var(--sky-35) 80%)"
+        "$value": "radial-gradient(130% 90% at 100% 0%, var(--sky-40) 0%, var(--sky-35) 65%, var(--sky-30) 100%)"
       },
       "mint": {
         "$type": "gradient",
-        "$value": "linear-gradient(130deg, var(--green-98) 0%, var(--green-95) 55%, var(--green-90) 100%)"
+        "$value": "linear-gradient(130deg, var(--mint-97) 0%, var(--mint-92) 45%, var(--mint-88) 100%)",
+        "$description": "Mint fill (vivid mint family): widgets and cards, with --color-text-on-bright. Identity, never status."
       },
       "glow": {
         "$type": "gradient",
-        "$value": "radial-gradient(70% 85% at 100% 100%, #C4F5CF 0%, rgba(196, 245, 207, .45) 40%, rgba(196, 245, 207, 0) 75%)"
+        "$value": "radial-gradient(70% 85% at 100% 100%, var(--wash-mint) 0%, color-mix(in srgb, var(--wash-mint) 45%, transparent) 40%, transparent 75%)"
       },
       "aurora": {
         "$type": "gradient",
-        "$value": "radial-gradient(42% 110% at 0% 100%, rgba(140, 222, 238, .75), rgba(140, 222, 238, 0) 72%), radial-gradient(36% 95% at 32% 108%, rgba(140, 240, 165, .85), rgba(140, 240, 165, 0) 72%), radial-gradient(30% 75% at 92% 62%, rgba(250, 190, 162, .6), rgba(250, 190, 162, 0) 75%)"
+        "$value": "radial-gradient(42% 110% at 0% 100%, color-mix(in srgb, var(--lagoon-mist) 75%, transparent), transparent 72%), radial-gradient(36% 95% at 32% 108%, color-mix(in srgb, var(--mint-key) 85%, transparent), transparent 72%), radial-gradient(30% 75% at 92% 62%, color-mix(in srgb, var(--coral-border) 60%, transparent), transparent 75%)"
       },
       "scrim-photo": {
         "$type": "gradient",
-        "$value": "linear-gradient(180deg, rgba(8, 22, 14, 0) 38%, rgba(8, 22, 14, .45) 62%, rgba(6, 18, 11, .88) 100%)",
+        "$value": "linear-gradient(180deg, transparent 38%, color-mix(in srgb, var(--sage-5) 45%, transparent) 62%, color-mix(in srgb, var(--sage-5) 88%, transparent) 100%)",
         "$description": "Overlay: text over photography only"
       },
       "tone-panel": {
@@ -3388,7 +3790,7 @@
       },
       "scrim-side": {
         "$type": "gradient",
-        "$value": "linear-gradient(90deg, rgba(6, 18, 11, .78) 0%, rgba(6, 18, 11, .42) 50%, rgba(6, 18, 11, 0) 82%)",
+        "$value": "linear-gradient(90deg, color-mix(in srgb, var(--sage-5) 78%, transparent) 0%, color-mix(in srgb, var(--sage-5) 42%, transparent) 50%, transparent 82%)",
         "$description": "Photo hero: darkens the left of a photo so white text reads (title, stats)."
       },
       "fade-end": {
@@ -3398,19 +3800,49 @@
       },
       "peach": {
         "$type": "gradient",
-        "$value": "linear-gradient(140deg, var(--coral-95) 0%, var(--coral-90) 45%, var(--coral-80) 100%)",
-        "$description": "Widget fill: soft coral to peach, with --color-peach-* text. Identity (for example Medical or Mortality figures), never status."
+        "$value": "linear-gradient(130deg, var(--coral-90) 0%, var(--coral-border) 50%, var(--coral-80) 100%)",
+        "$description": "Peach fill, tuned to Antz Home style 7: coral 90 to 80, with --color-peach-* text. Identity, never status."
       },
       "maroon": {
         "$type": "gradient",
         "$value": "linear-gradient(150deg, var(--coral-10) 0%, var(--coral-20) 60%, var(--coral-25) 100%)",
         "$description": "Dark warm hero fill (for example the Mortality module hero), white text. Pair with --texture-rings."
+      },
+      "butter": {
+        "$type": "gradient",
+        "$value": "linear-gradient(140deg, var(--amber-95) 0%, var(--amber-90) 50%, var(--amber-80) 100%)",
+        "$description": "Widget fill: soft amber, with --color-butter-* text. Identity (for example Lab, Favourites), never status."
+      },
+      "band-ink": {
+        "$type": "gradient",
+        "$value": "linear-gradient(140deg, var(--charcoal-700) 0%, var(--ink-900) 100%)",
+        "$description": "Dark band hero fill: ink. White text. Pair with --texture-rings."
+      },
+      "class-card": {
+        "$type": "gradient",
+        "$value": "linear-gradient(135deg, color-mix(in srgb, var(--c, var(--hue-green)) 10%, var(--color-surface)), var(--color-surface) 70%)",
+        "$description": "Class card: a soft tint of the class hue (--c) fading to the surface. Identity only."
+      },
+      "band-lagoon": {
+        "$type": "gradient",
+        "$value": "radial-gradient(70% 120% at 100% 0%, color-mix(in srgb, var(--lagoon-80) 30%, transparent), transparent 60%), linear-gradient(125deg, var(--lagoon-15), var(--lagoon-30))",
+        "$description": "Band hero (lagoon): the default dark band of module homes, with a soft glow top right. White text. Pair with --texture-rings."
+      },
+      "band-wine": {
+        "$type": "gradient",
+        "$value": "linear-gradient(150deg, var(--wine-10) 0%, var(--wine-20) 55%, var(--wine-30) 100%)",
+        "$description": "Band hero (wine): a red-based crimson band. White text. Identity (for example Fetal death), never status."
+      },
+      "band-bronze": {
+        "$type": "gradient",
+        "$value": "linear-gradient(150deg, var(--bronze-5) 0%, var(--bronze-15) 55%, var(--bronze-30) 100%)",
+        "$description": "Band hero (bronze): a deep amber band. White text. Identity (for example Lab)."
       }
     },
     "texture": {
       "rings": {
         "$type": "gradient",
-        "$value": "repeating-radial-gradient(circle at -20% 135%, rgba(255, 255, 255, 0) 0 15px, rgba(255, 255, 255, .055) 15px 16px)"
+        "$value": "repeating-radial-gradient(circle at -20% 135%, transparent 0 15px, color-mix(in srgb, white 5.5%, transparent) 15px 16px)"
       }
     },
     "gradient-stop": {
@@ -4110,12 +4542,12 @@
     "gradient": {
       "glow": {
         "$type": "gradient",
-        "$value": "radial-gradient(70% 85% at 100% 100%, rgba(18, 58, 36, .95) 0%, rgba(18, 58, 36, .5) 40%, rgba(18, 58, 36, 0) 75%)",
+        "$value": "radial-gradient(70% 85% at 100% 100%, color-mix(in srgb, var(--green-night-soft) 95%, transparent) 0%, color-mix(in srgb, var(--green-night-soft) 50%, transparent) 40%, transparent 75%)",
         "$description": "Dark glow: a deep green corner, so light text stays readable."
       },
       "aurora": {
         "$type": "gradient",
-        "$value": "radial-gradient(42% 110% at 0% 100%, rgba(18, 56, 58, .9), rgba(18, 56, 58, 0) 72%), radial-gradient(36% 95% at 32% 108%, rgba(18, 58, 42, .95), rgba(18, 58, 42, 0) 72%), radial-gradient(30% 75% at 92% 62%, rgba(58, 34, 40, .8), rgba(58, 34, 40, 0) 75%)",
+        "$value": "radial-gradient(42% 110% at 0% 100%, color-mix(in srgb, var(--wash-night-aqua) 90%, transparent), transparent 72%), radial-gradient(36% 95% at 32% 108%, color-mix(in srgb, var(--wash-night-mint) 95%, transparent), transparent 72%), radial-gradient(30% 75% at 92% 62%, color-mix(in srgb, var(--wash-night-rose) 80%, transparent), transparent 75%)",
         "$description": "Dark aurora: night aqua, mint and rose, so light text stays readable."
       }
     }

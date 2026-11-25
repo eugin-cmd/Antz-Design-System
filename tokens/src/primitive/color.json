@@ -1272,6 +1272,395 @@
       "$description": "White at 72%: bar fills on vivid gradients"
     }
   },
+  "lagoon": {
+    "$description": "Lagoon: a cyan-teal, bluer than teal. Key #00ABAB (Antz Home style 7: teal widgets, petrol band heroes, meters). Identity only.",
+    "0": {
+      "$type": "color",
+      "$value": "#000000"
+    },
+    "5": {
+      "$type": "color",
+      "$value": "#001414"
+    },
+    "10": {
+      "$type": "color",
+      "$value": "#002020"
+    },
+    "15": {
+      "$type": "color",
+      "$value": "#002B2B"
+    },
+    "20": {
+      "$type": "color",
+      "$value": "#003737"
+    },
+    "25": {
+      "$type": "color",
+      "$value": "#004343"
+    },
+    "30": {
+      "$type": "color",
+      "$value": "#005050"
+    },
+    "35": {
+      "$type": "color",
+      "$value": "#005C5C"
+    },
+    "40": {
+      "$type": "color",
+      "$value": "#006A6A"
+    },
+    "50": {
+      "$type": "color",
+      "$value": "#008585"
+    },
+    "60": {
+      "$type": "color",
+      "$value": "#00A1A1"
+    },
+    "70": {
+      "$type": "color",
+      "$value": "#00BEBE"
+    },
+    "80": {
+      "$type": "color",
+      "$value": "#2CDCDB"
+    },
+    "85": {
+      "$type": "color",
+      "$value": "#44EAEA"
+    },
+    "88": {
+      "$type": "color",
+      "$value": "#51F3F2"
+    },
+    "90": {
+      "$type": "color",
+      "$value": "#58F9F8"
+    },
+    "92": {
+      "$type": "color",
+      "$value": "#60FEFE"
+    },
+    "95": {
+      "$type": "color",
+      "$value": "#ACFFFE"
+    },
+    "97": {
+      "$type": "color",
+      "$value": "#D1FFFE"
+    },
+    "98": {
+      "$type": "color",
+      "$value": "#E1FFFE"
+    },
+    "99": {
+      "$type": "color",
+      "$value": "#F0FFFF"
+    },
+    "100": {
+      "$type": "color",
+      "$value": "#FFFFFF"
+    },
+    "key": {
+      "$type": "color",
+      "$value": "#00ABAB",
+      "$description": "The reference key colour."
+    },
+    "mist": {
+      "$type": "color",
+      "$value": "#8CDEEE",
+      "$description": "Soft cyan glow (the light aurora). Off-ramp tone, like sky.tint."
+    }
+  },
+  "mint": {
+    "$description": "Vivid mint: a bright, saturated green for light widget fills. Key #86F09A (Antz Home style 7 mint widgets). Identity only, never status.",
+    "0": {
+      "$type": "color",
+      "$value": "#000000"
+    },
+    "5": {
+      "$type": "color",
+      "$value": "#001502"
+    },
+    "10": {
+      "$type": "color",
+      "$value": "#002204"
+    },
+    "15": {
+      "$type": "color",
+      "$value": "#002D0D"
+    },
+    "20": {
+      "$type": "color",
+      "$value": "#003914"
+    },
+    "25": {
+      "$type": "color",
+      "$value": "#00461A"
+    },
+    "30": {
+      "$type": "color",
+      "$value": "#005320"
+    },
+    "35": {
+      "$type": "color",
+      "$value": "#006027"
+    },
+    "40": {
+      "$type": "color",
+      "$value": "#006E2D"
+    },
+    "50": {
+      "$type": "color",
+      "$value": "#008A3B"
+    },
+    "60": {
+      "$type": "color",
+      "$value": "#13A74B"
+    },
+    "70": {
+      "$type": "color",
+      "$value": "#3FC264"
+    },
+    "80": {
+      "$type": "color",
+      "$value": "#60DF7E"
+    },
+    "85": {
+      "$type": "color",
+      "$value": "#6FED8B"
+    },
+    "88": {
+      "$type": "color",
+      "$value": "#78F693"
+    },
+    "90": {
+      "$type": "color",
+      "$value": "#7EFC98"
+    },
+    "92": {
+      "$type": "color",
+      "$value": "#93FFA7"
+    },
+    "95": {
+      "$type": "color",
+      "$value": "#C3FFCB"
+    },
+    "97": {
+      "$type": "color",
+      "$value": "#DDFFE0"
+    },
+    "98": {
+      "$type": "color",
+      "$value": "#E9FFEB"
+    },
+    "99": {
+      "$type": "color",
+      "$value": "#F4FFF5"
+    },
+    "100": {
+      "$type": "color",
+      "$value": "#FFFFFF"
+    },
+    "key": {
+      "$type": "color",
+      "$value": "#86F09A",
+      "$description": "The reference key colour."
+    }
+  },
+  "wine": {
+    "$description": "Wine: a red-based crimson for dark heroes. Key #7A1A2C (Antz Home style 7 Fetal death band). Identity only, never status.",
+    "0": {
+      "$type": "color",
+      "$value": "#000000"
+    },
+    "5": {
+      "$type": "color",
+      "$value": "#2D0001"
+    },
+    "10": {
+      "$type": "color",
+      "$value": "#40000D"
+    },
+    "15": {
+      "$type": "color",
+      "$value": "#530016"
+    },
+    "20": {
+      "$type": "color",
+      "$value": "#67001E"
+    },
+    "25": {
+      "$type": "color",
+      "$value": "#7C0125"
+    },
+    "30": {
+      "$type": "color",
+      "$value": "#8A1730"
+    },
+    "35": {
+      "$type": "color",
+      "$value": "#99273B"
+    },
+    "40": {
+      "$type": "color",
+      "$value": "#A83546"
+    },
+    "50": {
+      "$type": "color",
+      "$value": "#C5505E"
+    },
+    "60": {
+      "$type": "color",
+      "$value": "#E36B76"
+    },
+    "70": {
+      "$type": "color",
+      "$value": "#FF8791"
+    },
+    "80": {
+      "$type": "color",
+      "$value": "#FFB2B6"
+    },
+    "85": {
+      "$type": "color",
+      "$value": "#FFC6C8"
+    },
+    "88": {
+      "$type": "color",
+      "$value": "#FFD2D3"
+    },
+    "90": {
+      "$type": "color",
+      "$value": "#FFDADA"
+    },
+    "92": {
+      "$type": "color",
+      "$value": "#FFE1E2"
+    },
+    "95": {
+      "$type": "color",
+      "$value": "#FFECED"
+    },
+    "97": {
+      "$type": "color",
+      "$value": "#FFF4F4"
+    },
+    "98": {
+      "$type": "color",
+      "$value": "#FFF8F8"
+    },
+    "99": {
+      "$type": "color",
+      "$value": "#FFFBFB"
+    },
+    "100": {
+      "$type": "color",
+      "$value": "#FFFFFF"
+    },
+    "key": {
+      "$type": "color",
+      "$value": "#7A1A2C",
+      "$description": "The reference key colour."
+    }
+  },
+  "bronze": {
+    "$description": "Bronze: a deep amber for dark heroes. Key #7A5300 (Antz Home style 7 Lab band). Identity only.",
+    "0": {
+      "$type": "color",
+      "$value": "#000000"
+    },
+    "5": {
+      "$type": "color",
+      "$value": "#190F00"
+    },
+    "10": {
+      "$type": "color",
+      "$value": "#261900"
+    },
+    "15": {
+      "$type": "color",
+      "$value": "#342200"
+    },
+    "20": {
+      "$type": "color",
+      "$value": "#432C00"
+    },
+    "25": {
+      "$type": "color",
+      "$value": "#513600"
+    },
+    "30": {
+      "$type": "color",
+      "$value": "#604100"
+    },
+    "35": {
+      "$type": "color",
+      "$value": "#6F4B00"
+    },
+    "40": {
+      "$type": "color",
+      "$value": "#7F5700"
+    },
+    "50": {
+      "$type": "color",
+      "$value": "#9E6E0E"
+    },
+    "60": {
+      "$type": "color",
+      "$value": "#BB872C"
+    },
+    "70": {
+      "$type": "color",
+      "$value": "#D9A146"
+    },
+    "80": {
+      "$type": "color",
+      "$value": "#F7BC60"
+    },
+    "85": {
+      "$type": "color",
+      "$value": "#FFCC81"
+    },
+    "88": {
+      "$type": "color",
+      "$value": "#FFD69F"
+    },
+    "90": {
+      "$type": "color",
+      "$value": "#FFDDB1"
+    },
+    "92": {
+      "$type": "color",
+      "$value": "#FFE4C2"
+    },
+    "95": {
+      "$type": "color",
+      "$value": "#FFEEDA"
+    },
+    "97": {
+      "$type": "color",
+      "$value": "#FFF5E9"
+    },
+    "98": {
+      "$type": "color",
+      "$value": "#FFF8F0"
+    },
+    "99": {
+      "$type": "color",
+      "$value": "#FFFCF8"
+    },
+    "100": {
+      "$type": "color",
+      "$value": "#FFFFFF"
+    },
+    "key": {
+      "$type": "color",
+      "$value": "#7A5300",
+      "$description": "The reference key colour."
+    }
+  },
   "scale": {
     "$description": "Colour scales from the ANTZ Design Library (Figma): 10 families, 11 steps (50 to 950), base at 500. Primitives for illustration, data and marketing; components use semantic tokens.",
     "primary": {

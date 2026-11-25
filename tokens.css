@@ -345,6 +345,107 @@
   --alpha-glass-line-on-media: #FFFFFF52;
   --alpha-bar-on-media: #FFFFFFB8;
 
+  /* lagoon */
+  --lagoon-0: #000000;
+  --lagoon-5: #001414;
+  --lagoon-10: #002020;
+  --lagoon-15: #002B2B;
+  --lagoon-20: #003737;
+  --lagoon-25: #004343;
+  --lagoon-30: #005050;
+  --lagoon-35: #005C5C;
+  --lagoon-40: #006A6A;
+  --lagoon-50: #008585;
+  --lagoon-60: #00A1A1;
+  --lagoon-70: #00BEBE;
+  --lagoon-80: #2CDCDB;
+  --lagoon-85: #44EAEA;
+  --lagoon-88: #51F3F2;
+  --lagoon-90: #58F9F8;
+  --lagoon-92: #60FEFE;
+  --lagoon-95: #ACFFFE;
+  --lagoon-97: #D1FFFE;
+  --lagoon-98: #E1FFFE;
+  --lagoon-99: #F0FFFF;
+  --lagoon-100: #FFFFFF;
+  --lagoon-key: #00ABAB;
+  --lagoon-mist: #8CDEEE;
+
+  /* mint */
+  --mint-0: #000000;
+  --mint-5: #001502;
+  --mint-10: #002204;
+  --mint-15: #002D0D;
+  --mint-20: #003914;
+  --mint-25: #00461A;
+  --mint-30: #005320;
+  --mint-35: #006027;
+  --mint-40: #006E2D;
+  --mint-50: #008A3B;
+  --mint-60: #13A74B;
+  --mint-70: #3FC264;
+  --mint-80: #60DF7E;
+  --mint-85: #6FED8B;
+  --mint-88: #78F693;
+  --mint-90: #7EFC98;
+  --mint-92: #93FFA7;
+  --mint-95: #C3FFCB;
+  --mint-97: #DDFFE0;
+  --mint-98: #E9FFEB;
+  --mint-99: #F4FFF5;
+  --mint-100: #FFFFFF;
+  --mint-key: #86F09A;
+
+  /* wine */
+  --wine-0: #000000;
+  --wine-5: #2D0001;
+  --wine-10: #40000D;
+  --wine-15: #530016;
+  --wine-20: #67001E;
+  --wine-25: #7C0125;
+  --wine-30: #8A1730;
+  --wine-35: #99273B;
+  --wine-40: #A83546;
+  --wine-50: #C5505E;
+  --wine-60: #E36B76;
+  --wine-70: #FF8791;
+  --wine-80: #FFB2B6;
+  --wine-85: #FFC6C8;
+  --wine-88: #FFD2D3;
+  --wine-90: #FFDADA;
+  --wine-92: #FFE1E2;
+  --wine-95: #FFECED;
+  --wine-97: #FFF4F4;
+  --wine-98: #FFF8F8;
+  --wine-99: #FFFBFB;
+  --wine-100: #FFFFFF;
+  --wine-key: #7A1A2C;
+
+  /* bronze */
+  --bronze-0: #000000;
+  --bronze-5: #190F00;
+  --bronze-10: #261900;
+  --bronze-15: #342200;
+  --bronze-20: #432C00;
+  --bronze-25: #513600;
+  --bronze-30: #604100;
+  --bronze-35: #6F4B00;
+  --bronze-40: #7F5700;
+  --bronze-50: #9E6E0E;
+  --bronze-60: #BB872C;
+  --bronze-70: #D9A146;
+  --bronze-80: #F7BC60;
+  --bronze-85: #FFCC81;
+  --bronze-88: #FFD69F;
+  --bronze-90: #FFDDB1;
+  --bronze-92: #FFE4C2;
+  --bronze-95: #FFEEDA;
+  --bronze-97: #FFF5E9;
+  --bronze-98: #FFF8F0;
+  --bronze-99: #FFFCF8;
+  --bronze-100: #FFFFFF;
+  --bronze-key: #7A5300;
+
   /* scale */
   --scale-primary-50: #F2FBF4;
   --scale-primary-100: #E0F5E4;
@@ -788,6 +889,9 @@
   --color-peach-text: var(--coral-10);
   --color-peach-caption: var(--coral-25);
   --color-peach-figure: var(--coral-35);
+  --color-butter-text: var(--amber-10);
+  --color-butter-caption: var(--amber-30);
+  --color-butter-figure: var(--amber-30);
 
   /* hue */
   --hue-green: var(--green-40);
@@ -829,7 +933,7 @@
   --gradient-wash-calm: linear-gradient(to bottom right, var(--gradient-stop-butter), var(--gradient-stop-aqua));
   --gradient-wash-illustrative: linear-gradient(to bottom right, var(--gradient-stop-sky), var(--gradient-stop-pink));
   --gradient-iridescent: linear-gradient(115deg, var(--scale-secondary-400), var(--violet-70), var(--scale-error-300), var(--scale-caution-300), var(--scale-primary-400), var(--scale-info-400), var(--scale-secondary-400));
-  --gradient-feather-corner: radial-gradient(ellipse 42% 115% at 100% 100%, #000 0%, rgba(0, 0, 0, 0.55) 40%, transparent 70%);
+  --gradient-feather-corner: radial-gradient(ellipse 42% 115% at 100% 100%, black 0%, color-mix(in srgb, black 55%, transparent) 40%, transparent 70%);
   --gradient-module-green-navy: linear-gradient(135deg, var(--green-brand), var(--navy-25));
   --gradient-module-teal-green: linear-gradient(135deg, var(--teal-80), var(--green-brand));
   --gradient-module-cyan-navy: linear-gradient(135deg, var(--sky-60), var(--navy-25));
@@ -838,12 +942,12 @@
   --gradient-deep: linear-gradient(140deg, var(--green-15) 0%, var(--green-25) 55%, var(--green-40) 100%);
   --gradient-green: linear-gradient(135deg, var(--green-25) 0%, var(--green-40) 60%, var(--green-50) 100%);
   --gradient-navy: linear-gradient(140deg, var(--navy-20) 0%, var(--navy-brand) 55%, var(--navy-35) 100%);
-  --gradient-teal: linear-gradient(140deg, var(--teal-50) 0%, var(--teal-40) 55%, var(--teal-35) 100%);
-  --gradient-blue: radial-gradient(130% 90% at 100% 0%, var(--sky-60) 0%, var(--sky-50) 12%, var(--sky-40) 38%, var(--sky-35) 80%);
-  --gradient-mint: linear-gradient(130deg, var(--green-98) 0%, var(--green-95) 55%, var(--green-90) 100%);
-  --gradient-glow: radial-gradient(70% 85% at 100% 100%, #C4F5CF 0%, rgba(196, 245, 207, .45) 40%, rgba(196, 245, 207, 0) 75%);
-  --gradient-aurora: radial-gradient(42% 110% at 0% 100%, rgba(140, 222, 238, .75), rgba(140, 222, 238, 0) 72%), radial-gradient(36% 95% at 32% 108%, rgba(140, 240, 165, .85), rgba(140, 240, 165, 0) 72%), radial-gradient(30% 75% at 92% 62%, rgba(250, 190, 162, .6), rgba(250, 190, 162, 0) 75%);
-  --gradient-scrim-photo: linear-gradient(180deg, rgba(8, 22, 14, 0) 38%, rgba(8, 22, 14, .45) 62%, rgba(6, 18, 11, .88) 100%);
+  --gradient-teal: linear-gradient(140deg, var(--lagoon-40) 0%, var(--lagoon-35) 50%, var(--lagoon-25) 100%);
+  --gradient-blue: radial-gradient(130% 90% at 100% 0%, var(--sky-40) 0%, var(--sky-35) 65%, var(--sky-30) 100%);
+  --gradient-mint: linear-gradient(130deg, var(--mint-97) 0%, var(--mint-92) 45%, var(--mint-88) 100%);
+  --gradient-glow: radial-gradient(70% 85% at 100% 100%, var(--wash-mint) 0%, color-mix(in srgb, var(--wash-mint) 45%, transparent) 40%, transparent 75%);
+  --gradient-aurora: radial-gradient(42% 110% at 0% 100%, color-mix(in srgb, var(--lagoon-mist) 75%, transparent), transparent 72%), radial-gradient(36% 95% at 32% 108%, color-mix(in srgb, var(--mint-key) 85%, transparent), transparent 72%), radial-gradient(30% 75% at 92% 62%, color-mix(in srgb, var(--coral-border) 60%, transparent), transparent 75%);
+  --gradient-scrim-photo: linear-gradient(180deg, transparent 38%, color-mix(in srgb, var(--sage-5) 45%, transparent) 62%, color-mix(in srgb, var(--sage-5) 88%, transparent) 100%);
   --gradient-tone-panel: linear-gradient(90deg, transparent 48%, var(--color-surface-raised) 100%), linear-gradient(180deg, var(--color-tone-a), var(--color-tone-b));
   --gradient-tone-tab: linear-gradient(90deg, color-mix(in srgb, var(--color-tone-ta), var(--color-tone-tb)) 0%, color-mix(in srgb, var(--color-tone-ta) 55%, transparent) 40%, transparent 100%);
   --gradient-tone-tab-corners: radial-gradient(circle at 100% 100%, transparent calc(var(--radius-lg) - var(--border-width-hairline)), var(--color-surface-raised) var(--radius-lg)) var(--space-2) 0 / var(--radius-lg) var(--radius-lg) no-repeat, radial-gradient(circle at 100% 0, transparent calc(var(--radius-lg) - var(--border-width-hairline)), var(--color-surface-raised) var(--radius-lg)) var(--space-2) 100% / var(--radius-lg) var(--radius-lg) no-repeat;
@@ -855,13 +959,19 @@
   --gradient-launch-sky: linear-gradient(135deg, var(--color-launch-sky-start) 30%, var(--color-launch-sky-end) 140%);
   --gradient-launch-slate: linear-gradient(135deg, var(--color-launch-slate-start) 30%, var(--color-launch-slate-end) 140%);
   --gradient-launch-coral: linear-gradient(135deg, var(--color-launch-coral-start) 30%, var(--color-launch-coral-end) 140%);
-  --gradient-scrim-side: linear-gradient(90deg, rgba(6, 18, 11, .78) 0%, rgba(6, 18, 11, .42) 50%, rgba(6, 18, 11, 0) 82%);
+  --gradient-scrim-side: linear-gradient(90deg, color-mix(in srgb, var(--sage-5) 78%, transparent) 0%, color-mix(in srgb, var(--sage-5) 42%, transparent) 50%, transparent 82%);
   --gradient-fade-end: linear-gradient(90deg, black calc(100% - 40px), transparent);
-  --gradient-peach: linear-gradient(140deg, var(--coral-95) 0%, var(--coral-90) 45%, var(--coral-80) 100%);
+  --gradient-peach: linear-gradient(130deg, var(--coral-90) 0%, var(--coral-border) 50%, var(--coral-80) 100%);
   --gradient-maroon: linear-gradient(150deg, var(--coral-10) 0%, var(--coral-20) 60%, var(--coral-25) 100%);
+  --gradient-butter: linear-gradient(140deg, var(--amber-95) 0%, var(--amber-90) 50%, var(--amber-80) 100%);
+  --gradient-band-ink: linear-gradient(140deg, var(--charcoal-700) 0%, var(--ink-900) 100%);
+  --gradient-class-card: linear-gradient(135deg, color-mix(in srgb, var(--c, var(--hue-green)) 10%, var(--color-surface)), var(--color-surface) 70%);
+  --gradient-band-lagoon: radial-gradient(70% 120% at 100% 0%, color-mix(in srgb, var(--lagoon-80) 30%, transparent), transparent 60%), linear-gradient(125deg, var(--lagoon-15), var(--lagoon-30));
+  --gradient-band-wine: linear-gradient(150deg, var(--wine-10) 0%, var(--wine-20) 55%, var(--wine-30) 100%);
+  --gradient-band-bronze: linear-gradient(150deg, var(--bronze-5) 0%, var(--bronze-15) 55%, var(--bronze-30) 100%);
 
   /* texture */
-  --texture-rings: repeating-radial-gradient(circle at -20% 135%, rgba(255, 255, 255, 0) 0 15px, rgba(255, 255, 255, .055) 15px 16px);
+  --texture-rings: repeating-radial-gradient(circle at -20% 135%, transparent 0 15px, color-mix(in srgb, white 5.5%, transparent) 15px 16px);
 
   /* gradient-stop */
   --gradient-stop-mint: var(--wash-soft-mint);
@@ -1040,8 +1150,8 @@
     --gradient-stop-pink: var(--wash-night-pink);
 
     /* gradient */
-    --gradient-glow: radial-gradient(70% 85% at 100% 100%, rgba(18, 58, 36, .95) 0%, rgba(18, 58, 36, .5) 40%, rgba(18, 58, 36, 0) 75%);
-    --gradient-aurora: radial-gradient(42% 110% at 0% 100%, rgba(18, 56, 58, .9), rgba(18, 56, 58, 0) 72%), radial-gradient(36% 95% at 32% 108%, rgba(18, 58, 42, .95), rgba(18, 58, 42, 0) 72%), radial-gradient(30% 75% at 92% 62%, rgba(58, 34, 40, .8), rgba(58, 34, 40, 0) 75%);
+    --gradient-glow: radial-gradient(70% 85% at 100% 100%, color-mix(in srgb, var(--green-night-soft) 95%, transparent) 0%, color-mix(in srgb, var(--green-night-soft) 50%, transparent) 40%, transparent 75%);
+    --gradient-aurora: radial-gradient(42% 110% at 0% 100%, color-mix(in srgb, var(--wash-night-aqua) 90%, transparent), transparent 72%), radial-gradient(36% 95% at 32% 108%, color-mix(in srgb, var(--wash-night-mint) 95%, transparent), transparent 72%), radial-gradient(30% 75% at 92% 62%, color-mix(in srgb, var(--wash-night-rose) 80%, transparent), transparent 75%);
   }
 }
 /* Dark: forced */
@@ -1211,8 +1321,8 @@
   --gradient-stop-pink: var(--wash-night-pink);
 
   /* gradient */
-  --gradient-glow: radial-gradient(70% 85% at 100% 100%, rgba(18, 58, 36, .95) 0%, rgba(18, 58, 36, .5) 40%, rgba(18, 58, 36, 0) 75%);
-  --gradient-aurora: radial-gradient(42% 110% at 0% 100%, rgba(18, 56, 58, .9), rgba(18, 56, 58, 0) 72%), radial-gradient(36% 95% at 32% 108%, rgba(18, 58, 42, .95), rgba(18, 58, 42, 0) 72%), radial-gradient(30% 75% at 92% 62%, rgba(58, 34, 40, .8), rgba(58, 34, 40, 0) 75%);
+  --gradient-glow: radial-gradient(70% 85% at 100% 100%, color-mix(in srgb, var(--green-night-soft) 95%, transparent) 0%, color-mix(in srgb, var(--green-night-soft) 50%, transparent) 40%, transparent 75%);
+  --gradient-aurora: radial-gradient(42% 110% at 0% 100%, color-mix(in srgb, var(--wash-night-aqua) 90%, transparent), transparent 72%), radial-gradient(36% 95% at 32% 108%, color-mix(in srgb, var(--wash-night-mint) 95%, transparent), transparent 72%), radial-gradient(30% 75% at 92% 62%, color-mix(in srgb, var(--wash-night-rose) 80%, transparent), transparent 75%);
 }
 
 /* High contrast, light */

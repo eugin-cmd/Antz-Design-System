@@ -1209,6 +1209,383 @@
       "$value": "#FFFFFFB8",
       "$description": "White at 72%: bar fills on vivid gradients"
     },
+    "lagoon-0": {
+      "$type": "color",
+      "$value": "#000000"
+    },
+    "lagoon-5": {
+      "$type": "color",
+      "$value": "#001414"
+    },
+    "lagoon-10": {
+      "$type": "color",
+      "$value": "#002020"
+    },
+    "lagoon-15": {
+      "$type": "color",
+      "$value": "#002B2B"
+    },
+    "lagoon-20": {
+      "$type": "color",
+      "$value": "#003737"
+    },
+    "lagoon-25": {
+      "$type": "color",
+      "$value": "#004343"
+    },
+    "lagoon-30": {
+      "$type": "color",
+      "$value": "#005050"
+    },
+    "lagoon-35": {
+      "$type": "color",
+      "$value": "#005C5C"
+    },
+    "lagoon-40": {
+      "$type": "color",
+      "$value": "#006A6A"
+    },
+    "lagoon-50": {
+      "$type": "color",
+      "$value": "#008585"
+    },
+    "lagoon-60": {
+      "$type": "color",
+      "$value": "#00A1A1"
+    },
+    "lagoon-70": {
+      "$type": "color",
+      "$value": "#00BEBE"
+    },
+    "lagoon-80": {
+      "$type": "color",
+      "$value": "#2CDCDB"
+    },
+    "lagoon-85": {
+      "$type": "color",
+      "$value": "#44EAEA"
+    },
+    "lagoon-88": {
+      "$type": "color",
+      "$value": "#51F3F2"
+    },
+    "lagoon-90": {
+      "$type": "color",
+      "$value": "#58F9F8"
+    },
+    "lagoon-92": {
+      "$type": "color",
+      "$value": "#60FEFE"
+    },
+    "lagoon-95": {
+      "$type": "color",
+      "$value": "#ACFFFE"
+    },
+    "lagoon-97": {
+      "$type": "color",
+      "$value": "#D1FFFE"
+    },
+    "lagoon-98": {
+      "$type": "color",
+      "$value": "#E1FFFE"
+    },
+    "lagoon-99": {
+      "$type": "color",
+      "$value": "#F0FFFF"
+    },
+    "lagoon-100": {
+      "$type": "color",
+      "$value": "#FFFFFF"
+    },
+    "lagoon-key": {
+      "$type": "color",
+      "$value": "#00ABAB",
+      "$description": "The reference key colour."
+    },
+    "lagoon-mist": {
+      "$type": "color",
+      "$value": "#8CDEEE",
+      "$description": "Soft cyan glow (the light aurora). Off-ramp tone, like sky.tint."
+    },
+    "mint-0": {
+      "$type": "color",
+      "$value": "#000000"
+    },
+    "mint-5": {
+      "$type": "color",
+      "$value": "#001502"
+    },
+    "mint-10": {
+      "$type": "color",
+      "$value": "#002204"
+    },
+    "mint-15": {
+      "$type": "color",
+      "$value": "#002D0D"
+    },
+    "mint-20": {
+      "$type": "color",
+      "$value": "#003914"
+    },
+    "mint-25": {
+      "$type": "color",
+      "$value": "#00461A"
+    },
+    "mint-30": {
+      "$type": "color",
+      "$value": "#005320"
+    },
+    "mint-35": {
+      "$type": "color",
+      "$value": "#006027"
+    },
+    "mint-40": {
+      "$type": "color",
+      "$value": "#006E2D"
+    },
+    "mint-50": {
+      "$type": "color",
+      "$value": "#008A3B"
+    },
+    "mint-60": {
+      "$type": "color",
+      "$value": "#13A74B"
+    },
+    "mint-70": {
+      "$type": "color",
+      "$value": "#3FC264"
+    },
+    "mint-80": {
+      "$type": "color",
+      "$value": "#60DF7E"
+    },
+    "mint-85": {
+      "$type": "color",
+      "$value": "#6FED8B"
+    },
+    "mint-88": {
+      "$type": "color",
+      "$value": "#78F693"
+    },
+    "mint-90": {
+      "$type": "color",
+      "$value": "#7EFC98"
+    },
+    "mint-92": {
+      "$type": "color",
+      "$value": "#93FFA7"
+    },
+    "mint-95": {
+      "$type": "color",
+      "$value": "#C3FFCB"
+    },
+    "mint-97": {
+      "$type": "color",
+      "$value": "#DDFFE0"
+    },
+    "mint-98": {
+      "$type": "color",
+      "$value": "#E9FFEB"
+    },
+    "mint-99": {
+      "$type": "color",
+      "$value": "#F4FFF5"
+    },
+    "mint-100": {
+      "$type": "color",
+      "$value": "#FFFFFF"
+    },
+    "mint-key": {
+      "$type": "color",
+      "$value": "#86F09A",
+      "$description": "The reference key colour."
+    },
+    "wine-0": {
+      "$type": "color",
+      "$value": "#000000"
+    },
+    "wine-5": {
+      "$type": "color",
+      "$value": "#2D0001"
+    },
+    "wine-10": {
+      "$type": "color",
+      "$value": "#40000D"
+    },
+    "wine-15": {
+      "$type": "color",
+      "$value": "#530016"
+    },
+    "wine-20": {
+      "$type": "color",
+      "$value": "#67001E"
+    },
+    "wine-25": {
+      "$type": "color",
+      "$value": "#7C0125"
+    },
+    "wine-30": {
+      "$type": "color",
+      "$value": "#8A1730"
+    },
+    "wine-35": {
+      "$type": "color",
+      "$value": "#99273B"
+    },
+    "wine-40": {
+      "$type": "color",
+      "$value": "#A83546"
+    },
+    "wine-50": {
+      "$type": "color",
+      "$value": "#C5505E"
+    },
+    "wine-60": {
+      "$type": "color",
+      "$value": "#E36B76"
+    },
+    "wine-70": {
+      "$type": "color",
+      "$value": "#FF8791"
+    },
+    "wine-80": {
+      "$type": "color",
+      "$value": "#FFB2B6"
+    },
+    "wine-85": {
+      "$type": "color",
+      "$value": "#FFC6C8"
+    },
+    "wine-88": {
+      "$type": "color",
+      "$value": "#FFD2D3"
+    },
+    "wine-90": {
+      "$type": "color",
+      "$value": "#FFDADA"
+    },
+    "wine-92": {
+      "$type": "color",
+      "$value": "#FFE1E2"
+    },
+    "wine-95": {
+      "$type": "color",
+      "$value": "#FFECED"
+    },
+    "wine-97": {
+      "$type": "color",
+      "$value": "#FFF4F4"
+    },
+    "wine-98": {
+      "$type": "color",
+      "$value": "#FFF8F8"
+    },
+    "wine-99": {
+      "$type": "color",
+      "$value": "#FFFBFB"
+    },
+    "wine-100": {
+      "$type": "color",
+      "$value": "#FFFFFF"
+    },
+    "wine-key": {
+      "$type": "color",
+      "$value": "#7A1A2C",
+      "$description": "The reference key colour."
+    },
+    "bronze-0": {
+      "$type": "color",
+      "$value": "#000000"
+    },
+    "bronze-5": {
+      "$type": "color",
+      "$value": "#190F00"
+    },
+    "bronze-10": {
+      "$type": "color",
+      "$value": "#261900"
+    },
+    "bronze-15": {
+      "$type": "color",
+      "$value": "#342200"
+    },
+    "bronze-20": {
+      "$type": "color",
+      "$value": "#432C00"
+    },
+    "bronze-25": {
+      "$type": "color",
+      "$value": "#513600"
+    },
+    "bronze-30": {
+      "$type": "color",
+      "$value": "#604100"
+    },
+    "bronze-35": {
+      "$type": "color",
+      "$value": "#6F4B00"
+    },
+    "bronze-40": {
+      "$type": "color",
+      "$value": "#7F5700"
+    },
+    "bronze-50": {
+      "$type": "color",
+      "$value": "#9E6E0E"
+    },
+    "bronze-60": {
+      "$type": "color",
+      "$value": "#BB872C"
+    },
+    "bronze-70": {
+      "$type": "color",
+      "$value": "#D9A146"
+    },
+    "bronze-80": {
+      "$type": "color",
+      "$value": "#F7BC60"
+    },
+    "bronze-85": {
+      "$type": "color",
+      "$value": "#FFCC81"
+    },
+    "bronze-88": {
+      "$type": "color",
+      "$value": "#FFD69F"
+    },
+    "bronze-90": {
+      "$type": "color",
+      "$value": "#FFDDB1"
+    },
+    "bronze-92": {
+      "$type": "color",
+      "$value": "#FFE4C2"
+    },
+    "bronze-95": {
+      "$type": "color",
+      "$value": "#FFEEDA"
+    },
+    "bronze-97": {
+      "$type": "color",
+      "$value": "#FFF5E9"
+    },
+    "bronze-98": {
+      "$type": "color",
+      "$value": "#FFF8F0"
+    },
+    "bronze-99": {
+      "$type": "color",
+      "$value": "#FFFCF8"
+    },
+    "bronze-100": {
+      "$type": "color",
+      "$value": "#FFFFFF"
+    },
+    "bronze-key": {
+      "$type": "color",
+      "$value": "#7A5300",
+      "$description": "The reference key colour."
+    },
     "scale-primary-50": {
       "$type": "color",
       "$value": "#F2FBF4"
@@ -2312,6 +2689,19 @@
       "$type": "color",
       "$value": "#A02104",
       "$description": "Large figures only (4.5:1 or more on the whole fill)."
+    },
+    "color-butter-text": {
+      "$type": "color",
+      "$value": "#241A00"
+    },
+    "color-butter-caption": {
+      "$type": "color",
+      "$value": "#574400"
+    },
+    "color-butter-figure": {
+      "$type": "color",
+      "$value": "#574400",
+      "$description": "Large figures only."
     },
     "hue-green": {
       "$type": "color",
@@ -3630,6 +4020,383 @@
       "$value": "#FFFFFFB8",
       "$description": "White at 72%: bar fills on vivid gradients"
     },
+    "lagoon-0": {
+      "$type": "color",
+      "$value": "#000000"
+    },
+    "lagoon-5": {
+      "$type": "color",
+      "$value": "#001414"
+    },
+    "lagoon-10": {
+      "$type": "color",
+      "$value": "#002020"
+    },
+    "lagoon-15": {
+      "$type": "color",
+      "$value": "#002B2B"
+    },
+    "lagoon-20": {
+      "$type": "color",
+      "$value": "#003737"
+    },
+    "lagoon-25": {
+      "$type": "color",
+      "$value": "#004343"
+    },
+    "lagoon-30": {
+      "$type": "color",
+      "$value": "#005050"
+    },
+    "lagoon-35": {
+      "$type": "color",
+      "$value": "#005C5C"
+    },
+    "lagoon-40": {
+      "$type": "color",
+      "$value": "#006A6A"
+    },
+    "lagoon-50": {
+      "$type": "color",
+      "$value": "#008585"
+    },
+    "lagoon-60": {
+      "$type": "color",
+      "$value": "#00A1A1"
+    },
+    "lagoon-70": {
+      "$type": "color",
+      "$value": "#00BEBE"
+    },
+    "lagoon-80": {
+      "$type": "color",
+      "$value": "#2CDCDB"
+    },
+    "lagoon-85": {
+      "$type": "color",
+      "$value": "#44EAEA"
+    },
+    "lagoon-88": {
+      "$type": "color",
+      "$value": "#51F3F2"
+    },
+    "lagoon-90": {
+      "$type": "color",
+      "$value": "#58F9F8"
+    },
+    "lagoon-92": {
+      "$type": "color",
+      "$value": "#60FEFE"
+    },
+    "lagoon-95": {
+      "$type": "color",
+      "$value": "#ACFFFE"
+    },
+    "lagoon-97": {
+      "$type": "color",
+      "$value": "#D1FFFE"
+    },
+    "lagoon-98": {
+      "$type": "color",
+      "$value": "#E1FFFE"
+    },
+    "lagoon-99": {
+      "$type": "color",
+      "$value": "#F0FFFF"
+    },
+    "lagoon-100": {
+      "$type": "color",
+      "$value": "#FFFFFF"
+    },
+    "lagoon-key": {
+      "$type": "color",
+      "$value": "#00ABAB",
+      "$description": "The reference key colour."
+    },
+    "lagoon-mist": {
+      "$type": "color",
+      "$value": "#8CDEEE",
+      "$description": "Soft cyan glow (the light aurora). Off-ramp tone, like sky.tint."
+    },
+    "mint-0": {
+      "$type": "color",
+      "$value": "#000000"
+    },
+    "mint-5": {
+      "$type": "color",
+      "$value": "#001502"
+    },
+    "mint-10": {
+      "$type": "color",
+      "$value": "#002204"
+    },
+    "mint-15": {
+      "$type": "color",
+      "$value": "#002D0D"
+    },
+    "mint-20": {
+      "$type": "color",
+      "$value": "#003914"
+    },
+    "mint-25": {
+      "$type": "color",
+      "$value": "#00461A"
+    },
+    "mint-30": {
+      "$type": "color",
+      "$value": "#005320"
+    },
+    "mint-35": {
+      "$type": "color",
+      "$value": "#006027"
+    },
+    "mint-40": {
+      "$type": "color",
+      "$value": "#006E2D"
+    },
+    "mint-50": {
+      "$type": "color",
+      "$value": "#008A3B"
+    },
+    "mint-60": {
+      "$type": "color",
+      "$value": "#13A74B"
+    },
+    "mint-70": {
+      "$type": "color",
+      "$value": "#3FC264"
+    },
+    "mint-80": {
+      "$type": "color",
+      "$value": "#60DF7E"
+    },
+    "mint-85": {
+      "$type": "color",
+      "$value": "#6FED8B"
+    },
+    "mint-88": {
+      "$type": "color",
+      "$value": "#78F693"
+    },
+    "mint-90": {
+      "$type": "color",
+      "$value": "#7EFC98"
+    },
+    "mint-92": {
+      "$type": "color",
+      "$value": "#93FFA7"
+    },
+    "mint-95": {
+      "$type": "color",
+      "$value": "#C3FFCB"
+    },
+    "mint-97": {
+      "$type": "color",
+      "$value": "#DDFFE0"
+    },
+    "mint-98": {
+      "$type": "color",
+      "$value": "#E9FFEB"
+    },
+    "mint-99": {
+      "$type": "color",
+      "$value": "#F4FFF5"
+    },
+    "mint-100": {
+      "$type": "color",
+      "$value": "#FFFFFF"
+    },
+    "mint-key": {
+      "$type": "color",
+      "$value": "#86F09A",
+      "$description": "The reference key colour."
+    },
+    "wine-0": {
+      "$type": "color",
+      "$value": "#000000"
+    },
+    "wine-5": {
+      "$type": "color",
+      "$value": "#2D0001"
+    },
+    "wine-10": {
+      "$type": "color",
+      "$value": "#40000D"
+    },
+    "wine-15": {
+      "$type": "color",
+      "$value": "#530016"
+    },
+    "wine-20": {
+      "$type": "color",
+      "$value": "#67001E"
+    },
+    "wine-25": {
+      "$type": "color",
+      "$value": "#7C0125"
+    },
+    "wine-30": {
+      "$type": "color",
+      "$value": "#8A1730"
+    },
+    "wine-35": {
+      "$type": "color",
+      "$value": "#99273B"
+    },
+    "wine-40": {
+      "$type": "color",
+      "$value": "#A83546"
+    },
+    "wine-50": {
+      "$type": "color",
+      "$value": "#C5505E"
+    },
+    "wine-60": {
+      "$type": "color",
+      "$value": "#E36B76"
+    },
+    "wine-70": {
+      "$type": "color",
+      "$value": "#FF8791"
+    },
+    "wine-80": {
+      "$type": "color",
+      "$value": "#FFB2B6"
+    },
+    "wine-85": {
+      "$type": "color",
+      "$value": "#FFC6C8"
+    },
+    "wine-88": {
+      "$type": "color",
+      "$value": "#FFD2D3"
+    },
+    "wine-90": {
+      "$type": "color",
+      "$value": "#FFDADA"
+    },
+    "wine-92": {
+      "$type": "color",
+      "$value": "#FFE1E2"
+    },
+    "wine-95": {
+      "$type": "color",
+      "$value": "#FFECED"
+    },
+    "wine-97": {
+      "$type": "color",
+      "$value": "#FFF4F4"
+    },
+    "wine-98": {
+      "$type": "color",
+      "$value": "#FFF8F8"
+    },
+    "wine-99": {
+      "$type": "color",
+      "$value": "#FFFBFB"
+    },
+    "wine-100": {
+      "$type": "color",
+      "$value": "#FFFFFF"
+    },
+    "wine-key": {
+      "$type": "color",
+      "$value": "#7A1A2C",
+      "$description": "The reference key colour."
+    },
+    "bronze-0": {
+      "$type": "color",
+      "$value": "#000000"
+    },
+    "bronze-5": {
+      "$type": "color",
+      "$value": "#190F00"
+    },
+    "bronze-10": {
+      "$type": "color",
+      "$value": "#261900"
+    },
+    "bronze-15": {
+      "$type": "color",
+      "$value": "#342200"
+    },
+    "bronze-20": {
+      "$type": "color",
+      "$value": "#432C00"
+    },
+    "bronze-25": {
+      "$type": "color",
+      "$value": "#513600"
+    },
+    "bronze-30": {
+      "$type": "color",
+      "$value": "#604100"
+    },
+    "bronze-35": {
+      "$type": "color",
+      "$value": "#6F4B00"
+    },
+    "bronze-40": {
+      "$type": "color",
+      "$value": "#7F5700"
+    },
+    "bronze-50": {
+      "$type": "color",
+      "$value": "#9E6E0E"
+    },
+    "bronze-60": {
+      "$type": "color",
+      "$value": "#BB872C"
+    },
+    "bronze-70": {
+      "$type": "color",
+      "$value": "#D9A146"
+    },
+    "bronze-80": {
+      "$type": "color",
+      "$value": "#F7BC60"
+    },
+    "bronze-85": {
+      "$type": "color",
+      "$value": "#FFCC81"
+    },
+    "bronze-88": {
+      "$type": "color",
+      "$value": "#FFD69F"
+    },
+    "bronze-90": {
+      "$type": "color",
+      "$value": "#FFDDB1"
+    },
+    "bronze-92": {
+      "$type": "color",
+      "$value": "#FFE4C2"
+    },
+    "bronze-95": {
+      "$type": "color",
+      "$value": "#FFEEDA"
+    },
+    "bronze-97": {
+      "$type": "color",
+      "$value": "#FFF5E9"
+    },
+    "bronze-98": {
+      "$type": "color",
+      "$value": "#FFF8F0"
+    },
+    "bronze-99": {
+      "$type": "color",
+      "$value": "#FFFCF8"
+    },
+    "bronze-100": {
+      "$type": "color",
+      "$value": "#FFFFFF"
+    },
+    "bronze-key": {
+      "$type": "color",
+      "$value": "#7A5300",
+      "$description": "The reference key colour."
+    },
     "scale-primary-50": {
       "$type": "color",
       "$value": "#F2FBF4"
@@ -4733,6 +5500,19 @@
       "$type": "color",
       "$value": "#A02104",
       "$description": "Large figures only (4.5:1 or more on the whole fill)."
+    },
+    "color-butter-text": {
+      "$type": "color",
+      "$value": "#241A00"
+    },
+    "color-butter-caption": {
+      "$type": "color",
+      "$value": "#574400"
+    },
+    "color-butter-figure": {
+      "$type": "color",
+      "$value": "#574400",
+      "$description": "Large figures only."
     },
     "hue-green": {
       "$type": "color",
@@ -6051,6 +6831,383 @@
       "$value": "#FFFFFFB8",
       "$description": "White at 72%: bar fills on vivid gradients"
     },
+    "lagoon-0": {
+      "$type": "color",
+      "$value": "#000000"
+    },
+    "lagoon-5": {
+      "$type": "color",
+      "$value": "#001414"
+    },
+    "lagoon-10": {
+      "$type": "color",
+      "$value": "#002020"
+    },
+    "lagoon-15": {
+      "$type": "color",
+      "$value": "#002B2B"
+    },
+    "lagoon-20": {
+      "$type": "color",
+      "$value": "#003737"
+    },
+    "lagoon-25": {
+      "$type": "color",
+      "$value": "#004343"
+    },
+    "lagoon-30": {
+      "$type": "color",
+      "$value": "#005050"
+    },
+    "lagoon-35": {
+      "$type": "color",
+      "$value": "#005C5C"
+    },
+    "lagoon-40": {
+      "$type": "color",
+      "$value": "#006A6A"
+    },
+    "lagoon-50": {
+      "$type": "color",
+      "$value": "#008585"
+    },
+    "lagoon-60": {
+      "$type": "color",
+      "$value": "#00A1A1"
+    },
+    "lagoon-70": {
+      "$type": "color",
+      "$value": "#00BEBE"
+    },
+    "lagoon-80": {
+      "$type": "color",
+      "$value": "#2CDCDB"
+    },
+    "lagoon-85": {
+      "$type": "color",
+      "$value": "#44EAEA"
+    },
+    "lagoon-88": {
+      "$type": "color",
+      "$value": "#51F3F2"
+    },
+    "lagoon-90": {
+      "$type": "color",
+      "$value": "#58F9F8"
+    },
+    "lagoon-92": {
+      "$type": "color",
+      "$value": "#60FEFE"
+    },
+    "lagoon-95": {
+      "$type": "color",
+      "$value": "#ACFFFE"
+    },
+    "lagoon-97": {
+      "$type": "color",
+      "$value": "#D1FFFE"
+    },
+    "lagoon-98": {
+      "$type": "color",
+      "$value": "#E1FFFE"
+    },
+    "lagoon-99": {
+      "$type": "color",
+      "$value": "#F0FFFF"
+    },
+    "lagoon-100": {
+      "$type": "color",
+      "$value": "#FFFFFF"
+    },
+    "lagoon-key": {
+      "$type": "color",
+      "$value": "#00ABAB",
+      "$description": "The reference key colour."
+    },
+    "lagoon-mist": {
+      "$type": "color",
+      "$value": "#8CDEEE",
+      "$description": "Soft cyan glow (the light aurora). Off-ramp tone, like sky.tint."
+    },
+    "mint-0": {
+      "$type": "color",
+      "$value": "#000000"
+    },
+    "mint-5": {
+      "$type": "color",
+      "$value": "#001502"
+    },
+    "mint-10": {
+      "$type": "color",
+      "$value": "#002204"
+    },
+    "mint-15": {
+      "$type": "color",
+      "$value": "#002D0D"
+    },
+    "mint-20": {
+      "$type": "color",
+      "$value": "#003914"
+    },
+    "mint-25": {
+      "$type": "color",
+      "$value": "#00461A"
+    },
+    "mint-30": {
+      "$type": "color",
+      "$value": "#005320"
+    },
+    "mint-35": {
+      "$type": "color",
+      "$value": "#006027"
+    },
+    "mint-40": {
+      "$type": "color",
+      "$value": "#006E2D"
+    },
+    "mint-50": {
+      "$type": "color",
+      "$value": "#008A3B"
+    },
+    "mint-60": {
+      "$type": "color",
+      "$value": "#13A74B"
+    },
+    "mint-70": {
+      "$type": "color",
+      "$value": "#3FC264"
+    },
+    "mint-80": {
+      "$type": "color",
+      "$value": "#60DF7E"
+    },
+    "mint-85": {
+      "$type": "color",
+      "$value": "#6FED8B"
+    },
+    "mint-88": {
+      "$type": "color",
+      "$value": "#78F693"
+    },
+    "mint-90": {
+      "$type": "color",
+      "$value": "#7EFC98"
+    },
+    "mint-92": {
+      "$type": "color",
+      "$value": "#93FFA7"
+    },
+    "mint-95": {
+      "$type": "color",
+      "$value": "#C3FFCB"
+    },
+    "mint-97": {
+      "$type": "color",
+      "$value": "#DDFFE0"
+    },
+    "mint-98": {
+      "$type": "color",
+      "$value": "#E9FFEB"
+    },
+    "mint-99": {
+      "$type": "color",
+      "$value": "#F4FFF5"
+    },
+    "mint-100": {
+      "$type": "color",
+      "$value": "#FFFFFF"
+    },
+    "mint-key": {
+      "$type": "color",
+      "$value": "#86F09A",
+      "$description": "The reference key colour."
+    },
+    "wine-0": {
+      "$type": "color",
+      "$value": "#000000"
+    },
+    "wine-5": {
+      "$type": "color",
+      "$value": "#2D0001"
+    },
+    "wine-10": {
+      "$type": "color",
+      "$value": "#40000D"
+    },
+    "wine-15": {
+      "$type": "color",
+      "$value": "#530016"
+    },
+    "wine-20": {
+      "$type": "color",
+      "$value": "#67001E"
+    },
+    "wine-25": {
+      "$type": "color",
+      "$value": "#7C0125"
+    },
+    "wine-30": {
+      "$type": "color",
+      "$value": "#8A1730"
+    },
+    "wine-35": {
+      "$type": "color",
+      "$value": "#99273B"
+    },
+    "wine-40": {
+      "$type": "color",
+      "$value": "#A83546"
+    },
+    "wine-50": {
+      "$type": "color",
+      "$value": "#C5505E"
+    },
+    "wine-60": {
+      "$type": "color",
+      "$value": "#E36B76"
+    },
+    "wine-70": {
+      "$type": "color",
+      "$value": "#FF8791"
+    },
+    "wine-80": {
+      "$type": "color",
+      "$value": "#FFB2B6"
+    },
+    "wine-85": {
+      "$type": "color",
+      "$value": "#FFC6C8"
+    },
+    "wine-88": {
+      "$type": "color",
+      "$value": "#FFD2D3"
+    },
+    "wine-90": {
+      "$type": "color",
+      "$value": "#FFDADA"
+    },
+    "wine-92": {
+      "$type": "color",
+      "$value": "#FFE1E2"
+    },
+    "wine-95": {
+      "$type": "color",
+      "$value": "#FFECED"
+    },
+    "wine-97": {
+      "$type": "color",
+      "$value": "#FFF4F4"
+    },
+    "wine-98": {
+      "$type": "color",
+      "$value": "#FFF8F8"
+    },
+    "wine-99": {
+      "$type": "color",
+      "$value": "#FFFBFB"
+    },
+    "wine-100": {
+      "$type": "color",
+      "$value": "#FFFFFF"
+    },
+    "wine-key": {
+      "$type": "color",
+      "$value": "#7A1A2C",
+      "$description": "The reference key colour."
+    },
+    "bronze-0": {
+      "$type": "color",
+      "$value": "#000000"
+    },
+    "bronze-5": {
+      "$type": "color",
+      "$value": "#190F00"
+    },
+    "bronze-10": {
+      "$type": "color",
+      "$value": "#261900"
+    },
+    "bronze-15": {
+      "$type": "color",
+      "$value": "#342200"
+    },
+    "bronze-20": {
+      "$type": "color",
+      "$value": "#432C00"
+    },
+    "bronze-25": {
+      "$type": "color",
+      "$value": "#513600"
+    },
+    "bronze-30": {
+      "$type": "color",
+      "$value": "#604100"
+    },
+    "bronze-35": {
+      "$type": "color",
+      "$value": "#6F4B00"
+    },
+    "bronze-40": {
+      "$type": "color",
+      "$value": "#7F5700"
+    },
+    "bronze-50": {
+      "$type": "color",
+      "$value": "#9E6E0E"
+    },
+    "bronze-60": {
+      "$type": "color",
+      "$value": "#BB872C"
+    },
+    "bronze-70": {
+      "$type": "color",
+      "$value": "#D9A146"
+    },
+    "bronze-80": {
+      "$type": "color",
+      "$value": "#F7BC60"
+    },
+    "bronze-85": {
+      "$type": "color",
+      "$value": "#FFCC81"
+    },
+    "bronze-88": {
+      "$type": "color",
+      "$value": "#FFD69F"
+    },
+    "bronze-90": {
+      "$type": "color",
+      "$value": "#FFDDB1"
+    },
+    "bronze-92": {
+      "$type": "color",
+      "$value": "#FFE4C2"
+    },
+    "bronze-95": {
+      "$type": "color",
+      "$value": "#FFEEDA"
+    },
+    "bronze-97": {
+      "$type": "color",
+      "$value": "#FFF5E9"
+    },
+    "bronze-98": {
+      "$type": "color",
+      "$value": "#FFF8F0"
+    },
+    "bronze-99": {
+      "$type": "color",
+      "$value": "#FFFCF8"
+    },
+    "bronze-100": {
+      "$type": "color",
+      "$value": "#FFFFFF"
+    },
+    "bronze-key": {
+      "$type": "color",
+      "$value": "#7A5300",
+      "$description": "The reference key colour."
+    },
     "scale-primary-50": {
       "$type": "color",
       "$value": "#F2FBF4"
@@ -7154,6 +8311,19 @@
       "$type": "color",
       "$value": "#A02104",
       "$description": "Large figures only (4.5:1 or more on the whole fill)."
+    },
+    "color-butter-text": {
+      "$type": "color",
+      "$value": "#241A00"
+    },
+    "color-butter-caption": {
+      "$type": "color",
+      "$value": "#574400"
+    },
+    "color-butter-figure": {
+      "$type": "color",
+      "$value": "#574400",
+      "$description": "Large figures only."
     },
     "hue-green": {
       "$type": "color",
@@ -8472,6 +9642,383 @@
       "$value": "#FFFFFFB8",
       "$description": "White at 72%: bar fills on vivid gradients"
     },
+    "lagoon-0": {
+      "$type": "color",
+      "$value": "#000000"
+    },
+    "lagoon-5": {
+      "$type": "color",
+      "$value": "#001414"
+    },
+    "lagoon-10": {
+      "$type": "color",
+      "$value": "#002020"
+    },
+    "lagoon-15": {
+      "$type": "color",
+      "$value": "#002B2B"
+    },
+    "lagoon-20": {
+      "$type": "color",
+      "$value": "#003737"
+    },
+    "lagoon-25": {
+      "$type": "color",
+      "$value": "#004343"
+    },
+    "lagoon-30": {
+      "$type": "color",
+      "$value": "#005050"
+    },
+    "lagoon-35": {
+      "$type": "color",
+      "$value": "#005C5C"
+    },
+    "lagoon-40": {
+      "$type": "color",
+      "$value": "#006A6A"
+    },
+    "lagoon-50": {
+      "$type": "color",
+      "$value": "#008585"
+    },
+    "lagoon-60": {
+      "$type": "color",
+      "$value": "#00A1A1"
+    },
+    "lagoon-70": {
+      "$type": "color",
+      "$value": "#00BEBE"
+    },
+    "lagoon-80": {
+      "$type": "color",
+      "$value": "#2CDCDB"
+    },
+    "lagoon-85": {
+      "$type": "color",
+      "$value": "#44EAEA"
+    },
+    "lagoon-88": {
+      "$type": "color",
+      "$value": "#51F3F2"
+    },
+    "lagoon-90": {
+      "$type": "color",
+      "$value": "#58F9F8"
+    },
+    "lagoon-92": {
+      "$type": "color",
+      "$value": "#60FEFE"
+    },
+    "lagoon-95": {
+      "$type": "color",
+      "$value": "#ACFFFE"
+    },
+    "lagoon-97": {
+      "$type": "color",
+      "$value": "#D1FFFE"
+    },
+    "lagoon-98": {
+      "$type": "color",
+      "$value": "#E1FFFE"
+    },
+    "lagoon-99": {
+      "$type": "color",
+      "$value": "#F0FFFF"
+    },
+    "lagoon-100": {
+      "$type": "color",
+      "$value": "#FFFFFF"
+    },
+    "lagoon-key": {
+      "$type": "color",
+      "$value": "#00ABAB",
+      "$description": "The reference key colour."
+    },
+    "lagoon-mist": {
+      "$type": "color",
+      "$value": "#8CDEEE",
+      "$description": "Soft cyan glow (the light aurora). Off-ramp tone, like sky.tint."
+    },
+    "mint-0": {
+      "$type": "color",
+      "$value": "#000000"
+    },
+    "mint-5": {
+      "$type": "color",
+      "$value": "#001502"
+    },
+    "mint-10": {
+      "$type": "color",
+      "$value": "#002204"
+    },
+    "mint-15": {
+      "$type": "color",
+      "$value": "#002D0D"
+    },
+    "mint-20": {
+      "$type": "color",
+      "$value": "#003914"
+    },
+    "mint-25": {
+      "$type": "color",
+      "$value": "#00461A"
+    },
+    "mint-30": {
+      "$type": "color",
+      "$value": "#005320"
+    },
+    "mint-35": {
+      "$type": "color",
+      "$value": "#006027"
+    },
+    "mint-40": {
+      "$type": "color",
+      "$value": "#006E2D"
+    },
+    "mint-50": {
+      "$type": "color",
+      "$value": "#008A3B"
+    },
+    "mint-60": {
+      "$type": "color",
+      "$value": "#13A74B"
+    },
+    "mint-70": {
+      "$type": "color",
+      "$value": "#3FC264"
+    },
+    "mint-80": {
+      "$type": "color",
+      "$value": "#60DF7E"
+    },
+    "mint-85": {
+      "$type": "color",
+      "$value": "#6FED8B"
+    },
+    "mint-88": {
+      "$type": "color",
+      "$value": "#78F693"
+    },
+    "mint-90": {
+      "$type": "color",
+      "$value": "#7EFC98"
+    },
+    "mint-92": {
+      "$type": "color",
+      "$value": "#93FFA7"
+    },
+    "mint-95": {
+      "$type": "color",
+      "$value": "#C3FFCB"
+    },
+    "mint-97": {
+      "$type": "color",
+      "$value": "#DDFFE0"
+    },
+    "mint-98": {
+      "$type": "color",
+      "$value": "#E9FFEB"
+    },
+    "mint-99": {
+      "$type": "color",
+      "$value": "#F4FFF5"
+    },
+    "mint-100": {
+      "$type": "color",
+      "$value": "#FFFFFF"
+    },
+    "mint-key": {
+      "$type": "color",
+      "$value": "#86F09A",
+      "$description": "The reference key colour."
+    },
+    "wine-0": {
+      "$type": "color",
+      "$value": "#000000"
+    },
+    "wine-5": {
+      "$type": "color",
+      "$value": "#2D0001"
+    },
+    "wine-10": {
+      "$type": "color",
+      "$value": "#40000D"
+    },
+    "wine-15": {
+      "$type": "color",
+      "$value": "#530016"
+    },
+    "wine-20": {
+      "$type": "color",
+      "$value": "#67001E"
+    },
+    "wine-25": {
+      "$type": "color",
+      "$value": "#7C0125"
+    },
+    "wine-30": {
+      "$type": "color",
+      "$value": "#8A1730"
+    },
+    "wine-35": {
+      "$type": "color",
+      "$value": "#99273B"
+    },
+    "wine-40": {
+      "$type": "color",
+      "$value": "#A83546"
+    },
+    "wine-50": {
+      "$type": "color",
+      "$value": "#C5505E"
+    },
+    "wine-60": {
+      "$type": "color",
+      "$value": "#E36B76"
+    },
+    "wine-70": {
+      "$type": "color",
+      "$value": "#FF8791"
+    },
+    "wine-80": {
+      "$type": "color",
+      "$value": "#FFB2B6"
+    },
+    "wine-85": {
+      "$type": "color",
+      "$value": "#FFC6C8"
+    },
+    "wine-88": {
+      "$type": "color",
+      "$value": "#FFD2D3"
+    },
+    "wine-90": {
+      "$type": "color",
+      "$value": "#FFDADA"
+    },
+    "wine-92": {
+      "$type": "color",
+      "$value": "#FFE1E2"
+    },
+    "wine-95": {
+      "$type": "color",
+      "$value": "#FFECED"
+    },
+    "wine-97": {
+      "$type": "color",
+      "$value": "#FFF4F4"
+    },
+    "wine-98": {
+      "$type": "color",
+      "$value": "#FFF8F8"
+    },
+    "wine-99": {
+      "$type": "color",
+      "$value": "#FFFBFB"
+    },
+    "wine-100": {
+      "$type": "color",
+      "$value": "#FFFFFF"
+    },
+    "wine-key": {
+      "$type": "color",
+      "$value": "#7A1A2C",
+      "$description": "The reference key colour."
+    },
+    "bronze-0": {
+      "$type": "color",
+      "$value": "#000000"
+    },
+    "bronze-5": {
+      "$type": "color",
+      "$value": "#190F00"
+    },
+    "bronze-10": {
+      "$type": "color",
+      "$value": "#261900"
+    },
+    "bronze-15": {
+      "$type": "color",
+      "$value": "#342200"
+    },
+    "bronze-20": {
+      "$type": "color",
+      "$value": "#432C00"
+    },
+    "bronze-25": {
+      "$type": "color",
+      "$value": "#513600"
+    },
+    "bronze-30": {
+      "$type": "color",
+      "$value": "#604100"
+    },
+    "bronze-35": {
+      "$type": "color",
+      "$value": "#6F4B00"
+    },
+    "bronze-40": {
+      "$type": "color",
+      "$value": "#7F5700"
+    },
+    "bronze-50": {
+      "$type": "color",
+      "$value": "#9E6E0E"
+    },
+    "bronze-60": {
+      "$type": "color",
+      "$value": "#BB872C"
+    },
+    "bronze-70": {
+      "$type": "color",
+      "$value": "#D9A146"
+    },
+    "bronze-80": {
+      "$type": "color",
+      "$value": "#F7BC60"
+    },
+    "bronze-85": {
+      "$type": "color",
+      "$value": "#FFCC81"
+    },
+    "bronze-88": {
+      "$type": "color",
+      "$value": "#FFD69F"
+    },
+    "bronze-90": {
+      "$type": "color",
+      "$value": "#FFDDB1"
+    },
+    "bronze-92": {
+      "$type": "color",
+      "$value": "#FFE4C2"
+    },
+    "bronze-95": {
+      "$type": "color",
+      "$value": "#FFEEDA"
+    },
+    "bronze-97": {
+      "$type": "color",
+      "$value": "#FFF5E9"
+    },
+    "bronze-98": {
+      "$type": "color",
+      "$value": "#FFF8F0"
+    },
+    "bronze-99": {
+      "$type": "color",
+      "$value": "#FFFCF8"
+    },
+    "bronze-100": {
+      "$type": "color",
+      "$value": "#FFFFFF"
+    },
+    "bronze-key": {
+      "$type": "color",
+      "$value": "#7A5300",
+      "$description": "The reference key colour."
+    },
     "scale-primary-50": {
       "$type": "color",
       "$value": "#F2FBF4"
@@ -9575,6 +11122,19 @@
       "$type": "color",
       "$value": "#A02104",
       "$description": "Large figures only (4.5:1 or more on the whole fill)."
+    },
+    "color-butter-text": {
+      "$type": "color",
+      "$value": "#241A00"
+    },
+    "color-butter-caption": {
+      "$type": "color",
+      "$value": "#574400"
+    },
+    "color-butter-figure": {
+      "$type": "color",
+      "$value": "#574400",
+      "$description": "Large figures only."
     },
     "hue-green": {
       "$type": "color",

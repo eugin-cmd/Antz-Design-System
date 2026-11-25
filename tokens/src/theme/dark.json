@@ -728,7 +728,7 @@
   "gradient": {
     "glow": {
       "$type": "gradient",
-      "$value": "radial-gradient(70% 85% at 100% 100%, rgba(18, 58, 36, .95) 0%, rgba(18, 58, 36, .5) 40%, rgba(18, 58, 36, 0) 75%)",
+      "$value": "radial-gradient(70% 85% at 100% 100%, color-mix(in srgb, var(--green-night-soft) 95%, transparent) 0%, color-mix(in srgb, var(--green-night-soft) 50%, transparent) 40%, transparent 75%)",
       "$description": "Dark glow: a deep green corner, so light text stays readable.",
       "$extensions": {
         "com.antz": {
@@ -738,7 +738,7 @@
     },
     "aurora": {
       "$type": "gradient",
-      "$value": "radial-gradient(42% 110% at 0% 100%, rgba(18, 56, 58, .9), rgba(18, 56, 58, 0) 72%), radial-gradient(36% 95% at 32% 108%, rgba(18, 58, 42, .95), rgba(18, 58, 42, 0) 72%), radial-gradient(30% 75% at 92% 62%, rgba(58, 34, 40, .8), rgba(58, 34, 40, 0) 75%)",
+      "$value": "radial-gradient(42% 110% at 0% 100%, color-mix(in srgb, var(--wash-night-aqua) 90%, transparent), transparent 72%), radial-gradient(36% 95% at 32% 108%, color-mix(in srgb, var(--wash-night-mint) 95%, transparent), transparent 72%), radial-gradient(30% 75% at 92% 62%, color-mix(in srgb, var(--wash-night-rose) 80%, transparent), transparent 75%)",
       "$description": "Dark aurora: night aqua, mint and rose, so light text stays readable.",
       "$extensions": {
         "com.antz": {

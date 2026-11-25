@@ -4,6 +4,15 @@ All notable changes to the Antz Design System. Versions follow semantic versioni
 
 ## Unreleased
 
+### Screens and components: role homes and every module home (DD-006, proposed)
+- **Role homes:** Home with one module (Pharmacy), three modules (Animals, Eggs, Collections) and seven modules (Medical and care).
+- **Module homes:** Collections, Necropsy, Fetal death, Tags, Medical, Administer, Lab, Approvals, Reports, Security, Focus hub, Users, Help desk, Pharmacy, Hospital and Announcements, plus list pages for Pharmacy requests and dispense, and Hospital patients and incoming.
+- **Component pages:** Record lists, Popovers and pickers, Side sheet forms (Components); Lists and charts, Timelines and charts (Stat cards); Role homes, Widget board, Module bar and side panel, Module homes, Quick add (Pattern components). The DD-005 pieces that were only in screens now have gallery pages too.
+- **New components:** band hero, banner hero, panel hero, class cards, date scroller, range bar, section head, record lists, priority tags, pagination, attention rows, column chart, thumbnails, split card, split button, quick dock, review rows with routes, deltas, side-sheet forms, quick add dialog, in-app toast (`data-toast`).
+- **Tokens:** `--gradient-butter`, `--color-butter-text|caption|figure`, `--gradient-band-ink`, `--gradient-class-card`; the sky gradient runs sky 40 to 30 so white text keeps 4.5:1 at every width. Every gradient now builds its colours from primitives (new `--lagoon-mist`), and the build fails on a colour literal in a gradient. 863 tokens, 712 contrast checks.
+- **Rules:** identity fills (butter, peach, maroon) never carry status; bad news is a plain widget with a status pill.
+- **Four new colour families (primitives):** Lagoon (#00ABAB), Vivid mint (#86F09A), Wine (#7A1A2C) and Bronze (#7A5300), each a full tone ramp. Mint and teal fills now use vivid mint and lagoon; band heroes add lagoon (default), wine and bronze; peach tuned to the reference.  Shown on the Colour page.
+
 ### Screens and components: module homes (DD-005)
 - **Home is a widget board** like Antz Home style 7: board bar (Menu, site picker, add, edit with Undo changes and Done), photo hero, widgets in two columns, quick add, Today, announcements and observation notes. **Add widgets** gallery (categories, search, Default view, On board, then style and size), **All modules** dialog, **Menu** with its filter panel, site picker and account menu. Mobile, tablet and desktop.
 - **Module homes** for Animals, Housing, Eggs and Mortality: module bar (back, module switcher, breadcrumb, site and period pickers), module side panel (folds; a strip on phones), hero, widgets and lists.

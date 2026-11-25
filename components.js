@@ -313,6 +313,22 @@
       var nm = md.querySelector('[data-module-name]'); if (nm) nm.textContent = t.getAttribute('data-module-pick');
       return;
     }
+    if ((t = e.target.closest('[role="tab"][aria-controls]')) && t.closest('.dialog__tabs')) {
+      // Tabs inside a dialog switch its panels
+      t.closest('.dialog__tabs').querySelectorAll('[role="tab"]').forEach(function (x) {
+        var on = x === t; x.setAttribute('aria-selected', String(on));
+        var panel = byId(x, x.getAttribute('aria-controls')); if (panel) panel.hidden = !on;
+      });
+      return;
+    }
+    if ((t = e.target.closest('[data-toast]'))) {
+      // A short toast, e.g. "New lab request · opens in the ANTZ app"
+      var host = t.closest('.shell-host, .shell') || doc.body, old = host.querySelector('.toast-anchor'); if (old) old.remove();
+      var wrap = doc.createElement('div'); wrap.className = 'toast-anchor'; wrap.setAttribute('role', 'status');
+      wrap.innerHTML = '<span class="toast"></span>'; wrap.firstChild.textContent = t.getAttribute('data-toast');
+      host.appendChild(wrap); setTimeout(function () { wrap.remove(); }, 2600);
+      return;
+    }
     if ((t = e.target.closest('.module-tile__pin'))) {
       var pinned = t.getAttribute('aria-pressed') !== 'true'; t.setAttribute('aria-pressed', String(pinned));
       var nm2 = (t.getAttribute('aria-label') || '').replace(/^(Pin|Unpin) /, ''); t.setAttribute('aria-label', (pinned ? 'Unpin ' : 'Pin ') + nm2);

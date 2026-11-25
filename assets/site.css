@@ -630,3 +630,8 @@ body { background: var(--color-bg-canvas); overflow-x: hidden; }
 .site-main[data-wash] .page-tabs > button[aria-selected="true"] { color: var(--color-text-on-strong); } /* white: the bright-green underline marks the active tab */
 .site-main[data-wash] .page-tabs > button:focus-visible { outline-color: var(--color-text-on-strong); }
 .site-main[data-wash] .page-tabs > .tab-indicator { background: var(--color-accent-bright); }
+/* Docs: a component shown inside an app container, so container queries apply */
+.demo-frame { width: 100%; min-width: 0; }
+/* Docs prose list spacing must not reach component lists inside demos */
+.demo .modnav__sub li, .demo .activity li, .demo .notes li, .demo .legend li, .demo .picker__list li { margin: 0; }
+.demo .modnav__sub, .demo .activity, .demo .notes, .demo .legend, .demo .picker__list { margin-block: 0; }

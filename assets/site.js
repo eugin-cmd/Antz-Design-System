@@ -394,6 +394,8 @@
     'Night (dark-theme neutrals)': ['--night-0', '--night-5', '--night-10', '--night-15', '--night-20', '--night-25', '--night-30', '--night-35', '--night-50', '--night-55', '--night-65', '--night-75', '--night-95'],
     'Olive (success)': ramp('olive', ['brand', 'tint']), 'Coral (warning)': ramp('coral', ['brand', 'tint']), 'Amber (caution)': ramp('amber', ['brand', 'tint']),
     'Red (error)': ramp('red', ['brand']), 'Sky (info)': ramp('sky', ['brand', 'tint']),
+    'Lagoon (identity: teal fills, band heroes, key #00ABAB)': ramp('lagoon', ['key']), 'Vivid mint (identity: mint fills, key #86F09A)': ramp('mint', ['key']),
+    'Wine (identity: dark bands, key #7A1A2C)': ramp('wine', ['key']), 'Bronze (identity: dark bands, key #7A5300)': ramp('bronze', ['key']),
     'Gradient stops (reference SVGs)': ['--wash-mint', '--wash-rose', '--wash-butter', '--wash-aqua', '--wash-sky', '--wash-pink']
   };
   var derived = ['--green-brand', '--teal-brand', '--navy-brand'];
