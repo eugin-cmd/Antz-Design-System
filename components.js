@@ -366,4 +366,26 @@
     if (openPop) { closePop(true); return; }
     var d = (lastDialogTrigger && lastDialogTrigger.closest('.shell-host') || doc).querySelector('.dialog-backdrop[id]:not([hidden])') || doc.querySelector('.dialog-backdrop[id]:not([hidden])'); if (d) closeDialog(d);
   });
+
+  /* Tables (DD-006): sortable headings and row selection */
+  doc.addEventListener('click', function (e) {
+    var b = e.target.closest('.table__sort'); if (!b) return;
+    var th = b.closest('th'), table = th.closest('table'), body = table.tBodies[0];
+    var col = Array.prototype.indexOf.call(th.parentNode.children, th);
+    var dir = th.getAttribute('aria-sort') === 'descending' ? 'ascending' : 'descending';
+    table.querySelectorAll('thead th[aria-sort]').forEach(function (x) { x.removeAttribute('aria-sort'); });
+    th.setAttribute('aria-sort', dir);
+    var key = function (tr) { var c = tr.children[col]; var v = c && (c.getAttribute('data-value') || c.textContent.trim()); var n = parseFloat(String(v).replace(/[^\d.-]/g, '')); return isNaN(n) || /[a-z]/i.test(v) && !c.hasAttribute('data-value') ? String(v).toLowerCase() : n; };
+    Array.prototype.slice.call(body.rows).sort(function (a, c) { var x = key(a), y = key(c); var r = x < y ? -1 : x > y ? 1 : 0; return dir === 'ascending' ? r : -r; })
+      .forEach(function (tr) { body.appendChild(tr); });
+  });
+  doc.addEventListener('change', function (e) {
+    var t = e.target; if (!t.matches || !t.matches('.table--select input[type="checkbox"]')) return;
+    var table = t.closest('table'), rows = table.querySelectorAll('tbody input[type="checkbox"]'), all = table.querySelector('thead input[type="checkbox"]');
+    if (t === all) rows.forEach(function (r) { r.checked = all.checked; });
+    var n = Array.prototype.filter.call(rows, function (r) { return r.checked; }).length;
+    if (all) { all.checked = n === rows.length && n > 0; all.indeterminate = n > 0 && n < rows.length; }
+    var wrap = table.closest('.table-wrap'), bar = wrap && wrap.previousElementSibling;
+    if (bar && bar.classList.contains('table-bulk')) { bar.hidden = n === 0; var c = bar.querySelector('[data-selected-count]'); if (c) c.textContent = n + ' selected'; }
+  });
 })();

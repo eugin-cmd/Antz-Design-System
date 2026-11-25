@@ -4,6 +4,17 @@ All notable changes to the Antz Design System. Versions follow semantic versioni
 
 ## Unreleased
 
+### Table styles (from Antz Home style 7, Animals lists)
+- **Six new table styles** on the Table page, all built on `.table`:
+  - **record table**: a photo with the sex tag, ID, name and scientific name, two-line cells, a date and a chevron; the whole row opens the record;
+  - **with status**: a status pill column;
+  - **with a row action**: a real Restore button, not a chip;
+  - **compact figures**: right-aligned tabular numbers and a totals row;
+  - **selectable and sortable**: row checkboxes, select all, a bulk bar with the count, and sortable headings;
+  - **striped with a sticky head**: for long logs.
+- Optional columns (`table__opt`) step back under 600px. Sorting and selection live in components.js.
+- The basic table is unchanged.
+
 ### Animal record cards (from Antz Home style 7, Animals > Recently added)
 - **Record card:** a variant of the animal card (`animal-card--record`), not a second animal card: the photo or a paw with a solid sex tag on its corner, the AAID, name and scientific name, a time pill, and the enclosure, zone and site under a hairline. `.animal-cards` fits three, two or one to the space. On the Animal card page.
 - **Screen:** Animals · recently added, with the module side panel, search, filters, sort, the card grid and pagination.

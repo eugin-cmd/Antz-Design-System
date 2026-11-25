@@ -44,6 +44,7 @@ within the guardrails. DD-003 and DD-005 covered the first two parts.
   coral border and one new tone, `--lagoon-mist` #8CDEEE (aurora); in dark, the night washes they already matched exactly.
   Only black, white and transparent stay as keywords for masks. The build now fails on any colour literal in a gradient.
 - **Animal record cards** (Animals > Recently added): a variant of `.animal-card`, the grid `.animal-cards`, one size token `--size-thumb` (56px) and the screen Animals · recently added.
+- **Table styles** (Animals lists): record table, with status, with a row action, compact figures with totals, selectable and sortable, striped with a sticky head. The reference's Restore chip became a button; status stays in the status pill.
 - **Behaviour (components.js):** dialog tabs, `data-toast`, plus DD-005's popovers, dialogs and pickers.
 
 ## Adapted, and why

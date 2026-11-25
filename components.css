@@ -1959,3 +1959,61 @@ fieldset.field, .drawer fieldset.filter-panel, .dialog fieldset.filter-panel { m
 .ac-place--sub { gap: var(--space-3-5); color: var(--color-text-muted); }
 .ac-place--sub > span { display: inline-flex; align-items: center; gap: var(--space-1-5); min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .animal-card__foot .ac-place .icon { flex: none; width: var(--size-icon-xs); height: var(--size-icon-xs); color: var(--color-text-muted); }
+
+/* ==========================================================================
+   Table styles (DD-006): record tables with a photo, status and row actions
+   (Antz Home style 7, Animals lists), compact figures with totals, selection
+   and sorting, striped rows with a sticky head. All build on .table.
+   ========================================================================== */
+.table-wrap { container: table / inline-size; }
+.table thead th { white-space: nowrap; }
+/* Records: one record per row; the whole row opens it */
+.table--records { border-collapse: separate; border-spacing: 0; }
+.table--records th { padding: var(--space-2-5) var(--space-3); font-size: var(--text-2xs); font-weight: var(--weight-bold); letter-spacing: var(--tracking-overline); text-transform: uppercase; border-bottom: 0; }
+.table--records td { padding: var(--space-2-5) var(--space-3); border-bottom: var(--border-width) solid var(--color-border-subtle); }
+.table--records tbody tr { position: relative; }
+.table--records tbody tr:last-child td { border-bottom: 0; }
+.table--records tbody tr:hover td { background: var(--color-surface-hover); }
+.table--records tbody tr:hover td:first-child { border-radius: var(--radius-md) 0 0 var(--radius-md); }
+.table--records tbody tr:hover td:last-child { border-radius: 0 var(--radius-md) var(--radius-md) 0; }
+.table__media { position: relative; display: grid; place-items: center; width: var(--size-thumb); height: var(--size-thumb); border-radius: var(--radius-md); color: var(--color-text-muted); background: var(--color-surface-sunken); }
+.table__media > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
+.table__media > .icon { width: var(--size-icon-lg); height: var(--size-icon-lg); }
+.table__media .sex-tag { position: absolute; z-index: 1; top: var(--space-1); left: var(--space-1); min-width: var(--space-5); height: var(--space-4-5); padding: 0 var(--space-1); border-radius: var(--radius-xs); font-size: var(--text-2xs); color: var(--color-surface); background: var(--c); box-shadow: none; }
+.table__record { display: flex; flex-direction: column; min-width: 0; }
+.table__record b { font-weight: var(--weight-bold); color: var(--color-text); font-variant-numeric: tabular-nums; }
+.table__record span { margin-top: var(--space-0-5); font-weight: var(--weight-medium); }
+.table__record i { font-size: var(--text-xs); color: var(--color-text-muted); }
+.table__sub { display: block; margin-top: var(--space-0-5); font-size: var(--text-xs); color: var(--color-text-muted); }
+.table__date { white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--color-text-secondary); }
+.table__go { width: var(--size-icon-md); color: var(--color-text-muted); }
+.table__go .icon { width: var(--size-icon-sm); height: var(--size-icon-sm); }
+.table--records tbody tr:hover .table__go { color: var(--color-accent-text); }
+.table__link { color: inherit; text-decoration: none; }
+.table__link::after { content: ''; position: absolute; inset: 0; border-radius: var(--radius-md); }
+.table__link:focus-visible { outline: var(--focus-ring-width) solid var(--color-focus); outline-offset: var(--focus-ring-offset); border-radius: var(--radius-xs); }
+.table--records .btn { position: relative; z-index: 1; }
+@container table (max-width: 599.98px) { .table .table__opt { display: none; } }
+.table--select td > b, .table__record b { white-space: nowrap; }
+/* Figures: compact rows, numbers on the right, totals at the foot */
+.table--compact { font-size: var(--text-sm); }
+.table--compact th, .table--compact td { padding: var(--space-1-5) var(--space-2-5); }
+.table .table__num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.table tfoot td { font-weight: var(--weight-semibold); border-top: var(--border-width) solid var(--color-border); border-bottom: 0; }
+/* Selection and sorting */
+.table--select td:first-child, .table--select th:first-child { width: var(--space-6); padding-right: 0; }
+.table--select .check input { margin: 0; }
+.check input[type="checkbox"]:indeterminate { border-color: var(--color-accent-indicator); background: var(--color-accent-indicator); box-shadow: inset 0 0 0 var(--space-1) var(--color-surface); }
+.table--select tbody tr:has(input:checked) td { background: var(--color-surface-selected); }
+.table__sort { display: inline-flex; align-items: center; gap: var(--space-1); min-height: var(--space-6); padding: 0; border: 0; font: inherit; color: inherit; background: none; cursor: pointer; }
+.table__sort .icon { width: var(--size-icon-xs); height: var(--size-icon-xs); opacity: 0; transition: opacity var(--duration-fast), transform var(--duration-fast); }
+.table__sort:hover .icon, .table__sort:focus-visible .icon, [aria-sort] > .table__sort .icon { opacity: 1; }
+[aria-sort="ascending"] > .table__sort .icon { transform: rotate(180deg); }
+[aria-sort] > .table__sort { color: var(--color-text); }
+.table-bulk { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); margin-bottom: var(--space-2); padding: var(--space-2) var(--space-3); border-radius: var(--radius-md); font-size: var(--text-sm); font-weight: var(--weight-semibold); background: var(--color-surface-selected); }
+.table-bulk__end { display: inline-flex; gap: var(--space-2); margin-left: auto; }
+/* Long tables: striped rows, the head stays while the body scrolls */
+.table--striped tbody tr:nth-child(even) td { background: var(--color-surface-sunken); }
+.table--striped tbody tr:hover td { background: var(--color-surface-hover); }
+.table-wrap--scroll { max-height: var(--size-hero-photo); overflow: auto; }
+.table--sticky thead th { position: sticky; top: 0; z-index: 1; background: var(--color-surface); }

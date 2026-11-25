@@ -878,6 +878,67 @@ put_section('pages/animal-card.html', '<!--record-cards-->', '<!--/record-cards-
 put_section('pages/animal-card.html', '<!--record-cards-code-->', '<!--/record-cards-code-->', REC_CODE, '</section>\n<nav class="pager"')
 print('animal record cards ok')
 
+# ═══ Table styles on the Table page (generated between markers) ═══
+def tbl_media(sex, img=None):
+    cls, word = SEX[sex]
+    pic = f'<img src="{IMG}{img}" alt="">' if img else I('paw')
+    return f'<span class="table__media">{pic}<span class="sex-tag{cls}" title="{word}">{sex}<span class="sr-only"> ({word})</span></span></span>'
+def tbl_record(aaid, name, sci, link=True):
+    a = f'<a class="table__link" href="#">AAID: {aaid}</a>' if link else f'AAID: {aaid}'
+    return f'<span class="table__record"><b>{a}</b><span>{esc(name)}</span><i>{esc(sci)}</i></span>'
+def two(main, sub): return f'{esc(main)}<small class="table__sub">{esc(sub)}</small>'
+GO = f'<td class="table__go" aria-hidden="true">{I("chevron-right")}</td>'
+def th(*cols): return '<thead><tr>' + ''.join(f'<th{(" class=" + chr(34) + c + chr(34)) if c else ""}>{esc(t)}</th>' if t is not None else f'<th{(" class=" + chr(34) + c + chr(34)) if c else ""}><span class="sr-only">{esc(n)}</span></th>' for t, c, n in cols) + '</tr></thead>'
+def wrap(table, extra=''): return f'{extra}<div class="table-wrap">{table}</div>'
+ALL = [('427858', 'Name: Bhalu · Chital', 'Axis axis', 'UD', 'Paddock 4', 'Adirampattinam', '07 Nov 2026', None),
+       ('427841', 'Nilgai', 'Boselaphus tragocamelus', 'ID', 'Reptile 2', 'Crimson Frosted', '03 Nov 2026', None),
+       ('427824', 'Indian leopard', 'Panthera pardus fusca', 'F', 'Pond 2', 'Adirampattinam', '30 Oct 2026', 'leopard.webp'),
+       ('427807', 'Cinereous vulture', 'Aegypius monachus', 'M', 'Pond 2', 'Adirampattinam', '26 Oct 2026', None)]
+t_all = wrap('<table class="table table--records">' + th(('', '', 'Photo'), ('Animal', '', ''), ('Enclosure', 'table__opt', ''), ('Accession', 'table__opt', ''), (None, '', 'Open'))
+             + '<tbody>' + ''.join(f'<tr><td>{tbl_media(sx, img)}</td><td>{tbl_record(a, n, sc)}</td><td class="table__opt">{two(e, site)}</td><td class="table__opt table__date">{d}</td>{GO}</tr>' for a, n, sc, sx, e, site, d, img in ALL) + '</tbody></table>')
+MISS = [('426925', 'Name: Kaveri · Bonnet macaque', 'Macaca radiata', 'M', 'Pond 2', 'Srushti site', '04 Nov 2026', 'danger', 'Escaped'),
+        ('426908', 'Rose-ringed parakeet', 'Psittacula krameri', 'M', 'Holding 1', 'Adirampattinam', '28 Oct 2026', 'warning', 'Missing'),
+        ('426891', 'Bengal tiger', 'Panthera tigris tigris', 'F', 'Q-bay 2', 'Adirampattinam', '21 Oct 2026', 'success', 'Found'),
+        ('426874', 'Gaur', 'Bos gaurus', 'UD', 'Aviary 7', 'Adirampattinam', '14 Oct 2026', 'danger', 'Escaped')]
+t_miss = wrap('<table class="table table--records">' + th(('', '', 'Photo'), ('Animal', '', ''), ('Last seen', 'table__opt', ''), ('Reported', 'table__opt', ''), ('Status', '', ''), (None, '', 'Open'))
+              + '<tbody>' + ''.join(f'<tr><td>{tbl_media(sx)}</td><td>{tbl_record(a, n, sc)}</td><td class="table__opt">{two(e, site)}</td><td class="table__opt table__date">{d}</td><td><span class="status status--{st}">{lab}</span></td>{GO}</tr>' for a, n, sc, sx, e, site, d, st, lab in MISS) + '</tbody></table>')
+DEL = [('427236', 'Name: Chotu · Sambar', 'Rusa unicolor', 'F', 'Duplicate record', 'Neeta Rao', '05 Nov 2026'),
+       ('427219', 'Giant forest scorpion', 'Heterometrus swammerdami', 'M', 'Entered by mistake', 'Kunal Singh', '30 Oct 2026'),
+       ('427202', 'Sarus crane', 'Antigone antigone', 'M', 'Wrong species', 'Meera Iyer', '24 Oct 2026')]
+t_del = wrap('<table class="table table--records">' + th(('', '', 'Photo'), ('Animal', '', ''), ('Reason', 'table__opt', ''), ('Deleted', 'table__opt', ''), (None, '', 'Action'))
+             + '<tbody>' + ''.join(f'<tr><td>{tbl_media(sx)}</td><td>{tbl_record(a, n, sc, link=False)}</td><td class="table__opt">{two(r, "by " + who)}</td><td class="table__opt table__date">{d}</td><td><button class="btn btn--secondary btn--sm" type="button">{I("refresh")}Restore<span class="sr-only"> AAID {a}</span></button></td></tr>' for a, n, sc, sx, r, who, d in DEL) + '</tbody></table>')
+STOCK = [('Meloxicam 15 mg', 'B-2291', 'Mar 2027', 412, 150, 18540), ('Amoxicillin 500 mg', 'B-2304', 'Jan 2027', 96, 200, 7680),
+         ('Ivermectin 1%', 'B-2187', 'Dec 2026', 38, 40, 11400), ('Vitamin B complex', 'B-2342', 'Aug 2027', 640, 300, 9600)]
+t_stock = wrap('<table class="table table--compact"><thead><tr><th>Medicine</th><th>Batch</th><th>Expiry</th><th class="table__num">In stock</th><th class="table__num">Reorder at</th><th class="table__num">Value (₹)</th><th>Status</th></tr></thead><tbody>'
+               + ''.join(f'<tr><td>{esc(m)}</td><td>{b}</td><td class="table__date">{x}</td><td class="table__num">{q:,}</td><td class="table__num">{r:,}</td><td class="table__num">{v:,}</td><td>' + (f'<span class="status status--warning">Reorder</span>' if q < r else '<span class="status status--success">In stock</span>') + '</td></tr>' for m, b, x, q, r, v in STOCK)
+               + f'</tbody><tfoot><tr><td>Total</td><td></td><td></td><td class="table__num">{sum(x[3] for x in STOCK):,}</td><td></td><td class="table__num">{sum(x[5] for x in STOCK):,}</td><td></td></tr></tfoot></table>')
+TRF = [('TRF-00318', 'Adirampattinam', 'Srushti site', 3, '06 Nov 2026', '2026-11-06', 'info', 'In transit'), ('TRF-00317', 'Clearspring', 'Hollowpine', 1, '01 Nov 2026', '2026-11-01', 'success', 'Received'),
+       ('TRF-00316', 'Adirampattinam', 'Mysuru Zoo', 6, '27 Oct 2026', '2026-10-27', 'success', 'Received'), ('TRF-00315', 'Srushti site', 'Clearspring', 2, '22 Oct 2026', '2026-10-22', 'warning', 'Waiting for papers')]
+sort_th = lambda t, cur=None, cls='': f'<th{(" class=" + chr(34) + cls + chr(34)) if cls else ""}{(" aria-sort=" + chr(34) + cur + chr(34)) if cur else ""}><button class="table__sort" type="button">{t}{I("chevron-down")}</button></th>'
+t_sel = wrap('<table class="table table--select"><thead><tr><th><label class="check"><input type="checkbox"><span class="sr-only">Select all transfers</span></label></th>'
+             + sort_th('Transfer') + sort_th('Route') + sort_th('Animals', cls='table__num') + sort_th('Date', 'descending') + '<th>Status</th></tr></thead><tbody>'
+             + ''.join(f'<tr><td><label class="check"><input type="checkbox"><span class="sr-only">Select {tid}</span></label></td><td><b>{tid}</b></td><td>{esc(a)} → {esc(b)}</td><td class="table__num">{n}</td><td class="table__date" data-value="{iso}">{d}</td><td><span class="status status--{st}">{lab}</span></td></tr>' for tid, a, b, n, d, iso, st, lab in TRF)
+             + '</tbody></table>',
+             f'<div class="table-bulk" hidden><span data-selected-count>0 selected</span><span class="table-bulk__end"><button class="btn btn--outline btn--sm" type="button">{I("download")}Export</button><button class="btn btn--secondary btn--sm" type="button">{I("check")}Mark received</button></span></div>')
+LOG = [('06:30', 'Big cat 1', 'Raw meat, 4 kg', 'Kunal Singh', 'success', 'Fed'), ('07:00', 'Aviary 3', 'Seed mix and fruit', 'Meera Iyer', 'success', 'Fed'), ('07:15', 'Pond 2', 'Fish, 2 kg', 'Kunal Singh', 'success', 'Fed'),
+       ('08:00', 'Paddock 4', 'Hay and pellets', 'Neeta Rao', 'success', 'Fed'), ('08:30', 'Reptile 2', 'Mice, 3', 'Sowmya R', 'warning', 'Refused'), ('09:00', 'Primate 1', 'Fruit and greens', 'Meera Iyer', 'success', 'Fed'),
+       ('11:00', 'Holding 1', 'Browse and pellets', 'Neeta Rao', 'info', 'Due'), ('12:00', 'Aviary 7', 'Insects and seed', 'Sowmya R', 'info', 'Due'), ('13:30', 'Big cat 1', 'Bone, 1', 'Kunal Singh', 'info', 'Due'),
+       ('15:00', 'Pond 2', 'Fish, 2 kg', 'Kunal Singh', 'info', 'Due'), ('16:00', 'Paddock 9', 'Hay', 'Neeta Rao', 'info', 'Due'), ('17:30', 'Primate 1', 'Fruit', 'Meera Iyer', 'info', 'Due')]
+t_log = ('<div class="table-wrap table-wrap--scroll" tabindex="0" role="region" aria-label="Feeding log, scrolls"><table class="table table--striped table--sticky"><thead><tr><th>Time</th><th>Enclosure</th><th>Diet</th><th>Keeper</th><th>Status</th></tr></thead><tbody>'
+         + ''.join(f'<tr><td class="table__date">{t}</td><td>{esc(e)}</td><td>{esc(d)}</td><td>{esc(k)}</td><td><span class="status status--{st}">{lab}</span></td></tr>' for t, e, d, k, st, lab in LOG) + '</tbody></table></div>')
+def tdoc(i, title, lead, body): return f'<div class="doc" id="{i}"><h3>{title}</h3><p class="lead">{lead}</p><div class="demo demo--col">{body}</div></div>'
+TBL_DOC = (tdoc('table-records', 'Record table', 'One record per row: a photo with the sex tag, the record ID, name and scientific name, then two-line cells and a date. The whole row opens the record (the link on the ID stretches over it) and a chevron says so. Small-caps headings. On narrow screens the optional columns (<code>table__opt</code>) step back.', t_all)
+           + tdoc('table-status', 'With status', 'Add a status column with the status pill: danger, warning, success. Status lives in the pill, never in a row colour.', t_miss)
+           + tdoc('table-action', 'With a row action', 'When a row has one action, use a real <b>secondary button</b> (Restore), not a chip that looks like a status. A row with an action is not a link: no chevron.', t_del)
+           + tdoc('table-figures', 'Compact figures', 'For reports and stock: compact rows (<code>table--compact</code>), numbers on the right in tabular figures (<code>table__num</code>), and a totals row in <code>tfoot</code>.', t_stock)
+           + tdoc('table-select', 'Selectable and sortable', 'Tick rows to act on several at once: the bulk bar appears with the count, and the heading box selects all (a dash when some are ticked). Headings sort: select one, select again to reverse; the sorted column shows its arrow.', t_sel)
+           + tdoc('table-long', 'Striped, with a sticky head', 'For long logs in a fixed height: alternate rows are tinted (<code>table--striped</code>) and the head stays in view while the body scrolls (<code>table--sticky</code> in <code>table-wrap--scroll</code>).', t_log))
+TBL_CODE = ('<div class="doc" id="table-styles-code"><h3>Table styles</h3><h4>Classes</h4><div class="chips">' + ''.join(f'<code>{c}</code>' for c in ['.table--records', '.table__media', '.table__record', '.table__link', '.table__sub', '.table__date', '.table__go', '.table__opt', '.table--compact', '.table__num', 'tfoot', '.table--select', '.table__sort', '[aria-sort]', '.table-bulk', '[data-selected-count]', '.table--striped', '.table--sticky', '.table-wrap--scroll'])
+            + '</div><details class="code" open><summary>Record row</summary><pre><code>' + esc(('<tr><td>' + tbl_media('F', 'leopard.webp') + '</td><td>' + tbl_record('427824', 'Indian leopard', 'Panthera pardus fusca') + '</td><td class="table__opt">' + two('Pond 2', 'Adirampattinam') + '</td><td class="table__opt table__date">30 Oct 2026</td>' + GO + '</tr>').replace('><', '>\n<')) + '</code></pre></details></div>')
+put_section('pages/table.html', '<!--table-styles-->', '<!--/table-styles-->', TBL_DOC, '</div></section><section class="tab-panel" id="panel-usage"')
+put_section('pages/table.html', '<!--table-styles-code-->', '<!--/table-styles-code-->', TBL_CODE, '</section>\n<nav class="pager"')
+print('table styles ok')
+
 # Component page: module home pieces (Pattern components)
 mh_demo = (frame('<div class="board">' + band_hero('navy', 'Waiting for necropsy · all centres', '67', 'carcasses received · 27 high priority', glass_btn('Start the next one'), cls='board__full') + '</div>')
            + frame('<div class="board">' + band_hero('ink', 'Population change · every site', '+527', 'net change in animals', '<div class="net-split"><div><b>+840</b><small>came in</small></div><div><b>−313</b><small>went out</small></div></div>', cls='board__full') + '</div>')
