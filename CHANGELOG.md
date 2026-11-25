@@ -2,7 +2,9 @@
 
 All notable changes to the Antz Design System. Versions follow semantic versioning: patch for fixes, minor for additions, major for anything renamed, removed or changed in meaning. Every version listed here is published under `releases/` and tagged in Git.
 
-## Unreleased
+## 1.2.0-beta.5 (25 November 2026)
+
+Adds role homes and a home for every module (DD-006, from Antz Home style 7 and the Pharmacy app): 29 new screens, new component pages (Record lists, Popovers and pickers, Side sheet forms, Lists and charts, Timelines and charts, Role homes, Quick add, Module homes, Widget board, Module bar, Record detail), seven new table styles, animal record cards, four new colour families (Lagoon, Vivid mint, Wine, Bronze) with every gradient built from primitives, and the tools to go back: a rollback command, a deploy tool with snapshots and previews. 865 tokens, 724 contrast checks. DD-006 is still proposed.
 
 ### Pharmacy app (antz-pharmacy-web): pinned table, record detail, dispense sheet
 - **Table:** a new style, wide with a pinned first column (`table--pinned`). The record ID stays put while the other columns scroll under it, with a hairline at its edge once scrolled. Cells: priority tag, pending with progress, status with a note, people, long waits.

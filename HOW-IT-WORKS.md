@@ -43,8 +43,8 @@ You keep working in one web codebase for web, tablet and mobile prototypes.
 
 1. **Link a pinned release**, never the working copy:
    ```html
-   <link rel="stylesheet" href="antz-design-system/releases/v1.2.0-beta.4/tokens.css">
-   <link rel="stylesheet" href="antz-design-system/releases/v1.2.0-beta.4/components.css">
+   <link rel="stylesheet" href="antz-design-system/releases/v1.2.0-beta.5/tokens.css">
+   <link rel="stylesheet" href="antz-design-system/releases/v1.2.0-beta.5/components.css">
    ```
 2. **Use classes first:** `.btn--primary`, `.card`, `.status--caution`, `.wash--primary`, `.drawer`, `.tile-module`. Every component page in the docs shows the markup.
 3. **Write your own CSS with tokens only:** `var(--color-…)`, `var(--space-…)`, `var(--text-…)`, `var(--radius-…)`, `var(--shadow-…)`, `var(--duration-…)`, `var(--ease-…)`, `var(--gradient-…)`.
@@ -117,7 +117,7 @@ Three levels, from smallest to largest. None of them erases history.
 **Browse and compare**
 
 - Open `releases/vX.Y.Z/index.html`, or pick a version on the Versions page.
-- `git diff v1.2.0-beta.3 v1.2.0-beta.4 -- tokens/src components.css` shows what changed between two versions.
+- `git diff v1.2.0-beta.4 v1.2.0-beta.5 -- tokens/src components.css` shows what changed between two versions.
 
 ## 7. Exceptions
 
