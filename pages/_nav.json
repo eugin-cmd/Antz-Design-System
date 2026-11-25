@@ -207,6 +207,11 @@
           "isNew": true
         },
         {
+          "href": "record-detail.html",
+          "title": "Record detail",
+          "isNew": true
+        },
+        {
           "href": "module-homes.html",
           "title": "Module homes",
           "isNew": true
@@ -355,8 +360,18 @@
           "isNew": true
         },
         {
+          "href": "screen-pharmacy-request-detail.html",
+          "title": "Pharmacy · request detail",
+          "isNew": true
+        },
+        {
           "href": "screen-pharmacy-dispense.html",
           "title": "Pharmacy · dispense",
+          "isNew": true
+        },
+        {
+          "href": "screen-pharmacy-dispense-detail.html",
+          "title": "Pharmacy · dispense detail",
           "isNew": true
         },
         {

@@ -3805,6 +3805,11 @@
           "$value": "radial-gradient(70% 120% at 100% 0%, color-mix(in srgb, #2CDCDB 30%, transparent), transparent 60%), linear-gradient(125deg, #002B2B, #005050)",
           "$description": "Band hero (lagoon): the default dark band of module homes, with a soft glow top right. White text. Pair with --texture-rings."
         },
+        "band-green": {
+          "$type": "gradient",
+          "$value": "radial-gradient(70% 120% at 100% 0%, color-mix(in srgb, #10A655 28%, transparent), transparent 60%), linear-gradient(140deg, #003918 0%, #005226 60%, #00602E 100%)",
+          "$description": "Band (green): a deep green card or hero with a soft glow top right, for example the dispense detail sheet. White text. Identity, never status."
+        },
         "band-wine": {
           "$type": "gradient",
           "$value": "linear-gradient(150deg, #40000D 0%, #67001E 55%, #8A1730 100%)",
@@ -7651,6 +7656,11 @@
           "$type": "gradient",
           "$value": "radial-gradient(70% 120% at 100% 0%, color-mix(in srgb, #2CDCDB 30%, transparent), transparent 60%), linear-gradient(125deg, #002B2B, #005050)",
           "$description": "Band hero (lagoon): the default dark band of module homes, with a soft glow top right. White text. Pair with --texture-rings."
+        },
+        "band-green": {
+          "$type": "gradient",
+          "$value": "radial-gradient(70% 120% at 100% 0%, color-mix(in srgb, #10A655 28%, transparent), transparent 60%), linear-gradient(140deg, #003918 0%, #005226 60%, #00602E 100%)",
+          "$description": "Band (green): a deep green card or hero with a soft glow top right, for example the dispense detail sheet. White text. Identity, never status."
         },
         "band-wine": {
           "$type": "gradient",
@@ -11499,6 +11509,11 @@
           "$value": "radial-gradient(70% 120% at 100% 0%, color-mix(in srgb, #2CDCDB 30%, transparent), transparent 60%), linear-gradient(125deg, #002B2B, #005050)",
           "$description": "Band hero (lagoon): the default dark band of module homes, with a soft glow top right. White text. Pair with --texture-rings."
         },
+        "band-green": {
+          "$type": "gradient",
+          "$value": "radial-gradient(70% 120% at 100% 0%, color-mix(in srgb, #10A655 28%, transparent), transparent 60%), linear-gradient(140deg, #003918 0%, #005226 60%, #00602E 100%)",
+          "$description": "Band (green): a deep green card or hero with a soft glow top right, for example the dispense detail sheet. White text. Identity, never status."
+        },
         "band-wine": {
           "$type": "gradient",
           "$value": "linear-gradient(150deg, #40000D 0%, #67001E 55%, #8A1730 100%)",
@@ -15345,6 +15360,11 @@
           "$type": "gradient",
           "$value": "radial-gradient(70% 120% at 100% 0%, color-mix(in srgb, #2CDCDB 30%, transparent), transparent 60%), linear-gradient(125deg, #002B2B, #005050)",
           "$description": "Band hero (lagoon): the default dark band of module homes, with a soft glow top right. White text. Pair with --texture-rings."
+        },
+        "band-green": {
+          "$type": "gradient",
+          "$value": "radial-gradient(70% 120% at 100% 0%, color-mix(in srgb, #10A655 28%, transparent), transparent 60%), linear-gradient(140deg, #003918 0%, #005226 60%, #00602E 100%)",
+          "$description": "Band (green): a deep green card or hero with a soft glow top right, for example the dispense detail sheet. White text. Identity, never status."
         },
         "band-wine": {
           "$type": "gradient",

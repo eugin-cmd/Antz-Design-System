@@ -295,7 +295,7 @@ MEDICAL_HOME = home_shell('md-board', 'All sites', ['Medical', 'Hospital', 'Phar
 PH_NAV = [('Daily work', [('file', 'navy', 'Requests', '132', False, ['All requests', 'By product', 'New product requests']), ('swap', 'green', 'Dispense', '137'), ('refresh', 'coral', 'Returns', None)]),
           ('Shipments', [('truck', 'sky', 'Incoming', None), ('truck', 'navy', 'Outgoing', None), ('pin', 'green', 'Direct dispatch (local)', None)]),
           ('Stock', [('package', 'teal', 'Stock report', None), ('sliders', 'amber', 'Stock adjustment', None), ('grid', 'navy', 'Racks and shelves', None)]),
-          ('Reports and setup', [('bar-chart', 'violet', 'Reports', None, False, None, True), ('settings', 'navy', 'Master lists', None)])]
+          ('Reports and setup', [('bar-chart', 'violet', 'Reports', None, False, ['Consumption', 'Dispense', 'Dispatch', 'Return', 'Reconciliation']), ('settings', 'navy', 'Master lists', None)])]
 def req_row(rid, tag, tagk, line, person, ini, hue, when, wait, late, pend, st, stk, stsub):
     t = f'<span class="prio-tag{"" if tagk == "danger" else " prio-tag--" + tagk}">{esc(tag)}</span>' if tag else ''
     return (f'<a class="rec" href="#"><span class="rec__icon">{I("file")}</span><span class="rec__main"><b>{esc(rid)}{t}</b><span>{esc(line)}</span></span>'
@@ -938,6 +938,115 @@ TBL_CODE = ('<div class="doc" id="table-styles-code"><h3>Table styles</h3><h4>Cl
 put_section('pages/table.html', '<!--table-styles-->', '<!--/table-styles-->', TBL_DOC, '</div></section><section class="tab-panel" id="panel-usage"')
 put_section('pages/table.html', '<!--table-styles-code-->', '<!--/table-styles-code-->', TBL_CODE, '</section>\n<nav class="pager"')
 print('table styles ok')
+
+# ═══ Pharmacy app (antz-pharmacy-web): pinned wide table, request detail, dispense sheet ═══
+def prio(tag):
+    return '' if not tag else (f'<span class="prio-tag">{I("alert")}Urgent</span>' if tag == 'Urgent' else '<span class="prio-tag prio-tag--high">High</span>')
+def person_cell(ini, hue, name, sub): return f'<span class="table__person">{avatar(ini, hue)}<span><b>{esc(name)}</b><small>{esc(sub)}</small></span></span>'
+def pend_cell(left, total, label=None):
+    shipped = (total - left) / total
+    head = label or f'{left} pending'
+    return f'<span class="table__progress"><b>{esc(head)}</b><small class="table__sub">of {total} item{"s" if total != 1 else ""}</small><span class="meter" style="--v:{shipped:.2f}"><i></i></span></span>'
+PINNED = [('RES002839', 'Urgent', 'Adirampattinam central pharmacy', '1 day', False, (1, 1, None), ('Requested', 'caution', None), ('ST', 'green', 'Sourav Tambe', 'Vet · 10 Nov 2026'), ('BW', 'teal', 'Bharathi W', '11 Nov 2026')),
+          ('RES002835', None, 'Adirampattinam central pharmacy', '15 days', False, (4, 4, None), ('Requested', 'caution', None), ('KS', 'sky', 'Kunal Singh', 'Keeper · 27 Oct 2026'), None),
+          ('RES002831', 'High', 'Central pharmacy', '29 days', False, (3, 3, None), ('Requested', 'caution', None), ('DK', 'green', 'Deelip Kumar', 'Vet · 13 Oct 2026'), ('RK', 'teal', 'Ravi Kumar', '14 Oct 2026')),
+          ('RES002815', None, 'Central pharmacy', '85 days', False, (2, 3, None), ('Partly shipped', 'info', 'Last shipment 18 Aug 2026'), ('OW', 'navy', 'Ovi Wagh', 'Vet · 18 Aug 2026'), ('NR', 'amber', 'Neeta Rao', '18 Aug 2026')),
+          ('RES002791', 'High', 'Adirampattinam central pharmacy', '170 days', False, (1, 1, 'Part received'), ('Partly shipped', 'info', 'Last shipment 25 May 2026'), ('MI', 'teal', 'Meera Iyer', 'Keeper · 25 May 2026'), ('BW', 'teal', 'Bharathi W', '26 May 2026')),
+          ('RES002779', 'Urgent', 'Adirampattinam central pharmacy', '212 days', True, (1, 2, None), ('Partly shipped', 'info', 'Last shipment 13 Apr 2026'), ('RK', 'teal', 'Ravi Kumar', 'Vet · 13 Apr 2026'), None)]
+def pinned_row(rid, tag, to, wait, late, pend, st, by, up):
+    stx, stk, sub = st
+    return (f'<tr><td><span class="table__id"><a class="table__link" href="#"><b>{rid}</b></a>{prio(tag)}</span></td><td><b>{esc(to)}</b></td>'
+            f'<td{" class=" + chr(34) + "table__late" + chr(34) if late else ""}>{esc(wait)}</td><td>{pend_cell(*pend)}</td>'
+            f'<td><span class="table__status">{status(stx, stk)}{f"<small>{esc(sub)}</small>" if sub else ""}</span></td>'
+            f'<td>{person_cell(*by)}</td><td>{person_cell(*up) if up else "<span class=" + chr(34) + "table__na" + chr(34) + ">No update yet</span>"}</td>{GO}</tr>')
+PINNED_TABLE = ('<div class="table-wrap"><table class="table table--pinned"><thead><tr><th>Request</th><th>Requested to</th><th>Waiting</th><th>Pending</th><th>Status</th><th>Requested by</th><th>Last updated</th><th><span class="sr-only">Open</span></th></tr></thead><tbody>'
+                + ''.join(pinned_row(*r) for r in PINNED) + '</tbody></table></div>')
+PH_REQUESTS = module_page('Pharmacy', 'All pharmacies', PH_NAV, 'New request',
+    f'<div class="list-head"><div><h2>Requests <small>132</small></h2><p>Medicine requests sent to a central pharmacy, and what has been shipped.</p></div><button class="btn btn--outline" type="button" data-toast="New product requests · opens in the ANTZ app">{I("plus")}New request</button></div>'
+    + '<section class="list-panel"><div class="toolbar">' + tabs_with_counts([('Pending', 8), ('Shipped', None), ('Disputes', None), ('Cancelled', None), ('All', None)]) + search('Search request ID, medicine or person') + '</div>'
+    + PINNED_TABLE + pagination(6, 132) + '</section>', active='All requests', period=True)
+screen_page('pharmacy-requests', 'Pharmacy · requests', 'Requests in a wide table: the request column stays put while waiting, pending, status, who asked and the last update scroll under it.', 'file', 'teal', PH_REQUESTS,
+            ['The table scrolls sideways; the request column stays put. The side panel becomes a strip.', 'The table scrolls sideways under the request column.', 'Side panel beside the table; it scrolls sideways under the request column.', 'Every column in view.'],
+            ['Pin the column that names the record, so people keep their place while they scroll.', 'Say how long a request has waited, and mark the long waits.'], ['Squeeze a wide table to fit: let it scroll.', 'Colour a whole row to show status: use the status pill.'])
+
+# Request detail
+ITEMS = [('Meloxivet', ['Urgent', 'Rx'], 'Meloxicam 1.5 mg/ml · Bottle of 100 ml', 'Needed for wound dressing', 6, 0, 0, ('Waiting', 'caution')),
+         ('Enrofloxacin 50 mg/ml', ['Rx'], 'Enrofloxacin · Vial of 50 ml', None, 4, 4, 4, ('Shipped', 'success')),
+         ('Vitamin B complex', [], 'Injection · Vial of 30 ml', None, 10, 6, 6, ('Partly shipped', 'info'))]
+def item_row(name, tags, sub, note, req, ful, ship, st):
+    tg = ''.join(f'<span class="prio-tag">{I("alert")}Urgent</span>' if t == 'Urgent' else '<span class="prio-tag prio-tag--info">Rx</span>' for t in tags)
+    return (f'<tr><td><span class="table__name">{esc(name)}{tg}</span><small class="table__sub">{esc(sub)}</small>' + (f'<span class="table__note">{I("file")}{esc(note)}</span>' if note else '') + '</td>'
+            f'<td class="table__num">{req}</td><td class="table__num">{ful if ful else "<span class=" + chr(34) + "table__na" + chr(34) + ">0</span>"}</td>'
+            f'<td><span class="table__progress"><small class="table__sub">{ship} of {req}</small><span class="meter" style="--v:{ship / req:.2f}"><i></i></span></span></td><td>{status(*st)}</td></tr>')
+ITEMS_TABLE = ('<div class="table-wrap"><table class="table"><thead><tr><th>Medicine</th><th class="table__num">Requested</th><th class="table__num">Fulfilled</th><th>Shipped</th><th>Status</th></tr></thead><tbody>'
+               + ''.join(item_row(*r) for r in ITEMS) + '</tbody></table></div>')
+SHIP_TABLE = ('<div class="table-wrap"><table class="table"><thead><tr><th>Shipment</th><th>Vehicle</th><th>Driver</th><th class="table__num">Items</th></tr></thead><tbody>'
+              '<tr><td><b>SHIP00002060</b><small class="table__sub">18 Aug 2026</small></td><td>KA 04 AB 8078</td><td>Ramesh P<small class="table__sub">98450 12802</small></td><td class="table__num">2 medicines</td></tr>'
+              '<tr><td><b>SHIP00002011</b><small class="table__sub">02 Aug 2026</small></td><td>KA 04 AB 7731</td><td>Suresh N<small class="table__sub">98451 44120</small></td><td class="table__num">1 medicine</td></tr></tbody></table></div>')
+def detail_tabs(uid, a_label, a_n, a_body, b_label, b_n, b_body):
+    return (f'<div class="detail-tabs" data-tabs><div class="segmented segmented--pill" role="tablist" aria-label="Request parts">'
+            f'<button type="button" role="tab" aria-selected="true" aria-controls="{uid}-a">{esc(a_label)}{count_html(a_n)}</button><button type="button" role="tab" aria-selected="false" aria-controls="{uid}-b">{esc(b_label)}{count_html(b_n)}</button></div>'
+            f'<section class="list-panel" id="{uid}-a" role="tabpanel">{a_body}</section><section class="list-panel" id="{uid}-b" role="tabpanel" hidden>{b_body}</section></div>')
+DETAIL_HEAD = (f'<div class="detail-head"><div><a class="detail-head__back" href="#">{I("chevron-left")}Requests</a><h2 class="detail-head__title">RES002815 {status("Partly shipped", "info")}</h2></div>'
+               f'<div class="detail-head__end"><button class="btn btn--outline" type="button">Cancel request</button><button class="btn btn--outline" type="button">{I("file")}Print</button></div></div>')
+DETAIL_FACTS = ('<div class="detail-facts"><div class="detail-facts__lead"><small>Requested to</small><b>Central pharmacy</b></div>'
+                f'<div><small>Requested by</small>{person_cell("OW", "navy", "Ovi Wagh", "18 Aug 2026")}</div><div><small>Items</small><b>3</b></div>'
+                '<div><small>Requested value</small><b>₹13,212</b></div><div><small>Shipped value</small><b>₹5,940</b></div><div><small>Waiting</small><b>85 days</b></div>'
+                f'<div><small>Last updated</small>{person_cell("NR", "amber", "Neeta Rao", "18 Aug 2026")}</div></div>')
+PH_REQ_DETAIL = module_page('Pharmacy', 'All pharmacies', PH_NAV, 'New request', DETAIL_HEAD + DETAIL_FACTS + detail_tabs('rq-detail', 'Requested items', 3, ITEMS_TABLE, 'Shipments', 2, SHIP_TABLE), active='All requests', period=True)
+screen_page('pharmacy-request-detail', 'Pharmacy · request detail', 'One request: its tags and actions, a card of facts, then tabs for the requested medicines and the shipments.', 'file', 'teal', PH_REQ_DETAIL,
+            ['Facts in two columns; the tables scroll sideways. The side panel becomes a strip.', 'Facts in four columns; the side panel stacks above.', 'Side panel beside the detail; facts in four columns.', 'Side panel beside the detail; everything in view.'],
+            ['Lead with the record ID, its priority and its status.', 'Put the facts people check first in one card: who, where, how much, how long.'], ['Repeat the status in the facts card.', 'Put more than two actions in the head: use a menu.'])
+
+# Dispense: rows open the detail sheet
+def contact(ini, hue, label, name, on_strong=False, chat=True):
+    k = 'icon-btn--on-strong' if on_strong else 'icon-btn--tint'
+    return (f'<div class="contact{" contact--selected" if (not on_strong and chat) else ""}">{avatar(ini, hue)}<div><small>{esc(label)}</small><b>{esc(name)}</b></div>'
+            + (f'<span class="contact__end"><button class="icon-btn {k} icon-btn--sm" type="button" aria-label="Call {esc(name)}">{I("phone")}</button><button class="icon-btn {k} icon-btn--sm" type="button" aria-label="Chat with {esc(name)}">{I("chat")}</button></span>' if chat else '') + '</div>')
+def med_item(name, sub, qty):
+    return f'<div class="item"><span class="item__media">{tile("medicine", "teal")}</span><span class="item__body"><b>{esc(name)}</b><span>{esc(sub)}</span></span><span class="item__end"><small>Qty</small><b>{qty}</b></span></div>'
+def dispense_sheet(sid, did, when, frm, meds, units, by, to, for_animal, items):
+    body = (f'<div class="sheet-hero"><small>From</small><b>{esc(frm)}</b><div class="glass-stats"><div class="glass-stat"><b>{meds}</b><small>medicine{"s" if meds != 1 else ""}</small></div><div class="glass-stat"><b>{units}</b><small>total quantity</small></div></div>'
+            + contact(by[0], by[1], 'Dispensed by', by[2], on_strong=True) + '</div>'
+            + contact(to[0], to[1], 'Dispensed to', to[2])
+            + (f'<div class="contact">{tile("paw", "amber")}<div><small>Dispensed for</small><b>{esc(for_animal)}</b></div></div>' if for_animal else f'<div class="contact">{tile("paw", "green")}<div><small>Dispensed for</small><b>No animal linked</b></div></div>')
+            + '<p class="t-overline">Medicines</p><div class="sheet-items">' + ''.join(med_item(*m) for m in items) + '</div>')
+    return (f'<div class="drawer-backdrop" data-drawer-backdrop="{sid}" hidden></div><aside class="drawer drawer--floating" id="{sid}" role="dialog" aria-modal="true" aria-labelledby="{sid}-title" hidden>'
+            f'<header class="drawer__head"><div><span class="drawer__meta">Dispense · {esc(when)}</span><h2 class="drawer__title" id="{sid}-title">{esc(did)}</h2></div><button class="icon-btn" type="button" aria-label="Close" data-drawer-close>{I("x")}</button></header>'
+            f'<div class="drawer__body">{body}</div><div class="drawer__foot drawer__foot--split"><button class="btn btn--outline" type="button">{I("file")}Print slip</button><button class="btn btn--primary" type="button">Dispense again</button></div></aside>')
+SHEET_DISPENSE = dispense_sheet('sheet-dispense', 'DIS578', '07 Nov 2026 · 11:11 AM', 'Hospital pharmacy', 2, 5, ('NR', 'amber', 'Neeta Rao'), ('OW', 'navy', 'Ovi Wagh'), None,
+                                [('Amoxiclav', 'Amoxicillin + clavulanate 625 mg · Batch BA002', 2), ('Fenbendazole', 'Fenbendazole 150 mg · Batch BA003', 3)])
+SHEET_DISPENSE_ANIMAL = dispense_sheet('sheet-dispense-2', 'DIS580', '11 Nov 2026 · 10:00 AM', 'Adirampattinam central pharmacy', 1, 1, ('NR', 'amber', 'Neeta Rao'), ('BW', 'teal', 'Bharathi W'), 'Bengal tiger · AAID 427824',
+                                       [('Meloxivet', 'Meloxicam 1.5 mg/ml · Batch BA001', 1)])
+def with_sheet(page, sheet_html, open_=False):
+    if open_: sheet_html = sheet_html.replace(' hidden></div><aside', '></div><aside', 1).replace('aria-modal="true" aria-labelledby="sheet-dispense-title" hidden>', 'aria-modal="true" aria-labelledby="sheet-dispense-title">', 1).replace('class="drawer drawer--floating" id="sheet-dispense"', 'class="drawer drawer--floating drawer--shown" id="sheet-dispense"', 1)
+    return page.replace('</div></div></div></div>', sheet_html + '</div></div></div></div>', 1)
+PH_DISPENSE2 = with_sheet(PH_DISPENSE.replace('<a class="rec" href="#">', '<a class="rec" href="#" data-drawer-open="sheet-dispense">'), SHEET_DISPENSE)
+screen_page('pharmacy-dispense', 'Pharmacy · dispense', 'A record list: medicines handed out, to whom, for how many animals and how many units. Select a row to open its detail sheet.', 'swap', 'teal', PH_DISPENSE2, LIST_CAPS, LIST_DO, LIST_DONT)
+screen_page('pharmacy-dispense-detail', 'Pharmacy · dispense detail', 'The dispense detail in the side sheet: where it came from, who handed it out and to whom (call or chat), the animal it was for and the medicines.', 'swap', 'teal',
+            with_sheet(PH_DISPENSE, SHEET_DISPENSE, open_=True),
+            ['The sheet covers the screen; close it to get back to the list.', 'The sheet floats over the list.', 'The sheet floats over the list, beside the side panel.', 'The sheet floats at the right; the list stays in view.'],
+            ['Lead the sheet with where the medicines came from and the figures.', 'Let people call or chat with the people named.'], ['Put editing in the detail sheet: open a form.', 'Show more than two actions at the foot.'])
+add_link('Screens', 'screen-pharmacy-request-detail.html', 'Pharmacy · request detail', 'screen-pharmacy-requests.html')
+add_link('Screens', 'screen-pharmacy-dispense-detail.html', 'Pharmacy · dispense detail', 'screen-pharmacy-dispense.html')
+
+# Component page: Record detail (Pattern components)
+rd_sheets = (f'<div class="cell"><button class="btn btn--outline" type="button" data-drawer-open="sheet-dispense">{I("swap")}Open a dispense (no animal)</button> '
+             f'<button class="btn btn--outline" type="button" data-drawer-open="sheet-dispense-2">{I("paw")}Open a dispense for an animal</button></div>' + SHEET_DISPENSE + SHEET_DISPENSE_ANIMAL)
+write_doc('record-detail', {'title': 'Record detail', 'group': 'Pattern components', 'intro': 'What opens from a record list: the detail page (head, facts, tabbed tables) and the detail side sheet (hero card, contacts with call and chat, the items).', 'icon': 'file', 'hue': 'teal'},
+          doc('rd-head', 'Detail head and facts', 'The <b>detail head</b> has a back link to the list, the record ID with its priority and status, and at most two actions. The <b>facts card</b> puts what people check first in one place: the lead fact large across two columns, then people, figures and dates.', frame(DETAIL_HEAD + DETAIL_FACTS))
+          + doc('rd-tabs', 'Tabbed tables', 'Tabs with counts switch between the parts of a record (<code>data-tabs</code>): the requested medicines with tags, a note and shipped progress, and the shipments with vehicle and driver.', frame(detail_tabs('rd-doc', 'Requested items', 3, ITEMS_TABLE, 'Shipments', 2, SHIP_TABLE)))
+          + doc('rd-sheet', 'Detail side sheet', 'Open both. The <b>hero card</b> (green gradient) says where it came from, with glass figures and the person who handed it out. <b>Contact rows</b> carry call and chat buttons. The animal it was for, or <b>No animal linked</b>. Then the items with their quantities, and two actions at the foot.', rd_sheets, canvas=False),
+          usage('rd-usage', 'Record detail', ['Open a page for records people work on; a side sheet for records people check.', 'Keep at most two actions in the head or the foot.'], ['Repeat the status in the facts.', 'Edit in the detail: open a form.']),
+          code('rd-code', 'Record detail', ['.detail-head', '.detail-head__back', '.detail-head__title', '.detail-head__end', '.detail-facts', '.detail-facts__lead', '[data-tabs]', '.detail-tabs', '.table__name', '.table__note', '.table__progress', '.sheet-hero', '.glass-stats', '.contact', '.contact--selected', '.contact__end', '.sheet-items', '.drawer__foot--split'],
+               '<div class="detail-head">…</div>\n<div class="detail-facts"><div class="detail-facts__lead"><small>Requested to</small><b>Central pharmacy</b></div>…</div>'))
+add_link('Pattern components', 'record-detail.html', 'Record detail', 'module-bar.html')
+
+# The pinned table on the Table page
+PIN_DOC = ('<div class="doc" id="table-pinned"><h3>Wide, with a pinned first column</h3><p class="lead">When a table has more columns than fit, let it scroll sideways and <b>pin the first column</b> (<code>table--pinned</code>): the record ID stays put and the other columns slide under it, with a hairline at its edge once you scroll. Cells can carry progress (<code>table__progress</code>), a status with a note, people (<code>table__person</code>) and long waits (<code>table__late</code>).</p>'
+           '<div class="demo demo--col">' + PINNED_TABLE + '</div></div>')
+put_section('pages/table.html', '<!--table-pinned-->', '<!--/table-pinned-->', PIN_DOC, '<!--table-styles-->')
+print('pharmacy app ok')
 
 # Component page: module home pieces (Pattern components)
 mh_demo = (frame('<div class="board">' + band_hero('navy', 'Waiting for necropsy · all centres', '67', 'carcasses received · 27 high priority', glass_btn('Start the next one'), cls='board__full') + '</div>')

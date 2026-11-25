@@ -164,7 +164,7 @@ const PAIRS = [
   // New families (DD-006): mint fill (on-bright text), teal fill on lagoon (white), band heroes (white)
   ...['mint.97', 'mint.92', 'mint.88'].map((s) => ['color.text.on-bright', s, T]),
   ...['lagoon.40', 'lagoon.35', 'lagoon.25'].map((s) => ['color.text.on-strong', s, T]),
-  ...['lagoon.15', 'lagoon.30', 'wine.10', 'wine.20', 'wine.30', 'bronze.5', 'bronze.15', 'bronze.30', 'sky.40', 'sky.35', 'sky.30'].map((s) => ['color.text.on-strong', s, T]),
+  ...['lagoon.15', 'lagoon.30', 'wine.10', 'wine.20', 'wine.30', 'bronze.5', 'bronze.15', 'bronze.30', 'sky.40', 'sky.35', 'sky.30', 'green.20', 'green.30', 'green.35'].map((s) => ['color.text.on-strong', s, T]),
   ['color.peach.text', 'coral.border', T], ['color.peach.caption', 'coral.border', T], ['color.peach.figure', 'coral.border', T],
   // Butter widget (amber 95 to 80)
   ['color.butter.text', 'amber.80', T], ['color.butter.caption', 'amber.80', T], ['color.butter.figure', 'amber.80', T], ['color.butter.caption', 'amber.95', T],

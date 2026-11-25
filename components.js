@@ -313,9 +313,9 @@
       var nm = md.querySelector('[data-module-name]'); if (nm) nm.textContent = t.getAttribute('data-module-pick');
       return;
     }
-    if ((t = e.target.closest('[role="tab"][aria-controls]')) && t.closest('.dialog__tabs')) {
-      // Tabs inside a dialog switch its panels
-      t.closest('.dialog__tabs').querySelectorAll('[role="tab"]').forEach(function (x) {
+    if ((t = e.target.closest('[role="tab"][aria-controls]')) && t.closest('.dialog__tabs, [data-tabs]')) {
+      // Tabs inside a dialog, or any [data-tabs] group, switch their panels
+      t.closest('.dialog__tabs, [data-tabs]').querySelectorAll('[role="tab"]').forEach(function (x) {
         var on = x === t; x.setAttribute('aria-selected', String(on));
         var panel = byId(x, x.getAttribute('aria-controls')); if (panel) panel.hidden = !on;
       });
@@ -388,4 +388,9 @@
     var wrap = table.closest('.table-wrap'), bar = wrap && wrap.previousElementSibling;
     if (bar && bar.classList.contains('table-bulk')) { bar.hidden = n === 0; var c = bar.querySelector('[data-selected-count]'); if (c) c.textContent = n + ' selected'; }
   });
+  /* Wide tables with a pinned first column: mark the wrap once it scrolls, so the column shows its edge */
+  doc.addEventListener('scroll', function (e) {
+    var w = e.target; if (!w.classList || !w.classList.contains('table-wrap') || !w.querySelector('.table--pinned')) return;
+    w.classList.toggle('is-scrolled', w.scrollLeft > 0);
+  }, true);
 })();

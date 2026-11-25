@@ -2017,3 +2017,67 @@ fieldset.field, .drawer fieldset.filter-panel, .dialog fieldset.filter-panel { m
 .table--striped tbody tr:hover td { background: var(--color-surface-hover); }
 .table-wrap--scroll { max-height: var(--size-hero-photo); overflow: auto; }
 .table--sticky thead th { position: sticky; top: 0; z-index: 1; background: var(--color-surface); }
+
+/* ==========================================================================
+   Pharmacy app (DD-006): a wide table with a pinned first column, the record
+   detail page (head, facts, tabbed tables) and the detail side sheet.
+   ========================================================================== */
+/* Wide table: the first column stays put while the other columns scroll under it */
+.table--pinned { min-width: max-content; }
+.table--pinned th, .table--pinned td { padding: var(--space-3-5) var(--space-5); white-space: nowrap; }
+.table--pinned :is(th, td):first-child { position: sticky; left: 0; z-index: 1; background: var(--color-surface); transition: box-shadow var(--duration-fast); }
+.table-wrap.is-scrolled .table--pinned :is(th, td):first-child { box-shadow: inset calc(var(--border-width) * -1) 0 0 var(--color-border); }
+.table__id { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-1); }
+.table__id b { font-weight: var(--weight-bold); font-variant-numeric: tabular-nums; }
+.table__late { font-weight: var(--weight-semibold); color: var(--color-warning-text); }
+.table__progress { display: flex; flex-direction: column; min-width: calc(var(--size-control-lg) * 2.5); }
+.table__progress b { font-weight: var(--weight-semibold); }
+.table__progress .meter { margin-top: var(--space-1-5); }
+.table__status { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-1); }
+.table__status small { font-size: var(--text-xs); color: var(--color-text-muted); }
+.table__person { display: flex; align-items: center; gap: var(--space-2-5); }
+.table__person b { display: block; font-weight: var(--weight-medium); }
+.table__person small { display: block; font-size: var(--text-xs); color: var(--color-text-muted); }
+.table__na { color: var(--color-text-muted); }
+.table__name { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-1-5); font-weight: var(--weight-semibold); }
+.table__note { display: flex; align-items: center; gap: var(--space-1); margin-top: var(--space-1); font-size: var(--text-xs); color: var(--color-text-secondary); }
+.table__note .icon { width: var(--size-icon-xs); height: var(--size-icon-xs); }
+/* Record detail: back link, the ID with its tags, actions; a card of facts */
+.detail-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: var(--space-3) var(--space-4); }
+.detail-head__back { display: inline-flex; align-items: center; gap: var(--space-1); min-height: var(--space-6); font-size: var(--text-sm); font-weight: var(--weight-medium); color: var(--color-text-secondary); text-decoration: none; }
+.detail-head__back:hover { color: var(--color-accent-text); }
+.detail-head__back .icon { width: var(--size-icon-sm); height: var(--size-icon-sm); }
+.detail-head__title { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-2-5); margin: var(--space-1) 0 0; font-size: var(--text-3xl); font-weight: var(--weight-bold); letter-spacing: var(--tracking-heading); font-variant-numeric: tabular-nums; }
+.detail-head__end { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.detail-facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-4) var(--space-5); padding: var(--space-5) var(--space-6); border-radius: var(--radius-xl); background: var(--color-surface); box-shadow: var(--shadow-sm); }
+.detail-facts > div { display: flex; flex-direction: column; gap: var(--space-1); min-width: 0; }
+.detail-facts small { font-size: var(--text-xs); color: var(--color-text-muted); }
+.detail-facts b { font-size: var(--text-md); font-weight: var(--weight-semibold); font-variant-numeric: tabular-nums; }
+.detail-facts .detail-facts__lead { grid-column: span 2; }
+.detail-facts__lead b { font-size: var(--text-xl); }
+.detail-facts .table__person small { font-size: var(--text-xs); }
+@container shell (max-width: 599.98px) { .detail-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: var(--space-4); } .detail-facts .detail-facts__lead { grid-column: 1 / -1; } }
+.detail-tabs { display: flex; flex-direction: column; gap: var(--space-3); }
+/* Detail side sheet: a hero card, contact rows with call and chat, the items */
+.sheet-hero { display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-4); border-radius: var(--radius-xl); color: var(--color-text-on-strong); background: var(--gradient-band-green); }
+.sheet-hero > small { font-size: var(--text-xs); }
+.sheet-hero > b { margin-top: calc(var(--space-2) * -1); font-size: var(--text-lg); font-weight: var(--weight-semibold); }
+.contact { display: flex; align-items: center; gap: var(--space-2-5); padding: var(--space-2-5) var(--space-3); border-radius: var(--radius-lg); background: var(--color-surface-sunken); }
+.contact > div { flex: 1; min-width: 0; }
+.contact small { display: block; font-size: var(--text-xs); color: var(--color-text-muted); }
+.contact b { display: block; font-weight: var(--weight-semibold); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.contact__end { display: flex; gap: var(--space-1-5); }
+.contact--selected { background: var(--color-surface-selected); }
+.sheet-hero .contact { padding: var(--space-2) var(--space-2-5); background: color-mix(in srgb, var(--color-text-on-strong) 12%, transparent); }
+.sheet-hero .contact small { color: inherit; }
+.sheet-items { display: flex; flex-direction: column; gap: var(--space-2); }
+.sheet-items .item { padding: var(--space-2-5) var(--space-3); border-radius: var(--radius-lg); box-shadow: inset 0 0 0 var(--border-width) var(--color-border-subtle); }
+/* Side sheets inside a device frame size to the frame, not the browser window */
+.shell-host .drawer--floating { width: min(var(--size-drawer-work), calc(100cqw - var(--space-8))); }
+@container shell (max-width: 599.98px) { .shell-host .drawer--floating { inset-block: var(--space-2); inset-inline-end: var(--space-2); width: calc(100cqw - var(--space-4)); } }
+/* On the solid sheet hero, glass figures need no blur: a plain tint of the on-strong colour */
+.sheet-hero .glass-stat { color: var(--color-text-on-strong); background: color-mix(in srgb, var(--color-text-on-strong) 10%, transparent); -webkit-backdrop-filter: none; backdrop-filter: none; }
+/* A sheet shown already open (a screen preview) does not slide in */
+.drawer--shown, .drawer--shown + .drawer-backdrop { animation: none; }
+.table__progress .meter { --bar: var(--color-accent-indicator); }
+.detail-tabs > [role="tablist"] { align-self: flex-start; }

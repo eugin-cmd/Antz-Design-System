@@ -161,7 +161,7 @@ const SCAN = String.raw`(() => {
 
 // Real pixels: hide the text, capture the box, take the 10th-percentile worst contrast against the text colour.
 async function pixelRatio(b, f) {
-  const r = await b.eval(`(()=>{const e=document.querySelector('[data-audit-id="${f.id}"]');if(!e)return null;e.scrollIntoView({block:'center',behavior:'instant'});e.style.setProperty('color','transparent','important');e.style.setProperty('-webkit-text-fill-color','transparent','important');e.style.setProperty('text-shadow','none','important');const r=e.getBoundingClientRect();return {x:r.left,y:r.top+scrollY,w:r.width,h:r.height}})()`);
+  const r = await b.eval(`(()=>{const e=document.querySelector('[data-audit-id="${f.id}"]');if(!e)return null;e.scrollIntoView({block:'center',behavior:'instant'});document.getAnimations().forEach((x)=>{try{x.finish()}catch(_){}});e.style.setProperty('color','transparent','important');e.style.setProperty('-webkit-text-fill-color','transparent','important');e.style.setProperty('text-shadow','none','important');const r=e.getBoundingClientRect();return {x:r.left,y:r.top+scrollY,w:r.width,h:r.height}})()`);
   if (!r) return null;
   await new Promise((res) => setTimeout(res, 80));
   const shot = await b.send('Page.captureScreenshot', { format: 'png', clip: { x: r.x, y: r.y, width: Math.max(2, r.w), height: Math.max(2, r.h), scale: 1 }, captureBeyondViewport: true });
@@ -229,7 +229,9 @@ try {
           await b.eval(FREEZE); await new Promise((r) => setTimeout(r, 120));
           const r = await b.eval(SCAN);
           for (const f of r.fails) {
-            const real = await pixelRatio(b, f).catch(() => null);
+            let real = await pixelRatio(b, f).catch(() => null);
+            // Confirm a failure with a second capture: the first one can land before the page repaints after scrolling
+            if (real !== null && real < f.need - 0.01) { await new Promise((r) => setTimeout(r, 350)); const again = await pixelRatio(b, f).catch(() => null); if (again !== null) real = Math.max(real, again); }
             if (real === null || real < f.need - 0.01) out.push(`${pg} [${t}${c === 'high' ? ' high contrast' : ''}]: "${f.text}" ${f.path} is ${real === null ? f.estimate : Math.round(real * 100) / 100}:1, needs ${f.need}:1`);
           }
           if (process.stdout.isTTY) process.stdout.write(`  ${pg} ${t}/${c}: ${r.checked} checked`.padEnd(78) + '\r');

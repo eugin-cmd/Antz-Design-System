@@ -4,6 +4,20 @@ All notable changes to the Antz Design System. Versions follow semantic versioni
 
 ## Unreleased
 
+### Pharmacy app (antz-pharmacy-web): pinned table, record detail, dispense sheet
+- **Table:** a new style, wide with a pinned first column (`table--pinned`). The record ID stays put while the other columns scroll under it, with a hairline at its edge once scrolled. Cells: priority tag, pending with progress, status with a note, people, long waits.
+- **New component page, Record detail:**
+  - the detail head and the facts card;
+  - tabbed tables (`data-tabs`): requested medicines with tags, a note and shipped progress, and shipments with vehicle and driver;
+  - the dispense side sheet: green hero with figures, contacts with call and chat, the animal or "No animal linked", the medicines, Print slip and Dispense again.
+- **Screens:** Pharmacy · requests (now the pinned wide table), Pharmacy · request detail (new), Pharmacy · dispense (rows open the sheet), Pharmacy · dispense detail (new). The Pharmacy side panel shows the Reports sub-pages.
+- **Token:** `--gradient-band-green` (green 20 to 35, with a soft glow), gated against white text. 865 tokens, 724 contrast checks.
+- **Fixes:**
+  - side sheets inside phone and tablet frames now size to the frame, not the browser window;
+  - a sheet shown already open (`drawer--shown`) does not slide in;
+  - tabs with panels work outside dialogs too.
+- **Audit:** it now finishes script animations before measuring, and confirms a contrast failure with a second capture, so a capture taken before the page repaints is no longer reported.
+
 ### Table styles (from Antz Home style 7, Animals lists)
 - **Six new table styles** on the Table page, all built on `.table`:
   - **record table**: a photo with the sex tag, ID, name and scientific name, two-line cells, a date and a chevron; the whole row opens the record;

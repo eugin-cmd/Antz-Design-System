@@ -9728,6 +9728,17 @@
       "dark-hc": "radial-gradient(70% 120% at 100% 0%, color-mix(in srgb, #2CDCDB 30%, transparent), transparent 60%), linear-gradient(125deg, #002B2B, #005050)"
     },
     {
+      "name": "gradient.band-green",
+      "css": "--gradient-band-green",
+      "type": "gradient",
+      "tier": "semantic",
+      "description": "Band (green): a deep green card or hero with a soft glow top right, for example the dispense detail sheet. White text. Identity, never status.",
+      "light": "radial-gradient(70% 120% at 100% 0%, color-mix(in srgb, #10A655 28%, transparent), transparent 60%), linear-gradient(140deg, #003918 0%, #005226 60%, #00602E 100%)",
+      "dark": "radial-gradient(70% 120% at 100% 0%, color-mix(in srgb, #10A655 28%, transparent), transparent 60%), linear-gradient(140deg, #003918 0%, #005226 60%, #00602E 100%)",
+      "light-hc": "radial-gradient(70% 120% at 100% 0%, color-mix(in srgb, #10A655 28%, transparent), transparent 60%), linear-gradient(140deg, #003918 0%, #005226 60%, #00602E 100%)",
+      "dark-hc": "radial-gradient(70% 120% at 100% 0%, color-mix(in srgb, #10A655 28%, transparent), transparent 60%), linear-gradient(140deg, #003918 0%, #005226 60%, #00602E 100%)"
+    },
+    {
       "name": "gradient.band-wine",
       "css": "--gradient-band-wine",
       "type": "gradient",
