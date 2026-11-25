@@ -1412,6 +1412,9 @@ a.animal:hover { background: var(--color-surface-hover); }
 .modnav__item > span:not(.tile-icon):not(.count) { flex: 1; min-width: 0; }
 .modnav__item > small { margin-inline-start: auto; font-size: var(--text-sm); color: var(--color-text-muted); font-variant-numeric: tabular-nums; }
 .modnav .btn--primary { margin-top: var(--space-2); }
+/* Soft side panel (DD-007): the overview tile without its outline, and the active page's count in brand text */
+.modnav--soft .sidenav__home { box-shadow: none; }
+.modnav--soft .modnav__item[aria-current="page"] > small { font-weight: var(--weight-semibold); color: var(--color-accent-text); }
 .modnav.is-folded { width: auto; align-items: center; }
 .modnav.is-folded .modnav__label, .modnav.is-folded .modnav__item > span:not(.tile-icon), .modnav.is-folded .modnav__item > small, .modnav.is-folded .sidenav__home > div, .modnav.is-folded .btn--primary > span { display: none; }
 @container shell (max-width: 599.98px) {
