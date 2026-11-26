@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-rabbit" role="img" aria-label="Rabbit">
+<defs><linearGradient id="antz-l-rabbit-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-rabbit .i,.antz-l-rabbit .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-rabbit .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-rabbit .a{stroke:url(#antz-l-rabbit-acc)}
+.antz-l-rabbit .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-rabbit .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-rabbit .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+</style>
+<circle class="i antz-l-rabbit-0" cx="24" cy="29" r="10" pathLength="1"/>
+<circle class="i antz-l-rabbit-1" cx="20" cy="27" r="1"/>
+<circle class="i antz-l-rabbit-2" cx="28" cy="27" r="1"/>
+<path class="i antz-l-rabbit-3" d="M24 31.8v1.5M21.5 34a2.5 2.5 0 0 0 2.5-.7 2.5 2.5 0 0 0 2.5.7" pathLength="1"/>
+<path class="a antz-l-rabbit-4" d="M19 20.3C16 14 16 7 18.5 5.5s4.5 6 3.4 13.7"/>
+<path class="a antz-l-rabbit-5" d="M29 20.3c3-6.3 3-13.3.5-14.8s-4.5 6-3.4 13.7"/>
+<path class="a antz-l-rabbit-6" d="M22.5 30h3l-1.5 1.8Z"/>
+</svg>

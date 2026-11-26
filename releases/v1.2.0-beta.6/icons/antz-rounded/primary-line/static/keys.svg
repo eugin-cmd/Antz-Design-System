@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-keys" role="img" aria-label="Keys">
+<defs><linearGradient id="antz-l-keys-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-keys .i,.antz-l-keys .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-keys .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-keys .a{stroke:url(#antz-l-keys-acc)}
+.antz-l-keys .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-keys .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-keys .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+</style>
+<circle class="i antz-l-keys-0" cx="16" cy="16" r="6" pathLength="1"/>
+<path class="a antz-l-keys-1" d="M20.2 20.2 38 38M31 31l4-4M35 35l3-3"/>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-export" role="img" aria-label="Export">
+<defs><linearGradient id="antz-l-export-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-export .i,.antz-l-export .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-export .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-export .a{stroke:url(#antz-l-export-acc)}
+.antz-l-export .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-export .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-export .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+</style>
+<path class="i antz-l-export-0" d="M28 41H12a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h12l8 8v6" pathLength="1"/>
+<path class="i antz-l-export-1" d="M24 7v8h8" pathLength="1"/>
+<path class="a antz-l-export-2" d="M22 31h20M36 25l6 6-6 6"/>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-waste" role="img" aria-label="Waste">
+<defs><linearGradient id="antz-l-waste-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-waste .i,.antz-l-waste .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-waste .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-waste .a{stroke:url(#antz-l-waste-acc)}
+.antz-l-waste .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-waste .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-waste .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+</style>
+<path class="i antz-l-waste-0" d="M12 15l3 25a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2l3-25" pathLength="1"/>
+<path class="a antz-l-waste-1" d="M9 15h30M20 15v-3h8v3"/>
+<path class="a antz-l-waste-2" d="M20 23v12M24 23v12M28 23v12" pathLength="1"/>
+</svg>

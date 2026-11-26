@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en" data-root=".">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Theme tester · Antz Design System</title>
+<link rel="icon" href="data:,">
+<meta name="description" content="Preview Antz screens in light, dark, high contrast and compact density at phone, tablet and desktop sizes, with a live contrast audit.">
+<script>try { var d = document.documentElement, t = localStorage.getItem('antz-ds-theme'); if (t === 'light' || t === 'dark') d.dataset.theme = t; } catch (e) {}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css?v=50a7641b41">
+<link rel="stylesheet" href="components.css?v=50a7641b41">
+<style>
+  /* Tester chrome (not part of the system). Tokens only. */
+  html, body { height: 100%; }
+  body { display: grid; grid-template-rows: auto 1fr; overflow: hidden; }
+  /* Light top bar, like the docs and the Antz apps: home, logo | name and version */
+  .tt-top { display: flex; align-items: center; gap: var(--space-3); min-height: 76px; padding: 0 var(--space-5) 0 var(--space-4); color: var(--color-text); background: var(--color-surface); box-shadow: inset 0 -1px 0 var(--color-border-subtle), var(--shadow-xs); }
+  .tt-top .icon-btn { color: var(--color-text-secondary); background: transparent; }
+  .tt-top .icon-btn:hover { color: var(--color-text); background: var(--color-surface-hover); }
+  .tt-brand { display: flex; align-items: center; gap: var(--space-3); color: inherit; text-decoration: none; white-space: nowrap; }
+  .tt-logo { display: inline-flex; align-items: center; height: 44px; }
+  .tt-logo img { display: block; width: auto; height: 100%; }
+  .tt-divider { flex: none; width: var(--border-width); height: 36px; background: var(--color-accent-indicator); }
+  @media (min-resolution: 2dppx) { .tt-divider { transform: scaleX(.5); } }
+  .tt-brand__name { font-size: var(--text-xl); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-snug); color: var(--color-accent-text); }
+  .tt-brand small { padding: 2px var(--space-2); border-radius: var(--radius-full); font-size: var(--text-2xs); font-weight: var(--weight-semibold); color: var(--color-accent-text); background: var(--color-accent-soft); }
+  .tt-top .btn--ghost { --btn-fg: var(--color-text); --btn-bg-hover: var(--color-surface-hover); }
+  @media (max-width: 760px) { .tt-divider, .tt-brand__name, .tt-home { display: none; } }
+  .logo-on-dark { display: none !important; }
+  :root[data-theme="dark"] .logo-on-light { display: none !important; }
+  :root[data-theme="dark"] .logo-on-dark { display: block !important; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .logo-on-light { display: none !important; } :root:not([data-theme="light"]) .logo-on-dark { display: block !important; } }
+  .tt-top__end { margin-left: auto; display: flex; gap: var(--space-2); align-items: center; }
+  .tt { display: grid; grid-template-columns: 300px minmax(0, 1fr); min-height: 0; }
+  .tt-side { overflow-y: auto; padding: var(--space-5) var(--space-4); display: flex; flex-direction: column; gap: var(--space-5); background: var(--color-surface); box-shadow: inset -1px 0 0 var(--color-border-subtle); }
+  .tt-group { display: flex; flex-direction: column; gap: var(--space-2); }
+  .tt-group > .t-overline { color: var(--color-text-muted); }
+  .tt-group .segmented { width: 100%; }
+  .tt-group select { width: 100%; }
+  .tt-main { min-width: 0; min-height: 0; display: grid; grid-template-rows: minmax(0, 1fr) auto; }
+  .tt-stage { overflow: auto; padding: var(--space-6); display: flex; flex-wrap: wrap; gap: var(--space-6); align-content: flex-start; background: var(--color-bg-canvas); }
+  .tt-frame { display: flex; flex-direction: column; gap: var(--space-2); margin: 0; min-width: 0; }
+  .tt-frame__box { position: relative; overflow: hidden; border-radius: var(--radius-lg); box-shadow: var(--shadow-md), 0 0 0 1px var(--color-border); background: var(--color-surface); }
+  .tt-frame__box iframe { position: absolute; top: 0; left: 0; border: 0; transform-origin: 0 0; background: var(--color-bg-app); }
+  .tt-frame figcaption { display: flex; align-items: center; gap: var(--space-2); flex-wrap: wrap; font-size: var(--text-xs); color: var(--color-text-secondary); }
+  .tt-frame figcaption b { color: var(--color-text); font-size: var(--text-sm); }
+  .tt-dock { max-height: 44vh; overflow: hidden; display: grid; grid-template-rows: auto minmax(0, 1fr); background: var(--color-surface); box-shadow: inset 0 1px 0 var(--color-border); }
+  .tt-dock[data-open="false"] { grid-template-rows: auto 0; }
+  .tt-dock__bar { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-2) var(--space-5); }
+  .tt-dock__body { overflow-y: auto; padding: 0 var(--space-5) var(--space-5); }
+  .tt-tok { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: var(--space-2); }
+  .tt-tok button { display: flex; align-items: center; gap: var(--space-2-5); width: 100%; padding: var(--space-2); border: 0; border-radius: var(--radius-sm); text-align: left; background: var(--color-surface-sunken); cursor: pointer; transition: background var(--duration-fast) var(--ease-standard); }
+  .tt-tok button:hover { background: var(--color-surface-hover); }
+  .tt-tok i { flex: none; width: 30px; height: 30px; border-radius: var(--radius-xs); box-shadow: var(--shadow-hairline); }
+  .tt-tok code { display: block; font-size: var(--text-xs); background: none; padding: 0; }
+  .tt-tok small { color: var(--color-text-muted); font-size: var(--text-2xs); font-family: var(--font-mono); }
+  .tt-aa td, .tt-aa th { white-space: nowrap; }
+  .tt-scales { display: flex; flex-direction: column; gap: var(--space-3); }
+  .tt-scale { display: grid; grid-template-columns: 120px minmax(0, 1fr); align-items: center; gap: var(--space-3); }
+  .tt-scale > b { font-size: var(--text-sm); }
+  .tt-scale__row { display: grid; grid-template-columns: repeat(11, minmax(var(--size-control-lg), 1fr)); gap: var(--space-1); overflow-x: auto; }
+  .tt-scale__row button { display: flex; flex-direction: column; align-items: stretch; gap: var(--space-0-5); min-width: 0; padding: 0; border: 0; font: inherit; text-align: left; background: none; cursor: pointer; }
+  .tt-scale__row i { display: block; height: var(--size-control-sm); border-radius: var(--radius-xs); box-shadow: var(--shadow-hairline); }
+  .tt-scale__row button:hover i, .tt-scale__row button:focus-visible i { box-shadow: 0 0 0 var(--border-width-strong) var(--color-focus); }
+  .tt-scale__row small { font-size: var(--text-2xs); color: var(--color-text-secondary); font-family: var(--font-mono); white-space: nowrap; }
+  @media (max-width: 720px) { .tt-scale { grid-template-columns: minmax(0, 1fr); } }
+  .tt-swatch { display: inline-flex; align-items: center; justify-content: center; min-width: 46px; height: 26px; padding: 0 var(--space-2); border-radius: var(--radius-xs); font-weight: var(--weight-semibold); font-size: var(--text-xs); }
+  .tt-wash { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-1-5); }
+  .tt-wash button { height: 40px; border: 0; border-radius: var(--radius-sm); cursor: pointer; box-shadow: var(--shadow-hairline); font-size: var(--text-2xs); font-weight: var(--weight-semibold); color: var(--color-text); }
+  .tt-wash button[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--color-focus); }
+  pre { margin: var(--space-2) 0 0; padding: var(--space-3); border-radius: var(--radius-md); overflow-x: auto; font: var(--text-xs)/1.6 var(--font-mono); background: var(--color-surface-sunken); }
+  .tt-export { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-4); }
+  @media (max-width: 899px) { body { overflow: auto; } .tt { grid-template-columns: 1fr; } .tt-side { box-shadow: inset 0 -1px 0 var(--color-border-subtle); } .tt-dock { max-height: none; } }
+</style>
+</head>
+<body data-page="tester">
+<header class="tt-top">
+  <a class="icon-btn tt-home" href="index.html" aria-label="Docs home"><svg class="icon"><use href="#i-home"/></svg></a><a class="tt-brand" href="index.html" aria-label="Antz Design System docs"><span class="tt-logo"><img class="logo-on-light" src="assets/img/antz-logo.svg" alt="Antz" width="509" height="194"><img class="logo-on-dark" src="assets/img/antz-logo-white.svg" alt="Antz" width="509" height="194"></span><span class="tt-divider" aria-hidden="true"></span><span class="tt-brand__name">Theme tester</span><small id="tt-version"></small></a>
+  <div class="tt-top__end"><button class="btn btn--sm btn--ghost" type="button" id="tt-share"><svg class="icon"><use href="#i-clip"/></svg>Copy link</button><a class="btn btn--sm btn--ghost" href="index.html"><svg class="icon"><use href="#i-arrow-left"/></svg>Docs</a></div>
+</header>
+<div class="tt">
+  <aside class="tt-side" aria-label="Preview settings">
+    <div class="tt-group"><span class="t-overline">Screen</span>
+      <div class="select-wrap"><select class="select" id="tt-screen" aria-label="Screen">
+        <option value="kit">Component kit</option><option value="animals">Animal cards</option><option value="stats">Dashboard stats</option><option value="home">Home dashboard</option><option value="record">Pharmacy list + work drawer</option><option value="housing">Housing</option><option value="people">Choose people</option><option value="task">Add task</option><option value="request">New request</option><option value="date">Set a date</option>
+      </select></div></div>
+    <div class="tt-group"><span class="t-overline">Compare</span>
+      <div class="segmented segmented--block" role="group" aria-label="Compare" id="tt-compare"><button type="button" data-v="single" aria-pressed="true">One</button><button type="button" data-v="themes" aria-pressed="false">Light + dark</button><button type="button" data-v="all" aria-pressed="false">All 4</button></div></div>
+    <div class="tt-group" id="tt-theme-group"><span class="t-overline">Theme</span>
+      <div class="segmented segmented--block" role="group" aria-label="Theme" id="tt-theme"><button type="button" data-v="light" aria-pressed="true">Light</button><button type="button" data-v="dark" aria-pressed="false">Dark</button></div></div>
+    <div class="tt-group" id="tt-contrast-group"><span class="t-overline">Contrast</span>
+      <div class="segmented segmented--block" role="group" aria-label="Contrast" id="tt-contrast"><button type="button" data-v="standard" aria-pressed="true">Standard</button><button type="button" data-v="high" aria-pressed="false">High</button></div></div>
+    <div class="tt-group"><span class="t-overline">Density</span>
+      <div class="segmented segmented--block" role="group" aria-label="Density" id="tt-density"><button type="button" data-v="comfortable" aria-pressed="true">Comfortable</button><button type="button" data-v="compact" aria-pressed="false">Compact</button></div></div>
+    <div class="tt-group"><span class="t-overline">Device</span>
+      <div class="segmented segmented--block" role="group" aria-label="Device" id="tt-device"><button type="button" data-v="phone" aria-pressed="false" aria-label="Phone 390 × 844" title="Phone 390 × 844"><svg class="icon icon--sm"><use href="#i-smartphone"/></svg></button><button type="button" data-v="tablet-p" aria-pressed="false" aria-label="Tablet portrait 820 × 1180" title="Tablet portrait 820 × 1180"><svg class="icon icon--sm"><use href="#i-tablet"/></svg></button><button type="button" data-v="tablet-l" aria-pressed="false" aria-label="Tablet landscape 1180 × 820" title="Tablet landscape 1180 × 820"><svg class="icon icon--sm" style="transform:rotate(90deg)"><use href="#i-tablet"/></svg></button><button type="button" data-v="desktop" aria-pressed="true" aria-label="Desktop 1440 × 900" title="Desktop 1440 × 900"><svg class="icon icon--sm"><use href="#i-monitor"/></svg></button><button type="button" data-v="all" aria-pressed="false">All</button></div></div>
+    <div class="tt-group"><span class="t-overline">Hero wash</span>
+      <div class="tt-wash" id="tt-wash"><button type="button" data-v="primary" aria-pressed="true" style="background:var(--gradient-wash-primary)" aria-label="Wash 1 · Primary" title="Wash 1 · Primary">1</button><button type="button" data-v="celebrate" aria-pressed="false" style="background:var(--gradient-wash-celebrate)" aria-label="Wash 2 · Celebrate" title="Wash 2 · Celebrate">2</button><button type="button" data-v="calm" aria-pressed="false" style="background:var(--gradient-wash-calm)" aria-label="Wash 3 · Calm" title="Wash 3 · Calm">3</button><button type="button" data-v="illustrative" aria-pressed="false" style="background:var(--gradient-wash-illustrative)" aria-label="Wash 4 · Illustrative" title="Wash 4 · Illustrative">4</button><button type="button" data-v="none" aria-pressed="false" aria-label="No wash" title="No wash">None</button></div>
+      <span class="t-caption">Applies to the hero band on Home, the kit, animal cards, dashboard stats and the pharmacy screen.</span></div>
+    <div class="tt-group"><span class="t-overline">Direction</span>
+      <label class="check"><input type="checkbox" id="tt-rtl"> Right to left (Arabic)</label></div>
+    <div class="alert"><svg class="icon"><use href="#i-info"/></svg><div><b>Previewing, not editing</b>To change a value, edit <code>tokens/src</code> and run <code>node tools/build.mjs</code>. The tester reloads the built tokens.</div></div>
+  </aside>
+  <main class="tt-main" id="main">
+    <div class="tt-stage" id="tt-stage" aria-live="polite"></div>
+    <section class="tt-dock" id="tt-dock" data-open="true" aria-label="Inspect">
+      <div class="tt-dock__bar">
+        <div class="segmented segmented--line" role="tablist" aria-label="Inspect" id="tt-tabs"><button role="tab" type="button" data-v="audit" aria-selected="true">Contrast audit</button><button role="tab" type="button" data-v="tokens" aria-selected="false">Colour tokens</button><button role="tab" type="button" data-v="scales" aria-selected="false">Colour scales</button><button role="tab" type="button" data-v="export" aria-selected="false">Use this mode</button></div>
+        <span class="t-caption" id="tt-mode-label" style="margin-left:auto"></span>
+        <button class="icon-btn icon-btn--sm icon-btn--ghost" type="button" id="tt-dock-toggle" aria-label="Collapse inspector" aria-expanded="true"><svg class="icon"><use href="#i-chevron-down"/></svg></button>
+      </div>
+      <div class="tt-dock__body" id="tt-dock-body"></div>
+    </section>
+  </main>
+</div>
+<div class="toast-region" id="toasts" role="status" aria-live="polite"></div>
+
+<script>
+/* Icon sprite: reuse the docs sprite by loading site.js's symbols without its chrome. */
+</script>
+<script src="components.js?v=50a7641b41"></script>
+<script src="assets/site.js?v=50a7641b41"></script>
+<script src="dist/tokens/token-index.js?v=50a7641b41"></script>
+<script>
+(function () {
+  var $ = function (s, el) { return (el || document).querySelector(s); };
+  var $$ = function (s, el) { return Array.prototype.slice.call((el || document).querySelectorAll(s)); };
+  var DEVICES = { phone: [390, 844, 'Phone'], 'tablet-p': [820, 1180, 'Tablet portrait'], 'tablet-l': [1180, 820, 'Tablet landscape'], desktop: [1440, 900, 'Desktop'] };
+  var state = { screen: 'kit', compare: 'single', theme: 'light', contrast: 'standard', density: 'comfortable', device: 'desktop', wash: 'primary', rtl: false, tab: 'audit' };
+
+  // Restore from the URL hash: #screen=home&theme=dark&...
+  location.hash.replace(/^#/, '').split('&').forEach(function (kv) { var p = kv.split('='); if (p[0] in state && p[1] != null) state[p[0]] = p[0] === 'rtl' ? p[1] === '1' : decodeURIComponent(p[1]); });
+  if (!DEVICES[state.device] && state.device !== 'all') state.device = 'desktop';
+
+  // Token index from dist/tokens/token-index.js (works from disk); fall back to the JSON over a server.
+  var index = null;
+  function useIndex(d) { index = d; $('#tt-version').textContent = 'v' + d.version; renderDock(); }
+  if (window.ANTZ_TOKEN_INDEX) setTimeout(function () { useIndex(window.ANTZ_TOKEN_INDEX); }, 0);
+  else fetch('dist/tokens/token-index.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(useIndex).catch(function () { $('#tt-dock-body').innerHTML = '<p class="t-caption">The token index is missing. Run <code>node tools/build.mjs</code>.</p>'; });
+
+  function modes() {
+    if (state.compare === 'themes') return [['light', state.contrast], ['dark', state.contrast]];
+    if (state.compare === 'all') return [['light', 'standard'], ['dark', 'standard'], ['light', 'high'], ['dark', 'high']];
+    return [[state.theme, state.contrast]];
+  }
+  function modeKey(t, c) { return t + (c === 'high' ? '-hc' : ''); }
+  function modeName(t, c) { return (t === 'dark' ? 'Dark' : 'Light') + (c === 'high' ? ' · high contrast' : ''); }
+
+  function sync() {
+    $$('#tt-compare button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.v === state.compare)); });
+    $$('#tt-theme button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.v === state.theme)); });
+    $$('#tt-contrast button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.v === state.contrast)); });
+    $$('#tt-density button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.v === state.density)); });
+    $$('#tt-device button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.v === state.device)); });
+    $$('#tt-wash button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.v === state.wash)); });
+    $$('#tt-tabs button').forEach(function (b) { b.setAttribute('aria-selected', String(b.dataset.v === state.tab)); });
+    $('#tt-screen').value = state.screen; $('#tt-rtl').checked = state.rtl;
+    $('#tt-theme-group').hidden = state.compare !== 'single';
+    $('#tt-contrast-group').hidden = state.compare === 'all';
+    var m = modes(); $('#tt-mode-label').textContent = m.map(function (x) { return modeName(x[0], x[1]); }).join('  ·  ');
+    history.replaceState(null, '', '#' + Object.keys(state).map(function (k) { return k + '=' + (k === 'rtl' ? (state[k] ? 1 : 0) : encodeURIComponent(state[k])); }).join('&'));
+  }
+
+  function frameUrl(t, c) {
+    return 'tester-frame.html?screen=' + state.screen + '&theme=' + t + '&contrast=' + c + '&density=' + (state.density === 'compact' ? 'compact' : 'comfortable') + '&wash=' + state.wash + (state.rtl ? '&rtl=1' : '');
+  }
+  function renderStage() {
+    var stage = $('#tt-stage'), devs = state.device === 'all' ? Object.keys(DEVICES) : [state.device], m = modes();
+    stage.innerHTML = '';
+    m.forEach(function (mode) {
+      devs.forEach(function (key) {
+        var d = DEVICES[key];
+        var fig = document.createElement('figure'); fig.className = 'tt-frame'; fig.dataset.w = d[0]; fig.dataset.h = d[1];
+        fig.innerHTML = '<div class="tt-frame__box"><iframe title="' + d[2] + ', ' + modeName(mode[0], mode[1]) + '" loading="lazy" width="' + d[0] + '" height="' + d[1] + '"></iframe></div><figcaption><b>' + d[2] + '</b> ' + d[0] + ' × ' + d[1] + ' <span class="status status--plain ' + (mode[0] === 'dark' ? 'status--tertiary' : 'status--secondary') + '">' + modeName(mode[0], mode[1]) + '</span></figcaption>';
+        fig.querySelector('iframe').src = frameUrl(mode[0], mode[1]);
+        stage.appendChild(fig);
+      });
+    });
+    fit();
+  }
+  function fit() {
+    var stage = $('#tt-stage'), frames = $$('.tt-frame', stage); if (!frames.length) return;
+    var avail = stage.clientWidth - 48, gap = 24;
+    var perRow = state.device === 'all' ? Math.min(frames.length, avail > 1500 ? 4 : avail > 900 ? 2 : 1) : Math.min(frames.length, avail > 1100 ? frames.length : 1);
+    var target = (avail - gap * (perRow - 1)) / perRow;
+    frames.forEach(function (f) {
+      var w = +f.dataset.w, h = +f.dataset.h, s = Math.min(1, target / w, (state.device === 'all' ? 1 : (stage.clientHeight - 90) / h));
+      s = Math.max(s, 0.18);
+      var box = f.querySelector('.tt-frame__box'); box.style.width = Math.round(w * s) + 'px'; box.style.height = Math.round(h * s) + 'px';
+      f.querySelector('iframe').style.transform = 'scale(' + s + ')';
+    });
+  }
+  window.addEventListener('resize', function () { requestAnimationFrame(fit); });
+
+  // ── Dock: contrast audit, tokens, export ──
+  var PAIRS = [
+    ['color.text', 'color.surface', 4.5, 'Body text on cards'], ['color.text.secondary', 'color.surface', 4.5, 'Secondary text'], ['color.text.muted', 'color.bg.app', 4.5, 'Muted text on the board'],
+    ['color.text.on-accent', 'color.accent', 4.5, 'Main button label'], ['color.accent.text', 'color.surface', 4.5, 'Brand text, links'], ['color.accent.indicator', 'color.surface', 3, 'Tabs, progress, switch'],
+    ['color.focus', 'color.surface', 3, 'Focus ring'], ['color.border.input', 'color.surface', 3, 'Field border'], ['color.text.on-tertiary', 'color.surface.tertiary', 4.5, 'Text on navy'],
+    ['color.success.text', 'color.success.bg', 4.5, 'Success badge'], ['color.caution.text', 'color.caution.bg', 4.5, 'Caution badge'], ['color.warning.text', 'color.warning.bg', 4.5, 'Warning badge'],
+    ['color.danger.text', 'color.danger.bg', 4.5, 'Danger badge'], ['color.info.text', 'color.info.bg', 4.5, 'Info badge'], ['color.danger.on-solid', 'color.danger.solid', 4.5, 'Delete button'],
+    ['color.text', 'gradient-stop.mint', 4.5, 'Text on wash 1 (mint end)'], ['color.text', 'gradient-stop.rose', 4.5, 'Text on washes (rose end)'], ['color.text', 'gradient-stop.butter', 4.5, 'Text on washes 2–3 (butter end)'], ['color.text', 'gradient-stop.pink', 4.5, 'Text on wash 4 (pink end)']
+  ];
+  function tok(name) { if (!index) return null; for (var i = 0; i < index.tokens.length; i++) if (index.tokens[i].name === name) return index.tokens[i]; return null; }
+  function lum(hex) { var h = hex.replace('#', ''); return [0, 2, 4].map(function (i) { var x = parseInt(h.substr(i, 2), 16) / 255; return x <= 0.03928 ? x / 12.92 : Math.pow((x + 0.055) / 1.055, 2.4); }).reduce(function (a, x, i) { return a + x * [0.2126, 0.7152, 0.0722][i]; }, 0); }
+  function ratio(a, b) { var x = lum(a), y = lum(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); }
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+  function renderDock() {
+    var body = $('#tt-dock-body'); if (!index) return;
+    var m = modes();
+    if (state.tab === 'audit') {
+      var head = '<tr><th>Pair</th><th>Needs</th>' + m.map(function (x) { return '<th>' + modeName(x[0], x[1]) + '</th>'; }).join('') + '</tr>';
+      var rows = PAIRS.map(function (p) {
+        var fg = tok(p[0]), bg = tok(p[1]); if (!fg || !bg) return '';
+        return '<tr><td><b>' + esc(p[3]) + '</b><br><span class="t-caption"><code>' + p[0] + '</code> on <code>' + p[1] + '</code></span></td><td>' + p[2] + ':1</td>' + m.map(function (x) {
+          var k = modeKey(x[0], x[1]), a = fg[k], b = bg[k]; if (!a || !b || a.length !== 7 || b.length !== 7) return '<td>–</td>';
+          var r = ratio(a, b), ok = r >= p[2];
+          return '<td><span class="tt-swatch" style="background:' + b + ';color:' + a + '">Aa</span> <b class="num">' + r.toFixed(2) + '</b> <span class="status status--plain ' + (ok ? 'status--success' : 'status--danger') + '">' + (ok ? 'Pass' : 'Fail') + '</span></td>';
+        }).join('') + '</tr>';
+      }).join('');
+      body.innerHTML = '<p class="t-small t-secondary">Computed from the built tokens (<code>dist/tokens/token-index.json</code>). The build checks every approved pair in all four modes and refuses to ship a failure; this shows the key ones for the modes on screen.</p><div class="table-wrap"><table class="table tt-aa"><thead>' + head + '</thead><tbody>' + rows + '</tbody></table></div>';
+    } else if (state.tab === 'scales') {
+      var fams = {}, order = [];
+      index.tokens.forEach(function (t) { if (t.type !== 'color' || t.name.indexOf('scale.') !== 0) return; var p = t.name.split('.'); if (!fams[p[1]]) { fams[p[1]] = []; order.push(p[1]); } fams[p[1]].push(t); });
+      var title = function (f) { return f.charAt(0).toUpperCase() + f.slice(1).replace('-', ' '); };
+      body.innerHTML = '<p class="t-small t-secondary">The ten colour scales from the ANTZ Design Library: 50 to 950, base at 500. One value in every mode (primitives). Select a swatch to copy its CSS variable. Components use the semantic colour tokens; see <a href="pages/colour-scales.html">Colour scales</a>.</p><div class="tt-scales">' + order.map(function (f) {
+        return '<div class="tt-scale"><b>' + esc(title(f)) + '</b><div class="tt-scale__row">' + fams[f].map(function (t) {
+          var step = t.name.split('.')[2], hex = t.light;
+          return '<button type="button" data-copy="var(' + t.css + ')" aria-label="' + esc(title(f) + ' ' + step + ', ' + hex + ': copy ' + t.css) + '"><i style="background:' + hex + '"></i><small>' + step + '</small><small>' + hex + '</small></button>';
+        }).join('') + '</div></div>';
+      }).join('') + '</div>';
+    } else if (state.tab === 'tokens') {
+      var k = modeKey(m[0][0], m[0][1]);
+      var list = index.tokens.filter(function (t) { return t.type === 'color' && t.tier === 'semantic' && t[k] && t[k].length >= 7; });
+      body.innerHTML = '<p class="t-small t-secondary">Semantic colours in <b>' + modeName(m[0][0], m[0][1]) + '</b>. Select one to copy its CSS variable.</p><div class="tt-tok">' + list.map(function (t) { return '<button type="button" data-copy="var(' + t.css + ')" title="' + esc(t.description || '') + '"><i style="background:' + t[k] + '"></i><span><code>' + t.css + '</code><small>' + t[k] + (t.ref ? ' · ' + t.ref : '') + '</small></span></button>'; }).join('') + '</div>';
+    } else {
+      var t = m[0][0], c = m[0][1];
+      var attrs = 'data-theme="' + t + '"' + (c === 'high' ? ' data-contrast="high"' : '') + (state.density === 'compact' ? ' data-density="compact"' : '') + (state.rtl ? ' dir="rtl"' : '');
+      body.innerHTML = '<div class="tt-export"><div><b>Prototype or web page</b><pre><code>&lt;html ' + esc(attrs) + '&gt;\n&lt;link rel="stylesheet" href="releases/v' + index.version + '/tokens.css"&gt;\n&lt;link rel="stylesheet" href="releases/v' + index.version + '/components.css"&gt;' + (state.wash !== 'none' ? '\n\n&lt;section class="hero-band wash wash--' + state.wash + '"&gt;…&lt;/section&gt;' : '') + '</code></pre></div>' +
+        '<div><b>Next.js + MUI</b><pre><code>createTheme(antzThemeOptions({ mode: \'' + t + '\', contrast: \'' + c + '\' }))</code></pre><b>React Native</b><pre><code>const c = antzTheme.colors.' + (t === 'dark' ? 'dark' : 'light') + (c === 'high' ? 'HighContrast' : '') + ';</code></pre></div>' +
+        '<div><b>Files</b><p class="t-small"><a href="dist/mui/antz-mui-theme.js" download>antz-mui-theme.js</a> · <a href="dist/react-native/antz-theme.ts" download>antz-theme.ts</a> · <a href="dist/figma/antz.tokens-studio.json" download>Figma (Tokens Studio)</a> · <a href="colors.json" download>colors.json</a> · <a href="dist/contrast-report.md">contrast report</a></p><b>Share</b><p class="t-small">The address bar holds this exact view. Use Copy link at the top.</p></div></div>';
+    }
+  }
+  document.addEventListener('click', function (e) {
+    var c = e.target.closest('[data-copy]'); if (!c) return;
+    try { navigator.clipboard.writeText(c.dataset.copy); } catch (x) {}
+    var r = document.getElementById('toasts'); var t = document.createElement('div'); t.className = 'toast'; t.textContent = 'Copied ' + c.dataset.copy; r.appendChild(t); setTimeout(function () { t.remove(); }, 1800);
+  });
+
+  // ── Wire up controls ──
+  function group(id, key, rerender) { $$('#' + id + ' button').forEach(function (b) { b.addEventListener('click', function () { state[key] = b.dataset.v; sync(); if (rerender !== false) renderStage(); renderDock(); }); }); }
+  group('tt-compare', 'compare'); group('tt-theme', 'theme'); group('tt-contrast', 'contrast'); group('tt-density', 'density'); group('tt-device', 'device'); group('tt-wash', 'wash'); group('tt-tabs', 'tab', false);
+  $('#tt-screen').addEventListener('change', function (e) { state.screen = e.target.value; sync(); renderStage(); });
+  $('#tt-rtl').addEventListener('change', function (e) { state.rtl = e.target.checked; sync(); renderStage(); });
+  $('#tt-dock-toggle').addEventListener('click', function () { var d = $('#tt-dock'), open = d.dataset.open !== 'true'; d.dataset.open = String(open); this.setAttribute('aria-expanded', String(open)); this.querySelector('.icon').style.transform = open ? '' : 'rotate(180deg)'; setTimeout(fit, 50); });
+  $('#tt-share').addEventListener('click', function () { try { navigator.clipboard.writeText(location.href); } catch (x) {} var r = document.getElementById('toasts'); var t = document.createElement('div'); t.className = 'toast'; t.textContent = 'Link to this view copied'; r.appendChild(t); setTimeout(function () { t.remove(); }, 1800); });
+  sync(); renderStage();
+})();
+</script>
+</body>
+</html>
