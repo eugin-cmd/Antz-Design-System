@@ -829,6 +829,7 @@ a.animal:hover { background: var(--color-surface-hover); }
 .drawer__head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); padding: var(--space-5) var(--space-6); border-bottom: 1px solid var(--color-border-subtle); }
 .drawer__title { margin: 0; font-size: var(--text-2xl); font-weight: var(--weight-semibold); }
 .drawer__body { flex: 1; overflow-y: auto; padding: var(--space-5) var(--space-6); display: flex; flex-direction: column; gap: var(--space-4); }
+.drawer__body > .status { align-self: flex-start; } /* a pill keeps its own width in a sheet (DD-008) */
 .drawer__foot { display: flex; justify-content: flex-end; gap: var(--space-2-5); padding: var(--space-4) var(--space-6); border-top: 1px solid var(--color-border-subtle); }
 .drawer--inline { position: relative; inset: auto; z-index: auto; height: 100%; width: 100%; max-width: var(--size-drawer-work); animation: none; border-radius: var(--radius-xl); }
 @keyframes ds-drawer-in { from { transform: translateX(100%); opacity: .6; } }

@@ -1227,6 +1227,49 @@ write_doc('browse-panel', {'title': 'Browse panel', 'group': 'Pattern components
           code('bp-code', 'Browse panel', ['.browse', '.browse__list', '.browse__thumb', '.browse__count', '.browse__main', '.browse__head', '.browse__grid', '.browse__foot', '.card--enclosure', '.card__figure', '.figures', '.figures--glass', '.contact--pill', '.contact--glass'],
                enclosure_card(*AVIARIES[2])))
 
+# ═══ Housing · site: the site overview with the browse panel and the enclosure sheet (DD-008) ═══
+def sheet_animal(aaid, sex, name='Sarus crane', sci='Antigone antigone', img='sarus-crane'):
+    cls, word = SEX[sex]
+    left = f'<span class="item__media"><img src="{SP}{img}.webp" alt="{esc(name)}"><span class="sex-tag{cls}" title="{word}">{sex}<span class="sr-only"> ({word})</span></span></span>'
+    return item(left, f'AAID: {aaid}', name, sci)
+ENC_ANIMALS = [('421063', 'M'), ('421194', 'F'), ('421325', 'UD'), ('421456', 'F'), ('421587', 'M'), ('421718', 'M'), ('421849', 'ID'), ('421980', 'F')]
+def enclosure_sheet(sid='sheet-enclosure', inline=False):
+    body = (figures([('100', 'Animals'), ('1', 'Species'), ('Ravi', 'Keeper')]) + status('Inspection due', 'caution')
+            + '<div class="section-head"><b>Animals here</b><span class="t-small t-secondary">8 of 100</span></div><div class="list">' + ''.join(sheet_animal(*a) for a in ENC_ANIMALS) + '</div>')
+    head = (f'<header class="drawer__head"><div><span class="drawer__meta">Adirampattinam › Aviary section</span><h2 class="drawer__title" id="{sid}-title">Aviary 10</h2></div>'
+            f'<button class="icon-btn" type="button" aria-label="Close" data-drawer-close>{I("x")}</button></header>')
+    foot = f'<div class="drawer__foot drawer__foot--split"><button class="btn btn--outline" type="button">{I("swap")}Move animals</button><button class="btn btn--primary" type="button">{I("plus")}Add animal</button></div>'
+    if inline: return f'<aside class="drawer drawer--floating drawer--inline" id="{sid}" role="dialog" aria-modal="false" aria-labelledby="{sid}-title">{head}<div class="drawer__body">{body}</div>{foot}</aside>'
+    return (f'<div class="drawer-backdrop" data-drawer-backdrop="{sid}" hidden></div><aside class="drawer drawer--floating" id="{sid}" role="dialog" aria-modal="true" aria-labelledby="{sid}-title" hidden>'
+            f'{head}<div class="drawer__body">{body}</div>{foot}</aside>')
+HS_NAV = [('-', [('pin', 'green', 'Sites', '341'), ('grid', 'teal', 'Clusters', '8')]),
+          ('-', [('grid', 'green', 'Sections', '15'), ('home', 'green', 'Enclosures', '104'), ('paw', 'green', 'Animals', '9,044'), ('tag', 'teal', 'Species', '35'),
+                 ('heart', 'coral', 'Under treatment', '8'), ('clipboard', 'coral', 'Hospitalized', '5'), ('alert', 'navy', 'Mortality', '4')]),
+          ('-', [('treatment', 'green', 'Medical', ''), ('file', 'teal', 'Assessment', '10'), ('truck', 'amber', 'Hospital transfer', '27'), ('trash', 'coral', 'Food wastage', '')]),
+          ('-', [('swap', 'navy', 'Animal transfers', '91'), ('file', 'amber', 'Notes', '4'), ('image', 'sky', 'Media', '11'), ('tag', 'teal', 'Tags', '8')]),
+          ('-', [('users', 'navy', 'Teams', ''), ('user', 'sky', 'Users', '7'), ('zap', 'amber', 'Incharges', '3')]),
+          ('-', [('settings', 'navy', 'Config', '')])]
+def person_row(ini, hue, name, role):
+    btns = (f'<button class="icon-btn icon-btn--sm icon-btn--tint" type="button" aria-label="Call {esc(name)}">{I("phone")}</button>'
+            f'<button class="icon-btn icon-btn--sm icon-btn--tint" type="button" aria-label="Message {esc(name)}">{I("chat")}</button>')
+    return item(avatar(ini, hue).replace('avatar avatar--sm', 'avatar'), name, role, end=f'<span class="contact__end">{btns}</span>', chevron=False)
+HS_CARDS = [enclosure_card(*a, attrs=' data-drawer-open="sheet-enclosure"' if a[0] == 'Aviary 10' else '') for a in AVIARIES]
+HS_MAIN = (hero_site('leopard.webp', 'All sites', 'Site', 'Adirampattinam', 'Kunal Singh', 'Aggressive', [('35', 'Species'), ('9,044', 'Animals'), ('15', 'Sections'), ('104', 'Enclosures')])
+           + '<div class="board board--4">' + widget('peach', 'heart', 'Under treatment', '8', 'animals on treatment') + widget('', 'clipboard', 'Hospitalized', '5', 'in a hospital now')
+           + widget('mint', 'truck', 'Hospital transfers', '27', 'waiting to go') + widget('', 'alert', 'Mortality', '4', 'deaths in 30 days') + '</div>'
+           + browse(SECTIONS, 15, 'Aviary section', '52 enclosures · 8,670 animals · 25 species', 'Ravi Kumar', HS_CARDS, 12, 52)
+           + '<div class="board board--2">' + list_card('People in charge', '<div class="list list--bare">' + person_row('KS', 'teal', 'Kunal Singh', 'Site in charge') + person_row('NR', 'sky', 'Neeta Rao', 'Super admin') + person_row('MI', 'green', 'Meera Iyer', 'Site manager') + '</div>')
+           + list_card('Recent activity', acts([('swap', 'green', 'INH-03531 completed', '1 animal moved to A-3 · 6 Oct'), ('truck', 'amber', 'Hospital transfer requested', 'HT38-00657 · by Sourav'),
+                                                ('file', 'amber', 'Note posted · Electrical', 'Adirampattinam · Neeta Rao'), ('clipboard', 'teal', 'Cave reconstruction assessed', 'Score 12 · 6 Aug')])) + '</div>')
+HOUSING_SITE = with_sheet(module_page('Housing', 'Adirampattinam', HS_NAV, None, HS_MAIN, bar={'crumbs': False, 'bell_dot': True, 'avatar_img': 'species/portrait.webp'}, nav={'soft': True}, strip=True, tinted=True), enclosure_sheet())
+screen_page('housing-site', 'Housing · site', 'One site\'s overview: the site hero with its person in charge and figures, what needs attention, the browse panel (sections beside their enclosures), people in charge and recent activity. Select Aviary 10 to open the enclosure sheet.', 'home', 'green', HOUSING_SITE,
+            ['The side panel becomes a strip; widgets, the browse panel\'s panes and the lists stack.', 'The side panel is a strip above; two widgets per row; the browse panel\'s panes stack.', 'Side panel beside the content; the browse panel shows both panes.', 'Side panel beside the content; four widgets in a row; four enclosure cards per row.'],
+            ['Show the chosen section in the list and in the main pane.', 'Open an enclosure in the side sheet; keep the panel visible beside it.'], ['Put more than four figures in the hero.', 'Use the brand green to show a status.'])
+add_link('Screens', 'screen-housing-site.html', 'Housing · site', 'screen-housing.html')
+ENC_DOC = ('<div class="doc" id="enclosure-sheet"><h3>Enclosure sheet</h3><p class="lead">A record sheet whose rows carry the <b>animal card details</b>: the photo with the sex tag, the AAID, the name and the scientific name; each row opens the animal. Above them, a <b>figures panel</b> (animals, species and the keeper), the status pill and a section head with how many are shown. The foot splits a secondary action and one main action.</p>'
+           '<div class="demo demo--canvas ss-demo"><div class="ss-frame">' + enclosure_sheet('sheet-enclosure-demo', inline=True) + '</div></div></div>')
+put_section('docs-src/side-sheets.html', '<!--enclosure-sheet-->', '<!--/enclosure-sheet-->', ENC_DOC, '<!--usage-->')
+
 # 3. Timelines, charts and heroes (Stat cards)
 egg_trend = [.55, .78, .6, .92, .7, .5, .88, .95, .75, .8, .93, .65, .55, .06]
 def donut_svg(segs, centre, label):
