@@ -261,6 +261,18 @@
     openPop = null; popTrigger = null;
   }
   // Screens are cloned into several device frames, so ids repeat: look in the clicked frame first
+  // Keep an open popover inside its screen: inside a .shell (a device frame or the app) or else the window.
+  // Caps the width, then shifts it sideways with --pop-shift. Frames are scaled, so work in the frame's own pixels.
+  function fitPop(p) {
+    p.style.removeProperty('--pop-shift'); p.style.removeProperty('max-width'); p.style.animation = 'none';
+    var host = p.closest('.shell'), b = host ? host.getBoundingClientRect() : { left: 0, right: window.innerWidth, width: window.innerWidth };
+    var s = host && host.offsetWidth ? b.width / host.offsetWidth : 1;
+    var m = (parseFloat(getComputedStyle(doc.documentElement).getPropertyValue('--space-4')) || 16) * s, r = p.getBoundingClientRect();
+    if (r.width > b.width - 2 * m) { p.style.maxWidth = ((b.width - 2 * m) / s) + 'px'; r = p.getBoundingClientRect(); }
+    var shift = 0; if (r.right > b.right - m) shift = b.right - m - r.right; if (r.left + shift < b.left + m) shift = b.left + m - r.left;
+    if (shift) p.style.setProperty('--pop-shift', (shift / s) + 'px');
+    p.style.animation = '';
+  }
   function byId(el, id) { var scope = el.closest('.shell-host'); return (scope && scope.querySelector('#' + CSS.escape(id))) || doc.getElementById(id); }
   function openDialog(d, t) {
     lastDialogTrigger = t; d.hidden = false;
@@ -274,7 +286,7 @@
       var was = openPop === p; closePop(false);
       // Opened from the keyboard (e.detail is 0): move focus in so people can type straight away.
       // Opened by pointer: leave the search field at rest; it takes focus when tapped.
-      if (!was) { p.hidden = false; openPop = p; popTrigger = t; t.setAttribute('aria-expanded', 'true'); if (e.detail === 0) { var f = p.querySelector('input, [aria-selected="true"], button'); if (f) f.focus({ preventScroll: true }); } }
+      if (!was) { p.hidden = false; fitPop(p); openPop = p; popTrigger = t; t.setAttribute('aria-expanded', 'true'); if (e.detail === 0) { var f = p.querySelector('input, [aria-selected="true"], button'); if (f) f.focus({ preventScroll: true }); } }
       return;
     }
     if (openPop && !openPop.contains(e.target)) closePop(false);
