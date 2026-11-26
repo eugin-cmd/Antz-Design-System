@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Housing · Antz Design System</title>
+<title>Housing · site · Antz Design System</title>
 <link rel="icon" href="data:,">
 <meta name="description" content="One site&#x27;s overview: the site hero with its person in charge and figures, what needs attention, the browse panel (sections beside their enclosures), people in charge and recent activity. Select Aviary 10 to open the enclosure sheet.">
 <script>try { var d = document.documentElement, t = localStorage.getItem('antz-ds-theme'), c = localStorage.getItem('antz-ds-contrast'), n = localStorage.getItem('antz-ds-density'); if (t === 'light' || t === 'dark') d.dataset.theme = t; if (c === 'high' || c === 'standard') d.dataset.contrast = c; if (n === 'compact') d.dataset.density = n; var b = (/[?&]brand=([a-z0-9-]+)/.exec(location.search) || [])[1]; if (b) { if (b === 'antz') localStorage.removeItem('antz-ds-brand'); else localStorage.setItem('antz-ds-brand', b); } else b = localStorage.getItem('antz-ds-brand'); if (b && b !== 'antz' && /^[a-z0-9]+(-[a-z0-9]+)*$/.test(b)) { d.dataset.brand = b; var lt = null; try { lt = JSON.parse(localStorage.getItem('antz-ds-local-themes') || 'null'); } catch (e) {} var lc = lt && lt.themes && lt.themes[b], l; if (lc && typeof lc.css === 'string') { l = document.createElement('style'); l.textContent = lc.css; } else { l = document.createElement('link'); l.rel = 'stylesheet'; l.setAttribute('blocking', 'render'); l.href = (d.dataset.root || '.') + '/themes/' + b + '.css'; } l.id = 'brand-css'; document.head.appendChild(l); } } catch (e) {}</script>

@@ -123,7 +123,7 @@ for (const rel of targets) {
   const inPages = rel.startsWith('pages/');
   const pre = inPages ? '../' : '';
   const cur = inPages ? path.basename(rel) : 'index.html';
-  s = s.replace(/<title>([^<]*?) · [^<]*<\/title>/, `<title>$1 · ${SITE}</title>`).replace(/<title>ANTZ Design System Foundation<\/title>/, `<title>${SITE}</title>`);
+  s = s.replace(/<title>([^<]*) · [^<]*<\/title>/, `<title>$1 · ${SITE}</title>`) /* greedy: keep every part of a name like "Pharmacy · requests" */.replace(/<title>ANTZ Design System Foundation<\/title>/, `<title>${SITE}</title>`);
   s = s.replace(/<script>(\/\*head\*\/|try \{ var d = document\.documentElement[\s\S]*?)<\/script>/, HEAD_SCRIPT);
   if (!s.includes('components.js')) s = s.replace(/<script src="([.\/]*)assets\/site\.js/, '<script src="$1components.js?v=1"></script>\n<script src="$1assets/site.js');
   s = s.replace(/(tokens|components|site)\.(css|js)\?v=[0-9a-z]+/g, `$1.$2?v=${ASSET_V}`);
