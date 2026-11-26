@@ -1,7 +1,8 @@
 ---
 id: DD-008
 title: Housing site overview: browse panel, enclosure card, figures panel and the enclosure sheet (Antz Home style 2)
-status: proposed
+status: accepted
+accepted: 2026-11-26 (System Owner)
 date: 2026-11-26
 owner: System Owner
 approver: System Owner (Eugin Robinson)

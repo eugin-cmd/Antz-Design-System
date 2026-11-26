@@ -2,13 +2,38 @@
 
 All notable changes to the Antz Design System. Versions follow semantic versioning: patch for fixes, minor for additions, major for anything renamed, removed or changed in meaning. Every version listed here is published under `releases/` and tagged in Git.
 
-## Unreleased
+## 1.2.0-beta.6 (26 November 2026)
+
+The release for teams to start on. React Native gets an installable, typed theme with shadows, gradients and colour roles, plus recipes. DD-006, DD-007 and DD-008 are accepted: the record-card style options, the Housing site overview and browse panel, and the Pharmacy pinned table with its edge shadow. Also responsive fixes, priority tag padding, and an onboarding review of every getting-started doc. 866 tokens, 724 contrast checks.
+
+### React Native
+- **Install a pinned release from GitHub:** `npm install github:eugin-cmd/Antz-Design-System#vX.Y.Z`, then `import { antzTheme } from '@antz/design-system/react-native'`. A generated `package.json` also exposes the MUI theme, the tokens JSON and the CSS.
+- **The theme ships as JavaScript with TypeScript types** (`antz-theme.js` and `antz-theme.d.ts`), so an unknown token fails to compile. `antz-theme.ts` stays for existing users.
+- **New in the theme:**
+  - shadows as iOS shadow props plus Android elevation, per scheme;
+  - gradients for `expo-linear-gradient` (colours, stop positions, start and end), with the radial and layered ones listed in `gradientWebOnly`;
+  - line heights and letter spacing;
+  - colour roles for the status pill, priority tag and sex tag in every scheme.
+- **Fix:** the `move` easing curve was exported as the text `"{ease.elastic}"`. It is now the curve's numbers, and the build fails if an unresolved reference reaches the theme.
+- The Developers page has the install command, one theme hook and recipes (button, status pill, priority and sex tags, card shadow, gradient, type, motion).
+
+### Onboarding and docs (final review)
+- Apps take themes from the pinned release (copy, git submodule or the GitHub install), never the working copy. The docs now say where to clone, and how designers pin the skill: install it from `releases/vX.Y.Z/skills/` and set `ANTZ_DS_VERSION` in `.claude/settings.json`.
+- **Going back** is one method everywhere: `tools/rollback.mjs` for the source, `tools/deploy.mjs --rollback` for the site.
+- **Facts corrected:**
+  - 724 contrast checks; 68 legacy literals;
+  - 26 rules, 16 of them checked automatically;
+  - the System Owner is named;
+  - the site is described as unlisted, not private.
+- Help, proposals and exceptions go to the System Owner. A "Words you'll see" section explains DD, FD, TD, RFC, EXC, DTCG and Foundation v0.2.
+- **EXC-001:** the reason now says the legacy literals move to tokens before the exception expires on 31 March 2027, with the System Owner's approval.
+- **Audit:** it waits for web fonts and two paint frames before each capture, and every browser command has a 30-second limit, so a page Chrome never answers fails the run instead of hanging it.
 
 ### Priority tags
 - **Padding:** tags now have padding all round (2px by 8px) and never stretch to fill a column; the Record lists demo shows them in a row.
 - **Record lists:** Urgent was showing grey text, because the rule for a row's second line also caught the tag. That rule now applies only to direct children. Urgent shows its warning icon in every list.
 
-### Housing: site overview and browse panel (DD-008, proposed)
+### Housing: site overview and browse panel (DD-008, accepted)
 Only the pieces the libraries did not already have, from the Antz Home style 2 Housing page and the Site overview it opens.
 - **Browse panel** (new pattern page): sections beside the chosen section's enclosures, with figures, the person in charge, a search and View all.
 - **Enclosure card** (`card--enclosure`): name, species photos, counts and a status pill.
@@ -18,7 +43,7 @@ Only the pieces the libraries did not already have, from the Antz Home style 2 H
 - **Enclosure sheet** on the Side sheets page: figures, status and animal rows with the animal card details.
 - **Screens:** new Housing · site; the Housing hero gets the foot bar. A sarus crane photo (credited).
 
-### Animals · recently added: style options (DD-007, proposed)
+### Animals · recently added: style options (DD-007, accepted)
 Every element of the Antz Home style 2 "Recently added" page, as options next to the current styles. Nothing changes for existing markup; the other module screens are unchanged.
 - **Record cards:** species photos (credited), the paw when there is none, the full name on hover when it is cut off, and the reference's 14 animals.
 - **Side panel:** `modnav--soft`, with the overview tile without its outline and the active page's count in brand text.
@@ -40,6 +65,7 @@ Every element of the Antz Home style 2 "Recently added" page, as options next to
   - on focus it keeps its fill and a 2px ring, without the outer glow that crowded the popover edge.
 
 ### Governance
+- **DD-007 and DD-008 accepted** by the System Owner (26 November 2026): Animals · recently added style options, and the Housing site overview.
 - **DD-006 accepted** by the System Owner (25 November 2026): role homes, every module home, record lists, quick add, the Pharmacy app pieces and the four colour families.
 
 ## 1.2.0-beta.5 (25 November 2026)

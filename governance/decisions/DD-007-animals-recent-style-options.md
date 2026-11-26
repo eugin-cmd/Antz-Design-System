@@ -1,7 +1,8 @@
 ---
 id: DD-007
 title: Animals · recently added, every element as a style option (Antz Home style 2)
-status: proposed
+status: accepted
+accepted: 2026-11-26 (System Owner)
 date: 2026-11-25
 owner: System Owner
 approver: System Owner (Eugin Robinson)

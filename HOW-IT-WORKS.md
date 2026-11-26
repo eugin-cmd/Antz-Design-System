@@ -43,8 +43,8 @@ You keep working in one web codebase for web, tablet and mobile prototypes.
 
 1. **Link a pinned release**, never the working copy:
    ```html
-   <link rel="stylesheet" href="antz-design-system/releases/v1.2.0-beta.5/tokens.css">
-   <link rel="stylesheet" href="antz-design-system/releases/v1.2.0-beta.5/components.css">
+   <link rel="stylesheet" href="antz-design-system/releases/v1.2.0-beta.6/tokens.css">
+   <link rel="stylesheet" href="antz-design-system/releases/v1.2.0-beta.6/components.css">
    ```
 2. **Use classes first:** `.btn--primary`, `.card`, `.status--caution`, `.wash--primary`, `.drawer`, `.tile-module`. Every component page in the docs shows the markup.
 3. **Write your own CSS with tokens only:** `var(--color-…)`, `var(--space-…)`, `var(--text-…)`, `var(--radius-…)`, `var(--shadow-…)`, `var(--duration-…)`, `var(--ease-…)`, `var(--gradient-…)`.
@@ -78,11 +78,13 @@ Calm, purposeful, alive. Colour changes 150ms; lifts and hovers 200ms; entrances
 
 | Platform | File | Use |
 | --- | --- | --- |
-| Next.js dashboard (MUI) | `dist/mui/antz-mui-theme.js` | `createTheme(antzThemeOptions({ mode, contrast }))` |
-| React Native | `dist/react-native/antz-theme.ts` | `antzTheme.colors[scheme]`, `antzTheme.space`, `antzTheme.motion` |
-| Any web page | `tokens.css`, `components.css` | CSS variables and classes |
-| Figma | `dist/figma/antz.tokens-studio.json` | Import with Tokens Studio (W3C DTCG format) |
-| Anything else | `dist/tokens/antz.tokens.json` | All tokens resolved for every mode |
+| Next.js dashboard (MUI) | `releases/vX.Y.Z/dist/mui/antz-mui-theme.js` | `createTheme(antzThemeOptions({ mode, contrast }))` |
+| React Native | `npm install github:eugin-cmd/Antz-Design-System#vX.Y.Z`, then `@antz/design-system/react-native` | `antzTheme.colors[scheme]`, `.roles`, `.shadow`, `.gradient`, `.space`, `.motion` |
+| Any web page | `releases/vX.Y.Z/tokens.css`, `components.css` | CSS variables and classes |
+| Figma | `releases/vX.Y.Z/dist/figma/antz.tokens-studio.json` | Import with Tokens Studio (W3C DTCG format) |
+| Anything else | `releases/vX.Y.Z/dist/tokens/antz.tokens.json` | All tokens resolved for every mode |
+
+Always take these from a published release (`releases/vX.Y.Z/`), never the repository root. Copy the file into the app repository and note the version, or add this repository as a git submodule at the release tag.
 
 Run the guardrails in product repos: start with `--report`, then make the check blocking in CI module by module.
 
@@ -109,15 +111,15 @@ Three levels, from smallest to largest. None of them erases history.
 
 **Deploying and previews**
 
-- `node tools/deploy.mjs` makes the current commit live. Only committed work goes up, plus `deploy/robots.txt` and `deploy/_headers`, which keep the site private. After every deploy it checks that the site is still private.
-- `node tools/deploy.mjs --preview dd-007` uploads unreleased work without making it live, at `https://dd-007-antz-design-system.eugin-736.workers.dev`.
+- `node tools/deploy.mjs` makes the current commit live. Only committed work goes up, plus `deploy/robots.txt` and `deploy/_headers`, which keep the site out of search engines. The site is unlisted, not private: anyone with the link can open it. After every deploy it checks that the noindex header and `robots.txt` are still in place.
+- `node tools/deploy.mjs --preview <name>` uploads unreleased work without making it live, at `https://<name>-antz-design-system.eugin-736.workers.dev`. The name is yours to choose, for example `my-change`.
 - `node tools/deploy.mjs --ref v1.2.0-beta.3 --preview beta-3` shows any past tag or commit the same way.
 - Settings live in `deploy/site.json`.
 
 **Browse and compare**
 
 - Open `releases/vX.Y.Z/index.html`, or pick a version on the Versions page.
-- `git diff v1.2.0-beta.4 v1.2.0-beta.5 -- tokens/src components.css` shows what changed between two versions.
+- `git diff v1.2.0-beta.5 v1.2.0-beta.6 -- tokens/src components.css` shows what changed between two versions.
 
 ## 7. Exceptions
 
@@ -129,4 +131,4 @@ Point any assistant at `AGENTS.md`. It must not invent tokens, duplicate compone
 
 ## 9. Keeping up with trends
 
-Trends are tried in Labs (the theme tester and branches), proposed by RFC, and adopted only if they help usability, fit the brand, pass accessibility and show measurable value. A major version is how the whole system moves forward; older versions stay available, and products upgrade when they are ready.
+Trends are tried in Labs, that is the theme tester and git branches,, proposed by RFC, and adopted only if they help usability, fit the brand, pass accessibility and show measurable value. A major version is how the whole system moves forward; older versions stay available, and products upgrade when they are ready.

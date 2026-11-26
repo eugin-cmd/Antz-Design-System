@@ -5,7 +5,7 @@
       "id": "EXC-001",
       "rules": ["ANTZ-COL-01", "ANTZ-SPC-01", "ANTZ-TYP-01", "ANTZ-SHP-01", "ANTZ-ELV-01", "ANTZ-MOT-01", "ANTZ-GRD-01"],
       "files": ["components.css"],
-      "reason": "Foundation v0.2 component styles carry legacy literals (white on feature fills, translucent overlays, a few pixel sizes inside components). They are reviewed and contrast-checked; each moves to a token in 1.1.",
+      "reason": "Foundation v0.2 component styles carry legacy literals (white on feature fills, translucent overlays, a few pixel sizes inside components). They are reviewed and contrast-checked; each moves to a token before this exception expires on 31 March 2027 (reason updated with the System Owner's approval, 26 November 2026).",
       "owner": "Design System Maintainers",
       "approvedBy": "Eugin Robinson (System Owner)",
       "created": "2026-11-22",

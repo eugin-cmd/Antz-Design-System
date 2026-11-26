@@ -412,17 +412,62 @@ write('dist/mui/antz-mui-theme.js', muiSrc);
 const camel = (s) => s.replace(/[-.]([a-z0-9])/g, (_, c) => c.toUpperCase());
 function rnColors(m) { const o = {}; for (const t of index) if (t.type === 'color' && t.tier === 'semantic') o[camel(t.name.replace(/^color\./, ''))] = resolved[m].get(t.name); return o; }
 const scale = (prefix) => Object.fromEntries(index.filter((t) => t.name.startsWith(prefix + '.')).map((t) => [t.name.slice(prefix.length + 1), px(t.light)]).filter(([, v]) => !Number.isNaN(v)));
+// React Native extras: shadows, gradients, type rhythm and colour roles, per colour scheme
+const RN_SCHEMES = { light: 'light', dark: 'dark', lightHighContrast: 'light-hc', darkHighContrast: 'dark-hc' };
+const splitTop = (v) => { const out = []; let d = 0, cur = ''; for (const ch of String(v)) { if (ch === '(') d++; if (ch === ')') d--; if (ch === ',' && d === 0) { out.push(cur.trim()); cur = ''; } else cur += ch; } if (cur.trim()) out.push(cur.trim()); return out; };
+function rnShadow(v) {
+  if (!v || v === 'none') return { shadowColor: 'transparent', shadowOffset: { width: 0, height: 0 }, shadowOpacity: 0, shadowRadius: 0, elevation: 0 };
+  const layers = splitTop(v).filter((l) => !/^inset\b/.test(l)).map((l) => { const color = (l.match(/rgba?\([^)]*\)|#[0-9A-Fa-f]{3,8}/) || ['rgba(0, 0, 0, 0.2)'])[0]; const n = l.replace(color, '').trim().split(/\s+/).map(parseFloat); return { x: n[0] || 0, y: n[1] || 0, blur: n[2] || 0, color }; });
+  if (!layers.length) return null;
+  const big = layers.reduce((a, b) => (b.blur > a.blur ? b : a)); // React Native draws one shadow: keep the softest, largest layer
+  return { shadowColor: big.color, shadowOffset: { width: big.x, height: big.y }, shadowOpacity: 1, shadowRadius: Math.round(big.blur / 2), elevation: Math.min(24, Math.round(big.blur / 3)) };
+}
+function rnGradient(v) {
+  const s = String(v).trim(); const m = /^linear-gradient\((.*)\)$/.exec(s);
+  if (!m || splitTop(s).length > 1) return null; // radial and layered gradients have no faithful React Native form
+  const parts = splitTop(m[1]); let angle = 180;
+  if (/^-?[\d.]+deg$/.test(parts[0])) angle = parseFloat(parts.shift()); else if (/^to /.test(parts[0])) { const dir = parts.shift(); angle = { 'to top': 0, 'to right': 90, 'to bottom': 180, 'to left': 270 }[dir] ?? 180; }
+  const stops = parts.map((p) => { const c = (p.match(/^(rgba?\([^)]*\)|#[0-9A-Fa-f]{3,8}|transparent)/) || [])[0]; const pos = (p.slice(c ? c.length : 0).match(/(-?[\d.]+)%/) || [])[1]; return { c, pos: pos === undefined ? null : parseFloat(pos) / 100 }; });
+  if (stops.some((x) => !x.c)) return null;
+  const locations = stops.map((x, i) => (x.pos ?? (stops.length === 1 ? 0 : i / (stops.length - 1))));
+  const r = (angle * Math.PI) / 180, dx = Math.sin(r) / 2, dy = -Math.cos(r) / 2, f = (n) => Math.round(n * 1000) / 1000;
+  return { colors: stops.map((x) => (x.c === 'transparent' ? 'rgba(0, 0, 0, 0)' : x.c)), locations: locations.map(f), start: { x: f(0.5 - dx), y: f(0.5 - dy) }, end: { x: f(0.5 + dx), y: f(0.5 + dy) }, angle };
+}
+const rnShadows = {}, rnGradients = {}, rnWebOnly = new Set();
+for (const [k, m] of Object.entries(RN_SCHEMES)) {
+  rnShadows[k] = {}; rnGradients[k] = {};
+  for (const t of index) {
+    if (t.type === 'shadow') { const sh = rnShadow(R(m, t.name)); if (sh) rnShadows[k][camel(t.name.replace(/^shadow\./, ''))] = sh; }
+    if (t.type === 'gradient' && t.name.startsWith('gradient.')) { const g = rnGradient(R(m, t.name)); const key = camel(t.name.slice(9)); if (g) rnGradients[k][key] = g; else rnWebOnly.add(key); }
+  }
+}
+for (const k of Object.keys(RN_SCHEMES)) for (const key of [...rnWebOnly]) if (rnGradients[k][key]) rnWebOnly.delete(key);
+function rnRoles(cs) {
+  const st = (n, dot) => ({ bg: cs[n + 'Bg'], text: cs[n + 'Text'], dot: cs[dot] });
+  const hue = (h) => ({ text: cs['hue' + h + 'Ink'], bg: cs['hue' + h + 'Soft'], solid: cs['hue' + h + 'Ink'], onSolid: cs.surface });
+  return {
+    status: { success: st('success', 'signalSuccess'), warning: st('warning', 'signalWarning'), caution: st('caution', 'signalCaution'), danger: st('danger', 'signalDanger'), info: st('info', 'signalInfo'), neutral: { bg: cs.neutralBg, text: cs.neutralText, dot: cs.neutralText } },
+    priority: { urgent: { bg: cs.dangerBg, text: cs.dangerText }, high: { bg: cs.warningBg, text: cs.warningText }, info: { bg: cs.infoBg, text: cs.infoText }, plain: { bg: cs.tertiarySoft, text: cs.tertiaryText } },
+    sex: { M: hue('Sky'), F: hue('Coral'), UD: hue('Amber'), ID: hue('Teal'), G: hue('Navy') },
+  };
+}
 const rn = {
   version: VERSION,
   colors: { light: rnColors('light'), dark: rnColors('dark'), lightHighContrast: rnColors('light-hc'), darkHighContrast: rnColors('dark-hc') },
+  roles: Object.fromEntries(Object.entries(RN_SCHEMES).map(([k, m]) => [k, rnRoles(rnColors(m))])), // status pill, priority tag, sex tag colour pairs
   scale: SCALES, // colour scales: antzTheme.scale.primary[600]
   space: scale('space'), radius: scale('radius'), fontSize: scale('text'),
   fontFamily: { body: 'Inter', heading: 'Inter', mono: 'Menlo' },
   fontWeight: { light: '300', regular: '400', medium: '500', semibold: '600', bold: '700' },
   size: scale('size'),
+  lineHeight: Object.fromEntries(index.filter((t) => t.name.startsWith('leading.')).map((t) => [t.name.slice(8), Number(R('light', t.name))])), // multiply by the font size
+  letterSpacing: Object.fromEntries(index.filter((t) => t.name.startsWith('tracking.')).map((t) => [t.name.slice(9), parseFloat(R('light', t.name))])), // em: multiply by the font size
+  shadow: rnShadows, // spread on a View: { ...antzTheme.shadow.light.md }
+  gradient: rnGradients, // expo-linear-gradient: <LinearGradient {...antzTheme.gradient.light.green} />
+  gradientWebOnly: [...rnWebOnly].sort(), // radial or layered on the web: no faithful React Native form
   motion: {
     duration: Object.fromEntries(index.filter((t) => t.name.startsWith('duration.')).map((t) => [t.name.slice(9), ms(t.light)])),
-    easing: Object.fromEntries([...layer.base.values()].filter((t) => t.type === 'cubicBezier').map((t) => [camel(t.name.slice(5)), t.value])),
+    easing: Object.fromEntries([...layer.base.values()].filter((t) => t.type === 'cubicBezier').map((t) => { let v = t.value; for (let i = 0; i < 5 && typeof v === 'string'; i++) { const ref = /^\{(.+)\}$/.exec(v); v = ref ? layer.base.get(ref[1])?.value : v; } return [camel(t.name.slice(5)), v]; })), // aliases such as move = {ease.elastic} resolve to the curve
     stagger: ms(R('light', 'stagger')), lift: px(R('light', 'motion.lift')), press: Number(R('light', 'motion.press')), rise: px(R('light', 'motion.rise')),
   },
 };
@@ -430,7 +475,7 @@ const rnSrc = `/**
  * ${HEADER('React Native theme').replace(/\n/g, '\n * ')}
  *
  * Usage:
- *   import { antzTheme } from '@antz/design-tokens/react-native';
+ *   import { antzTheme } from '@antz/design-system/react-native';
  *   const scheme = useColorScheme();
  *   const c = antzTheme.colors[scheme === 'dark' ? 'dark' : 'light'];
  *   <Pressable style={{ backgroundColor: c.accent, borderRadius: antzTheme.radius.control }}>
@@ -444,7 +489,27 @@ export type AntzColorScheme = keyof typeof antzTheme.colors;
 export type AntzColors = typeof antzTheme.colors.light;
 export default antzTheme;
 `;
+if (/"\{[a-z0-9.-]+\}"/.test(rnSrc)) { console.error('✗ React Native theme: an unresolved token reference was exported (' + rnSrc.match(/"\{[a-z0-9.-]+\}"/)[0] + ')'); process.exit(1); }
 write('dist/react-native/antz-theme.ts', rnSrc);
+const rnJson = JSON.stringify(rn, null, 2);
+write('dist/react-native/antz-theme.js', `/* ${HEADER('React Native theme (JavaScript)')} */\nexport const antzTheme = ${rnJson};\nexport default antzTheme;\n`);
+write('dist/react-native/antz-theme.d.ts', `/* ${HEADER('React Native theme types')} */\nexport declare const antzTheme: ${rnJson};\nexport type AntzTheme = typeof antzTheme;\nexport type AntzColorScheme = keyof typeof antzTheme.colors;\nexport type AntzColors = typeof antzTheme.colors.light;\nexport default antzTheme;\n`);
+// package.json: install a pinned release straight from git, e.g. npm i github:eugin-cmd/Antz-Design-System#v1.2.0-beta.6
+write('package.json', JSON.stringify({
+  name: '@antz/design-system', version: VERSION, private: true,
+  description: 'Antz Design System: tokens, CSS components and the MUI and React Native themes. Generated by tools/build.mjs; do not edit.',
+  license: 'UNLICENSED', type: 'module',
+  exports: {
+    './react-native': { types: './dist/react-native/antz-theme.d.ts', default: './dist/react-native/antz-theme.js' },
+    './mui': './dist/mui/antz-mui-theme.js',
+    './tokens.json': './dist/tokens/antz.tokens.json',
+    './tokens.css': './tokens.css', './components.css': './components.css', './components.js': './components.js',
+    './package.json': './package.json',
+  },
+  'react-native': './dist/react-native/antz-theme.js',
+  files: ['dist', 'tokens.css', 'components.css', 'components.js', 'colors.json'],
+  sideEffects: ['*.css', './components.js'],
+}, null, 2) + '\n');
 
 // Contrast report
 let md = `# Contrast report\n\n${HEADER('contrast gate').replace(/\n/g, '  \n')}\n\nText needs 4.5:1; UI parts and large text need 3:1. ${report.length} checks, ${gateFails} failures.\n`;

@@ -27,7 +27,7 @@ The skill steers the assistant. It can't stop a person from typing a hex colour 
 
 ## Install
 
-The same folder works everywhere. Use the release's copy, so that every team gets the same version.
+The same folder works everywhere. Use the release's copy, `releases/vX.Y.Z/skills/antz-design-system/` (for example `releases/v1.2.0-beta.6/skills/antz-design-system/`), so that every team gets the same version.
 
 | Where | How |
 |---|---|
@@ -38,7 +38,18 @@ The same folder works everywhere. Use the release's copy, so that every team get
 
 Requirements: Node 18 or later, and either internet access to the team site or a clone of the repository.
 
-**Pinning a version.** By default the skill uses the latest published release. To hold a project on one version, set `ANTZ_DS_VERSION=1.2.0-beta.5` in the project's environment, or keep a clone at a fixed tag.
+**Pinning a version.** By default the skill uses the latest published release. To hold a project on one version:
+
+1. Install the skill from that release's folder (above), so its instructions match the version.
+2. Tell the helper the version. In Claude Code, add it to the project's `.claude/settings.json` and commit it:
+   ```json
+   { "env": { "ANTZ_DS_VERSION": "1.2.0-beta.6" } }
+   ```
+   Outside Claude Code, set the `ANTZ_DS_VERSION` environment variable, or pass `--version 1.2.0-beta.6` to each command.
+
+Upgrade both together when you move to a new release.
+
+**Where it reads the system from.** The helper looks for a clone first: the folder it runs in, or an `antz-design-system` folder there or in any parent folder. Without one, it reads the team site. With the site, the guardrail check downloads the release once to `~/.cache/antz-design-system/` and reuses it, which is safe because published releases never change. Prototypes you share should link a local clone's `releases/vX.Y.Z/` rather than the site, since the site is unlisted, not private.
 
 ## Using it well
 
@@ -48,18 +59,20 @@ Requirements: Node 18 or later, and either internet access to the team site or a
 - **Point it at a reference screen.** "Lay it out like the Home screen" makes it follow a documented composition.
 - **Read the report at the end.** It lists the components and tokens used and the check result, plus any proposals to send on.
 - **Send proposals on.** When the assistant writes `proposals/RFC-….md`, send it to the System Owner, Eugin Robinson. Approved proposals ship in the next release for every team.
+- **When the check fails and the fix isn't obvious,** don't silence it. Ask the System Owner: either there is an approved way to do it, or it becomes a proposal or a time-limited exception, which needs the System Owner's approval.
 - **Upgrade on purpose.** When a new version is released, update the skill folder and the project's pinned version together.
 
 ## The helper on its own
 
-Designers and developers can use the helper without an assistant:
+Designers and developers can use the helper without an assistant. Run it from your project folder, so it finds your clone (`<skill-dir>` is where you installed the skill, for example `.claude/skills/antz-design-system`):
 
 ```sh
-node scripts/antz.mjs components            # what exists
-node scripts/antz.mjs component animal-card # classes, usage and markup
-node scripts/antz.mjs tokens text secondary # find a token
-node scripts/antz.mjs starter               # <head> links for a prototype
-node scripts/antz.mjs check .               # the guardrail check
+node <skill-dir>/scripts/antz.mjs info                  # which source and version it is using
+node <skill-dir>/scripts/antz.mjs components            # what exists
+node <skill-dir>/scripts/antz.mjs component animal-card # classes, usage and markup
+node <skill-dir>/scripts/antz.mjs tokens text secondary # find a token
+node <skill-dir>/scripts/antz.mjs starter               # <head> links for a prototype
+node <skill-dir>/scripts/antz.mjs check .               # the guardrail check
 ```
 
 ## Maintaining the skill

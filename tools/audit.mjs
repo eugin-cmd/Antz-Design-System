@@ -66,12 +66,21 @@ async function browser() {
   await new Promise((r) => ws.addEventListener('open', r, { once: true }));
   let id = 0; const pending = new Map(); const events = [];
   ws.addEventListener('message', (e) => { const m = JSON.parse(e.data); if (m.id && pending.has(m.id)) { pending.get(m.id)(m); pending.delete(m.id); } else events.push(m); });
-  const send = (method, params = {}) => new Promise((res) => { const i = ++id; pending.set(i, res); ws.send(JSON.stringify({ id: i, method, params })); });
+  // Every command has a deadline: a reply Chrome never sends must fail the audit, not hang it for hours.
+  const send = (method, params = {}, ms = 30000) => new Promise((res) => { const i = ++id; const t = setTimeout(() => { pending.delete(i); res({ timeout: true, method }); }, ms); pending.set(i, (m) => { clearTimeout(t); res(m); }); ws.send(JSON.stringify({ id: i, method, params })); });
   await send('Page.enable'); await send('Runtime.enable');
   await send('Emulation.setDeviceMetricsOverride', { width: 1440, height: 900, deviceScaleFactor: 1, mobile: false });
   const b = {
     send, events,
-    async goto(url, wait = 1600) { events.length = 0; await send('Page.navigate', { url }); await new Promise((r) => setTimeout(r, wait)); },
+    async goto(url, wait = 1600) {
+      for (let attempt = 0; ; attempt++) {
+        events.length = 0; const r = await send('Page.navigate', { url });
+        if (!r.timeout) break;
+        if (attempt) throw new Error(`Chrome did not answer when opening ${url} (twice, 30s each). Re-run the audit.`);
+        await send('Page.stopLoading', {}, 5000);
+      }
+      await new Promise((r) => setTimeout(r, wait));
+    },
     async eval(expr, ms = 25000) {
       const r = await Promise.race([send('Runtime.evaluate', { expression: expr, awaitPromise: true, returnByValue: true }), new Promise((res) => setTimeout(() => res({ timeout: true }), ms))]);
       if (r.timeout) throw new Error('timed out'); if (r.result?.exceptionDetails) throw new Error(JSON.stringify(r.result.exceptionDetails).slice(0, 200));
@@ -163,7 +172,10 @@ const SCAN = String.raw`(() => {
 async function pixelRatio(b, f) {
   const r = await b.eval(`(()=>{const e=document.querySelector('[data-audit-id="${f.id}"]');if(!e)return null;e.scrollIntoView({block:'center',behavior:'instant'});document.getAnimations().forEach((x)=>{try{x.finish()}catch(_){}});e.style.setProperty('color','transparent','important');e.style.setProperty('-webkit-text-fill-color','transparent','important');e.style.setProperty('text-shadow','none','important');const r=e.getBoundingClientRect();return {x:r.left,y:r.top+scrollY,w:r.width,h:r.height}})()`);
   if (!r) return null;
-  await new Promise((res) => setTimeout(res, 80));
+  // Wait for web fonts and two paint frames, so a late reflow or an unpainted frame is not measured
+  await b.eval(`document.fonts.ready.then(()=>new Promise((res)=>requestAnimationFrame(()=>requestAnimationFrame(()=>res(1)))))`).catch(() => null);
+  const r2 = await b.eval(`(()=>{const e=document.querySelector('[data-audit-id="${f.id}"]');const q=e.getBoundingClientRect();return {x:q.left,y:q.top+scrollY,w:q.width,h:q.height}})()`).catch(() => null);
+  if (r2) Object.assign(r, r2);
   const shot = await b.send('Page.captureScreenshot', { format: 'png', clip: { x: r.x, y: r.y, width: Math.max(2, r.w), height: Math.max(2, r.h), scale: 1 }, captureBeyondViewport: true });
   await b.eval(`(()=>{const e=document.querySelector('[data-audit-id="${f.id}"]');e.style.removeProperty('color');e.style.removeProperty('-webkit-text-fill-color');e.style.removeProperty('text-shadow');return 1})()`);
   const px = decodePng(Buffer.from(shot.result.data, 'base64'));

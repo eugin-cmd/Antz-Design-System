@@ -5,7 +5,7 @@
     <a class="card card--interactive" href="../tokens.css" download><div class="card__head"><span class="tile-icon"><svg class="icon"><use href="#i-file"/></svg></span><div><b class="card__title">tokens.css</b><span class="card__meta">Designer prototypes and any web page</span></div></div></a>
     <a class="card card--interactive" href="../components.css" download><div class="card__head"><span class="tile-icon"><svg class="icon"><use href="#i-grid"/></svg></span><div><b class="card__title">components.css</b><span class="card__meta">Every component class</span></div></div></a>
     <a class="card card--interactive" href="../dist/mui/antz-mui-theme.js" download><div class="card__head"><span class="tile-icon" style="--c:var(--hue-sky-ink)"><svg class="icon"><use href="#i-monitor"/></svg></span><div><b class="card__title">antz-mui-theme.js</b><span class="card__meta">Next.js dashboard (MUI createTheme options)</span></div></div></a>
-    <a class="card card--interactive" href="../dist/react-native/antz-theme.ts" download><div class="card__head"><span class="tile-icon" style="--c:var(--hue-violet-ink)"><svg class="icon"><use href="#i-smartphone"/></svg></span><div><b class="card__title">antz-theme.ts</b><span class="card__meta">React Native phone and tablet apps</span></div></div></a>
+    <a class="card card--interactive" href="../dist/react-native/antz-theme.js" download><div class="card__head"><span class="tile-icon" style="--c:var(--hue-violet-ink)"><svg class="icon"><use href="#i-smartphone"/></svg></span><div><b class="card__title">antz-theme.ts</b><span class="card__meta">React Native phone and tablet apps</span></div></div></a>
     <a class="card card--interactive" href="../dist/figma/antz.tokens-studio.json" download><div class="card__head"><span class="tile-icon" style="--c:var(--hue-coral-ink)"><svg class="icon"><use href="#i-sliders"/></svg></span><div><b class="card__title">antz.tokens-studio.json</b><span class="card__meta">Figma variables via Tokens Studio, with aliases and 4 modes</span></div></div></a>
     <a class="card card--interactive" href="../dist/tokens/antz.tokens.json" download><div class="card__head"><span class="tile-icon" style="--c:var(--hue-navy-ink)"><svg class="icon"><use href="#i-memory"/></svg></span><div><b class="card__title">antz.tokens.json</b><span class="card__meta">Every token resolved per mode (DTCG)</span></div></div></a>
     <a class="card card--interactive" href="../colors.json" download><div class="card__head"><span class="tile-icon" style="--c:var(--hue-teal-ink)"><svg class="icon"><use href="#i-download"/></svg></span><div><b class="card__title">colors.json</b><span class="card__meta">Every colour per theme</span></div></div></a>
@@ -28,19 +28,54 @@ export default function App({ children }) {
 
 <div class="doc" id="rn">
   <h3>React Native</h3>
-  <pre><code>import { useColorScheme, Pressable, Text, AccessibilityInfo } from 'react-native';
-import Animated, { Easing, withTiming } from 'react-native-reanimated';
-import { antzTheme } from '@/design-system/antz-theme';
+  <p class="lead">Install a pinned release straight from GitHub; the tag is the version. The theme carries every colour in light, dark and both high contrasts, spacing, radii, type, sizes, motion, shadows (iOS shadow and Android elevation), gradients for <code>expo-linear-gradient</code>, and ready-made colour roles for the status pill, priority tag and sex tag. It ships as JavaScript with TypeScript types, so an unknown token fails to compile.</p>
+  <pre><code>npm install github:eugin-cmd/Antz-Design-System#v1.2.0-beta.6
+# upgrade: change the tag; roll back: change it back</code></pre>
+  <h4>One hook for the app</h4>
+  <pre><code>// theme.ts: one hook for the whole app
+import { useColorScheme, AccessibilityInfo } from &#x27;react-native&#x27;;
+import { antzTheme } from &#x27;@antz/design-system/react-native&#x27;;
 
-const c = antzTheme.colors[useColorScheme() === 'dark' ? 'dark' : 'light'];
-&lt;Pressable style={{ backgroundColor: c.accent, borderRadius: antzTheme.radius.control,
-  minHeight: antzTheme.size['touch-min'], paddingHorizontal: antzTheme.space['4-5'] }}&gt;
-  &lt;Text style={{ color: c.textOnAccent, fontWeight: antzTheme.fontWeight.semibold }}&gt;Save&lt;/Text&gt;
+export function useAntz(highContrast = false) {
+  const dark = useColorScheme() === &#x27;dark&#x27;;
+  const scheme = (dark ? &#x27;dark&#x27; : &#x27;light&#x27;) + (highContrast ? &#x27;HighContrast&#x27; : &#x27;&#x27;) as keyof typeof antzTheme.colors;
+  return { t: antzTheme, c: antzTheme.colors[scheme], roles: antzTheme.roles[scheme],
+           shadow: antzTheme.shadow[dark ? &#x27;dark&#x27; : &#x27;light&#x27;], gradient: antzTheme.gradient[dark ? &#x27;dark&#x27; : &#x27;light&#x27;] };
+}</code></pre>
+  <h4>Recipes</h4>
+  <pre><code>// Main button: brand fill, dark label (FD-003), 44px touch target
+const { t, c } = useAntz();
+&lt;Pressable accessibilityRole=&quot;button&quot; style={({ pressed }) =&gt; ({
+  minHeight: t.size[&#x27;touch-min&#x27;], paddingHorizontal: t.space[&#x27;5&#x27;], borderRadius: t.radius.control,
+  justifyContent: &#x27;center&#x27;, backgroundColor: pressed ? c.accentPressed : c.accent,
+  transform: [{ scale: pressed ? t.motion.press : 1 }] })}&gt;
+  &lt;Text style={{ color: c.textOnAccent, fontSize: t.fontSize.md, fontWeight: t.fontWeight.semibold }}&gt;Save&lt;/Text&gt;
 &lt;/Pressable&gt;
 
+// Status pill: colour and a dot, never colour alone
+const s = roles.status.danger;
+&lt;View style={{ flexDirection: &#x27;row&#x27;, alignItems: &#x27;center&#x27;, alignSelf: &#x27;flex-start&#x27;, gap: t.space[&#x27;1-5&#x27;],
+  paddingHorizontal: t.space[&#x27;2-5&#x27;], paddingVertical: t.space[&#x27;1&#x27;], borderRadius: t.radius.full, backgroundColor: s.bg }}&gt;
+  &lt;View style={{ width: 7, height: 7, borderRadius: 4, backgroundColor: s.dot }} /&gt;
+  &lt;Text style={{ color: s.text, fontSize: t.fontSize.xs, fontWeight: t.fontWeight.semibold }}&gt;Escaped&lt;/Text&gt;
+&lt;/View&gt;
+
+// Priority tag and sex tag
+const p = roles.priority.urgent;     // urgent | high | info | plain
+const x = roles.sex.F;               // M | F | UD | ID | G  (solid on a photo: x.solid with x.onSolid)
+
+// Card with a shadow, and a gradient band (expo-linear-gradient)
+&lt;View style={{ backgroundColor: c.surface, borderRadius: t.radius.xl, padding: t.space[&#x27;4&#x27;], ...shadow.sm }} /&gt;
+&lt;LinearGradient {...gradient.green} style={{ borderRadius: t.radius.xl, padding: t.space[&#x27;4&#x27;] }} /&gt;
+
+// Type: line height and letter spacing are ratios of the font size
+const size = t.fontSize[&#x27;2xl&#x27;];
+&lt;Text style={{ fontSize: size, lineHeight: size * t.lineHeight.tight, letterSpacing: size * t.letterSpacing.heading }} /&gt;
+
+// Motion: elastic settle, off under reduced motion
 const reduce = await AccessibilityInfo.isReduceMotionEnabled();
-withTiming(1, { duration: reduce ? 0 : antzTheme.motion.duration.moderate,
-  easing: Easing.bezier(...antzTheme.motion.easing.out) });</code></pre>
+withTiming(1, { duration: reduce ? 0 : t.motion.duration.moderate, easing: Easing.bezier(...t.motion.easing.move) });</code></pre>
+  <p class="t-small t-secondary">React Native draws one shadow per view, so each shadow token keeps its softest, largest layer. Radial and layered gradients have no faithful React Native form; they are listed in <code>antzTheme.gradientWebOnly</code>. Ready-made React Native components are planned for a later release; until then, build them from these recipes and the component pages.</p>
 </div>
 
 <div class="doc" id="figma">

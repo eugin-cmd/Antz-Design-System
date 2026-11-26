@@ -22,7 +22,7 @@
     <li><b>Pin:</b> link <code>releases/vX.Y.Z/tokens.css</code> and <code>components.css</code>. Never link the repository root.</li>
     <li><b>Upgrade:</b> read the changelog, change the version in the link (or the package version), check the screens in the theme tester, run the guardrail check, ship.</li>
     <li><b>Roll back:</b> put the previous version back in the link. Only that product changes.</li>
-    <li><b>Compare:</b> <code>git diff v1.2.0-beta.4 v1.2.0-beta.5 -- tokens/src components.css</code>; each release's <code>CHANGELOG.md</code> lists what changed.</li>
+    <li><b>Compare:</b> <code>git diff v1.2.0-beta.5 v1.2.0-beta.6 -- tokens/src components.css</code>; each release's <code>CHANGELOG.md</code> lists what changed.</li>
   </ol>
 </div>
 
@@ -42,9 +42,9 @@
   <p>Releases are the frozen versions. Between releases, every deploy is kept as a <b>snapshot</b>, labelled with the commit it came from, at its own permanent address (<code>https://&lt;id&gt;-antz-design-system.eugin-736.workers.dev</code>). Work that isn't released yet can still be opened, shared and compared.</p>
   <ul>
     <li><b>Make the current commit live:</b> <code>node tools/deploy.mjs</code>. Only committed work goes up.</li>
-    <li><b>Preview without going live:</b> <code>node tools/deploy.mjs --preview dd-007</code> → <code>https://dd-007-antz-design-system.eugin-736.workers.dev</code>.</li>
+    <li><b>Preview without going live:</b> <code>node tools/deploy.mjs --preview my-change</code> → <code>https://my-change-antz-design-system.eugin-736.workers.dev</code> (any name you choose).</li>
     <li><b>Show any past state:</b> <code>node tools/deploy.mjs --ref v1.2.0-beta.3 --preview beta-3</code>.</li>
-    <li><b>Private by default:</b> every deploy adds <code>deploy/robots.txt</code> and the noindex header, then checks they are live. It warns if search engines could see the site.</li>
+    <li><b>Unlisted, not private:</b> every deploy adds <code>deploy/robots.txt</code> and the noindex header, then checks they are live, so search engines stay away. Anyone with the link can still open the site.</li>
   </ul>
 </div>
 
