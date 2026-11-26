@@ -165,6 +165,15 @@ SECTIONS = [('Aviary section', '52 enclosures', '8,670', 'rose-ringed-parakeet',
             ('Carnivore section', '9 enclosures', '38', 'asiatic-lion'), ('Primate section', '6 enclosures', '31'), ('Wetland', '5 enclosures', '12', 'sarus-crane'),
             ('Quarantine', '5 enclosures', '6'), ('Transfer section', '1 enclosure', '1')]
 
+def hero_foot(img, overline, title, stats, meta_icon, meta, link):
+    return (f'<section class="hero-photo hero-photo--foot"><img class="hero-photo__img" src="{B}{img}" alt=""><div><span class="t-overline hero-photo__overline">{esc(overline)}</span><h2 class="hero-photo__title">{esc(title)}</h2></div>'
+            '<div class="hero-photo__stats hero-photo__stats--spread">' + ''.join(f'<div class="hero-photo__stat"><div><b>{v}</b><small>{esc(t)}</small></div></div>' for v, t in stats) + '</div>'
+            f'<div class="hero-photo__foot"><span>{I(meta_icon)}{esc(meta)}</span><a href="#">{esc(link)}</a></div></section>')
+def hero_site(img, back, overline, title, keeper, tag_text, figs):
+    return (f'<section class="hero-photo hero-photo--site"><img class="hero-photo__img" src="{B}{img}" alt=""><div><a class="hero-photo__back" href="#">{I("chevron-left")}{esc(back)}</a>'
+            f'<span class="t-overline hero-photo__overline">{esc(overline)}</span><h2 class="hero-photo__title">{esc(title)}</h2><div class="hero-photo__meta">{contact_pill(keeper, glass=True)}<span class="tag tag--glass">{esc(tag_text)}</span></div></div>'
+            f'{figures(figs, glass=True)}</section>')
+
 def modbar(current, site_label, site_icon='pin', period=False, crumbs=True, bell_dot=False, avatar_img=None, switch_tone=None):
     p = pick('period-pick', 'All time', 'calendar', PERIODS, site=False, cls='show-tablet-up') if period else ''
     nav = (f'<nav class="crumbs show-desktop" aria-label="Breadcrumb"><a href="#">Home</a>{I("chevron-right")}<span aria-current="page">{esc(current)}</span></nav>') if crumbs else ''
@@ -179,7 +188,8 @@ def modnav(current, sections, action, active=None, soft=False):
     out = (f'<nav class="modnav{" modnav--soft" if soft else ""}" aria-label="{esc(n)} pages"><button class="icon-btn icon-btn--ghost modnav__fold show-tablet-up" type="button" aria-label="Fold the side panel" aria-expanded="true" data-modnav-fold>{I("menu")}</button>'
            f'<a class="sidenav__home" href="#"{AC if active is None else ""} style="--c:var(--hue-{hue})">{tile("grid", hue, True)}<div><b>{esc(n)} overview</b><small>Module home</small></div></a>')
     for label, items in sections:
-        if label: out += f'<p class="t-overline modnav__label">{esc(label)}</p>'
+        if label == '-': out += '<hr class="modnav__divider">'  # a line instead of a heading (DD-008)
+        elif label: out += f'<p class="t-overline modnav__label">{esc(label)}</p>'
         for it in items:
             icon, h, title, count = it[:4]
             danger = len(it) > 4 and it[4]
@@ -189,7 +199,7 @@ def modnav(current, sections, action, active=None, soft=False):
             end = (f'<span class="count count--danger">{count}</span>' if danger else (f'<small>{esc(count)}</small>' if count not in (None, '') else '')) + (I('chevron-right') if more else '')
             out += f'<a class="modnav__item" href="#"{cur}>{tile(icon, h)}<span>{esc(title)}</span>{end}</a>'
             if subs: out += '<ul class="modnav__sub">' + ''.join(f'<li><a href="#"{AC if s == active else ""}>{esc(s)}</a></li>' for s in subs) + '</ul>'
-    return out + f'<button class="btn btn--primary" type="button">{I("plus")}<span>{esc(action)}</span></button></nav>'
+    return out + (f'<button class="btn btn--primary" type="button">{I("plus")}<span>{esc(action)}</span></button>' if action else '') + '</nav>'
 
 def module_page(current, site_label, sections, action, main, active=None, site_icon='pin', period=False, bar=None, nav=None, strip=False, tinted=False):
     return (f'<div class="shell">{tabbar()}<div class="shell__main"><div class="screen__scroll modhome{" modhome--strip" if strip else ""}{" modhome--tinted" if tinted else ""}">{modbar(current, site_label, site_icon, period, **(bar or {}))}'
@@ -1196,9 +1206,11 @@ write_doc('module-bar', {'title': 'Module bar and side panel', 'group': 'Pattern
           + doc('mb-options', 'Module bar options', 'Options for a lighter bar, used together on the <b>Recently added</b> screen (Animals): drop the <b>breadcrumb</b>, mark unread notifications with the <b>unread dot</b> (<code>icon-btn__dot</code>, as in the app bar; keep the count in the <code>aria-label</code>), show the person\'s <b>photo</b> in the avatar, and give the module switcher a <b>brighter tile</b> (the module\'s hue instead of its ink). <b>Known issue:</b> in dark and high-contrast dark, solid tiles (this one and the default) show a white icon on a light hue below 3:1; a fix for every solid tile is pending.',
                 frame('<div class="modhome">' + modbar('Animals', 'All sites', crumbs=False, bell_dot=True, avatar_img='species/portrait.webp', switch_tone='vivid') + '</div>'))
           + doc('mb-layout', 'Tinted panel and tablet strip', 'Two layout options for list pages. <code>modhome--tinted</code> sets the main column on the canvas tint (<code>--color-bg-canvas</code>) so a white <b>list panel</b> stands off it. <code>modhome--strip</code> turns the side panel into rows above the list on tablets (600 to 840px wide): the overview tile first, then the pages with their counts. Phones always show the strip. Resize the frame or open the <b>Recently added</b> screen to see both.',
-                frame(module_page('Animals', 'All sites', AN_NAV, 'Add animal', '<section class="list-panel"><p class="t-small t-secondary" style="padding: var(--space-4)">List panel</p></section>', active='Recently added', nav={'soft': True}, strip=True, tinted=True), '820px')),
+                frame(module_page('Animals', 'All sites', AN_NAV, 'Add animal', '<section class="list-panel"><p class="t-small t-secondary" style="padding: var(--space-4)">List panel</p></section>', active='Recently added', nav={'soft': True}, strip=True, tinted=True), '820px'))
+          + doc('mb-groups', 'Groups without headings, no main action', 'Pass <code>-</code> as a group\'s heading for a line instead of a title (<code>modnav__divider</code>), for long panels like a site\'s pages. A panel for browsing only can leave out the main action. On phones and in the tablet strip the lines are hidden.',
+                frame('<div class="modhome"><div class="modhome__body">' + modnav('Housing', [('-', [('pin', 'green', 'Sites', '341'), ('grid', 'teal', 'Clusters', '8')]), ('-', [('grid', 'green', 'Sections', '15'), ('home', 'green', 'Enclosures', '104'), ('paw', 'green', 'Animals', '9,044')])], None, active='Sections', soft=True) + '<main class="modhome__main"><p class="t-small t-secondary">Main column</p></main></div></div>')),
           usage('mb-usage', 'Module bar and side panel', ['Keep one main action at the foot of the panel.', 'Group pages by task: Daily work, Shipments, Stock.'], ['Nest deeper than one level of sub-pages.', 'Hide the panel on phones: it becomes a strip.']),
-          code('mb-code', 'Module bar and side panel', ['.modbar', '.modbar__end', '.module-switch', '.crumbs', '.pick', '.pick--site', '.pick--outline', '.modnav', '.modnav__fold', '.modnav__label', '.modnav__item', '.modnav__sub', '.modnav.is-folded', '.modhome', '.modhome--tinted', '.modhome--strip', '.modhome__body', '.modhome__main', '.modnav--soft', '.icon-btn__dot', '.section-head', '[data-modnav-fold]'],
+          code('mb-code', 'Module bar and side panel', ['.modbar', '.modbar__end', '.module-switch', '.crumbs', '.pick', '.pick--site', '.pick--outline', '.modnav', '.modnav__fold', '.modnav__label', '.modnav__item', '.modnav__sub', '.modnav.is-folded', '.modhome', '.modhome--tinted', '.modhome--strip', '.modhome__body', '.modhome__main', '.modnav--soft', '.modnav__divider', '.icon-btn__dot', '.section-head', '[data-modnav-fold]'],
                '<header class="modbar">…</header>\n<div class="modhome__body"><nav class="modnav">…</nav><main class="modhome__main">…</main></div>'))
 
 # 2b. Browse panel (Pattern components, DD-008)
@@ -1234,7 +1246,10 @@ tc_demo = ('<div class="board board--2">'
            + ''.join(f'<div class="glass-stat"><small><i style="--dot:var(--hue-{h})"></i>{t}</small><b>{v}<span>{p}%</span></b><span class="meter" style="--v:{int(p) / 100};--bar:var(--hue-{h})"><i></i></span></div>' for t, v, p, h in [('Male', '9,804', '37', 'teal'), ('Female', '10,197', '39', 'coral'), ('Undetermined', '4,614', '18', 'green')])
            + '</div></section>')
 write_doc('timelines-and-charts', {'title': 'Timelines and charts', 'group': 'Stat cards', 'intro': 'The activity timeline, the donut with its legend, the 14-day trend, the hero strip and glass stats with meters.', 'icon': 'trend', 'hue': 'violet'},
-          doc('tc-demo', 'Timelines, charts and heroes', 'The <b>activity timeline</b> joins events with a line. The <b>donut</b> draws segments with strokes in status colours, because the segments are states. The <b>trend</b> shows slim columns with today outlined. The <b>hero strip</b> and <b>glass stats</b> head module homes.', tc_demo),
+          doc('tc-hero-options', 'Hero options', 'Two ways to head a module page with a photo. The <b>foot bar</b> (<code>hero-photo--foot</code>, <code>hero-photo__foot</code>) runs along the bottom with a meta item and a link, and the figures spread across the width (<code>hero-photo__stats--spread</code>). The <b>site hero</b> (<code>hero-photo--site</code>) adds a <b>back chip</b>, an <b>overline</b>, the person in charge and a tag, with the figures in a glass panel on the right.',
+              hero_foot('elephant.webp', 'All sites', 'All site insights', [('341', 'Sites'), ('781', 'Sections'), ('2,171', 'Enclosures'), ('26,214', 'Animals')], 'grid', '8 clusters', 'View all sites')
+              + hero_site('tiger.webp', 'All sites', 'Site', 'Adirampattinam', 'Kunal Singh', 'Aggressive', [('35', 'Species'), ('9,044', 'Animals'), ('15', 'Sections'), ('104', 'Enclosures')]), canvas=False)
+          + doc('tc-demo', 'Timelines, charts and heroes', 'The <b>activity timeline</b> joins events with a line. The <b>donut</b> draws segments with strokes in status colours, because the segments are states. The <b>trend</b> shows slim columns with today outlined. The <b>hero strip</b> and <b>glass stats</b> head module homes.', tc_demo),
           usage('tc-usage', 'Timelines and charts', ['Use status colours in a donut only when the segments are states.', 'Outline today in a trend: it is not over yet.'], ['Show more than five donut segments.', 'Use a donut for a single figure.']),
           code('tc-code', 'Timelines and charts', ['.activity', '.donut', '.donut__chart', '.legend', '.trend', '.trend-axis', '.hero-strip', '.hero-strip__img', '.hero-strip__text', '.hero-strip__title', '.glass-stats', '.glass-stat', '.meter'],
                '<ul class="activity"><li><span class="tile-icon">…</span><div><b>Event</b><small>When · where</small></div></li></ul>'))

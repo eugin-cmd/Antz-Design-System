@@ -1177,6 +1177,22 @@ a.animal:hover { background: var(--color-surface-hover); }
 .glass-chip b { font-size: var(--text-3xl); font-weight: var(--weight-semibold); line-height: var(--leading-tight); font-variant-numeric: tabular-nums; }
 .glass-chip small { font-size: var(--text-xs); color: var(--color-text-on-strong-secondary); }
 .hero-photo :focus-visible { outline-color: var(--color-media-text); }
+/* Hero options (DD-008): a back chip, an overline, a meta row, a foot bar, spread figures and the site hero */
+.hero-photo__back { display: inline-flex; align-items: center; gap: var(--space-1); padding: var(--space-1) var(--space-2-5) var(--space-1) var(--space-1-5); border-radius: var(--radius-md); font-size: var(--text-sm); font-weight: var(--weight-semibold); color: var(--color-media-text); background: color-mix(in srgb, var(--color-surface-strong) 45%, transparent); box-shadow: inset 0 0 0 var(--border-width) color-mix(in srgb, var(--color-media-text) 30%, transparent); text-decoration: none; }
+.hero-photo__back .icon { width: var(--size-icon-xs); height: var(--size-icon-xs); }
+.hero-photo__overline { display: block; margin-top: var(--space-3); color: var(--color-text-on-strong-secondary); }
+.hero-photo__overline + .hero-photo__title { margin-top: var(--space-1); }
+.hero-photo__meta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); margin-top: var(--space-3); }
+.hero-photo__stats--spread { justify-content: space-between; }
+.hero-photo--foot { padding-bottom: 0; }
+.hero-photo__foot { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); margin: 0 calc(var(--space-6) * -1); padding: var(--space-3) var(--space-6); font-size: var(--text-sm); background: color-mix(in srgb, var(--color-surface-strong) 55%, transparent); }
+.hero-photo__foot > span { display: inline-flex; align-items: center; gap: var(--space-2); }
+.hero-photo__foot .icon { width: var(--size-icon-sm); height: var(--size-icon-sm); }
+.hero-photo__foot a { font-weight: var(--weight-semibold); color: var(--color-accent-bright); text-decoration: none; }
+.hero-photo--site { flex-direction: row; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; min-height: calc(var(--size-hero-photo) * .75); }
+.hero-photo--site .figures { flex: 0 1 auto; }
+.hero-photo--site .figures > div { flex: 1 0 auto; padding-inline: var(--space-5); }
+.hero-photo--site .figures b { font-size: var(--text-3xl); }
 @media (max-width: 599px) { .hero-photo { padding: var(--space-4); } .hero-photo__title { font-size: var(--text-4xl); } }
 
 /* ── Widget: a dashboard card with a head, a big figure and its detail ───── */
@@ -1412,6 +1428,8 @@ a.animal:hover { background: var(--color-surface-hover); }
 .modnav__item > span:not(.tile-icon):not(.count) { flex: 1; min-width: 0; }
 .modnav__item > small { margin-inline-start: auto; font-size: var(--text-sm); color: var(--color-text-muted); font-variant-numeric: tabular-nums; }
 .modnav .btn--primary { margin-top: var(--space-2); }
+/* Groups divided by a line instead of a heading (DD-008) */
+.modnav__divider { width: 100%; margin: var(--space-1) 0; border: 0; border-top: var(--border-width) solid var(--color-border-subtle); }
 /* Soft side panel (DD-007): the overview tile without its outline, and the active page's count in brand text */
 @media not (prefers-contrast: more) { :root:not([data-contrast="high"]) .modnav--soft .sidenav__home { box-shadow: none; } }
 @media (prefers-contrast: more) { :root[data-contrast="standard"] .modnav--soft .sidenav__home { box-shadow: none; } } /* high contrast keeps the outline */
@@ -1420,7 +1438,7 @@ a.animal:hover { background: var(--color-surface-hover); }
 .modnav.is-folded .modnav__label, .modnav.is-folded .modnav__item > span:not(.tile-icon), .modnav.is-folded .modnav__item > small, .modnav.is-folded .sidenav__home > div, .modnav.is-folded .btn--primary > span { display: none; }
 @container shell (max-width: 599.98px) {
   .modnav { flex-direction: row; align-items: center; width: auto; overflow-x: auto; scrollbar-width: none; }
-  .modnav__fold, .modnav__label { display: none; }
+  .modnav__fold, .modnav__label, .modnav__divider { display: none; }
   .modnav .sidenav__home, .modnav__item, .modnav .btn--primary { flex: none; margin: 0; }
 }
 
@@ -1436,7 +1454,7 @@ a.animal:hover { background: var(--color-surface-hover); }
 @container shell (min-width: 600px) and (max-width: 839.98px) {
   .modhome--strip .modhome__body { flex-direction: column; align-items: stretch; }
   .modhome--strip .modnav { flex-direction: row; flex-wrap: wrap; align-items: center; width: auto; }
-  .modhome--strip .modnav__fold, .modhome--strip .modnav__label, .modhome--strip .modnav__sub { display: none; }
+  .modhome--strip .modnav__fold, .modhome--strip .modnav__label, .modhome--strip .modnav__sub, .modhome--strip .modnav__divider { display: none; }
   .modhome--strip .modnav .sidenav__home { flex: 1 0 100%; margin: 0; }
   .modhome--strip .modnav__item, .modhome--strip .modnav .btn--primary { flex: none; margin: 0; }
 }
@@ -1999,12 +2017,12 @@ fieldset.field, .drawer fieldset.filter-panel, .dialog fieldset.filter-panel { m
 .figures--glass > div + div { border-inline-start-color: color-mix(in srgb, var(--color-media-text) 22%, transparent); }
 .figures--glass b { color: var(--color-accent-bright); }
 .figures--glass small { color: var(--color-text-on-strong-secondary); }
-/* Compact contact: the person and their call and chat buttons in one pill */
-.contact--pill { display: inline-flex; gap: var(--space-2); max-width: 100%; padding: var(--space-1) var(--space-1) var(--space-1) var(--space-3); border-radius: var(--radius-md); }
+/* Compact contact: the person and their call and chat buttons in one pill (.contact.contact--* beats the .contact base later in this file) */
+.contact.contact--pill { display: inline-flex; gap: var(--space-2); max-width: 100%; padding: var(--space-1) var(--space-1) var(--space-1) var(--space-3); border-radius: var(--radius-md); }
 .contact--pill > .icon { flex: none; width: var(--size-icon-sm); height: var(--size-icon-sm); color: var(--color-text-secondary); }
 .contact--pill > b { flex: 0 1 auto; min-width: 0; }
 .contact--pill .icon-btn { color: var(--color-accent-text); }
-.contact--glass { color: var(--color-media-text); background: color-mix(in srgb, var(--color-surface-strong) 45%, transparent); box-shadow: inset 0 0 0 var(--border-width) color-mix(in srgb, var(--color-media-text) 22%, transparent); }
+.contact.contact--glass { color: var(--color-media-text); background: color-mix(in srgb, var(--color-surface-strong) 45%, transparent); box-shadow: inset 0 0 0 var(--border-width) color-mix(in srgb, var(--color-media-text) 22%, transparent); }
 .contact--glass > .icon, .contact--glass .icon-btn { color: var(--color-media-text); }
 /* Enclosure card: name, species photos, a figure line and an optional status pill; the whole card is a link */
 .card--enclosure { gap: var(--space-2-5); padding: var(--space-4); color: var(--color-text); background: var(--color-surface-sunken); box-shadow: none; text-decoration: none; }
