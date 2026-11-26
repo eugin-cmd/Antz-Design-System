@@ -1131,14 +1131,10 @@ a.animal:hover { background: var(--color-surface-hover); }
 @media (max-width: 599px) { .drawer--floating { inset-block: var(--space-2); inset-inline-end: var(--space-2); width: calc(100vw - var(--space-4)); } }
 
 /* ── Record hero (1.2): the lead card of a detail sheet, on the green gradient ─ */
+/* .record-hero__stats is an alias of .figures.figures--glass (DD-008); its figures stay hero-sized here */
 .record-hero { display: flex; flex-direction: column; gap: var(--space-4); padding: var(--space-5) var(--space-5) var(--space-4); border-radius: var(--radius-xl); color: var(--color-text-on-strong); background: var(--gradient-deep); }
 .record-hero__eyebrow { font-size: var(--text-md); color: var(--color-text-on-strong-secondary); }
 .record-hero__title { margin: 0; font-size: var(--text-3xl); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-snug); }
-.record-hero__stats { display: grid; grid-auto-columns: 1fr; grid-auto-flow: column; padding: var(--space-3) 0; border-radius: var(--radius-lg); background: color-mix(in srgb, var(--color-surface-strong) 32%, transparent); }
-.record-hero__stats > div { display: flex; flex-direction: column; align-items: center; gap: var(--space-0-5); }
-.record-hero__stats > div + div { border-inline-start: 1px solid color-mix(in srgb, var(--color-text-on-strong) 16%, transparent); }
-.record-hero__stats b { font-size: var(--text-4xl); font-weight: var(--weight-semibold); line-height: var(--leading-tight); color: var(--color-accent-bright); font-variant-numeric: tabular-nums; }
-.record-hero__stats small { font-size: var(--text-md); color: var(--color-text-on-strong-secondary); }
 .record-hero :focus-visible { outline-color: var(--color-text-on-strong); }
 
 /* ── Party card (1.2): a person or animal on a record, with quick actions ─── */
@@ -2011,16 +2007,19 @@ fieldset.field, .drawer fieldset.filter-panel, .dialog fieldset.filter-panel { m
 /* ==========================================================================
    Browse panel (DD-008): figures panel, compact contact, enclosure card and the two-pane browse panel
    ========================================================================== */
-/* Figures panel: two to four figures in one panel, divided; a value may be a name ("Ravi / Keeper") */
-.figures { display: flex; align-items: stretch; padding: var(--space-3) 0; border-radius: var(--radius-lg); background: var(--color-surface-sunken); }
-.figures > div { flex: 1; display: flex; flex-direction: column; align-items: center; gap: var(--space-0-5); min-width: 0; padding: 0 var(--space-3); text-align: center; }
-.figures > div + div { border-inline-start: var(--border-width) solid var(--color-border); }
-.figures b { max-width: 100%; overflow: hidden; font-size: var(--text-2xl); font-weight: var(--weight-semibold); line-height: var(--leading-tight); font-variant-numeric: tabular-nums; white-space: nowrap; text-overflow: ellipsis; }
-.figures small { font-size: var(--text-sm); color: var(--color-text-secondary); }
-.figures--glass { color: var(--color-media-text); background: color-mix(in srgb, var(--color-surface-strong) 55%, transparent); box-shadow: inset 0 0 0 var(--border-width) color-mix(in srgb, var(--color-media-text) 22%, transparent); }
-.figures--glass > div + div { border-inline-start-color: color-mix(in srgb, var(--color-media-text) 22%, transparent); }
-.figures--glass b { color: var(--color-accent-bright); }
-.figures--glass small { color: var(--color-text-on-strong-secondary); }
+/* Figures panel: two to four figures in one panel, divided; a value may be a name ("Ravi / Keeper").
+   .record-hero__stats is an alias of .figures.figures--glass (System Owner, 26 Nov 2026). */
+.figures, .record-hero__stats { display: flex; align-items: stretch; padding: var(--space-3) 0; border-radius: var(--radius-lg); background: var(--color-surface-sunken); }
+.figures > div, .record-hero__stats > div { flex: 1; display: flex; flex-direction: column; align-items: center; gap: var(--space-0-5); min-width: 0; padding: 0 var(--space-3); text-align: center; }
+.figures > div + div, .record-hero__stats > div + div { border-inline-start: var(--border-width) solid var(--color-border); }
+.figures b, .record-hero__stats b { max-width: 100%; overflow: hidden; font-size: var(--text-2xl); font-weight: var(--weight-semibold); line-height: var(--leading-tight); font-variant-numeric: tabular-nums; white-space: nowrap; text-overflow: ellipsis; }
+.figures small, .record-hero__stats small { font-size: var(--text-sm); color: var(--color-text-secondary); }
+.figures--glass, .record-hero__stats { color: var(--color-media-text); background: color-mix(in srgb, var(--color-surface-strong) 55%, transparent); box-shadow: inset 0 0 0 var(--border-width) color-mix(in srgb, var(--color-media-text) 22%, transparent); }
+.figures--glass > div + div, .record-hero__stats > div + div { border-inline-start-color: color-mix(in srgb, var(--color-media-text) 22%, transparent); }
+.figures--glass b, .record-hero__stats b { color: var(--color-accent-bright); }
+.figures--glass small, .record-hero__stats small { color: var(--color-text-on-strong-secondary); }
+.record-hero :is(.figures, .record-hero__stats) b { font-size: var(--text-4xl); } /* hero-sized figures inside a record hero */
+.record-hero :is(.figures, .record-hero__stats) small { font-size: var(--text-md); }
 /* Compact contact: the person and their call and chat buttons in one pill (.contact.contact--* beats the .contact base later in this file) */
 .contact.contact--pill { display: inline-flex; gap: var(--space-2); max-width: 100%; padding: var(--space-1) var(--space-1) var(--space-1) var(--space-3); border-radius: var(--radius-md); }
 .contact--pill > .icon { flex: none; width: var(--size-icon-sm); height: var(--size-icon-sm); color: var(--color-text-secondary); }

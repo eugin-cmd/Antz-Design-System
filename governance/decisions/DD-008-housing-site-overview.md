@@ -19,8 +19,8 @@ Design: `docs/superpowers/specs/2026-11-26-housing-site-overview-design.md`.
 Widget fills (peach, mint, plain) with pills, selectable rows (`row is-selected`), `btn--tint`, `avatar-stack`,
 `contact`, people rows, the activity timeline, `site-card` (the Sites and Sections grids), `glass-stats`, the floating
 side sheet with its split foot, and the DD-007 side panel and module bar options.
-`record-hero__stats` (the divided glass figures inside a record hero) is close to the new figures panel; see the open
-question below.
+`record-hero__stats` (the divided glass figures inside a record hero) overlapped the new figures panel; it is now an
+alias of it (below).
 
 ## Adopted (all opt-in; existing markup is unchanged)
 - **Browse panel** `browse` (new pattern page *Browse panel*): sections with a photo or tile and a count, the chosen
@@ -48,9 +48,8 @@ question below.
 - The "Aggressive" chip as a status: shown as a plain glass tag; it is a site trait, not a state.
 - Narrow four-across widgets keep their documented behaviour (the open arrow moves under a long title).
 
-## Open question for the System Owner
-`figures--glass` repeats most of `record-hero__stats` (a rounded panel, value over label, a divider between cells,
-bright values on glass). What is new is the **light** form, use **outside** a record hero, and names as values that
-truncate. Choose one: (a) keep both and note the overlap; (b) make `record-hero__stats` an alias of
-`figures figures--glass` in the next minor release; (c) fold them into one by RFC. Until then both stay as they are.
-
+## Decided: `record-hero__stats` is an alias (System Owner, 26 November 2026)
+`figures--glass` repeated most of `record-hero__stats`. The System Owner chose option (b): `record-hero__stats` is
+now an **alias** of `figures figures--glass`. Both names share one set of rules, so existing markup keeps working and
+picks up the panel's glass, outline and divider; inside a record hero the figures keep their hero size (`--text-4xl`).
+New work uses `figures figures--glass`.

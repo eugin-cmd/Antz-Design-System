@@ -8,7 +8,7 @@ All notable changes to the Antz Design System. Versions follow semantic versioni
 Only the pieces the libraries did not already have, from the Antz Home style 2 Housing page and the Site overview it opens.
 - **Browse panel** (new pattern page): sections beside the chosen section's enclosures, with figures, the person in charge, a search and View all.
 - **Enclosure card** (`card--enclosure`): name, species photos, counts and a status pill.
-- **Figures panel** (`figures`, `figures--glass`) and **compact contact** (`contact--pill`, `contact--glass`).
+- **Figures panel** (`figures`, `figures--glass`) and **compact contact** (`contact--pill`, `contact--glass`). `record-hero__stats` is now an alias of `figures figures--glass`: existing record heroes keep working, with the shared glass, outline and divider and their hero-sized figures.
 - **Heroes:** a foot bar with spread figures (`hero-photo--foot`), and the site hero with a back chip, overline, person in charge and glass figures (`hero-photo--site`).
 - **Side panel:** groups divided by a line (`modnav__divider`) and an option without the main action.
 - **Enclosure sheet** on the Side sheets page: figures, status and animal rows with the animal card details.
