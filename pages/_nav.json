@@ -212,6 +212,11 @@
           "isNew": true
         },
         {
+          "href": "browse-panel.html",
+          "title": "Browse panel",
+          "isNew": true
+        },
+        {
           "href": "module-homes.html",
           "title": "Module homes",
           "isNew": true

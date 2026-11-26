@@ -134,6 +134,37 @@ def module_switch(current, tone=None):
 
 def avatar_photo(src, name): return f'<span class="avatar"><img src="{IMG}{src}" alt="{esc(name)}"></span>'
 
+# ── Browse panel pieces (DD-008) ──────────────────────────────────────────
+SP = IMG + 'species/'
+def figures(items, glass=False):
+    return f'<div class="figures{" figures--glass" if glass else ""}">' + ''.join(f'<div><b>{esc(v)}</b><small>{esc(t)}</small></div>' for v, t in items) + '</div>'
+def contact_pill(name, glass=False):
+    btn = 'icon-btn icon-btn--sm' + (' icon-btn--on-strong' if glass else ' icon-btn--ghost')
+    return (f'<span class="contact contact--pill{" contact--glass" if glass else ""}">{I("user")}<b>{esc(name)}</b><span class="contact__end">'
+            f'<button class="{btn}" type="button" aria-label="Call {esc(name)}">{I("phone")}</button><button class="{btn}" type="button" aria-label="Message {esc(name)}">{I("chat")}</button></span></span>')
+SPECIES_NAMES = {'black-kite': 'Black kite', 'hill-myna': 'Hill myna', 'rose-ringed-parakeet': 'Rose-ringed parakeet', 'sarus-crane': 'Sarus crane', 'asiatic-lion': 'Asiatic lion'}
+def enclosure_card(name, imgs, animals, species, flag=None, attrs=''):
+    stack = '<span class="avatar-stack">' + ''.join(f'<span class="avatar"><img src="{SP}{i}.webp" alt="{esc(SPECIES_NAMES.get(i, i))}"></span>' for i in imgs) + '</span>'
+    return (f'<a class="card card--enclosure" href="#"{attrs}><span class="card__head"><b class="card__title">{esc(name)}</b>{I("chevron-right")}</span>{stack}'
+            f'<p class="card__figure"><b>{animals}</b> animals · {species} species</p>' + (status(flag, 'caution') if flag else '') + '</a>')
+def browse_row(name, meta, count, img=None, active=False):
+    thumb = f'<span class="browse__thumb"><img src="{SP}{img}.webp" alt=""></span>' if img else f'<span class="browse__thumb">{I("home")}</span>'
+    return (f'<a class="row{" is-selected" if active else ""}" href="#"{AC if active else ""}>{thumb}<span class="row__body"><span class="row__title">{esc(name)}</span>'
+            f'<span class="row__meta">{esc(meta)}</span></span><span class="browse__count">{esc(count)}</span></a>')
+def browse(sections, total_sections, title, meta, keeper, cards, shown, total):
+    return ('<section class="browse"><div class="browse__list"><div class="section-head"><b>Sections</b><span class="t-small t-secondary">' + f'{total_sections} in this site</span></div>'
+            + ''.join(browse_row(*r) for r in sections) + f'<a class="btn btn--tint" href="#">View all {total_sections} sections{I("chevron-right")}</a></div>'
+            + f'<div class="browse__main"><div class="browse__head"><div><h3>{esc(title)}</h3><p>{esc(meta)}</p></div>{contact_pill(keeper)}{search("Find an enclosure")}</div>'
+            + '<div class="browse__grid">' + ''.join(cards) + '</div>'
+            + f'<div class="browse__foot"><span>Showing {shown} of {total} enclosures</span><a class="btn btn--tint" href="#">View all {total} enclosures{I("chevron-right")}</a></div></div></section>')
+AVIARIES = [('Aviary 1', ['rose-ringed-parakeet'], 100, 1, None), ('Aviary 2', ['rose-ringed-parakeet', 'hill-myna'], 117, 2, None), ('Aviary 3', ['hill-myna', 'black-kite', 'sarus-crane'], 133, 3, 'Inspection due'),
+            ('Aviary 4', ['black-kite'], 150, 1, None), ('Aviary 5', ['sarus-crane', 'rose-ringed-parakeet'], 167, 2, None), ('Aviary 6', ['rose-ringed-parakeet', 'hill-myna', 'black-kite'], 183, 3, '1 under treatment'),
+            ('Aviary 7', ['rose-ringed-parakeet'], 200, 1, None), ('Aviary 8', ['hill-myna', 'black-kite'], 217, 2, None), ('Aviary 9', ['black-kite', 'sarus-crane', 'rose-ringed-parakeet'], 233, 3, None),
+            ('Aviary 10', ['sarus-crane'], 100, 1, 'Inspection due'), ('Aviary 11', ['rose-ringed-parakeet', 'hill-myna'], 117, 2, None), ('Aviary 12', ['rose-ringed-parakeet', 'hill-myna', 'black-kite'], 133, 3, None)]
+SECTIONS = [('Aviary section', '52 enclosures', '8,670', 'rose-ringed-parakeet', True), ('Herbivore section', '12 enclosures', '214'), ('Reptile house', '14 enclosures', '72'),
+            ('Carnivore section', '9 enclosures', '38', 'asiatic-lion'), ('Primate section', '6 enclosures', '31'), ('Wetland', '5 enclosures', '12', 'sarus-crane'),
+            ('Quarantine', '5 enclosures', '6'), ('Transfer section', '1 enclosure', '1')]
+
 def modbar(current, site_label, site_icon='pin', period=False, crumbs=True, bell_dot=False, avatar_img=None, switch_tone=None):
     p = pick('period-pick', 'All time', 'calendar', PERIODS, site=False, cls='show-tablet-up') if period else ''
     nav = (f'<nav class="crumbs show-desktop" aria-label="Breadcrumb"><a href="#">Home</a>{I("chevron-right")}<span aria-current="page">{esc(current)}</span></nav>') if crumbs else ''
@@ -1170,6 +1201,20 @@ write_doc('module-bar', {'title': 'Module bar and side panel', 'group': 'Pattern
           code('mb-code', 'Module bar and side panel', ['.modbar', '.modbar__end', '.module-switch', '.crumbs', '.pick', '.pick--site', '.pick--outline', '.modnav', '.modnav__fold', '.modnav__label', '.modnav__item', '.modnav__sub', '.modnav.is-folded', '.modhome', '.modhome--tinted', '.modhome--strip', '.modhome__body', '.modhome__main', '.modnav--soft', '.icon-btn__dot', '.section-head', '[data-modnav-fold]'],
                '<header class="modbar">…</header>\n<div class="modhome__body"><nav class="modnav">…</nav><main class="modhome__main">…</main></div>'))
 
+# 2b. Browse panel (Pattern components, DD-008)
+bp_cards = '<div class="browse__grid">' + ''.join(enclosure_card(*a) for a in AVIARIES[:4]) + '</div>'
+bp_fig = (f'<div class="cell">{figures([("100", "Animals"), ("1", "Species"), ("Ravi", "Keeper")])}</div><div class="cell">{contact_pill("Ravi Kumar")}</div>'
+          f'<div class="cell"><section class="hero-photo hero-photo--site"><img class="hero-photo__img" src="{B}elephant.webp" alt=""><div>{contact_pill("Kunal Singh", glass=True)}</div>'
+          f'{figures([("35", "Species"), ("9,044", "Animals"), ("15", "Sections"), ("104", "Enclosures")], glass=True)}</section></div>')
+write_doc('browse-panel', {'title': 'Browse panel', 'group': 'Pattern components', 'intro': 'Look through a site\'s sections and their enclosures in one panel: the section list beside the chosen section\'s enclosure cards, with its figures, the person in charge and a search.', 'icon': 'grid', 'hue': 'green'},
+          doc('bp-demo', 'Browse panel', 'The <b>list pane</b> holds the sections with a photo (or a tile), their enclosures and a count; the chosen one is outlined (<code>row is-selected</code>). The <b>main pane</b> has the section\'s title and figures, the <b>person in charge</b>, a search, the <b>enclosure cards</b> and a foot with how many are shown and a View all button. Below 840px the panes stack.',
+              frame(browse(SECTIONS, 15, 'Aviary section', '52 enclosures · 8,670 animals · 25 species', 'Ravi Kumar', [enclosure_card(*a) for a in AVIARIES], 12, 52)))
+          + doc('bp-cards', 'Enclosure cards', 'A variant of the card (<code>card--enclosure</code>): the name and a chevron, the <b>species</b> as overlapping photos, the animals and species counts, and a <b>status pill</b> when something needs doing (Inspection due, 1 under treatment). The whole card is a link that opens the enclosure.', bp_cards, canvas=False)
+          + doc('bp-figures', 'Figures panel and compact contact', 'The <b>figures panel</b> (<code>figures</code>) sets two to four figures in one panel with dividers; a figure can be a name (Ravi, Keeper). On a photo use <code>figures--glass</code>. The <b>compact contact</b> (<code>contact--pill</code>, <code>contact--glass</code> on photos) is the person in charge with call and chat; each button names the person.', bp_fig, canvas=False),
+          usage('bp-usage', 'Browse panel', ['Show the chosen section in the list and in the main pane title.', 'Say how many are shown and offer View all.'], ['Put more than four figures in one panel.', 'Use colour alone for a status: the pill has words.']),
+          code('bp-code', 'Browse panel', ['.browse', '.browse__list', '.browse__thumb', '.browse__count', '.browse__main', '.browse__head', '.browse__grid', '.browse__foot', '.card--enclosure', '.card__figure', '.figures', '.figures--glass', '.contact--pill', '.contact--glass'],
+               enclosure_card(*AVIARIES[2])))
+
 # 3. Timelines, charts and heroes (Stat cards)
 egg_trend = [.55, .78, .6, .92, .7, .5, .88, .95, .75, .8, .93, .65, .55, .06]
 def donut_svg(segs, centre, label):
@@ -1196,6 +1241,7 @@ write_doc('timelines-and-charts', {'title': 'Timelines and charts', 'group': 'St
 
 add_link('Pattern components', 'widget-board.html', 'Widget board', 'role-homes.html')
 add_link('Pattern components', 'module-bar.html', 'Module bar and side panel', 'widget-board.html')
+add_link('Pattern components', 'browse-panel.html', 'Browse panel', 'record-detail.html')
 add_link('Stat cards', 'timelines-and-charts.html', 'Timelines and charts', 'lists-and-charts.html')
 open(nav_p, 'w').write(json.dumps(nav, indent=2, ensure_ascii=False) + '\n')
 print('gallery pages ok')

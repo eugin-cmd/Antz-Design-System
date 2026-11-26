@@ -1987,6 +1987,59 @@ fieldset.field, .drawer fieldset.filter-panel, .dialog fieldset.filter-panel { m
 .animal-card__foot .ac-place .icon { flex: none; width: var(--size-icon-xs); height: var(--size-icon-xs); color: var(--color-text-muted); }
 
 /* ==========================================================================
+   Browse panel (DD-008): figures panel, compact contact, enclosure card and the two-pane browse panel
+   ========================================================================== */
+/* Figures panel: two to four figures in one panel, divided; a value may be a name ("Ravi / Keeper") */
+.figures { display: flex; align-items: stretch; padding: var(--space-3) 0; border-radius: var(--radius-lg); background: var(--color-surface-sunken); }
+.figures > div { flex: 1; display: flex; flex-direction: column; align-items: center; gap: var(--space-0-5); min-width: 0; padding: 0 var(--space-3); text-align: center; }
+.figures > div + div { border-inline-start: var(--border-width) solid var(--color-border); }
+.figures b { max-width: 100%; overflow: hidden; font-size: var(--text-2xl); font-weight: var(--weight-semibold); line-height: var(--leading-tight); font-variant-numeric: tabular-nums; white-space: nowrap; text-overflow: ellipsis; }
+.figures small { font-size: var(--text-sm); color: var(--color-text-secondary); }
+.figures--glass { color: var(--color-media-text); background: color-mix(in srgb, var(--color-surface-strong) 55%, transparent); box-shadow: inset 0 0 0 var(--border-width) color-mix(in srgb, var(--color-media-text) 22%, transparent); }
+.figures--glass > div + div { border-inline-start-color: color-mix(in srgb, var(--color-media-text) 22%, transparent); }
+.figures--glass b { color: var(--color-accent-bright); }
+.figures--glass small { color: var(--color-text-on-strong-secondary); }
+/* Compact contact: the person and their call and chat buttons in one pill */
+.contact--pill { display: inline-flex; gap: var(--space-2); max-width: 100%; padding: var(--space-1) var(--space-1) var(--space-1) var(--space-3); border-radius: var(--radius-md); }
+.contact--pill > .icon { flex: none; width: var(--size-icon-sm); height: var(--size-icon-sm); color: var(--color-text-secondary); }
+.contact--pill > b { flex: 0 1 auto; min-width: 0; }
+.contact--pill .icon-btn { color: var(--color-accent-text); }
+.contact--glass { color: var(--color-media-text); background: color-mix(in srgb, var(--color-surface-strong) 45%, transparent); box-shadow: inset 0 0 0 var(--border-width) color-mix(in srgb, var(--color-media-text) 22%, transparent); }
+.contact--glass > .icon, .contact--glass .icon-btn { color: var(--color-media-text); }
+/* Enclosure card: name, species photos, a figure line and an optional status pill; the whole card is a link */
+.card--enclosure { gap: var(--space-2-5); padding: var(--space-4); color: var(--color-text); background: var(--color-surface-sunken); box-shadow: none; text-decoration: none; }
+@media (hover: hover) { .card--enclosure:hover { background: var(--color-surface-hover); } }
+.card--enclosure .card__title { flex: 1; min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.card--enclosure .card__head > .icon { flex: none; width: var(--size-icon-sm); height: var(--size-icon-sm); color: var(--color-text-muted); }
+.card--enclosure .avatar-stack > .avatar { width: var(--size-control-sm); height: var(--size-control-sm); box-shadow: 0 0 0 var(--border-width-strong) var(--color-surface-sunken); }
+.card__figure { margin: 0; font-size: var(--text-sm); color: var(--color-text-secondary); }
+.card__figure b { font-size: var(--text-xl); font-weight: var(--weight-semibold); color: var(--color-text); font-variant-numeric: tabular-nums; }
+.card--enclosure > .status { align-self: flex-start; }
+/* Browse panel: a list of sections beside the chosen section's enclosures; the panes stack below 840px */
+.browse { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 3fr); min-width: 0; overflow: hidden; border-radius: var(--radius-xl); background: var(--color-surface); box-shadow: var(--shadow-sm); }
+.browse__list { display: flex; flex-direction: column; gap: var(--space-1); min-width: 0; padding: var(--space-4) var(--space-3); border-inline-end: var(--border-width) solid var(--color-border-subtle); }
+.browse__list > .section-head { margin: 0 var(--space-1) var(--space-2); }
+.browse__list .row { text-decoration: none; background: none; }
+@media (hover: hover) { .browse__list .row:hover { background: var(--color-surface-hover); } }
+.browse__list .row.is-selected { background: var(--color-surface-selected); }
+.browse__thumb { display: grid; place-items: center; flex: none; width: var(--size-control-lg); height: var(--size-control-lg); overflow: hidden; border-radius: var(--radius-md); color: var(--color-media-text); background: var(--hue-teal-ink); }
+.browse__thumb > img { width: 100%; height: 100%; object-fit: cover; }
+.browse__count { flex: none; font-size: var(--text-sm); font-weight: var(--weight-semibold); font-variant-numeric: tabular-nums; }
+.browse__list > .btn { margin-top: var(--space-2); justify-content: space-between; }
+.browse__main { display: flex; flex-direction: column; gap: var(--space-4); min-width: 0; padding: var(--space-4); }
+.browse__head { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); }
+.browse__head > div:first-child { flex: 1 1 calc(var(--size-control-lg) * 5); min-width: 0; }
+.browse__head h3 { margin: 0; font-size: var(--text-xl); font-weight: var(--weight-semibold); }
+.browse__head p { margin: var(--space-0-5) 0 0; font-size: var(--text-sm); color: var(--color-text-secondary); }
+.browse__head > .search { flex: 1 1 calc(var(--size-control-lg) * 4); }
+.browse__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, calc(var(--size-control-lg) * 4)), 1fr)); gap: var(--space-3); }
+.browse__foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-3); padding-top: var(--space-4); font-size: var(--text-sm); color: var(--color-text-secondary); border-top: var(--border-width) solid var(--color-border-subtle); }
+@container shell (max-width: 839.98px) {
+  .browse { grid-template-columns: minmax(0, 1fr); }
+  .browse__list { border-inline-end: 0; border-bottom: var(--border-width) solid var(--color-border-subtle); }
+}
+
+/* ==========================================================================
    Table styles (DD-006): record tables with a photo, status and row actions
    (Antz Home style 7, Animals lists), compact figures with totals, selection
    and sorting, striped rows with a sticky head. All build on .table.
