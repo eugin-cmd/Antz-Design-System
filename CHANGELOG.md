@@ -4,6 +4,10 @@ All notable changes to the Antz Design System. Versions follow semantic versioni
 
 ## Unreleased
 
+### Priority tags
+- **Padding:** tags now have padding all round (2px by 8px) and never stretch to fill a column; the Record lists demo shows them in a row.
+- **Record lists:** Urgent was showing grey text, because the rule for a row's second line also caught the tag. That rule now applies only to direct children. Urgent shows its warning icon in every list.
+
 ### Housing: site overview and browse panel (DD-008, proposed)
 Only the pieces the libraries did not already have, from the Antz Home style 2 Housing page and the Site overview it opens.
 - **Browse panel** (new pattern page): sections beside the chosen section's enclosures, with figures, the person in charge, a search and View all.

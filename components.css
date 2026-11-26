@@ -1685,7 +1685,7 @@ a.animal:hover { background: var(--color-surface-hover); }
    the tabbed quick-add dialog and its form pieces. */
 
 /* Priority tag: inline, next to an ID ("RES002839  Urgent"). Uses status colours. */
-.prio-tag { display: inline-flex; align-items: center; gap: var(--space-1); padding: 0 var(--space-1-5); border-radius: var(--radius-xs); font-size: var(--text-xs); font-weight: var(--weight-semibold); line-height: var(--leading-snug); color: var(--color-danger-text); background: var(--color-danger-bg); vertical-align: middle; }
+.prio-tag { display: inline-flex; align-self: flex-start; align-items: center; gap: var(--space-1); padding: var(--space-0-5) var(--space-2); border-radius: var(--radius-xs); font-size: var(--text-xs); font-weight: var(--weight-semibold); line-height: var(--leading-snug); color: var(--color-danger-text); background: var(--color-danger-bg); vertical-align: middle; }
 .prio-tag .icon { width: var(--size-icon-xs); height: var(--size-icon-xs); }
 .prio-tag--high { color: var(--color-warning-text); background: var(--color-warning-bg); }
 .prio-tag--info { color: var(--color-info-text); background: var(--color-info-bg); }
@@ -1713,8 +1713,8 @@ a.rec:hover { background: var(--color-surface-hover); }
 .rec .item__media { width: var(--size-control-lg); height: var(--size-control-lg); }
 .rec__main { display: flex; flex-direction: column; min-width: 0; }
 .rec__main b { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-1-5); font-size: var(--text-md); font-weight: var(--weight-semibold); color: var(--color-tertiary-text); }
-.rec__main span, .rec__main em { font-size: var(--text-sm); color: var(--color-text-secondary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.rec__main em { color: var(--color-text-muted); }
+.rec__main > span, .rec__main > em { font-size: var(--text-sm); color: var(--color-text-secondary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.rec__main > em { color: var(--color-text-muted); }
 .rec__person { display: flex; align-items: center; gap: var(--space-2-5); min-width: 0; }
 .rec__person > div { display: flex; flex-direction: column; min-width: 0; font-size: var(--text-md); }
 .rec__person small { font-size: var(--text-sm); color: var(--color-text-muted); }
@@ -1973,6 +1973,7 @@ fieldset.field, .drawer fieldset.filter-panel, .dialog fieldset.filter-panel { m
 .widget--peach .delta { color: var(--color-peach-text); }
 .widget--butter .delta { color: var(--color-butter-text); }
 .modnav .sidenav__home small { color: var(--color-text-secondary); }
+.cell.demo-cell--row { flex-direction: row; flex-wrap: wrap; align-items: center; gap: var(--space-2); }
 .demo-cell--pop { min-height: calc(var(--size-popover) * 1.1); }
 .demo-cell--pop-lg { min-height: calc(var(--size-popover) * 1.4); }
 .demo-frame--narrow { max-width: calc(var(--size-popover) * 1.2); }

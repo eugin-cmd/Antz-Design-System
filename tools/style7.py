@@ -353,7 +353,7 @@ PH_NAV = [('Daily work', [('file', 'navy', 'Requests', '132', False, ['All reque
           ('Stock', [('package', 'teal', 'Stock report', None), ('sliders', 'amber', 'Stock adjustment', None), ('grid', 'navy', 'Racks and shelves', None)]),
           ('Reports and setup', [('bar-chart', 'violet', 'Reports', None, False, ['Consumption', 'Dispense', 'Dispatch', 'Return', 'Reconciliation']), ('settings', 'navy', 'Master lists', None)])]
 def req_row(rid, tag, tagk, line, person, ini, hue, when, wait, late, pend, st, stk, stsub):
-    t = f'<span class="prio-tag{"" if tagk == "danger" else " prio-tag--" + tagk}">{esc(tag)}</span>' if tag else ''
+    t = f'<span class="prio-tag{"" if tagk == "danger" else " prio-tag--" + tagk}">{I("alert") if tagk == "danger" else ""}{esc(tag)}</span>' if tag else ''
     return (f'<a class="rec" href="#"><span class="rec__icon">{I("file")}</span><span class="rec__main"><b>{esc(rid)}{t}</b><span>{esc(line)}</span></span>'
             f'<span class="rec__person">{avatar(ini, hue)}<div>{esc(person)}<small>{esc(when)}</small></div></span>'
             f'<span class="rec__figs"><span><b{LATE if late else ""}>{esc(wait)}</b><small>waiting</small></span><span><b>{esc(pend)}</b><small>pending</small></span></span>'
@@ -549,7 +549,7 @@ rl_demo = frame(list_page('Requests', 132, 'Medicine requests sent to a central 
                           tabs_with_counts([('Pending', 8), ('Shipped', None), ('All', None)]) + search('Search request ID, medicine or person'),
                           ['Request', 'Requested by', 'Waiting · pending items', 'Status'], ''.join(req_row(*r) for r in REQ_ROWS[:4]), 4, 132))
 pt_demo = frame('<section class="list-panel"><div class="rec-list">' + ''.join(patient_row(*r) for r in [('tiger-coat.webp', 'M', 'Bengal tiger · Dheera', ['IPD'], 'MED-12345/25', 'Day 7 · Feline care hospital', 'Post-op day 2 · laparotomy', 'ICU 2 · Bed 3', 'Dr. Meera Iyer', 'Critical', 'danger'), ('giraffe.webp', 'F', 'Indian leopard · Veer', ['IPD', 'External'], 'MED-12421/25', 'Day 3 · Gagwa hospital', 'Bite wounds · septic', 'ICU 1', 'Dr. Meera Iyer', 'Guarded', 'caution')]) + '</div></section>')
-tags_demo = ('<div class="cell"><span class="prio-tag">' + I('alert') + 'Urgent</span> <span class="prio-tag prio-tag--high">High</span> <span class="prio-tag prio-tag--info">External</span> <span class="prio-tag prio-tag--plain">IPD</span></div>')
+tags_demo = ('<div class="cell demo-cell--row"><span class="prio-tag">' + I('alert') + 'Urgent</span> <span class="prio-tag prio-tag--high">High</span> <span class="prio-tag prio-tag--info">External</span> <span class="prio-tag prio-tag--plain">IPD</span></div>')
 def user_item(ini, hue, name, role, t):
     return f'<a class="item" href="#"><span class="item__media item__media--round"><span class="avatar" style="--av-bg:var(--hue-{hue}-soft);--av-fg:var(--hue-{hue}-ink)">{ini}<span class="avatar__presence"></span></span></span><span class="item__body"><b>{esc(name)}</b><span>{esc(role)}</span></span><span class="item__end">{t}</span>{I("chevron-right")}</a>'
 write_doc('record-lists', {'title': 'Record lists', 'group': 'Components', 'intro': 'Lists of records with a page head, filter tabs with counts, a search, rows that fold into lines on narrow screens, priority tags and pagination.', 'icon': 'file', 'hue': 'navy'},
