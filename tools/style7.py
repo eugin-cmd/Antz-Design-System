@@ -25,6 +25,7 @@ def labelled(label, ctrl, extra=''):
     ctrl = re.sub(r'<(input|select|textarea)\b', lambda m: f'<{m.group(1)} id="{fid}"', ctrl, count=1)
     return f'<div class="field"><label class="field__label" for="{fid}">{label}{extra}</label>{ctrl}</div>'
 AC = ' aria-current="page"'
+ACT = ' aria-current="true"'  # a chosen item in a list, not the current page
 ACD = ' aria-current="date"'
 HASEV = ' class="has-events"'
 REQ = ' <span class="req">*</span>'
@@ -148,8 +149,8 @@ def enclosure_card(name, imgs, animals, species, flag=None, attrs=''):
     return (f'<a class="card card--enclosure" href="#"{attrs}><span class="card__head"><b class="card__title">{esc(name)}</b>{I("chevron-right")}</span>{stack}'
             f'<p class="card__figure"><b>{animals}</b> animals · {species} species</p>' + (status(flag, 'caution') if flag else '') + '</a>')
 def browse_row(name, meta, count, img=None, active=False):
-    thumb = f'<span class="browse__thumb"><img src="{SP}{img}.webp" alt=""></span>' if img else f'<span class="browse__thumb">{I("home")}</span>'
-    return (f'<a class="row{" is-selected" if active else ""}" href="#"{AC if active else ""}>{thumb}<span class="row__body"><span class="row__title">{esc(name)}</span>'
+    thumb = f'<span class="browse__thumb"><img src="{SP}{img}.webp" alt=""></span>' if img else tile('home', 'teal')
+    return (f'<a class="row{" is-selected" if active else ""}" href="#"{ACT if active else ""}>{thumb}<span class="row__body"><span class="row__title">{esc(name)}</span>'
             f'<span class="row__meta">{esc(meta)}</span></span><span class="browse__count">{esc(count)}</span></a>')
 def browse(sections, total_sections, title, meta, keeper, cards, shown, total):
     return ('<section class="browse"><div class="browse__list"><div class="section-head"><b>Sections</b><span class="t-small t-secondary">' + f'{total_sections} in this site</span></div>'
@@ -1263,7 +1264,7 @@ HS_MAIN = (hero_site('leopard.webp', 'All sites', 'Site', 'Adirampattinam', 'Kun
                                                 ('file', 'amber', 'Note posted · Electrical', 'Adirampattinam · Neeta Rao'), ('clipboard', 'teal', 'Cave reconstruction assessed', 'Score 12 · 6 Aug')])) + '</div>')
 HOUSING_SITE = with_sheet(module_page('Housing', 'Adirampattinam', HS_NAV, None, HS_MAIN, bar={'crumbs': False, 'bell_dot': True, 'avatar_img': 'species/portrait.webp'}, nav={'soft': True}, strip=True, tinted=True), enclosure_sheet())
 screen_page('housing-site', 'Housing · site', 'One site\'s overview: the site hero with its person in charge and figures, what needs attention, the browse panel (sections beside their enclosures), people in charge and recent activity. Select Aviary 10 to open the enclosure sheet.', 'home', 'green', HOUSING_SITE,
-            ['The side panel becomes a strip; widgets, the browse panel\'s panes and the lists stack.', 'The side panel is a strip above; two widgets per row; the browse panel\'s panes stack.', 'Side panel beside the content; the browse panel shows both panes.', 'Side panel beside the content; four widgets in a row; four enclosure cards per row.'],
+            ['The side panel becomes a strip; widgets, the browse panel\'s panes and the lists stack.', 'The side panel is a strip above; two widgets per row; the browse panel\'s panes stack.', 'Side panel beside the content; the browse panel shows both panes.', 'Side panel beside the content; four widgets in a row; three enclosure cards per row.'],
             ['Show the chosen section in the list and in the main pane.', 'Open an enclosure in the side sheet; keep the panel visible beside it.'], ['Put more than four figures in the hero.', 'Use the brand green to show a status.'])
 add_link('Screens', 'screen-housing-site.html', 'Housing · site', 'screen-housing.html')
 ENC_DOC = ('<div class="doc" id="enclosure-sheet"><h3>Enclosure sheet</h3><p class="lead">A record sheet whose rows carry the <b>animal card details</b>: the photo with the sex tag, the AAID, the name and the scientific name; each row opens the animal. Above them, a <b>figures panel</b> (animals, species and the keeper), the status pill and a section head with how many are shown. The foot splits a secondary action and one main action.</p>'

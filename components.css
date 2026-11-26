@@ -1191,10 +1191,13 @@ a.animal:hover { background: var(--color-surface-hover); }
 .hero-photo__foot .icon { width: var(--size-icon-sm); height: var(--size-icon-sm); }
 .hero-photo__foot a { display: inline-flex; align-items: center; min-height: var(--space-6); font-weight: var(--weight-semibold); color: var(--color-accent-bright); text-decoration: none; }
 .hero-photo--site { flex-direction: row; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; min-height: calc(var(--size-hero-photo) * .75); }
-.hero-photo--site .figures { flex: 0 1 auto; }
-.hero-photo--site .figures > div { flex: 1 0 auto; padding-inline: var(--space-5); }
+.hero-photo--site > div { min-width: 0; max-width: 100%; }
+.hero-photo--site .figures { flex: 0 1 auto; max-width: 100%; }
+.hero-photo--site .figures > div { flex: 1 1 auto; min-width: 0; padding-inline: var(--space-5); }
+@container shell (max-width: 599.98px) { .hero-photo--site .figures { flex-basis: 100%; } .hero-photo--site .figures > div { padding-inline: var(--space-2); } .hero-photo--site .figures b { font-size: var(--text-xl); } }
 .hero-photo--site .figures b { font-size: var(--text-3xl); }
 @media (max-width: 599px) { .hero-photo { padding: var(--space-4); } .hero-photo__title { font-size: var(--text-4xl); } }
+@media (max-width: 599px) { .hero-photo--foot { padding-bottom: 0; } .hero-photo__foot { margin-inline: calc(var(--space-4) * -1); padding-inline: var(--space-4); } } /* the foot bar follows the phone padding */
 
 /* ── Widget: a dashboard card with a head, a big figure and its detail ───── */
 .widget { position: relative; display: flex; flex-direction: column; gap: var(--space-3); min-width: 0; padding: var(--space-4) var(--space-5); border-radius: var(--radius-xl); color: var(--color-text); background: var(--color-surface); box-shadow: var(--shadow-sm); }
@@ -2041,7 +2044,8 @@ fieldset.field, .drawer fieldset.filter-panel, .dialog fieldset.filter-panel { m
 .browse__list .row { text-decoration: none; background: none; }
 @media (hover: hover) { .browse__list .row:hover { background: var(--color-surface-hover); } }
 .browse__list .row.is-selected { background: var(--color-surface-selected); }
-.browse__thumb { display: grid; place-items: center; flex: none; width: var(--size-control-lg); height: var(--size-control-lg); overflow: hidden; border-radius: var(--radius-md); color: var(--color-media-text); background: var(--hue-teal-ink); }
+.browse__thumb { flex: none; width: var(--size-control-lg); height: var(--size-control-lg); overflow: hidden; border-radius: var(--radius-md); background: var(--color-surface-sunken); } /* the photo crop; without a photo, use the soft tile-icon */
+.browse__list .row > .tile-icon { width: var(--size-control-lg); height: var(--size-control-lg); border-radius: var(--radius-md); }
 .browse__thumb > img { width: 100%; height: 100%; object-fit: cover; }
 .browse__count { flex: none; font-size: var(--text-sm); font-weight: var(--weight-semibold); font-variant-numeric: tabular-nums; }
 .browse__list > .btn { margin-top: var(--space-2); justify-content: space-between; }

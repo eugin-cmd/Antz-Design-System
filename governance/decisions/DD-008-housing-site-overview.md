@@ -19,6 +19,8 @@ Design: `docs/superpowers/specs/2026-11-26-housing-site-overview-design.md`.
 Widget fills (peach, mint, plain) with pills, selectable rows (`row is-selected`), `btn--tint`, `avatar-stack`,
 `contact`, people rows, the activity timeline, `site-card` (the Sites and Sections grids), `glass-stats`, the floating
 side sheet with its split foot, and the DD-007 side panel and module bar options.
+`record-hero__stats` (the divided glass figures inside a record hero) is close to the new figures panel; see the open
+question below.
 
 ## Adopted (all opt-in; existing markup is unchanged)
 - **Browse panel** `browse` (new pattern page *Browse panel*): sections with a photo or tile and a count, the chosen
@@ -45,3 +47,10 @@ side sheet with its split foot, and the DD-007 side panel and module bar options
 - Dark-green buttons with white labels and the client logo (DD-007, FD-003).
 - The "Aggressive" chip as a status: shown as a plain glass tag; it is a site trait, not a state.
 - Narrow four-across widgets keep their documented behaviour (the open arrow moves under a long title).
+
+## Open question for the System Owner
+`figures--glass` repeats most of `record-hero__stats` (a rounded panel, value over label, a divider between cells,
+bright values on glass). What is new is the **light** form, use **outside** a record hero, and names as values that
+truncate. Choose one: (a) keep both and note the overlap; (b) make `record-hero__stats` an alias of
+`figures figures--glass` in the next minor release; (c) fold them into one by RFC. Until then both stay as they are.
+
