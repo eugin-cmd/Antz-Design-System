@@ -20,6 +20,20 @@ The governed design system for every Antz product: web dashboard, tablet and pho
 5. Need a new colour, size, component or variant? Propose it (see the Governance page); don't add it locally.
 6. Questions, proposals and exceptions go to the System Owner, Eugin Robinson.
 
+## The Antz Design System agent (Claude Code)
+
+Designers and developers use the system through a Claude Code plugin, **Antz Design System**, with three commands:
+`/systemdesigner` (build from the system only), `/systemauditor` (read-only compliance audit) and `/openvisualguide`.
+Install it once in your product repository, pinned to the release you build against:
+
+```
+/plugin marketplace add eugin-cmd/Antz-Design-System#v1.2.0-beta.8
+/plugin install antz-design-system@antz
+```
+
+Full guide: [`docs/agent-onboarding.md`](docs/agent-onboarding.md). The plugin lives in [`agent/`](agent); its
+version is the system's version.
+
 ## Quick start
 
 ```sh
@@ -71,6 +85,7 @@ The pre-commit hook (`tools/hooks/pre-commit`, enabled with `git config core.hoo
 | `tokens.css`, `colors.json`, `dist/` | Generated outputs | **No** (generated) |
 | `releases/` | Published versions | **Never** (immutable) |
 | `tools/` | Build, check, test, docs, release | Yes |
+| `agent/`, `.claude-plugin/` | The Claude Code plugin (skills and helper) and its catalog | Yes, through the change process |
 | `themes/` | Brand themes imported from the Previewer (Foundation feature) | Via the importer |
 
 ## Status and known limits (1.2.0-beta.7)

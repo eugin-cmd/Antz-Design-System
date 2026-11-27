@@ -39,6 +39,7 @@ ok(plug?.name === 'antz-design-system' && plug.version === VERSION_NOW, `plugin.
 for (const sk of ['systemdesigner', 'systemauditor', 'openvisualguide']) {
   const md = (() => { try { return fs.readFileSync(path.join(ROOT, 'agent/skills', sk, 'SKILL.md'), 'utf8'); } catch { return ''; } })();
   ok(new RegExp('^---\\nname: ' + sk + '\\n').test(md) && /\ndescription: .{40,}/.test(md), `skill /${sk} exists with a name and a description`);
+  ok(/\ndescription: '[^\n]*'\n/.test(md), `skill /${sk}: description is a quoted YAML string (a bare colon or quote would drop it)`);
 }
 ok(fs.existsSync(path.join(ROOT, 'agent/scripts/antz.mjs')), 'the shared helper lives in agent/scripts/antz.mjs');
 // /systemauditor: read-only, graded, names the version; code-only audits say rendered checks did not run.
@@ -51,6 +52,8 @@ const owners = (() => { try { return fs.readFileSync(path.join(ROOT, '.github/CO
 ok(/^\*\s+@eugin-cmd/m.test(owners) && ['/tokens/', '/components.css', '/governance/', '/agent/', '/releases/'].every((p) => owners.includes(p)), 'CODEOWNERS: the System Owner owns every file, critical paths listed');
 const rsMain = readJ('.github/rulesets/main.json'), rsTags = readJ('.github/rulesets/release-tags.json');
 ok(rsMain?.rules?.some((r) => r.type === 'pull_request' && r.parameters.require_code_owner_review) && rsMain.rules.some((r) => r.type === 'non_fast_forward') && rsTags?.target === 'tag' && ['update', 'deletion'].every((t) => rsTags.rules.some((r) => r.type === t)), 'rulesets: main needs code-owner review and no force-push; v* tags never move or disappear');
+const old = (() => { try { return JSON.parse(execFileSync('node', ['agent/scripts/antz.mjs', 'audit', 'tools/fixtures/bad-rn.tsx', '--version', '1.2.0-beta.7', '--json'], { cwd: ROOT, stdio: 'pipe' }).toString()); } catch { return null; } })();
+ok(old && old.verdict !== 'Compliant' && old.notRan.some((x) => /can't read them/.test(x)), 'auditor never calls code "compliant" when the release checker could not read its styles');
 // DD-009: the tag chip and the priority picker share one priority scale, on status tokens.
 const css = fs.readFileSync(path.join(ROOT, 'components.css'), 'utf8');
 const rule = (sel) => (css.match(new RegExp('^' + sel.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\s*\\{([^}]*)\\}', 'm')) || [])[1] || '';

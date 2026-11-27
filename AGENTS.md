@@ -15,6 +15,12 @@ These rules apply to any AI assistant (Claude Code, Copilot, Cursor, Codex or an
 9. Products and prototypes link a pinned release: `releases/vX.Y.Z/tokens.css`, never the repository root.
 10. Deploy the docs site only with `node tools/deploy.mjs` (it keeps the site private and labels the snapshot). Go back with `node tools/rollback.mjs` (source) or `node tools/deploy.mjs --rollback <id>` (live site). See HOW-IT-WORKS.md, section 6.
 
+## The Antz Design System agent
+
+Product teams use the system through the Claude Code plugin in `agent/` (`/systemdesigner`, `/systemauditor`,
+`/openvisualguide`; guide: `docs/agent-onboarding.md`). Its skills follow these same rules. Agents never approve,
+release or deploy changes to the official system on their own (`governance/README.md`, "Who can change the official system").
+
 ## Never
 
 - Invent a token, colour, size, font, weight, radius, shadow, duration, easing or gradient. If one is missing, **stop and write a proposal** (what, why, where) instead.

@@ -1,6 +1,6 @@
 ---
 name: systemauditor
-description: The Antz Design System auditor. Independently audit an Antz product, screen, prototype or pull request against the real Antz Design System (tokens, components, rules, accessibility), read-only, and produce an evidence-based compliance report graded Critical, Major, Minor and Accessibility with the rule behind every finding. Use it whenever someone asks to audit, review, check, QA or "is this on-brand / on-system / accessible" for any Antz UI (HTML, Next.js + MUI or React Native), before a release or a design review, or to double-check work that /systemdesigner produced.
+description: 'The Antz Design System auditor. Independently audit an Antz product, screen, prototype or pull request against the real Antz Design System (tokens, components, rules, accessibility), read-only, and produce an evidence-based compliance report graded Critical, Major, Minor and Accessibility with the rule behind every finding. Use it whenever someone asks to audit, review, check, QA or "is this on-brand / on-system / accessible" for any Antz UI (HTML, Next.js + MUI or React Native), before a release or a design review, or to double-check work that /systemdesigner produced.'
 ---
 
 # /systemauditor · Antz Design System

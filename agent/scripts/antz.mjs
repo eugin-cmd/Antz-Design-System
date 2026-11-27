@@ -276,15 +276,19 @@ async function audit() {
   const paths = argv.slice(1).filter((p) => !p.startsWith('--'));
   if (!paths.length && !urls.length) throw new Error('Name files or folders to audit, and/or --url <address of the running screen>.');
   const v = await version();
-  const ran = [], notRan = [], findings = [];
+  const ran = [], notRan = [], findings = []; let partial = false;
   const rulesById = {};
   try { for (const r of JSON.parse(await release('governance/rules.json')).rules) rulesById[r.id] = r.statement; } catch {}
 
   // 1. Code checks
   if (paths.length) {
-    const r = spawnSync(process.execPath, [await checkerScript(), '--json', ...paths], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
+    const checker = await checkerScript();
+    const readsObjects = /jsObjectChunks/.test(fs.readFileSync(checker, 'utf8'));   // checkers before 1.2.0-beta.8 don't read JS style objects
+    const r = spawnSync(process.execPath, [checker, '--json', ...paths], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
     let data; try { data = JSON.parse(r.stdout); } catch { throw new Error('The checker did not return a result: ' + (r.stderr || r.stdout).slice(0, 300)); }
-    ran.push(`Code checks on ${data.files} file(s): CSS, HTML, MUI sx/style objects, React Native StyleSheet, deprecated names (release ${v} checker)`);
+    ran.push(`Code checks on ${data.files} file(s) with the release ${v} checker: CSS, HTML${readsObjects ? ', MUI sx/style objects, React Native StyleSheet and deprecated names' : ' and CSS-in-JS strings'}`);
+    const hasJs = paths.some((p) => /\.(jsx?|tsx?)$/.test(p) || (fs.existsSync(p) && fs.statSync(p).isDirectory()));
+    if (!readsObjects && hasJs) { notRan.push(`MUI sx/style objects and React Native StyleSheet values: the ${v} checker can't read them (from 1.2.0-beta.8 it can). Audit with a newer --version, or review those styles by hand.`); partial = true; }
     for (const x of data.findings) findings.push({ cat: CATEGORY(x.rule), where: `${x.file}:${x.line}`, rule: x.rule, issue: x.msg, expected: rulesById[x.rule] || '', snippet: x.snippet });
     const files = paths.flatMap((p) => { try { return fs.statSync(p).isDirectory() ? [] : [p]; } catch { return []; } });
     if (paths.some((p) => /\.(jsx?|tsx?)$/.test(p) || fs.existsSync(p) && fs.statSync(p).isDirectory())) notRan.push('Values computed at run time (variables, functions, theme overrides) are not read from code; check those screens rendered, or by review.');
@@ -343,7 +347,7 @@ async function audit() {
 
   // 3. Report
   const n = (c) => findings.filter((f) => f.cat === c).length;
-  const verdict = n('B') || n('E') ? 'Not compliant' : n('C') ? 'Partly compliant' : n('D') ? 'Compliant, with deprecated names to replace' : 'Compliant';
+  const verdict = n('B') || n('E') ? 'Not compliant' : n('C') ? 'Partly compliant' : partial ? 'Not fully checked: no findings in what could be checked' : n('D') ? 'Compliant, with deprecated names to replace' : 'Compliant';
   if (asJson) { console.log(JSON.stringify({ version: v, verdict, ran, notRan, findings }, null, 2)); return; }
   let md = `# Antz Design System audit\n\nDesign system version: **${v}** · ${new Date().toISOString().slice(0, 10)} · read-only (nothing was changed)\n\n`;
   md += `## A. Overall compliance: ${verdict}\n\nCritical ${n('B')} · Major ${n('C')} · Minor ${n('D')} · Accessibility ${n('E')}\n\n**Checks that ran**\n${ran.map((x) => '- ' + x).join('\n') || '- none'}\n\n**Not checked**\n${notRan.map((x) => '- ' + x).join('\n') || '- nothing left out'}\n`;
