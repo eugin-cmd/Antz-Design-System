@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITLE}} · {{NAME}}</title>
+<!-- Antz Design System {{VERSION}}: pinned release. Upgrade by changing the version in these three links. -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{RELEASE}}/tokens.css">
+<link rel="stylesheet" href="{{RELEASE}}/components.css">
+<script src="{{RELEASE}}/components.js" defer></script>
+<style>
+  /* Layout glue only, with tokens (the system's rules apply to this file too). */
+  html, body { height: 100%; margin: 0; }
+  body { display: flex; flex-direction: column; font-family: var(--font-body); background: var(--color-bg-app); color: var(--color-text); }
+  [hidden] { display: none !important; }
+  .proto-page { display: flex; flex-direction: column; gap: var(--space-4); padding: var(--space-4); }
+</style>
+</head>
+<body>
+{{ICONS}}
+<div class="shell">
+  <div class="shell__main">
+    <div class="topbar">
+      <button class="icon-btn icon-btn--ghost" type="button" aria-label="Back"><svg class="icon" aria-hidden="true"><use href="#i-arrow-left"/></svg></button>
+      <h1 class="topbar__title">{{TITLE}}</h1>
+    </div>
+    <main class="proto-page">
+      <div class="empty">
+        <span class="tile-icon" style="--c:var(--hue-teal)"><svg class="icon" aria-hidden="true"><use href="#i-grid"/></svg></span>
+        <b>{{TITLE}}</b>
+        <span>Ask /systemdesigner to build this screen from the Antz Design System.</span>
+      </div>
+    </main>
+  </div>
+</div>
+</body>
+</html>

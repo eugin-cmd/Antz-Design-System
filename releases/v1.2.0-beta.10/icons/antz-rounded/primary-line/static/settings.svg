@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-settings" role="img" aria-label="Settings">
+<defs><linearGradient id="antz-l-settings-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-settings .i,.antz-l-settings .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-settings .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-settings .a{stroke:url(#antz-l-settings-acc)}
+.antz-l-settings .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-settings .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-settings .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+</style>
+<g class="antz-l-settings-g">
+<path class="i antz-l-settings-0" d="M36.6 20.9L40.8 21.5L40.8 26.5L36.6 27.1L35.1 30.7L37.7 34.1L34.1 37.7L30.7 35.1L27.1 36.6L26.5 40.8L21.5 40.8L20.9 36.6L17.3 35.1L13.9 37.7L10.3 34.1L12.9 30.7L11.4 27.1L7.2 26.5L7.2 21.5L11.4 20.9L12.9 17.3L10.3 13.9L13.9 10.3L17.3 12.9L20.9 11.4L21.5 7.2L26.5 7.2L27.1 11.4L30.7 12.9L34.1 10.3L37.7 13.9L35.1 17.3Z" pathLength="1"/>
+<circle class="a antz-l-settings-1" cx="24" cy="24" r="5.5"/>
+</g>
+</svg>

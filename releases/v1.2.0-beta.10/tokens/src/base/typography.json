@@ -1,0 +1,183 @@
+{
+  "font-family": {
+    "$description": "Inter for every Latin UI; Noto Sans covers scripts Inter lacks (Arabic, Devanagari, CJK), as the onboarding guide does.",
+    "sans": {
+      "$type": "fontFamily",
+      "$value": [
+        "Inter",
+        "Noto Sans",
+        "Noto Sans Arabic",
+        "Noto Sans Devanagari",
+        "Noto Sans SC",
+        "Noto Sans JP",
+        "system-ui",
+        "-apple-system",
+        "Segoe UI",
+        "sans-serif"
+      ]
+    },
+    "mono": {
+      "$type": "fontFamily",
+      "$value": [
+        "ui-monospace",
+        "SF Mono",
+        "Menlo",
+        "monospace"
+      ]
+    }
+  },
+  "font": {
+    "body": {
+      "$type": "fontFamily",
+      "$value": "{font-family.sans}"
+    },
+    "heading": {
+      "$type": "fontFamily",
+      "$value": "{font-family.sans}"
+    },
+    "mono": {
+      "$type": "fontFamily",
+      "$value": "{font-family.mono}"
+    }
+  },
+  "weight": {
+    "light": {
+      "$type": "fontWeight",
+      "$value": 300,
+      "$description": "Display figures 28px and up only"
+    },
+    "regular": {
+      "$type": "fontWeight",
+      "$value": 400
+    },
+    "medium": {
+      "$type": "fontWeight",
+      "$value": 500
+    },
+    "semibold": {
+      "$type": "fontWeight",
+      "$value": 600,
+      "$description": "Default for labels and titles"
+    },
+    "bold": {
+      "$type": "fontWeight",
+      "$value": 700,
+      "$description": "Overlines, counts and badges only"
+    }
+  },
+  "text": {
+    "$description": "Type scale. 16/18/20/24/36/48 align with the dashboard (MUI) scale.",
+    "2xs": {
+      "$type": "dimension",
+      "$value": "11px",
+      "$description": "Overline, badge"
+    },
+    "xs": {
+      "$type": "dimension",
+      "$value": "12px",
+      "$description": "Caption, meta, table header"
+    },
+    "sm": {
+      "$type": "dimension",
+      "$value": "13px",
+      "$description": "Secondary body, small buttons (under review: the dashboard bans 13px)"
+    },
+    "md": {
+      "$type": "dimension",
+      "$value": "14px",
+      "$description": "Body, default UI"
+    },
+    "lg": {
+      "$type": "dimension",
+      "$value": "16px",
+      "$description": "Card titles, inputs, reading text"
+    },
+    "xl": {
+      "$type": "dimension",
+      "$value": "18px",
+      "$description": "Section titles"
+    },
+    "2xl": {
+      "$type": "dimension",
+      "$value": "20px",
+      "$description": "Dialog and drawer titles"
+    },
+    "3xl": {
+      "$type": "dimension",
+      "$value": "24px",
+      "$description": "Page titles, stat values"
+    },
+    "4xl": {
+      "$type": "dimension",
+      "$value": "28px",
+      "$description": "Greeting"
+    },
+    "5xl": {
+      "$type": "dimension",
+      "$value": "36px",
+      "$description": "Display title"
+    },
+    "6xl": {
+      "$type": "dimension",
+      "$value": "48px",
+      "$description": "Hero figure"
+    },
+    "display": {
+      "$type": "dimension",
+      "$value": "clamp(48px, 4.6vw, 72px)",
+      "$extensions": {
+        "com.antz": {
+          "format": "css"
+        }
+      }
+    }
+  },
+  "leading": {
+    "none": {
+      "$type": "number",
+      "$value": 1
+    },
+    "tight": {
+      "$type": "number",
+      "$value": 1.15
+    },
+    "snug": {
+      "$type": "number",
+      "$value": 1.3
+    },
+    "normal": {
+      "$type": "number",
+      "$value": 1.45
+    },
+    "relaxed": {
+      "$type": "number",
+      "$value": 1.55
+    }
+  },
+  "tracking": {
+    "display": {
+      "$type": "dimension",
+      "$value": "-0.045em"
+    },
+    "tight": {
+      "$type": "dimension",
+      "$value": "-0.03em"
+    },
+    "heading": {
+      "$type": "dimension",
+      "$value": "-0.02em"
+    },
+    "snug": {
+      "$type": "dimension",
+      "$value": "-0.01em"
+    },
+    "normal": {
+      "$type": "dimension",
+      "$value": "0em"
+    },
+    "overline": {
+      "$type": "dimension",
+      "$value": "0.08em"
+    }
+  }
+}

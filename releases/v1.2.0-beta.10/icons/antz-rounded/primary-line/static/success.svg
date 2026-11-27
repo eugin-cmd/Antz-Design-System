@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-success" role="img" aria-label="Success">
+<defs><linearGradient id="antz-l-success-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-success .i,.antz-l-success .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-success .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-success .a{stroke:url(#antz-l-success-acc)}
+.antz-l-success .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-success .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-success .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+</style>
+<circle class="i antz-l-success-0" cx="24" cy="24" r="17" pathLength="1"/>
+<path class="a antz-l-success-1" d="M16 24.5l5.5 5.5L32 19" pathLength="1"/>
+</svg>

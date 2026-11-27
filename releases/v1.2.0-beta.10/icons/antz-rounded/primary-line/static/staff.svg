@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-staff" role="img" aria-label="Staff">
+<defs><linearGradient id="antz-l-staff-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-staff .i,.antz-l-staff .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-staff .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-staff .a{stroke:url(#antz-l-staff-acc)}
+.antz-l-staff .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-staff .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-staff .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+</style>
+<circle class="i antz-l-staff-0" cx="24" cy="15" r="7" pathLength="1"/>
+<path class="i antz-l-staff-1" d="M10 41v-2a9 9 0 0 1 9-9h10a9 9 0 0 1 9 9v2" pathLength="1"/>
+<rect class="a antz-l-staff-2" x="20.5" y="33.5" width="7" height="5" rx="1.5"/>
+<path class="a antz-l-staff-3" d="M22.8 36h2.4" pathLength="1"/>
+</svg>

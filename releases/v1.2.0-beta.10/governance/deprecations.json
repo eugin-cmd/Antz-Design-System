@@ -1,0 +1,7 @@
+{
+  "$description": "Deprecated names that still work but should not be used in new work. tools/check.mjs reports each use as ANTZ-DEP-01 (a warning) with the replacement. Add an entry when a name is replaced but kept as an alias; remove it only in a major release, with a changelog note.",
+  "deprecated": [
+    { "name": "priority__opt--emergency", "type": "class", "replacement": "priority__opt--critical", "since": "1.2.0-beta.7", "note": "Priority is Normal, High, Critical (DD-009)." },
+    { "name": "record-hero__stats", "type": "class", "replacement": "figures figures--glass", "since": "1.2.0-beta.6", "note": "record-hero__stats is an alias of the figures panel (DD-008)." }
+  ]
+}

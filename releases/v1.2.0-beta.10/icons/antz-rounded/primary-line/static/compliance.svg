@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-compliance" role="img" aria-label="Compliance">
+<defs><linearGradient id="antz-l-compliance-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient><mask id="antz-l-compliance-cut" maskUnits="userSpaceOnUse" x="-8" y="-8" width="64" height="64"><rect x="-8" y="-8" width="64" height="64" fill="#fff"/><circle class="k antz-l-compliance-2" cx="33" cy="31" r="5" fill="#000"/><path class="k antz-l-compliance-3" d="M30 35.5 28 42l5-2.5 5 2.5-2-6.5" pathLength="1" fill="none"/></mask></defs>
+<style>
+.antz-l-compliance .i,.antz-l-compliance .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-compliance .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-compliance .a{stroke:url(#antz-l-compliance-acc)}
+.antz-l-compliance .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-compliance .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-compliance .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+</style>
+<g mask="url(#antz-l-compliance-cut)">
+<rect class="i antz-l-compliance-0" x="6" y="8" width="32" height="24" rx="3" pathLength="1"/>
+<path class="i antz-l-compliance-1" d="M12 16h20M12 22h11" pathLength="1"/>
+</g>
+<circle class="a antz-l-compliance-2" cx="33" cy="31" r="5"/>
+<path class="a antz-l-compliance-3" d="M30 35.5 28 42l5-2.5 5 2.5-2-6.5" pathLength="1"/>
+</svg>

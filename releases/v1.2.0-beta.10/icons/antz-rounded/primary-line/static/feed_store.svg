@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-feed_store" role="img" aria-label="Feed store">
+<defs><linearGradient id="antz-l-feed_store-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-feed_store .i,.antz-l-feed_store .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-feed_store .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-feed_store .a{stroke:url(#antz-l-feed_store-acc)}
+.antz-l-feed_store .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-feed_store .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-feed_store .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+</style>
+<g class="antz-l-feed_store-g">
+<path class="i antz-l-feed_store-0" d="M17 12c-2 4-7 10-7 18 0 7 5 11 14 11s14-4 14-11c0-8-5-14-7-18Z" pathLength="1"/>
+<path class="i antz-l-feed_store-1" d="M17 12h14M19 12l-2-5M29 12l2-5" pathLength="1"/>
+<path class="a antz-l-feed_store-2" d="M24 34c0-5 2.5-8 6-9 0 4-2.5 8-6 9Z" pathLength="1"/>
+<path class="a antz-l-feed_store-3" d="M24 34v-5" pathLength="1"/>
+</g>
+</svg>

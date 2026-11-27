@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-dna" role="img" aria-label="DNA">
+<defs><linearGradient id="antz-l-dna-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient><mask id="antz-l-dna-cut" maskUnits="userSpaceOnUse" x="-8" y="-8" width="64" height="64"><rect x="-8" y="-8" width="64" height="64" fill="#fff"/><path class="k antz-l-dna-2" d="M32 6c0 6-16 8-16 18s16 12 16 18" pathLength="1" fill="none"/></mask></defs>
+<style>
+.antz-l-dna .i,.antz-l-dna .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-dna .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-dna .a{stroke:url(#antz-l-dna-acc)}
+.antz-l-dna .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-dna .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-dna .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+.antz-l-dna-0{stroke-dasharray:1;animation:antz-l-dna-0 2800ms cubic-bezier(0.16, 1, 0.3, 1) both}
+.antz-l-dna-1{stroke-dasharray:1;animation:antz-l-dna-1 2800ms cubic-bezier(0.16, 1, 0.3, 1) both}
+.antz-l-dna-2{stroke-dasharray:1;animation:antz-l-dna-2 2800ms cubic-bezier(0.16, 1, 0.3, 1) both}
+@keyframes antz-l-dna-0{0%,0%{stroke-dashoffset:1}21%,100%{stroke-dashoffset:0}}
+@keyframes antz-l-dna-1{0%,9%{stroke-dashoffset:1}30%,100%{stroke-dashoffset:0}}
+@keyframes antz-l-dna-2{0%,30%{stroke-dashoffset:1}44%,100%{stroke-dashoffset:0}}
+@media (prefers-reduced-motion:reduce){.antz-l-dna *{animation:none!important;stroke-dashoffset:0!important;opacity:1!important;transform:none!important}}
+</style>
+<g mask="url(#antz-l-dna-cut)">
+<path class="i antz-l-dna-0" d="M16 6c0 6 16 8 16 18S16 36 16 42" pathLength="1"/>
+<path class="i antz-l-dna-1" d="M21 21h6M20.5 24h7M21 27h6" pathLength="1"/>
+</g>
+<path class="a antz-l-dna-2" d="M32 6c0 6-16 8-16 18s16 12 16 18" pathLength="1"/>
+</svg>

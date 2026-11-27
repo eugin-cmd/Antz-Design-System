@@ -1,7 +1,15 @@
 {
   "$description": "Published Antz Design System versions. Written by tools/release.mjs. Never edit by hand.",
-  "latest": "1.2.0-beta.9",
+  "latest": "1.2.0-beta.10",
   "versions": [
+    {
+      "version": "1.2.0-beta.10",
+      "date": "2026-11-27",
+      "channel": "beta",
+      "commit": "86087e2",
+      "path": "releases/v1.2.0-beta.10/",
+      "manifestSha256": "bcd168b2fa5ee3d06ec29d72ab84c7310434651f8a63652ff843b26b8f979671"
+    },
     {
       "version": "1.2.0-beta.9",
       "date": "2026-11-27",

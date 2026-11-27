@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-alert" role="img" aria-label="Alert">
+<defs><linearGradient id="antz-l-alert-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-alert .i,.antz-l-alert .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-alert .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-alert .a{stroke:url(#antz-l-alert-acc)}
+.antz-l-alert .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-alert .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-alert .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+.antz-l-alert-0{stroke-dasharray:1;animation:antz-l-alert-0 2800ms cubic-bezier(0.16, 1, 0.3, 1) both}
+.antz-l-alert-1{stroke-dasharray:1;animation:antz-l-alert-1 2800ms cubic-bezier(0.16, 1, 0.3, 1) both}
+.antz-l-alert-2{animation:antz-l-alert-2 2800ms cubic-bezier(0.34, 1.56, 0.64, 1) both}
+.antz-l-alert-g{transform-origin:24px 40px;animation:antz-l-alert-g 2800ms cubic-bezier(0.65, 0, 0.35, 1) both}
+@keyframes antz-l-alert-0{0%,0%{stroke-dashoffset:1}21%,100%{stroke-dashoffset:0}}
+@keyframes antz-l-alert-1{0%,30%{stroke-dashoffset:1}44%,100%{stroke-dashoffset:0}}
+@keyframes antz-l-alert-2{0%,36%{transform:scale(0);opacity:0}37%{opacity:1}48%,100%{transform:scale(1);opacity:1}}
+@keyframes antz-l-alert-g{0%,52%{transform:rotate(0)}56%{transform:rotate(-7deg)}61%{transform:rotate(6deg)}66%{transform:rotate(-3deg)}71%,100%{transform:rotate(0)}}
+@media (prefers-reduced-motion:reduce){.antz-l-alert *{animation:none!important;stroke-dashoffset:0!important;opacity:1!important;transform:none!important}}
+</style>
+<g class="antz-l-alert-g">
+<path class="i antz-l-alert-0" d="M21.4 8.5a3 3 0 0 1 5.2 0l15 26a3 3 0 0 1-2.6 4.5H9a3 3 0 0 1-2.6-4.5Z" pathLength="1"/>
+<path class="a antz-l-alert-1" d="M24 19v9" pathLength="1"/>
+<circle class="a antz-l-alert-2" cx="24" cy="33" r="0.9"/>
+</g>
+</svg>
