@@ -435,6 +435,16 @@
           "isNew": true
         },
         {
+          "href": "screen-tags-public.html",
+          "title": "Tags · public",
+          "isNew": true
+        },
+        {
+          "href": "screen-animal-tags.html",
+          "title": "Animal · tags",
+          "isNew": true
+        },
+        {
           "href": "screen-medical.html",
           "title": "Medical",
           "isNew": true

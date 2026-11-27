@@ -568,7 +568,7 @@ pp_demo = ('<div class="cell demo-cell--pop">' + pick('doc-site', 'All sites', '
 # Tag chips (DD-009): public pill, private tag shape, priority on the priority picker's scale
 TAG_MARK = {'normal': '!', 'high': '!!', 'emergency': '!!!'}
 TAG_WORD = {'normal': 'Normal', 'high': 'High', 'emergency': 'Emergency'}
-def tag_chip(name, prio=None, private=False, by=None, remove=False, button=True, new=False):
+def tag_chip(name, prio=None, private=False, by=None, remove=False, button=True, new=False, attrs=''):
     """A tag chip. by=('KR', 'Kavya Rao') for a private tag someone else added. A removable chip is a span
     (a button can't hold the remove button); otherwise clickable chips are buttons and static ones spans."""
     cls = 'tag-chip' + (' tag-chip--private' if private else '') + (f' tag-chip--{prio}' if prio else '')
@@ -579,7 +579,7 @@ def tag_chip(name, prio=None, private=False, by=None, remove=False, button=True,
              + f'<span class="tag-chip__label">{esc(name)}</span>' + (f'<span class="sr-only">, {said}</span>' if said else '')
              + (f'<button class="tag-chip__remove" type="button" aria-label="Remove {esc(name)}">{I("x")}</button>' if remove else ''))
     tag = 'button' if button and not remove else 'span'
-    chip = f'<{tag} class="{cls}"' + (' type="button"' if tag == 'button' else '') + f'>{inner}</{tag}>'
+    chip = f'<{tag} class="{cls}"' + (' type="button"' if tag == 'button' else '') + f'{attrs}>{inner}</{tag}>'
     return chip + (' <span class="tag tag--soft">New</span>' if new else '')
 def tag_row(label, chips): return f'<div class="cell demo-cell--row"><span class="t-small t-secondary" style="min-width:var(--space-16)">{esc(label)}</span>{chips}</div>'
 TC_MATRIX = ''.join(tag_row(w, tag_chip('Quarantine', p) + tag_chip('Check weight', p, private=True))
@@ -880,17 +880,35 @@ FETAL = mod('Fetal death', 'All sites', [('Records', [('file', 'coral', 'All fet
     + list_card('Most affected species', rank_rows([('Chital', 1, '31', 'zebra.webp'), ('Gaur', .6, '19', 'elephant.webp'), ('Nilgai', .45, '14', 'giraffe.webp'), ('Sloth bear', .2, '6', 'fur.webp')], 'coral', photo=True))
     + '</div>', extra=SHEET_FETAL, action_attr='data-drawer-open="sheet-fetal"')
 
-# Tags
-TAGS = mod('Tags', 'All sites', [('My tags hub', [('globe', 'teal', 'Public tags', '16'), ('lock', 'navy', 'Private tags', '7')])], 'New tag',
-    '<div class="board">' + band_hero('lagoon', 'Tags · every site', '23', 'tags · on 223 animals, species and places')
-    + widget('sky', 'globe', 'Public tags', '16', 'shared with everyone')
-    + widget('navy', 'lock', 'Private tags', '7', 'only you can see')
-    + widget('mint', 'paw', 'Animal tags', '10', 'tags used on animals')
-    + widget('', 'tag', 'Rarely used', '2', 'public tags on fewer than 3 items', pill='Tidy up or merge', dot='caution')
-    + '</div><div class="board board--2">'
-    + list_card('Most used tags', rank_rows([('Double gate', 1, '34'), ('Endangered', .8, '27'), ('Fire extinguisher', .62, '21'), ('Shy', .53, '18'), ('Playful', .44, '15')], 'teal'))
-    + list_card('Recently created', ''.join(item(f'<span class="rec__icon">{I("tag")}</span>', t, m, w) for t, m, w in [('Vet follow-up', 'Care · Animal · Private', '11 Nov 2026 · Prajwal Shetty'), ('Visitor favourite', 'General · Site · Public', '10 Nov 2026 · Priya Nair'), ('Pregnant', 'Breeding · Animal · Public', '09 Nov 2026 · Meera Iyer')]))
-    + '</div>', extra=SHEET_TAG, action_attr='data-drawer-open="sheet-tag"')
+# Tags (DD-009): the Tags hub and Public tags, from the Tags module prototype
+TG_NAV = [('Tags', [('tag', 'teal', 'Tags hub', '17'), ('globe', 'sky', 'Public tags', '14')])]
+DATE_PRESETS = [('All time', None), ('Today', None), ('Yesterday', None), ('Last 7 days', None), ('Last 30 days', None), ('Last 6 months', None), ('Custom range', None)]
+def tg_toolbar(pid, ph='Search tags', filters=0, history=False, filter_sheet='sheet-tag-filter'):
+    return (search(ph) + pick(pid, 'All time', 'calendar', DATE_PRESETS, site=False).replace('class="pick"', 'class="pick pick--outline"', 1)
+            + f'<button class="btn btn--outline" type="button" data-drawer-open="{filter_sheet}">{I("filter")}Filter{count_html(filters) if filters else ""}</button>'
+            + (f'<button class="icon-btn icon-btn--line" type="button" aria-label="Tag history" data-drawer-open="sheet-tag-history">{I("history")}</button>' if history else ''))
+def line_tabs(opts, sel=0, label='Show'):
+    return f'<div class="segmented segmented--line" role="tablist" aria-label="{esc(label)}">' + ''.join(f'<button type="button" role="tab" aria-selected="{str(i == sel).lower()}">{esc(o)}</button>' for i, o in enumerate(opts)) + '</div>'
+def tag_group(title, chips): return f'<div class="tag-group"><div class="section-head"><b>{esc(title)}</b><span class="t-small t-secondary">{len(chips)}</span></div><div class="chips">{"".join(chips)}</div></div>'
+INFO = ' data-drawer-open="sheet-tag-info"'
+TG_HUB_MAIN = ('<div class="list-head"><div><h2>My tags hub</h2><p>Every tag you can use, by category. Select one to see where it is used.</p></div></div>'
+    + '<section class="list-panel"><div class="toolbar">' + tg_toolbar('tg-hub-date') + '</div>'
+    + '<div class="toolbar">' + tabs_with_counts([('Public tags', 14), ('Private tags', 3)], label='Tag type') + '</div>'
+    + '<div class="tag-groups"><div class="tag-tabs">' + line_tabs(['All', 'Animals', 'Species', 'Sites', 'Sections', 'Enclosures'], label='Used on') + '</div>'
+    + ''.join(tag_group(c, [tag_chip(n, attrs=INFO) for n, _ in t]) for c, t in TAG_CATS[:1])
+    + ''.join(tag_group(c, [tag_chip(n, attrs=INFO) for n, _ in t]) for c, t in TAG_CATS[1:]) + '</div></section>')
+TAGS = mod('Tags', 'All sites', TG_NAV, 'New tag', TG_HUB_MAIN, extra=SHEET_TAG + sheet_tag_filter() + sheet_tag_info(on_record=False), action_attr='data-drawer-open="sheet-tag"')
+TAGS = TAGS.replace('<a class="modnav__item" href="#">' + tile('tag', 'teal') + '<span>Tags hub</span>', '<a class="modnav__item" href="#" aria-current="page">' + tile('tag', 'teal') + '<span>Tags hub</span>', 1).replace('<a class="sidenav__home" href="#" aria-current="page"', '<a class="sidenav__home" href="#"', 1)
+CAT_ROWS = [('Health', 4, 5), ('Behaviour', 3, 3), ('Husbandry', 3, 2), ('Diet', 2, 1), ('General', 2, 3)]
+TG_PUBLIC_MAIN = ('<div class="list-head"><div><h2>Public tags <small>14</small></h2><p>Tags everyone can see, and the categories that group them.</p></div>'
+    + f'<button class="btn btn--outline" type="button">{I("plus")}New category</button></div>'
+    + '<section class="list-panel"><div class="toolbar">' + tabs_with_counts([('Tags', 14), ('Categories', 5)], sel=1, label='Show') + search('Search categories') + '</div>'
+    + '<div class="tag-groups"><div class="card-grid">' + ''.join(
+        f'<a class="row row--outline" href="#"{" data-drawer-open=" + chr(34) + "sheet-category" + chr(34) if n == "Health" else ""}>{tile("grid", "teal")}<span class="row__body"><span class="row__title">{n}</span><span class="row__meta">{t} tags · {e} {"entity" if e == 1 else "entities"}</span></span>{I("chevron-right")}</a>'
+        for n, t, e in CAT_ROWS) + '</div>'
+    + tag_group('Tags in Health', [tag_chip(n, attrs=INFO) for n, _ in TAG_CATS[0][1]]) + '</div></section>')
+TAGS_PUBLIC = mod('Tags', 'All sites', TG_NAV, 'New tag', TG_PUBLIC_MAIN, extra=SHEET_TAG + SHEET_CATEGORY + sheet_tag_info(on_record=False), action_attr='data-drawer-open="sheet-tag"')
+TAGS_PUBLIC = TAGS_PUBLIC.replace('<a class="modnav__item" href="#">' + tile('globe', 'sky') + '<span>Public tags</span>', '<a class="modnav__item" href="#" aria-current="page">' + tile('globe', 'sky') + '<span>Public tags</span>', 1).replace('<a class="sidenav__home" href="#" aria-current="page"', '<a class="sidenav__home" href="#"', 1)
 
 # Medical
 med_w = lambda k, ic, t, n, cap, **kw: widget(k, ic, t, n, cap, **kw)
@@ -1011,7 +1029,7 @@ for slug, title, intro, icon, hue, tpl in [
     ('collections', 'Collections', 'The Collections module home: insights for every species and site, accessions, births, animals to sex, and browsing by class.', 'grid', 'green', COLLECTIONS),
     ('necropsy', 'Necropsy', 'The Necropsy module home: carcasses waiting, incoming, completed and drafts, what is next and what was done.', 'test-tube', 'navy', NECROPSY),
     ('fetal-death', 'Fetal death', 'The Fetal death module home, with the Report fetal death side sheet (choose or scan the enclosure).', 'alert', 'coral', FETAL),
-    ('tags', 'Tags', 'The Tags module home, with the New tag side sheet: name, who can see it, where it is used, category and a preview.', 'tag', 'teal', TAGS),
+    ('tags', 'Tags', 'The Tags hub: every tag by category, public or private, filtered by where it is used. Select a tag to see its info; New tag opens the side sheet.', 'tag', 'teal', TAGS),
     ('medical', 'Medical', 'The Medical module home: a banner hero, medical records with period and status pickers, what needs attention and recent activity.', 'treatment', 'green', MEDICAL),
     ('administer', 'Administer', 'The Administer module home: doses for the chosen day in a date scroller, by state, for animals and groups.', 'syringe', 'coral', ADMINISTER),
     ('lab', 'Lab', 'The Lab module home: requests, pending tests, what is waiting longest and the most requested tests. New lab request opens in the app (a toast says so).', 'test-tube', 'amber', LAB),
@@ -1418,6 +1436,28 @@ screen_page('housing-site', 'Housing · site', 'One site\'s overview: the site h
             ['The side panel becomes a strip; widgets, the browse panel\'s panes and the lists stack.', 'The side panel is a strip above; two widgets per row; the browse panel\'s panes stack.', 'Side panel beside the content; the browse panel shows both panes.', 'Side panel beside the content; four widgets in a row; three enclosure cards per row.'],
             ['Show the chosen section in the list and in the main pane.', 'Open an enclosure in the side sheet; keep the panel visible beside it.'], ['Put more than four figures in the hero.', 'Use the brand green to show a status.'])
 add_link('Screens', 'screen-housing-site.html', 'Housing · site', 'screen-housing.html')
+# ═══ Tags screens (DD-009): Tags · public and Animal · tags ════════════════
+screen_page('tags-public', 'Tags · public', 'Public tags and their categories. Select a category to see its tags, who made it and how many records carry them; New tag and New category open side sheets.', 'globe', 'teal', TAGS_PUBLIC, MOD_CAPS,
+            ['Group public tags by category; keep General as the fallback.', 'Hide New tag and New category from people without tag permissions.'], ['Give each category its own colour.', 'Delete a category without saying where its tags go.'])
+add_link('Screens', 'screen-tags-public.html', 'Tags · public', 'screen-tags.html')
+AT_HERO = (f'<section class="hero-photo hero-photo--site"><img class="hero-photo__img" src="{B}tiger.webp" alt="">'
+           f'<div><a class="hero-photo__back" href="#">{I("chevron-left")}Animals</a><span class="hero-photo__overline">AAID 000482 · Local ID BT-07 · Male</span><h2 class="hero-photo__title">Sheru</h2><p class="hero-photo__sub">Bengal tiger · Panthera tigris tigris · Tiger enclosure 2</p></div>'
+           + tag_strip([tag_chip('Check weight Friday', 'high', private=True, attrs=INFO), tag_chip('Ask vet about limp', 'normal', private=True, attrs=INFO),
+                        tag_chip('Night shift watch', 'emergency', private=True, by=('KR', 'Kavya Rao'), attrs=INFO), tag_chip('Quarantine', 'emergency', attrs=INFO)], 5, 9) + '</section>')
+AT_TABS = ('<div class="tag-tabs">' + line_tabs(['Overview', 'Taxonomy', 'Notes', 'Journal', 'Medical', 'Media', 'Identifier', 'History', 'Incidents', 'Diet', 'Incharges', 'Tags', 'Training'], sel=11, label='Animal record') + '</div>')
+AT_MAIN = (AT_HERO + AT_TABS
+    + '<div class="list-head"><div><h2>Tags <small>9</small></h2><p>Public tags everyone sees, and private ones only their author sees unless shared.</p></div>'
+    + f'<button class="btn btn--primary" type="button" data-drawer-open="sheet-add-tag">{I("plus")}Add private tag</button></div>'
+    + '<section class="list-panel"><div class="toolbar">' + tabs_with_counts([('Public tags', 6), ('Private tags', 3)], sel=1, label='Tag type') + tg_toolbar('at-date', history=True) + '</div>'
+    + '<div class="tag-groups">' + tag_group('My tags', [tag_chip('Ask vet about limp', 'normal', private=True, attrs=INFO), tag_chip('Check weight Friday', 'high', private=True, attrs=INFO)])
+    + tag_group('Tags by others', [tag_chip('Night shift watch', 'emergency', private=True, by=('KR', 'Kavya Rao'), attrs=INFO)]) + '</div></section>')
+ANIMAL_TAGS = with_sheet(module_page('Animals', 'All sites', AN_NAV, None, AT_MAIN, active='All animals', nav={'soft': True}),
+                         sheet_add_tag(private=True) + sheet_tag_info() + sheet_tag_history() + sheet_tag_filter())
+screen_page('animal-tags', 'Animal · tags', 'An animal record on its Tags tab: the tag strip in the hero (latest four and +5), public and private tags with counts, my tags and tags by others, search, date, filter and history. Add private tag opens the side sheet.', 'tag', 'green', ANIMAL_TAGS, MOD_CAPS,
+            ['Show the latest four tags in the hero and the rest in the Tags tab.', 'Add and edit tags in the side sheet, with the priority picker.', 'Show who added a private tag that is not yours.'],
+            ['Show priority by colour alone.', 'Put a second filled button in the tab: the side panel has none here.'])
+add_link('Screens', 'screen-animal-tags.html', 'Animal · tags', 'screen-tags-public.html')
+
 ENC_DOC = ('<div class="doc" id="enclosure-sheet"><h3>Enclosure sheet</h3><p class="lead">A record sheet whose rows carry the <b>animal card details</b>: the photo with the sex tag, the AAID, the name and the scientific name; each row opens the animal. Above them, a <b>figures panel</b> (animals, species and the keeper), the status pill and a section head with how many are shown. The foot splits a secondary action and one main action.</p>'
            '<div class="demo demo--canvas ss-demo"><div class="ss-frame">' + enclosure_sheet('sheet-enclosure-demo', inline=True) + '</div></div></div>')
 put_section('docs-src/side-sheets.html', '<!--enclosure-sheet-->', '<!--/enclosure-sheet-->', ENC_DOC, '<!--usage-->')
