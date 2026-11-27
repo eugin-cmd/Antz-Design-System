@@ -54,7 +54,8 @@ opt-in classes (existing markup unchanged); licensed photos only.
 
 ### Priority scale
 The system already has one priority scale (priority picker, and the Quick add rule "Don't invent a new priority
-scale"): **Normal** `!` (info), **High** `!!` (warning), **Emergency** `!!!` (danger). Tags use it.
+scale"): **Normal** `!` (info), **High** `!!`, **Emergency** `!!!` (danger). Tags use it. High is amber (`caution`), as
+the priority picker's own docs describe it; see the next section.
 The app's levels map one to one: Low → Normal, Moderate → High, High → Emergency. DD-009 tells the app team to rename.
 The prototype's priority control (three pills) becomes the **priority picker** (`.priority`), unchanged.
 
@@ -67,7 +68,11 @@ Shapes (from the prototype):
 Colours (tokens only; text/background pairs that already pass the contrast gate):
 - no priority: `--color-neutral-bg` / `--color-neutral-text`
 - Normal: `--color-info-bg` / `--color-info-text`
-- High: `--color-warning-bg` / `--color-warning-text`
+- High: `--color-caution-bg` / `--color-caution-text` (not `warning`: `warning-bg` #FFEBE5 and `danger-bg` #FFEDEC are
+  almost the same pink, so High and Emergency chips would look alike; caution is clearly amber and matches the
+  prototype's yellow). The priority picker's High uses `warning` today; DD-009 aligns it to `caution` so there is one
+  scale (its docs already say "high is amber"). The record-list priority tag (Urgent, High, External, IPD) is a
+  separate set and is not changed.
 - Emergency: `--color-danger-bg` / `--color-danger-text`
 
 Never colour alone: a chip with a priority starts with its mark (`!`, `!!`, `!!!`, bold, `aria-hidden`), and carries
