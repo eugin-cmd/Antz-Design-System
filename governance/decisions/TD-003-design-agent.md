@@ -37,3 +37,9 @@ named *Antz Design System*, and web and React Native developers are served prope
 ## Not done here
 A shared React Native component package (separate decision, needs the app repository). Switching on the GitHub
 rulesets (the System Owner's clicks). A logged-in, end-to-end session test on a team member's machine.
+
+## Addendum, 27 November 2026: the prototype sandbox
+`/systemprototype` (System Owner approved the design in conversation): a designer's prototype is a plain folder they
+own, pinned to the plugin's release; the helper starts it, adds screens, serves a local preview of every screen in
+four device frames, and shares it as a **Vercel** preview link (the team's existing prototype hosting) only when asked.
+Listing on the Design Links hub uses the separate register-link skill where it is installed.

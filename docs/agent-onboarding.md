@@ -1,13 +1,14 @@
 # The Antz Design System agent: onboarding
 
 The agent is a **Claude Code plugin**, *Antz Design System* (`antz-design-system`), published from this repository.
-It gives everyone the same three commands:
+It gives everyone the same commands:
 
 | Command | What it does |
 | --- | --- |
 | `/systemdesigner` | Builds or changes Antz screens and components **only** from the approved system, checks its own work and reports the version, the parts used and the check result. When something is missing it writes a proposal instead of inventing it. |
 | `/systemauditor` | Audits a product or prototype against the system, **read-only**: code checks (CSS, HTML, MUI, React Native) and, with an address, the rendered screens (contrast in four modes, tap targets, focus, labels). Report graded Critical, Major, Minor, Accessibility. |
 | `/openvisualguide` | Opens the official visual guide, https://antz-design-system.eugin-736.workers.dev/, in Chrome. |
+| `/systemprototype` | The designers' sandbox: start a prototype, add screens, preview them in phone, tablet and desktop frames, check them and share a Vercel link. |
 
 Claude also picks the right one from a plain request ("build…", "audit…", "open the design system"). If another
 plugin uses the same short name, type the full one: `/antz-design-system:systemdesigner`.
@@ -45,6 +46,12 @@ Nobody needs write access to this repository to use the agent.
 **Designers.** Ask for a screen in plain words or paste a Figma link: "/systemdesigner build the Pharmacy home for a
 phone with today's requests". You get an HTML prototype linked to the pinned release, in every colour mode. Then
 "/systemauditor audit it" and share the link.
+
+**Designers: the prototype sandbox.** "Start a Pharmacy prototype" creates a folder pinned to the release. "Add the
+requests screen for phone and tablet", then describe the screen; the agent builds it from the system. "Preview it"
+opens every screen in four device frames (Open larger, light, dark, high contrast). "Check it" runs the auditor.
+"Share it" uploads it to a Vercel preview link in your Vercel account (sign in once with `npx vercel login`) and,
+with the register-link skill, adds it to the Design Links hub.
 
 **Web developers (Next.js + MUI).** "/systemdesigner add a requests page with a status column". The agent uses the
 Antz MUI theme and tokens; `sx` values come from the theme or `var(--…)`, and MUI spacing numbers are fine when they land on the Antz scale (`p: 2` = `--space-4`; the theme exports `antzSpacing`). The check reads `sx`, `style` and

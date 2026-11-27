@@ -23,7 +23,7 @@ The governed design system for every Antz product: web dashboard, tablet and pho
 ## The Antz Design System agent (Claude Code)
 
 Designers and developers use the system through a Claude Code plugin, **Antz Design System**, with three commands:
-`/systemdesigner` (build from the system only), `/systemauditor` (read-only compliance audit) and `/openvisualguide`.
+`/systemdesigner` (build from the system only), `/systemauditor` (read-only compliance audit), `/openvisualguide` and `/systemprototype` (the designers' prototype sandbox, shared on Vercel).
 Install it once in your product repository, pinned to the release you build against:
 
 ```

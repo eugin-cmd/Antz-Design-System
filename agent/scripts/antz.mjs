@@ -20,6 +20,12 @@
                                               Code checks on the paths; rendered checks (contrast in four
                                               modes, tap targets, focus, labels) on each --url and HTML file
      node antz.mjs guide [--print]            /openvisualguide: open the official visual guide in Chrome
+     node antz.mjs new <folder> ["Name"]      /systemprototype: start a prototype pinned to the release
+     node antz.mjs screen <folder> <slug> ["Title"] [--devices mobile,tablet-p,tablet-l,desktop]
+                                              add a screen to a prototype
+     node antz.mjs preview <folder> [--port n] [--open]
+                                              serve the prototype locally: every screen in four device frames
+     node antz.mjs share <folder> [--prod]    upload it to Vercel and print the link (needs a Vercel login)
 
    Source (first match wins):
      --source <path|url> or ANTZ_DS_SOURCE    a clone of the repository, or the site URL
@@ -234,6 +240,10 @@ const commands = {
 
   async audit() { await audit(); },
   async guide() { openGuide(); },
+  async new() { await protoNew(); },
+  async screen() { await protoScreen(); },
+  async preview() { await protoPreview(); },
+  async share() { await protoShare(); },
 };
 
 async function checkerScript() {
@@ -249,6 +259,81 @@ async function checkerScript() {
       script = path.join(dir, 'tools/check.mjs');
     }
     return script;
+}
+
+// ── /systemprototype ────────────────────────────────────────────────────
+// A prototype is a plain folder: index.html (the preview of every screen in four device frames), screens.json
+// (the list) and screens/*.html, each linked to the pinned release on the team site, so it works anywhere it is
+// served, locally or on Vercel.
+const TPL = (f) => fs.readFileSync(new URL('../templates/prototype/' + f, import.meta.url), 'utf8');
+const ALL_DEVICES = ['mobile', 'tablet-p', 'tablet-l', 'desktop'];
+async function protoVars(name) {
+  const v = await version();
+  if (v === 'working') throw new Error('Prototypes use a published release; drop --version working.');
+  let sprite = '';
+  try { const m = (await release('assets/site.js')).match(/insertAdjacentHTML\('afterbegin', ("<svg[\s\S]*?<\/svg>")\)/); if (m) sprite = JSON.parse(m[1]); } catch {}
+  return { VERSION: v, RELEASE: `${DEFAULT_SITE}/releases/v${v}`, NAME: name, ICONS: sprite };
+}
+const fill = (t, vars) => t.replace(/\{\{([A-Z]+)\}\}/g, (m, k) => (k in vars ? vars[k] : m));
+const slugify = (s) => String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'screen';
+function readManifest(dir) { const f = path.join(dir, 'screens.json'); if (!fs.existsSync(f)) throw new Error(`${dir} is not a prototype (no screens.json). Start one with: node antz.mjs new <folder>`); return JSON.parse(fs.readFileSync(f, 'utf8')); }
+async function addScreen(dir, slug, title, devices) {
+  const man = readManifest(dir);
+  const file = `screens/${slugify(slug)}.html`;
+  if (man.screens.some((x) => x.file === file)) throw new Error(`${file} already exists in this prototype.`);
+  const vars = await protoVars(man.name);
+  fs.mkdirSync(path.join(dir, 'screens'), { recursive: true });
+  fs.writeFileSync(path.join(dir, file), fill(TPL('screen.html'), { ...vars, TITLE: title }));
+  man.screens.push({ file, title, devices });
+  fs.writeFileSync(path.join(dir, 'screens.json'), JSON.stringify(man, null, 2) + '\n');
+  return file;
+}
+async function protoNew() {
+  const dir = argv[1]; if (!dir || dir.startsWith('--')) throw new Error('Name the folder, e.g. node antz.mjs new pharmacy-prototype "Pharmacy"');
+  const name = (argv[2] && !argv[2].startsWith('--')) ? argv[2] : path.basename(path.resolve(dir)).replace(/[-_]+/g, ' ').replace(/^./, (c) => c.toUpperCase());
+  if (fs.existsSync(dir) && fs.readdirSync(dir).length) throw new Error(`${dir} already exists and isn't empty.`);
+  const vars = await protoVars(name);
+  fs.mkdirSync(dir, { recursive: true });
+  fs.writeFileSync(path.join(dir, 'index.html'), fill(TPL('preview.html'), vars));
+  fs.writeFileSync(path.join(dir, 'screens.json'), JSON.stringify({ name, designSystem: vars.VERSION, screens: [] }, null, 2) + '\n');
+  fs.writeFileSync(path.join(dir, 'README.md'), `# ${name}\n\nA prototype built on the Antz Design System ${vars.VERSION} with /systemprototype.\n\n- Screens: \`screens/*.html\`, listed in \`screens.json\`.\n- Preview: \`node <antz.mjs> preview ${dir}\` (every screen in four device frames).\n- Check: /systemauditor. Share: \`node <antz.mjs> share ${dir}\` (Vercel).\n- Upgrade: change the version in the links of each screen and of index.html.\n`);
+  const first = await addScreen(dir, 'home', 'Home', ALL_DEVICES);
+  console.log(`✓ Prototype "${name}" in ${dir}, pinned to Antz Design System ${vars.VERSION}.\n  First screen: ${first}\n  Next: build screens with /systemdesigner, then: node antz.mjs preview ${dir}`);
+}
+async function protoScreen() {
+  const [dir, slug] = [argv[1], argv[2]];
+  if (!dir || !slug) throw new Error('Usage: node antz.mjs screen <folder> <slug> ["Title"] [--devices mobile,desktop]');
+  const devOpt = opt('--devices');
+  const title = argv.slice(3).find((x) => !x.startsWith('--')) || slug.replace(/[-_]+/g, ' ').replace(/^./, (c) => c.toUpperCase());
+  const devices = devOpt ? devOpt.split(',').filter((d) => ALL_DEVICES.includes(d)) : ALL_DEVICES;
+  const file = await addScreen(dir, slug, title, devices.length ? devices : ALL_DEVICES);
+  console.log(`✓ Added ${file} ("${title}"; ${devices.join(', ')}).`);
+}
+async function protoPreview() {
+  const dir = path.resolve(argv[1] || '.'); readManifest(dir);
+  const http = await import('node:http');
+  const TYPES = { '.html': 'text/html; charset=utf-8', '.json': 'application/json', '.css': 'text/css', '.js': 'text/javascript', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.webp': 'image/webp' };
+  const server = http.createServer((req, res) => {
+    const rel = decodeURIComponent(new URL(req.url, 'http://x').pathname); const file = path.join(dir, rel.endsWith('/') ? rel + 'index.html' : rel);
+    if (!file.startsWith(dir) || !fs.existsSync(file) || fs.statSync(file).isDirectory()) { res.writeHead(404); res.end('Not found'); return; }
+    res.writeHead(200, { 'content-type': TYPES[path.extname(file)] || 'application/octet-stream', 'cache-control': 'no-cache' }); fs.createReadStream(file).pipe(res);
+  });
+  const portOpt = opt('--port'); const port = portOpt === undefined ? 4710 : Number(portOpt);
+  await new Promise((r, j) => { server.once('error', j); server.listen(port, '127.0.0.1', r); }).catch(() => new Promise((r) => server.listen(0, '127.0.0.1', r)));
+  const url = `http://127.0.0.1:${server.address().port}/`;
+  console.log(`Previewing ${path.basename(dir)} at ${url}  (Ctrl+C to stop)`);
+  if (argv.includes('--open')) spawnSync(process.platform === 'darwin' ? 'open' : process.platform === 'win32' ? 'cmd' : 'xdg-open', process.platform === 'win32' ? ['/c', 'start', '', url] : [url], { stdio: 'ignore' });
+}
+async function protoShare() {
+  const dir = path.resolve(argv[1] || '.'); const man = readManifest(dir);
+  const npx = process.platform === 'win32' ? 'npx.cmd' : 'npx';
+  const who = spawnSync(npx, ['--yes', 'vercel', 'whoami'], { encoding: 'utf8' });
+  if (who.status !== 0) { console.log(`Not shared: this computer isn't signed in to Vercel.\nSign in once with: npx vercel login\nThen run: node antz.mjs share ${argv[1] || '.'}\nUntil then, the prototype is local: node antz.mjs preview ${argv[1] || '.'}`); process.exitCode = 3; return; }
+  const args = ['--yes', 'vercel', 'deploy', dir, '--yes', ...(argv.includes('--prod') ? ['--prod'] : [])];
+  const r = spawnSync(npx, args, { encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 });
+  const url = (r.stdout.match(/https:\/\/[^\s]+\.vercel\.app/g) || []).pop();
+  if (r.status !== 0 || !url) { console.log(`Vercel could not upload it:\n${(r.stderr || r.stdout).trim().split('\n').slice(-6).join('\n')}`); process.exitCode = 1; return; }
+  console.log(`✓ Shared "${man.name}" (Antz Design System ${man.designSystem}): ${url}\n  Vercel preview links can need a Vercel login to open, depending on your team's settings.\n  To list it on the Design Links hub, use the register-link skill if it is installed.`);
 }
 
 // ── /openvisualguide ────────────────────────────────────────────────────

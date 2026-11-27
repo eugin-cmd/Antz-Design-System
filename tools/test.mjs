@@ -36,7 +36,7 @@ const VERSION_NOW = fs.readFileSync(path.join(ROOT, 'VERSION'), 'utf8').trim();
 const mkt = readJ('.claude-plugin/marketplace.json'), plug = readJ('agent/.claude-plugin/plugin.json');
 ok(mkt?.name === 'antz' && mkt.plugins?.some((p) => p.name === 'antz-design-system' && p.source === './agent'), 'marketplace "antz" lists the antz-design-system plugin from ./agent');
 ok(plug?.name === 'antz-design-system' && plug.version === VERSION_NOW, `plugin.json is antz-design-system at the system version (${VERSION_NOW})`);
-for (const sk of ['systemdesigner', 'systemauditor', 'openvisualguide']) {
+for (const sk of ['systemdesigner', 'systemauditor', 'openvisualguide', 'systemprototype']) {
   const md = (() => { try { return fs.readFileSync(path.join(ROOT, 'agent/skills', sk, 'SKILL.md'), 'utf8'); } catch { return ''; } })();
   ok(new RegExp('^---\\nname: ' + sk + '\\n').test(md) && /\ndescription: .{40,}/.test(md), `skill /${sk} exists with a name and a description`);
   ok(/\ndescription: '[^\n]*'\n/.test(md), `skill /${sk}: description is a quoted YAML string (a bare colon or quote would drop it)`);
@@ -67,6 +67,28 @@ const muiSrc = fs.readFileSync(path.join(ROOT, 'dist/mui/antz-mui-theme.js'), 'u
 ok(/"spacing": 8/.test(muiSrc) && /export const antzSpacing = /.test(muiSrc) && /"2": "--space-4"/.test(muiSrc) && /"0\.25": "--space-0-5"/.test(muiSrc), 'MUI theme sets spacing 8 and exports antzSpacing (factor → Antz space token)');
 const bmF = JSON.parse(node('tools/check.mjs', '--json', 'tools/fixtures/bad-mui.tsx').out).findings;
 ok(bmF.some((x) => /MUI spacing p: 3\.5 \(28px\).*nearest Antz step: p: 3/.test(x.msg)), 'off-scale MUI spacing names the nearest Antz step');
+// /systemprototype: start a prototype, add a screen, pass the check, serve the preview (never shares in tests).
+{
+  const os = await import('node:os');
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'antz-proto-')), dir = path.join(tmp, 'proto');
+  const H = path.join(ROOT, 'agent/scripts/antz.mjs'), v = JSON.parse(fs.readFileSync(path.join(ROOT, 'releases/index.json'), 'utf8')).latest;
+  const run = (...a) => { try { return { code: 0, out: execFileSync('node', [H, ...a, '--source', ROOT, '--version', v], { cwd: tmp, stdio: 'pipe' }).toString() }; } catch (e) { return { code: e.status, out: (e.stdout || '').toString() + (e.stderr || '').toString() }; } };
+  const made = run('new', dir, 'Test prototype');
+  const added = run('screen', dir, 'requests', 'Requests', '--devices', 'mobile,tablet-p');
+  const man = (() => { try { return JSON.parse(fs.readFileSync(path.join(dir, 'screens.json'), 'utf8')); } catch { return null; } })();
+  const home = (() => { try { return fs.readFileSync(path.join(dir, 'screens/home.html'), 'utf8'); } catch { return ''; } })();
+  ok(made.code === 0 && added.code === 0 && man?.designSystem === v && man.screens.length === 2 && man.screens[1].devices.join() === 'mobile,tablet-p', 'prototype: new and screen build the folder and the screen list');
+  ok(new RegExp('releases/v' + v.replace(/\./g, '\\.') + '/tokens\\.css').test(home) && /<symbol id="i-/.test(home) && !/\{\{[A-Z]+\}\}/.test(home + fs.readFileSync(path.join(dir, 'index.html'), 'utf8')), 'prototype: screens link the pinned release, carry the icons, no placeholders left');
+  ok(node('tools/check.mjs', dir).code === 0, 'prototype: a new prototype passes the guardrails');
+  ok(run('new', dir).code !== 0, 'prototype: new refuses to overwrite a folder that has files');
+  const { spawn } = await import('node:child_process');
+  const srv = spawn('node', [H, 'preview', dir, '--port', '0', '--source', ROOT, '--version', v], { cwd: tmp });
+  const url = await new Promise((res) => { let buf = ''; srv.stdout.on('data', (d) => { buf += d; const m = buf.match(/http:\/\/127\.0\.0\.1:\d+\//); if (m) res(m[0]); }); setTimeout(() => res(null), 8000); });
+  const codes = url ? await Promise.all(['', 'screens.json', 'screens/home.html', '../package.json'].map((p) => fetch(url + p).then((r) => r.status).catch(() => 0))) : [];
+  srv.kill();
+  ok(url && codes.slice(0, 3).every((c) => c === 200) && codes[3] === 404, 'prototype: preview serves the folder (and nothing outside it)');
+  fs.rmSync(tmp, { recursive: true, force: true });
+}
 // DD-009: the tag chip and the priority picker share one priority scale, on status tokens.
 const css = fs.readFileSync(path.join(ROOT, 'components.css'), 'utf8');
 const rule = (sel) => (css.match(new RegExp('^' + sel.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\s*\\{([^}]*)\\}', 'm')) || [])[1] || '';

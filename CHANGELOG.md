@@ -2,6 +2,15 @@
 
 All notable changes to the Antz Design System. Versions follow semantic versioning: patch for fixes, minor for additions, major for anything renamed, removed or changed in meaning. Every version listed here is published under `releases/` and tagged in Git.
 
+## Unreleased
+
+### The prototype sandbox (/systemprototype)
+- A fourth agent command for designers: **start** a prototype (a folder pinned to the release, with a first screen and the icon set), **add screens** for chosen devices, **preview** every screen locally in phone, tablet and desktop frames on one scale (Open larger, light, dark, high contrast), **check** it with /systemauditor and **share** it as a Vercel preview link (only when asked; needs a Vercel login).
+- Helper commands `new`, `screen`, `preview` and `share`; templates in `agent/templates/prototype/`.
+
+### Docs
+- Selecting a screen frame (All sizes) or a Mobile app phone opens the full-window preview; pages always revalidate (`Cache-Control: no-cache`), so a cached page never hides a new version.
+
 ## 1.2.0-beta.9 (27 November 2026)
 
 Web developers' most common pattern now works: MUI spacing numbers that land on the Antz scale pass the check (`p: 2` = `--space-4`), with `antzSpacing` exported from the MUI theme. Designers can open any screen larger in a full-window preview. 866 tokens, 724 contrast checks.
