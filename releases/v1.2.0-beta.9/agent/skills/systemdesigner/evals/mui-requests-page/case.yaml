@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: mui-requests-page
+expected_outcome: |
+  page.tsx uses MUI components themed with the Antz MUI theme (antzThemeOptions from the pinned release), shows status with the status tokens or the system status pill (never brand green), has one main action, and contains no hex colours or literal font sizes, and MUI spacing numbers only on the Antz scale (antzSpacing) or var(--space-*). The agent ran the check and reported the design system version.
+context:
+  scaffold_script: place-files.sh

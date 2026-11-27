@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-mic" role="img" aria-label="Microphone">
+<defs><linearGradient id="antz-l-mic-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-mic .i,.antz-l-mic .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-mic .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-mic .a{stroke:url(#antz-l-mic-acc)}
+.antz-l-mic .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-mic .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-mic .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+</style>
+<rect class="i antz-l-mic-0" x="18" y="6" width="12" height="22" rx="6" pathLength="1"/>
+<path class="i antz-l-mic-1" d="M11 22a13 13 0 0 0 26 0M24 35v6M18 41h12" pathLength="1"/>
+<path class="a antz-l-mic-2" d="M22 14h4M22 19h4" pathLength="1"/>
+</svg>

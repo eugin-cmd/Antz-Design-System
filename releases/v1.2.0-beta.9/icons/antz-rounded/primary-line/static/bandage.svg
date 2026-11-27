@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-bandage" role="img" aria-label="Wound care">
+<defs><linearGradient id="antz-l-bandage-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-bandage .i,.antz-l-bandage .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-bandage .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-bandage .a{stroke:url(#antz-l-bandage-acc)}
+.antz-l-bandage .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-bandage .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-bandage .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+</style>
+<path class="i antz-l-bandage-0" d="M21.2 36.8 36.8 21.2A7 7 0 0 0 26.8 11.2L11.2 26.8A7 7 0 0 0 21.2 36.8Z" pathLength="1"/>
+<path class="a antz-l-bandage-1" d="M24 18.3 29.7 24 24 29.7 18.3 24Z"/>
+<circle class="a antz-l-bandage-2" cx="24" cy="22" r="0.6"/>
+<circle class="a antz-l-bandage-3" cx="24" cy="26" r="0.6"/>
+<circle class="a antz-l-bandage-4" cx="22" cy="24" r="0.6"/>
+<circle class="a antz-l-bandage-5" cx="26" cy="24" r="0.6"/>
+</svg>

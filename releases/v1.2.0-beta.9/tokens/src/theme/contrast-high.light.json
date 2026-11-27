@@ -1,0 +1,101 @@
+{
+  "color": {
+    "$description": "High contrast, light. Applies with data-contrast=\"high\" or prefers-contrast: more.",
+    "text": {
+      "secondary": {
+        "$type": "color",
+        "$value": "{ink.900}"
+      },
+      "muted": {
+        "$type": "color",
+        "$value": "{ink.700}"
+      },
+      "placeholder": {
+        "$type": "color",
+        "$value": "{ink.700}"
+      },
+      "on-accent": {
+        "$type": "color",
+        "$value": "{ink.0}"
+      },
+      "link": {
+        "$type": "color",
+        "$value": "{green.30}"
+      }
+    },
+    "border": {
+      "$root": {
+        "$type": "color",
+        "$value": "{ink.450}"
+      },
+      "subtle": {
+        "$type": "color",
+        "$value": "{ink.400}"
+      },
+      "strong": {
+        "$type": "color",
+        "$value": "{ink.550}"
+      },
+      "input": {
+        "$type": "color",
+        "$value": "{ink.700}"
+      }
+    },
+    "accent": {
+      "$root": {
+        "$type": "color",
+        "$value": "{green.30}"
+      },
+      "hover": {
+        "$type": "color",
+        "$value": "{green.25}"
+      },
+      "pressed": {
+        "$type": "color",
+        "$value": "{green.20}"
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{green.30}"
+      },
+      "indicator": {
+        "$type": "color",
+        "$value": "{green.30}"
+      }
+    },
+    "focus": {
+      "$value": "{green.20}",
+      "$type": "color"
+    },
+    "success": {
+      "text": {
+        "$type": "color",
+        "$value": "{olive.25}"
+      }
+    },
+    "warning": {
+      "text": {
+        "$type": "color",
+        "$value": "{coral.30}"
+      }
+    },
+    "caution": {
+      "text": {
+        "$type": "color",
+        "$value": "{amber.30}"
+      }
+    },
+    "danger": {
+      "text": {
+        "$type": "color",
+        "$value": "{red.30}"
+      }
+    },
+    "info": {
+      "text": {
+        "$type": "color",
+        "$value": "{sky.30}"
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-stethoscope" role="img" aria-label="Stethoscope">
+<defs><linearGradient id="antz-l-stethoscope-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-stethoscope .i,.antz-l-stethoscope .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-stethoscope .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-stethoscope .a{stroke:url(#antz-l-stethoscope-acc)}
+.antz-l-stethoscope .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-stethoscope .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-stethoscope .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+</style>
+<path class="i antz-l-stethoscope-0" d="M12 6h4M28 6h4M14 6v10a8 8 0 0 0 16 0V6" pathLength="1"/>
+<path class="i antz-l-stethoscope-1" d="M22 24v8a7 7 0 0 0 14 0v-3" pathLength="1"/>
+<circle class="a antz-l-stethoscope-2" cx="36" cy="26" r="3" pathLength="1"/>
+</svg>

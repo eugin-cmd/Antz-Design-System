@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-blood_sample" role="img" aria-label="Blood sample">
+<defs><linearGradient id="antz-l-blood_sample-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-blood_sample .i,.antz-l-blood_sample .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-blood_sample .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-blood_sample .a{stroke:url(#antz-l-blood_sample-acc)}
+.antz-l-blood_sample .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-blood_sample .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-blood_sample .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+.antz-l-blood_sample-0{stroke-dasharray:1;animation:antz-l-blood_sample-0 2800ms cubic-bezier(0.16, 1, 0.3, 1) both}
+.antz-l-blood_sample-1{stroke-dasharray:1;animation:antz-l-blood_sample-1 2800ms cubic-bezier(0.16, 1, 0.3, 1) both}
+.antz-l-blood_sample-2{animation:antz-l-blood_sample-2 2800ms cubic-bezier(0.34, 1.56, 0.64, 1) both}
+@keyframes antz-l-blood_sample-0{0%,0%{stroke-dashoffset:1}21%,100%{stroke-dashoffset:0}}
+@keyframes antz-l-blood_sample-1{0%,30%{stroke-dashoffset:1}44%,100%{stroke-dashoffset:0}}
+@keyframes antz-l-blood_sample-2{0%,33.6%{transform:translateY(-6px);opacity:0}35.1%{opacity:1}49.6%,100%{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){.antz-l-blood_sample *{animation:none!important;stroke-dashoffset:0!important;opacity:1!important;transform:none!important}}
+</style>
+<path class="i antz-l-blood_sample-0" d="M18 6h12M21 6v28a3 3 0 0 0 6 0V6" pathLength="1"/>
+<path class="a antz-l-blood_sample-1" d="M21 24h6" pathLength="1"/>
+<path class="a antz-l-blood_sample-2" d="M36 20s5 5.5 5 9a5 5 0 0 1-10 0c0-3.5 5-9 5-9Z"/>
+</svg>

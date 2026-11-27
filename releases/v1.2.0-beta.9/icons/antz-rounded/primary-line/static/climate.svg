@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-climate" role="img" aria-label="Climate control">
+<defs><linearGradient id="antz-l-climate-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-climate .i,.antz-l-climate .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-climate .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-climate .a{stroke:url(#antz-l-climate-acc)}
+.antz-l-climate .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-climate .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-climate .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+</style>
+<circle class="i antz-l-climate-0" cx="24" cy="24" r="16" pathLength="1"/>
+<circle class="i antz-l-climate-1" cx="24" cy="24" r="9" pathLength="1"/>
+<path class="i antz-l-climate-2" d="M36 24L37.4 24M34.4 30L35.6 30.7M30 34.4L30.7 35.6M24 36L24 37.4M18 34.4L17.3 35.6M13.6 30L12.4 30.7M12 24L10.6 24M13.6 18L12.4 17.3M18 13.6L17.3 12.4M24 12L24 10.6M30 13.6L30.7 12.4M34.4 18L35.6 17.3" pathLength="1"/>
+<path class="a antz-l-climate-3" d="M24 24l4.5-4.5"/>
+<circle class="a antz-l-climate-4" cx="24" cy="24" r="1.2"/>
+</svg>

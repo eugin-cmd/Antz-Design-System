@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-deer" role="img" aria-label="Deer">
+<defs><linearGradient id="antz-l-deer-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-deer .i,.antz-l-deer .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-deer .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-deer .a{stroke:url(#antz-l-deer-acc)}
+.antz-l-deer .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-deer .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-deer .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+</style>
+<path class="i antz-l-deer-0" d="M18 18h12l-2 14a4 4 0 0 1-8 0Z" pathLength="1"/>
+<path class="i antz-l-deer-1" d="M18 19.5c-3 .5-6-.5-7-3 2.5-1 5.5-.5 7 1.5M30 19.5c3 .5 6-.5 7-3-2.5-1-5.5-.5-7 1.5" pathLength="1"/>
+<circle class="i antz-l-deer-2" cx="21.5" cy="23" r="1"/>
+<circle class="i antz-l-deer-3" cx="26.5" cy="23" r="1"/>
+<path class="a antz-l-deer-4" d="M20 18c-3-4-3-8 0-11M18.5 12l-4-2M28 18c3-4 3-8 0-11M29.5 12l4-2" pathLength="1"/>
+<circle class="a antz-l-deer-5" cx="24" cy="32" r="1.4"/>
+</svg>

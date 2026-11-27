@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-link" role="img" aria-label="Link">
+<defs><linearGradient id="antz-l-link-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-link .i,.antz-l-link .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-link .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-link .a{stroke:url(#antz-l-link-acc)}
+.antz-l-link .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-link .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-link .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+</style>
+<path class="i antz-l-link-0" d="M22 15l3-3a7 7 0 0 1 10 10l-3 3" pathLength="1"/>
+<path class="i antz-l-link-1" d="M26 33l-3 3a7 7 0 0 1-10-10l3-3" pathLength="1"/>
+<path class="a antz-l-link-2" d="M20 28l8-8" pathLength="1"/>
+</svg>

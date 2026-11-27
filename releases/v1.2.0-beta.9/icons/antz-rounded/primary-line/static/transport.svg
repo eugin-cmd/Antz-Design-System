@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-transport" role="img" aria-label="Transport">
+<defs><linearGradient id="antz-l-transport-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient><mask id="antz-l-transport-cut" maskUnits="userSpaceOnUse" x="-8" y="-8" width="64" height="64"><rect x="-8" y="-8" width="64" height="64" fill="#fff"/><circle class="k antz-l-transport-1" cx="13" cy="35" r="4" fill="#000"/><circle class="k antz-l-transport-2" cx="34" cy="35" r="4" fill="#000"/></mask></defs>
+<style>
+.antz-l-transport .i,.antz-l-transport .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-transport .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-transport .a{stroke:url(#antz-l-transport-acc)}
+.antz-l-transport .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-transport .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-transport .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+</style>
+<g class="antz-l-transport-g">
+<g mask="url(#antz-l-transport-cut)">
+<path class="i antz-l-transport-0" d="M27 34H7a2 2 0 0 1-2-2V12a2 2 0 0 1 2-2h18a2 2 0 0 1 2 2v22h14v-9l-6-7h-8" pathLength="1"/>
+</g>
+<circle class="a antz-l-transport-1" cx="13" cy="35" r="4"/>
+<circle class="a antz-l-transport-2" cx="34" cy="35" r="4"/>
+</g>
+</svg>

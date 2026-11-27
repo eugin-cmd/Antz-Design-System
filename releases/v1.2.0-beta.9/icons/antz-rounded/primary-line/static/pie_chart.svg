@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-pie_chart" role="img" aria-label="Pie chart">
+<defs><linearGradient id="antz-l-pie_chart-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-pie_chart .i,.antz-l-pie_chart .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-pie_chart .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-pie_chart .a{stroke:url(#antz-l-pie_chart-acc)}
+.antz-l-pie_chart .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-pie_chart .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-pie_chart .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+</style>
+<path class="i antz-l-pie_chart-0" d="M24 8a16 16 0 1 0 16 16H24Z" pathLength="1"/>
+<path class="a antz-l-pie_chart-1" d="M28 4v16h16A16 16 0 0 0 28 4Z"/>
+</svg>
