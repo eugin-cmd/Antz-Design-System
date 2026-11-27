@@ -449,8 +449,8 @@ function rnRoles(cs) {
     status: { success: st('success', 'signalSuccess'), warning: st('warning', 'signalWarning'), caution: st('caution', 'signalCaution'), danger: st('danger', 'signalDanger'), info: st('info', 'signalInfo'), neutral: { bg: cs.neutralBg, text: cs.neutralText, dot: cs.neutralText } },
     priority: { urgent: { bg: cs.dangerBg, text: cs.dangerText }, high: { bg: cs.warningBg, text: cs.warningText }, info: { bg: cs.infoBg, text: cs.infoText }, plain: { bg: cs.tertiarySoft, text: cs.tertiaryText } },
     sex: { M: hue('Sky'), F: hue('Coral'), UD: hue('Amber'), ID: hue('Teal'), G: hue('Navy') },
-    // DD-009: tag chip, on the priority picker's scale (no priority, Normal, High, Emergency)
-    tagChip: { none: { bg: cs.neutralBg, text: cs.neutralText }, normal: { bg: cs.infoBg, text: cs.infoText }, high: { bg: cs.cautionBg, text: cs.cautionText }, emergency: { bg: cs.dangerBg, text: cs.dangerText } },
+    // DD-009: tag chip, on the priority picker's scale (no priority, Normal, High, Critical)
+    tagChip: { none: { bg: cs.neutralBg, text: cs.neutralText }, normal: { bg: cs.infoBg, text: cs.infoText }, high: { bg: cs.cautionBg, text: cs.cautionText }, critical: { bg: cs.dangerBg, text: cs.dangerText } },
   };
 }
 const rn = {

@@ -829,7 +829,7 @@ export declare const antzTheme: {
           "bg": "#FFF4D9",
           "text": "#745B00"
         },
-        "emergency": {
+        "critical": {
           "bg": "#FFEDEC",
           "text": "#BD0538"
         }
@@ -931,7 +931,7 @@ export declare const antzTheme: {
           "bg": "#33270B",
           "text": "#EEC126"
         },
-        "emergency": {
+        "critical": {
           "bg": "#3A1418",
           "text": "#FFB3B6"
         }
@@ -1033,7 +1033,7 @@ export declare const antzTheme: {
           "bg": "#FFF4D9",
           "text": "#574400"
         },
-        "emergency": {
+        "critical": {
           "bg": "#FFEDEC",
           "text": "#920028"
         }
@@ -1135,7 +1135,7 @@ export declare const antzTheme: {
           "bg": "#33270B",
           "text": "#FFE089"
         },
-        "emergency": {
+        "critical": {
           "bg": "#3A1418",
           "text": "#FFDADA"
         }

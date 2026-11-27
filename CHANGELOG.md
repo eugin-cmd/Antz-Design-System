@@ -5,13 +5,14 @@ All notable changes to the Antz Design System. Versions follow semantic versioni
 ## Unreleased
 
 ### Tag module (DD-009, proposed)
-- **Tag chip** (new component page *Tag chips*): a pill for public tags and a tag shape with a point for private ones. Priority uses the priority picker's scale, Normal `!` (info), High `!!` (caution, amber) and Emergency `!!!` (danger), and always shows its mark, so it never depends on colour alone. No priority is neutral. Private tags someone else added show their initials; chips can be removable, new or static, and long names truncate.
+- **Tag chip** (new component page *Tag chips*): a pill for public tags and a tag shape with a point for private ones. Priority uses the priority picker's scale, Normal `!` (info), High `!!` (caution, amber) and Critical `!!!` (danger), and always shows its mark, so it never depends on colour alone. No priority is neutral. Private tags someone else added show their initials; chips can be removable, new or static, and long names truncate.
 - **Tags patterns** (new page *Tags*): the tag strip in a record hero (latest four and +N), add a tag (search, pick or create, priority, schedule, visible to all), tag info (Info and Entities), tag history, and the new tag, category and filter sheets, plus the confirm and custom range dialogs.
 - **Screens:** Tags (the hub; replaces the placeholder Tags home), Tags · public and Animal · tags.
 - **Priority picker:** High is now amber (`caution`), as its docs describe, so it matches tag chips.
-- **React Native:** `roles.tagChip` (none, normal, high, emergency) in every scheme.
+- **Priority names:** Normal, High and **Critical** (was Emergency), in the priority picker and tag chips; same colours and marks. `priority__opt--critical` is the class now; `priority__opt--emergency` still works.
+- **React Native:** `roles.tagChip` (none, normal, high, critical) in every scheme.
 - **Fix:** a long side sheet no longer squashes its search and lists; it scrolls.
-- App team: rename the priority levels Low, Moderate and High to Normal, High and Emergency.
+- App team: rename the priority levels Low, Moderate and High to Normal, High and Critical.
 
 ## 1.2.0-beta.6 (26 November 2026)
 

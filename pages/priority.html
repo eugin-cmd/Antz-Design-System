@@ -10,9 +10,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../tokens.css?v=1164d1ec87">
-<link rel="stylesheet" href="../components.css?v=1164d1ec87">
-<link rel="stylesheet" href="../assets/site.css?v=1164d1ec87">
+<link rel="stylesheet" href="../tokens.css?v=ae85a9505d">
+<link rel="stylesheet" href="../components.css?v=ae85a9505d">
+<link rel="stylesheet" href="../assets/site.css?v=ae85a9505d">
 </head>
 <body data-page="priority">
 <a class="skip" href="#main">Skip to content</a>
@@ -25,20 +25,20 @@
 <div class="page-body"><div class="page-content">
 <section class="tab-panel" id="panel-overview" data-tab="overview" role="tabpanel" aria-labelledby="tab-overview"><div class="doc" id="p-priority">
         <h3>Priority picker</h3>
-        <p class="lead">Three radios drawn as marks: one, two or three exclamation marks, so the level never depends on colour alone. Normal is sky, high is amber and emergency is the danger red. <a href="tag-chips.html">Tag chips</a> use the same scale and marks.</p>
+        <p class="lead">Three radios drawn as marks: one, two or three exclamation marks, so the level never depends on colour alone. Normal is sky, high is amber and critical is the danger red. <a href="tag-chips.html">Tag chips</a> use the same scale and marks.</p>
         <div class="demo" style="max-width:440px">
           <fieldset class="fieldset" style="width:100%"><legend>Priority <button class="field__help" type="button" aria-label="About priority"><svg class="icon"><use href="#i-help"/></svg></button></legend>
             <div class="priority">
               <label class="priority__opt"><input type="radio" name="pr1" checked><span class="priority__mark" aria-hidden="true">!</span>Normal</label>
               <label class="priority__opt priority__opt--high"><input type="radio" name="pr1"><span class="priority__mark" aria-hidden="true">!!</span>High</label>
-              <label class="priority__opt priority__opt--emergency"><input type="radio" name="pr1"><span class="priority__mark" aria-hidden="true">!!!</span>Emergency</label>
+              <label class="priority__opt priority__opt--critical"><input type="radio" name="pr1"><span class="priority__mark" aria-hidden="true">!!!</span>Critical</label>
             </div></fieldset>
         </div>
       
       </div></section><section class="tab-panel" id="panel-usage" data-tab="usage" role="tabpanel" aria-labelledby="tab-usage" hidden><div class="doc" id="p-priority-usage"><h3>Priority picker</h3><div class="dd">
           <div class="do"><b><svg class="icon icon--sm"><use href="#i-check"/></svg>Do</b><ul><li>Default to Normal.</li><li>Keep the exclamation marks so the level reads without colour.</li></ul></div>
-          <div class="dont"><b><svg class="icon icon--sm"><use href="#i-x"/></svg>Don't</b><ul><li>Add a fourth level.</li><li>Use the emergency red outside the priority picker.</li></ul></div>
-        </div></div></section><section class="tab-panel" id="panel-code" data-tab="code" role="tabpanel" aria-labelledby="tab-code" hidden><div class="doc" id="p-priority-code"><h3>Priority picker</h3><h4>Classes</h4><div class="chips"><code>.fieldset</code><code>.field__help</code><code>.icon</code><code>.priority</code><code>.priority__opt</code><code>.priority__mark</code><code>.priority__opt--high</code><code>.priority__opt--emergency</code></div><details class="code" open><summary>Example 1 markup</summary><pre><code>&lt;div class="demo" style="max-width:440px"&gt;
+          <div class="dont"><b><svg class="icon icon--sm"><use href="#i-x"/></svg>Don't</b><ul><li>Add a fourth level.</li><li>Use the critical red outside the priority picker.</li></ul></div>
+        </div></div></section><section class="tab-panel" id="panel-code" data-tab="code" role="tabpanel" aria-labelledby="tab-code" hidden><div class="doc" id="p-priority-code"><h3>Priority picker</h3><h4>Classes</h4><div class="chips"><code>.fieldset</code><code>.field__help</code><code>.icon</code><code>.priority</code><code>.priority__opt</code><code>.priority__mark</code><code>.priority__opt--high</code><code>.priority__opt--critical</code></div><details class="code" open><summary>Example 1 markup</summary><pre><code>&lt;div class="demo" style="max-width:440px"&gt;
   &lt;fieldset class="fieldset" style="width:100%"&gt;
     &lt;legend&gt;
       Priority
@@ -53,8 +53,8 @@
       &lt;label class="priority__opt priority__opt--high"&gt;
         &lt;input type="radio" name="pr1"&gt;&lt;span class="priority__mark" aria-hidden="true"&gt;!!&lt;/span&gt;High
       &lt;/label&gt;
-      &lt;label class="priority__opt priority__opt--emergency"&gt;
-        &lt;input type="radio" name="pr1"&gt;&lt;span class="priority__mark" aria-hidden="true"&gt;!!!&lt;/span&gt;Emergency
+      &lt;label class="priority__opt priority__opt--critical"&gt;
+        &lt;input type="radio" name="pr1"&gt;&lt;span class="priority__mark" aria-hidden="true"&gt;!!!&lt;/span&gt;Critical
       &lt;/label&gt;
     &lt;/div&gt;
   &lt;/fieldset&gt;
@@ -65,7 +65,7 @@
 </main>
 </div>
 <div class="toast-region" id="toasts" role="status" aria-live="polite"></div>
-<script src="../components.js?v=1164d1ec87"></script>
-<script src="../assets/site.js?v=1164d1ec87"></script>
+<script src="../components.js?v=ae85a9505d"></script>
+<script src="../assets/site.js?v=ae85a9505d"></script>
 </body>
 </html>

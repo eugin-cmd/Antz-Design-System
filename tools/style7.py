@@ -216,7 +216,7 @@ def quick_add_dialog(did='quick-add'):
     prio = (f'<fieldset class="field"><legend class="field__label">Priority</legend><div class="priority">'
             f'<label class="priority__opt"><input type="radio" name="{did}-pr" checked><span class="priority__mark" aria-hidden="true">!</span>Normal</label>'
             f'<label class="priority__opt priority__opt--high"><input type="radio" name="{did}-pr"><span class="priority__mark" aria-hidden="true">!!</span>High</label>'
-            f'<label class="priority__opt priority__opt--emergency"><input type="radio" name="{did}-pr"><span class="priority__mark" aria-hidden="true">!!!</span>Emergency</label></div></fieldset>')
+            f'<label class="priority__opt priority__opt--critical"><input type="radio" name="{did}-pr"><span class="priority__mark" aria-hidden="true">!!!</span>Critical</label></div></fieldset>')
     drop = f'<label class="dropzone"><input type="file" multiple><span class="tile-icon tile-icon--lg">{I("image")}</span><b>Upload files</b><span>JPG, PNG, PDF, MP4 or MP3, up to 32 MB</span></label>'
     toggle = f'<label class="toggle-row">{tile("users", "navy")}<div><b>Notify members</b><small>Send this to people following the animal or place</small></div><span class="switch"><input type="checkbox"><span></span></span></label>'
     note = (chips('Note type', ['General', 'Medical', 'Behaviour', 'Husbandry', 'Maintenance'])
@@ -566,8 +566,8 @@ pp_demo = ('<div class="cell demo-cell--pop">' + pick('doc-site', 'All sites', '
            + '<div class="cell demo-cell--pop-lg">' + module_switch('Pharmacy') + '</div>'
            + '<div class="cell">' + f'<div class="btn-split btn-split--narrow"><button class="btn btn--secondary-solid" type="button">{I("plus")}Add to pharmacy</button><span class="pop-anchor"><button class="btn btn--secondary-solid" type="button" aria-label="More ways to add" aria-haspopup="menu" aria-expanded="false" data-popover="doc-add">{I("chevron-down")}</button><div class="popover popover--end" id="doc-add" hidden>' + ''.join(f'<a class="menu__item" href="#">{I(ic)}{t}</a>' for ic, t in [('package', 'Receive medicines'), ('swap', 'Dispense to a keeper'), ('send', 'Request from Central')]) + '</div></span></div></div>')
 # Tag chips (DD-009): public pill, private tag shape, priority on the priority picker's scale
-TAG_MARK = {'normal': '!', 'high': '!!', 'emergency': '!!!'}
-TAG_WORD = {'normal': 'Normal', 'high': 'High', 'emergency': 'Emergency'}
+TAG_MARK = {'normal': '!', 'high': '!!', 'critical': '!!!'}
+TAG_WORD = {'normal': 'Normal', 'high': 'High', 'critical': 'Critical'}
 def tag_chip(name, prio=None, private=False, by=None, remove=False, button=True, new=False, attrs=''):
     """A tag chip. by=('KR', 'Kavya Rao') for a private tag someone else added. A removable chip is a span
     (a button can't hold the remove button); otherwise clickable chips are buttons and static ones spans."""
@@ -583,21 +583,21 @@ def tag_chip(name, prio=None, private=False, by=None, remove=False, button=True,
     return chip + (' <span class="tag tag--soft">New</span>' if new else '')
 def tag_row(label, chips): return f'<div class="cell demo-cell--row"><span class="t-small t-secondary" style="min-width:var(--space-16)">{esc(label)}</span>{chips}</div>'
 TC_MATRIX = ''.join(tag_row(w, tag_chip('Quarantine', p) + tag_chip('Check weight', p, private=True))
-                    for w, p in [('No priority', None), ('Normal', 'normal'), ('High', 'high'), ('Emergency', 'emergency')])
-TC_PARTS = (tag_row('By others', tag_chip('Night shift watch', 'emergency', private=True, by=('KR', 'Kavya Rao')) + tag_chip('Weigh on Monday', private=True, by=('RK', 'Ravi Kumar')))
+                    for w, p in [('No priority', None), ('Normal', 'normal'), ('High', 'high'), ('Critical', 'critical')])
+TC_PARTS = (tag_row('By others', tag_chip('Night shift watch', 'critical', private=True, by=('KR', 'Kavya Rao')) + tag_chip('Weigh on Monday', private=True, by=('RK', 'Ravi Kumar')))
             + tag_row('Removable', tag_chip('Vaccination due', 'normal', remove=True) + tag_chip('Limping left', private=True, remove=True))
             + tag_row('New', tag_chip('Limping left', private=True, remove=True, new=True))
-            + tag_row('Static', tag_chip('Quarantine', 'emergency', button=False) + tag_chip('Ask vet about limp', 'normal', private=True, button=False)))
+            + tag_row('Static', tag_chip('Quarantine', 'critical', button=False) + tag_chip('Ask vet about limp', 'normal', private=True, button=False)))
 TC_LONG = (f'<div class="card" style="max-width:320px"><p class="t-overline">Selected tag</p><div class="chips">'
            + tag_chip('Deep clean pending before the inspection on Friday', 'high', private=True, remove=True)
            + tag_chip('Enrichment trial for the new enclosure layout', 'normal') + '</div></div>')
 write_doc('tag-chips', {'title': 'Tag chips', 'group': 'Components', 'intro': 'Labels on animals, species and places. The shape says who can see the tag: a pill is public, a tag shape is private. The colour and its marks say the priority, on the same scale as the priority picker.', 'icon': 'tag', 'hue': 'teal'},
-          doc('tc-matrix', 'Public and private, by priority', 'A <b>pill</b> is a public tag; the <b>tag shape</b>, with its point, is a private one. Priority uses the priority picker\'s scale: <b>Normal</b> <code>!</code> on info, <b>High</b> <code>!!</code> on caution (amber) and <b>Emergency</b> <code>!!!</code> on danger. A tag with no priority yet is neutral grey. The marks are always shown, so priority never depends on colour alone.', TC_MATRIX, canvas=False)
+          doc('tc-matrix', 'Public and private, by priority', 'A <b>pill</b> is a public tag; the <b>tag shape</b>, with its point, is a private one. Priority uses the priority picker\'s scale: <b>Normal</b> <code>!</code> on info, <b>High</b> <code>!!</code> on caution (amber) and <b>Critical</b> <code>!!!</code> on danger. A tag with no priority yet is neutral grey. The marks are always shown, so priority never depends on colour alone.', TC_MATRIX, canvas=False)
           + doc('tc-parts', 'Parts and states', 'A private tag someone else added starts with their <b>initials</b> (their name is in the tooltip and is read out). A <b>removable</b> chip ends with a remove button; a tag being created gets the small <b>New</b> tag beside it. Clickable chips are buttons that open the tag; in history and previews they are <b>static</b>.', TC_PARTS, canvas=False)
           + doc('tc-long', 'Long names', 'A chip never grows wider than its container: a long name ends with an ellipsis, and the full name is still read out.', TC_LONG, canvas=False),
-          usage('tc-usage', 'Tag chips', ['Use the pill for public tags and the tag shape for private ones.', 'Use the priority scale: no priority, Normal, High, Emergency.', 'Keep the mark on every chip that has a priority.', 'Show who added a private tag that is not yours.'],
+          usage('tc-usage', 'Tag chips', ['Use the pill for public tags and the tag shape for private ones.', 'Use the priority scale: no priority, Normal, High, Critical.', 'Keep the mark on every chip that has a priority.', 'Show who added a private tag that is not yours.'],
                 ['Pick a colour per category or per tag.', 'Use teal, or any hue, to mean "no priority".', 'Show priority by colour alone.', 'Put a filled main button inside a chip list.']),
-          code('tc-code', 'Tag chip', ['.tag-chip', '.tag-chip--private', '.tag-chip--normal', '.tag-chip--high', '.tag-chip--emergency', '.tag-chip__mark', '.tag-chip__label', '.tag-chip__by', '.tag-chip__remove', '.tag-chip__lock'],
+          code('tc-code', 'Tag chip', ['.tag-chip', '.tag-chip--private', '.tag-chip--normal', '.tag-chip--high', '.tag-chip--critical', '.tag-chip__mark', '.tag-chip__label', '.tag-chip__by', '.tag-chip__remove', '.tag-chip__lock'],
                tag_chip('Check weight Friday', 'high', private=True).replace('><', '>\n  <').replace('\n  </button>', '\n</button>')))
 
 write_doc('popovers-and-pickers', {'title': 'Popovers and pickers', 'group': 'Components', 'intro': 'Dropdown panels opened from a trigger: the site and period pickers, the module switcher and the split button\'s menu. Escape and an outside click close them.', 'icon': 'chevron-down', 'hue': 'teal'},
@@ -723,7 +723,7 @@ def checkgroup(label, opts, on=()):
 def priority_picker(name, sel=0):
     return ('<fieldset class="field"><legend class="field__label">Priority</legend><div class="priority">'
             + ''.join(f'<label class="priority__opt{c}"><input type="radio" name="{name}"{" checked" if i == sel else ""}><span class="priority__mark" aria-hidden="true">{m}</span>{w}</label>'
-                      for i, (c, m, w) in enumerate([('', '!', 'Normal'), (' priority__opt--high', '!!', 'High'), (' priority__opt--emergency', '!!!', 'Emergency')])) + '</div></fieldset>')
+                      for i, (c, m, w) in enumerate([('', '!', 'Normal'), (' priority__opt--high', '!!', 'High'), (' priority__opt--critical', '!!!', 'Critical')])) + '</div></fieldset>')
 def fact(icon, hue, label, value, chevron=False): return item(tile(icon, hue), value, label, chevron=chevron)
 def tag_strip(chips, more, total):
     return (f'<div class="tag-strip">{I("tag")}{"".join(chips)}<button class="tag-strip__more" type="button">+{more}<span class="sr-only"> more: show all {total} tags</span></button></div>')
@@ -749,7 +749,7 @@ def sheet_tag_info(view='info', sid='sheet-tag-info', inline=False, on_record=Tr
     seg_ = ('<div class="segmented segmented--stat segmented--block" role="tablist" aria-label="Tag">'
             f'<button type="button" role="tab" aria-selected="{str(view == "info").lower()}"><b>{I("help")}</b><span>Info</span></button>'
             f'<button type="button" role="tab" aria-selected="{str(view == "ents").lower()}"><b>2</b><span>Entities</span></button></div>')
-    hero = f'<div class="sheet-hero"><small>Health · public tag</small><div class="chips">{tag_chip("Quarantine", "emergency", button=False)}</div>{seg_}</div>'
+    hero = f'<div class="sheet-hero"><small>Health · public tag</small><div class="chips">{tag_chip("Quarantine", "critical", button=False)}</div>{seg_}</div>'
     if view == 'info':
         body = (hero + '<div class="list">' + fact('grid', 'teal', 'Tag category', 'Health', False) + fact('calendar', 'coral', 'Deadline', '30 Nov 2026')
                 + fact('users', 'sky', 'Tag type', 'Public') + fact('user', 'green', 'Added by', 'Dr. Meera Nair') + fact('clock', 'amber', 'Added on', '12 Nov 2026')
@@ -763,9 +763,9 @@ def sheet_tag_info(view='info', sid='sheet-tag-info', inline=False, on_record=Tr
     return drawer(sid, 'Tag', 'Quarantine', body, '', inline, head_btns=btns)
 TAG_HISTORY = [('18 Nov 2026', [('plus', 'green', ('Check weight Friday', 'high', True), 'Private tag added by Anil Rathod · 9:14 AM')]),
                ('16 Nov 2026', [('plus', 'green', ('Ask vet about limp', 'normal', True), 'Private tag added by Anil Rathod · 5:02 PM')]),
-               ('15 Nov 2026', [('pencil', 'sky', ('Quarantine', 'emergency', False), 'Public tag updated by Dr. Meera Nair · 4:40 PM')]),
+               ('15 Nov 2026', [('pencil', 'sky', ('Quarantine', 'critical', False), 'Public tag updated by Dr. Meera Nair · 4:40 PM')]),
                ('12 Nov 2026', [('plus', 'green', ('Quarantine', 'high', False), 'Public tag added by Dr. Meera Nair · 10:42 AM')]),
-               ('08 Nov 2026', [('minus', 'coral', ('Post-surgery', 'emergency', False), 'Public tag removed by Anil Rathod · 11:20 AM')])]
+               ('08 Nov 2026', [('minus', 'coral', ('Post-surgery', 'critical', False), 'Public tag removed by Anil Rathod · 11:20 AM')])]
 def sheet_tag_history(sid='sheet-tag-history', inline=False):
     body = item(media('tiger.webp', 'M'), 'AAID: 000482', 'Sheru · Bengal tiger', 'Tiger enclosure 2', chevron=False) + search('Search tags')
     for day, rows in TAG_HISTORY:
@@ -808,7 +808,7 @@ def ss(sheets): return '<div class="ss-demo">' + ''.join(f'<div class="ss-frame"
 SHEET_TAG = sheet_new_tag()
 SHEET_CATEGORY = sheet_category()
 STRIP_DEMO = (f'<section class="hero-photo"><img class="hero-photo__img" src="{B}tiger.webp" alt=""><div><h2 class="hero-photo__title">Sheru</h2><p class="hero-photo__sub">Bengal tiger · Panthera tigris tigris</p></div>'
-              + tag_strip([tag_chip('Check weight Friday', 'high', private=True), tag_chip('Ask vet about limp', 'normal', private=True), tag_chip('Night shift watch', 'emergency', private=True, by=('KR', 'Kavya Rao')), tag_chip('Quarantine', 'emergency')], 5, 9) + '</section>')
+              + tag_strip([tag_chip('Check weight Friday', 'high', private=True), tag_chip('Ask vet about limp', 'normal', private=True), tag_chip('Night shift watch', 'critical', private=True, by=('KR', 'Kavya Rao')), tag_chip('Quarantine', 'critical')], 5, 9) + '</section>')
 write_doc('tags', {'title': 'Tags', 'group': 'Pattern components', 'intro': 'How tags work on a record: the tag strip in its hero, adding a tag with a priority and a schedule, what a tag says about itself, its history, and the sheets for new tags, categories and filters.', 'icon': 'tag', 'hue': 'teal'},
           doc('tg-strip', 'Tag strip', 'The record hero shows the <b>latest four tags</b> and a <b>+N</b> button that opens the Tags tab. Chips keep their own backgrounds, so they read on any photo. On phones the strip wraps onto more lines and still shows four, then +N.', frame(STRIP_DEMO))
           + doc('tg-add', 'Add a tag', 'One side sheet: search, then pick a tag or create one. A new public tag opens <b>New tag</b>; a new private tag is added straight away with the <b>New</b> tag. Then set the <b>priority</b> (the priority picker), an optional <b>deadline or time period</b>, and, for private tags, whether everyone can see it. Add tag stays off until a tag is chosen.',
@@ -1443,14 +1443,14 @@ add_link('Screens', 'screen-tags-public.html', 'Tags · public', 'screen-tags.ht
 AT_HERO = (f'<section class="hero-photo hero-photo--site"><img class="hero-photo__img" src="{B}tiger.webp" alt="">'
            f'<div><a class="hero-photo__back" href="#">{I("chevron-left")}Animals</a><span class="hero-photo__overline">AAID 000482 · Local ID BT-07 · Male</span><h2 class="hero-photo__title">Sheru</h2><p class="hero-photo__sub">Bengal tiger · Panthera tigris tigris · Tiger enclosure 2</p></div>'
            + tag_strip([tag_chip('Check weight Friday', 'high', private=True, attrs=INFO), tag_chip('Ask vet about limp', 'normal', private=True, attrs=INFO),
-                        tag_chip('Night shift watch', 'emergency', private=True, by=('KR', 'Kavya Rao'), attrs=INFO), tag_chip('Quarantine', 'emergency', attrs=INFO)], 5, 9) + '</section>')
+                        tag_chip('Night shift watch', 'critical', private=True, by=('KR', 'Kavya Rao'), attrs=INFO), tag_chip('Quarantine', 'critical', attrs=INFO)], 5, 9) + '</section>')
 AT_TABS = ('<div class="tag-tabs">' + line_tabs(['Overview', 'Taxonomy', 'Notes', 'Journal', 'Medical', 'Media', 'Identifier', 'History', 'Incidents', 'Diet', 'Incharges', 'Tags', 'Training'], sel=11, label='Animal record') + '</div>')
 AT_MAIN = (AT_HERO + AT_TABS
     + '<div class="list-head"><div><h2>Tags <small>9</small></h2><p>Public tags everyone sees, and private ones only their author sees unless shared.</p></div>'
     + f'<button class="btn btn--primary" type="button" data-drawer-open="sheet-add-tag">{I("plus")}Add private tag</button></div>'
     + '<section class="list-panel"><div class="toolbar">' + tabs_with_counts([('Public tags', 6), ('Private tags', 3)], sel=1, label='Tag type') + tg_toolbar('at-date', history=True) + '</div>'
     + '<div class="tag-groups">' + tag_group('My tags', [tag_chip('Ask vet about limp', 'normal', private=True, attrs=INFO), tag_chip('Check weight Friday', 'high', private=True, attrs=INFO)])
-    + tag_group('Tags by others', [tag_chip('Night shift watch', 'emergency', private=True, by=('KR', 'Kavya Rao'), attrs=INFO)]) + '</div></section>')
+    + tag_group('Tags by others', [tag_chip('Night shift watch', 'critical', private=True, by=('KR', 'Kavya Rao'), attrs=INFO)]) + '</div></section>')
 ANIMAL_TAGS = with_sheet(module_page('Animals', 'All sites', AN_NAV, None, AT_MAIN, active='All animals', nav={'soft': True}),
                          sheet_add_tag(private=True) + sheet_tag_info() + sheet_tag_history() + sheet_tag_filter())
 screen_page('animal-tags', 'Animal · tags', 'An animal record on its Tags tab: the tag strip in the hero (latest four and +5), public and private tags with counts, my tags and tags by others, search, date, filter and history. Add private tag opens the side sheet.', 'tag', 'green', ANIMAL_TAGS, MOD_CAPS,

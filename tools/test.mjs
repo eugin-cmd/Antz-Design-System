@@ -24,10 +24,11 @@ ok(good.findings.length === 0, `good fixture passes (${good.findings.length} fin
 // DD-009: the tag chip and the priority picker share one priority scale, on status tokens.
 const css = fs.readFileSync(path.join(ROOT, 'components.css'), 'utf8');
 const rule = (sel) => (css.match(new RegExp('^' + sel.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\s*\\{([^}]*)\\}', 'm')) || [])[1] || '';
-for (const [mod, fam] of [['normal', 'info'], ['high', 'caution'], ['emergency', 'danger']])
+for (const [mod, fam] of [['normal', 'info'], ['high', 'caution'], ['critical', 'danger']])
   ok(rule(`.tag-chip--${mod}`).includes(`--color-${fam}-bg`) && rule(`.tag-chip--${mod}`).includes(`--color-${fam}-text`), `tag chip ${mod} uses the ${fam} tokens`);
 ok(/--color-neutral-bg/.test(rule('.tag-chip')), 'tag chip without a priority is neutral');
 ok(rule('.priority__opt--high').includes('--color-caution-'), 'priority picker High is amber (caution), same scale as tag chips');
+ok(/\.priority__opt--critical\b/.test(css) && /\.priority__opt--emergency\b/.test(css), 'priority picker has Critical, and keeps --emergency as an alias (shipped in beta.6)');
 // DD-009 review fixes: focus shows inside the clipped private shape; +N reads on any photo and says what it shows.
 ok(/inset 0 0 0 var\(--focus-ring-width\) var\(--color-focus\)/.test(rule('.tag-chip--private:focus-visible')), 'private tag chip focus ring is drawn inside its clip-path');
 ok(/background:\s*var\(--color-surface\)/.test(rule('.tag-strip__more')), '+N in the tag strip has an opaque background, so its contrast never depends on the photo');
@@ -39,7 +40,7 @@ const rnSrc = fs.readFileSync(path.join(ROOT, 'dist', 'react-native', 'antz-them
 const rnTheme = JSON.parse(rnSrc.slice(rnSrc.indexOf('{'), rnSrc.lastIndexOf('}') + 1));
 const lightTokens = JSON.parse(fs.readFileSync(path.join(ROOT, 'colors.json'), 'utf8')).light;
 const tc = rnTheme.roles?.light?.tagChip;
-ok(!!tc && ['none', 'normal', 'high', 'emergency'].every((k) => tc[k]?.bg && tc[k]?.text), 'RN theme has tag chip roles: none, normal, high, emergency');
-ok(tc?.high?.bg === lightTokens['color-caution-bg'].$value && tc?.emergency?.text === lightTokens['color-danger-text'].$value, 'RN tag chip High is caution and Emergency is danger, as on the web');
+ok(!!tc && ['none', 'normal', 'high', 'critical'].every((k) => tc[k]?.bg && tc[k]?.text), 'RN theme has tag chip roles: none, normal, high, critical');
+ok(tc?.high?.bg === lightTokens['color-caution-bg'].$value && tc?.critical?.text === lightTokens['color-danger-text'].$value, 'RN tag chip High is caution and Critical is danger, as on the web');
 console.log(fails ? `\n✗ ${fails} self-test failure(s)` : '\n✓ All guardrail self-tests pass.');
 process.exit(fails ? 1 : 0);

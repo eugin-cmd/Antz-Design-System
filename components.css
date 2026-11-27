@@ -544,7 +544,7 @@ label.row { cursor: pointer; }
 .priority__opt { --pr-bg: var(--color-info-solid); --pr-fg: var(--color-info-on-solid); --pr-text: var(--color-info-text);
   position: relative; display: flex; flex-direction: column; align-items: center; gap: var(--space-1-5); min-width: 0; padding: var(--space-1) 0; font-size: var(--text-sm); font-weight: var(--weight-medium); color: var(--color-text-secondary); cursor: pointer; }
 .priority__opt--high { --pr-bg: var(--color-caution-solid); --pr-fg: var(--color-caution-on-solid); --pr-text: var(--color-caution-text); }
-.priority__opt--emergency { --pr-bg: var(--color-danger-solid); --pr-fg: var(--color-danger-on-solid); --pr-text: var(--color-danger-text); }
+.priority__opt--critical, .priority__opt--emergency { /* --emergency: alias, shipped in beta.6 */ --pr-bg: var(--color-danger-solid); --pr-fg: var(--color-danger-on-solid); --pr-text: var(--color-danger-text); }
 .priority__opt input { position: absolute; opacity: 0; pointer-events: none; }
 .priority__mark { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; font-size: var(--text-lg); font-weight: var(--weight-bold); letter-spacing: -.08em; color: var(--color-text-secondary); background: var(--color-surface); box-shadow: inset 0 0 0 1px var(--color-border-strong); transition: background var(--duration-fast), color var(--duration-fast), transform var(--duration-base) var(--ease-move); }
 .priority__opt:hover .priority__mark { box-shadow: inset 0 0 0 1.5px var(--pr-text); }
@@ -561,7 +561,7 @@ label.row { cursor: pointer; }
   font-family: var(--font-body); font-size: var(--text-sm); font-weight: var(--weight-medium); line-height: var(--leading-snug); white-space: nowrap; color: var(--tc-fg); background: var(--tc-bg); vertical-align: middle; }
 .tag-chip--normal { --tc-bg: var(--color-info-bg); --tc-fg: var(--color-info-text); }
 .tag-chip--high { --tc-bg: var(--color-caution-bg); --tc-fg: var(--color-caution-text); }
-.tag-chip--emergency { --tc-bg: var(--color-danger-bg); --tc-fg: var(--color-danger-text); }
+.tag-chip--critical { --tc-bg: var(--color-danger-bg); --tc-fg: var(--color-danger-text); }
 .tag-chip--private { padding-right: calc(var(--space-3) * 2); border-radius: var(--radius-xs) 0 0 var(--radius-xs);
   clip-path: polygon(0 0, calc(100% - 15px) 0, calc(100% - 3px) 42%, calc(100% - 3px) 58%, calc(100% - 15px) 100%, 0 100%); }
 .tag-chip__mark { flex: none; font-weight: var(--weight-bold); }

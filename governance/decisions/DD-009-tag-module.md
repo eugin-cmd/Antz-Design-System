@@ -26,7 +26,7 @@ photo hero.
 
 ## Adopted (all opt-in; existing markup is unchanged unless noted)
 - **Tag chip** `tag-chip` (new component page *Tag chips*): public is a pill, private (`tag-chip--private`) is a tag
-  shape with a point. Priority `tag-chip--normal | --high | --emergency` with its mark `!`, `!!`, `!!!` always shown;
+  shape with a point. Priority `tag-chip--normal | --high | --critical` with its mark `!`, `!!`, `!!!` always shown;
   no priority is neutral. Parts: `__mark`, `__label` (truncates), `__by` (initials of whoever added a private tag that
   is not yours), `__remove`, `__lock` (shown only in Windows high contrast, where the point is dropped).
 - **Tag strip** `tag-strip` and `tag-strip__more`: the latest four tags in a record hero, then "+N".
@@ -35,19 +35,25 @@ photo hero.
   `tag-groups`, `tag-group`, `tag-tabs` (record tabs that scroll sideways); a sheet hero takes a glass switch.
 - **Screens:** **Tags** (the hub, replacing the placeholder Tags home), **Tags · public** (categories) and
   **Animal · tags** (an animal record on its Tags tab).
-- **React Native:** `roles.tagChip` (none, normal, high, emergency) in every scheme.
+- **React Native:** `roles.tagChip` (none, normal, high, critical) in every scheme.
 
 ## Decided under the System Owner's delegation
-1. **One priority scale.** Tags use the priority picker's scale: Normal `!`, High `!!`, Emergency `!!!`. The app's
-   Low, Moderate and High map to Normal, High and Emergency. **App team: rename the levels.**
+1. **One priority scale.** Tags use the priority picker's scale: Normal `!`, High `!!`, Critical `!!!`. The app's
+   Low, Moderate and High map to Normal, High and Critical. **App team: rename the levels.**
 2. **High is amber.** Tag chips use `caution` for High, not `warning`: `warning-bg` (#FFEBE5) and `danger-bg`
-   (#FFEDEC) are almost the same pink, so High and Emergency would look alike. The **priority picker's High now uses
+   (#FFEDEC) are almost the same pink, so High and Critical would look alike. The **priority picker's High now uses
    `caution` too** (its docs already said "high is amber"), so the scale looks the same everywhere. The record-list
    priority tag (Urgent, High, External, IPD) is a separate set and is unchanged.
 3. **No priority is neutral**, not teal, so no colour means two things.
 4. **Initials, not a bar**, for private tags someone else added. The prototype's 4px bar repeated the priority colour.
 5. **Fix to an existing component:** a long side sheet's parts no longer shrink (`.drawer__body > * { flex-shrink: 0 }`);
    the sheet scrolls instead. Found while building the tag history sheet.
+
+6. **Critical, not Emergency** (System Owner, 27 November 2026, after the Figma review): the scale is Normal, High,
+   Critical in the priority picker and tag chips. `priority__opt--critical` is documented; `priority__opt--emergency`
+   stays as an alias because beta.6 shipped it.
+7. **Mobile app** (System Owner, 27 November 2026): the Figma file is the native app. Phone-only *Mobile app · Tags*
+   screens follow its flows on system parts, with an opt-in bottom sheet (`drawer--bottom`).
 
 ## Not adopted, and why
 The prototype's colours (#AFEFEB, #FFF09F, #FFD3D3 and the bar colours: off-token), the Low/Moderate/High names,
