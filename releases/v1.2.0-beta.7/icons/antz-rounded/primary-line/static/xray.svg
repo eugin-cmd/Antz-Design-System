@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-xray" role="img" aria-label="X-ray">
+<defs><linearGradient id="antz-l-xray-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-xray .i,.antz-l-xray .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-xray .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-xray .a{stroke:url(#antz-l-xray-acc)}
+.antz-l-xray .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-xray .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-xray .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+</style>
+<rect class="i antz-l-xray-0" x="7" y="7" width="34" height="34" rx="4" pathLength="1"/>
+<path class="a antz-l-xray-1" d="M24 12v24" pathLength="1"/>
+<path class="a antz-l-xray-2" d="M24 17c-3-1-6-1-9 1M24 17c3-1 6-1 9 1" pathLength="1"/>
+<path class="a antz-l-xray-3" d="M24 23c-3-1-7-1-10 1M24 23c3-1 7-1 10 1" pathLength="1"/>
+<path class="a antz-l-xray-4" d="M24 29c-3-1-6-1-9 1M24 29c3-1 6-1 9 1" pathLength="1"/>
+</svg>

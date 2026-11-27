@@ -1,0 +1,56 @@
+{
+  "bp": {
+    "$description": "Breakpoints. CSS variables cannot go in media queries: use the numbers; the tokens document them and feed scripts.",
+    "tablet": {
+      "$type": "dimension",
+      "$value": "600px",
+      "$description": "Phone is below this"
+    },
+    "tablet-landscape": {
+      "$type": "dimension",
+      "$value": "840px"
+    },
+    "desktop": {
+      "$type": "dimension",
+      "$value": "1024px"
+    },
+    "wide": {
+      "$type": "dimension",
+      "$value": "1280px"
+    },
+    "xwide": {
+      "$type": "dimension",
+      "$value": "1600px"
+    }
+  },
+  "z": {
+    "base": {
+      "$type": "number",
+      "$value": 0
+    },
+    "sticky": {
+      "$type": "number",
+      "$value": 20
+    },
+    "dock": {
+      "$type": "number",
+      "$value": 30
+    },
+    "drawer": {
+      "$type": "number",
+      "$value": 60
+    },
+    "popover": {
+      "$type": "number",
+      "$value": 70
+    },
+    "dialog": {
+      "$type": "number",
+      "$value": 90
+    },
+    "toast": {
+      "$type": "number",
+      "$value": 100
+    }
+  }
+}

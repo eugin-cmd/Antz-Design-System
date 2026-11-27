@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-turtle" role="img" aria-label="Turtle">
+<defs><linearGradient id="antz-l-turtle-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-turtle .i,.antz-l-turtle .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-turtle .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-turtle .a{stroke:url(#antz-l-turtle-acc)}
+.antz-l-turtle .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-turtle .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-turtle .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+</style>
+<path class="i antz-l-turtle-0" d="M8 30a14 14 0 0 1 28 0Z" pathLength="1"/>
+<path class="i antz-l-turtle-1" d="M13 30v5M31 30v5M8 30l-3 2" pathLength="1"/>
+<path class="a antz-l-turtle-2" d="M15 30l3-8h8l3 8M18 22l-2-4.5M26 22l2-4.5" pathLength="1"/>
+<path class="a antz-l-turtle-3" d="M36 30h3a3.5 3.5 0 0 0 0-7h-1.5"/>
+<circle class="a antz-l-turtle-4" cx="39.3" cy="26.5" r="0.8"/>
+</svg>

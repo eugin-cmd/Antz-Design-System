@@ -1,0 +1,575 @@
+{
+  "$description": "Docs navigation. tools/docs.mjs writes it into every page. Add a page here, then run node tools/docs.mjs.",
+  "groups": [
+    {
+      "title": "Getting started",
+      "icon": "home",
+      "links": [
+        {
+          "href": "get-started.html",
+          "title": "Get started"
+        },
+        {
+          "href": "how-it-works.html",
+          "title": "How it works",
+          "isNew": true
+        },
+        {
+          "href": "principles.html",
+          "title": "Principles"
+        }
+      ]
+    },
+    {
+      "title": "Foundations",
+      "icon": "sliders",
+      "links": [
+        {
+          "href": "colour.html",
+          "title": "Colour"
+        },
+        {
+          "href": "colour-guardrails.html",
+          "title": "Colour guardrails"
+        },
+        {
+          "href": "colour-scales.html",
+          "title": "Colour scales",
+          "isNew": true
+        },
+        {
+          "href": "themes.html",
+          "title": "Themes and modes",
+          "isNew": true
+        },
+        {
+          "href": "contrast.html",
+          "title": "Contrast"
+        },
+        {
+          "href": "type.html",
+          "title": "Typography"
+        },
+        {
+          "href": "spacing.html",
+          "title": "Spacing"
+        },
+        {
+          "href": "radii.html",
+          "title": "Radii"
+        },
+        {
+          "href": "elevation.html",
+          "title": "Elevation"
+        },
+        {
+          "href": "motion.html",
+          "title": "Motion"
+        },
+        {
+          "href": "motion-gallery.html",
+          "title": "Motion gallery",
+          "isNew": true
+        },
+        {
+          "href": "gradients.html",
+          "title": "Gradients",
+          "isNew": true
+        },
+        {
+          "href": "icons.html",
+          "title": "Icons"
+        },
+        {
+          "href": "icon-library.html",
+          "title": "ANTZ Rounded icons",
+          "isNew": true
+        },
+        {
+          "href": "layout.html",
+          "title": "Layout and breakpoints"
+        },
+        {
+          "href": "responsive.html",
+          "title": "Responsive"
+        }
+      ]
+    },
+    {
+      "title": "Components",
+      "icon": "grid",
+      "links": [
+        {
+          "href": "buttons.html",
+          "title": "Buttons"
+        },
+        {
+          "href": "text-fields.html",
+          "title": "Text fields"
+        },
+        {
+          "href": "selection.html",
+          "title": "Selection controls"
+        },
+        {
+          "href": "chips-and-tabs.html",
+          "title": "Chips and tabs"
+        },
+        {
+          "href": "tag-chips.html",
+          "title": "Tag chips",
+          "isNew": true
+        },
+        {
+          "href": "badges.html",
+          "title": "Badges and status"
+        },
+        {
+          "href": "avatars.html",
+          "title": "Avatars"
+        },
+        {
+          "href": "cards.html",
+          "title": "Cards"
+        },
+        {
+          "href": "list-rows.html",
+          "title": "List rows"
+        },
+        {
+          "href": "alerts-and-toasts.html",
+          "title": "Alerts and toasts"
+        },
+        {
+          "href": "menus-and-dialogs.html",
+          "title": "Menus and dialogs"
+        },
+        {
+          "href": "popovers-and-pickers.html",
+          "title": "Popovers and pickers",
+          "isNew": true
+        },
+        {
+          "href": "side-sheets.html",
+          "title": "Side sheets",
+          "isNew": true
+        },
+        {
+          "href": "sheet-forms.html",
+          "title": "Side sheet forms",
+          "isNew": true
+        },
+        {
+          "href": "progress.html",
+          "title": "Progress"
+        },
+        {
+          "href": "table.html",
+          "title": "Table"
+        },
+        {
+          "href": "record-lists.html",
+          "title": "Record lists",
+          "isNew": true
+        },
+        {
+          "href": "loading.html",
+          "title": "Loading and empty"
+        },
+        {
+          "href": "navigation.html",
+          "title": "Navigation"
+        }
+      ]
+    },
+    {
+      "title": "Pattern components",
+      "icon": "zap",
+      "links": [
+        {
+          "href": "navigation-drawer.html",
+          "title": "Navigation drawer",
+          "isNew": true
+        },
+        {
+          "href": "launcher.html",
+          "title": "Launcher and headers",
+          "isNew": true
+        },
+        {
+          "href": "role-homes.html",
+          "title": "Role homes",
+          "isNew": true
+        },
+        {
+          "href": "widget-board.html",
+          "title": "Widget board",
+          "isNew": true
+        },
+        {
+          "href": "module-bar.html",
+          "title": "Module bar and side panel",
+          "isNew": true
+        },
+        {
+          "href": "record-detail.html",
+          "title": "Record detail",
+          "isNew": true
+        },
+        {
+          "href": "browse-panel.html",
+          "title": "Browse panel",
+          "isNew": true
+        },
+        {
+          "href": "module-homes.html",
+          "title": "Module homes",
+          "isNew": true
+        },
+        {
+          "href": "quick-add.html",
+          "title": "Quick add",
+          "isNew": true
+        },
+        {
+          "href": "tags.html",
+          "title": "Tags",
+          "isNew": true
+        },
+        {
+          "href": "top-bar.html",
+          "title": "Top bar and action bar"
+        },
+        {
+          "href": "post-card.html",
+          "title": "Post card"
+        },
+        {
+          "href": "attachments.html",
+          "title": "Attachments"
+        },
+        {
+          "href": "priority.html",
+          "title": "Priority picker"
+        },
+        {
+          "href": "lists.html",
+          "title": "Lists"
+        },
+        {
+          "href": "date-picker.html",
+          "title": "Date picker"
+        },
+        {
+          "href": "animal-card.html",
+          "title": "Animal card"
+        },
+        {
+          "href": "progress-ring.html",
+          "title": "Progress bar and ring"
+        }
+      ]
+    },
+    {
+      "title": "Stat cards",
+      "icon": "trend",
+      "links": [
+        {
+          "href": "dashboard-widgets.html",
+          "title": "Dashboard widgets",
+          "isNew": true
+        },
+        {
+          "href": "lists-and-charts.html",
+          "title": "Lists and charts",
+          "isNew": true
+        },
+        {
+          "href": "timelines-and-charts.html",
+          "title": "Timelines and charts",
+          "isNew": true
+        },
+        {
+          "href": "stat-figures.html",
+          "title": "Stat figures"
+        },
+        {
+          "href": "key-insights.html",
+          "title": "Key insights"
+        },
+        {
+          "href": "insights-summary.html",
+          "title": "Insights summary"
+        },
+        {
+          "href": "site-card.html",
+          "title": "Site card"
+        },
+        {
+          "href": "day-week-month.html",
+          "title": "Day, week, month"
+        }
+      ]
+    },
+    {
+      "title": "Screens",
+      "icon": "smartphone",
+      "links": [
+        {
+          "href": "screens.html",
+          "title": "All screens"
+        },
+        {
+          "href": "screen-home.html",
+          "title": "Home",
+          "isNew": true
+        },
+        {
+          "href": "screen-home-pharmacy.html",
+          "title": "Home · one module",
+          "isNew": true
+        },
+        {
+          "href": "screen-home-animal-care.html",
+          "title": "Home · three modules",
+          "isNew": true
+        },
+        {
+          "href": "screen-home-medical.html",
+          "title": "Home · seven modules",
+          "isNew": true
+        },
+        {
+          "href": "screen-housing.html",
+          "title": "Housing",
+          "isNew": true
+        },
+        {
+          "href": "screen-housing-site.html",
+          "title": "Housing · site",
+          "isNew": true
+        },
+        {
+          "href": "screen-animals.html",
+          "title": "Animals",
+          "isNew": true
+        },
+        {
+          "href": "screen-animals-recent.html",
+          "title": "Recently added",
+          "isNew": true
+        },
+        {
+          "href": "screen-eggs.html",
+          "title": "Eggs",
+          "isNew": true
+        },
+        {
+          "href": "screen-mortality.html",
+          "title": "Mortality",
+          "isNew": true
+        },
+        {
+          "href": "screen-pharmacy.html",
+          "title": "Pharmacy",
+          "isNew": true
+        },
+        {
+          "href": "screen-pharmacy-requests.html",
+          "title": "Pharmacy · requests",
+          "isNew": true
+        },
+        {
+          "href": "screen-pharmacy-request-detail.html",
+          "title": "Pharmacy · request detail",
+          "isNew": true
+        },
+        {
+          "href": "screen-pharmacy-dispense.html",
+          "title": "Pharmacy · dispense",
+          "isNew": true
+        },
+        {
+          "href": "screen-pharmacy-dispense-detail.html",
+          "title": "Pharmacy · dispense detail",
+          "isNew": true
+        },
+        {
+          "href": "screen-hospital.html",
+          "title": "Hospital",
+          "isNew": true
+        },
+        {
+          "href": "screen-hospital-patients.html",
+          "title": "Hospital · patients",
+          "isNew": true
+        },
+        {
+          "href": "screen-hospital-incoming.html",
+          "title": "Hospital · incoming",
+          "isNew": true
+        },
+        {
+          "href": "screen-announcements.html",
+          "title": "Announcements",
+          "isNew": true
+        },
+        {
+          "href": "screen-collections.html",
+          "title": "Collections",
+          "isNew": true
+        },
+        {
+          "href": "screen-necropsy.html",
+          "title": "Necropsy",
+          "isNew": true
+        },
+        {
+          "href": "screen-fetal-death.html",
+          "title": "Fetal death",
+          "isNew": true
+        },
+        {
+          "href": "screen-tags.html",
+          "title": "Tags",
+          "isNew": true
+        },
+        {
+          "href": "screen-tags-public.html",
+          "title": "Tags · public",
+          "isNew": true
+        },
+        {
+          "href": "screen-animal-tags.html",
+          "title": "Animal · tags",
+          "isNew": true
+        },
+        {
+          "href": "mobile-tags.html",
+          "title": "Mobile app · Tags",
+          "isNew": true
+        },
+        {
+          "href": "screen-medical.html",
+          "title": "Medical",
+          "isNew": true
+        },
+        {
+          "href": "screen-administer.html",
+          "title": "Administer",
+          "isNew": true
+        },
+        {
+          "href": "screen-lab.html",
+          "title": "Lab",
+          "isNew": true
+        },
+        {
+          "href": "screen-approvals.html",
+          "title": "Approvals",
+          "isNew": true
+        },
+        {
+          "href": "screen-reports.html",
+          "title": "Reports",
+          "isNew": true
+        },
+        {
+          "href": "screen-security.html",
+          "title": "Security",
+          "isNew": true
+        },
+        {
+          "href": "screen-focus-hub.html",
+          "title": "Focus hub",
+          "isNew": true
+        },
+        {
+          "href": "screen-users.html",
+          "title": "Users",
+          "isNew": true
+        },
+        {
+          "href": "screen-help-desk.html",
+          "title": "Help desk",
+          "isNew": true
+        },
+        {
+          "href": "screen-people.html",
+          "title": "Choose people"
+        },
+        {
+          "href": "screen-task.html",
+          "title": "Add task"
+        },
+        {
+          "href": "screen-request.html",
+          "title": "New request"
+        },
+        {
+          "href": "screen-date.html",
+          "title": "Set a date"
+        }
+      ]
+    },
+    {
+      "title": "Content",
+      "icon": "chat",
+      "links": [
+        {
+          "href": "voice.html",
+          "title": "Voice and words"
+        }
+      ]
+    },
+    {
+      "title": "Governance",
+      "icon": "shield",
+      "links": [
+        {
+          "href": "guardrails.html",
+          "title": "Guardrails",
+          "isNew": true
+        },
+        {
+          "href": "governance.html",
+          "title": "Roles, changes and exceptions",
+          "isNew": true
+        },
+        {
+          "href": "versions.html",
+          "title": "Versions and releases",
+          "isNew": true
+        }
+      ]
+    },
+    {
+      "title": "Resources",
+      "icon": "download",
+      "links": [
+        {
+          "href": "../tester.html",
+          "title": "Theme tester",
+          "isNew": true
+        },
+        {
+          "href": "resources.html",
+          "title": "Downloads"
+        },
+        {
+          "href": "developers.html",
+          "title": "Developer outputs",
+          "isNew": true
+        },
+        {
+          "href": "figma-mapping.html",
+          "title": "Figma mapping"
+        },
+        {
+          "href": "import-theme.html",
+          "title": "Import theme"
+        }
+      ]
+    }
+  ]
+}

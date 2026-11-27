@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: react-native-stat-card
+expected_outcome: |
+  SpeciesStatCard.tsx takes every colour, spacing, radius, font size and weight from antzTheme, picks the scheme from useColorScheme (light/dark), uses success (not brand) colour for a positive trend, and contains no hard-coded colours or off-scale numbers.
+context:
+  scaffold_script: place-files.sh
