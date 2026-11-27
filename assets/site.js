@@ -183,7 +183,8 @@
       fitDevices();
     }
     if (seg) $$('button', seg).forEach(function (b) { b.addEventListener('click', function () { setView(b.dataset.view, true); }); });
-    $$('.device', view).forEach(function (d) { d.addEventListener('click', function (e) { if (wrap.dataset.view === 'all' && !e.target.closest('button, a, input, label, select, textarea')) setView(d.dataset.device, true); }); });
+    // In All sizes, selecting a frame opens it larger (the full-window preview, set up below).
+    $$('.device', view).forEach(function (d) { d.addEventListener('click', function (e) { if (wrap.dataset.view === 'all' && !e.target.closest('button, a, input, label, select, textarea, summary, [role="tab"]')) { var ob = $('.spv-open-btn', d); if (ob) ob.click(); } }); });
     setView(saved && (saved === 'all' || DEVICES[saved]) ? saved : 'all');
   });
   function fitDevices() {
@@ -309,6 +310,8 @@
     btn.setAttribute('aria-label', 'Open ' + (cap ? cap.textContent : 'this screen') + ' larger');
     btn.addEventListener('click', function () { spvOpen({ title: (cap ? cap.textContent + ' · ' : '') + spvTitle(), frame: fr }, btn); });
     ($('figcaption', fig) || fr.parentNode).appendChild(btn);
+    // Selecting the phone anywhere that isn't a control opens it larger too.
+    fr.addEventListener('click', function (e) { if (!e.target.closest('button, a, input, label, select, textarea, summary, [role="tab"]')) { e.preventDefault(); btn.click(); } });
   });
 
   /* ── Theme toggle ── */
