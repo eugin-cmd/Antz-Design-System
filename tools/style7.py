@@ -744,15 +744,15 @@ def priority_picker(name, sel=0):
 def fact(icon, hue, label, value, chevron=False): return item(tile(icon, hue), value, label, chevron=chevron)
 def tag_strip(chips, more, total):
     return (f'<div class="tag-strip">{I("tag")}{"".join(chips)}<button class="tag-strip__more" type="button">+{more}<span class="sr-only"> more: show all {total} tags</span></button></div>')
-TAG_CATS = [('Health', [('Quarantine', None), ('Under observation', None), ('Post-surgery', None), ('Vaccination due', None)]),
-            ('Behaviour', [('Aggressive', None), ('Shy feeder', None), ('Breeding pair', None)]),
-            ('Husbandry', [('Deep clean pending', None), ('Under maintenance', None), ('Enrichment trial', None)]),
-            ('Diet', [('Special diet', None), ('Hand feeding', None)]), ('General', [('VIP visit', None), ('Photo ready', None)])]
+TAG_CATS = [('Health', [('Quarantine', 'critical'), ('Under observation', 'high'), ('Post-surgery', 'critical'), ('Vaccination due', 'normal')]),
+            ('Behaviour', [('Aggressive', 'critical'), ('Shy feeder', 'normal'), ('Breeding pair', None)]),
+            ('Husbandry', [('Deep clean pending', 'high'), ('Under maintenance', 'normal'), ('Enrichment trial', None)]),
+            ('Diet', [('Special diet', 'high'), ('Hand feeding', 'normal')]), ('General', [('VIP visit', None), ('Photo ready', None)])]
 def sheet_add_tag(private=False, step=2, sid='sheet-add-tag', inline=False):
     kind = 'private' if private else 'public'
     if step == 1:
         body = (search('Search tags') + item(tile('plus', 'green'), 'Limping left', f'Create it as a {kind} tag and add it')
-                + f'<p class="field__label">Choose a tag</p><div class="chips">' + ''.join(tag_chip(n, private=private) for n in (['Check weight Friday', 'Ask vet about limp'] if private else ['Vaccination due', 'Special diet', 'Hand feeding', 'Photo ready', 'Enrichment trial'])) + '</div>')
+                + f'<p class="field__label">Choose a tag</p><div class="chips">' + ''.join(tag_chip(n, pr, private=private) for n, pr in ([('Check weight Friday', 'high'), ('Ask vet about limp', 'normal')] if private else [('Vaccination due', 'normal'), ('Special diet', 'high'), ('Hand feeding', 'normal'), ('Photo ready', None), ('Enrichment trial', None)])) + '</div>')
         return drawer(sid, 'Sheru · Bengal tiger', f'Add {kind} tag', body, foot_split('Cancel', 'Add tag', b_disabled=True), inline)
     pick = tag_chip('Limping left', private=True, remove=True, new=True) if private else tag_chip('Vaccination due', 'normal', remove=True)
     body = (f'<div class="field"><span class="field__label">Selected tag</span><div class="chips">{pick}</div></div>'
@@ -805,7 +805,7 @@ def sheet_new_tag(sid='sheet-tag', inline=False):
     return drawer(sid, 'Public tags', 'New tag', body, foot_one('Create tag'), inline)
 def sheet_category(sid='sheet-category', inline=False):
     body = (figures([('4', 'Linked tags'), ('5', 'Linked entities')]) + '<div class="list">' + fact('user', 'green', 'Created by', 'Dr. Meera Nair') + fact('clock', 'amber', 'Added on', '21 May 2026') + '</div>'
-            + '<div class="section-head"><b>Tags in this category</b><span class="t-small t-secondary">4</span></div><div class="chips">' + ''.join(tag_chip(n, button=False) for n, _ in TAG_CATS[0][1]) + '</div>')
+            + '<div class="section-head"><b>Tags in this category</b><span class="t-small t-secondary">4</span></div><div class="chips">' + ''.join(tag_chip(n, pr, button=False) for n, pr in TAG_CATS[0][1]) + '</div>')
     return drawer(sid, 'Category', 'Health', body, foot_split('Edit', 'Delete', b_cls='btn--danger', a_icon='pencil', b_icon='trash'), inline)
 def sheet_tag_filter(sid='sheet-tag-filter', inline=False):
     people = ''.join(f'<label class="row row--outline">{avatar(i, h).replace("avatar avatar--sm", "avatar")}<span class="row__body"><span class="row__title">{esc(n)}</span><span class="row__meta">{esc(r)}</span></span><span class="check"><input type="checkbox"{" checked" if c else ""} aria-label="Select {esc(n)}"></span></label>'
@@ -912,8 +912,8 @@ TG_HUB_MAIN = ('<div class="list-head"><div><h2>My tags hub</h2><p>Every tag you
     + '<section class="list-panel"><div class="toolbar">' + tg_toolbar('tg-hub-date') + '</div>'
     + '<div class="toolbar">' + tabs_with_counts([('Public tags', 14), ('Private tags', 3)], label='Tag type') + '</div>'
     + '<div class="tag-groups"><div class="tag-tabs">' + line_tabs(['All', 'Animals', 'Species', 'Sites', 'Sections', 'Enclosures'], label='Used on') + '</div>'
-    + ''.join(tag_group(c, [tag_chip(n, attrs=INFO) for n, _ in t]) for c, t in TAG_CATS[:1])
-    + ''.join(tag_group(c, [tag_chip(n, attrs=INFO) for n, _ in t]) for c, t in TAG_CATS[1:]) + '</div></section>')
+    + ''.join(tag_group(c, [tag_chip(n, pr, attrs=INFO) for n, pr in t]) for c, t in TAG_CATS[:1])
+    + ''.join(tag_group(c, [tag_chip(n, pr, attrs=INFO) for n, pr in t]) for c, t in TAG_CATS[1:]) + '</div></section>')
 TAGS = mod('Tags', 'All sites', TG_NAV, 'New tag', TG_HUB_MAIN, extra=SHEET_TAG + sheet_tag_filter() + sheet_tag_info(on_record=False), action_attr='data-drawer-open="sheet-tag"')
 TAGS = TAGS.replace('<a class="modnav__item" href="#">' + tile('tag', 'teal') + '<span>Tags hub</span>', '<a class="modnav__item" href="#" aria-current="page">' + tile('tag', 'teal') + '<span>Tags hub</span>', 1).replace('<a class="sidenav__home" href="#" aria-current="page"', '<a class="sidenav__home" href="#"', 1)
 CAT_ROWS = [('Health', 4, 5), ('Behaviour', 3, 3), ('Husbandry', 3, 2), ('Diet', 2, 1), ('General', 2, 3)]
@@ -923,7 +923,7 @@ TG_PUBLIC_MAIN = ('<div class="list-head"><div><h2>Public tags <small>14</small>
     + '<div class="tag-groups"><div class="card-grid">' + ''.join(
         f'<a class="row row--outline" href="#"{" data-drawer-open=" + chr(34) + "sheet-category" + chr(34) if n == "Health" else ""}>{tile("grid", "teal")}<span class="row__body"><span class="row__title">{n}</span><span class="row__meta">{t} tags · {e} {"entity" if e == 1 else "entities"}</span></span>{I("chevron-right")}</a>'
         for n, t, e in CAT_ROWS) + '</div>'
-    + tag_group('Tags in Health', [tag_chip(n, attrs=INFO) for n, _ in TAG_CATS[0][1]]) + '</div></section>')
+    + tag_group('Tags in Health', [tag_chip(n, pr, attrs=INFO) for n, pr in TAG_CATS[0][1]]) + '</div></section>')
 TAGS_PUBLIC = mod('Tags', 'All sites', TG_NAV, 'New tag', TG_PUBLIC_MAIN, extra=SHEET_TAG + SHEET_CATEGORY + sheet_tag_info(on_record=False), action_attr='data-drawer-open="sheet-tag"')
 TAGS_PUBLIC = TAGS_PUBLIC.replace('<a class="modnav__item" href="#">' + tile('globe', 'sky') + '<span>Public tags</span>', '<a class="modnav__item" href="#" aria-current="page">' + tile('globe', 'sky') + '<span>Public tags</span>', 1).replace('<a class="sidenav__home" href="#" aria-current="page"', '<a class="sidenav__home" href="#"', 1)
 
@@ -1494,13 +1494,13 @@ def search_row(ph, history=False):
     return (f'<div class="search-row">{search(ph)}<button class="icon-btn icon-btn--line" type="button" aria-label="Filter">{I("filter")}</button>'
             + (f'<button class="icon-btn icon-btn--line" type="button" aria-label="Tag history">{I("history")}</button>' if history else '') + '</div>')
 def block_tabs(opts, sel=0, label='Show'): return '<div class="tag-tabs">' + line_tabs(opts, sel, label) + '</div>'
-M_CATS = [('Medical', ['Identification verified', 'Long-term monitoring', 'Microchip verified', 'No current concerns', 'Off exhibit']),
-          ('Health', ['Under observation', 'Post-surgery', 'Vaccination due']), ('Behaviour', ['Aggressive', 'Shy feeder', 'Breeding pair'])]
+M_CATS = [('Medical', [('Identification verified', 'normal'), ('Long-term monitoring', 'high'), ('Microchip verified', None), ('No current concerns', None), ('Off exhibit', 'normal')]),
+          ('Health', [('Under observation', 'high'), ('Post-surgery', 'critical'), ('Vaccination due', 'normal')]), ('Behaviour', [('Aggressive', 'critical'), ('Shy feeder', 'normal'), ('Breeding pair', None)])]
 M_HUB = app('My tags hub', search_row('Search tags') + block_tabs(['Public tags', 'Private tags'], label='Tag type')
             + block_tabs(['All', 'Animals', 'Species', 'Sites', 'Sections', 'Enclosures'], 0, 'Used on')
-            + ''.join(tag_group(c, [tag_chip(n) for n in t]) for c, t in M_CATS), fab='Add a tag')
+            + ''.join(tag_group(c, [tag_chip(n, pr) for n, pr in t]) for c, t in M_CATS), fab='Add a tag')
 def ent_head(view):
-    return (f'<div class="sheet-hero"><small>Medical · public tag</small><div class="chips">{tag_chip("Identification verified", button=False)}</div>'
+    return (f'<div class="sheet-hero"><small>Medical · public tag</small><div class="chips">{tag_chip("Identification verified", "normal", button=False)}</div>'
             '<div class="segmented segmented--stat segmented--block" role="tablist" aria-label="Tag">'
             f'<button type="button" role="tab" aria-selected="{str(view == "ents").lower()}"><b>49</b><span>Entities</span></button>'
             f'<button type="button" role="tab" aria-selected="{str(view == "info").lower()}"><b>{I("help")}</b><span>Info</span></button></div></div>')
@@ -1511,7 +1511,7 @@ M_INFO = app('Identification verified', ent_head('info') + '<div class="list">' 
              + '<div class="card card--sunken"><p class="t-overline">Description</p><p class="t-small">The animal\'s identity was checked against its microchip and records.</p></div>')
 M_PUB = app('Public tags', seg(['Tags', 'Categories'], 0, 'Show').replace('class="segmented"', 'class="segmented segmented--block"', 1)
             + block_tabs(['All 14', 'Health 4', 'Behaviour 3', 'Husbandry 3', 'Diet 2', 'General 2'], label='Category') + search_row('Search tags')
-            + '<div class="chips">' + ''.join(tag_chip(n) for _, t in TAG_CATS for n, _ in t) + '</div>', fab='New tag')
+            + '<div class="chips">' + ''.join(tag_chip(n, pr) for _, t in TAG_CATS for n, pr in t) + '</div>', fab='New tag')
 M_CATS_SCREEN = app('Public tags', seg(['Tags', 'Categories'], 1, 'Show').replace('class="segmented"', 'class="segmented segmented--block"', 1) + search('Search categories')
             + '<div class="card-grid" style="gap:var(--space-2)">' + ''.join(f'<a class="row row--outline" href="#">{tile("grid", "teal")}<span class="row__body"><span class="row__title">{n}</span><span class="row__meta">{t} tags · {e} {"entity" if e == 1 else "entities"}</span></span>{I("chevron-right")}</a>' for n, t, e in CAT_ROWS) + '</div>', fab='New category')
 M_NEW_BODY = (fld('Tag name', '<input class="input" maxlength="50" placeholder="For example, Hand reared">')
@@ -1540,7 +1540,7 @@ M_PRIVATE = m_animal(1, tag_group('My tags', [tag_chip('In transit', 'high', pri
 M_EMPTY_BODY = f'<div class="empty">{tile("tag", "teal")}<b>No private tags yet</b><span>Only you see the private tags you add here, unless you share them.</span></div>'
 M_EMPTY = m_animal(1, M_EMPTY_BODY)
 M_ADD1 = m_animal(1, M_EMPTY_BODY, bsheet('m-add-1', 'Add private tag', search('Search or create a tag') + item(tile('plus', 'green'), 'Elderly', 'Create it as a private tag and add it')
-                  + '<p class="field__label">Choose a tag</p><div class="chips">' + ''.join(tag_chip(n, private=True) for n in ['Sick', 'In transit', 'Not eating', 'Special diet']) + '</div>', foot_split('Cancel', 'Add tag', b_disabled=True)))
+                  + '<p class="field__label">Choose a tag</p><div class="chips">' + ''.join(tag_chip(n, pr, private=True) for n, pr in [('Sick', 'critical'), ('In transit', 'high'), ('Not eating', 'high'), ('Special diet', 'normal')]) + '</div>', foot_split('Cancel', 'Add tag', b_disabled=True)))
 M_ADD2 = m_animal(1, M_EMPTY_BODY, bsheet('m-add-2', 'Add private tag', f'<div class="field"><span class="field__label">Selected tag</span><div class="chips">{tag_chip("Elderly", private=True, remove=True, new=True)}</div></div>'
                   + priority_picker('m-add-2-pr', 0) + toggle_row('users', 'navy', 'Visible to all', 'Off means only you can see it on this animal'), foot_split('Cancel', 'Add tag')))
 M_NOPERM = m_animal(0, '', bsheet('m-noperm', 'Add public tag', search('Search public tags') + '<div class="alert alert--caution" role="status">' + I('alert') + '<div><b>You can\'t create public tags</b>Choose an existing one, or create a private tag instead.</div></div>', foot_split('Cancel', 'Add tag', b_disabled=True)))
