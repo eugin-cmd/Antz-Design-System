@@ -2,6 +2,18 @@
 
 All notable changes to the Antz Design System. Versions follow semantic versioning: patch for fixes, minor for additions, major for anything renamed, removed or changed in meaning. Every version listed here is published under `releases/` and tagged in Git.
 
+## Unreleased
+
+### The Antz Design System agent (TD-003, proposed)
+- **Claude Code plugin** *Antz Design System* (`antz-design-system`, in `agent/`; catalog `antz`). Install once per product repository, pinned to the release tag: `/plugin marketplace add eugin-cmd/Antz-Design-System#vX.Y.Z`, then `/plugin install antz-design-system@antz`. The plugin's version is the system's.
+- **/systemdesigner** (the design-system skill, renamed): builds only from the system, reports the version, parts used, deviations, checks and deprecated names.
+- **/systemauditor** (new, read-only): code checks plus rendered checks in Chrome (contrast in four modes, tap targets, names, alt text, focus, JavaScript errors), graded Critical, Major, Minor and Accessibility with the rule and the fix for each finding, and what could not be checked.
+- **/openvisualguide** (new): opens the official visual guide.
+- **The checker reads developer code:** MUI `sx` and `style` objects, `styled(…)({…})` and React Native `StyleSheet`; React Native findings name the `antzTheme` value. **Deprecated names** are warned about with their replacement (`governance/deprecations.json`, rule ANTZ-DEP-01, RFC-001).
+- **Governance:** `.github/CODEOWNERS`, importable GitHub rulesets for `main` and the release tags, and "Who can change the official system" (Governance page and `governance/README.md`).
+- **Brand history** page (Governance): every release's brand, read from its frozen files.
+- **Onboarding:** `docs/agent-onboarding.md`, README and Get started. `skills/antz-design-system` now points to the plugin.
+
 ## 1.2.0-beta.7 (27 November 2026)
 
 The Tag module (DD-009, proposed), on the web and in the mobile app. Tag chips keep the prototype's shapes (a pill for public tags, a tag shape for private ones) and take every colour from tokens, on one priority scale: Normal, High and Critical, each with its mark. New pages: Tag chips, Tags (patterns), the Tags, Tags · public and Animal · tags screens, and Mobile app · Tags from the Global Tagging Module design. Also an opt-in bottom sheet for phones, the system Animal card in tag lists, and React Native tag chip roles. 866 tokens, 724 contrast checks.
