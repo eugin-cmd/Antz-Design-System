@@ -581,6 +581,23 @@ def tag_chip(name, prio=None, private=False, by=None, remove=False, button=True,
     tag = 'button' if button and not remove else 'span'
     chip = f'<{tag} class="{cls}"' + (' type="button"' if tag == 'button' else '') + f'{attrs}>{inner}</{tag}>'
     return chip + (' <span class="tag tag--soft">New</span>' if new else '')
+def animal_card(aaid, name, species, encl, sex, age, kg, img, alt, cites='C I', cites_long='CITES I', section='Big cats', site='North campus', alert='Weight updated 3 months ago'):
+    """The system Animal card (compact; the photo button expands it), as on the Animal card page."""
+    cls, word = {'M': ('', 'Male'), 'F': (' sex-tag--f', 'Female'), 'UD': (' sex-tag--ud', 'Undetermined'), 'ID': (' sex-tag--id', 'Indeterminate')}[sex]
+    pills = lambda extra='': (f'<span class="ac-pill{" ac-pill--age" if extra else ""}">{I("calendar")}<span class="sr-only">Age </span>{esc(age)}</span>'
+                              f'<span class="ac-pill{" ac-pill--weight" if extra else ""}">{I("scale")}<span class="sr-only">Weight </span>{esc(kg)}</span>')
+    counts = ''.join(f'<span class="ac-count" title="{t}">{I(ic)}{n}<span class="sr-only"> {t.lower()}</span></span>' for ic, n, t in [('treatment', 3, 'Treatments'), ('test-tube', 3, 'Lab tests'), ('syringe', 3, 'Vaccinations'), ('medicine', 3, 'Medicines')])
+    return (f'<article class="animal-card" data-state="compact"><div class="animal-card__media"><img src="{IMG}{img}" alt="{esc(alt)}">'
+            f'<div class="animal-card__top"><span class="sex-tag{cls}" title="{word}">{sex}<span class="sr-only"> ({word})</span></span><span class="animal-card__badge" title="CITES appendix"><span class="ac-x">{cites_long}</span><span class="ac-c">{cites}</span></span></div>'
+            f'<div class="animal-card__overlay ac-x"><b class="animal-card__id">AAID: {esc(aaid)}</b><span class="animal-card__pills">{pills(1)}</span></div>'
+            f'<button class="animal-card__toggle" type="button" data-animal-toggle aria-expanded="false" aria-label="Show more about {esc(name)}">{I("maximize")}</button></div>'
+            f'<div class="animal-card__body"><b class="animal-card__id ac-c">AAID: {esc(aaid)}</b><p class="animal-card__alert ac-x">{I("alert")}{esc(alert)}</p>'
+            f'<dl class="animal-card__facts"><dt>Name</dt><dd>{esc(name)}</dd><dt>Species</dt><dd>{esc(species)}</dd><dt>Enclosure</dt><dd>{esc(encl)}</dd><dt class="ac-x">Section</dt><dd class="ac-x">{esc(section)}</dd><dt class="ac-x">Site</dt><dd class="ac-x">{esc(site)}</dd></dl>'
+            f'<div class="animal-card__pills ac-c">{pills()}</div></div>'
+            f'<footer class="animal-card__foot ac-x">{counts}<a class="animal-card__more" href="#">View details<span class="sr-only"> for {esc(name)}</span>{I("chevron-right")}</a></footer></article>')
+TAG_ANIMALS = [('000482', 'Sheru', 'Bengal tiger', 'Tiger enclosure 2', 'M', '4y 2m', '210 kg', 'banners/tiger.webp', 'Sheru, a Bengal tiger', 'C I', 'CITES I'),
+               ('87546/24', 'Ramu', 'Leopard', 'Leopard Hill · L2', 'M', '4y 6m', '92 kg', 'leopard.webp', 'Ramu, a leopard, resting on a log', 'C I', 'CITES I'),
+               ('000311', 'Rani', 'Asiatic lion', 'Lion safari A', 'F', '6y 1m', '128 kg', 'species/asiatic-lion.webp', 'Rani, an Asiatic lion', 'C I', 'CITES I')]
 def tag_row(label, chips): return f'<div class="cell demo-cell--row"><span class="t-small t-secondary" style="min-width:var(--space-16)">{esc(label)}</span>{chips}</div>'
 TC_MATRIX = ''.join(tag_row(w, tag_chip('Quarantine', p) + tag_chip('Check weight', p, private=True))
                     for w, p in [('No priority', None), ('Normal', 'normal'), ('High', 'high'), ('Critical', 'critical')])
@@ -757,7 +774,7 @@ def sheet_tag_info(view='info', sid='sheet-tag-info', inline=False, on_record=Tr
                 + '<div class="card card--sunken"><p class="t-overline">Description</p><p class="t-small">Animal is isolated. Follow the quarantine protocol before entry.</p></div>')
     else:
         body = (hero + search('Search animals and places')
-                + '<div class="list">' + item(media('tiger.webp', 'M'), 'AAID: 000482', 'Sheru · Bengal tiger', 'Tiger enclosure 2')
+                + '<div class="animal-cards">' + animal_card(*TAG_ANIMALS[0]) + '</div><div class="list">'
                 + item(tile('home', 'green'), 'Tiger enclosure 2', 'Big cats section · North campus') + '</div>')
     btns = (ibtn('pencil', 'Edit tag') + ibtn('minus', 'Remove from Sheru')) if on_record else (ibtn('pencil', 'Edit tag') + ibtn('trash', 'Delete tag'))
     return drawer(sid, 'Tag', 'Quarantine', body, '', inline, head_btns=btns)
@@ -767,7 +784,7 @@ TAG_HISTORY = [('18 Nov 2026', [('plus', 'green', ('Check weight Friday', 'high'
                ('12 Nov 2026', [('plus', 'green', ('Quarantine', 'high', False), 'Public tag added by Dr. Meera Nair · 10:42 AM')]),
                ('08 Nov 2026', [('minus', 'coral', ('Post-surgery', 'critical', False), 'Public tag removed by Anil Rathod · 11:20 AM')])]
 def sheet_tag_history(sid='sheet-tag-history', inline=False):
-    body = item(media('tiger.webp', 'M'), 'AAID: 000482', 'Sheru · Bengal tiger', 'Tiger enclosure 2', chevron=False) + search('Search tags')
+    body = animal_card(*TAG_ANIMALS[0]) + search('Search tags')
     for day, rows in TAG_HISTORY:
         body += f'<div class="section-head"><b>{day}</b></div><ul class="activity">' + ''.join(
             f'<li>{tile(ic, h)}<div>{tag_chip(n, pr, private=pv, button=False)}<small>{esc(m)}</small></div></li>' for ic, h, (n, pr, pv), m in rows) + '</ul>'
@@ -1488,7 +1505,7 @@ def ent_head(view):
             f'<button type="button" role="tab" aria-selected="{str(view == "ents").lower()}"><b>49</b><span>Entities</span></button>'
             f'<button type="button" role="tab" aria-selected="{str(view == "info").lower()}"><b>{I("help")}</b><span>Info</span></button></div></div>')
 M_ENTS = app('Identification verified', ent_head('ents') + block_tabs(['All', 'Animals', 'Species'], 1, 'Entity type') + search_row('Search animals')
-             + '<div class="animal-cards">' + ''.join(animal_rec(*r) for r in RECENT[:3]) + '</div>')
+             + '<div class="animal-cards">' + ''.join(animal_card(*a) for a in TAG_ANIMALS) + '</div>')
 M_INFO = app('Identification verified', ent_head('info') + '<div class="list">' + fact('grid', 'teal', 'Tag category', 'Medical') + fact('calendar', 'coral', 'Deadline', '29 May 2026')
              + fact('users', 'sky', 'Tag type', 'Public') + fact('user', 'green', 'Added by', 'Nitin P · 21 May 2026') + item(tile('bell', 'navy'), 'Roles notified', 'Veterinarian, Curator') + '</div>'
              + '<div class="card card--sunken"><p class="t-overline">Description</p><p class="t-small">The animal\'s identity was checked against its microchip and records.</p></div>')
@@ -1541,7 +1558,7 @@ M_ALL = m_animal(0, '', bsheet('m-all', 'Tags · 44', block_tabs(['Public tags 4
                  + ''.join(tag_chip(n, p) for n, p in [('Aggressive', 'critical'), ('Anaesthesia due', 'critical'), ('In transit', 'high'), ('Sick', 'critical'), ('Abnormal behaviour', 'high'), ('Medication due', 'high'), ('Special diet', 'normal'), ('Elderly', None), ('Nocturnal', None)]) + '</div>'))
 M_ROLES = m_animal(0, '', bsheet('m-roles', 'Roles notified', search('Search roles') + '<div class="section-head"><b>25 roles</b></div><div class="list">'
                    + ''.join(f'<div class="item">{tile("user", "navy")}<span class="item__body"><b>{r}</b></span></div>' for r in ['Site manager', 'Super admin', 'Pharmacists', 'Veterinarians', 'Nutritionists']) + '</div>'))
-M_HISTORY = app('Tag history', item(media('tiger.webp', 'M'), 'AAID: 000482', 'Sheru · Bengal tiger', 'Tiger enclosure 2', chevron=False) + search('Search tags')
+M_HISTORY = app('Tag history', animal_card(*TAG_ANIMALS[0]) + search('Search tags')
                 + ''.join(f'<div class="section-head"><b>{day}</b></div><ul class="activity">' + ''.join(f'<li>{tile(ic, h)}<div>{tag_chip(n, pr, private=pv, button=False)}<small>{esc(m)}</small></div></li>' for ic, h, (n, pr, pv), m in rows) + '</ul>' for day, rows in TAG_HISTORY[:3]))
 write_doc('mobile-tags', {'title': 'Mobile app · Tags', 'group': 'Screens', 'intro': 'The Tags flows of the mobile app, from the Global Tagging Module design, on system parts: the hub, tag entities, public tags and categories, a new tag, an animal\'s Tags tab and its bottom sheets, and tag history.', 'icon': 'tag', 'hue': 'teal'},
           doc('mt-hub', 'My tags hub and tag entities', 'Search and filter, public or private, where the tag is used, then tags by category. Select a tag to see the <b>animals and places</b> that carry it, or its <b>info</b>.',
