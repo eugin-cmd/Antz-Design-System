@@ -194,3 +194,41 @@ Then a preview deploy (`node tools/deploy.mjs --preview dd-009`) for the System 
 Exact CSS for the clip-path point and padding so the label clears the point; how the "+N" button is drawn (glass
 button vs glass tag); demo content (names, dates) as long as it is realistic and in our voice; which existing helper
 renders each sheet; how many chips to show per demo.
+
+## Addendum, 27 November 2026: the mobile app (Figma "Global Tagging Module", Tag User Journey)
+Source: Figma file Global Tagging Module, section "Tag User Journey - 20 August 2026" (about 40 phone frames in 8
+flows). The System Owner chose, when asked:
+1. **It is the native mobile app.** Add phone-only **Mobile app · Tags** screens that follow the Figma flows, built
+   from system parts. The web screens stay as they are.
+2. **Opt-in bottom sheet.** New option `drawer--bottom`: under 600px (viewport or shell container) the floating sheet
+   rises from the bottom, takes the full width minus the gutter, sizes to its content up to 85% of the height, and
+   has a grab handle. Above 600px it is the usual side sheet. Other modules can adopt it later.
+3. **Priority names: Normal, High, Critical.** "Emergency" becomes "Critical" in the priority picker and tag chips
+   (same colours and marks). `priority__opt--critical` is the documented class; `priority__opt--emergency` stays as an
+   alias because beta.6 shipped it. The tag chip (unreleased) renames `tag-chip--emergency` to `tag-chip--critical`, and
+   React Native `roles.tagChip.emergency` to `critical`. The Figma's Low/Moderate/High in its add sheets map to
+   Normal/High/Critical.
+
+### Mobile app screens (one docs page, phone frames grouped by flow)
+- **My tags hub**: app bar (back, title), search with a filter button, line tabs Public tags / Private tags, entity
+  type filter chips (Animal, Species, Enclosure, Section, Site; one at a time), chips grouped by category, `fab`.
+- **Tag entities**: sheet-hero header with the stat switch (49 Entities / Info), line tabs All / Animals / Species,
+  search and filter, animal record cards; and the **Info** view (facts, roles notified, description).
+- **Public tags (master)**: segmented Tags / Categories; category line tabs with counts; search; chips; `fab`.
+  Categories as outlined rows with a chevron. **Create new tag** as a full page form (name, category with New category,
+  entity type opening the **Select entity** bottom sheet with Select all and Done, description, roles to notify,
+  Create tag).
+- **Animal · tags**: photo hero (back and more as glass buttons, name, scientific name, facts, tag strip with +N),
+  record tabs Tags / Medical / Enclosures, search, filter, history, line tabs Public / Private, chips; private shows
+  My tags and Tags by others; empty state when there are none; `fab` to add.
+- **Bottom sheets**: Add tag (choose, then priority and "Visible to all" in the same sheet, as the Figma note asks),
+  no-permission notice (caution alert) for public tags, Tag details (public and private, with Edit and Remove; the
+  private one has the visibility switch), Edit tag (name for private, priority, schedule), Roles notified, All tags
+  (+N: Public / Private tabs). Remove asks in the system dialog.
+- **Tag history**: the existing history, full page.
+
+### Not adopted from the Figma (and why)
+- Sheet headers tinted with the priority colour (status colour as a fill): the chip in the header carries priority.
+- Teal / yellow / pink chip fills and the coloured bar on others' tags: tag chip tokens and initials instead.
+- The speed-dial (Add tag / Home / +) under the FAB: one `fab` opens Add tag; Home belongs to app navigation.
+- White labels on green buttons (FD-003), placeholder tiger photos with "C 1" badges (licensed photos, sex tag).
