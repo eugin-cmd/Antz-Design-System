@@ -31,7 +31,7 @@ guide* (11 pages, 9 prompts), prepared by a colleague. Decision record to come: 
 
 ## 3. Missing
 1. **Distribution to other repositories.** Skills in `.claude/skills/` only load when Claude Code runs inside this
-   repository; teams work in their own product repositories. → a **Claude Code plugin** published from this repo.
+   repository; teams work in their own product repositories. → a **Claude Code plugin** (`antz-design-system`) published from this repo.
 2. **/systemauditor** for *another team's product*: static check of HTML/CSS/JSX/RN files, and a rendered audit of a
    URL or local file (contrast in four modes, tap targets, focus, labels), with a graded, evidence-based report.
 3. **/openvisualguide.**
@@ -42,7 +42,7 @@ guide* (11 pages, 9 prompts), prepared by a colleague. Decision record to come: 
 
 ## 4. Proposed structure (added to the current repository; nothing replaced)
 ```
-.claude-plugin/marketplace.json        catalog: one plugin, "antz"
+.claude-plugin/marketplace.json        catalog "antz": one plugin, "antz-design-system"
 agent/                                  the plugin (copied into every release)
   .claude-plugin/plugin.json            version = VERSION (written by build.mjs)
   skills/systemdesigner/                the current antz-design-system skill, renamed and extended
@@ -56,11 +56,11 @@ docs-src/brand-history.html             Brand history page (from releases, FD re
 docs/agent-onboarding.md                installation and use for teams
 ```
 **Commands** (plugin skills): `/systemdesigner`, `/systemauditor`, `/openvisualguide` work as typed when no other
-command has the same name; the full names are `/antz:systemdesigner` and so on. Claude also picks the right skill from
+command has the same name; the full names are `/antz-design-system:systemdesigner` and so on. The plugin is named `antz-design-system` (plugin names are lowercase with hyphens); where a display name or description is shown it reads "Antz Design System" (System Owner, 27 November 2026). Claude also picks the right skill from
 plain requests.
 
 **Install for a team** (in their product repository, once):
-`/plugin marketplace add eugin-cmd/Antz-Design-System#v1.2.0-beta.8` then `/plugin install antz@antz-design-system`.
+`/plugin marketplace add eugin-cmd/Antz-Design-System#v1.2.0-beta.8` then `/plugin install antz-design-system@antz`.
 Committing the marketplace in the product's `.claude/settings.json` offers it to everyone on that project after they
 accept the folder's trust prompt. Pinning the tag pins the agent and the design system together; updating is changing
 the tag.
@@ -102,5 +102,5 @@ the tag.
   URL. Reports say which checks ran.
 - **Plugin trust:** each person accepts the plugin and the folder trust prompt once; private forks need git
   credentials.
-- **Names:** the short commands can collide with another plugin's; the full `/antz:…` names always work.
+- **Names:** the short commands can collide with another plugin's; the full `/antz-design-system:…` names always work.
 - **Old installs:** teams who copied `antz-design-system` keep working; it points to `/systemdesigner`.
