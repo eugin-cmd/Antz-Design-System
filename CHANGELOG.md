@@ -2,6 +2,17 @@
 
 All notable changes to the Antz Design System. Versions follow semantic versioning: patch for fixes, minor for additions, major for anything renamed, removed or changed in meaning. Every version listed here is published under `releases/` and tagged in Git.
 
+## Unreleased
+
+### Tag module (DD-009, proposed)
+- **Tag chip** (new component page *Tag chips*): a pill for public tags and a tag shape with a point for private ones. Priority uses the priority picker's scale, Normal `!` (info), High `!!` (caution, amber) and Emergency `!!!` (danger), and always shows its mark, so it never depends on colour alone. No priority is neutral. Private tags someone else added show their initials; chips can be removable, new or static, and long names truncate.
+- **Tags patterns** (new page *Tags*): the tag strip in a record hero (latest four and +N), add a tag (search, pick or create, priority, schedule, visible to all), tag info (Info and Entities), tag history, and the new tag, category and filter sheets, plus the confirm and custom range dialogs.
+- **Screens:** Tags (the hub; replaces the placeholder Tags home), Tags · public and Animal · tags.
+- **Priority picker:** High is now amber (`caution`), as its docs describe, so it matches tag chips.
+- **React Native:** `roles.tagChip` (none, normal, high, emergency) in every scheme.
+- **Fix:** a long side sheet no longer squashes its search and lists; it scrolls.
+- App team: rename the priority levels Low, Moderate and High to Normal, High and Emergency.
+
 ## 1.2.0-beta.6 (26 November 2026)
 
 The release for teams to start on. React Native gets an installable, typed theme with shadows, gradients and colour roles, plus recipes. DD-006, DD-007 and DD-008 are accepted: the record-card style options, the Housing site overview and browse panel, and the Pharmacy pinned table with its edge shadow. Also responsive fixes, priority tag padding, and an onboarding review of every getting-started doc. 866 tokens, 724 contrast checks.
