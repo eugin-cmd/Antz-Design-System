@@ -28,6 +28,12 @@ for (const [mod, fam] of [['normal', 'info'], ['high', 'caution'], ['emergency',
   ok(rule(`.tag-chip--${mod}`).includes(`--color-${fam}-bg`) && rule(`.tag-chip--${mod}`).includes(`--color-${fam}-text`), `tag chip ${mod} uses the ${fam} tokens`);
 ok(/--color-neutral-bg/.test(rule('.tag-chip')), 'tag chip without a priority is neutral');
 ok(rule('.priority__opt--high').includes('--color-caution-'), 'priority picker High is amber (caution), same scale as tag chips');
+// DD-009 review fixes: focus shows inside the clipped private shape; +N reads on any photo and says what it shows.
+ok(/inset 0 0 0 var\(--focus-ring-width\) var\(--color-focus\)/.test(rule('.tag-chip--private:focus-visible')), 'private tag chip focus ring is drawn inside its clip-path');
+ok(/background:\s*var\(--color-surface\)/.test(rule('.tag-strip__more')), '+N in the tag strip has an opaque background, so its contrast never depends on the photo');
+const tagsPage = fs.readFileSync(path.join(ROOT, 'pages', 'tags.html'), 'utf8');
+const more = (tagsPage.match(/<button class="tag-strip__more"[^>]*>.*?<\/button>/) || [''])[0];
+ok(!!more && !/aria-label=/.test(more) && /\+5/.test(more) && /sr-only/.test(more), '+N keeps "+5" in its accessible name (no aria-label override)');
 // DD-009: React Native gets the same tag chip colours as the web, in every scheme.
 const rnSrc = fs.readFileSync(path.join(ROOT, 'dist', 'react-native', 'antz-theme.js'), 'utf8');
 const rnTheme = JSON.parse(rnSrc.slice(rnSrc.indexOf('{'), rnSrc.lastIndexOf('}') + 1));

@@ -725,8 +725,8 @@ def priority_picker(name, sel=0):
             + ''.join(f'<label class="priority__opt{c}"><input type="radio" name="{name}"{" checked" if i == sel else ""}><span class="priority__mark" aria-hidden="true">{m}</span>{w}</label>'
                       for i, (c, m, w) in enumerate([('', '!', 'Normal'), (' priority__opt--high', '!!', 'High'), (' priority__opt--emergency', '!!!', 'Emergency')])) + '</div></fieldset>')
 def fact(icon, hue, label, value, chevron=False): return item(tile(icon, hue), value, label, chevron=chevron)
-def tag_strip(chips, more, total, target='#tags'):
-    return (f'<div class="tag-strip">{I("tag")}{"".join(chips)}<button class="tag-strip__more" type="button" aria-label="Show all {total} tags">{I("plus")}{more}</button></div>')
+def tag_strip(chips, more, total):
+    return (f'<div class="tag-strip">{I("tag")}{"".join(chips)}<button class="tag-strip__more" type="button">+{more}<span class="sr-only"> more: show all {total} tags</span></button></div>')
 TAG_CATS = [('Health', [('Quarantine', None), ('Under observation', None), ('Post-surgery', None), ('Vaccination due', None)]),
             ('Behaviour', [('Aggressive', None), ('Shy feeder', None), ('Breeding pair', None)]),
             ('Husbandry', [('Deep clean pending', None), ('Under maintenance', None), ('Enrichment trial', None)]),
@@ -810,7 +810,7 @@ SHEET_CATEGORY = sheet_category()
 STRIP_DEMO = (f'<section class="hero-photo"><img class="hero-photo__img" src="{B}tiger.webp" alt=""><div><h2 class="hero-photo__title">Sheru</h2><p class="hero-photo__sub">Bengal tiger · Panthera tigris tigris</p></div>'
               + tag_strip([tag_chip('Check weight Friday', 'high', private=True), tag_chip('Ask vet about limp', 'normal', private=True), tag_chip('Night shift watch', 'emergency', private=True, by=('KR', 'Kavya Rao')), tag_chip('Quarantine', 'emergency')], 5, 9) + '</section>')
 write_doc('tags', {'title': 'Tags', 'group': 'Pattern components', 'intro': 'How tags work on a record: the tag strip in its hero, adding a tag with a priority and a schedule, what a tag says about itself, its history, and the sheets for new tags, categories and filters.', 'icon': 'tag', 'hue': 'teal'},
-          doc('tg-strip', 'Tag strip', 'The record hero shows the <b>latest four tags</b> and a <b>+N</b> button that opens the Tags tab. Chips keep their own backgrounds, so they read on any photo. On phones the strip wraps to two lines and still shows four.', frame(STRIP_DEMO))
+          doc('tg-strip', 'Tag strip', 'The record hero shows the <b>latest four tags</b> and a <b>+N</b> button that opens the Tags tab. Chips keep their own backgrounds, so they read on any photo. On phones the strip wraps onto more lines and still shows four, then +N.', frame(STRIP_DEMO))
           + doc('tg-add', 'Add a tag', 'One side sheet: search, then pick a tag or create one. A new public tag opens <b>New tag</b>; a new private tag is added straight away with the <b>New</b> tag. Then set the <b>priority</b> (the priority picker), an optional <b>deadline or time period</b>, and, for private tags, whether everyone can see it. Add tag stays off until a tag is chosen.',
                 ss([sheet_add_tag(False, 1, 'doc-add-1', True), sheet_add_tag(True, 2, 'doc-add-2', True)]))
           + doc('tg-info', 'Tag info', 'Select a chip to open it. The hero has the tag and a switch between <b>Info</b> and the <b>entities</b> that carry it. Info lists category, deadline, type, who added it and when, where, and the roles told about it, then the description. From a record, the head offers Edit and <b>Remove</b> (from this record); from the hub, Edit and <b>Delete</b>.',
