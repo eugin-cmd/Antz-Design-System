@@ -581,6 +581,17 @@ button.tag-chip:hover { box-shadow: inset 0 0 0 1px var(--tc-fg); }
   .tag-chip__lock { display: inline-grid; }
 }
 
+/* ── Tags patterns (DD-009): the tag strip in a record hero, chips in a timeline ── */
+.drawer__actions { display: flex; align-items: center; gap: var(--space-1); }
+.tag-strip { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); }
+.tag-strip > .icon { flex: none; width: var(--size-icon-md); height: var(--size-icon-md); }
+.tag-strip__more { display: inline-flex; align-items: center; gap: var(--space-0-5); height: var(--size-control-sm); padding: 0 var(--space-3); border: var(--border-width) solid color-mix(in srgb, var(--color-text-on-strong) 40%, transparent); border-radius: var(--radius-full);
+  font-family: var(--font-body); font-size: var(--text-sm); font-weight: var(--weight-bold); color: var(--color-text-on-strong); background: color-mix(in srgb, var(--color-text-on-strong) 14%, transparent); cursor: pointer; }
+.tag-strip__more:hover { background: color-mix(in srgb, var(--color-text-on-strong) 24%, transparent); }
+.tag-strip__more .icon { width: var(--size-icon-xs); height: var(--size-icon-xs); }
+.tag-strip__more:focus-visible { outline: var(--focus-ring-width) solid var(--color-focus); outline-offset: var(--focus-ring-offset); }
+.activity .tag-chip { margin-bottom: var(--space-1); }
+
 /* ── Attachments (Figma Attachments, attachment type, preview, list) ──── */
 .dropzone { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-1-5); min-height: 148px; padding: var(--space-5) var(--space-4); border: 0; border-radius: var(--radius-lg); text-align: center; font-size: var(--text-sm); color: var(--color-text-muted); background: var(--color-surface-sunken); cursor: pointer; transition: border-color var(--duration-fast), background var(--duration-fast); }
 .dropzone:hover, .dropzone:focus-within { background: var(--color-surface-selected); }
@@ -859,6 +870,7 @@ a.animal:hover { background: var(--color-surface-hover); }
 .drawer__title { margin: 0; font-size: var(--text-2xl); font-weight: var(--weight-semibold); }
 .drawer__body { flex: 1; overflow-y: auto; padding: var(--space-5) var(--space-6); display: flex; flex-direction: column; gap: var(--space-4); }
 .drawer__body > .status { align-self: flex-start; } /* a pill keeps its own width in a sheet (DD-008) */
+.drawer__body > * { flex-shrink: 0; } /* a long sheet scrolls; its parts never squash (DD-009) */
 .drawer__foot { display: flex; justify-content: flex-end; gap: var(--space-2-5); padding: var(--space-4) var(--space-6); border-top: 1px solid var(--color-border-subtle); }
 .drawer--inline { position: relative; inset: auto; z-index: auto; height: 100%; width: 100%; max-width: var(--size-drawer-work); animation: none; border-radius: var(--radius-xl); }
 @keyframes ds-drawer-in { from { transform: translateX(100%); opacity: .6; } }
@@ -1807,9 +1819,11 @@ a.rec:hover { background: var(--color-surface-hover); }
 .hero-panel p { margin: var(--space-1) 0 0; color: var(--color-text-on-strong); }
 .hero-panel__art { position: absolute; top: var(--space-6); inset-inline-end: var(--space-8); z-index: -1; display: grid; place-items: center; width: calc(var(--size-control-lg) * 2.5); height: calc(var(--size-control-lg) * 2.5); border-radius: var(--radius-2xl); color: var(--color-text-on-strong); background: var(--color-media-glass); transform: rotate(8deg); }
 .hero-panel__art .icon { width: 50%; height: 50%; stroke-width: 1.5; }
-.hero-panel .segmented, .widget--photo .segmented { align-self: flex-start; background: var(--color-media-glass); }
-.hero-panel .segmented > button { color: var(--color-text-on-strong); }
-.hero-panel .segmented > button[aria-pressed="true"], .hero-panel .segmented > button[aria-selected="true"] { color: var(--color-text); background: var(--color-surface); }
+.hero-panel .segmented, .widget--photo .segmented, .sheet-hero .segmented { align-self: flex-start; background: var(--color-media-glass); }
+.hero-panel .segmented > button, .sheet-hero .segmented > button, .sheet-hero .segmented--stat > button span { color: var(--color-text-on-strong); }
+.hero-panel .segmented > button[aria-pressed="true"], .hero-panel .segmented > button[aria-selected="true"], .sheet-hero .segmented > button[aria-selected="true"] { color: var(--color-text); background: var(--color-surface); }
+.sheet-hero .segmented { align-self: stretch; }
+.sheet-hero .segmented > button[aria-selected="true"] span { color: var(--color-text-muted); }
 .hero-panel .hero-photo__stats { margin-top: auto; }
 .glass-icon--danger { color: var(--color-danger-on-solid); background: var(--color-danger-solid); box-shadow: none; }
 .hero-panel :focus-visible { outline-color: var(--color-text-on-strong); }

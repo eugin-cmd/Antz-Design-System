@@ -232,6 +232,11 @@
           "isNew": true
         },
         {
+          "href": "tags.html",
+          "title": "Tags",
+          "isNew": true
+        },
+        {
           "href": "top-bar.html",
           "title": "Top bar and action bar"
         },

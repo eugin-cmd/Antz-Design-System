@@ -701,13 +701,129 @@ def chipgroup(label, opts, sel=0):
 SHEET_FETAL = sheet('sheet-fetal', 'New record', 'Report fetal death',
     fld('Where was the fetus found?', f'<div class="pick-scan"><button class="pick pick--site" type="button">{I("home")}Select enclosure</button><button class="icon-btn icon-btn--solid" type="button" aria-label="Scan the enclosure QR code">{I("scan")}</button></div>'),
     'Add')
-SHEET_TAG = sheet('sheet-tag', 'My tags hub', 'New tag',
-    fld('Tag name', '<input class="input" placeholder="For example, Hand reared">')
-    + f'<fieldset class="field"><legend class="field__label">Who can see it</legend>{seg(["Public", "Private"], label="Visibility")}</fieldset>'
-    + chipgroup('Used on', ['Animal', 'Species', 'Enclosure', 'Section', 'Site'])
-    + chipgroup('Category', ['Behaviour', 'Breeding', 'Care', 'Conservation', 'General', 'Housing', 'Safety'], 2)
-    + fld('Description (optional)', '<textarea class="textarea" rows="3" placeholder="What should people know when they see this tag?"></textarea>')
-    + fld('Preview', f'<div class="tag-preview"><span class="tag tag--soft">{I("paw")}Tag name</span></div>'), 'Create tag')
+# ── Tags patterns (DD-009) ────────────────────────────────────────────────
+def drawer(sid, meta, title, body, foot, inline=False, head_btns=''):
+    """A floating side sheet. inline=True draws it in place (docs), otherwise it is hidden until opened."""
+    head = (f'<header class="drawer__head"><div><span class="drawer__meta">{esc(meta)}</span><h2 class="drawer__title" id="{sid}-title">{esc(title)}</h2></div>'
+            f'<span class="drawer__actions">{head_btns}<button class="icon-btn" type="button" aria-label="Close" data-drawer-close>{I("x")}</button></span></header>')
+    inner = f'{head}<div class="drawer__body">{body}</div>{foot}'
+    if inline: return f'<aside class="drawer drawer--floating drawer--inline" id="{sid}" role="dialog" aria-modal="false" aria-labelledby="{sid}-title">{inner}</aside>'
+    return f'<div class="drawer-backdrop" data-drawer-backdrop="{sid}" hidden></div><aside class="drawer drawer--floating" id="{sid}" role="dialog" aria-modal="true" aria-labelledby="{sid}-title" hidden>{inner}</aside>'
+def foot_split(a, b, b_disabled=False, b_cls='btn--primary', a_icon=None, b_icon=None):
+    return (f'<div class="drawer__foot drawer__foot--split"><button class="btn btn--outline" type="button">{I(a_icon) if a_icon else ""}{esc(a)}</button>'
+            f'<button class="btn {b_cls}" type="button"{" disabled" if b_disabled else ""}>{I(b_icon) if b_icon else ""}{esc(b)}</button></div>')
+def foot_one(a, disabled=False): return f'<div class="drawer__foot"><button class="btn btn--primary btn--block" type="button"{" disabled" if disabled else ""}>{esc(a)}</button></div>'
+def ibtn(icon, label, attrs=''): return f'<button class="icon-btn" type="button" aria-label="{esc(label)}"{attrs}>{I(icon)}</button>'
+def toggle_row(icon, hue, title, sub, on=False):
+    return (f'<label class="toggle-row">{tile(icon, hue)}<div><b>{esc(title)}</b><small>{esc(sub)}</small></div>'
+            f'<span class="switch"><input type="checkbox"{" checked" if on else ""}><span></span></span></label>')
+def checkgroup(label, opts, on=()):
+    return (f'<fieldset class="filter-panel" role="group"><legend class="field__label">{esc(label)}</legend><div class="chips">'
+            + ''.join(f'<button class="chip" type="button" role="checkbox" aria-checked="{str(o in on).lower()}">{esc(o)}</button>' for o in opts) + '</div></fieldset>')
+def priority_picker(name, sel=0):
+    return ('<fieldset class="field"><legend class="field__label">Priority</legend><div class="priority">'
+            + ''.join(f'<label class="priority__opt{c}"><input type="radio" name="{name}"{" checked" if i == sel else ""}><span class="priority__mark" aria-hidden="true">{m}</span>{w}</label>'
+                      for i, (c, m, w) in enumerate([('', '!', 'Normal'), (' priority__opt--high', '!!', 'High'), (' priority__opt--emergency', '!!!', 'Emergency')])) + '</div></fieldset>')
+def fact(icon, hue, label, value, chevron=False): return item(tile(icon, hue), value, label, chevron=chevron)
+def tag_strip(chips, more, total, target='#tags'):
+    return (f'<div class="tag-strip">{I("tag")}{"".join(chips)}<button class="tag-strip__more" type="button" aria-label="Show all {total} tags">{I("plus")}{more}</button></div>')
+TAG_CATS = [('Health', [('Quarantine', None), ('Under observation', None), ('Post-surgery', None), ('Vaccination due', None)]),
+            ('Behaviour', [('Aggressive', None), ('Shy feeder', None), ('Breeding pair', None)]),
+            ('Husbandry', [('Deep clean pending', None), ('Under maintenance', None), ('Enrichment trial', None)]),
+            ('Diet', [('Special diet', None), ('Hand feeding', None)]), ('General', [('VIP visit', None), ('Photo ready', None)])]
+def sheet_add_tag(private=False, step=2, sid='sheet-add-tag', inline=False):
+    kind = 'private' if private else 'public'
+    if step == 1:
+        body = (search('Search tags') + item(tile('plus', 'green'), 'Limping left', f'Create it as a {kind} tag and add it')
+                + f'<p class="field__label">Choose a tag</p><div class="chips">' + ''.join(tag_chip(n, private=private) for n in (['Check weight Friday', 'Ask vet about limp'] if private else ['Vaccination due', 'Special diet', 'Hand feeding', 'Photo ready', 'Enrichment trial'])) + '</div>')
+        return drawer(sid, 'Sheru · Bengal tiger', f'Add {kind} tag', body, foot_split('Cancel', 'Add tag', b_disabled=True), inline)
+    pick = tag_chip('Limping left', private=True, remove=True, new=True) if private else tag_chip('Vaccination due', 'normal', remove=True)
+    body = (f'<div class="field"><span class="field__label">Selected tag</span><div class="chips">{pick}</div></div>'
+            + priority_picker(sid + '-pr', 0 if not private else 1)
+            + toggle_row('calendar', 'sky', 'Schedule and duration', 'A deadline or a time period for this tag', on=True)
+            + chipgroup('When', ['Set a deadline', 'A time period'])
+            + fld('Deadline', '<input class="input" type="date" value="2026-12-15">')
+            + (toggle_row('users', 'navy', 'Visible to all', 'Off means only you can see it on this animal') if private else ''))
+    return drawer(sid, 'Sheru · Bengal tiger', f'Add {kind} tag', body, foot_split('Cancel', 'Add tag'), inline)
+def sheet_tag_info(view='info', sid='sheet-tag-info', inline=False, on_record=True):
+    seg_ = ('<div class="segmented segmented--stat segmented--block" role="tablist" aria-label="Tag">'
+            f'<button type="button" role="tab" aria-selected="{str(view == "info").lower()}"><b>{I("help")}</b><span>Info</span></button>'
+            f'<button type="button" role="tab" aria-selected="{str(view == "ents").lower()}"><b>2</b><span>Entities</span></button></div>')
+    hero = f'<div class="sheet-hero"><small>Health · public tag</small><div class="chips">{tag_chip("Quarantine", "emergency", button=False)}</div>{seg_}</div>'
+    if view == 'info':
+        body = (hero + '<div class="list">' + fact('grid', 'teal', 'Tag category', 'Health', False) + fact('calendar', 'coral', 'Deadline', '30 Nov 2026')
+                + fact('users', 'sky', 'Tag type', 'Public') + fact('user', 'green', 'Added by', 'Dr. Meera Nair') + fact('clock', 'amber', 'Added on', '12 Nov 2026')
+                + fact('paw', 'green', 'Added to', 'Sheru (Bengal tiger)') + item(tile('bell', 'navy'), 'Roles notified', 'Veterinarian, Curator') + '</div>'
+                + '<div class="card card--sunken"><p class="t-overline">Description</p><p class="t-small">Animal is isolated. Follow the quarantine protocol before entry.</p></div>')
+    else:
+        body = (hero + search('Search animals and places')
+                + '<div class="list">' + item(media('tiger.webp', 'M'), 'AAID: 000482', 'Sheru · Bengal tiger', 'Tiger enclosure 2')
+                + item(tile('home', 'green'), 'Tiger enclosure 2', 'Big cats section · North campus') + '</div>')
+    btns = (ibtn('pencil', 'Edit tag') + ibtn('minus', 'Remove from Sheru')) if on_record else (ibtn('pencil', 'Edit tag') + ibtn('trash', 'Delete tag'))
+    return drawer(sid, 'Tag', 'Quarantine', body, '', inline, head_btns=btns)
+TAG_HISTORY = [('18 Nov 2026', [('plus', 'green', ('Check weight Friday', 'high', True), 'Private tag added by Anil Rathod · 9:14 AM')]),
+               ('16 Nov 2026', [('plus', 'green', ('Ask vet about limp', 'normal', True), 'Private tag added by Anil Rathod · 5:02 PM')]),
+               ('15 Nov 2026', [('pencil', 'sky', ('Quarantine', 'emergency', False), 'Public tag updated by Dr. Meera Nair · 4:40 PM')]),
+               ('12 Nov 2026', [('plus', 'green', ('Quarantine', 'high', False), 'Public tag added by Dr. Meera Nair · 10:42 AM')]),
+               ('08 Nov 2026', [('minus', 'coral', ('Post-surgery', 'emergency', False), 'Public tag removed by Anil Rathod · 11:20 AM')])]
+def sheet_tag_history(sid='sheet-tag-history', inline=False):
+    body = item(media('tiger.webp', 'M'), 'AAID: 000482', 'Sheru · Bengal tiger', 'Tiger enclosure 2', chevron=False) + search('Search tags')
+    for day, rows in TAG_HISTORY:
+        body += f'<div class="section-head"><b>{day}</b></div><ul class="activity">' + ''.join(
+            f'<li>{tile(ic, h)}<div>{tag_chip(n, pr, private=pv, button=False)}<small>{esc(m)}</small></div></li>' for ic, h, (n, pr, pv), m in rows) + '</ul>'
+    return drawer(sid, 'Sheru · Bengal tiger', 'Tag history', body, '', inline)
+def roles_field(roles):
+    rows = ''.join(f'<div class="item">{tile("user", "navy")}<span class="item__body"><b>{esc(r)}</b></span><button class="icon-btn icon-btn--sm" type="button" aria-label="Remove {esc(r)}">{I("x")}</button></div>' for r in roles)
+    return (f'<div class="field"><span class="field__label">Roles to notify (optional)</span><p class="t-small t-secondary">These roles are told when this tag is added.</p>'
+            f'<button class="row row--outline" type="button"><span class="row__body"><span class="row__title">Choose roles</span><span class="row__meta">{len(roles)} chosen</span></span>{I("chevron-right")}</button>'
+            f'<div class="list">{rows}</div></div>')
+def sheet_new_tag(sid='sheet-tag', inline=False):
+    body = (fld('Tag name', '<input class="input" maxlength="50" placeholder="For example, Hand reared" value="Hand reared">')
+            + checkgroup('Used on', ['Animals', 'Species', 'Sites', 'Sections', 'Enclosures'], on=('Animals',))
+            + labelled('Category' + REQ, '<div class="select-wrap"><select class="select"><option>Health</option><option>Behaviour</option><option>Husbandry</option><option>Diet</option><option>General</option></select></div>')
+            + '<a class="btn btn--link" href="#">' + I('plus') + 'New category</a>'
+            + fld('Description (optional)', '<textarea class="textarea" rows="3" placeholder="What should people know when they see this tag?"></textarea>')
+            + roles_field(['Keeper', 'Veterinarian'])
+            + fld('Preview', f'<div class="tag-preview">{tag_chip("Hand reared", button=False)}</div>'))
+    return drawer(sid, 'Public tags', 'New tag', body, foot_one('Create tag'), inline)
+def sheet_category(sid='sheet-category', inline=False):
+    body = (figures([('4', 'Linked tags'), ('5', 'Linked entities')]) + '<div class="list">' + fact('user', 'green', 'Created by', 'Dr. Meera Nair') + fact('clock', 'amber', 'Added on', '21 May 2026') + '</div>'
+            + '<div class="section-head"><b>Tags in this category</b><span class="t-small t-secondary">4</span></div><div class="chips">' + ''.join(tag_chip(n, button=False) for n, _ in TAG_CATS[0][1]) + '</div>')
+    return drawer(sid, 'Category', 'Health', body, foot_split('Edit', 'Delete', b_cls='btn--danger', a_icon='pencil', b_icon='trash'), inline)
+def sheet_tag_filter(sid='sheet-tag-filter', inline=False):
+    people = ''.join(f'<label class="row row--outline">{avatar(i, h).replace("avatar avatar--sm", "avatar")}<span class="row__body"><span class="row__title">{esc(n)}</span><span class="row__meta">{esc(r)}</span></span><span class="check"><input type="checkbox"{" checked" if c else ""} aria-label="Select {esc(n)}"></span></label>'
+                     for i, h, n, r, c in [('AR', 'green', 'Anil Rathod (you)', 'Admin', False), ('MN', 'teal', 'Dr. Meera Nair', 'Veterinarian', True), ('RK', 'amber', 'Ravi Kumar', 'Keeper', False)])
+    body = (checkgroup('Tag category', [c for c, _ in TAG_CATS], on=('Health',))
+            + f'<fieldset class="filter-panel"><legend class="field__label">Created by</legend>{search("Search people")}<div class="card-grid" style="gap:var(--space-2)">{people}</div></fieldset>'
+            + chipgroup('My tags', ['Any', 'Yes', 'No']))
+    return drawer(sid, 'Tags hub', 'Filter', body, foot_split('Clear all', 'Apply filter'), inline)
+def confirm_dialog(title, desc, action, did):
+    return (f'<div class="dialog" role="dialog" aria-labelledby="{did}t" aria-describedby="{did}d"><div class="dialog__head"><div><h3 class="dialog__title" id="{did}t">{esc(title)}</h3><p class="dialog__desc" id="{did}d">{esc(desc)}</p></div>'
+            f'<button class="icon-btn icon-btn--sm" type="button" aria-label="Close">{I("x")}</button></div><div class="dialog__foot"><button class="btn btn--ghost" type="button">Cancel</button><button class="btn btn--danger" type="button">{esc(action)}</button></div></div>')
+RANGE_DIALOG = ('<div class="dialog" role="dialog" aria-labelledby="dlg-range-t"><div class="dialog__head"><div><h3 class="dialog__title" id="dlg-range-t">Custom range</h3><p class="dialog__desc">Tags added between two dates</p></div>'
+                f'<button class="icon-btn icon-btn--sm" type="button" aria-label="Close">{I("x")}</button></div><div class="dialog__body"><div class="field-row">'
+                + fld('Start', '<input class="input" type="date" value="2026-11-01">') + fld('End', '<input class="input" type="date">')
+                + '</div></div><div class="dialog__foot"><button class="btn btn--ghost" type="button">Cancel</button><button class="btn btn--primary" type="button" disabled>Apply</button></div></div>')
+def ss(sheets): return '<div class="ss-demo">' + ''.join(f'<div class="ss-frame">{x}</div>' for x in sheets) + '</div>'
+SHEET_TAG = sheet_new_tag()
+SHEET_CATEGORY = sheet_category()
+STRIP_DEMO = (f'<section class="hero-photo"><img class="hero-photo__img" src="{B}tiger.webp" alt=""><div><h2 class="hero-photo__title">Sheru</h2><p class="hero-photo__sub">Bengal tiger · Panthera tigris tigris</p></div>'
+              + tag_strip([tag_chip('Check weight Friday', 'high', private=True), tag_chip('Ask vet about limp', 'normal', private=True), tag_chip('Night shift watch', 'emergency', private=True, by=('KR', 'Kavya Rao')), tag_chip('Quarantine', 'emergency')], 5, 9) + '</section>')
+write_doc('tags', {'title': 'Tags', 'group': 'Pattern components', 'intro': 'How tags work on a record: the tag strip in its hero, adding a tag with a priority and a schedule, what a tag says about itself, its history, and the sheets for new tags, categories and filters.', 'icon': 'tag', 'hue': 'teal'},
+          doc('tg-strip', 'Tag strip', 'The record hero shows the <b>latest four tags</b> and a <b>+N</b> button that opens the Tags tab. Chips keep their own backgrounds, so they read on any photo. On phones the strip wraps to two lines and still shows four.', frame(STRIP_DEMO))
+          + doc('tg-add', 'Add a tag', 'One side sheet: search, then pick a tag or create one. A new public tag opens <b>New tag</b>; a new private tag is added straight away with the <b>New</b> tag. Then set the <b>priority</b> (the priority picker), an optional <b>deadline or time period</b>, and, for private tags, whether everyone can see it. Add tag stays off until a tag is chosen.',
+                ss([sheet_add_tag(False, 1, 'doc-add-1', True), sheet_add_tag(True, 2, 'doc-add-2', True)]))
+          + doc('tg-info', 'Tag info', 'Select a chip to open it. The hero has the tag and a switch between <b>Info</b> and the <b>entities</b> that carry it. Info lists category, deadline, type, who added it and when, where, and the roles told about it, then the description. From a record, the head offers Edit and <b>Remove</b> (from this record); from the hub, Edit and <b>Delete</b>.',
+                ss([sheet_tag_info('info', 'doc-info-1', True), sheet_tag_info('ents', 'doc-info-2', True, on_record=False)]))
+          + doc('tg-history', 'Tag history', 'Every change to a record\'s tags, newest first and grouped by day: the chip as it was, what happened and who did it.', ss([sheet_tag_history('doc-history', True)]))
+          + doc('tg-forms', 'New tag, category and filter', '<b>New tag</b>: name, where it can be used, category (or a new one), description, the roles to tell (the Choose people pattern) and a preview. <b>Category</b>: its figures, who made it and its tags, with Edit and Delete. <b>Filter</b>: category, who created it and whether it is yours, with Clear all and Apply filter.',
+                ss([sheet_new_tag('doc-new', True), sheet_category('doc-cat', True), sheet_tag_filter('doc-filter', True)]))
+          + doc('tg-dialogs', 'Confirm and custom range', 'Deleting or removing asks first, in the system dialog. A custom date range takes a start and an end; Apply waits for both.',
+                '<div class="dialog-preview">' + confirm_dialog('Delete category?', 'Its 4 tags move to General.', 'Delete', 'dlg-cat') + '</div><div class="dialog-preview">' + confirm_dialog('Remove tag?', 'Quarantine comes off Sheru. The tag stays in the hub.', 'Remove', 'dlg-rm') + '</div><div class="dialog-preview">' + RANGE_DIALOG + '</div>', canvas=False),
+          usage('tg-usage', 'Tags', ['Show at most four tags in a hero, then +N.', 'Add and edit tags in the side sheet.', 'Say who added a private tag that is not yours.', 'Hide New tag, Edit and Delete from people without tag permissions.'],
+                ['Show a tag\'s priority by colour alone.', 'Put the full tag list in the hero.', 'Delete a tag without asking.', 'Open a second sheet on top of a sheet; New tag replaces Add tag.']),
+          code('tg-code', 'Tags', ['.tag-strip', '.tag-strip__more', '.tag-chip', '.priority', '.toggle-row', '.sheet-hero', '.segmented--stat', '.activity', '.drawer--floating', '.drawer__foot--split', '.dialog'],
+               '<div class="tag-strip">\n  <svg class="icon" aria-hidden="true"><use href="#i-tag"/></svg>\n  <button class="tag-chip tag-chip--private tag-chip--high" type="button">…</button>\n  <button class="tag-strip__more" type="button" aria-label="Show all 9 tags">+5</button>\n</div>'))
 SHEET_FOLDER = sheet('sheet-folder', 'Focus hub', 'New folder',
     fld('Folder name', '<input class="input" placeholder="For example, Animals to watch">') + '<p class="t-small t-secondary">Add favourites and bookmarks to it from any saved item.</p>', 'Create folder', enabled=True)
 
