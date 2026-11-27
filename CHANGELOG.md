@@ -9,6 +9,10 @@ All notable changes to the Antz Design System. Versions follow semantic versioni
 - The guardrail check now **accepts** those factors in `sx` and flags only off-scale numbers (for example `p: 3.5`, 28px), naming the nearest Antz step.
 - Fix: the MUI theme's usage comment imported from `@antz/design-tokens/mui`; the package is `@antz/design-system/mui`.
 
+### Docs: screen preview
+- **Open larger** on every screen frame (all four device sizes) and every Mobile app frame opens the screen in a full-window preview: switch device, Fit, 100% or 150%, light or dark, Esc or ✕ to close. The screen stays live (tabs, sheets, dialogs); keyboard focus stays inside and returns to the button.
+- Fix: the Mobile app · Tags New tag screen showed its Create tag bar inside the form; it is at the foot of the screen now, and an empty roles list no longer draws an empty box.
+
 ## 1.2.0-beta.8 (27 November 2026)
 
 The **Antz Design System agent** (TD-003, accepted): a Claude Code plugin that every team installs once, pinned to this release. **/systemdesigner** builds only from the system, **/systemauditor** audits a product read-only (code and rendered screens), **/openvisualguide** opens this guide. The checker now reads web (MUI) and React Native code and warns about deprecated names. Governance files for GitHub, and a Brand history page. DD-009 (the Tag module, shipped in beta.7) is accepted. 866 tokens, 724 contrast checks.

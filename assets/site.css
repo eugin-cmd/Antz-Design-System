@@ -651,3 +651,23 @@ body { background: var(--color-bg-canvas); overflow-x: hidden; }
 .bh-chip { display: flex; flex-direction: column; gap: var(--space-1); padding: var(--space-3); border-radius: var(--radius-lg); background: var(--color-surface); box-shadow: var(--shadow-hairline); }
 .bh-chip small { color: var(--color-text-muted); }
 .bh-big { height: 40px; border-radius: var(--radius-md); box-shadow: inset 0 0 0 1px var(--color-border); }
+
+/* Screen preview: any screen larger, in a full-window dialog (docs) */
+.spv-open { overflow: hidden; }
+.spv-open-btn { white-space: nowrap; display: inline-flex; align-items: center; gap: var(--space-1-5); min-height: var(--space-8); margin-top: var(--space-1-5); padding: 0 var(--space-3); border: 0; border-radius: var(--radius-full); font: inherit; font-size: var(--text-xs); font-weight: var(--weight-semibold); color: var(--color-text-link); background: var(--color-surface-muted); cursor: pointer; }
+.spv-open-btn:hover { background: var(--color-surface-hover); }
+.spv-open-btn:focus-visible { outline: var(--focus-ring-width) solid var(--color-focus); outline-offset: var(--focus-ring-offset); }
+.spv-open-btn .icon { width: var(--size-icon-xs); height: var(--size-icon-xs); }
+.devices[data-view="all"] .device > figcaption .spv-open-btn span { display: inline; }
+.spv { position: fixed; inset: 0; z-index: var(--z-dialog); display: flex; flex-direction: column; background: var(--color-bg-app); }
+.spv[hidden] { display: none; }
+.spv__bar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); padding: var(--space-3) var(--space-4); background: var(--color-surface); box-shadow: inset 0 -1px 0 var(--color-border); }
+.spv__title { flex: 1 1 200px; min-width: 0; font-size: var(--text-md); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.spv__devices[hidden] { display: none; }
+.spv__stage { position: relative; flex: 1; min-height: 0; display: grid; place-items: center; overflow: hidden; outline: 0; }
+.spv__stage.is-scrolling { place-items: start center; overflow: auto; }
+.spv__canvas { padding: var(--space-8); }
+.spv__frame-box { position: relative; }
+.spv__device--app .device__frame { border-radius: var(--radius-2xl); box-shadow: var(--shadow-xl); }
+.spv__device--app .device__frame::before { display: none; }
+.spv__device .device__frame > .shell { flex: 1; min-height: 0; }

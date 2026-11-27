@@ -793,7 +793,7 @@ def roles_field(roles):
     rows = ''.join(f'<div class="item">{tile("user", "navy")}<span class="item__body"><b>{esc(r)}</b></span><button class="icon-btn icon-btn--sm" type="button" aria-label="Remove {esc(r)}">{I("x")}</button></div>' for r in roles)
     return (f'<div class="field"><span class="field__label">Roles to notify (optional)</span><p class="t-small t-secondary">These roles are told when this tag is added.</p>'
             f'<button class="row row--outline" type="button"><span class="row__body"><span class="row__title">Choose roles</span><span class="row__meta">{len(roles)} chosen</span></span>{I("chevron-right")}</button>'
-            f'<div class="list">{rows}</div></div>')
+            + (f'<div class="list">{rows}</div>' if rows else '') + '</div>')
 def sheet_new_tag(sid='sheet-tag', inline=False):
     body = (fld('Tag name', '<input class="input" maxlength="50" placeholder="For example, Hand reared" value="Hand reared">')
             + checkgroup('Used on', ['Animals', 'Species', 'Sites', 'Sections', 'Enclosures'], on=('Animals',))
@@ -1482,11 +1482,11 @@ def bsheet(sid, title, body, foot='', head_btns='', meta=''):
             f'<header class="drawer__head"><div>{f"<span class={chr(34)}drawer__meta{chr(34)}>{esc(meta)}</span>" if meta else ""}<h2 class="drawer__title" id="{sid}-title">{esc(title)}</h2></div>'
             f'<span class="drawer__actions">{head_btns}<button class="icon-btn" type="button" aria-label="Close" data-drawer-close>{I("x")}</button></span></header>'
             f'<div class="drawer__body">{body}</div>{foot}</aside>')
-def app(title, body, fab=None, back=True, end='', overlay='', top=None):
+def app(title, body, fab=None, back=True, end='', overlay='', top=None, foot=''):
     head = top if top is not None else (f'<div class="topbar">' + (f'<button class="icon-btn icon-btn--ghost" type="button" aria-label="Back">{I("arrow-left")}</button>' if back else '')
                                         + f'<h1 class="topbar__title">{esc(title)}</h1>{end}</div>')
     f = f'<button class="fab screen__fab" type="button" aria-label="{esc(fab)}">{I("plus")}</button>' if fab else ''
-    return f'<div class="shell"><div class="shell__main">{head}<div class="screen__scroll">{body}</div></div>{f}{overlay}</div>'
+    return f'<div class="shell"><div class="shell__main">{head}<div class="screen__scroll">{body}</div>{foot}</div>{f}{overlay}</div>'
 def phone(screen, caption, note=''):
     return f'<figure class="app-frame-fig"><div class="app-frame shell-host">{screen}</div><figcaption><b>{esc(caption)}</b>{f"<span>{esc(note)}</span>" if note else ""}</figcaption></figure>'
 def frames(*figs): return '<div class="app-frames">' + ''.join(figs) + '</div>'
@@ -1520,11 +1520,10 @@ M_NEW_BODY = (fld('Tag name', '<input class="input" maxlength="50" placeholder="
               + f'<div class="field"><span class="field__label">Used on <span class="req">*</span></span><button class="row row--outline" type="button"><span class="row__body"><span class="row__title">Animals</span><span class="row__meta">1 chosen</span></span>{I("chevron-right")}</button></div>'
               + fld('Description (optional)', '<textarea class="textarea" rows="3" placeholder="What should people know when they see this tag?"></textarea>') + roles_field([]))
 M_NEW_FOOT = '<div class="actionbar"><button class="btn btn--primary" type="button" disabled>Create tag</button></div>'
-def with_foot(screen, foot): return screen.replace('</div></div>', '</div>' + foot + '</div>', 1)
-M_NEW = with_foot(app('New tag', M_NEW_BODY), M_NEW_FOOT)
+M_NEW = app('New tag', M_NEW_BODY, foot=M_NEW_FOOT)
 ENT_ROWS = ''.join(f'<label class="row row--outline"><span class="row__body"><span class="row__title">{n}</span></span><span class="check"><input type="checkbox"{" checked" if n == "Animals" else ""} aria-label="{n}"></span></label>' for n in ['Animals', 'Species', 'Enclosures', 'Sections', 'Sites'])
-M_SELECT = with_foot(app('New tag', M_NEW_BODY, overlay=bsheet('m-select', 'Used on', f'<div class="section-head"><b>1 chosen</b><a href="#">Select all</a></div><div class="card-grid" style="gap:var(--space-2)">{ENT_ROWS}</div>',
-                                                                foot_one('Done', False))), M_NEW_FOOT)
+M_SELECT = app('New tag', M_NEW_BODY, foot=M_NEW_FOOT, overlay=bsheet('m-select', 'Used on', f'<div class="section-head"><b>1 chosen</b><a href="#">Select all</a></div><div class="card-grid" style="gap:var(--space-2)">{ENT_ROWS}</div>',
+                                                                foot_one('Done', False)))
 def m_hero(chips, more):
     return (f'<section class="hero-photo hero-photo--app"><img class="hero-photo__img" src="{B}tiger.webp" alt="">'
             f'<div class="hero-photo__bar"><a class="hero-photo__back" href="#">{I("chevron-left")}Animals</a><button class="icon-btn" type="button" aria-label="More">{I("more")}</button></div>'

@@ -151,17 +151,22 @@
 
   /* ════════ Screens: one template, four device frames ════════ */
   var DEVICES = { mobile: [390, 844], 'tablet-p': [820, 1180], 'tablet-l': [1180, 820], desktop: [1440, 900] };
+  // A copy of a screen with unique ids, so several copies (frames, the preview) can live on one page.
+  var REF_ATTRS = ['data-popover', 'data-toggle', 'data-dialog-open', 'data-board-edit', 'data-board-undo', 'data-drawer-open', 'data-drawer-backdrop', 'data-navdrawer-open', 'data-navdrawer-backdrop', 'aria-controls', 'aria-labelledby', 'aria-describedby'];
+  function uniqueCopy(node, suffix) {
+    $$('[id]', node).forEach(function (el) { el.id += suffix; });
+    $$('label[for]', node).forEach(function (el) { el.setAttribute('for', el.getAttribute('for') + suffix); });
+    // References to ids get the same suffix (popovers, dialogs, boards, sheets, drawers, labels)
+    REF_ATTRS.forEach(function (attr) {
+      $$('[' + attr + ']', node).forEach(function (el) { el.setAttribute(attr, el.getAttribute(attr).split(' ').map(function (v) { return v + suffix; }).join(' ')); });
+    });
+    $$('input[type="radio"][name]', node).forEach(function (el) { el.name += suffix; });
+    return node;
+  }
   $$('[data-screen-view]').forEach(function (view) {
     var tpl = $('template', view); if (!tpl) return;
     $$('.device', view).forEach(function (dev) {
-      var key = dev.dataset.device, frame = $('.device__frame', dev), node = tpl.content.cloneNode(true), suffix = '-' + key;
-      $$('[id]', node).forEach(function (el) { el.id += suffix; });
-      $$('label[for]', node).forEach(function (el) { el.setAttribute('for', el.getAttribute('for') + suffix); });
-      // References to ids get the same suffix (popovers, dialogs, boards, sheets, drawers)
-      ['data-popover', 'data-toggle', 'data-dialog-open', 'data-board-edit', 'data-board-undo', 'data-drawer-open', 'data-drawer-backdrop', 'data-navdrawer-open', 'data-navdrawer-backdrop', 'aria-controls'].forEach(function (attr) {
-        $$('[' + attr + ']', node).forEach(function (el) { el.setAttribute(attr, el.getAttribute(attr).split(' ').map(function (v) { return v + suffix; }).join(' ')); });
-      });
-      $$('input[type="radio"][name]', node).forEach(function (el) { el.name += suffix; });
+      var key = dev.dataset.device, frame = $('.device__frame', dev), node = uniqueCopy(tpl.content.cloneNode(true), '-' + key);
       frame.appendChild(node);
       frame.style.setProperty('--frame-w', DEVICES[key][0] + 'px'); frame.style.setProperty('--frame-h', DEVICES[key][1] + 'px');
       dev.style.setProperty('--w', DEVICES[key][0]);
@@ -195,6 +200,116 @@
   }
   if ('ResizeObserver' in window) { var ro = new ResizeObserver(function () { fitDevices(); }); $$('.devices').forEach(function (w) { ro.observe(w); }); }
   window.addEventListener('resize', function () { requestAnimationFrame(fitDevices); });
+
+  /* ════════ Screen preview: open any screen larger, in a full-window dialog ════════
+     Every device frame and every phone frame (.app-frame) gets an "Open larger" button. The preview holds a live
+     copy of the screen: switch device (screen pages), Fit / 100% / 150%, light or dark, Esc or ✕ to close. */
+  var ICON = function (n) { return '<svg class="icon" aria-hidden="true"><use href="#i-' + n + '"/></svg>'; };
+  var DEV_LABEL = { mobile: 'Mobile', 'tablet-p': 'Tablet portrait', 'tablet-l': 'Tablet landscape', desktop: 'Desktop' };
+  var spv = null, spvState = null, spvReturn = null, spvSeq = 0;
+  function spvTitle() { var h = $('.page-banner__title') || $('h1'); return h ? h.textContent.trim() : 'Screen'; }
+  function spvBuild() {
+    spv = document.createElement('div');
+    spv.className = 'spv'; spv.hidden = true;
+    spv.setAttribute('role', 'dialog'); spv.setAttribute('aria-modal', 'true'); spv.setAttribute('aria-labelledby', 'spv-title');
+    spv.innerHTML = '<div class="spv__bar"><b class="spv__title" id="spv-title"></b>'
+      + '<div class="segmented segmented--xs spv__devices" role="group" aria-label="Device"></div>'
+      + '<div class="segmented segmented--xs" role="group" aria-label="Zoom">' + ['fit', '1', '1.5'].map(function (z) { return '<button type="button" data-spv-zoom="' + z + '" aria-pressed="false">' + (z === 'fit' ? 'Fit' : Math.round(z * 100) + '%') + '</button>'; }).join('') + '</div>'
+      + '<div class="segmented segmented--xs" role="group" aria-label="Theme"><button type="button" data-spv-theme="light" aria-pressed="false">Light</button><button type="button" data-spv-theme="dark" aria-pressed="false">Dark</button></div>'
+      + '<button class="icon-btn spv__close" type="button" aria-label="Close the preview" data-spv-close>' + ICON('x') + '</button></div>'
+      + '<div class="spv__stage" tabindex="-1"><div class="spv__canvas"></div></div>';
+    document.body.appendChild(spv);
+    spv.addEventListener('click', function (e) {
+      var z = e.target.closest('[data-spv-zoom]'), d = e.target.closest('[data-spv-device]'), t = e.target.closest('[data-spv-theme]');
+      if (e.target.closest('[data-spv-close]')) return spvClose();
+      if (z) { spvState.zoom = z.dataset.spvZoom; try { localStorage.setItem('antz-ds-preview-zoom', spvState.zoom); } catch (er) {} spvLayout(); }
+      if (d) { spvState.device = d.dataset.spvDevice; spvRender(); }
+      if (t) { setTheme(t.dataset.spvTheme); spvMarks(); }
+    });
+    spv.addEventListener('keydown', function (e) {
+      if (e.key !== 'Tab') return;
+      var f = $$('a[href], button:not([disabled]), input:not([disabled]), select, textarea, [tabindex]:not([tabindex="-1"])', spv).filter(function (el) { return el.offsetParent !== null; });
+      if (!f.length) return;
+      if (e.shiftKey && document.activeElement === f[0]) { e.preventDefault(); f[f.length - 1].focus(); }
+      else if (!e.shiftKey && document.activeElement === f[f.length - 1]) { e.preventDefault(); f[0].focus(); }
+    });
+    window.addEventListener('resize', function () { if (spv && !spv.hidden) spvLayout(); });
+    // Esc closes the preview, caught before the screen's own controls; an open sheet, dialog or menu inside the
+    // screen closes first.
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Escape' || !spv || spv.hidden) return;
+      if (spv.querySelector('.drawer:not([hidden]):not(.drawer--shown), .dialog-backdrop:not([hidden]) .dialog, .popover:not([hidden]), [aria-expanded="true"][data-popover]')) return;
+      e.preventDefault(); e.stopPropagation(); spvClose();
+    }, true);
+  }
+  function spvMarks() {
+    $$('[data-spv-zoom]', spv).forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.spvZoom === spvState.zoom)); });
+    $$('[data-spv-device]', spv).forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.spvDevice === spvState.device)); });
+    var dark = root.dataset.theme ? root.dataset.theme === 'dark' : (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches);
+    $$('[data-spv-theme]', spv).forEach(function (b) { b.setAttribute('aria-pressed', String((b.dataset.spvTheme === 'dark') === dark)); });
+  }
+  function spvRender() {
+    var st = spvState, canvas = $('.spv__canvas', spv), suffix = '-preview' + (++spvSeq), dims, node, holder;
+    if (st.template) { dims = DEVICES[st.device]; node = uniqueCopy(st.template.content.cloneNode(true), suffix); }
+    else { dims = [st.frame.offsetWidth || 390, st.frame.offsetHeight || 844]; node = uniqueCopy(st.frame.cloneNode(true), suffix); node.classList.remove('app-frame'); }
+    st.dims = dims;
+    canvas.innerHTML = '';
+    holder = document.createElement('div');
+    holder.className = 'spv__device device--' + (st.template ? st.device : 'mobile') + (st.template ? '' : ' spv__device--app');
+    holder.innerHTML = '<div class="spv__frame-box"><div class="device__frame shell-host"></div></div>';
+    var frame = $('.device__frame', holder);
+    if (st.template) frame.appendChild(node); else { while (node.firstChild) frame.appendChild(node.firstChild); }
+    frame.style.setProperty('--frame-w', dims[0] + 'px'); frame.style.setProperty('--frame-h', dims[1] + 'px');
+    canvas.appendChild(holder);
+    $('.spv__title', spv).textContent = st.title + (st.template ? ' · ' + DEV_LABEL[st.device] + ' ' + dims[0] + ' × ' + dims[1] : '');
+    $('.spv__devices', spv).innerHTML = st.template ? Object.keys(DEVICES).map(function (k) { return '<button type="button" data-spv-device="' + k + '" aria-pressed="false">' + DEV_LABEL[k] + '</button>'; }).join('') : '';
+    $('.spv__devices', spv).hidden = !st.template;
+    spvLayout();
+  }
+  function spvLayout() {
+    var st = spvState, stage = $('.spv__stage', spv), box = $('.spv__frame-box', spv), frame = $('.device__frame', spv); if (!frame) return;
+    var pad = 64, w = st.dims[0], h = st.dims[1];
+    var s = st.zoom === 'fit' ? Math.min((stage.clientWidth - pad) / w, (stage.clientHeight - pad) / h) : parseFloat(st.zoom);
+    s = Math.max(0.2, s);
+    frame.style.setProperty('--frame-scale', s);
+    box.style.width = Math.round(w * s) + 'px'; box.style.height = Math.round(h * s) + 'px';
+    stage.classList.toggle('is-scrolling', st.zoom !== 'fit');
+    spvMarks();
+  }
+  function spvOpen(opts, opener) {
+    if (!spv) spvBuild();
+    var zoom = 'fit'; try { zoom = localStorage.getItem('antz-ds-preview-zoom') || 'fit'; } catch (e) {}
+    spvState = { title: opts.title, template: opts.template || null, frame: opts.frame || null, device: opts.device || 'desktop', zoom: zoom };
+    spvReturn = opener || document.activeElement;
+    spv.hidden = false; root.classList.add('spv-open');
+    spvRender();
+    $('[data-spv-close]', spv).focus();
+  }
+  function spvClose() {
+    if (!spv || spv.hidden) return;
+    spv.hidden = true; root.classList.remove('spv-open');
+    $('.spv__canvas', spv).innerHTML = '';
+    if (spvReturn && spvReturn.focus) spvReturn.focus();
+  }
+  // "Open larger" on every device frame (screen pages) and every phone frame (.app-frame)
+  $$('[data-screen-view]').forEach(function (view) {
+    var tpl = $('template', view); if (!tpl) return;
+    $$('.device', view).forEach(function (dev) {
+      var btn = document.createElement('button');
+      btn.type = 'button'; btn.className = 'spv-open-btn'; btn.innerHTML = ICON('maximize') + '<span>Open larger</span>';
+      btn.setAttribute('aria-label', 'Open the ' + DEV_LABEL[dev.dataset.device] + ' preview larger');
+      btn.addEventListener('click', function (e) { e.stopPropagation(); spvOpen({ title: spvTitle(), template: tpl, device: dev.dataset.device }, btn); });
+      ($('figcaption', dev) || dev).appendChild(btn);
+    });
+  });
+  $$('.app-frame').forEach(function (fr) {
+    var fig = fr.closest('figure'), cap = fig && $('figcaption b', fig);
+    var btn = document.createElement('button');
+    btn.type = 'button'; btn.className = 'spv-open-btn'; btn.innerHTML = ICON('maximize') + '<span>Open larger</span>';
+    btn.setAttribute('aria-label', 'Open ' + (cap ? cap.textContent : 'this screen') + ' larger');
+    btn.addEventListener('click', function () { spvOpen({ title: (cap ? cap.textContent + ' · ' : '') + spvTitle(), frame: fr }, btn); });
+    ($('figcaption', fig) || fr.parentNode).appendChild(btn);
+  });
 
   /* ── Theme toggle ── */
   function setTheme(mode) {
