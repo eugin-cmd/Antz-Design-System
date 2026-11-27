@@ -55,6 +55,16 @@ photo hero.
 7. **Mobile app** (System Owner, 27 November 2026): the Figma file is the native app. Phone-only *Mobile app · Tags*
    screens follow its flows on system parts, with an opt-in bottom sheet (`drawer--bottom`).
 
+## Mobile app (added 27 November 2026, from the Figma Global Tagging Module)
+- **Bottom sheet** `drawer--bottom` (opt-in, on a `drawer--floating`): under 600px the sheet rises from the bottom,
+  sizes to its content up to 85% of the height and shows a grab handle; above 600px it is the side sheet.
+- **Mobile app · Tags** (Screens): phone frames for the hub, tag entities and info, public tags and categories, new
+  tag with the Used on bottom sheet, an animal's Tags tab (hero with the tag strip, my tags and tags by others, the
+  empty state), and the bottom sheets for add (with priority and visibility in one sheet), no permission, details,
+  edit, roles notified and all tags, the remove dialog, and tag history. Record hero option `hero-photo--app`.
+- Not adopted from the Figma: sheet headers tinted with the priority colour, its chip fills and coloured bars, the
+  speed dial under the add button, white labels on green buttons, and placeholder photos.
+
 ## Not adopted, and why
 The prototype's colours (#AFEFEB, #FFF09F, #FFD3D3 and the bar colours: off-token), the Low/Moderate/High names,
 the priority bar on others' tags, green buttons with white labels (FD-003), uppercase buttons, two different

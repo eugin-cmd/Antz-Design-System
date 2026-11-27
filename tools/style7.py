@@ -1458,6 +1458,109 @@ screen_page('animal-tags', 'Animal · tags', 'An animal record on its Tags tab: 
             ['Show priority by colour alone.', 'Put a second filled button in the tab: the side panel has none here.'])
 add_link('Screens', 'screen-animal-tags.html', 'Animal · tags', 'screen-tags-public.html')
 
+# ═══ Mobile app · Tags (DD-009, from the Figma "Global Tagging Module"): phone frames by flow ═══
+def bsheet(sid, title, body, foot='', head_btns='', meta=''):
+    """An open bottom sheet over a phone screen (drawer--floating drawer--bottom)."""
+    return (f'<div class="drawer-backdrop"></div><aside class="drawer drawer--floating drawer--bottom drawer--shown" id="{sid}" role="dialog" aria-modal="true" aria-labelledby="{sid}-title">'
+            f'<header class="drawer__head"><div>{f"<span class={chr(34)}drawer__meta{chr(34)}>{esc(meta)}</span>" if meta else ""}<h2 class="drawer__title" id="{sid}-title">{esc(title)}</h2></div>'
+            f'<span class="drawer__actions">{head_btns}<button class="icon-btn" type="button" aria-label="Close" data-drawer-close>{I("x")}</button></span></header>'
+            f'<div class="drawer__body">{body}</div>{foot}</aside>')
+def app(title, body, fab=None, back=True, end='', overlay='', top=None):
+    head = top if top is not None else (f'<div class="topbar">' + (f'<button class="icon-btn icon-btn--ghost" type="button" aria-label="Back">{I("arrow-left")}</button>' if back else '')
+                                        + f'<h1 class="topbar__title">{esc(title)}</h1>{end}</div>')
+    f = f'<button class="fab screen__fab" type="button" aria-label="{esc(fab)}">{I("plus")}</button>' if fab else ''
+    return f'<div class="shell"><div class="shell__main">{head}<div class="screen__scroll">{body}</div></div>{f}{overlay}</div>'
+def phone(screen, caption, note=''):
+    return f'<figure class="app-frame-fig"><div class="app-frame shell-host">{screen}</div><figcaption><b>{esc(caption)}</b>{f"<span>{esc(note)}</span>" if note else ""}</figcaption></figure>'
+def frames(*figs): return '<div class="app-frames">' + ''.join(figs) + '</div>'
+def search_row(ph, history=False):
+    return (f'<div class="search-row">{search(ph)}<button class="icon-btn icon-btn--line" type="button" aria-label="Filter">{I("filter")}</button>'
+            + (f'<button class="icon-btn icon-btn--line" type="button" aria-label="Tag history">{I("history")}</button>' if history else '') + '</div>')
+def block_tabs(opts, sel=0, label='Show'): return '<div class="tag-tabs">' + line_tabs(opts, sel, label) + '</div>'
+M_CATS = [('Medical', ['Identification verified', 'Long-term monitoring', 'Microchip verified', 'No current concerns', 'Off exhibit']),
+          ('Health', ['Under observation', 'Post-surgery', 'Vaccination due']), ('Behaviour', ['Aggressive', 'Shy feeder', 'Breeding pair'])]
+M_HUB = app('My tags hub', search_row('Search tags') + block_tabs(['Public tags', 'Private tags'], label='Tag type')
+            + '<div class="chips" role="radiogroup" aria-label="Used on">' + ''.join(f'<button class="chip" type="button" role="radio" aria-checked="{str(i == 0).lower()}">{o}</button>' for i, o in enumerate(['Animal', 'Species', 'Enclosure', 'Section', 'Site'])) + '</div>'
+            + ''.join(tag_group(c, [tag_chip(n) for n in t]) for c, t in M_CATS), fab='Add a tag')
+def ent_head(view):
+    return (f'<div class="sheet-hero"><small>Medical · public tag</small><div class="chips">{tag_chip("Identification verified", button=False)}</div>'
+            '<div class="segmented segmented--stat segmented--block" role="tablist" aria-label="Tag">'
+            f'<button type="button" role="tab" aria-selected="{str(view == "ents").lower()}"><b>49</b><span>Entities</span></button>'
+            f'<button type="button" role="tab" aria-selected="{str(view == "info").lower()}"><b>{I("help")}</b><span>Info</span></button></div></div>')
+M_ENTS = app('Identification verified', ent_head('ents') + block_tabs(['All', 'Animals', 'Species'], 1, 'Entity type') + search_row('Search animals')
+             + '<div class="animal-cards">' + ''.join(animal_rec(*r) for r in RECENT[:3]) + '</div>')
+M_INFO = app('Identification verified', ent_head('info') + '<div class="list">' + fact('grid', 'teal', 'Tag category', 'Medical') + fact('calendar', 'coral', 'Deadline', '29 May 2026')
+             + fact('users', 'sky', 'Tag type', 'Public') + fact('user', 'green', 'Added by', 'Nitin P · 21 May 2026') + item(tile('bell', 'navy'), 'Roles notified', 'Veterinarian, Curator') + '</div>'
+             + '<div class="card card--sunken"><p class="t-overline">Description</p><p class="t-small">The animal\'s identity was checked against its microchip and records.</p></div>')
+M_PUB = app('Public tags', seg(['Tags', 'Categories'], 0, 'Show').replace('class="segmented"', 'class="segmented segmented--block"', 1)
+            + block_tabs(['All 14', 'Health 4', 'Behaviour 3', 'Husbandry 3', 'Diet 2', 'General 2'], label='Category') + search_row('Search tags')
+            + '<div class="chips">' + ''.join(tag_chip(n) for _, t in TAG_CATS for n, _ in t) + '</div>', fab='New tag')
+M_CATS_SCREEN = app('Public tags', seg(['Tags', 'Categories'], 1, 'Show').replace('class="segmented"', 'class="segmented segmented--block"', 1) + search('Search categories')
+            + '<div class="card-grid" style="gap:var(--space-2)">' + ''.join(f'<a class="row row--outline" href="#">{tile("grid", "teal")}<span class="row__body"><span class="row__title">{n}</span><span class="row__meta">{t} tags · {e} {"entity" if e == 1 else "entities"}</span></span>{I("chevron-right")}</a>' for n, t, e in CAT_ROWS) + '</div>', fab='New category')
+M_NEW_BODY = (fld('Tag name', '<input class="input" maxlength="50" placeholder="For example, Hand reared">')
+              + labelled('Category' + REQ, '<div class="select-wrap"><select class="select"><option>Choose a category</option><option>Health</option><option>Behaviour</option></select></div>')
+              + '<a class="btn btn--link" href="#">' + I('plus') + 'New category</a>'
+              + f'<div class="field"><span class="field__label">Used on <span class="req">*</span></span><button class="row row--outline" type="button"><span class="row__body"><span class="row__title">Animals</span><span class="row__meta">1 chosen</span></span>{I("chevron-right")}</button></div>'
+              + fld('Description (optional)', '<textarea class="textarea" rows="3" placeholder="What should people know when they see this tag?"></textarea>') + roles_field([]))
+M_NEW_FOOT = '<div class="actionbar"><button class="btn btn--primary" type="button" disabled>Create tag</button></div>'
+def with_foot(screen, foot): return screen.replace('</div></div>', '</div>' + foot + '</div>', 1)
+M_NEW = with_foot(app('New tag', M_NEW_BODY), M_NEW_FOOT)
+ENT_ROWS = ''.join(f'<label class="row row--outline"><span class="row__body"><span class="row__title">{n}</span></span><span class="check"><input type="checkbox"{" checked" if n == "Animals" else ""} aria-label="{n}"></span></label>' for n in ['Animals', 'Species', 'Enclosures', 'Sections', 'Sites'])
+M_SELECT = with_foot(app('New tag', M_NEW_BODY, overlay=bsheet('m-select', 'Used on', f'<div class="section-head"><b>1 chosen</b><a href="#">Select all</a></div><div class="card-grid" style="gap:var(--space-2)">{ENT_ROWS}</div>',
+                                                                foot_one('Done', False))), M_NEW_FOOT)
+def m_hero(chips, more):
+    return (f'<section class="hero-photo hero-photo--app"><img class="hero-photo__img" src="{B}tiger.webp" alt="">'
+            f'<div class="hero-photo__bar"><a class="hero-photo__back" href="#">{I("chevron-left")}Animals</a><button class="icon-btn" type="button" aria-label="More">{I("more")}</button></div>'
+            f'<div><span class="hero-photo__overline">AAID 000482 · Male · 4 years</span><h2 class="hero-photo__title">Sheru</h2><p class="hero-photo__sub">Bengal tiger · Tiger enclosure 2</p></div>'
+            + tag_strip(chips, more, more + len(chips)) + '</section>')
+M_STRIP = [tag_chip('Aggressive', 'critical', attrs=INFO), tag_chip('In transit', 'high', private=True), tag_chip('Abnormal behaviour', 'high'), tag_chip('Chronic condition', 'normal', private=True)]
+def m_animal(seg_sel, content, overlay=''):
+    body = (m_hero(M_STRIP, 40) + block_tabs(['Tags', 'Medical', 'Enclosures'], 0, 'Animal record') + search_row('Search tags', history=True)
+            + block_tabs(['Public tags', 'Private tags'], seg_sel, 'Tag type') + content)
+    return app('', body, fab='Add a tag', top='', overlay=overlay)
+M_PRIVATE = m_animal(1, tag_group('My tags', [tag_chip('In transit', 'high', private=True), tag_chip('Chronic condition', 'normal', private=True), tag_chip('Elderly', private=True)])
+                     + tag_group('Tags by others', [tag_chip('Night shift watch', 'critical', private=True, by=('KR', 'Kavya Rao')), tag_chip('Weigh on Monday', private=True, by=('RK', 'Ravi Kumar'))]))
+M_EMPTY_BODY = f'<div class="empty">{tile("tag", "teal")}<b>No private tags yet</b><span>Only you see the private tags you add here, unless you share them.</span></div>'
+M_EMPTY = m_animal(1, M_EMPTY_BODY)
+M_ADD1 = m_animal(1, M_EMPTY_BODY, bsheet('m-add-1', 'Add private tag', search('Search or create a tag') + item(tile('plus', 'green'), 'Elderly', 'Create it as a private tag and add it')
+                  + '<p class="field__label">Choose a tag</p><div class="chips">' + ''.join(tag_chip(n, private=True) for n in ['Sick', 'In transit', 'Not eating', 'Special diet']) + '</div>', foot_split('Cancel', 'Add tag', b_disabled=True)))
+M_ADD2 = m_animal(1, M_EMPTY_BODY, bsheet('m-add-2', 'Add private tag', f'<div class="field"><span class="field__label">Selected tag</span><div class="chips">{tag_chip("Elderly", private=True, remove=True, new=True)}</div></div>'
+                  + priority_picker('m-add-2-pr', 0) + toggle_row('users', 'navy', 'Visible to all', 'Off means only you can see it on this animal'), foot_split('Cancel', 'Add tag')))
+M_NOPERM = m_animal(0, '', bsheet('m-noperm', 'Add public tag', search('Search public tags') + '<div class="alert alert--caution" role="status">' + I('alert') + '<div><b>You can\'t create public tags</b>Choose an existing one, or create a private tag instead.</div></div>', foot_split('Cancel', 'Add tag', b_disabled=True)))
+M_DETAILS = m_animal(0, '', bsheet('m-details', 'Aggressive', f'<div class="chips">{tag_chip("Aggressive", "critical", button=False)}</div><div class="list">'
+                     + fact('users', 'sky', 'Tag type', 'Public') + fact('grid', 'teal', 'Category', 'Behaviour') + fact('calendar', 'coral', 'Deadline', '29 May 2026') + fact('user', 'green', 'Added by', 'Dr. Nitin · 14 Jun 2026')
+                     + item(tile('paw', 'green'), 'Tagged animals and places', '40') + item(tile('bell', 'navy'), 'Roles notified', '25 roles') + '</div>'
+                     + '<div class="card card--sunken"><p class="t-overline">Description</p><p class="t-small">Two keepers at all times. Do not enter alone.</p></div>', '',
+                     ibtn('pencil', 'Edit tag') + ibtn('minus', 'Remove from Sheru'), 'Public tag'))
+M_EDIT = m_animal(0, '', bsheet('m-edit', 'Edit tag', f'<div class="chips">{tag_chip("Aggressive", "critical", button=False)}</div>' + priority_picker('m-edit-pr', 2)
+                  + toggle_row('calendar', 'sky', 'Schedule and duration', 'A deadline or a time period', on=True) + chipgroup('When', ['Set a deadline', 'A time period'])
+                  + fld('Deadline', '<input class="input" type="date">'), foot_split('Cancel', 'Save')))
+M_REMOVE = m_animal(0, '', '<div class="dialog-backdrop"><div class="dialog" role="alertdialog" aria-labelledby="m-rm-t" aria-describedby="m-rm-d"><div class="dialog__head"><div><h3 class="dialog__title" id="m-rm-t">Remove tag?</h3>'
+                    '<p class="dialog__desc" id="m-rm-d">Aggressive comes off Sheru. The tag stays in the hub.</p></div></div><div class="dialog__foot"><button class="btn btn--ghost" type="button">Cancel</button><button class="btn btn--danger" type="button">Remove</button></div></div></div>')
+M_ALL = m_animal(0, '', bsheet('m-all', 'Tags · 44', block_tabs(['Public tags 40', 'Private tags 4'], 0, 'Tag type') + '<div class="chips">'
+                 + ''.join(tag_chip(n, p) for n, p in [('Aggressive', 'critical'), ('Anaesthesia due', 'critical'), ('In transit', 'high'), ('Sick', 'critical'), ('Abnormal behaviour', 'high'), ('Medication due', 'high'), ('Special diet', 'normal'), ('Elderly', None), ('Nocturnal', None)]) + '</div>'))
+M_ROLES = m_animal(0, '', bsheet('m-roles', 'Roles notified', search('Search roles') + '<div class="section-head"><b>25 roles</b></div><div class="list">'
+                   + ''.join(f'<div class="item">{tile("user", "navy")}<span class="item__body"><b>{r}</b></span></div>' for r in ['Site manager', 'Super admin', 'Pharmacists', 'Veterinarians', 'Nutritionists']) + '</div>'))
+M_HISTORY = app('Tag history', item(media('tiger.webp', 'M'), 'AAID: 000482', 'Sheru · Bengal tiger', 'Tiger enclosure 2', chevron=False) + search('Search tags')
+                + ''.join(f'<div class="section-head"><b>{day}</b></div><ul class="activity">' + ''.join(f'<li>{tile(ic, h)}<div>{tag_chip(n, pr, private=pv, button=False)}<small>{esc(m)}</small></div></li>' for ic, h, (n, pr, pv), m in rows) + '</ul>' for day, rows in TAG_HISTORY[:3]))
+write_doc('mobile-tags', {'title': 'Mobile app · Tags', 'group': 'Screens', 'intro': 'The Tags flows of the mobile app, from the Global Tagging Module design, on system parts: the hub, tag entities, public tags and categories, a new tag, an animal\'s Tags tab and its bottom sheets, and tag history.', 'icon': 'tag', 'hue': 'teal'},
+          doc('mt-hub', 'My tags hub and tag entities', 'Search and filter, public or private, where the tag is used, then tags by category. Select a tag to see the <b>animals and places</b> that carry it, or its <b>info</b>.',
+              frames(phone(M_HUB, 'My tags hub', 'Public tags, used on animals'), phone(M_ENTS, 'Tag entities', 'Animals with the tag'), phone(M_INFO, 'Tag info')), canvas=False)
+          + doc('mt-public', 'Public tags and a new tag', 'Tags by category, and the categories themselves. <b>New tag</b> is a full page on the phone; <b>Used on</b> opens a bottom sheet.',
+              frames(phone(M_PUB, 'Public tags'), phone(M_CATS_SCREEN, 'Categories'), phone(M_NEW, 'New tag'), phone(M_SELECT, 'Used on', 'Bottom sheet')), canvas=False)
+          + doc('mt-animal', 'An animal\'s tags', 'The hero carries the latest four tags and <b>+N</b>. The Tags tab splits public and private; private shows <b>my tags</b> and <b>tags by others</b>. With none, an empty state says what private tags are.',
+              frames(phone(M_PRIVATE, 'Private tags'), phone(M_EMPTY, 'No private tags yet'), phone(M_ALL, 'All tags', '+N opens them in a bottom sheet')), canvas=False)
+          + doc('mt-sheets', 'Add, see, edit and remove', 'Every step is a <b>bottom sheet</b> on the phone (<code>drawer--bottom</code>). Add a tag: choose or create it, then its priority and, for a private tag, whether everyone sees it, in the same sheet. Without permission to create public tags, a caution note says what to do instead. Removing asks first.',
+              frames(phone(M_ADD1, 'Add private tag', 'Choose or create'), phone(M_ADD2, 'Add private tag', 'Priority and visibility'), phone(M_NOPERM, 'Add public tag', 'No permission to create'),
+                     phone(M_DETAILS, 'Tag details'), phone(M_EDIT, 'Edit tag'), phone(M_REMOVE, 'Remove tag?'), phone(M_ROLES, 'Roles notified')), canvas=False)
+          + doc('mt-history', 'Tag history', 'Every change to the animal\'s tags, newest first.', frames(phone(M_HISTORY, 'Tag history')), canvas=False),
+          usage('mt-usage', 'Mobile app · Tags', ['Use bottom sheets for tag steps on the phone.', 'Keep one floating add button per screen.', 'Put priority and visibility in the same Add tag sheet.'],
+                ['Tint a sheet header with the priority colour: the chip carries it.', 'Stack a speed dial under the add button.', 'Use white labels on green buttons.']),
+          code('mt-code', 'Mobile app · Tags', ['.drawer--bottom', '.fab', '.topbar', '.hero-photo--app', '.tag-strip', '.tag-chip', '.empty', '.alert--caution'],
+               '<aside class="drawer drawer--floating drawer--bottom" role="dialog" aria-modal="true" aria-labelledby="add-title">\n  <header class="drawer__head">…</header>\n  <div class="drawer__body">…</div>\n  <div class="drawer__foot drawer__foot--split">…</div>\n</aside>'))
+add_link('Screens', 'mobile-tags.html', 'Mobile app · Tags', 'screen-animal-tags.html')
+
+
 ENC_DOC = ('<div class="doc" id="enclosure-sheet"><h3>Enclosure sheet</h3><p class="lead">A record sheet whose rows carry the <b>animal card details</b>: the photo with the sex tag, the AAID, the name and the scientific name; each row opens the animal. Above them, a <b>figures panel</b> (animals, species and the keeper), the status pill and a section head with how many are shown. The foot splits a secondary action and one main action.</p>'
            '<div class="demo demo--canvas ss-demo"><div class="ss-frame">' + enclosure_sheet('sheet-enclosure-demo', inline=True) + '</div></div></div>')
 put_section('docs-src/side-sheets.html', '<!--enclosure-sheet-->', '<!--/enclosure-sheet-->', ENC_DOC, '<!--usage-->')

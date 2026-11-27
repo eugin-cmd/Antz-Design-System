@@ -11,6 +11,8 @@ All notable changes to the Antz Design System. Versions follow semantic versioni
 - **Priority picker:** High is now amber (`caution`), as its docs describe, so it matches tag chips.
 - **Priority names:** Normal, High and **Critical** (was Emergency), in the priority picker and tag chips; same colours and marks. `priority__opt--critical` is the class now; `priority__opt--emergency` still works.
 - **React Native:** `roles.tagChip` (none, normal, high, critical) in every scheme.
+- **Mobile app · Tags** (new Screens page): the Tags flows of the mobile app from the Global Tagging Module design, as phone frames on system parts.
+- **Bottom sheet** (`drawer--bottom`, opt-in): on phones a floating sheet rises from the bottom and sizes to its content.
 - **Fix:** a long side sheet no longer squashes its search and lists; it scrolls.
 - App team: rename the priority levels Low, Moderate and High to Normal, High and Critical.
 

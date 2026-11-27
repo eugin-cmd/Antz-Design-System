@@ -35,6 +35,8 @@ ok(/background:\s*var\(--color-surface\)/.test(rule('.tag-strip__more')), '+N in
 const tagsPage = fs.readFileSync(path.join(ROOT, 'pages', 'tags.html'), 'utf8');
 const more = (tagsPage.match(/<button class="tag-strip__more"[^>]*>.*?<\/button>/) || [''])[0];
 ok(!!more && !/aria-label=/.test(more) && /\+5/.test(more) && /sr-only/.test(more), '+N keeps "+5" in its accessible name (no aria-label override)');
+// DD-009 mobile: the opt-in bottom sheet rises from the bottom on phones, in the viewport and in a shell frame.
+ok(/@media \(max-width: 599px\) \{[^}]*\.drawer--bottom[^}]*\}/.test(css) && /@container shell \(max-width: 599\.98px\) \{[^}]*\.drawer--bottom/.test(css) && /@keyframes ds-sheet-up/.test(css), 'drawer--bottom is a bottom sheet under 600px (viewport and shell container)');
 // DD-009: React Native gets the same tag chip colours as the web, in every scheme.
 const rnSrc = fs.readFileSync(path.join(ROOT, 'dist', 'react-native', 'antz-theme.js'), 'utf8');
 const rnTheme = JSON.parse(rnSrc.slice(rnSrc.indexOf('{'), rnSrc.lastIndexOf('}') + 1));

@@ -597,6 +597,14 @@ button.tag-chip:hover { box-shadow: inset 0 0 0 1px var(--tc-fg); }
 .tag-tabs { min-width: 0; overflow-x: auto; scrollbar-width: none; }
 .tag-tabs > .segmented--line { display: inline-flex; min-width: 100%; }
 .tag-tabs > .segmented--line > button { flex: none; }
+/* Mobile app record hero (DD-009): full-bleed photo with a glass back and more, the name and the tag strip */
+.hero-photo--app { min-height: auto; gap: var(--space-3); padding: var(--space-3) var(--space-4) var(--space-4); border-radius: 0 0 var(--radius-2xl) var(--radius-2xl); }
+.screen__scroll > .hero-photo--app:first-child { margin: calc(var(--space-3) * -1) calc(var(--space-3) * -1) 0; }
+.hero-photo--app .hero-photo__title { margin-top: var(--space-1); font-size: var(--text-3xl); }
+.hero-photo--app .hero-photo__sub { margin-top: var(--space-1); font-size: var(--text-md); }
+.hero-photo__bar { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); }
+.hero-photo__bar .icon-btn { color: var(--color-text-on-strong); background: color-mix(in srgb, var(--color-text-on-strong) 16%, transparent); }
+.hero-photo__bar .icon-btn:hover { background: color-mix(in srgb, var(--color-text-on-strong) 26%, transparent); }
 
 /* ── Attachments (Figma Attachments, attachment type, preview, list) ──── */
 .dropzone { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-1-5); min-height: 148px; padding: var(--space-5) var(--space-4); border: 0; border-radius: var(--radius-lg); text-align: center; font-size: var(--text-sm); color: var(--color-text-muted); background: var(--color-surface-sunken); cursor: pointer; transition: border-color var(--duration-fast), background var(--duration-fast); }
@@ -2233,6 +2241,16 @@ fieldset.field, .drawer fieldset.filter-panel, .dialog fieldset.filter-panel { m
 /* Side sheets inside a device frame size to the frame, not the browser window */
 .shell-host .drawer--floating { width: min(var(--size-drawer-work), calc(100cqw - var(--space-8))); }
 @container shell (max-width: 599.98px) { .shell-host .drawer--floating { inset-block: var(--space-2); inset-inline-end: var(--space-2); width: calc(100cqw - var(--space-4)); } }
+/* ── Bottom sheet (DD-009, opt-in): on phones a floating sheet rises from the bottom and sizes to its content.
+      Above 600px it is the usual side sheet. Add drawer--bottom to a drawer--floating. ── */
+@keyframes ds-sheet-up { from { transform: translateY(calc(100% + var(--space-4))); } }
+@keyframes ds-sheet-down { to { transform: translateY(calc(100% + var(--space-4))); opacity: 0; } }
+@media (max-width: 599px) { .drawer--floating.drawer--bottom { top: auto; inset-inline: var(--space-2); bottom: var(--space-2); width: auto; max-height: 85vh; animation-name: ds-sheet-up; } }
+@container shell (max-width: 599.98px) { .shell-host .drawer--floating.drawer--bottom { top: auto; inset-inline: var(--space-2); bottom: var(--space-2); width: auto; max-height: 85%; animation-name: ds-sheet-up; } }
+@media (max-width: 599px) { .drawer--bottom.is-leaving { animation-name: ds-sheet-down; } .drawer--bottom .drawer__head { position: relative; padding-top: var(--space-6); } .drawer--bottom .drawer__head::before { content: ""; position: absolute; top: var(--space-2); left: 50%; width: var(--space-10); height: var(--space-1); border-radius: var(--radius-full); background: var(--color-border-strong); transform: translateX(-50%); } }
+@container shell (max-width: 599.98px) { .shell-host .drawer--bottom .drawer__head { position: relative; padding-top: var(--space-6); } .shell-host .drawer--bottom .drawer__head::before { content: ""; position: absolute; top: var(--space-2); left: 50%; width: var(--space-10); height: var(--space-1); border-radius: var(--radius-full); background: var(--color-border-strong); transform: translateX(-50%); } }
+@media (max-width: 599px) { .drawer--bottom .drawer__title { font-size: var(--text-2xl); } }
+@container shell (max-width: 599.98px) { .shell-host .drawer--bottom .drawer__title { font-size: var(--text-2xl); } }
 /* On the solid sheet hero, glass figures need no blur: a plain tint of the on-strong colour */
 .sheet-hero .glass-stat { color: var(--color-text-on-strong); background: color-mix(in srgb, var(--color-text-on-strong) 10%, transparent); -webkit-backdrop-filter: none; backdrop-filter: none; }
 /* A sheet shown already open (a screen preview) does not slide in */
