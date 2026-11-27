@@ -2,9 +2,13 @@
 
 All notable changes to the Antz Design System. Versions follow semantic versioning: patch for fixes, minor for additions, major for anything renamed, removed or changed in meaning. Every version listed here is published under `releases/` and tagged in Git.
 
-## Unreleased
+## 1.2.0-beta.8 (27 November 2026)
 
-### The Antz Design System agent (TD-003, proposed)
+The **Antz Design System agent** (TD-003, accepted): a Claude Code plugin that every team installs once, pinned to this release. **/systemdesigner** builds only from the system, **/systemauditor** audits a product read-only (code and rendered screens), **/openvisualguide** opens this guide. The checker now reads web (MUI) and React Native code and warns about deprecated names. Governance files for GitHub, and a Brand history page. DD-009 (the Tag module, shipped in beta.7) is accepted. 866 tokens, 724 contrast checks.
+
+Install the agent in a product repository: `/plugin marketplace add eugin-cmd/Antz-Design-System#v1.2.0-beta.8`, then `/plugin install antz-design-system@antz` (guide: `docs/agent-onboarding.md`). Upgrade the CSS, themes and React Native package by changing `v1.2.0-beta.7` to `v1.2.0-beta.8`; nothing is removed or renamed. Existing products may see new check findings in their MUI and React Native code (literal values that never came from the system).
+
+### The Antz Design System agent (TD-003, accepted)
 - **Claude Code plugin** *Antz Design System* (`antz-design-system`, in `agent/`; catalog `antz`). Install once per product repository, pinned to the release tag: `/plugin marketplace add eugin-cmd/Antz-Design-System#vX.Y.Z`, then `/plugin install antz-design-system@antz`. The plugin's version is the system's.
 - **/systemdesigner** (the design-system skill, renamed): builds only from the system, reports the version, parts used, deviations, checks and deprecated names.
 - **/systemauditor** (new, read-only): code checks plus rendered checks in Chrome (contrast in four modes, tap targets, names, alt text, focus, JavaScript errors), graded Critical, Major, Minor and Accessibility with the rule and the fix for each finding, and what could not be checked.

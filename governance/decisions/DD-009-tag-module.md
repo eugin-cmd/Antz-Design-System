@@ -1,7 +1,8 @@
 ---
 id: DD-009
 title: Tag module: tag chips, the tag strip, the add tag flow and the Tags screens
-status: proposed
+status: accepted
+accepted: 2026-11-27 (System Owner)
 date: 2026-11-27
 owner: System Owner
 approver: System Owner (Eugin Robinson)

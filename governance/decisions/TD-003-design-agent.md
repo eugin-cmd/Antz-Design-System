@@ -1,7 +1,8 @@
 ---
 id: TD-003
 title: The Antz Design System agent is a Claude Code plugin published from this repository
-status: proposed
+status: accepted
+accepted: 2026-11-27 (System Owner)
 date: 2026-11-27
 owner: System Owner
 approver: System Owner (Eugin Robinson)

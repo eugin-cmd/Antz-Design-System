@@ -29,7 +29,7 @@
 .dd .eg { margin-top: var(--space-3); padding: var(--space-3); border-radius: var(--radius-md); background: var(--color-surface-sunken); }
 .dd .eg > .t-overline { display: block; margin-bottom: var(--space-2); }
 details.code { margin-top: var(--space-3); }
-details.code summary { display: inline-flex; align-items: center; gap: var(--space-1-5); font-size: var(--text-sm); font-weight: var(--weight-semibold); color: var(--color-text-link); cursor: pointer; }
+details.code summary { display: inline-flex; align-items: center; min-height: var(--space-6); gap: var(--space-1-5); font-size: var(--text-sm); font-weight: var(--weight-semibold); color: var(--color-text-link); cursor: pointer; }
 pre { margin: var(--space-2) 0 0; padding: var(--space-3-5); border-radius: var(--radius-md); overflow-x: auto; font: 12.5px/1.6 var(--font-mono); color: var(--color-text); background: var(--color-surface); box-shadow: var(--shadow-hairline); max-width: 100%; }
 code { font-family: var(--font-mono); font-size: .9em; padding: 1px 5px; border-radius: 5px; background: var(--color-surface-muted); overflow-wrap: anywhere; }
 pre code { padding: 0; background: none; font-size: inherit; overflow-wrap: normal; }
