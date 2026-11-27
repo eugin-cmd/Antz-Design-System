@@ -565,6 +565,41 @@ write_doc('record-lists', {'title': 'Record lists', 'group': 'Components', 'intr
 pp_demo = ('<div class="cell demo-cell--pop">' + pick('doc-site', 'All sites', 'pin', SITES) + ' ' + pick('doc-period', 'All time', 'calendar', PERIODS, site=False) + '</div>'
            + '<div class="cell demo-cell--pop-lg">' + module_switch('Pharmacy') + '</div>'
            + '<div class="cell">' + f'<div class="btn-split btn-split--narrow"><button class="btn btn--secondary-solid" type="button">{I("plus")}Add to pharmacy</button><span class="pop-anchor"><button class="btn btn--secondary-solid" type="button" aria-label="More ways to add" aria-haspopup="menu" aria-expanded="false" data-popover="doc-add">{I("chevron-down")}</button><div class="popover popover--end" id="doc-add" hidden>' + ''.join(f'<a class="menu__item" href="#">{I(ic)}{t}</a>' for ic, t in [('package', 'Receive medicines'), ('swap', 'Dispense to a keeper'), ('send', 'Request from Central')]) + '</div></span></div></div>')
+# Tag chips (DD-009): public pill, private tag shape, priority on the priority picker's scale
+TAG_MARK = {'normal': '!', 'high': '!!', 'emergency': '!!!'}
+TAG_WORD = {'normal': 'Normal', 'high': 'High', 'emergency': 'Emergency'}
+def tag_chip(name, prio=None, private=False, by=None, remove=False, button=True, new=False):
+    """A tag chip. by=('KR', 'Kavya Rao') for a private tag someone else added. A removable chip is a span
+    (a button can't hold the remove button); otherwise clickable chips are buttons and static ones spans."""
+    cls = 'tag-chip' + (' tag-chip--private' if private else '') + (f' tag-chip--{prio}' if prio else '')
+    said = ', '.join(x for x in ['private tag' if private else '', f'{TAG_WORD[prio].lower()} priority' if prio else '', f'added by {by[1]}' if by else ''] if x)
+    inner = ((f'<span class="tag-chip__by" aria-hidden="true" title="Added by {esc(by[1])}">{esc(by[0])}</span>' if by else '')
+             + (f'<span class="tag-chip__lock" aria-hidden="true">{I("lock")}</span>' if private else '')
+             + (f'<span class="tag-chip__mark" aria-hidden="true">{TAG_MARK[prio]}</span>' if prio else '')
+             + f'<span class="tag-chip__label">{esc(name)}</span>' + (f'<span class="sr-only">, {said}</span>' if said else '')
+             + (f'<button class="tag-chip__remove" type="button" aria-label="Remove {esc(name)}">{I("x")}</button>' if remove else ''))
+    tag = 'button' if button and not remove else 'span'
+    chip = f'<{tag} class="{cls}"' + (' type="button"' if tag == 'button' else '') + f'>{inner}</{tag}>'
+    return chip + (' <span class="tag tag--soft">New</span>' if new else '')
+def tag_row(label, chips): return f'<div class="cell demo-cell--row"><span class="t-small t-secondary" style="min-width:var(--space-16)">{esc(label)}</span>{chips}</div>'
+TC_MATRIX = ''.join(tag_row(w, tag_chip('Quarantine', p) + tag_chip('Check weight', p, private=True))
+                    for w, p in [('No priority', None), ('Normal', 'normal'), ('High', 'high'), ('Emergency', 'emergency')])
+TC_PARTS = (tag_row('By others', tag_chip('Night shift watch', 'emergency', private=True, by=('KR', 'Kavya Rao')) + tag_chip('Weigh on Monday', private=True, by=('RK', 'Ravi Kumar')))
+            + tag_row('Removable', tag_chip('Vaccination due', 'normal', remove=True) + tag_chip('Limping left', private=True, remove=True))
+            + tag_row('New', tag_chip('Limping left', private=True, remove=True, new=True))
+            + tag_row('Static', tag_chip('Quarantine', 'emergency', button=False) + tag_chip('Ask vet about limp', 'normal', private=True, button=False)))
+TC_LONG = (f'<div class="card" style="max-width:320px"><p class="t-overline">Selected tag</p><div class="chips">'
+           + tag_chip('Deep clean pending before the inspection on Friday', 'high', private=True, remove=True)
+           + tag_chip('Enrichment trial for the new enclosure layout', 'normal') + '</div></div>')
+write_doc('tag-chips', {'title': 'Tag chips', 'group': 'Components', 'intro': 'Labels on animals, species and places. The shape says who can see the tag: a pill is public, a tag shape is private. The colour and its marks say the priority, on the same scale as the priority picker.', 'icon': 'tag', 'hue': 'teal'},
+          doc('tc-matrix', 'Public and private, by priority', 'A <b>pill</b> is a public tag; the <b>tag shape</b>, with its point, is a private one. Priority uses the priority picker\'s scale: <b>Normal</b> <code>!</code> on info, <b>High</b> <code>!!</code> on caution (amber) and <b>Emergency</b> <code>!!!</code> on danger. A tag with no priority yet is neutral grey. The marks are always shown, so priority never depends on colour alone.', TC_MATRIX, canvas=False)
+          + doc('tc-parts', 'Parts and states', 'A private tag someone else added starts with their <b>initials</b> (their name is in the tooltip and is read out). A <b>removable</b> chip ends with a remove button; a tag being created gets the small <b>New</b> tag beside it. Clickable chips are buttons that open the tag; in history and previews they are <b>static</b>.', TC_PARTS, canvas=False)
+          + doc('tc-long', 'Long names', 'A chip never grows wider than its container: a long name ends with an ellipsis, and the full name is still read out.', TC_LONG, canvas=False),
+          usage('tc-usage', 'Tag chips', ['Use the pill for public tags and the tag shape for private ones.', 'Use the priority scale: no priority, Normal, High, Emergency.', 'Keep the mark on every chip that has a priority.', 'Show who added a private tag that is not yours.'],
+                ['Pick a colour per category or per tag.', 'Use teal, or any hue, to mean "no priority".', 'Show priority by colour alone.', 'Put a filled main button inside a chip list.']),
+          code('tc-code', 'Tag chip', ['.tag-chip', '.tag-chip--private', '.tag-chip--normal', '.tag-chip--high', '.tag-chip--emergency', '.tag-chip__mark', '.tag-chip__label', '.tag-chip__by', '.tag-chip__remove', '.tag-chip__lock'],
+               tag_chip('Check weight Friday', 'high', private=True).replace('><', '>\n  <').replace('\n  </button>', '\n</button>')))
+
 write_doc('popovers-and-pickers', {'title': 'Popovers and pickers', 'group': 'Components', 'intro': 'Dropdown panels opened from a trigger: the site and period pickers, the module switcher and the split button\'s menu. Escape and an outside click close them.', 'icon': 'chevron-down', 'hue': 'teal'},
           doc('pp-demo', 'Pickers, switcher and split button', 'Select a trigger to open its panel. <b>Pickers</b> mark the chosen option and update the label. The <b>module switcher</b> shows every module in a compact grid. The <b>split button</b> pairs one action with a menu of related ones.', pp_demo, canvas=False)
           + doc('pp-sort', 'Sort menu', 'A <b>picker</b> on the sort button of a list toolbar: Newest first, Oldest first, Species A–Z and AAID. Each order has its icon from ANTZ Rounded (<code>i-sort-newest</code>, <code>i-sort-oldest</code>, <code>i-sort-az</code>); choosing one updates the trigger\'s label and icon (<code>data-icon</code> on the option, <code>data-pick-icon</code> on the trigger icon).',

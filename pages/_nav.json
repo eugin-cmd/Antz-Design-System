@@ -116,6 +116,11 @@
           "title": "Chips and tabs"
         },
         {
+          "href": "tag-chips.html",
+          "title": "Tag chips",
+          "isNew": true
+        },
+        {
           "href": "badges.html",
           "title": "Badges and status"
         },
