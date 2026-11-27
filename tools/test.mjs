@@ -46,6 +46,11 @@ const aud = (f) => { try { return JSON.parse(execFileSync('node', ['agent/script
 const ab = aud('tools/fixtures/bad-rn.tsx'), ag = aud('tools/fixtures/good-rn.tsx');
 ok(ab?.verdict === 'Not compliant' && ab.findings.some((x) => x.rule === 'ANTZ-ELV-01' && x.cat === 'C') && ab.findings.some((x) => x.rule === 'ANTZ-COL-01' && x.cat === 'B'), 'auditor grades a bad React Native file: critical colours, major elevation');
 ok(ag?.verdict === 'Compliant' && ag.notRan.some((x) => /Rendered checks: not run/.test(x)) && ag.version === 'working', 'auditor passes a good file and says rendered checks did not run');
+// Governance: the owner reviews every file; rulesets protect main and the release tags.
+const owners = (() => { try { return fs.readFileSync(path.join(ROOT, '.github/CODEOWNERS'), 'utf8'); } catch { return ''; } })();
+ok(/^\*\s+@eugin-cmd/m.test(owners) && ['/tokens/', '/components.css', '/governance/', '/agent/', '/releases/'].every((p) => owners.includes(p)), 'CODEOWNERS: the System Owner owns every file, critical paths listed');
+const rsMain = readJ('.github/rulesets/main.json'), rsTags = readJ('.github/rulesets/release-tags.json');
+ok(rsMain?.rules?.some((r) => r.type === 'pull_request' && r.parameters.require_code_owner_review) && rsMain.rules.some((r) => r.type === 'non_fast_forward') && rsTags?.target === 'tag' && ['update', 'deletion'].every((t) => rsTags.rules.some((r) => r.type === t)), 'rulesets: main needs code-owner review and no force-push; v* tags never move or disappear');
 // DD-009: the tag chip and the priority picker share one priority scale, on status tokens.
 const css = fs.readFileSync(path.join(ROOT, 'components.css'), 'utf8');
 const rule = (sel) => (css.match(new RegExp('^' + sel.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\s*\\{([^}]*)\\}', 'm')) || [])[1] || '';

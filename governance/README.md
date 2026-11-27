@@ -22,6 +22,35 @@ How the Antz Design System is owned, changed and kept consistent. The docs page 
 
 The System Owner is **Eugin Robinson**, from 22 November 2026. The other names are to be assigned; until they are, the System Owner approves everything above Patch.
 
+## Who can change the official system
+
+The GitHub repository is the only source of truth. A local clone, a fork or a copy in a product is not.
+
+| Who | Can | How it is enforced |
+| --- | --- | --- |
+| System Owner (repository owner, **@eugin-cmd**) | Approve, merge, release and deploy | Repository admin |
+| Authorised maintainers (none yet) | Only what the System Owner grants | GitHub roles |
+| Designers, developers, PMs, other teams | Read, use the agent, **propose** changes | No write access: a fork and a pull request |
+| AI agents (Claude Code and others) | Build and audit products; prepare changes when asked | They never approve, release or deploy on their own; in this repository Claude pushes or releases only on the System Owner's explicit "push" or "release" |
+
+**Instructions to an AI are not access control.** GitHub enforces it: nobody but the owner has write access;
+`.github/CODEOWNERS` requests the owner's review on every file; the rulesets in `.github/rulesets/` protect `main`
+(no deletion or force-push; pull requests need the code owner's approval) and the release tags `v*` (only the owner
+creates them; they can't be moved or deleted). Published releases are also checksummed (`tools/release.mjs --verify`).
+
+**Proposing a change:** open an issue or a pull request (from a fork) with an RFC (`rfc/TEMPLATE.md`); the agent's
+`/systemdesigner` writes proposals in that shape. The System Owner decides; accepted changes ship in the next release.
+**Emergency correction** (a wrong colour, a broken component, an accessibility failure): the System Owner may fix it
+directly as a Patch, release it, and record a decision afterwards.
+
+**Switch the protection on (once, GitHub settings, by the owner):**
+1. Settings › Rules › Rulesets › New ruleset › **Import a ruleset** → `.github/rulesets/main.json`; then again for
+   `.github/rulesets/release-tags.json`.
+2. Both give the *Repository admin* role a bypass, so the System Owner can keep pushing and releasing directly. To make
+   the owner use pull requests too, remove the bypass from `main.json` and add a second approver (a maintainer), since
+   GitHub doesn't let an author approve their own pull request.
+3. Settings › Collaborators: keep everyone else at *Read*. Settings › General › Pull requests: allow merge commits.
+
 ## Change classes
 
 | Class | Examples | Process | Version |

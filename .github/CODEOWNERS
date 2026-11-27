@@ -1,0 +1,24 @@
+# Antz Design System · code owners
+# Every change to the official system needs the System Owner's approval. CODEOWNERS only requests that review;
+# the rulesets in .github/rulesets/ (imported in GitHub settings) are what enforce it. See governance/README.md.
+
+*                       @eugin-cmd
+
+# The parts that define the system (listed so the intent is explicit)
+/tokens/                @eugin-cmd
+/components.css         @eugin-cmd
+/components.js          @eugin-cmd
+/governance/            @eugin-cmd
+/agent/                 @eugin-cmd
+/.claude-plugin/        @eugin-cmd
+/skills/                @eugin-cmd
+/specs/                 @eugin-cmd
+/docs-src/              @eugin-cmd
+/assets/                @eugin-cmd
+/icons/                 @eugin-cmd
+/tools/                 @eugin-cmd
+/releases/              @eugin-cmd
+/AGENTS.md              @eugin-cmd
+/CLAUDE.md              @eugin-cmd
+/VERSION                @eugin-cmd
+/.github/               @eugin-cmd

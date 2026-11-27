@@ -14,6 +14,17 @@
   <p class="t-small t-secondary">The System Owner is Eugin Robinson, from 22 November 2026. The other names are to be confirmed; until they are, the System Owner approves everything above Patch.</p>
 </div>
 
+<div class="doc" id="who-can-change">
+  <h3>Who can change the official system</h3>
+  <p class="lead">The GitHub repository is the only source of truth. <b>Everyone can use</b> the system and its agent; <b>only the System Owner approves and publishes</b> changes. Instructions to an AI are not access control: GitHub enforces it with read-only access for everyone else, <code>.github/CODEOWNERS</code> and the rulesets in <code>.github/rulesets/</code> (main can't be deleted or force-pushed; release tags <code>v*</code> are created only by the owner and never move). AI agents build and audit products and prepare changes when asked; they never approve, release or deploy on their own.</p>
+  <div class="spec-wrap"><table class="spec"><thead><tr><th>Who</th><th>Can</th></tr></thead><tbody>
+    <tr><td>System Owner (repository owner)</td><td>Approve, merge, release and deploy</td></tr>
+    <tr><td>Authorised maintainers</td><td>Only what the System Owner grants</td></tr>
+    <tr><td>Designers, developers, PMs, other teams</td><td>Read, use the agent, propose changes (an RFC by issue or pull request)</td></tr>
+    <tr><td>AI agents</td><td>Build and audit products; prepare changes when asked; never approve or publish</td></tr>
+  </tbody></table></div>
+  <p class="t-small t-secondary">Emergency corrections: the System Owner may fix and release a Patch directly and record a decision afterwards.</p>
+</div>
 <div class="doc" id="classes">
   <h3>Change classes</h3>
   <div class="spec-wrap"><table class="spec"><thead><tr><th>Class</th><th>Examples</th><th>Process</th><th>Version</th></tr></thead><tbody>
