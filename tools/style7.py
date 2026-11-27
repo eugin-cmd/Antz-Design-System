@@ -1577,6 +1577,57 @@ write_doc('mobile-tags', {'title': 'Mobile app · Tags', 'group': 'Screens', 'in
                '<aside class="drawer drawer--floating drawer--bottom" role="dialog" aria-modal="true" aria-labelledby="add-title">\n  <header class="drawer__head">…</header>\n  <div class="drawer__body">…</div>\n  <div class="drawer__foot drawer__foot--split">…</div>\n</aside>'))
 add_link('Screens', 'mobile-tags.html', 'Mobile app · Tags', 'screen-animal-tags.html')
 
+# ═══ Brand history (design agent, Prompt 03): read from the frozen releases, never invented ═══
+import hashlib as _hl
+BRAND_KEYS = [('color-brand-primary', 'Brand primary'), ('color-brand-secondary', 'Secondary'), ('color-brand-tertiary', 'Tertiary'),
+              ('color-accent', 'Main button fill'), ('color-text-on-accent', 'Main button label'), ('color-accent-text', 'Brand text'), ('color-focus', 'Focus')]
+def _brand(v):
+    cj = json.load(open(f'releases/v{v}/colors.json'))
+    t = open(f'releases/v{v}/tokens.css').read()
+    fam = re.search(r'--font-family-sans:\s*([^;]+);', t)
+    logo = f'releases/v{v}/assets/img/antz-logo.svg'
+    return {'light': {k: cj['light'].get(k, {}).get('$value') for k, _ in BRAND_KEYS}, 'dark': {k: cj['dark'].get(k, {}).get('$value') for k, _ in BRAND_KEYS},
+            'font': fam.group(1).split(',')[0].strip(' "') if fam else None, 'logo': _hl.sha1(open(logo, 'rb').read()).hexdigest()[:8] if os.path.exists(logo) else None,
+            'grads': len(re.findall(r'--gradient-[a-z0-9-]+:', t))}
+_idx = json.load(open('releases/index.json'))
+_rels = [(x['version'], x['date']) for x in reversed(_idx['versions'])]
+_brands = {v: _brand(v) for v, _ in _rels}
+def _sw(hexv): return f'<span class="bh-sw" style="background:{hexv}" title="{hexv}"></span><code>{hexv}</code>' if hexv else '<span class="t-secondary">not in this release</span>'
+_rows = ''; _prev = None
+for v, d in _rels:
+    b = _brands[v]; changes = []
+    if _prev:
+        for k, label in BRAND_KEYS:
+            for m in ('light', 'dark'):
+                if b[m][k] != _prev[m][k]: changes.append(f'{label} ({m}): {_prev[m][k]} → {b[m][k]}')
+        if b['font'] != _prev['font']: changes.append(f'Typeface: {_prev["font"]} → {b["font"]}')
+        if b['logo'] != _prev['logo']: changes.append('Logo: ' + ('added' if not _prev['logo'] else 'changed'))
+        if b['grads'] != _prev['grads']: changes.append(f'Gradient tokens: {_prev["grads"]} → {b["grads"]}')
+    note = '<b>First published release.</b>' if not _prev else ('; '.join(esc(c) for c in changes) if changes else 'No brand change.')
+    logo = f'<img class="bh-logo" src="../releases/v{v}/assets/img/antz-logo.svg" alt="Antz logo in {v}">' if b['logo'] else '<span class="t-secondary">not in this release</span>'
+    _rows = (f'<tr><td><b>{v}</b><br><small class="t-secondary">{d}</small><br><a href="../releases/v{v}/index.html">Open this release</a></td>'
+             f'<td>{_sw(b["light"]["color-brand-primary"])}</td><td>{_sw(b["light"]["color-accent"])} <small>label</small> {_sw(b["light"]["color-text-on-accent"])}</td>'
+             f'<td>{_sw(b["light"]["color-accent-text"])}</td><td>{esc(b["font"] or "")}</td><td>{logo}</td><td>{note}</td></tr>') + _rows
+    _prev = b
+_cur = _brands[_rels[-1][0]]
+BH_CURRENT = ('<div class="bh-current">' + ''.join(f'<div class="bh-chip"><span class="bh-big" style="background:{_cur["light"][k]}"></span><b>{label}</b><code>{_cur["light"][k]}</code><small>dark: {_cur["dark"][k]}</small></div>' for k, label in BRAND_KEYS) + '</div>')
+BH_TABLE = ('<div class="spec-wrap"><table class="spec"><thead><tr><th>Version</th><th>Brand primary</th><th>Main button</th><th>Brand text</th><th>Typeface</th><th>Logo</th><th>What changed</th></tr></thead><tbody>'
+            + _rows + '</tbody></table></div>')
+BH_RETIRED = ('<div class="spec-wrap"><table class="spec"><thead><tr><th>Value</th><th>Status</th><th>Decision</th></tr></thead><tbody>'
+              '<tr><td><code>#52F990</code> lime</td><td>Retired as a brand colour</td><td>FD-001, 22 November 2026 (rule ANTZ-COL-03)</td></tr>'
+              '<tr><td><code>#38BD69</code></td><td>Retired near-duplicate</td><td>FD-001</td></tr>'
+              '<tr><td><code>#36BC69</code></td><td>Retired near-duplicate</td><td>FD-001</td></tr>'
+              '<tr><td>White label on the green main button</td><td>Reconsidered and withdrawn; the dark label stays</td><td>FD-003, 24 November 2026</td></tr></tbody></table></div>')
+write_doc('brand-history', {'title': 'Brand history', 'group': 'Governance', 'intro': 'Every published version of the Antz brand: colours, button, typeface and logo as each frozen release has them, what changed and when. Read from the releases themselves; nothing here is reconstructed.', 'icon': 'clock', 'hue': 'green'},
+          doc('bh-current', f'Current brand · {_rels[-1][0]}', 'The brand as the latest release ships it, in light (with the dark value below). The brand primary is a fill only; text and thin lines use the brand text and indicator tones.', BH_CURRENT, canvas=False)
+          + doc('bh-versions', 'Every version', f'One row per published release, newest first ({len(_rels)} releases). Each value is read from that release\'s frozen <code>colors.json</code>, <code>tokens.css</code> and assets, and compared with the release before it. <b>Before 1.0.0-beta.1 (22 November 2026) nothing was recorded in this repository</b>; earlier greens appear only in the retired list below.', BH_TABLE, canvas=False)
+          + doc('bh-retired', 'Retired and reconsidered', 'Brand values that must not be used (shown as text only; the Colour page has the do-not-use examples), and brand decisions that were tried and withdrawn.', BH_RETIRED, canvas=False),
+          usage('bh-usage', 'Brand history', ['Change the brand only through a foundational decision (FD) approved by the System Owner; it ships as a new release.', 'Compare two versions by opening both releases from the table.'],
+                ['Edit a published release to change its brand: releases never change.', 'Use a retired value, even to match an old screen.']),
+          code('bh-code', 'Brand history', ['releases/index.json', 'releases/vX.Y.Z/colors.json', 'releases/vX.Y.Z/tokens.css', 'governance/decisions/FD-*.md'], 'Generated by tools/style7.py from the frozen releases at every docs build.'))
+add_link('Governance', 'brand-history.html', 'Brand history', 'governance.html')
+
+
 
 ENC_DOC = ('<div class="doc" id="enclosure-sheet"><h3>Enclosure sheet</h3><p class="lead">A record sheet whose rows carry the <b>animal card details</b>: the photo with the sex tag, the AAID, the name and the scientific name; each row opens the animal. Above them, a <b>figures panel</b> (animals, species and the keeper), the status pill and a section head with how many are shown. The foot splits a secondary action and one main action.</p>'
            '<div class="demo demo--canvas ss-demo"><div class="ss-frame">' + enclosure_sheet('sheet-enclosure-demo', inline=True) + '</div></div></div>')

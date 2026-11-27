@@ -537,6 +537,11 @@
           "isNew": true
         },
         {
+          "href": "brand-history.html",
+          "title": "Brand history",
+          "isNew": true
+        },
+        {
           "href": "versions.html",
           "title": "Versions and releases",
           "isNew": true
