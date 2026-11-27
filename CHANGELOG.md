@@ -2,7 +2,11 @@
 
 All notable changes to the Antz Design System. Versions follow semantic versioning: patch for fixes, minor for additions, major for anything renamed, removed or changed in meaning. Every version listed here is published under `releases/` and tagged in Git.
 
-## Unreleased
+## 1.2.0-beta.7 (27 November 2026)
+
+The Tag module (DD-009, proposed), on the web and in the mobile app. Tag chips keep the prototype's shapes (a pill for public tags, a tag shape for private ones) and take every colour from tokens, on one priority scale: Normal, High and Critical, each with its mark. New pages: Tag chips, Tags (patterns), the Tags, Tags · public and Animal · tags screens, and Mobile app · Tags from the Global Tagging Module design. Also an opt-in bottom sheet for phones, the system Animal card in tag lists, and React Native tag chip roles. 866 tokens, 724 contrast checks.
+
+Upgrade by changing `v1.2.0-beta.6` to `v1.2.0-beta.7`. Nothing is removed. The priority picker now says **Critical** (was Emergency) and its High is amber; `priority__opt--emergency` still works as an alias of `priority__opt--critical`.
 
 ### Tag module (DD-009, proposed)
 - **Tag chip** (new component page *Tag chips*): a pill for public tags and a tag shape with a point for private ones. Priority uses the priority picker's scale, Normal `!` (info), High `!!` (caution, amber) and Critical `!!!` (danger), and always shows its mark, so it never depends on colour alone. No priority is neutral. Private tags someone else added show their initials; chips can be removable, new or static, and long names truncate.

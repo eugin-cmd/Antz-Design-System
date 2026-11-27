@@ -27,7 +27,7 @@ The skill steers the assistant. It can't stop a person from typing a hex colour 
 
 ## Install
 
-The same folder works everywhere. Use the release's copy, `releases/vX.Y.Z/skills/antz-design-system/` (for example `releases/v1.2.0-beta.6/skills/antz-design-system/`), so that every team gets the same version.
+The same folder works everywhere. Use the release's copy, `releases/vX.Y.Z/skills/antz-design-system/` (for example `releases/v1.2.0-beta.7/skills/antz-design-system/`), so that every team gets the same version.
 
 | Where | How |
 |---|---|
@@ -43,9 +43,9 @@ Requirements: Node 18 or later, and either internet access to the team site or a
 1. Install the skill from that release's folder (above), so its instructions match the version.
 2. Tell the helper the version. In Claude Code, add it to the project's `.claude/settings.json` and commit it:
    ```json
-   { "env": { "ANTZ_DS_VERSION": "1.2.0-beta.6" } }
+   { "env": { "ANTZ_DS_VERSION": "1.2.0-beta.7" } }
    ```
-   Outside Claude Code, set the `ANTZ_DS_VERSION` environment variable, or pass `--version 1.2.0-beta.6` to each command.
+   Outside Claude Code, set the `ANTZ_DS_VERSION` environment variable, or pass `--version 1.2.0-beta.7` to each command.
 
 Upgrade both together when you move to a new release.
 
