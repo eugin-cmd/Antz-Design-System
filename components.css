@@ -543,7 +543,7 @@ label.row { cursor: pointer; }
 .priority { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-2); padding: var(--space-3) var(--space-2); border-radius: var(--radius-md); background: var(--color-surface-sunken); box-shadow: inset 0 0 0 1px var(--color-border-subtle); }
 .priority__opt { --pr-bg: var(--color-info-solid); --pr-fg: var(--color-info-on-solid); --pr-text: var(--color-info-text);
   position: relative; display: flex; flex-direction: column; align-items: center; gap: var(--space-1-5); min-width: 0; padding: var(--space-1) 0; font-size: var(--text-sm); font-weight: var(--weight-medium); color: var(--color-text-secondary); cursor: pointer; }
-.priority__opt--high { --pr-bg: var(--color-warning-solid); --pr-fg: var(--color-warning-on-solid); --pr-text: var(--color-warning-text); }
+.priority__opt--high { --pr-bg: var(--color-caution-solid); --pr-fg: var(--color-caution-on-solid); --pr-text: var(--color-caution-text); }
 .priority__opt--emergency { --pr-bg: var(--color-danger-solid); --pr-fg: var(--color-danger-on-solid); --pr-text: var(--color-danger-text); }
 .priority__opt input { position: absolute; opacity: 0; pointer-events: none; }
 .priority__mark { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; font-size: var(--text-lg); font-weight: var(--weight-bold); letter-spacing: -.08em; color: var(--color-text-secondary); background: var(--color-surface); box-shadow: inset 0 0 0 1px var(--color-border-strong); transition: background var(--duration-fast), color var(--duration-fast), transform var(--duration-base) var(--ease-move); }
@@ -551,6 +551,35 @@ label.row { cursor: pointer; }
 .priority__opt:has(input:checked) { font-weight: var(--weight-semibold); color: var(--pr-text); }
 .priority__opt:has(input:checked) .priority__mark { color: var(--pr-fg); background: var(--pr-bg); box-shadow: none; transform: scale(1.06); }
 .priority__opt:has(input:focus-visible) .priority__mark { outline: var(--focus-ring-width) solid var(--color-focus); outline-offset: var(--focus-ring-offset); }
+
+/* ── Tag chip (DD-009) ───────────────────────────────────────────────────
+   Shape says who can see the tag: public is a pill, private is a tag shape
+   with a point. Priority uses the priority picker's scale on status tokens,
+   and always shows its mark (! !! !!!), so it never depends on colour alone. */
+.tag-chip { --tc-bg: var(--color-neutral-bg); --tc-fg: var(--color-neutral-text);
+  display: inline-flex; align-items: center; gap: var(--space-1-5); max-width: 100%; min-width: 0; height: var(--size-control-sm); padding: 0 var(--space-3); border: 0; border-radius: var(--radius-full);
+  font-family: var(--font-body); font-size: var(--text-sm); font-weight: var(--weight-medium); line-height: var(--leading-snug); white-space: nowrap; color: var(--tc-fg); background: var(--tc-bg); vertical-align: middle; }
+.tag-chip--normal { --tc-bg: var(--color-info-bg); --tc-fg: var(--color-info-text); }
+.tag-chip--high { --tc-bg: var(--color-caution-bg); --tc-fg: var(--color-caution-text); }
+.tag-chip--emergency { --tc-bg: var(--color-danger-bg); --tc-fg: var(--color-danger-text); }
+.tag-chip--private { padding-right: calc(var(--space-3) * 2); border-radius: var(--radius-xs) 0 0 var(--radius-xs);
+  clip-path: polygon(0 0, calc(100% - 15px) 0, calc(100% - 3px) 42%, calc(100% - 3px) 58%, calc(100% - 15px) 100%, 0 100%); }
+.tag-chip__mark { flex: none; font-weight: var(--weight-bold); }
+.tag-chip__label { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.tag-chip__by { flex: none; display: inline-grid; place-items: center; width: var(--size-icon-md); height: var(--size-icon-md); margin-left: calc(var(--space-1) * -1); border-radius: 50%;
+  font-size: var(--text-2xs); font-weight: var(--weight-bold); color: var(--color-text-secondary); background: var(--color-surface); }
+.tag-chip__remove { flex: none; display: inline-grid; place-items: center; width: var(--size-icon-lg); height: var(--size-icon-lg); margin-right: calc(var(--space-2) * -1); padding: 0; border: 0; border-radius: 50%; color: inherit; background: transparent; cursor: pointer; }
+.tag-chip__remove:hover { background: var(--color-surface-hover); }
+.tag-chip__remove .icon, .tag-chip__lock .icon { width: var(--size-icon-xs); height: var(--size-icon-xs); }
+.tag-chip__lock { display: none; }
+button.tag-chip { cursor: pointer; }
+button.tag-chip:hover { box-shadow: inset 0 0 0 1px var(--tc-fg); }
+.tag-chip:focus-visible, .tag-chip__remove:focus-visible { outline: var(--focus-ring-width) solid var(--color-focus); outline-offset: var(--focus-ring-offset); }
+@media (forced-colors: active) {
+  .tag-chip { border: 1px solid CanvasText; }
+  .tag-chip--private { clip-path: none; border-radius: var(--radius-xs); }
+  .tag-chip__lock { display: inline-grid; }
+}
 
 /* ── Attachments (Figma Attachments, attachment type, preview, list) ──── */
 .dropzone { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-1-5); min-height: 148px; padding: var(--space-5) var(--space-4); border: 0; border-radius: var(--radius-lg); text-align: center; font-size: var(--text-sm); color: var(--color-text-muted); background: var(--color-surface-sunken); cursor: pointer; transition: border-color var(--duration-fast), background var(--duration-fast); }

@@ -3,6 +3,7 @@
    Proves the gates work: the token build passes, the bad fixture trips every
    automated rule, and the good fixture passes. Run: node tools/test.mjs */
 import { execFileSync } from 'node:child_process';
+import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -20,5 +21,12 @@ for (const r of ['ANTZ-GRD-01', 'ANTZ-COL-03', 'ANTZ-COL-01', 'ANTZ-TYP-02', 'AN
 ok(node('tools/check.mjs', 'tools/fixtures/bad-prototype.html').code === 1, 'bad fixture fails the check (exit 1)');
 const good = JSON.parse(node('tools/check.mjs', '--json', 'tools/fixtures/good-prototype.html').out);
 ok(good.findings.length === 0, `good fixture passes (${good.findings.length} findings)`);
+// DD-009: the tag chip and the priority picker share one priority scale, on status tokens.
+const css = fs.readFileSync(path.join(ROOT, 'components.css'), 'utf8');
+const rule = (sel) => (css.match(new RegExp('^' + sel.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\s*\\{([^}]*)\\}', 'm')) || [])[1] || '';
+for (const [mod, fam] of [['normal', 'info'], ['high', 'caution'], ['emergency', 'danger']])
+  ok(rule(`.tag-chip--${mod}`).includes(`--color-${fam}-bg`) && rule(`.tag-chip--${mod}`).includes(`--color-${fam}-text`), `tag chip ${mod} uses the ${fam} tokens`);
+ok(/--color-neutral-bg/.test(rule('.tag-chip')), 'tag chip without a priority is neutral');
+ok(rule('.priority__opt--high').includes('--color-caution-'), 'priority picker High is amber (caution), same scale as tag chips');
 console.log(fails ? `\n✗ ${fails} self-test failure(s)` : '\n✓ All guardrail self-tests pass.');
 process.exit(fails ? 1 : 0);
