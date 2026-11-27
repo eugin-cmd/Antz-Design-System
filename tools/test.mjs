@@ -46,7 +46,7 @@ ok(fs.existsSync(path.join(ROOT, 'agent/scripts/antz.mjs')), 'the shared helper 
 const aud = (f) => { try { return JSON.parse(execFileSync('node', ['agent/scripts/antz.mjs', 'audit', f, '--version', 'working', '--json'], { cwd: ROOT, stdio: 'pipe' }).toString()); } catch (e) { return null; } };
 const ab = aud('tools/fixtures/bad-rn.tsx'), ag = aud('tools/fixtures/good-rn.tsx');
 ok(ab?.verdict === 'Not compliant' && ab.findings.some((x) => x.rule === 'ANTZ-ELV-01' && x.cat === 'C') && ab.findings.some((x) => x.rule === 'ANTZ-COL-01' && x.cat === 'B'), 'auditor grades a bad React Native file: critical colours, major elevation');
-ok(ag?.verdict === 'Compliant' && ag.notRan.some((x) => /Rendered checks: not run/.test(x)) && ag.version === 'working', 'auditor passes a good file and says rendered checks did not run');
+ok(ag && ag.findings.length === 0 && ag.notRan.some((x) => /Rendered checks: not run/.test(x)) && ag.version === 'working', 'auditor finds nothing in a good file and says rendered checks did not run');
 // Governance: the owner reviews every file; rulesets protect main and the release tags.
 const owners = (() => { try { return fs.readFileSync(path.join(ROOT, '.github/CODEOWNERS'), 'utf8'); } catch { return ''; } })();
 ok(/^\*\s+@eugin-cmd/m.test(owners) && ['/tokens/', '/components.css', '/governance/', '/agent/', '/releases/'].every((p) => owners.includes(p)), 'CODEOWNERS: the System Owner owns every file, critical paths listed');
@@ -54,6 +54,14 @@ const rsMain = readJ('.github/rulesets/main.json'), rsTags = readJ('.github/rule
 ok(rsMain?.rules?.some((r) => r.type === 'pull_request' && r.parameters.require_code_owner_review) && rsMain.rules.some((r) => r.type === 'non_fast_forward') && rsTags?.target === 'tag' && ['update', 'deletion'].every((t) => rsTags.rules.some((r) => r.type === t)), 'rulesets: main needs code-owner review and no force-push; v* tags never move or disappear');
 const old = (() => { try { return JSON.parse(execFileSync('node', ['agent/scripts/antz.mjs', 'audit', 'tools/fixtures/bad-rn.tsx', '--version', '1.2.0-beta.7', '--json'], { cwd: ROOT, stdio: 'pipe' }).toString()); } catch { return null; } })();
 ok(old && old.verdict !== 'Compliant' && old.notRan.some((x) => /can't read them/.test(x)), 'auditor never calls code "compliant" when the release checker could not read its styles');
+// Review fixes (design agent)
+const forms = JSON.parse(node('tools/check.mjs', '--json', 'tools/fixtures/bad-mui-forms.tsx').out).findings.map((x) => x.snippet + ' ' + x.msg).join('\n');
+for (const [what, re] of [['styled(Box)(({ theme }) => …)', /#FF0000/], ['styled(Box) template', /#BB0000/], ['sx array, later element', /#AA0000/], ['style array, later element', /#0000FF/], ['style array after an indexed item', /margin-top: 7px/]])
+  ok(re.test(forms), `checker reads ${what}`);
+ok(/MUI spacing gap: 2 \(16px/.test(forms) && /MUI borderRadius: 2/.test(forms), 'MUI gap and borderRadius numbers are reported in MUI units');
+const old7 = (() => { const r = (() => { try { return { out: execFileSync('node', ['agent/scripts/antz.mjs', 'check', 'tools/fixtures/bad-mui.tsx', '--version', '1.2.0-beta.7'], { cwd: ROOT, stdio: 'pipe' }).toString() }; } catch (e) { return { out: (e.stdout || '').toString() + (e.stderr || '').toString() }; } })(); return r.out; })();
+ok(/could not read/.test(old7), 'check warns when the release checker could not read MUI or React Native styles');
+ok(ag?.verdict !== 'Compliant' && /not fully checked/i.test(ag?.verdict || ''), 'audit is "not fully checked" when the rendered checks did not run');
 // DD-009: the tag chip and the priority picker share one priority scale, on status tokens.
 const css = fs.readFileSync(path.join(ROOT, 'components.css'), 'utf8');
 const rule = (sel) => (css.match(new RegExp('^' + sel.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\s*\\{([^}]*)\\}', 'm')) || [])[1] || '';

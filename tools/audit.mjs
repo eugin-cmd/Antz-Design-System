@@ -56,7 +56,8 @@ const MODES = [['light', 'standard'], ['dark', 'standard'], ['light', 'high'], [
 const FREEZE = `(()=>{const s=document.createElement('style');s.textContent='*,*::before,*::after{transition:none!important;animation-duration:0s!important;animation-delay:0s!important}.reveal-wait{opacity:1!important}';document.head.appendChild(s);document.querySelectorAll('.reveal-wait').forEach(e=>e.classList.remove('reveal-wait'));return 1})()`;
 
 const findings = {}; const say = (s) => process.stdout.write(s + '\n');
-const b = await browser();
+let b;
+try { b = await browser(); } catch (e) { console.error(`✗ ${e.message}`); server.close(); process.exit(2); }
 try {
   if (parts.includes('cascade')) {
     say('· Cascade: every colour token in 36 combinations of OS and page settings');

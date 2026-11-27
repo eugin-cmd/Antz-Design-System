@@ -22,6 +22,9 @@ The helper is the plugin's `antz.mjs`: always run it as `node <skill-dir>/../../
    ```sh
    node <skill-dir>/../../scripts/antz.mjs audit <paths…> [--url <address>]… --out antz-audit.md
    ```
+   **Rendered checks take about 30 seconds per screen** (four colour modes, then pixel confirmation). Run the command
+   with a long timeout (up to 10 minutes) or in the background, and audit the screens that matter rather than every
+   HTML file; a screen that fails to load is reported and the audit carries on.
    It runs the release's code checks (CSS, HTML, MUI `sx`/`style`, React Native `StyleSheet`, deprecated names) and,
    for each `--url` or HTML file, the rendered checks in Chrome: text contrast in light, dark and both high
    contrasts (suspects re-measured on real pixels), tap targets, accessible names, alt text, keyboard focus and

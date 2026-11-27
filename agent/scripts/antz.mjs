@@ -101,7 +101,7 @@ const commands = {
     if (source.kind === 'dir') {
       // A clone can hold unreleased work: say so, and keep building from the release.
       const work = (f) => { try { return fs.readFileSync(path.join(source.base, f), 'utf8'); } catch { return null; } };
-      const changed = ['tokens.css', 'components.css', 'components.js'].filter((f) => work(f) !== work(`releases/v${v}/${f}`));
+      const changed = ['tokens.css', 'components.css', 'components.js', 'tools/check.mjs', 'governance/rules.json', 'governance/deprecations.json'].filter((f) => work(f) !== work(`releases/v${v}/${f}`));
       const wv = (work('VERSION') || '').trim();
       if (changed.length || wv !== v) console.log(`Drift:     the clone's working copy differs from release ${v} (${[wv !== v ? `VERSION ${wv}` : '', ...changed].filter(Boolean).join(', ')}). Build from the release, never from unreleased work.`);
       else console.log(`Drift:     none; the working copy matches release ${v}.`);
@@ -223,6 +223,12 @@ const commands = {
     if (!paths.length) throw new Error('Name the files or folders to check, e.g. node antz.mjs check src/');
     const script = await checkerScript();
     const res = spawnSync(process.execPath, [script, ...(report ? ['--report'] : []), ...(json ? ['--json'] : []), ...paths], { stdio: 'inherit' });
+    // Checkers before 1.2.0-beta.8 don't read JS style objects: never let a pass hide that.
+    const hasJs = paths.some((p) => /\.(jsx?|tsx?)$/.test(p) || (fs.existsSync(p) && fs.statSync(p).isDirectory()));
+    if (hasJs && !/jsObjectChunks/.test(fs.readFileSync(script, 'utf8'))) {
+      const msg = `\n⚠ Not fully checked: the ${await version()} checker could not read MUI sx/style objects or React Native StyleSheet values (1.2.0-beta.8 and later can). Review those styles by hand, or check with a newer release (--version).`;
+      if (json) console.error(msg); else console.log(msg);
+    }
     process.exit(res.status ?? 1);
   },
 
@@ -297,21 +303,24 @@ async function audit() {
   const SKIP = new Set(['node_modules', '.git', 'dist', 'build', '.next', 'coverage', 'releases']);
   const htmlIn = (p) => { try { const st = fs.statSync(p); if (st.isFile()) return /\.html?$/i.test(p) ? [p] : []; return fs.readdirSync(p).filter((n) => !SKIP.has(n) && !n.startsWith('.')).flatMap((n) => htmlIn(path.join(p, n))); } catch { return []; } };
   const htmlFiles = paths.flatMap(htmlIn);
-  if (htmlFiles.length > 20) notRan.push(`Rendered checks covered the first 20 of ${htmlFiles.length} HTML files; pass the ones that matter, or --url.`);
+  if (htmlFiles.length > 20) { notRan.push(`Rendered checks covered the first 20 of ${htmlFiles.length} HTML files; pass the ones that matter, or --url.`); partial = true; }
   const htmlTargets = htmlFiles.slice(0, 20).map((p) => 'file://' + path.resolve(p));
   const targets = [...urls, ...htmlTargets];
   if (targets.length) {
     let engine;
     try { engine = await import(new URL('./browser.mjs', import.meta.url)); if (typeof WebSocket === 'undefined') throw new Error('Node 22 or later is needed for rendered checks.'); }
-    catch (e) { notRan.push(`Rendered checks: not run (${e.message}).`); engine = null; }
+    catch (e) { notRan.push(`Rendered checks: not run (${e.message}).`); engine = null; partial = true; }
     if (engine) {
       let b;
-      try { b = await engine.browser(); } catch (e) { notRan.push(`Rendered checks: not run (${e.message}).`); }
+      try { b = await engine.browser(); } catch (e) { notRan.push(`Rendered checks: not run (${e.message}).`); partial = true; }
       if (b) try {
         const SCAN = engine.makeScan('[data-audit-ignore]');
         const MODES = [['light', 'no-preference'], ['dark', 'no-preference'], ['light', 'more'], ['dark', 'more']];
+        let rendered = 0;
         for (const t of targets) {
           const tn = t.startsWith('file://') ? path.relative(process.cwd(), t.slice(7)) : t;
+          const isFile = t.startsWith('file://');
+          try {
           for (const [scheme, contrast] of MODES) {
             const mode = scheme + (contrast === 'more' ? ', high contrast' : '');
             await b.media([{ name: 'prefers-color-scheme', value: scheme }, { name: 'prefers-contrast', value: contrast }]);
@@ -326,8 +335,8 @@ async function audit() {
             if (scheme === 'light' && contrast === 'no-preference') {
               const r = await b.eval(String.raw`(()=>{const small=[],noname=[],noalt=[];for(const el of document.querySelectorAll('a[href],button,input,select,textarea,[role=button],[role=tab],summary')){const q=el.getBoundingClientRect();if(q.width<1||q.height<1||getComputedStyle(el).visibility==='hidden')continue;if(el.tagName==='A'&&el.closest('p,li,td,dd'))continue;if(el.type==='checkbox'||el.type==='radio')continue;if(q.width<23.5||q.height<23.5)small.push((el.textContent||el.getAttribute('aria-label')||el.tagName).trim().slice(0,30)+' '+Math.round(q.width)+'×'+Math.round(q.height));if((el.tagName==='BUTTON'||el.tagName==='A')&&!(el.textContent||'').trim()&&!el.getAttribute('aria-label')&&!el.getAttribute('aria-labelledby')&&!el.getAttribute('title'))noname.push(el.outerHTML.slice(0,80))}for(const i of document.querySelectorAll('img:not([alt])'))noalt.push(i.getAttribute('src')||'img');return {small:[...new Set(small)],noname,noalt}})()`).catch(() => ({ small: [], noname: [], noalt: [] }));
               for (const x of r.small) findings.push({ cat: 'E', where: `${tn} (rendered)`, rule: 'RENDER-TAP', issue: `Tap target too small: ${x}`, expected: RENDER_RULE['RENDER-TAP'], snippet: x });
-              for (const x of r.noname) findings.push({ cat: 'E', where: `${tn} (rendered)`, rule: 'RENDER-NAME', issue: 'Button or link without an accessible name', expected: RENDER_RULE['RENDER-NAME'], snippet: x });
-              for (const x of r.noalt) findings.push({ cat: 'E', where: `${tn} (rendered)`, rule: 'RENDER-ALT', issue: `Image without alt text: ${x}`, expected: RENDER_RULE['RENDER-ALT'], snippet: x });
+              if (!isFile) for (const x of r.noname) findings.push({ cat: 'E', where: `${tn} (rendered)`, rule: 'RENDER-NAME', issue: 'Button or link without an accessible name', expected: RENDER_RULE['RENDER-NAME'], snippet: x });
+              if (!isFile) for (const x of r.noalt) findings.push({ cat: 'E', where: `${tn} (rendered)`, rule: 'RENDER-ALT', issue: `Image without alt text: ${x}`, expected: RENDER_RULE['RENDER-ALT'], snippet: x });
               // Focus: tab through the first controls and see whether anything visible changes.
               const nofocus = [];
               for (let i = 0; i < 12; i++) {
@@ -339,11 +348,13 @@ async function audit() {
               for (const e of b.events.filter((x) => x.method === 'Runtime.exceptionThrown')) findings.push({ cat: 'C', where: `${tn} (rendered)`, rule: 'RENDER-JS', issue: `JavaScript error: ${(e.params.exceptionDetails.exception?.description || e.params.exceptionDetails.text || '').split('\n')[0]}`, expected: RENDER_RULE['RENDER-JS'], snippet: '' });
             }
           }
+          rendered++;
+          } catch (e) { notRan.push(`Rendered checks on ${tn}: stopped (${e.message}).`); partial = true; }
         }
-        ran.push(`Rendered checks on ${targets.length} screen(s) in Chrome: text contrast in light, dark and both high contrasts (suspects re-measured on real pixels), tap targets, accessible names, alt text, keyboard focus, JavaScript errors`);
+        if (rendered) ran.push(`Rendered checks on ${rendered} screen(s) in Chrome: text contrast in light, dark and both high contrasts (suspects re-measured on real pixels), tap targets, accessible names, alt text, keyboard focus, JavaScript errors`);
       } finally { b.close(); }
     }
-  } else notRan.push('Rendered checks: not run. Give --url with the running screen (for React Native, the Expo web build) or an HTML file to check what users actually see.');
+  } else { notRan.push('Rendered checks: not run. Give --url with the running screen (for React Native, the Expo web build) or an HTML file to check what users actually see.'); partial = true; }
 
   // 3. Report
   const n = (c) => findings.filter((f) => f.cat === c).length;
