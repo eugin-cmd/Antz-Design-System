@@ -10,7 +10,7 @@ This skill became **/systemdesigner** in the **Antz Design System** Claude Code 
 and **/openvisualguide**. Install it once in your product repository, pinned to the release you build against:
 
 ```
-/plugin marketplace add eugin-cmd/Antz-Design-System#v1.2.0-beta.8
+/plugin marketplace add eugin-cmd/Antz-Design-System#v1.2.0-beta.9
 /plugin install antz-design-system@antz
 ```
 

@@ -2,7 +2,11 @@
 
 All notable changes to the Antz Design System. Versions follow semantic versioning: patch for fixes, minor for additions, major for anything renamed, removed or changed in meaning. Every version listed here is published under `releases/` and tagged in Git.
 
-## Unreleased
+## 1.2.0-beta.9 (27 November 2026)
+
+Web developers' most common pattern now works: MUI spacing numbers that land on the Antz scale pass the check (`p: 2` = `--space-4`), with `antzSpacing` exported from the MUI theme. Designers can open any screen larger in a full-window preview. 866 tokens, 724 contrast checks.
+
+Upgrade by changing `v1.2.0-beta.8` to `v1.2.0-beta.9` (CSS, themes, React Native package and the agent: `/plugin marketplace add eugin-cmd/Antz-Design-System#v1.2.0-beta.9`). Nothing is removed or renamed.
 
 ### MUI spacing scale (RFC-002)
 - The Antz MUI theme sets `spacing: 8` and exports **`antzSpacing`**: the MUI spacing factors that land on an Antz space step (`p: 2` = 16px = `--space-4`, `p: 1.5` = `--space-3`, `gap: 1` = `--space-2`). Generated from the space tokens.
