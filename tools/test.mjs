@@ -28,5 +28,12 @@ for (const [mod, fam] of [['normal', 'info'], ['high', 'caution'], ['emergency',
   ok(rule(`.tag-chip--${mod}`).includes(`--color-${fam}-bg`) && rule(`.tag-chip--${mod}`).includes(`--color-${fam}-text`), `tag chip ${mod} uses the ${fam} tokens`);
 ok(/--color-neutral-bg/.test(rule('.tag-chip')), 'tag chip without a priority is neutral');
 ok(rule('.priority__opt--high').includes('--color-caution-'), 'priority picker High is amber (caution), same scale as tag chips');
+// DD-009: React Native gets the same tag chip colours as the web, in every scheme.
+const rnSrc = fs.readFileSync(path.join(ROOT, 'dist', 'react-native', 'antz-theme.js'), 'utf8');
+const rnTheme = JSON.parse(rnSrc.slice(rnSrc.indexOf('{'), rnSrc.lastIndexOf('}') + 1));
+const lightTokens = JSON.parse(fs.readFileSync(path.join(ROOT, 'colors.json'), 'utf8')).light;
+const tc = rnTheme.roles?.light?.tagChip;
+ok(!!tc && ['none', 'normal', 'high', 'emergency'].every((k) => tc[k]?.bg && tc[k]?.text), 'RN theme has tag chip roles: none, normal, high, emergency');
+ok(tc?.high?.bg === lightTokens['color-caution-bg'].$value && tc?.emergency?.text === lightTokens['color-danger-text'].$value, 'RN tag chip High is caution and Emergency is danger, as on the web');
 console.log(fails ? `\n✗ ${fails} self-test failure(s)` : '\n✓ All guardrail self-tests pass.');
 process.exit(fails ? 1 : 0);

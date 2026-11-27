@@ -827,6 +827,24 @@ export const antzTheme = {
           "solid": "#1F415B",
           "onSolid": "#FFFFFF"
         }
+      },
+      "tagChip": {
+        "none": {
+          "bg": "#F2F5F4",
+          "text": "#44544A"
+        },
+        "normal": {
+          "bg": "#E1F5FB",
+          "text": "#00677F"
+        },
+        "high": {
+          "bg": "#FFF4D9",
+          "text": "#745B00"
+        },
+        "emergency": {
+          "bg": "#FFEDEC",
+          "text": "#BD0538"
+        }
       }
     },
     "dark": {
@@ -910,6 +928,24 @@ export const antzTheme = {
           "bg": "#142636",
           "solid": "#A9CAEA",
           "onSolid": "#141F1A"
+        }
+      },
+      "tagChip": {
+        "none": {
+          "bg": "#1E2B25",
+          "text": "#B6C4BD"
+        },
+        "normal": {
+          "bg": "#0B2C35",
+          "text": "#51D5FE"
+        },
+        "high": {
+          "bg": "#33270B",
+          "text": "#EEC126"
+        },
+        "emergency": {
+          "bg": "#3A1418",
+          "text": "#FFB3B6"
         }
       }
     },
@@ -995,6 +1031,24 @@ export const antzTheme = {
           "solid": "#1F415B",
           "onSolid": "#FFFFFF"
         }
+      },
+      "tagChip": {
+        "none": {
+          "bg": "#F2F5F4",
+          "text": "#44544A"
+        },
+        "normal": {
+          "bg": "#E1F5FB",
+          "text": "#004E60"
+        },
+        "high": {
+          "bg": "#FFF4D9",
+          "text": "#574400"
+        },
+        "emergency": {
+          "bg": "#FFEDEC",
+          "text": "#920028"
+        }
       }
     },
     "darkHighContrast": {
@@ -1078,6 +1132,24 @@ export const antzTheme = {
           "bg": "#142636",
           "solid": "#A9CAEA",
           "onSolid": "#141F1A"
+        }
+      },
+      "tagChip": {
+        "none": {
+          "bg": "#1E2B25",
+          "text": "#B6C4BD"
+        },
+        "normal": {
+          "bg": "#0B2C35",
+          "text": "#B7EAFF"
+        },
+        "high": {
+          "bg": "#33270B",
+          "text": "#FFE089"
+        },
+        "emergency": {
+          "bg": "#3A1418",
+          "text": "#FFDADA"
         }
       }
     }
