@@ -104,3 +104,21 @@ the tag.
   credentials.
 - **Names:** the short commands can collide with another plugin's; the full `/antz-design-system:…` names always work.
 - **Old installs:** teams who copied `antz-design-system` keep working; it points to `/systemdesigner`.
+
+## 7. Additions approved by the System Owner (27 November 2026): web and React Native developers
+1. **The checker reads developer code.** `check` learns JS/TS style objects: MUI `sx={{…}}`, `style={{…}}`,
+   `styled(…)({…})` and React Native `StyleSheet.create({…})`. It flags raw colours, literal font sizes, weights,
+   families, spacing, radii, shadows/elevation and durations that don't come from the theme or tokens, and names the
+   token to use. Values that read from `theme`, `antzTheme` or `var(--…)` pass.
+2. **Deprecations:** `governance/deprecations.json` and rule **ANTZ-DEP-01** (warning, not failing): deprecated class
+   or token names are flagged with their replacement. Adding the rule follows the RFC route (RFC-001).
+3. **Platform instructions updated:** web (Next.js + MUI) and React Native (the npm install, `antzTheme`, the colour
+   roles including `tagChip`, recipes).
+4. **One eval per platform:** an MUI screen and a React Native screen, besides the existing ones.
+5. **The auditor states which checks it could run** for each platform (code only, or code and rendered).
+Not in this work: a shared React Native component package (a separate decision; needs the app repository).
+
+## 8. Deliverable for people
+A PDF guide, **How to use the Antz Design System agent**, for the System Owner, designers, developers (web and React
+Native) and managers: install, the three commands with examples, what the reports mean, how to propose changes, how
+versions and updates work, and limits.
