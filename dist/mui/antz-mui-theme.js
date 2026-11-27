@@ -4,10 +4,12 @@
  *
  * Usage (Next.js + MUI v5/v6):
  *   import { createTheme } from '@mui/material/styles';
- *   import { antzLight, antzDark } from '@antz/design-tokens/mui';
+ *   import { antzLight, antzDark } from '@antz/design-system/mui';
  *   const theme = createTheme(prefersDark ? antzDark : antzLight);
  *
  * Breakpoints are deliberately not overridden: the dashboard keeps MUI's defaults.
+ * Spacing keeps MUI's 8px unit. Use only the factors in antzSpacing (p: 2 = 16px = --space-4; p: 1.5 = --space-3);
+ * any other number is off the Antz scale and the guardrail check flags it.
  * palette.antz.scale holds the colour scales (palette.antz.scale.primary[600]); use them for illustration and data, not for components.
  * palette.antz carries Antz-only roles (brand, brandText, focus, tertiary, caution, board).
  */
@@ -243,6 +245,7 @@ export const antzLight = {
       "letterSpacing": "0.08em"
     }
   },
+  "spacing": 8,
   "shape": {
     "borderRadius": 10
   },
@@ -573,6 +576,7 @@ export const antzDark = {
       "letterSpacing": "0.08em"
     }
   },
+  "spacing": 8,
   "shape": {
     "borderRadius": 10
   },
@@ -903,6 +907,7 @@ export const antzLightHighContrast = {
       "letterSpacing": "0.08em"
     }
   },
+  "spacing": 8,
   "shape": {
     "borderRadius": 10
   },
@@ -1233,6 +1238,7 @@ export const antzDarkHighContrast = {
       "letterSpacing": "0.08em"
     }
   },
+  "spacing": 8,
   "shape": {
     "borderRadius": 10
   },
@@ -1331,6 +1337,25 @@ export const antzDarkHighContrast = {
       }
     }
   }
+};
+export const antzSpacing = {
+  "0": "--space-0",
+  "1": "--space-2",
+  "2": "--space-4",
+  "3": "--space-6",
+  "4": "--space-8",
+  "5": "--space-10",
+  "6": "--space-12",
+  "8": "--space-16",
+  "0.25": "--space-0-5",
+  "0.5": "--space-1",
+  "0.75": "--space-1-5",
+  "1.25": "--space-2-5",
+  "1.5": "--space-3",
+  "1.75": "--space-3-5",
+  "2.25": "--space-4-5",
+  "2.5": "--space-5",
+  "3.25": "--space-6-5"
 };
 export function antzThemeOptions({ mode = 'light', contrast = 'standard' } = {}) {
   if (mode === 'dark') return contrast === 'high' ? antzDarkHighContrast : antzDark;

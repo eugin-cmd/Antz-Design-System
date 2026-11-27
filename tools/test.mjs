@@ -58,10 +58,15 @@ ok(old && old.verdict !== 'Compliant' && old.notRan.some((x) => /can't read them
 const forms = JSON.parse(node('tools/check.mjs', '--json', 'tools/fixtures/bad-mui-forms.tsx').out).findings.map((x) => x.snippet + ' ' + x.msg).join('\n');
 for (const [what, re] of [['styled(Box)(({ theme }) => …)', /#FF0000/], ['styled(Box) template', /#BB0000/], ['sx array, later element', /#AA0000/], ['style array, later element', /#0000FF/], ['style array after an indexed item', /margin-top: 7px/]])
   ok(re.test(forms), `checker reads ${what}`);
-ok(/MUI spacing gap: 2 \(16px/.test(forms) && /MUI borderRadius: 2/.test(forms), 'MUI gap and borderRadius numbers are reported in MUI units');
+ok(/MUI spacing gap: 3\.5 \(28px/.test(forms) && /MUI borderRadius: 2/.test(forms), 'MUI gap and borderRadius numbers are reported in MUI units');
 const old7 = (() => { const r = (() => { try { return { out: execFileSync('node', ['agent/scripts/antz.mjs', 'check', 'tools/fixtures/bad-mui.tsx', '--version', '1.2.0-beta.7'], { cwd: ROOT, stdio: 'pipe' }).toString() }; } catch (e) { return { out: (e.stdout || '').toString() + (e.stderr || '').toString() }; } })(); return r.out; })();
 ok(/could not read/.test(old7), 'check warns when the release checker could not read MUI or React Native styles');
 ok(ag?.verdict !== 'Compliant' && /not fully checked/i.test(ag?.verdict || ''), 'audit is "not fully checked" when the rendered checks did not run');
+// MUI spacing scale: 8px unit; numbers that land on an Antz space step pass, others are flagged with the nearest step.
+const muiSrc = fs.readFileSync(path.join(ROOT, 'dist/mui/antz-mui-theme.js'), 'utf8');
+ok(/"spacing": 8/.test(muiSrc) && /export const antzSpacing = /.test(muiSrc) && /"2": "--space-4"/.test(muiSrc) && /"0\.25": "--space-0-5"/.test(muiSrc), 'MUI theme sets spacing 8 and exports antzSpacing (factor → Antz space token)');
+const bmF = JSON.parse(node('tools/check.mjs', '--json', 'tools/fixtures/bad-mui.tsx').out).findings;
+ok(bmF.some((x) => /MUI spacing p: 3\.5 \(28px\).*nearest Antz step: p: 3/.test(x.msg)), 'off-scale MUI spacing names the nearest Antz step');
 // DD-009: the tag chip and the priority picker share one priority scale, on status tokens.
 const css = fs.readFileSync(path.join(ROOT, 'components.css'), 'utf8');
 const rule = (sel) => (css.match(new RegExp('^' + sel.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\s*\\{([^}]*)\\}', 'm')) || [])[1] || '';

@@ -47,7 +47,7 @@ phone with today's requests". You get an HTML prototype linked to the pinned rel
 "/systemauditor audit it" and share the link.
 
 **Web developers (Next.js + MUI).** "/systemdesigner add a requests page with a status column". The agent uses the
-Antz MUI theme and tokens; `sx` values come from the theme or `var(--…)`. The check reads `sx`, `style` and
+Antz MUI theme and tokens; `sx` values come from the theme or `var(--…)`, and MUI spacing numbers are fine when they land on the Antz scale (`p: 2` = `--space-4`; the theme exports `antzSpacing`). The check reads `sx`, `style` and
 `styled(…)` objects.
 
 **React Native developers.** Install the theme in the app (`npm install github:eugin-cmd/Antz-Design-System#v1.2.0-beta.8`).

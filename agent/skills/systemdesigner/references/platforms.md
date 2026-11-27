@@ -13,9 +13,9 @@ Read the section for the platform you are working on.
 ## Next.js + MUI (web dashboard)
 
 - Theme: `createTheme(antzThemeOptions({ mode, contrast }))` from `releases/vX.Y.Z/dist/mui/antz-mui-theme.js`. MUI components then pick up Antz colours, type, shape and motion. Don't override them per component.
-- `sx` props and styled components follow the same rules as CSS: theme values or `var(--…)` tokens only (with `tokens.css` loaded), no hex, no off-scale numbers. The MUI theme does not set a spacing scale, so load `tokens.css` and use `var(--space-*)` for spacing rather than `theme.spacing()` numbers.
+- `sx` props and styled components follow the same rules as CSS: theme values or `var(--…)` tokens only (with `tokens.css` loaded), no hex, no off-scale numbers. **Spacing:** the theme keeps MUI's 8px unit, and `antzSpacing` (exported with the theme) lists the factors that land on an Antz space step: `p: 2` = 16px = `--space-4`, `p: 1.5` = `--space-3`, `gap: 1` = `--space-2`. Use only those factors (or `var(--space-*)`); `p: 3.5` (28px) is off the scale.
 - Antz-specific components (animal card, stat panel, status chips, work drawer) are React wrappers around the documented markup and classes, following the contract in `releases/vX.Y.Z/specs/components/*.md` where one exists. If a spec is missing, build to the docs page and note it for the maintainers.
-- Run `check` on `src/`. It reads CSS, HTML, CSS-in-JS strings and the literal values in `sx={{…}}`, `style={{…}}` and `styled(…)({…})` (from 1.2.0-beta.8). Values from the theme or `var(--…)` pass; MUI spacing numbers (`p: 3`) are flagged because the Antz MUI theme has no spacing scale: use `var(--space-*)`.
+- Run `check` on `src/`. It reads CSS, HTML, CSS-in-JS strings and the literal values in `sx={{…}}`, `style={{…}}` (including style arrays) and `styled(…)` (from 1.2.0-beta.8). Values from the theme or `var(--…)` pass; MUI spacing numbers pass when they are on the Antz scale (from 1.2.0-beta.9; earlier checkers flag every MUI spacing number) and are flagged with the nearest Antz step otherwise. Literal pixel values in `style`/`styled` objects are flagged: use the tokens.
 
 ## React Native (phone and tablet apps)
 

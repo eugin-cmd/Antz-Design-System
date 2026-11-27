@@ -8,7 +8,7 @@ export function Forms({ active, list }) {
     <Box sx={[{ p: 0 }, active && { color: '#AA0000' }]}>
       <Box style={[{ flex: 1 }, { backgroundColor: '#0000FF' }]} />
       <Box style={[list[0], { marginTop: 7 }]} />
-      <Box sx={{ gap: 2, borderRadius: 2 }} />
+      <Box sx={{ gap: 3.5, borderRadius: 2 }} />
     </Box>
   );
 }

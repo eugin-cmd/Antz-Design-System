@@ -10,9 +10,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../tokens.css?v=fd3dedc795">
-<link rel="stylesheet" href="../components.css?v=fd3dedc795">
-<link rel="stylesheet" href="../assets/site.css?v=fd3dedc795">
+<link rel="stylesheet" href="../tokens.css?v=11c0ce8c03">
+<link rel="stylesheet" href="../components.css?v=11c0ce8c03">
+<link rel="stylesheet" href="../assets/site.css?v=11c0ce8c03">
 </head>
 <body data-page="developers">
 <a class="skip" href="#main">Skip to content</a>
@@ -48,6 +48,10 @@ export default function App({ children }) {
   return &lt;ThemeProvider theme={theme}&gt;{children}&lt;/ThemeProvider&gt;;
 }
 // Contained primary buttons now render #37BD69 with the #00210C label (7.07:1).</code></pre>
+  <p><b>Spacing.</b> The theme keeps MUI's 8px unit and exports <code>antzSpacing</code>: the factors that land on an Antz space step. <code>p: 2</code> is 16px (<code>--space-4</code>), <code>p: 1.5</code> is 12px (<code>--space-3</code>), <code>gap: 1</code> is 8px (<code>--space-2</code>), <code>p: 0.25</code> is 2px (<code>--space-0-5</code>). Use only those factors; the guardrail check flags any other number (for example <code>p: 3.5</code>, 28px) and names the nearest step.</p>
+<pre><code>import { antzSpacing } from '@antz/design-system/mui';
+// { 0: '--space-0', 0.25: '--space-0-5', 0.5: '--space-1', … 2: '--space-4', 3: '--space-6', … 8: '--space-16' }
+&lt;Box sx={{ p: 2, gap: 1.5 }}&gt;…&lt;/Box&gt;   // 16px padding, 12px gap: both Antz steps</code></pre>
 </div>
 
 <div class="doc" id="rn">
@@ -122,7 +126,7 @@ node path/to/antz-design-system/tools/check.mjs src</code></pre>
 </main>
 </div>
 <div class="toast-region" id="toasts" role="status" aria-live="polite"></div>
-<script src="../components.js?v=fd3dedc795"></script>
-<script src="../assets/site.js?v=fd3dedc795"></script>
+<script src="../components.js?v=11c0ce8c03"></script>
+<script src="../assets/site.js?v=11c0ce8c03"></script>
 </body>
 </html>

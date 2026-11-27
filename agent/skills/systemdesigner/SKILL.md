@@ -68,7 +68,7 @@ Be warm and plain about this. The person isn't doing anything wrong by asking; y
 
 ## Platforms
 
-Read `references/platforms.md` for the platform in hand. In short: HTML prototypes link `releases/vX.Y.Z/` and use the documented classes; Next.js + MUI uses the Antz MUI theme plus `var(--…)` tokens in `sx` (the MUI theme has no spacing scale, so `p: 3` is off-system); React Native installs the release (`npm install github:eugin-cmd/Antz-Design-System#vX.Y.Z`) and takes every value from `antzTheme` and its colour roles. Never apply web CSS to React Native.
+Read `references/platforms.md` for the platform in hand. In short: HTML prototypes link `releases/vX.Y.Z/` and use the documented classes; Next.js + MUI uses the Antz MUI theme plus `var(--…)` tokens in `sx`; MUI spacing numbers are fine when they land on the Antz scale (`antzSpacing`: `p: 2` = `--space-4`, `p: 1.5` = `--space-3`); React Native installs the release (`npm install github:eugin-cmd/Antz-Design-System#vX.Y.Z`) and takes every value from `antzTheme` and its colour roles. Never apply web CSS to React Native.
 
 ## Things you never do
 

@@ -367,6 +367,7 @@ function mui(m) {
       button: { fontSize: px(R(m, 'text.md')), fontWeight: 600, textTransform: 'none' },
       caption: { fontSize: px(R(m, 'text.xs')) }, overline: { fontSize: px(R(m, 'text.2xs')), fontWeight: 600, letterSpacing: R(m, 'tracking.overline') },
     },
+    spacing: 8, // MUI's unit; antzSpacing lists the factors that land on an Antz space step (p: 2 = 16px = --space-4)
     shape: { borderRadius: px(R(m, 'radius.control')) },
     transitions: {
       easing: { easeInOut: R(m, 'ease.standard'), easeOut: R(m, 'ease.out'), easeIn: R(m, 'ease.exit'), sharp: R(m, 'ease.in-out') },
@@ -384,15 +385,20 @@ function mui(m) {
     },
   };
 }
+// MUI spacing factors (×8px) that land exactly on an Antz space token: the checker accepts these in sx.
+const MUI_SPACING_STEPS = Object.fromEntries([...layer.base.values()].filter((t) => /^space\.[0-9-]+$/.test(t.name) && /px$/.test(String(t.value)))
+  .map((t) => [parseFloat(t.value) / 8, '--' + t.name.replace('.', '-')]).sort((a, b) => a[0] - b[0]).map(([f, n]) => [String(f), n]));
 const muiSrc = `/**
  * ${HEADER('MUI theme options').replace(/\n/g, '\n * ')}
  *
  * Usage (Next.js + MUI v5/v6):
  *   import { createTheme } from '@mui/material/styles';
- *   import { antzLight, antzDark } from '@antz/design-tokens/mui';
+ *   import { antzLight, antzDark } from '@antz/design-system/mui';
  *   const theme = createTheme(prefersDark ? antzDark : antzLight);
  *
  * Breakpoints are deliberately not overridden: the dashboard keeps MUI's defaults.
+ * Spacing keeps MUI's 8px unit. Use only the factors in antzSpacing (p: 2 = 16px = --space-4; p: 1.5 = --space-3);
+ * any other number is off the Antz scale and the guardrail check flags it.
  * palette.antz.scale holds the colour scales (palette.antz.scale.primary[600]); use them for illustration and data, not for components.
  * palette.antz carries Antz-only roles (brand, brandText, focus, tertiary, caution, board).
  */
@@ -401,6 +407,7 @@ export const antzLight = ${JSON.stringify(mui('light'), null, 2)};
 export const antzDark = ${JSON.stringify(mui('dark'), null, 2)};
 export const antzLightHighContrast = ${JSON.stringify(mui('light-hc'), null, 2)};
 export const antzDarkHighContrast = ${JSON.stringify(mui('dark-hc'), null, 2)};
+export const antzSpacing = ${JSON.stringify(MUI_SPACING_STEPS, null, 2)};
 export function antzThemeOptions({ mode = 'light', contrast = 'standard' } = {}) {
   if (mode === 'dark') return contrast === 'high' ? antzDarkHighContrast : antzDark;
   return contrast === 'high' ? antzLightHighContrast : antzLight;

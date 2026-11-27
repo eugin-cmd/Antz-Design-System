@@ -38,6 +38,10 @@ const deprecations = fs.existsSync(DEP_FILE) ? JSON.parse(fs.readFileSync(DEP_FI
 const index = JSON.parse(fs.readFileSync(path.join(ROOT, 'dist/tokens/token-index.json'), 'utf8')).tokens;
 const known = new Set(index.map((t) => t.css));
 const primitive = new Set(index.filter((t) => t.tier === 'primitive').map((t) => t.css));
+// MUI spacing factors (×8px, MUI's unit) that land on an Antz space step: p: 2 = 16px = --space-4.
+const MUI_STEPS = index.filter((t) => /^--space-[0-9-]+$/.test(t.css) && /px$/.test(t.light)).map((t) => ({ f: parseFloat(t.light) / 8, css: t.css })).sort((a, b) => a.f - b.f);
+const muiStep = (f) => MUI_STEPS.find((x) => Math.abs(x.f - f) < 1e-9);
+const muiNearest = (f) => MUI_STEPS.reduce((best, x) => (Math.abs(x.f - f) < Math.abs(best.f - f) ? x : best), MUI_STEPS[0]);
 
 const SKIP_DIRS = new Set(['node_modules', '.git', 'dist', 'releases', '.next', 'build', 'coverage']);
 const EXT = /\.(css|scss|html?|jsx?|tsx?|mjs|vue|svelte)$/i;
@@ -150,9 +154,14 @@ function jsObjectChunks(text) {
       let val = /^['"`]/.test(raw) ? raw.slice(1, -1) : raw;
       if (/\$\{/.test(val)) continue;                                   // template with expressions: not a literal
       const isNum = /^-?\d/.test(raw);
-      if (isNum && isSx && /^(gap|rowGap|columnGap)$/.test(key)) { if (+val !== 0) add(currentFile, lineAt(text, at), 'ANTZ-SPC-01', `MUI spacing ${key}: ${raw} (${+val * 8}px by default): use var(--space-*); the Antz MUI theme has no spacing scale`, `${key}: ${raw}`); continue; }
+      if (isNum && ((isSx && /^(gap|rowGap|columnGap)$/.test(key)) || (MUI_SPACING[key] && key !== 'bgcolor'))) {
+        // MUI spacing numbers are × 8px: allowed when they land on an Antz space step (antzSpacing in the MUI theme).
+        const f = Math.abs(+val);
+        if (!muiStep(f)) { const n = muiNearest(f); add(currentFile, lineAt(text, at), 'ANTZ-SPC-01', `MUI spacing ${key}: ${raw} (${f * 8}px) is off the Antz scale: nearest Antz step: ${key}: ${n.f} (${n.css})`, `${key}: ${raw}`); }
+        continue;
+      }
       if (isNum && isSx && key === 'borderRadius') { if (+val !== 0) add(currentFile, lineAt(text, at), 'ANTZ-SHP-01', `MUI borderRadius: ${raw} (a multiple of the theme's shape radius): use var(--radius-*)`, `${key}: ${raw}`); continue; }
-      if (isNum && MUI_SPACING[key] && key !== 'bgcolor') { if (+val !== 0) add(currentFile, lineAt(text, at), 'ANTZ-SPC-01', `MUI spacing ${key}: ${raw} (${+val * 8}px by default): use var(--space-*); the Antz MUI theme has no spacing scale`, `${key}: ${raw}`); continue; }
+
       if (isNum && (prop === 'elevation' || prop === 'shadow-radius')) { if (+val > 0) add(currentFile, lineAt(text, at), 'ANTZ-ELV-01', 'Literal elevation or shadow: use antzTheme.shadow / --shadow-*', `${key}: ${raw}`); continue; }
       if (isNum && UNIT_PROPS.test(prop) && +val !== 0 && !(Math.abs(+val) === 1 && !/^font-size$/.test(prop))) val = val + 'px';
       if (isNum && prop === 'font-weight') val = String(val);
