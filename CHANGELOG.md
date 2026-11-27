@@ -2,7 +2,11 @@
 
 All notable changes to the Antz Design System. Versions follow semantic versioning: patch for fixes, minor for additions, major for anything renamed, removed or changed in meaning. Every version listed here is published under `releases/` and tagged in Git.
 
-## Unreleased
+## 1.2.0-beta.10 (27 November 2026)
+
+The **prototype sandbox** for designers: `/systemprototype` starts a prototype pinned to the release, adds screens, previews every screen in phone, tablet and desktop frames, checks it and shares it as a Vercel link. On the docs site, selecting any screen frame opens it full-window. 866 tokens, 724 contrast checks.
+
+Upgrade by changing `v1.2.0-beta.9` to `v1.2.0-beta.10` (CSS, themes, React Native package, and the agent: `/plugin marketplace add eugin-cmd/Antz-Design-System#v1.2.0-beta.10`). Nothing is removed or renamed.
 
 ### The prototype sandbox (/systemprototype)
 - A fourth agent command for designers: **start** a prototype (a folder pinned to the release, with a first screen and the icon set), **add screens** for chosen devices, **preview** every screen locally in phone, tablet and desktop frames on one scale (Open larger, light, dark, high contrast), **check** it with /systemauditor and **share** it as a Vercel preview link (only when asked; needs a Vercel login).

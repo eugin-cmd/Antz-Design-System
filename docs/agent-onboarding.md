@@ -20,12 +20,12 @@ Needs Claude Code 2.1 or later and Node 18+ (Node 22+ and Chrome for rendered au
 1. Open Claude Code in **your product's** repository.
 2. Add the catalog, pinned to the design system release you build against, and install the plugin:
    ```
-   /plugin marketplace add eugin-cmd/Antz-Design-System#v1.2.0-beta.9
+   /plugin marketplace add eugin-cmd/Antz-Design-System#v1.2.0-beta.10
    /plugin install antz-design-system@antz
    ```
    With a local clone instead: `/plugin marketplace add ./antz-design-system`.
 3. Restart Claude Code if it asks. Check with `/plugin`: *antz-design-system* is enabled with three skills.
-4. Optional, for the whole team: run `claude plugin marketplace add eugin-cmd/Antz-Design-System#v1.2.0-beta.9 --scope project`
+4. Optional, for the whole team: run `claude plugin marketplace add eugin-cmd/Antz-Design-System#v1.2.0-beta.10 --scope project`
    and commit `.claude/settings.json`. Teammates get the catalog after accepting the folder's trust prompt, then run
    `claude plugin install antz-design-system@antz --scope project` once.
 
@@ -33,7 +33,7 @@ Nobody needs write access to this repository to use the agent.
 
 ## Versions and updates
 
-- The plugin's version **is** the design system version: installing from tag `v1.2.0-beta.9` pins both.
+- The plugin's version **is** the design system version: installing from tag `v1.2.0-beta.10` pins both.
 - `/systemdesigner` and `/systemauditor` name the version in every report. Ask "which design system version are you
   using?" any time; the helper's `info` also shows the latest release and any drift.
 - **Upgrade:** `/plugin marketplace remove antz`, then add it again with the new tag and reinstall (or
@@ -57,7 +57,7 @@ with the register-link skill, adds it to the Design Links hub.
 Antz MUI theme and tokens; `sx` values come from the theme or `var(--…)`, and MUI spacing numbers are fine when they land on the Antz scale (`p: 2` = `--space-4`; the theme exports `antzSpacing`). The check reads `sx`, `style` and
 `styled(…)` objects.
 
-**React Native developers.** Install the theme in the app (`npm install github:eugin-cmd/Antz-Design-System#v1.2.0-beta.9`).
+**React Native developers.** Install the theme in the app (`npm install github:eugin-cmd/Antz-Design-System#v1.2.0-beta.10`).
 "/systemdesigner build a species stat card". Every value comes from `antzTheme` and its colour roles; the check reads
 `StyleSheet.create` and inline styles. There is no shared React Native component package yet.
 
