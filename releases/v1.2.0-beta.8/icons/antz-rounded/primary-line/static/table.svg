@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-table" role="img" aria-label="Table">
+<defs><linearGradient id="antz-l-table-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-table .i,.antz-l-table .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-table .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-table .a{stroke:url(#antz-l-table-acc)}
+.antz-l-table .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-table .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-table .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+</style>
+<rect class="i antz-l-table-0" x="6" y="9" width="36" height="30" rx="3" pathLength="1"/>
+<path class="i antz-l-table-1" d="M6 17h36M18 17v22M30 17v22" pathLength="1"/>
+<path class="a antz-l-table-2" d="M10 23h4M22 23h4M34 23h4" pathLength="1"/>
+<path class="a antz-l-table-3" d="M10 29h4M22 29h4M34 29h4" pathLength="1"/>
+<path class="a antz-l-table-4" d="M10 35h4M22 35h4" pathLength="1"/>
+</svg>

@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: planted-violations
+expected_outcome: |
+  A read-only audit report graded Critical, Major, Minor and Accessibility that names the design system version, finds the planted raw colours, literal spacing and font size in AnimalCard.tsx, the icon-only button without a label and the image without alt text in animals.html, cites the rule for each, says which checks ran, and leaves every file unchanged.
+context:
+  scaffold_script: place-files.sh

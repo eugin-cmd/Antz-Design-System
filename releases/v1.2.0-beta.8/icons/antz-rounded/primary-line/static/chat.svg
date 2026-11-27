@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-chat" role="img" aria-label="Chat">
+<defs><linearGradient id="antz-l-chat-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient></defs>
+<style>
+.antz-l-chat .i,.antz-l-chat .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-chat .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-chat .a{stroke:url(#antz-l-chat-acc)}
+.antz-l-chat .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-chat .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-chat .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+</style>
+<path class="i antz-l-chat-0" d="M12 8h24a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-8 7v-7h-2a4 4 0 0 1-4-4V12a4 4 0 0 1 4-4Z" pathLength="1"/>
+<circle class="a antz-l-chat-1" cx="17" cy="20" r="1.6"/>
+<circle class="a antz-l-chat-2" cx="24" cy="20" r="1.6"/>
+<circle class="a antz-l-chat-3" cx="31" cy="20" r="1.6"/>
+</svg>

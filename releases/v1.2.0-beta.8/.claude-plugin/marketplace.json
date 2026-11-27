@@ -1,0 +1,14 @@
+{
+  "name": "antz",
+  "owner": { "name": "Antz Design System, System Owner" },
+  "metadata": { "description": "The Antz Design System agent for Claude Code. Install it in your product repository; pin the release tag you build against." },
+  "plugins": [
+    {
+      "name": "antz-design-system",
+      "source": "./agent",
+      "description": "Antz Design System: build and audit Antz interfaces from the approved system (web prototypes, Next.js + MUI, React Native).",
+      "category": "design",
+      "homepage": "https://antz-design-system.eugin-736.workers.dev"
+    }
+  ]
+}

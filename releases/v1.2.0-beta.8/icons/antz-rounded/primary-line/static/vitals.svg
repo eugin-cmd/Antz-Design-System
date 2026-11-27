@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="antz-l-vitals" role="img" aria-label="Vital signs">
+<defs><linearGradient id="antz-l-vitals-acc" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" class="acc-a"/><stop offset="1" class="acc-b"/></linearGradient><mask id="antz-l-vitals-cut" maskUnits="userSpaceOnUse" x="-8" y="-8" width="64" height="64"><rect x="-8" y="-8" width="64" height="64" fill="#fff"/><path class="k antz-l-vitals-1" d="M4 25h9l3-6 5 12 4-10 3 4h16" pathLength="1" fill="none"/></mask></defs>
+<style>
+.antz-l-vitals .i,.antz-l-vitals .a{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-vitals .i{stroke:var(--antz-ink,var(--color-text,#0E1512))}
+.antz-l-vitals .a{stroke:url(#antz-l-vitals-acc)}
+.antz-l-vitals .k{stroke:#000;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;transform-origin:center}
+.antz-l-vitals .acc-a{stop-color:var(--antz-accent-a,var(--scale-primary-600,#21924E))}.antz-l-vitals .acc-b{stop-color:var(--antz-accent-b,var(--scale-secondary-600,#00A698))}
+</style>
+<g mask="url(#antz-l-vitals-cut)">
+<path class="i antz-l-vitals-0" d="M24 40S7 30.5 7 18.5A9.5 9.5 0 0 1 24 13a9.5 9.5 0 0 1 17 5.5C41 30.5 24 40 24 40Z" pathLength="1"/>
+</g>
+<path class="a antz-l-vitals-1" d="M4 25h9l3-6 5 12 4-10 3 4h16" pathLength="1"/>
+</svg>
