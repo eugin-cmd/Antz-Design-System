@@ -1497,14 +1497,14 @@ def block_tabs(opts, sel=0, label='Show'): return '<div class="tag-tabs">' + lin
 M_CATS = [('Medical', ['Identification verified', 'Long-term monitoring', 'Microchip verified', 'No current concerns', 'Off exhibit']),
           ('Health', ['Under observation', 'Post-surgery', 'Vaccination due']), ('Behaviour', ['Aggressive', 'Shy feeder', 'Breeding pair'])]
 M_HUB = app('My tags hub', search_row('Search tags') + block_tabs(['Public tags', 'Private tags'], label='Tag type')
-            + '<div class="chips" role="radiogroup" aria-label="Used on">' + ''.join(f'<button class="chip" type="button" role="radio" aria-checked="{str(i == 0).lower()}">{o}</button>' for i, o in enumerate(['Animal', 'Species', 'Enclosure', 'Section', 'Site'])) + '</div>'
+            + block_tabs(['All', 'Animals', 'Species', 'Sites', 'Sections', 'Enclosures'], 0, 'Used on')
             + ''.join(tag_group(c, [tag_chip(n) for n in t]) for c, t in M_CATS), fab='Add a tag')
 def ent_head(view):
     return (f'<div class="sheet-hero"><small>Medical · public tag</small><div class="chips">{tag_chip("Identification verified", button=False)}</div>'
             '<div class="segmented segmented--stat segmented--block" role="tablist" aria-label="Tag">'
             f'<button type="button" role="tab" aria-selected="{str(view == "ents").lower()}"><b>49</b><span>Entities</span></button>'
             f'<button type="button" role="tab" aria-selected="{str(view == "info").lower()}"><b>{I("help")}</b><span>Info</span></button></div></div>')
-M_ENTS = app('Identification verified', ent_head('ents') + block_tabs(['All', 'Animals', 'Species'], 1, 'Entity type') + search_row('Search animals')
+M_ENTS = app('Identification verified', ent_head('ents') + block_tabs(['All', 'Animals', 'Species', 'Sites', 'Sections', 'Enclosures'], 1, 'Entity type') + search_row('Search animals')
              + '<div class="animal-cards">' + ''.join(animal_card(*a) for a in TAG_ANIMALS) + '</div>')
 M_INFO = app('Identification verified', ent_head('info') + '<div class="list">' + fact('grid', 'teal', 'Tag category', 'Medical') + fact('calendar', 'coral', 'Deadline', '29 May 2026')
              + fact('users', 'sky', 'Tag type', 'Public') + fact('user', 'green', 'Added by', 'Nitin P · 21 May 2026') + item(tile('bell', 'navy'), 'Roles notified', 'Veterinarian, Curator') + '</div>'
@@ -1562,7 +1562,7 @@ M_HISTORY = app('Tag history', animal_card(*TAG_ANIMALS[0]) + search('Search tag
                 + ''.join(f'<div class="section-head"><b>{day}</b></div><ul class="activity">' + ''.join(f'<li>{tile(ic, h)}<div>{tag_chip(n, pr, private=pv, button=False)}<small>{esc(m)}</small></div></li>' for ic, h, (n, pr, pv), m in rows) + '</ul>' for day, rows in TAG_HISTORY[:3]))
 write_doc('mobile-tags', {'title': 'Mobile app · Tags', 'group': 'Screens', 'intro': 'The Tags flows of the mobile app, from the Global Tagging Module design, on system parts: the hub, tag entities, public tags and categories, a new tag, an animal\'s Tags tab and its bottom sheets, and tag history.', 'icon': 'tag', 'hue': 'teal'},
           doc('mt-hub', 'My tags hub and tag entities', 'Search and filter, public or private, where the tag is used, then tags by category. Select a tag to see the <b>animals and places</b> that carry it, or its <b>info</b>.',
-              frames(phone(M_HUB, 'My tags hub', 'Public tags, used on animals'), phone(M_ENTS, 'Tag entities', 'Animals with the tag'), phone(M_INFO, 'Tag info')), canvas=False)
+              frames(phone(M_HUB, 'My tags hub', 'Public tags, every entity type'), phone(M_ENTS, 'Tag entities', 'Animals with the tag'), phone(M_INFO, 'Tag info')), canvas=False)
           + doc('mt-public', 'Public tags and a new tag', 'Tags by category, and the categories themselves. <b>New tag</b> is a full page on the phone; <b>Used on</b> opens a bottom sheet.',
               frames(phone(M_PUB, 'Public tags'), phone(M_CATS_SCREEN, 'Categories'), phone(M_NEW, 'New tag'), phone(M_SELECT, 'Used on', 'Bottom sheet')), canvas=False)
           + doc('mt-animal', 'An animal\'s tags', 'The hero carries the latest four tags and <b>+N</b>. The Tags tab splits public and private; private shows <b>my tags</b> and <b>tags by others</b>. With none, an empty state says what private tags are.',
