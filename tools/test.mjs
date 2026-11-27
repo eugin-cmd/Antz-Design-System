@@ -21,6 +21,15 @@ for (const r of ['ANTZ-GRD-01', 'ANTZ-COL-03', 'ANTZ-COL-01', 'ANTZ-TYP-02', 'AN
 ok(node('tools/check.mjs', 'tools/fixtures/bad-prototype.html').code === 1, 'bad fixture fails the check (exit 1)');
 const good = JSON.parse(node('tools/check.mjs', '--json', 'tools/fixtures/good-prototype.html').out);
 ok(good.findings.length === 0, `good fixture passes (${good.findings.length} findings)`);
+// Developer code (design agent): the checker reads MUI sx/style objects and React Native StyleSheet.
+const js = (f) => { const r = JSON.parse(node('tools/check.mjs', '--json', f).out); return { n: r.findings.length, rules: new Set(r.findings.map((x) => x.rule)) }; };
+const bm = js('tools/fixtures/bad-mui.tsx');
+for (const r of ['ANTZ-COL-01', 'ANTZ-COL-03', 'ANTZ-TYP-01', 'ANTZ-TYP-02', 'ANTZ-TYP-03', 'ANTZ-SPC-01', 'ANTZ-SHP-01', 'ANTZ-ELV-01', 'ANTZ-MOT-01', 'ANTZ-DEP-01']) ok(bm.rules.has(r), `MUI fixture trips ${r}`);
+const br = js('tools/fixtures/bad-rn.tsx');
+for (const r of ['ANTZ-COL-01', 'ANTZ-TYP-01', 'ANTZ-TYP-02', 'ANTZ-TYP-03', 'ANTZ-SPC-01', 'ANTZ-SHP-01', 'ANTZ-ELV-01']) ok(br.rules.has(r), `React Native fixture trips ${r}`);
+ok(js('tools/fixtures/good-mui.tsx').n === 0, 'good MUI fixture passes (theme values and tokens)');
+ok(js('tools/fixtures/good-rn.tsx').n === 0, 'good React Native fixture passes (antzTheme values)');
+ok(node('tools/check.mjs', 'tools/fixtures/bad-rn.tsx').code === 1 && node('tools/check.mjs', 'tools/fixtures/good-mui.tsx').code === 0, 'developer-code findings fail the check; deprecations alone warn');
 // DD-009: the tag chip and the priority picker share one priority scale, on status tokens.
 const css = fs.readFileSync(path.join(ROOT, 'components.css'), 'utf8');
 const rule = (sel) => (css.match(new RegExp('^' + sel.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\s*\\{([^}]*)\\}', 'm')) || [])[1] || '';

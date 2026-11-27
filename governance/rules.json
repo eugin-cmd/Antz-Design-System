@@ -226,6 +226,15 @@
       "enforcedBy": "release",
       "owner": "Design System Maintainers",
       "statement": "Products link a pinned release (releases/vX.Y.Z/), never the working copy at the repository root."
+    },
+    {
+      "id": "ANTZ-DEP-01",
+      "area": "versioning",
+      "severity": "warning",
+      "enforcedBy": "check",
+      "owner": "System Owner",
+      "statement": "Deprecated class or token names (governance/deprecations.json) are not used in new work; use the replacement it names. Deprecated names keep working until a major release.",
+      "source": "RFC-001 (design agent)"
     }
   ]
 }
