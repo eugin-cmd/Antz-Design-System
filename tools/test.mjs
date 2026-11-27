@@ -30,6 +30,22 @@ for (const r of ['ANTZ-COL-01', 'ANTZ-TYP-01', 'ANTZ-TYP-02', 'ANTZ-TYP-03', 'AN
 ok(js('tools/fixtures/good-mui.tsx').n === 0, 'good MUI fixture passes (theme values and tokens)');
 ok(js('tools/fixtures/good-rn.tsx').n === 0, 'good React Native fixture passes (antzTheme values)');
 ok(node('tools/check.mjs', 'tools/fixtures/bad-rn.tsx').code === 1 && node('tools/check.mjs', 'tools/fixtures/good-mui.tsx').code === 0, 'developer-code findings fail the check; deprecations alone warn');
+// Design agent: the plugin is published from this repository, versioned with the system, with three skills.
+const readJ = (f) => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, f), 'utf8')); } catch { return null; } };
+const VERSION_NOW = fs.readFileSync(path.join(ROOT, 'VERSION'), 'utf8').trim();
+const mkt = readJ('.claude-plugin/marketplace.json'), plug = readJ('agent/.claude-plugin/plugin.json');
+ok(mkt?.name === 'antz' && mkt.plugins?.some((p) => p.name === 'antz-design-system' && p.source === './agent'), 'marketplace "antz" lists the antz-design-system plugin from ./agent');
+ok(plug?.name === 'antz-design-system' && plug.version === VERSION_NOW, `plugin.json is antz-design-system at the system version (${VERSION_NOW})`);
+for (const sk of ['systemdesigner', 'systemauditor', 'openvisualguide']) {
+  const md = (() => { try { return fs.readFileSync(path.join(ROOT, 'agent/skills', sk, 'SKILL.md'), 'utf8'); } catch { return ''; } })();
+  ok(new RegExp('^---\\nname: ' + sk + '\\n').test(md) && /\ndescription: .{40,}/.test(md), `skill /${sk} exists with a name and a description`);
+}
+ok(fs.existsSync(path.join(ROOT, 'agent/scripts/antz.mjs')), 'the shared helper lives in agent/scripts/antz.mjs');
+// /systemauditor: read-only, graded, names the version; code-only audits say rendered checks did not run.
+const aud = (f) => { try { return JSON.parse(execFileSync('node', ['agent/scripts/antz.mjs', 'audit', f, '--version', 'working', '--json'], { cwd: ROOT, stdio: 'pipe' }).toString()); } catch (e) { return null; } };
+const ab = aud('tools/fixtures/bad-rn.tsx'), ag = aud('tools/fixtures/good-rn.tsx');
+ok(ab?.verdict === 'Not compliant' && ab.findings.some((x) => x.rule === 'ANTZ-ELV-01' && x.cat === 'C') && ab.findings.some((x) => x.rule === 'ANTZ-COL-01' && x.cat === 'B'), 'auditor grades a bad React Native file: critical colours, major elevation');
+ok(ag?.verdict === 'Compliant' && ag.notRan.some((x) => /Rendered checks: not run/.test(x)) && ag.version === 'working', 'auditor passes a good file and says rendered checks did not run');
 // DD-009: the tag chip and the priority picker share one priority scale, on status tokens.
 const css = fs.readFileSync(path.join(ROOT, 'components.css'), 'utf8');
 const rule = (sel) => (css.match(new RegExp('^' + sel.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\s*\\{([^}]*)\\}', 'm')) || [])[1] || '';

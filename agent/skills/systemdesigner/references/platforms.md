@@ -15,13 +15,14 @@ Read the section for the platform you are working on.
 - Theme: `createTheme(antzThemeOptions({ mode, contrast }))` from `releases/vX.Y.Z/dist/mui/antz-mui-theme.js`. MUI components then pick up Antz colours, type, shape and motion. Don't override them per component.
 - `sx` props and styled components follow the same rules as CSS: theme values or `var(--…)` tokens only (with `tokens.css` loaded), no hex, no off-scale numbers. The MUI theme does not set a spacing scale, so load `tokens.css` and use `var(--space-*)` for spacing rather than `theme.spacing()` numbers.
 - Antz-specific components (animal card, stat panel, status chips, work drawer) are React wrappers around the documented markup and classes, following the contract in `releases/vX.Y.Z/specs/components/*.md` where one exists. If a spec is missing, build to the docs page and note it for the maintainers.
-- Run `check` on `src/`. It reads CSS, HTML and CSS-in-JS strings. It does not yet read `sx` objects, so review those by hand against the token list.
+- Run `check` on `src/`. It reads CSS, HTML, CSS-in-JS strings and the literal values in `sx={{…}}`, `style={{…}}` and `styled(…)({…})` (from 1.2.0-beta.8). Values from the theme or `var(--…)` pass; MUI spacing numbers (`p: 3`) are flagged because the Antz MUI theme has no spacing scale: use `var(--space-*)`.
 
 ## React Native (phone and tablet apps)
 
-- Theme: `antzTheme` from `releases/vX.Y.Z/dist/react-native/antz-theme.ts`: `antzTheme.colors.light | dark | lightHighContrast | darkHighContrast`, `space`, `radius`, `fontSize`, `fontWeight`, `motion.duration`, `motion.easing`.
-- Pick the scheme from `useColorScheme()`; set durations to 0 when `AccessibilityInfo.isReduceMotionEnabled()`.
-- Motion: Reanimated with `Easing.bezier(...antzTheme.motion.easing.elastic)` for selection indicators and the card expand.
-- The same component anatomy and rules apply; StyleSheet values come only from `antzTheme`. Washes use a linear-gradient library with the wash stop colours from the theme.
+- Install the pinned release: `npm install github:eugin-cmd/Antz-Design-System#vX.Y.Z`, then `import { antzTheme } from '@antz/design-system/react-native'`. It ships as JavaScript with TypeScript types, so an unknown token fails to compile.
+- Colours per scheme: `antzTheme.colors.light | dark | lightHighContrast | darkHighContrast`; pick it from `useColorScheme()` (and the high-contrast setting). Space, radius, fontSize, fontWeight, fontFamily, lineHeight, letterSpacing, shadow (iOS props plus Android elevation), gradient (for `expo-linear-gradient`; `gradientWebOnly` lists the ones without a native form) and motion come from the same object.
+- Ready-made colour pairs: `antzTheme.roles.<scheme>.status | priority | sex | tagChip` (`tagChip`: none, normal, high, critical). Use them for pills and tags instead of picking colours.
+- Motion: Reanimated with `Easing.bezier(...antzTheme.motion.easing.elastic)` for selection indicators and the card expand; durations 0 when `AccessibilityInfo.isReduceMotionEnabled()`.
+- The same component anatomy and rules apply as on the web (see the component pages and the Developers page recipes); there is no ready-made React Native component package yet, so build each component from its spec and the theme. Never apply web CSS to React Native.
 - Touch targets: 44pt (iOS) / 48dp (Android).
-- `check` does not read StyleSheet objects yet; review them by hand against the theme.
+- Run `check` on your source (from 1.2.0-beta.8 it reads `StyleSheet.create({…})` and inline `style={…}` objects): literal colours, font sizes, weights, families, spacing, radii and elevation are flagged with the `antzTheme` value to use.
